@@ -1,0 +1,33 @@
+{
+  "comparison": "Frozen18 qualified phase-trend seen regression versus frozen17",
+  "corpus": "confirmation",
+  "configuration": {
+    "rate": 48000,
+    "block": 64
+  },
+  "case_rows": 46,
+  "compared_fields": [
+    "expected",
+    "matched",
+    "missed",
+    "false_note_ons",
+    "octave_errors",
+    "wrong_before_correct",
+    "early_offs",
+    "hung",
+    "overflow",
+    "latency_median_ms",
+    "latency_p95_ms",
+    "latency_p99_ms",
+    "latency_max_ms",
+    "release_median_ms",
+    "release_p95_ms"
+  ],
+  "different_score_response_release_fields": [],
+  "baseline_events_sha256": "aab0130428ff8620d75584c83de829d5bc565e56befc1e0635885ad719fd3f56",
+  "current_events_sha256": "aab0130428ff8620d75584c83de829d5bc565e56befc1e0635885ad719fd3f56",
+  "events_byte_identical": true,
+  "current_measurement_manifest_sha256": "0e574f59012819d856b069b61d4dcfadd3c50eddaa2d21cfcc29165847191ef8",
+  "independent_scoring_audit_sha256": "c35c4e93498a3dd6686e04f9b42e332584a0dec16585e72f9c7c11d148418103",
+  "scope": "Equivalence in these disclosed test cases; no universal correctness or physical latency claim"
+}

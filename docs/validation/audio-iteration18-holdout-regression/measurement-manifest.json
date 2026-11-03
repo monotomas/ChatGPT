@@ -1,0 +1,26 @@
+{
+  "recorded_at_utc": "2026-11-03T20:11:22.088849+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_sha256": {
+    "Tools/audio_validation.cpp": "b753df06650a9c19f325ef52da60ecde486ea31dbb1f034d76cc778018eed9c6",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/PitchDetector.cpp": "4ac6b74c682c0f4bbe51e4a96cbe6f0fe1686815b7f65c58d6657800da23607c",
+    "Source/Pitch/TimeDomainPursuit.cpp": "e5d8a31d3b2b2474b992d9dd205c496bd3b7b380b22506188aa393fe77ddd15f",
+    "Source/Pitch/YinEstimator.cpp": "27b7420f64be4fc762dd5486aefdfc4ac00a62e24bea6fd86b177bb39c7ae2f3",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/PitchDetector.h": "9840ce8691895feb59717ac1eb8474326ad2a0d552bb5fea96e3e317e9e03a88",
+    "Source/Pitch/TimeDomainPursuit.h": "bf340206b5c95e34f9d49d96c050c303e8eb3d5c0a01d06916e75bfd08f81ca0",
+    "Source/Pitch/YinEstimator.h": "163d96387143f803c9acd58a27cc81e9935ab23a9214f1cfbab7d82ffc432b3a"
+  },
+  "binary_sha256": "0c8b1c057286fde9ad87525926d5c89d161cdc5fe6c3fc8d619ba7065d9ebe10",
+  "fixtures_sha256": "816faff8b414f579e2b107057113c0c34df8685abfc768d26c978197e6e7d692",
+  "configuration": "quick:48000Hz/64samples",
+  "independent_holdout": true,
+  "second_confirmation": false,
+  "evaluation_role": "seen-regression",
+  "measurement_not_acceptance": true,
+  "minimum_useful_correct_note_ms": 20,
+  "runner_exit_code": 0,
+  "source_changed_during_measurement": false
+}

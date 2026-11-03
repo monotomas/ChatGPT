@@ -13,6 +13,7 @@
 #include <fstream>
 #include <iterator>
 #include <string>
+#include <utility>
 #include <stdexcept>
 #include <vector>
 namespace {std::atomic<bool> countAllocations{false};std::atomic<size_t> allocationCount{0};}
@@ -166,9 +167,27 @@ void acquiredOctaveContinuity(const std::filesystem::path& fixtures){
     check(upperEnd>=13920&&upperEnd<=19200,"Damped upper voice followed the lower harmonics instead of releasing within100ms");
     std::cout<<"PASS acquired recorded octave continuity and independently damped upper under a bright lower string\n";
 }
+void repickPhaseEvidence(const std::filesystem::path& fixtures){
+    auto detector=std::make_unique<PitchDetector>();Settings settings;settings.polyphonic=true;
+    auto render=[&](const char* file){detector->prepare(48000);detector->configure(settings);return run(*detector,readRegressionWave(fixtures/"regressions"/file),64);};
+    for(const auto& item:std::array<std::pair<const char*,int>,2>{{{"held_stiff_E2.wav",33600},{"twelfth_withdrawal_E2.wav",36000}}}){
+        const auto events=render(item.first);int ons=0,offs=0,last=-1;
+        for(auto event:events)if(event.note==40){if(event.on)++ons;else{++offs;last=event.sample;}}
+        check(ons==1&&offs==1,"Steady lower note was falsely restarted by period bias or upper withdrawal");
+        check(last>=item.second-480&&last<=item.second+4800,"Steady lower note released early or beyond100ms");
+    }
+    // Distinct plucks can replace a string without an intervening silent gap.
+    // Preserve actual repicks even when its fundamental happens to change
+    // phase very little: independently changing odd partials supply evidence.
+    const auto repicks=render("continuous_repick_E2.wav");std::vector<int> starts;int offs=0;
+    for(auto event:repicks){check(event.note==40,"Same-pitch articulation emitted an unrelated note");if(event.on)starts.push_back(event.sample);else ++offs;}
+    check(starts.size()==3&&offs==3,"Phase filtering suppressed a genuine continuous-string repick");
+    for(size_t i=0;i<starts.size();++i){const int onset=2400+int(i)*9600;check(starts[i]>=onset&&starts[i]<=onset+5760,"Repick exceeded120ms functional observation bound");}
+    std::cout<<"PASS stiff held string, upper-withdrawal stability and three genuine continuous repicks\n";
+}
 int runTests(const std::vector<std::filesystem::path>& args){try{
     if(args.size()!=2)throw std::runtime_error("FlysnapperPitchTests <AudioFixtures directory>");
-    silenceAndInvalid();monoAndBlocks();polyphony();causalPrediction();transitions();declaredRangeAndRealtime();acquiredOctaveContinuity(args[1]);
+    silenceAndInvalid();monoAndBlocks();polyphony();causalPrediction();transitions();declaredRangeAndRealtime();acquiredOctaveContinuity(args[1]);repickPhaseEvidence(args[1]);
     std::cout<<"FlysnapperPitch: PASS ("<<checks<<" checks; functional audio controls, not physical latency acceptance)\n";return 0;
 }catch(const std::exception& e){std::cerr<<"FlysnapperPitch: FAIL: "<<e.what()<<'\n';return 1;}}
 #ifdef _WIN32

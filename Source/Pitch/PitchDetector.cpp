@@ -13,6 +13,19 @@ float finite(float x) noexcept {return std::isfinite(x)?std::clamp(x,-16.0f,16.0
 // Validate a frequency hypothesis against the supplied past-only observation.
 // A local log-power fit checks peak-centre agreement within 1.5%; a broad
 // Rayleigh main lobe alone must not validate a nearby body resonance.
+template<size_t N>
+std::array<double,2> projectPhase(const std::array<float,N>& wave,int start,int count,double firstTime,double period,int harmonic=1) noexcept {
+    const double omega=2*pi*harmonic/period;
+    double re=std::cos(omega*firstTime),im=-std::sin(omega*firstTime);
+    const double stepRe=std::cos(omega),stepIm=-std::sin(omega);
+    std::array<double,2> result{};
+    for(int i=0;i<count;++i){
+        const double x=wave[size_t((start+i+int(N)*2)%int(N))];result[0]+=x*re;result[1]+=x*im;
+        const double next=re*stepRe-im*stepIm;im=re*stepIm+im*stepRe;re=next;
+    }
+    return result;
+}
+
 struct MonoSeriesEvidence {uint16_t mask=0;int count=0;bool root=false;};
 MonoSeriesEvidence measureMonoSeries(const float* wave,int count,double frequency,double rate) noexcept {
     MonoSeriesEvidence evidence;
@@ -100,7 +113,7 @@ void PitchDetector::reset(Output& out,int offset) noexcept {
     attackCooldown=attackRemaining=0;previousAttackRatio=0;onsetEnvelope=0;innovationEnvelope=previousInnovationRatio=0;phaseAttack=false;phaseAttackAge=pitchHistoryCount=pitchHistoryWrite=0;pitchHistory={};pitchHistoryRange=0;
     ring={};writeIndex=filled=sinceAnalysis=signalSamples=silentSamples=0;analysisPhase=0;previousFiltered=0;
     dcX=dcY=low1=low2=low3=low4=envelope=fastEnvelope=slowEnvelope=0;
-    currentPitch=previousPitch=-1;measuredPeriod=0;measuredPeriodNote=-1;spectralBaseline={};polyAdmission=0;polyAnchor=-1;pendingPolyRepick=-1;pendingPolyRepickAge=0;independentNovelty={};
+    currentPitch=previousPitch=-1;measuredPeriod=0;measuredPeriodNote=-1;spectralBaseline={};polyAdmission=0;polyAnchor=-1;pendingPolyRepick=-1;pendingPolyRepickAge=0;pendingPhasePeriod=0;pendingPhaseCoefficients={};independentNovelty={};
     predictionValid=false;predictionIndex=hopSize;predictionAge=predictionCooldown=0;predictionFast=predictionSlow=predictionObserved=predictionExpected=0;polyPrediction={};
     view={};needsReset=false;
 }
@@ -180,6 +193,18 @@ void PitchDetector::process(const float* mono,int samples,Output& out) noexcept 
                 if(ratio>.5f&&previousInnovationRatio<=.5f&&attackCooldown==0&&voices[size_t(active)].age>analysisRate*.07) {
                     if(config.polyphonic){
                         pendingPolyRepick=active;pendingPolyRepickAge=0;attackCooldown=int(analysisRate*.075);
+                        pendingPhasePeriod=std::clamp(lag,2.0f,float(windowSize)/3.0f);
+                        const int past=int(std::lround(3*pendingPhasePeriod)),recent=int(std::lround(2*pendingPhasePeriod)),n=int(std::lround(pendingPhasePeriod));
+                        if(filled<past)pendingPolyRepick=-1;
+                        else {
+                            pendingPhaseCoefficients.fill(0);
+                            for(int group=0;group<4;++group){const int harmonic=2*group+1;if(harmonic>=pendingPhasePeriod*.45)continue;
+                                const auto older=projectPhase(ring,writeIndex-past,n,-double(past),pendingPhasePeriod,harmonic);
+                                const auto newer=projectPhase(ring,writeIndex-recent,n,-double(recent),pendingPhasePeriod,harmonic);
+                                pendingPhaseCoefficients[size_t(4*group)]=older[0];pendingPhaseCoefficients[size_t(4*group+1)]=older[1];
+                                pendingPhaseCoefficients[size_t(4*group+2)]=newer[0];pendingPhaseCoefficients[size_t(4*group+3)]=newer[1];
+                            }
+                        }
                     }else{
                         attackRemaining=int(analysisRate*.060);attackCooldown=int(analysisRate*.075);phaseAttack=true;phaseAttackAge=0;
                         pitchHistoryCount=pitchHistoryWrite=0;confirmations.fill(0);previousPitch=-1;
@@ -343,11 +368,29 @@ void PitchDetector::analysePoly(int count,int,Output&) noexcept {
         int held=0;for(const auto& voice:voices)held+=voice.active;
         const int target=pendingPolyRepick;
         if(held!=1||!voices[size_t(target)].active)pendingPolyRepick=-1;
-        else if(pendingPolyRepickAge>=512+2*hopSize&&polyAnchor>=0){
+        else if(pendingPolyRepickAge>=std::max(512+2*hopSize,int(std::ceil(3*pendingPhasePeriod)))&&polyAnchor>=0){
             if(polyAnchor!=target)pendingPolyRepick=-1;
             else if(strength[size_t(target)]>gate*.8f&&confirmations[size_t(target)]>=5&&fastEnvelope>slowEnvelope*.8f){
-                phaseAttack=true;attackRemaining=hopSize;polyAdmission=int(analysisRate*.120);pendingPolyRepick=-1;
-                for(int n=0;n<noteCount;++n)retriggerBaseline[size_t(n)]=voices[size_t(n)].strength;
+                const int n=int(std::lround(pendingPhasePeriod));
+                const int past=int(std::lround(3*pendingPhasePeriod)),recent=int(std::lround(2*pendingPhasePeriod));
+                const double extrapolate=double(pendingPolyRepickAge+recent-n+1)/std::max(1,past-recent);
+                const double floor=double(gate)*gate*n*n*.25;
+                double fundamentalDistance=0;int changedUpperOdd=0;
+                for(int group=0;group<4;++group){const int harmonic=2*group+1;if(harmonic>=pendingPhasePeriod*.45)continue;
+                    const auto after=projectPhase(ring,writeIndex-n,n,double(pendingPolyRepickAge-n+1),pendingPhasePeriod,harmonic);
+                    const int offset=4*group;const double ar=pendingPhaseCoefficients[size_t(offset)],ai=pendingPhaseCoefficients[size_t(offset+1)],br=pendingPhaseCoefficients[size_t(offset+2)],bi=pendingPhaseCoefficients[size_t(offset+3)];
+                    const double a=ar*ar+ai*ai,b=br*br+bi*bi,c=after[0]*after[0]+after[1]*after[1];
+                    if(a<=floor||b<=floor||c<=floor||a>4*b||b>4*a)continue;
+                    const double trend=std::atan2(ar*bi-ai*br,ar*br+ai*bi),angle=trend*extrapolate;
+                    const double er=br*std::cos(angle)-bi*std::sin(angle),ei=br*std::sin(angle)+bi*std::cos(angle);
+                    const double distance=2-2*std::clamp((er*after[0]+ei*after[1])/std::sqrt(b*c),-1.,1.);
+                    if(group==0)fundamentalDistance=distance;else if(distance>.08)++changedUpperOdd;
+                }
+                const bool phaseChanged=fundamentalDistance>.08||changedUpperOdd>=2;
+                pendingPolyRepick=-1;
+                if(phaseChanged){phaseAttack=true;attackRemaining=hopSize;polyAdmission=int(analysisRate*.120);
+                    for(int j=0;j<noteCount;++j)retriggerBaseline[size_t(j)]=voices[size_t(j)].strength;}
+
             }
         }
     }

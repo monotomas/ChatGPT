@@ -1,0 +1,174 @@
+Start testing: Nov 03 20:11 UTC
+----------------------------------------------------------
+1/7 Testing: FlysnapperCore
+1/7 Test: FlysnapperCore
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperCoreTests"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperCore" start time: Nov 03 20:11 UTC
+Output:
+----------------------------------------------------------
+Flysnapper core: 6 suites passed, 2104154 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperCore" end time: Nov 03 20:11 UTC
+"FlysnapperCore" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: FlysnapperAudioQuality
+2/7 Test: FlysnapperAudioQuality
+Command: "/workspace/.flysnapper-tools/bin/python3.12" "/workspace/ChatGPT/Tools/audio_quality_gate.py" "--evaluator" "/workspace/ChatGPT/build/native-release/FlysnapperAudioValidation" "--fixtures" "/workspace/ChatGPT/Tests/AudioFixtures" "--output" "/workspace/ChatGPT/build/native-release/audio-quality"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperAudioQuality" start time: Nov 03 20:11 UTC
+Output:
+----------------------------------------------------------
+Verified 11 pinned source files, 46 PCM waveforms and 81 case annotations
+Independent audio measurements written to /workspace/ChatGPT/build/native-release/audio-quality/audio-quality-lkuhirci (81 case/rate/block runs).
+FlysnapperAudioQuality: 30/30 basic accuracy cases passed; live5/10ms compliance is not certified
+<end of output>
+Test time =   7.58 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperAudioQuality" end time: Nov 03 20:11 UTC
+"FlysnapperAudioQuality" time elapsed: 00:00:07
+----------------------------------------------------------
+
+3/7 Testing: FlysnapperYin
+3/7 Test: FlysnapperYin
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperYinTests" "/workspace/ChatGPT/Tests/AudioFixtures"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperYin" start time: Nov 03 20:11 UTC
+Output:
+----------------------------------------------------------
+YIN recorded E2: first=40 observed_ms=58.7917 wrong_confirmations=0
+YIN recorded A2: first=45 observed_ms=61.2292 wrong_confirmations=0
+YIN recorded D3: first=50 observed_ms=74.2917 wrong_confirmations=0
+YIN recorded G3: first=55 observed_ms=58.6042 wrong_confirmations=0
+YIN recorded B3: first=59 observed_ms=60.5208 wrong_confirmations=0
+YIN recorded E3: first=52 observed_ms=59.5 wrong_confirmations=0
+YIN recorded E4: first=64 observed_ms=64.6667 wrong_confirmations=0
+YIN recorded Fs3: first=54 observed_ms=63.4167 wrong_confirmations=0
+YinEstimator checks passed: 4327. Candidate/confirmation controls, not complete audio lifecycle or physical latency.
+<end of output>
+Test time =   0.72 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperYin" end time: Nov 03 20:11 UTC
+"FlysnapperYin" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/7 Testing: FlysnapperPitch
+4/7 Test: FlysnapperPitch
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperPitchTests" "/workspace/ChatGPT/Tests/AudioFixtures"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperPitch" start time: Nov 03 20:11 UTC
+Output:
+----------------------------------------------------------
+PASS declared MIDI28..100 at44.1/48/96kHz, stable+/-40cent notes and prepared C++ allocation check (malloc/host wrapper excluded)
+PASS acquired recorded octave continuity and independently damped upper under a bright lower string
+PASS stiff held string, upper-withdrawal stability and three genuine continuous repicks
+FlysnapperPitch: PASS (111165 checks; functional audio controls, not physical latency acceptance)
+<end of output>
+Test time =   6.24 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperPitch" end time: Nov 03 20:11 UTC
+"FlysnapperPitch" time elapsed: 00:00:06
+----------------------------------------------------------
+
+5/7 Testing: FlysnapperPluginSmoke
+5/7 Test: FlysnapperPluginSmoke
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperPluginSmoke" start time: Nov 03 20:11 UTC
+Output:
+----------------------------------------------------------
+PASS 50 x 19 choices, stable IDs, mixed table, instances, malformed state, transient test reset
+PASS block-internal chord timing, routing role isolation, note binding, bypass, generated/external, sustain, panic, expression
+PASS generated sample schedule at 3 rates x 5 blocks, seek/stop, zero-frame reset, bounded overload, sidechain bus layouts
+PASS warmed processor C++ new allocation check (malloc/realloc and host wrapper excluded)
+PASS actual JUCE editor: large chord, 50x19 menus, flip/close continuity; front/back PNG snapshots written
+FlysnapperPluginSmoke: PASS (225604 assertions)
+<end of output>
+Test time =   1.57 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperPluginSmoke" end time: Nov 03 20:11 UTC
+"FlysnapperPluginSmoke" time elapsed: 00:00:01
+----------------------------------------------------------
+
+6/7 Testing: FlysnapperProcessorAudio
+6/7 Test: FlysnapperProcessorAudio
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperProcessorAudioTests_artefacts/Release/FlysnapperProcessorAudioTests"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperProcessorAudio" start time: Nov 03 20:11 UTC
+Output:
+----------------------------------------------------------
+PASS connected silence, disabled sidechain and disabled audio module; external MIDI preserved
+MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 17 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 64 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 257 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 17 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 64 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 257 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 17 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 64 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 257 samples (not driver/end-to-end latency)
+PASS actual audio decisions use same-sample chord first and never a future chord; original Note Off remains bound
+PASS real detected and external MIDI coexist, share correction and release only their own note ownership
+PASS actual polyphonic sidechain triad and mono/poly transitions without external note interruption
+PASS audio settings state and identical audio-to-MIDI with editor closed/open
+PASS twelve audio attack/silence/source-disconnect/panic cycles without stale output notes
+PASS finite stereo side survives NaN/Inf on either channel; anti-phase gain crossings retain fixed polarity and identical MIDI
+PASS missing legacy pitch parameters restore factory defaults instead of warm-instance values
+FlysnapperProcessorAudio: PASS (96333 checks). Functional integration budget is 150 ms; actual first-note timings are printed, not substituted for the requested live latency goals.
+<end of output>
+Test time =   2.35 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperProcessorAudio" end time: Nov 03 20:11 UTC
+"FlysnapperProcessorAudio" time elapsed: 00:00:02
+----------------------------------------------------------
+
+7/7 Testing: FlysnapperActualVst3
+7/7 Test: FlysnapperActualVst3
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests" "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperActualVst3" start time: Nov 03 20:11 UTC
+Output:
+----------------------------------------------------------
+PASS actual VST3 discovery and instrument classification
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 257 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 257 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 257 samples
+PASS actual VST3 named sidechain activation, audio, digital silence and deactivation
+PASS actual VST3 generated/external simultaneous events, 4800-sample test gate, source-only shutdown
+PASS actual VST3 all settings/table state roundtrip, instance isolation, no revived notes
+PASS actual VST3 stop/restart/seek flush, no stale chord or repeated note offs
+MEASURE actual VST3 Controller Modulation Wheel (coarse): 73 Channel 2 offset in=17 out=17
+MEASURE actual VST3 Pitch wheel 12345 Channel 2 offset in=17 out=17
+MEASURE actual VST3 Channel pressure 41 Channel 2 offset in=17 out=17
+MEASURE actual VST3 Program change 17 Channel 2 offset in=17 out=17
+PASS actual VST3 CC1, pitch bend, channel pressure and program-change values
+PASS actual VST3 forwarded CC66/CC69 released at transport stop without active core voices
+MEASURE actual VST3 audio first useful note 18.6458 ms (functional sample observation, excludes driver/Live/synth latency)
+PASS actual compiled VST3 mono/poly sidechain -> MIDI -> correction, simultaneous external/control MIDI and source-only shutdown
+RESULT actual VST3 host tests passed (197218 assertions).
+PLATFORM VERIFIED: native Linux VST3; Windows build is a separate required result.
+NOT VERIFIED BY THIS TEST: Ableton Live, audio-driver/end-to-end latency or general musical accuracy.
+<end of output>
+Test time =   1.94 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperActualVst3" end time: Nov 03 20:11 UTC
+"FlysnapperActualVst3" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Nov 03 20:11 UTC

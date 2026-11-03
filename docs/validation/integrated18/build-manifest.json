@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "stage": "integrated-audio-midi",
+  "builder_revision": "2026.11.03-audio-midi-0.2.0",
+  "platform": "Linux-x86_64",
+  "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
+  "built_at": "2026-11-03T20:11:44.804907+00:00",
+  "python": "3.12.14",
+  "source_commit": null,
+  "vst3_sha256": "0ac9e3c79d5e00aa5b3e409a8d500ebe86faa4c17bdd082ab462571b0d06455f",
+  "bundle_sha256": {
+    "Contents/Resources/moduleinfo.json": "9ea65e11ec8798c47a3eb1d29ec68421b25c0ebd1b7bdb941b770cd622d8ccdc",
+    "Contents/x86_64-linux/Flysnapper.so": "0ac9e3c79d5e00aa5b3e409a8d500ebe86faa4c17bdd082ab462571b0d06455f"
+  },
+  "tests": "passed",
+  "required_test_names": [
+    "FlysnapperActualVst3",
+    "FlysnapperAudioQuality",
+    "FlysnapperCore",
+    "FlysnapperPitch",
+    "FlysnapperPluginSmoke",
+    "FlysnapperProcessorAudio",
+    "FlysnapperYin"
+  ],
+  "ableton_verified": false,
+  "pitch_detection_implemented": true,
+  "windows_verified": false
+}

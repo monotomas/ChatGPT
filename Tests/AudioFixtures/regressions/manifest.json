@@ -17,5 +17,64 @@
     }
   ],
   "source": "Tools/audio_validation_fixtures.py modal generator, gains.18, seeds1/2, brightness.55/1.25, lowerduration.6s, upperduration.25s, prepend.05s",
-  "license": "AGPL-3.0-or-later"
+  "license": "AGPL-3.0-or-later",
+  "additional_regressions": [
+    {
+      "file": "held_stiff_E2.wav",
+      "sha256": "d579632eca7dbda6fe05471abd9d655ac46576aafceae11b1beffd81c43dc623",
+      "sample_rate": 48000,
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "generation": "Seed101, brightness.7, stiffnessB=.001, duration.65s, gain.24; inharmonic frequency f*h*sqrt((1+B*h*h)/(1+B)); see generation recipe.",
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "file": "twelfth_withdrawal_E2.wav",
+      "sha256": "cf5f04bbeac64eb000c2560e8223cc1d8b31d94db5b5f4026caa4907c38d68cd",
+      "sample_rate": 48000,
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 36000
+        },
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 14400
+        }
+      ],
+      "generation": "Seeds904/911, harmonic B=0, lower40 gain.20 duration.7s brightness.7, upper59 gain.12 duration.25s brightness1.4; prepend.05s.",
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "file": "continuous_repick_E2.wav",
+      "sha256": "0b30b925963c4f064636a4ab836246c65779e8338b9db317ceb3c346d386b423",
+      "sample_rate": 48000,
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 12000
+        },
+        {
+          "note": 40,
+          "on_sample": 12000,
+          "off_sample": 21600
+        },
+        {
+          "note": 40,
+          "on_sample": 21600,
+          "off_sample": 31200
+        }
+      ],
+      "generation": "Tools/audio_validation_fixtures.py modal40, seeds2011/2012/2013, gain.22 brightness1.9, continuous replacement every.2s with1ms crossfade.",
+      "license": "AGPL-3.0-or-later"
+    }
+  ]
 }

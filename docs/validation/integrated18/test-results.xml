@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="(empty)"
+	tests="7"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname=""
+	time="20"
+	timestamp="2026-11-03T20:11:24"
+	>
+	<testcase name="FlysnapperCore" classname="FlysnapperCore" time="0.0518811" status="run">
+		<properties/>
+		<system-out>Flysnapper core: 6 suites passed, 2104154 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+</system-out>
+	</testcase>
+	<testcase name="FlysnapperAudioQuality" classname="FlysnapperAudioQuality" time="7.58178" status="run">
+		<properties/>
+		<system-out>Verified 11 pinned source files, 46 PCM waveforms and 81 case annotations
+Independent audio measurements written to /workspace/ChatGPT/build/native-release/audio-quality/audio-quality-lkuhirci (81 case/rate/block runs).
+FlysnapperAudioQuality: 30/30 basic accuracy cases passed; live5/10ms compliance is not certified
+</system-out>
+	</testcase>
+	<testcase name="FlysnapperYin" classname="FlysnapperYin" time="0.717529" status="run">
+		<properties/>
+		<system-out>YIN recorded E2: first=40 observed_ms=58.7917 wrong_confirmations=0
+YIN recorded A2: first=45 observed_ms=61.2292 wrong_confirmations=0
+YIN recorded D3: first=50 observed_ms=74.2917 wrong_confirmations=0
+YIN recorded G3: first=55 observed_ms=58.6042 wrong_confirmations=0
+YIN recorded B3: first=59 observed_ms=60.5208 wrong_confirmations=0
+YIN recorded E3: first=52 observed_ms=59.5 wrong_confirmations=0
+YIN recorded E4: first=64 observed_ms=64.6667 wrong_confirmations=0
+YIN recorded Fs3: first=54 observed_ms=63.4167 wrong_confirmations=0
+YinEstimator checks passed: 4327. Candidate/confirmation controls, not complete audio lifecycle or physical latency.
+</system-out>
+	</testcase>
+	<testcase name="FlysnapperPitch" classname="FlysnapperPitch" time="6.2351" status="run">
+		<properties/>
+		<system-out>PASS declared MIDI28..100 at44.1/48/96kHz, stable+/-40cent notes and prepared C++ allocation check (malloc/host wrapper excluded)
+PASS acquired recorded octave continuity and independently damped upper under a bright lower string
+PASS stiff held string, upper-withdrawal stability and three genuine continuous repicks
+FlysnapperPitch: PASS (111165 checks; functional audio controls, not physical latency acceptance)
+</system-out>
+	</testcase>
+	<testcase name="FlysnapperPluginSmoke" classname="FlysnapperPluginSmoke" time="1.57031" status="run">
+		<properties/>
+		<system-out>PASS 50 x 19 choices, stable IDs, mixed table, instances, malformed state, transient test reset
+PASS block-internal chord timing, routing role isolation, note binding, bypass, generated/external, sustain, panic, expression
+PASS generated sample schedule at 3 rates x 5 blocks, seek/stop, zero-frame reset, bounded overload, sidechain bus layouts
+PASS warmed processor C++ new allocation check (malloc/realloc and host wrapper excluded)
+PASS actual JUCE editor: large chord, 50x19 menus, flip/close continuity; front/back PNG snapshots written
+FlysnapperPluginSmoke: PASS (225604 assertions)
+</system-out>
+	</testcase>
+	<testcase name="FlysnapperProcessorAudio" classname="FlysnapperProcessorAudio" time="2.35254" status="run">
+		<properties/>
+		<system-out>PASS connected silence, disabled sidechain and disabled audio module; external MIDI preserved
+MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 17 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 64 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 257 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 17 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 64 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 257 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 17 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 64 samples (not driver/end-to-end latency)
+MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz /...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="FlysnapperActualVst3" classname="FlysnapperActualVst3" time="1.93662" status="run">
+		<properties/>
+		<system-out>PASS actual VST3 discovery and instrument classification
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 257 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 257 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 2...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+</testsuite>

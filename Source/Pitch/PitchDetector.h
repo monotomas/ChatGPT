@@ -81,6 +81,9 @@ private:
     float pitchHistoryRange=0;
     int polyAdmission=0,polyAnchor=-1;
     int pendingPolyRepick=-1,pendingPolyRepickAge=0;
+    float pendingPhasePeriod=0;
+    // Two complex pre-arm observations for each odd harmonic 1/3/5/7.
+    std::array<double,16> pendingPhaseCoefficients{};
     std::array<float,fftSize/2+1> spectralBaseline{};
     float spectralUpdate=0;
     std::array<bool,noteCount> independentNovelty{};

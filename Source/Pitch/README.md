@@ -65,6 +65,18 @@ periodic anchor. It waits for a complete fresh observation and confirming hops
 before ending and restarting that note; an added voice or changed pitch cancels
 the pending repick.
 
+Before a pending polyphonic repick can restart its MIDI note, bounded complex
+projections compare odd-partial phases before and after the suspected attack.
+Two prior observations estimate the existing phase velocity, so an imperfect
+period estimate or string stiffness is not itself a new attack. A changed
+fundamental, or changes in at least two of odd partials 3/5/7, must support the
+restart. Withdrawing an unacquired upper octave or twelfth must not masquerade
+as a new lower-string pluck. All observations use samples already received;
+low notes must also satisfy a three-period observation after the arm point;
+that interval overlaps the normal fresh-frame check.
+The additional independent controls reduce unwanted restarts but retain three
+known held-stiff-string restarts; they are not a universal articulation proof.
+
 ## Polyphonic estimator
 
 `TimeDomainPursuit` fits free-phase harmonic groups and refits their shared
