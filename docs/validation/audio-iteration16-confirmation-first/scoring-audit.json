@@ -1,0 +1,74 @@
+{
+  "audit": "independent Python recomputation from raw MIDI events and frozen reference annotations",
+  "rows": 414,
+  "case_count": 46,
+  "configuration_count": 9,
+  "configurations": [
+    {
+      "rate": 44100,
+      "block": 32
+    },
+    {
+      "rate": 44100,
+      "block": 64
+    },
+    {
+      "rate": 44100,
+      "block": 128
+    },
+    {
+      "rate": 48000,
+      "block": 32
+    },
+    {
+      "rate": 48000,
+      "block": 64
+    },
+    {
+      "rate": 48000,
+      "block": 128
+    },
+    {
+      "rate": 96000,
+      "block": 32
+    },
+    {
+      "rate": 96000,
+      "block": 64
+    },
+    {
+      "rate": 96000,
+      "block": 128
+    }
+  ],
+  "block_invariance_assessed": true,
+  "cross_rate_invariance_assessed": true,
+  "evaluation_role": "first-blind",
+  "scoring_differences": [],
+  "block_event_invariance_differences": [],
+  "cross_rate_outcome_invariance_differences": [],
+  "cross_rate_recall_identity_differences": [],
+  "cross_rate_note_sequence_differences": [],
+  "cross_rate_velocity_differences": [
+    "confirm_sustain_01_mono",
+    "confirm_articulation_01_mono",
+    "confirm_voicing_04_poly",
+    "confirm_recorded_03_mono",
+    "confirm_recorded_04_mono",
+    "confirm_recorded_05_mono",
+    "confirm_recorded_06_mono",
+    "confirm_recorded_09_mono"
+  ],
+  "maximum_cross_rate_matching_event_time_spread_ms": 2.677083333333358,
+  "maximum_cross_rate_correct_response_spread_ms": 0.02366780045352357,
+  "fixture_manifest_sha256": "5baff69d15a05bac7500aef83cd9d2efcb73743aa2136ce041c8c56c5cfbbda0",
+  "original_report_sha256": {
+    "audio-cases.csv": "243b9774fb3e3f702bc7c6974bfb9f583ac39188a3437b66ee397037890fe44f",
+    "audio-events.csv": "983e2f73e6e51cc31fdbc42536b94d860120598c4bcd4cdb7eadac64f662fb95",
+    "audio-summary.txt": "5efddcc0890ddcc0c8fd229bb2060bd49f524cb2243697fe803bc92ec51a0381",
+    "measurement-manifest.json": "8f68c332bf7710cd3ba5651dfb9f0202ed29bf4365bfd666ffafce404d8e0176"
+  },
+  "source_changed_during_measurement": false,
+  "detector_binary_sha256": "317bd153ec4ab00448f051378f2406dc172dc25e3a9ab37c198cdae7eddc8d7f",
+  "heldout_first_audit": true
+}

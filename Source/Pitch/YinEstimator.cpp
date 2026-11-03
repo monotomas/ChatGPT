@@ -24,7 +24,10 @@ void YinEstimator::prepare(double analysisRate,int lowestNote,int highestNote){
     if(!std::isfinite(analysisRate)||analysisRate<8000||analysisRate>48000||lowestNote<0||highestNote>127||lowestNote>=highestNote)
         throw std::invalid_argument("YinEstimator requires8..48kHz and a valid MIDI range");
     rate=analysisRate;lowNote=lowestNote;highNote=highestNote;
-    lowHz=float(440*std::pow(2.,double(lowNote-69)/12.));highHz=float(440*std::pow(2.,double(highNote-69)/12.));
+    // Search the complete rounding bins of the endpoint notes. A tone forty
+    // cents below lowNote still rounds to lowNote and needs a longer lag.
+    // The final integer-note check retains the requested output bounds.
+    lowHz=float(440*std::pow(2.,(double(lowNote)-69.5)/12.));highHz=float(440*std::pow(2.,(double(highNote)-68.5)/12.));
 }
 YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float threshold,bool harmonicDisambiguation) noexcept {
     Result result;
@@ -54,9 +57,9 @@ YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float 
         if(b<=a&&b<c){
             const float denominator=a-2*b+c;
             const float interpolated=std::abs(denominator)>1e-12f?std::clamp(.5f*(a-c)/denominator,-.5f,.5f):0;
-            float value=lag<8?std::max(0.f,b-.25f*(a-c)*interpolated):b;
+            float value=lag<16?std::max(0.f,b-.25f*(a-c)*interpolated):b;
             float refined=interpolated;
-            if(lag<8){
+            if(lag<16){
                 double averageDifference=0;for(int k=1;k<=lag;++k)averageDifference+=difference[size_t(k)];
                 averageDifference/=lag;
                 if(averageDifference>1e-12){
@@ -64,12 +67,16 @@ YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float 
                         const int integer=int(std::floor(period));const double u=period-integer;
                         const double w0=-u*(u-1)*(u-2)/6,w1=(u+1)*(u-1)*(u-2)/2;
                         const double w2=-(u+1)*u*(u-2)/2,w3=(u+1)*u*(u-1)/6;
-                        double sum=0;
-                        for(int i=0;i<comparison;++i){const int p=i+integer;
+                        // A cubic delay needs two following samples. On a
+                        // very short frame, never read stale scratch entries
+                        // beyond count; normalise the available comparison.
+                        double sum=0;const int usable=std::min(comparison,count-integer-2);
+                        if(usable<=0)return 1.f;
+                        for(int i=0;i<usable;++i){const int p=i+integer;
                             const double shifted=w0*frame[size_t(p-1)]+w1*frame[size_t(p)]+w2*frame[size_t(p+1)]+w3*frame[size_t(p+2)];
                             const double error=frame[size_t(i)]-shifted;sum+=error*error;
                         }
-                        return float(sum/averageDifference);
+                        return float(sum*comparison/(usable*averageDifference));
                     };
                     float bestPeriod=float(lag)+refined,bestValue=evaluate(bestPeriod);
                     for(int step=-4;step<=4;++step){const float period=float(lag)+step*.125f;const float error=evaluate(period);
@@ -94,6 +101,46 @@ YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float 
     }
     if(chosen<0)return result;
     double frequency=rate/(chosen+delta);
+    // A strong even series can make its half-period pass the YIN threshold
+    // while weaker, coherent odd partials still establish the lower root.
+    // Require a substantially better observed double period and a resolved
+    // fundamental plus three odd partials before preferring that root.
+    if(harmonicDisambiguation&&2*(chosen+delta)<maximumLag-1){
+        const int expected=int(std::lround(2*(chosen+delta)));
+        int longer=-1;float longerMinimum=1,longerDelta=0;
+        for(int lag=std::max(minimumLag+1,expected-2);lag<=std::min(maximumLag-1,expected+2);++lag){
+            const float a=normalised[size_t(lag-1)],b=normalised[size_t(lag)],c=normalised[size_t(lag+1)];
+            if(b<=a&&b<c&&b<longerMinimum){const float denominator=a-2*b+c;longer=lag;longerMinimum=b;longerDelta=std::abs(denominator)>1e-12f?std::clamp(.5f*(a-c)/denominator,-.5f,.5f):0;}
+        }
+        if(longer>=0){
+            double average=0;for(int k=1;k<=longer;++k)average+=difference[size_t(k)];average/=longer;
+            const double period=longer+longerDelta;const int integer=int(std::floor(period));const double u=period-integer;
+            const double w0=-u*(u-1)*(u-2)/6,w1=(u+1)*(u-1)*(u-2)/2,w2=-(u+1)*u*(u-2)/2,w3=(u+1)*u*(u-1)/6;
+            const int usable=std::min(comparison,count-integer-2);double sum=0;
+            for(int i=0;i<usable;++i){const int p=i+integer;const double shifted=w0*frame[size_t(p-1)]+w1*frame[size_t(p)]+w2*frame[size_t(p+1)]+w3*frame[size_t(p+2)];const double error=frame[size_t(i)]-shifted;sum+=error*error;}
+            longerMinimum=average>1e-12&&usable>0?float(sum*comparison/(usable*average)):1.f;
+        }
+        if(longer>=0&&longerMinimum<threshold&&longerMinimum<minimum*.5f){
+            const double lowerFrequency=rate/(longer+longerDelta);
+            std::array<float,maxSamples> windowed{};
+            const double wa=2*pi/(count-1),wC=std::cos(wa),wS=std::sin(wa);double wc=1,ws=0;
+            for(int i=0;i<count;++i){windowed[size_t(i)]=float(frame[size_t(i)]*(.5-.5*wc));const double next=wc*wC-ws*wS;ws=ws*wC+wc*wS;wc=next;}
+            const auto physicalPower=[&](double hz) noexcept {
+                if(hz<=0||hz>=rate*.45)return 0.;
+                const double angle=2*pi*hz/rate,dc=std::cos(angle),ds=std::sin(angle);double c=1,s=0,re=0,im=0;
+                for(int i=0;i<count;++i){re+=windowed[size_t(i)]*c;im+=windowed[size_t(i)]*s;const double next=c*dc-s*ds;s=s*dc+c*ds;c=next;}
+                return re*re+im*im;
+            };
+            const double root=physicalPower(lowerFrequency),dominant=physicalPower(frequency),spacing=rate/count;
+            if(root>=dominant*.0016&&root>physicalPower(lowerFrequency-spacing)&&root>physicalPower(lowerFrequency+spacing)){
+                std::array<double,12> partial{};double maximum=0;
+                for(int h=1;h<=12;++h){partial[size_t(h-1)]=physicalPower(lowerFrequency*h);maximum=std::max(maximum,partial[size_t(h-1)]);}
+                int coherent=0;
+                for(int h=1;h<=12;h+=2)if(partial[size_t(h-1)]>=maximum*.0016){const double center=partial[size_t(h-1)];if(center>physicalPower(lowerFrequency*h-spacing)&&center>physicalPower(lowerFrequency*h+spacing))++coherent;}
+                if(coherent>=3){frequency=lowerFrequency;chosen=longer;delta=longerDelta;minimum=longerMinimum;}
+            }
+        }
+    }
     result.periodicity=std::clamp(1-minimum,0.f,1.f);result.confidence=result.periodicity;
     if(harmonicDisambiguation){
         std::array<double,12> powers{};double total=0;
@@ -122,6 +169,30 @@ YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float 
             }
             const double ratio=supportedPower/total;
             if(ratio>.85&&support>=2&&ratio>preferredRatio){preferred=divisor;preferredRatio=ratio;}
+        }
+        if(preferred>1){
+            // Dominant even harmonics alone do not establish a new octave.
+            // Resolved off-series partials support the original candidate;
+            // broad spectral leakage and one isolated body peak do not.
+            std::array<float,maxSamples> windowed{};
+            const double windowAngle=2*pi/(count-1),windowC=std::cos(windowAngle),windowS=std::sin(windowAngle);
+            double wc=1,ws=0;
+            for(int i=0;i<count;++i){windowed[size_t(i)]=float(frame[size_t(i)]*(.5-.5*wc));const double next=wc*windowC-ws*windowS;ws=ws*windowC+wc*windowS;wc=next;}
+            const auto physicalPower=[&](double hz) noexcept {
+                if(hz<=0||hz>=rate*.45)return 0.;
+                const double angle=2*pi*hz/rate,dc=std::cos(angle),ds=std::sin(angle);
+                double c=1,s=0,re=0,im=0;
+                for(int i=0;i<count;++i){re+=windowed[size_t(i)]*c;im+=windowed[size_t(i)]*s;const double next=c*dc-s*ds;s=s*dc+c*ds;c=next;}
+                return re*re+im*im;
+            };
+            std::array<double,12> physical{};double maximum=0;
+            for(int h=1;h<=12;++h){physical[size_t(h-1)]=physicalPower(frequency*h);maximum=std::max(maximum,physical[size_t(h-1)]);}
+            int coherent=0;const double spacing=rate/count;
+            for(int h=1;h<=12;++h)if(h%preferred&&physical[size_t(h-1)]>=maximum*.0016){
+                const double center=physical[size_t(h-1)];
+                if(center>physicalPower(frequency*h-spacing)&&center>physicalPower(frequency*h+spacing))++coherent;
+            }
+            if(coherent>=3)preferred=1;
         }
         if(preferred>1){
             frequency*=preferred;result.harmonicDivisor=preferred;result.harmonicPurity=float(preferredRatio);

@@ -16,9 +16,11 @@ public:
     };
     void prepare(double analysisRate,int lowestNote=28,int highestNote=100);
     // Uses the latest available samples, capped at1024. The difference
-    // comparison length is constant across all tested lags (half the frame),
+    // integer-lag comparison length is constant (half the frame),
     // so a candidate needs two observed periods at the bottom of that frame's
-    // frequency range. The MIDI range is additionally bounded by prepare().
+    // frequency range. Short-lag cubic refinement clips and normalises its
+    // comparison at the available frame boundary. The MIDI range is bounded
+    // by prepare(), including detuning within each endpoint's rounding bin.
     Result estimate(const float* wave,int samples,float threshold=.08f,
                     bool harmonicDisambiguation=true) noexcept;
 private:

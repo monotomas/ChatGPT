@@ -18,6 +18,76 @@ using flysnapper::pitch::YinEstimator;
 constexpr double pi=3.14159265358979323846;
 int checks=0;
 void check(bool ok,const char* message){++checks;if(!ok)throw std::runtime_error(message);}
+std::array<float,2048> filteredTone(double pitch,double phase,bool harmonic,bool evenDominant=false){
+    const double frequency=440*std::pow(2.,(pitch-69)/12.);
+    const double dc=std::exp(-2*pi*12/48000),low=1-std::exp(-2*pi*5040/48000);
+    double previous=0,previousDC=0;std::array<double,4> poles{};
+    std::array<double,12> cosine{},sine{},stepC{},stepS{},weight{};
+    for(int h=1;h<=12;++h){
+        const double angle=2*pi*frequency*h/48000;
+        stepC[size_t(h-1)]=std::cos(angle);stepS[size_t(h-1)]=std::sin(angle);
+        cosine[size_t(h-1)]=std::cos(phase*h+.17*h);sine[size_t(h-1)]=std::sin(phase*h+.17*h);
+        if(frequency*h<21600&&(harmonic||h==1))
+            weight[size_t(h-1)]=evenDominant?(h%2?.30/std::sqrt(double(h)):1/std::pow(double(h/2),1.3)):1/std::pow(double(h),1.25);
+    }
+    std::array<float,2048> audio{};
+    for(int i=0;i<8192;++i){
+        double input=0;
+        for(int h=0;h<12;++h){
+            input+=weight[size_t(h)]*sine[size_t(h)];
+            const double next=cosine[size_t(h)]*stepC[size_t(h)]-sine[size_t(h)]*stepS[size_t(h)];
+            sine[size_t(h)]=sine[size_t(h)]*stepC[size_t(h)]+cosine[size_t(h)]*stepS[size_t(h)];cosine[size_t(h)]=next;
+        }
+        input*=.15*std::min(1.,i/48.);
+        double value=input-previous+dc*previousDC;previous=input;previousDC=value;
+        for(auto& pole:poles){pole+=low*(value-pole);value=pole;}
+        if(i%4==3)audio[size_t(i/4)]=float(value);
+    }
+    return audio;
+}
+void roundedRangeAndCoherentSeries(){
+    YinEstimator estimator;estimator.prepare(12000);
+    for(int note=28;note<=100;++note)for(double phase:{0.,.31,1.2,2.6,5.1})
+        for(double cents:{-40.,0.,40.})for(bool harmonic:{false,true}){
+            const auto audio=filteredTone(note+cents/100,phase,harmonic);
+            const int count=note<36?1024:512;
+            const auto result=estimator.estimate(audio.data()+audio.size()-count,count);
+            check(result.valid&&result.note==note,"YIN rounded-range frontend control failed");
+        }
+    for(double pitch:{27.4,100.6})for(double phase:{0.,1.2}){
+        const auto audio=filteredTone(pitch,phase,false);
+        check(!estimator.estimate(audio.data()+1024,1024).valid,"YIN output escaped configured MIDI range");
+    }
+    // These fundamentals retain physically resolved odd partials even though
+    // most energy belongs to the octave series. Preserve that lower identity.
+    for(int note:{40,52,64,72,84})for(double phase:{0.,.731,1.462})for(double cents:{-25.,17.}){
+        const auto audio=filteredTone(note+cents/100,phase,true,true);
+        const auto result=estimator.estimate(audio.data()+1536,512);
+        check(result.valid&&result.note==note,"YIN coherent weak odd series was promoted an octave");
+    }
+    std::array<float,1024> body{};
+    for(int i=0;i<1024;++i)body[size_t(i)]=float(.1*std::sin(2*pi*110*i/12000.)+.3*std::sin(2*pi*220*i/12000.)+.18*std::sin(2*pi*440*i/12000.)+.09*std::sin(2*pi*660*i/12000.));
+    const auto result=estimator.estimate(body.data(),1024);
+    check(result.valid&&result.note==57&&result.harmonicDivisor==2,"YIN useful even-series body disambiguation was lost");
+}
+void shortFrameIsolation(){
+    // Results may depend only on the supplied frame, never on old scratch
+    // samples beyond its end. The shortest cubic refinements exercise that
+    // contract with different preceding buffers and exact-sized allocations.
+    YinEstimator first,second;first.prepare(12000);second.prepare(12000);
+    const auto low=filteredTone(40,0.,true),high=filteredTone(84,1.2,true);
+    first.estimate(low.data(),1024);second.estimate(high.data(),1024);
+    for(int count:{32,33,34,35,40,48,63,64})for(int note=75;note<=100;++note)for(double phase:{0.,.31,1.2,2.6,5.1}){
+        std::vector<float> frame(size_t(count),0.f);
+        const double frequency=440*std::pow(2.,double(note-69)/12.);
+        for(int i=0;i<count;++i)for(int h=1;h<=8;++h)if(frequency*h<5400)
+            frame[size_t(i)]+=float(.15/h*std::sin(2*pi*frequency*h*i/12000.+phase*h));
+        const auto a=first.estimate(frame.data(),count),b=second.estimate(frame.data(),count);
+        check(a.valid==b.valid&&a.note==b.note&&a.frequency==b.frequency&&a.pitch==b.pitch
+            &&a.confidence==b.confidence&&a.periodicity==b.periodicity&&a.harmonicDivisor==b.harmonicDivisor,
+            "YIN short frame depended on previous scratch samples");
+    }
+}
 void synthetic(){
     YinEstimator estimator;estimator.prepare(12000);
     std::array<float,1024> x{};
@@ -58,7 +128,7 @@ void synthetic(){
     // The real frontend attenuates upper harmonics and can make an integer
     // double period look better than a fractional first period. Check the
     // actual causal48kHz->12kHz path, not just long unfiltered sine frames.
-    for(int note=92;note<=100;++note)for(double phase:{0.,.31,1.2,2.6,5.1}){
+    for(int note=79;note<=100;++note)for(double phase:{0.,.31,1.2,2.6,5.1}){
         const double frequency=440*std::pow(2.,double(note-69)/12.);
         const double dc=std::exp(-2*pi*12/48000),low=1-std::exp(-2*pi*5040/48000);
         double previousX=0,previousDC=0;std::array<double,4> poles{};std::array<float,1024> filtered{};
@@ -126,7 +196,7 @@ void recordings(const std::filesystem::path& folder){
     }
 }
 int run(const std::vector<std::filesystem::path>& args){try{
-    synthetic();if(args.size()==2)recordings(args[1]);
+    synthetic();roundedRangeAndCoherentSeries();shortFrameIsolation();if(args.size()==2)recordings(args[1]);
     else if(args.size()>2)throw std::runtime_error("YinEstimatorTests [AudioFixtures directory]");
     std::cout<<"YinEstimator checks passed: "<<checks<<". Candidate/confirmation controls, not complete audio lifecycle or physical latency.\n";return 0;
 }catch(const std::exception& e){std::cerr<<"YinEstimator test failed: "<<e.what()<<'\n';return 1;}}

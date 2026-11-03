@@ -68,7 +68,7 @@ void declaredRangeAndRealtime(){
         check(ons==1&&offs==1,"declared detector range has missing or repeated notes");
     }
     // Stable detuning is a valid continuous pitch, not a permanent dead band.
-    for(int rate:{44100,48000,96000})for(int note:{40,52,64,76})for(float cents:{-40.0f,40.0f})for(bool bright:{false,true}){
+    for(int rate:{44100,48000,96000})for(int note:{28,40,52,64,76,100})for(float cents:{-40.0f,40.0f})for(bool bright:{false,true}){
         detector->prepare(rate);events.clear();detector->reset(events);std::vector<float> audio(size_t(rate/2),0);
         const double frequency=440*std::pow(2.0,(note-69+cents/100)/12.0);
         for(int i=0;i<int(rate/3);++i)for(int h=1;h<=(bright?12:1);++h)if(frequency*h<rate*.45)

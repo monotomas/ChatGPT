@@ -1,0 +1,402 @@
+{
+  "audit": "Independent recorded-input reconstruction and spectral observations; no detector rerun or tuning",
+  "derivation": {
+    "rate": 48000,
+    "gain": 0.35,
+    "source_crop_samples": 31200,
+    "end_taper_samples": 192,
+    "leading_padding_samples": 2400,
+    "trailing_padding_samples": 12000,
+    "pcm": "nearest-even round to PCM16 after multiplication by32767"
+  },
+  "recording_derivations": [
+    {
+      "record": "pcm/confirm_recorded_01.wav",
+      "source": "acoustic_F2.ogg",
+      "note": 41,
+      "different_pcm_samples": 0,
+      "annotated_onset": 3413,
+      "source_samples": 741224
+    },
+    {
+      "record": "pcm/confirm_recorded_02.wav",
+      "source": "acoustic_A3.ogg",
+      "note": 57,
+      "different_pcm_samples": 0,
+      "annotated_onset": 3235,
+      "source_samples": 207429
+    },
+    {
+      "record": "pcm/confirm_recorded_03.wav",
+      "source": "acoustic_C4.ogg",
+      "note": 60,
+      "different_pcm_samples": 0,
+      "annotated_onset": 3196,
+      "source_samples": 165053
+    },
+    {
+      "record": "pcm/confirm_recorded_04.wav",
+      "source": "electric_Fs3.ogg",
+      "note": 54,
+      "different_pcm_samples": 0,
+      "annotated_onset": 2402,
+      "source_samples": 202502
+    },
+    {
+      "record": "pcm/confirm_recorded_05.wav",
+      "source": "electric_C4.ogg",
+      "note": 60,
+      "different_pcm_samples": 0,
+      "annotated_onset": 2403,
+      "source_samples": 202502
+    },
+    {
+      "record": "pcm/confirm_recorded_06.wav",
+      "source": "electric_Ds4.ogg",
+      "note": 63,
+      "different_pcm_samples": 0,
+      "annotated_onset": 2401,
+      "source_samples": 202502
+    },
+    {
+      "record": "pcm/confirm_recorded_07.wav",
+      "source": "nylon_Cs3.ogg",
+      "note": 49,
+      "different_pcm_samples": 0,
+      "annotated_onset": 2400,
+      "source_samples": 250001
+    },
+    {
+      "record": "pcm/confirm_recorded_08.wav",
+      "source": "nylon_Gs4.ogg",
+      "note": 68,
+      "different_pcm_samples": 0,
+      "annotated_onset": 2402,
+      "source_samples": 75000
+    },
+    {
+      "record": "pcm/confirm_recorded_09.wav",
+      "source": "nylon_A4.ogg",
+      "note": 69,
+      "different_pcm_samples": 0,
+      "annotated_onset": 2400,
+      "source_samples": 150001
+    }
+  ],
+  "spectral_observations": [
+    {
+      "record": "pcm/confirm_recorded_03.wav",
+      "window_fixture_seconds": [
+        0.087,
+        0.13
+      ],
+      "peaks": [
+        {
+          "hz": 261.514,
+          "relative": 1.0
+        },
+        {
+          "hz": 526.247,
+          "relative": 0.3878
+        },
+        {
+          "hz": 1314.414,
+          "relative": 0.2346
+        },
+        {
+          "hz": 1577.904,
+          "relative": 0.2191
+        },
+        {
+          "hz": 108.887,
+          "relative": 0.1214
+        },
+        {
+          "hz": 2640.374,
+          "relative": 0.0873
+        },
+        {
+          "hz": 2371.838,
+          "relative": 0.078
+        },
+        {
+          "hz": 788.408,
+          "relative": 0.0496
+        },
+        {
+          "hz": 315.868,
+          "relative": 0.0454
+        },
+        {
+          "hz": 2108.4,
+          "relative": 0.0388
+        },
+        {
+          "hz": 159.443,
+          "relative": 0.0348
+        },
+        {
+          "hz": 2911.606,
+          "relative": 0.0272
+        }
+      ]
+    },
+    {
+      "record": "pcm/confirm_recorded_03.wav",
+      "window_fixture_seconds": [
+        0.3,
+        0.55
+      ],
+      "peaks": [
+        {
+          "hz": 261.268,
+          "relative": 1.0
+        },
+        {
+          "hz": 523.201,
+          "relative": 0.6376
+        },
+        {
+          "hz": 1307.813,
+          "relative": 0.206
+        },
+        {
+          "hz": 1570.487,
+          "relative": 0.1055
+        },
+        {
+          "hz": 784.04,
+          "relative": 0.0814
+        },
+        {
+          "hz": 109.457,
+          "relative": 0.0467
+        },
+        {
+          "hz": 270.474,
+          "relative": 0.0325
+        }
+      ]
+    },
+    {
+      "record": "pcm/confirm_recorded_08.wav",
+      "window_fixture_seconds": [
+        0.099,
+        0.141
+      ],
+      "peaks": [
+        {
+          "hz": 417.04,
+          "relative": 1.0
+        },
+        {
+          "hz": 835.424,
+          "relative": 0.494
+        },
+        {
+          "hz": 2088.48,
+          "relative": 0.4695
+        },
+        {
+          "hz": 101.222,
+          "relative": 0.416
+        },
+        {
+          "hz": 1253.303,
+          "relative": 0.1518
+        },
+        {
+          "hz": 1671.719,
+          "relative": 0.146
+        },
+        {
+          "hz": 243.739,
+          "relative": 0.1122
+        },
+        {
+          "hz": 2517.932,
+          "relative": 0.0442
+        },
+        {
+          "hz": 2937.074,
+          "relative": 0.0355
+        },
+        {
+          "hz": 159.025,
+          "relative": 0.0263
+        },
+        {
+          "hz": 473.451,
+          "relative": 0.0262
+        }
+      ]
+    },
+    {
+      "record": "pcm/confirm_recorded_08.wav",
+      "window_fixture_seconds": [
+        0.3,
+        0.55
+      ],
+      "peaks": [
+        {
+          "hz": 413.837,
+          "relative": 1.0
+        },
+        {
+          "hz": 830.911,
+          "relative": 0.8736
+        },
+        {
+          "hz": 2078.165,
+          "relative": 0.6021
+        },
+        {
+          "hz": 1244.633,
+          "relative": 0.3847
+        },
+        {
+          "hz": 1659.333,
+          "relative": 0.3583
+        },
+        {
+          "hz": 2070.036,
+          "relative": 0.3172
+        },
+        {
+          "hz": 2493.402,
+          "relative": 0.1303
+        },
+        {
+          "hz": 100.849,
+          "relative": 0.1204
+        },
+        {
+          "hz": 822.736,
+          "relative": 0.1
+        },
+        {
+          "hz": 2909.882,
+          "relative": 0.0992
+        },
+        {
+          "hz": 2485.012,
+          "relative": 0.0428
+        },
+        {
+          "hz": 427.645,
+          "relative": 0.0365
+        },
+        {
+          "hz": 404.87,
+          "relative": 0.0348
+        },
+        {
+          "hz": 839.596,
+          "relative": 0.0307
+        }
+      ]
+    },
+    {
+      "record": "pcm/confirm_recorded_09.wav",
+      "window_fixture_seconds": [
+        0.115,
+        0.157
+      ],
+      "peaks": [
+        {
+          "hz": 441.399,
+          "relative": 1.0
+        },
+        {
+          "hz": 881.115,
+          "relative": 0.4166
+        },
+        {
+          "hz": 2206.121,
+          "relative": 0.309
+        },
+        {
+          "hz": 1762.512,
+          "relative": 0.3084
+        },
+        {
+          "hz": 194.699,
+          "relative": 0.2788
+        },
+        {
+          "hz": 100.683,
+          "relative": 0.1634
+        },
+        {
+          "hz": 253.472,
+          "relative": 0.1276
+        },
+        {
+          "hz": 2643.822,
+          "relative": 0.1108
+        },
+        {
+          "hz": 306.655,
+          "relative": 0.0839
+        },
+        {
+          "hz": 1319.439,
+          "relative": 0.0525
+        },
+        {
+          "hz": 497.754,
+          "relative": 0.0264
+        }
+      ]
+    },
+    {
+      "record": "pcm/confirm_recorded_09.wav",
+      "window_fixture_seconds": [
+        0.3,
+        0.55
+      ],
+      "peaks": [
+        {
+          "hz": 440.727,
+          "relative": 1.0
+        },
+        {
+          "hz": 879.716,
+          "relative": 0.6855
+        },
+        {
+          "hz": 1758.49,
+          "relative": 0.2187
+        },
+        {
+          "hz": 2203.704,
+          "relative": 0.1529
+        },
+        {
+          "hz": 1318.136,
+          "relative": 0.09
+        },
+        {
+          "hz": 2195.646,
+          "relative": 0.0776
+        },
+        {
+          "hz": 2637.356,
+          "relative": 0.0485
+        },
+        {
+          "hz": 100.929,
+          "relative": 0.0333
+        }
+      ]
+    }
+  ],
+  "fixture_manifest_sha256": "5baff69d15a05bac7500aef83cd9d2efcb73743aa2136ce041c8c56c5cfbbda0",
+  "upstream_manifest_sha256": "3da692d08662bb4f8cc155478e286ab7ae8360aef316a7a9229f41f3663c44cf",
+  "original_report_sha256": {
+    "audio-cases.csv": "243b9774fb3e3f702bc7c6974bfb9f583ac39188a3437b66ee397037890fe44f",
+    "audio-events.csv": "983e2f73e6e51cc31fdbc42536b94d860120598c4bcd4cdb7eadac64f662fb95",
+    "audio-summary.txt": "5efddcc0890ddcc0c8fd229bb2060bd49f524cb2243697fe803bc92ec51a0381",
+    "measurement-manifest.json": "8f68c332bf7710cd3ba5651dfb9f0202ed29bf4365bfd666ffafce404d8e0176"
+  }
+}
