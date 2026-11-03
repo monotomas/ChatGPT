@@ -52,6 +52,14 @@ def passed_host_output(text: str,exit_code: int) -> int:
         raise ValueError('Installed Windows VST3 host validation did not complete successfully')
     return int(match.group(1))
 
+def launcher_command(command_processor: Path,launcher: Path,destination: Path,backup: Path) -> str:
+    # cmd.exe /s /c consumes the outer pair of quotes; each path retains its
+    # own quotes. Use a raw CreateProcess command line, not CRT argv escaping,
+    # so spaces, Unicode, parentheses and ampersands remain literal paths.
+    paths=[str(path) for path in (command_processor,launcher,destination,backup)]
+    if any(any(char in value for char in '"\r\n\0') for value in paths):raise ValueError('Unsafe launcher argument')
+    return f'"{paths[0]}" /d /s /c ""{paths[1]}" -NoUI -Destination "{paths[2]}" -BackupDirectory "{paths[3]}""'
+
 def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host: Path | None = None,temp_base: Path | None = None):
     if os.name!='nt' or sys.maxsize<=2**32:
         raise ValueError('The real-package validation must execute on native 64-bit Windows')
@@ -62,18 +70,18 @@ def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host
     initial_artifact_sha=sha(artifact)
     output=output.absolute();output.parent.mkdir(parents=True,exist_ok=True)
     if output.exists():raise ValueError('Installation proof already exists; refusing stale evidence')
-    ps_log=output.parent/'installation-powershell.txt';host_log=output.parent/'installed-vst3-host.txt'
+    ps_log=output.parent/'installation-powershell.txt';host_log=output.parent/'installed-vst3-host.txt';launcher_log=output.parent/'installation-launcher.txt'
     proof={'schema':1,'status':'failed','execution_platform':platform.system(),'execution_architecture':platform.machine(),
            'source_commit':source_commit,'artifact_sha256':initial_artifact_sha,'artifact_bytes':artifact.stat().st_size,
            'recorded_at_utc':dt.datetime.now(dt.timezone.utc).isoformat(),'installer_exit_code':None,'installed_host_exit_code':None,
-           'host_assertions':0,'host_binary_sha256':sha(host),'ableton_verified':False,
+           'host_assertions':0,'host_binary_sha256':sha(host),'ableton_verified':False,'bat_launcher_verified':False,'bat_launcher_exit_code':None,
            'scope':'Actual packaged Windows installer and installed compiled VST3; no system install or DAW/driver validation'}
     try:
         shell=shutil.which('powershell.exe')
         if not shell:raise ValueError('Builtin Windows PowerShell is required')
         base=temp_base or Path(os.environ.get('RUNNER_TEMP') or tempfile.gettempdir())
         with tempfile.TemporaryDirectory(prefix='flysnapper-install-',dir=base) as temporary:
-            private=Path(temporary);unicode=private/'Olav Lægreid'
+            private=Path(temporary);unicode=private/'Olav Lægreid (test) & routing'
             extracted=unicode/'Utpakket';extracted.mkdir(parents=True)
             with ZipFile(artifact) as archive:
                 archive.extractall(extracted)
@@ -105,6 +113,23 @@ def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host
             proof.update(installed_files_sha256=actual,recovery_files_sha256=saved,unrelated_plugin_preserved=True,
                 extraction_path=str(package),installed_bundle_path=str(installed),recovery_bundle_path=str(recovery),
                 unicode_paths_verified='æ' in str(package) and 'æ' in str(installed))
+            if build.get('version')!='0.2.0':
+                launcher=package/'INSTALL_FLYSNAPPER.bat'
+                command_processor=Path(os.environ.get('SystemRoot','C:/Windows'))/'System32/cmd.exe'
+                if not command_processor.is_file():raise ValueError('Builtin Windows command processor is missing')
+                before={path.resolve() for path in backup.iterdir()} if backup.exists() else set()
+                command_line=launcher_command(command_processor,launcher,target,backup);proof['bat_launcher_command']=command_line;proof['bat_launcher_sha256']=sha(launcher)
+                with launcher_log.open('wb') as log:
+                    result=subprocess.run(command_line,executable=str(command_processor),cwd=package,env=env,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,timeout=180)
+                proof['bat_launcher_exit_code']=result.returncode
+                marker=('Installed Flysnapper '+str(build['version'])+':').encode('ascii')
+                if result.returncode!=0 or marker not in launcher_log.read_bytes():raise ValueError('Actual packaged BAT launcher failed or did not report installation; see installation-launcher.txt')
+                created=[path for path in backup.iterdir() if path.resolve() not in before]
+                if len(created)!=1 or not created[0].is_dir():raise ValueError('BAT replacement did not create exactly one private recovery copy')
+                launcher_recovery=created[0]/'Flysnapper.vst3';launcher_saved=hashes(launcher_recovery)
+                if hashes(installed)!=expected or launcher_saved!=expected:raise ValueError('BAT-installed/recovery payload differs from the package')
+                if (target/'Buffkiller.vst3/installation-control.txt').read_text()!='unrelated installation control':raise ValueError('BAT replacement changed another plugin')
+                proof.update(bat_launcher_verified=True,bat_launcher_marker=marker.decode('ascii'),launcher_recovery_files_sha256=launcher_saved,launcher_recovery_bundle_path=str(launcher_recovery))
             command=[str(host),str(installed)];proof['installed_host_command']=command
             with host_log.open('wb') as log:
                 result=subprocess.run(command,cwd=private,env=env,stdout=log,stderr=subprocess.STDOUT,timeout=300)
@@ -119,6 +144,7 @@ def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host
     finally:
         if ps_log.is_file():proof['powershell_log_sha256']=sha(ps_log)
         if host_log.is_file():proof['host_log_sha256']=sha(host_log)
+        if launcher_log.is_file():proof['launcher_log_sha256']=sha(launcher_log)
         output.write_text(json.dumps(proof,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
     return proof
 

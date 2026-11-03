@@ -1,0 +1,4 @@
+MEASUREMENTS, NOT PRODUCT ACCEPTANCE OR PHYSICAL END-TO-END LATENCY
+20ms minimum useful emitted interval; original PCM waveforms and independent annotations.
+mono: expected=387 matched=387 missed=0 falseOns=72 octaveErrors=0 wrongBeforeCorrect=0 earlyOffs=27 hung=0 overflow=0 deadlineMisses=41 latencyMs[median/p95/p99/max]=43.312500 67.324263 77.968750 77.968750  cpuUs[median/p95/p99/max]=0.891000 59.868000 163.460000 22545.660000 
+poly: expected=108 matched=108 missed=0 falseOns=0 octaveErrors=0 wrongBeforeCorrect=0 earlyOffs=0 hung=0 overflow=0 deadlineMisses=211 latencyMs[median/p95/p99/max]=53.989583 56.645833 56.656250 56.656250  cpuUs[median/p95/p99/max]=0.962000 225.331000 297.176000 26933.392000 

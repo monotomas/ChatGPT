@@ -50,3 +50,32 @@ signaler og faktiske gitaropptak. E2<10 ms og E3<5 ms samlet kjede er brukerens
 mål, ikke en egenskap som kan erklæres fra kompileringssuksess. Dokumenter
 målte avvik i den endelige leveransen; ikke skjul lengre analysevinduer eller
 fjern polyfoni som en umerket produktendring.
+
+## Presisering etter første installasjon
+
+Brukeren har bekreftet at sidechain-audio, MIDI-utgangen og all ruting fungerer
+i Ableton. Behold den samlede instrument-pluginen og vertens eksisterende
+ruting. Dette er brukerens observasjon; det er ikke en automatisert Live-test
+utført i skymiljøet.
+
+Arbeidet med 0.2.1 retter seg mot gitarens dynamikk og klangendringer: raskere
+ansats der observasjonen er entydig, videre tonefølging gjennom avklinging,
+færre falske oktavskifter i begge retninger og ekte monofonisk pitch-bend.
+Genuint nye toner, virkelige oktavskifter, demping, stillhet og støy må fortsatt
+behandles korrekt. En lengre vilkårlig holdetid er ikke en løsning på for
+tidlige Note Off-er. De opprinnelige kvalitetssjekkene beholdes.
+
+Valgfri Mono Bend følger kontinuerlig tonehøyde og vibrato rundt den korrigerte
+ankernoten. Den bruker vanlig MIDI pitch wheel på en reservert kanal 2, slik at
+eksternt spille-MIDI på kanal 1 beholder sine noter og uttrykk. MPE er ikke et
+krav. Valgbart bendområde er +/-2 eller +/-12 halvtoner, med standard MIDI RPN
+for følsomheten; mottakere som ignorerer RPN må bruke samme innstilling manuelt.
+Kanal og område vises i grensesnittet. Når Mono Bend er av, og i Poly, brukes
+fortsatt den eksisterende noteutgangen på kanal 1. Poly har ikke separate
+bendkontrollere per stemme i denne oppdateringen.
+
+Kanaladskillelsen gjelder Flysnappers egen MIDI-strøm. Verten kan slå kanaler
+sammen, og et mottakerinstrument kan bruke pitch wheel globalt for én lyd.
+Uavhengig uttrykk for samtidig keyboard og bøyd audio kan derfor ikke loves
+for en slik mottaker. Dokumenter et eget mottakerspor når denne adskillelsen
+trengs; ikke krev MPE for vanlig monofonisk audio-bend.

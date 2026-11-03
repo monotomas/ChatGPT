@@ -1,0 +1,33 @@
+{
+  "source_commit": "bcd0b202e9b74c58b7c76e8f77abf2c14541df97",
+  "source_sha256": {
+    "Source/Pitch/PitchDetector.cpp": "4cf657611c4fdf48162165a20779c186a26e0d86448da9f62f0046ace62bad63",
+    "Source/Pitch/PitchDetector.h": "9840ce8691895feb59717ac1eb8474326ad2a0d552bb5fea96e3e317e9e03a88",
+    "Source/Pitch/YinEstimator.cpp": "27b7420f64be4fc762dd5486aefdfc4ac00a62e24bea6fd86b177bb39c7ae2f3",
+    "Source/Pitch/YinEstimator.h": "163d96387143f803c9acd58a27cc81e9935ab23a9214f1cfbab7d82ffc432b3a",
+    "Source/Pitch/TimeDomainPursuit.cpp": "0fbbaf0cd5cdc7a8848d025625e6a4f19eede6a4ae101b41093356cda070c5f7",
+    "Source/Pitch/TimeDomainPursuit.h": "16243ad8954321f6e9846a259c1cf1f62defbde3d9300e96101ef8d76c1f1f33"
+  },
+  "evaluator_sha256": "7541c5e8ef174e34bb97f06de4b69bb4a374ad6650d7b0758f19ec0fb0417135",
+  "fixture_seal": "b28b7c7b9ff9b78c569e9279991071e34f18e44471e7d9101e692d24968154c7",
+  "evaluation_role": "initial independent synthetic controls; recorded sources disclosed beforehand",
+  "rows": 55,
+  "files_sha256": {
+    "audio-events.csv": "f7b54389dfaefade786f7c31f7b0d010bf9ccdadc7c4201381421461b50f9b82",
+    "audio-cases.csv": "3a7a7de5aba67758590fbe2c09d24402ad65de66c18c874507ef578c887bcaa5",
+    "audio-summary.txt": "9e0e801847541a87dfdb02f433161216c9d7444f1f66df4f257f0b8070907f39",
+    "guitar-quality-fixed-controls.txt": "2dfbf7fc47026c94db9a2e56d0bedf50217c9e982af888ed7e18b9fb1eacc248",
+    "GuitarQualityTests.cpp": "1041c99ec96f72476aefdb0018c87d85b313c40f22f9b33f93dc3a191f062cf2"
+  },
+  "guitar_quality_test_sha256": "1041c99ec96f72476aefdb0018c87d85b313c40f22f9b33f93dc3a191f062cf2",
+  "guitar_quality_test_baseline": {
+    "status": "failed",
+    "checks": 73981,
+    "failures": 56,
+    "fixed_cases": 51,
+    "block_sizes": [
+      64,
+      257
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "recorded_at_utc": "2026-11-03T23:11:28.822285+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_sha256": {
+    "Source/Pitch/PitchDetector.cpp": "e70cc37f1b344c8dac325364a33e545e7393f3b0d305d526f6d8bb6e3b332a34",
+    "Source/Pitch/PitchDetector.h": "348537d970c7ef15ecefe69400ff39454ef147c19f7d451ae789936d0ca98e55",
+    "Source/Pitch/YinEstimator.cpp": "d364b3182a2fe298f3836b0a9a636c00b7ea8f2ab305627f5a90ee4027d2a90a",
+    "Source/Pitch/YinEstimator.h": "53608218b5cfef4e4bbc7e4c658830adbe2792c97dfc20768f67012bd4cc7b48",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Tools/audio_validation.cpp": "b753df06650a9c19f325ef52da60ecde486ea31dbb1f034d76cc778018eed9c6",
+    "Tests/GuitarQualityTests.cpp": "099c9fe2816cbcb1b9a34d520e6f2bb3f7b1c585a262cb40aea04a956a6f741c"
+  },
+  "binary_sha256": "debd30e05e9991af92e7fd25132b44e525ef4c73271e96772acb4ba6c15fc5c2",
+  "fixtures_sha256": "816faff8b414f579e2b107057113c0c34df8685abfc768d26c978197e6e7d692",
+  "configuration": "quick:48000Hz/64samples",
+  "evaluation_role": "seen-regression",
+  "measurement_not_acceptance": true,
+  "minimum_useful_correct_note_ms": 20,
+  "runner_exit_code": 0,
+  "source_changed_during_measurement": false,
+  "working_tree_source_matches_snapshot_after_measurement": true
+}

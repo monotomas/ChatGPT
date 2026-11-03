@@ -1,0 +1,26 @@
+{
+  "scope": "Constant-settings outputequivalence; automationfixcoveredbyseparateprocessorregression",
+  "datasets": {
+    "public": {
+      "raw_midi_byte_identical": true,
+      "non_cpu_metrics_identical": true,
+      "rows": 81
+    },
+    "holdout": {
+      "raw_midi_byte_identical": true,
+      "non_cpu_metrics_identical": true,
+      "rows": 69
+    },
+    "confirmation": {
+      "raw_midi_byte_identical": true,
+      "non_cpu_metrics_identical": true,
+      "rows": 46
+    },
+    "guitar-full": {
+      "raw_midi_byte_identical": true,
+      "non_cpu_metrics_identical": true,
+      "rows": 495
+    }
+  },
+  "guitar_quality_stdout_identical": true
+}

@@ -4,6 +4,7 @@
 param(
     [string]$Destination,
     [string]$PackageRoot = $PSScriptRoot,
+    [string]$BackupDirectory = '',
     [switch]$NoUI,
     [switch]$VerifyOnly,
     [switch]$LibraryOnly
@@ -230,12 +231,13 @@ try {
         $Destination = Select-FlysnapperDestination
         if ([string]::IsNullOrWhiteSpace($Destination)) { Write-Host 'Installation cancelled; no files changed.'; exit 2 }
     }
-    try { $result = Install-FlysnapperPackage $PackageRoot $Destination }
+    try { $result = Install-FlysnapperPackage $PackageRoot $Destination $BackupDirectory }
     catch {
         $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
         $principal = New-Object Security.Principal.WindowsPrincipal($identity)
         if (-not $NoUI -and (Test-FlysnapperAccessDenied $_) -and -not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
             $arguments = @('-NoLogo','-NoProfile','-ExecutionPolicy','Bypass','-STA','-File',('"' + $PSCommandPath + '"'),'-PackageRoot',('"' + $verified.Root + '"'),'-Destination',('"' + (Get-FlysnapperFullPath $Destination) + '"'))
+            if (-not [string]::IsNullOrEmpty($BackupDirectory)) { $arguments += @('-BackupDirectory',('"' + (Get-FlysnapperFullPath $BackupDirectory) + '"')) }
             $process = Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList $arguments -Verb RunAs -Wait -PassThru
             exit $process.ExitCode
         }

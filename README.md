@@ -1,4 +1,4 @@
-# Flysnapper 0.2.0
+# Flysnapper 0.2.1
 
 Flysnapper er en Windows x64 VST3 med to moduler: audio til MIDI med mono-/polyvalg,
 og MIDI-korreksjon til akkordtoner, akkordstyrt skala eller fast skala. Sidechain
@@ -20,9 +20,10 @@ sluttbrukeren trenger ikke bygge pluginen.
 ## Bruk
 
 1. Legg Flysnapper som instrument på et MIDI-spor.
-2. Velg audio-kilden i vertens eget sidechain-panel. Slå på Pitch to MIDI og
-   velg Mono eller Poly. Input threshold bestemmer hvilke svake lyder som
-   avvises; Sensitivity styrer hvor lett svake tonekandidater godtas; Release
+2. Velg audio-kilden i vertens eget sidechain-panel. Slå på `Audio to MIDI` og
+   velg Mono eller Poly. New note threshold setter minste nivå for nye noter;
+   holdte noter kan ringe svakere ut mens periodisk toneinformasjon består.
+   Sensitivity styrer hvor lett svake tonekandidater godtas; Release
    bestemmer hvor lenge en mistet tone får fortsette før Note Off.
 3. Eksternt keyboard-/track-MIDI kan samtidig gå inn som vanlig spille-MIDI.
    Både dette og detekterte noter bruker samme korreksjonsmodul.
@@ -34,9 +35,27 @@ sluttbrukeren trenger ikke bygge pluginen.
 6. På mottakersporet velges Flysnapper-pluginens MIDI-utgang som MIDI From.
    Et mottakerinstrument produserer lyden. Flysnapper har selv stille audio-utgang.
 
+`Audio / MIDI routing` viser rutingen i pluginvinduet. Selve audio-kilden og
+MIDI-mottakeren velges i verten: audio i Abletons Sidechain-panel utenfor
+pluginvinduet, og MIDI via begge `MIDI From`-feltene på mottakersporet. Velg
+Flysnapper-pluginen i det nederste feltet, og sett mottakerens monitorering til `In`.
+
+`Mono pitch bend` følger kontinuerlige bend og vibrato i monofonisk modus.
+Valget er av som standard. Når det er på, bruker audio-genererte noter og
+pitch-wheel **kanal 2** ved Flysnappers MIDI-utgang. Eksternt spille-MIDI på
+kanal 1 beholder sine meldinger der.
+Velg bøyeområde ±2 eller ±12 halvtoner. Mottakerinstrumentet må motta kanal 2
+(eller alle kanaler) og bruke samme område. Flysnapper sender standard MIDI RPN
+for området; instrumenter som ikke følger denne meldingen, stilles manuelt.
+Poly og vanlig mono uten bend bruker fortsatt kanal 1. Én audio-stemme med bend
+trenger ikke MPE.
+Videre ruting i verten eller et instrument med felles pitch wheel kan likevel
+slå uttrykket sammen. For uavhengige keyboard- og audio-stemmer brukes et eget
+instrument til keyboardet og en mottaker som bare spiller audio-notene.
+
 Fabrikkoppsettet er Fixed Scale/Chromatic: nye noter går gjennom uten
 halvtonekorreksjon inntil annen modus velges. Slå av Correction for ren
-Pitch-to-MIDI eller vanlig MIDI-gjennomgang. Slå av Pitch to MIDI for bare
+Pitch-to-MIDI eller vanlig MIDI-gjennomgang. Slå av `Audio to MIDI` for bare
 keyboard-korreksjon. MPE må være av; kanal 16 er reservert for akkordkontroll.
 
 Noter som holdes i akkordsporet, følger med gjennom neste akkordskifte. Holdte

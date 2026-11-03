@@ -1,0 +1,36 @@
+{
+  "scope": "107 known mono references at48kHz/64samples; exactper-note before/after, no physical latency",
+  "notes": 107,
+  "changed_notes": [
+    {
+      "dataset": "public",
+      "case": "recorded_B3_mono",
+      "note": 59,
+      "truth_on_sample": 3111,
+      "source19_ms": 73.83333333333333,
+      "update21_ms": 71.16666666666667,
+      "change_ms": -2.666666666666657
+    },
+    {
+      "dataset": "holdout",
+      "case": "hidden_recorded_10_mono",
+      "note": 54,
+      "truth_on_sample": 2400,
+      "source19_ms": 56.645833333333336,
+      "update21_ms": 51.3125,
+      "change_ms": -5.333333333333336
+    },
+    {
+      "dataset": "confirmation",
+      "case": "confirm_articulation_03_mono",
+      "note": 64,
+      "truth_on_sample": 23520,
+      "source19_ms": 16.645833333333332,
+      "update21_ms": 19.3125,
+      "change_ms": 2.666666666666668
+    }
+  ],
+  "faster": 2,
+  "slower": 1,
+  "unchanged": 104
+}

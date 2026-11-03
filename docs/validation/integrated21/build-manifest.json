@@ -1,0 +1,30 @@
+{
+  "version": "0.2.1",
+  "stage": "integrated-audio-midi",
+  "builder_revision": "2026.11.03-guitar-bend-0.2.1",
+  "platform": "Linux-x86_64",
+  "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
+  "built_at": "2026-11-03T23:19:57.724089+00:00",
+  "python": "3.12.14",
+  "source_commit": null,
+  "vst3_sha256": "f7f42173cc53d6380d9b00c9cf3798f41d8e975c36a7c259902a816e9f313944",
+  "bundle_sha256": {
+    "Contents/Resources/moduleinfo.json": "e620aa70ca2b5b0b94cc80f61878b925319c71b2f7800748e4800f80b60500d4",
+    "Contents/x86_64-linux/Flysnapper.so": "f7f42173cc53d6380d9b00c9cf3798f41d8e975c36a7c259902a816e9f313944"
+  },
+  "tests": "passed",
+  "required_test_names": [
+    "FlysnapperActualVst3",
+    "FlysnapperAudioQuality",
+    "FlysnapperBendProcessor",
+    "FlysnapperCore",
+    "FlysnapperGuitarQuality",
+    "FlysnapperPitch",
+    "FlysnapperPluginSmoke",
+    "FlysnapperProcessorAudio",
+    "FlysnapperYin"
+  ],
+  "ableton_verified": false,
+  "pitch_detection_implemented": true,
+  "windows_verified": false
+}

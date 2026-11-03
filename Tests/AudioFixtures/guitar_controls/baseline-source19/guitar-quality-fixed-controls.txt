@@ -1,0 +1,110 @@
+case,note,first_correct_ms,release_after_source_ms
+decay_40_normal_mono,40,45.979,-201.354
+FAIL decay_40_normal_mono premature NoteOff before physical damping
+decay_40_normal_poly,40,53.979,-260.021
+FAIL decay_40_normal_poly premature NoteOff before physical damping
+decay_40_quiet_mono,40,35.312,-700.021
+FAIL decay_40_quiet_mono premature NoteOff before physical damping
+decay_40_quiet_poly,40,56.646,-761.354
+FAIL decay_40_quiet_poly premature NoteOff before physical damping
+decay_52_normal_mono,52,48.646,-260.021
+FAIL decay_52_normal_mono premature NoteOff before physical damping
+decay_52_quiet_mono,52,48.646,-745.354
+FAIL decay_52_quiet_mono premature NoteOff before physical damping
+decay_57_normal_mono,57,27.312,-188.021
+FAIL decay_57_normal_mono premature NoteOff before physical damping
+decay_57_quiet_mono,57,27.312,-710.688
+FAIL decay_57_quiet_mono premature NoteOff before physical damping
+decay_64_normal_mono,64,40.646,-260.021
+FAIL decay_64_normal_mono premature NoteOff before physical damping
+decay_64_normal_poly,64,53.979,-260.021
+FAIL decay_64_normal_poly premature NoteOff before physical damping
+decay_64_quiet_mono,64,37.979,-758.688
+FAIL decay_64_quiet_mono premature NoteOff before physical damping
+decay_64_quiet_poly,64,53.979,-758.688
+FAIL decay_64_quiet_poly premature NoteOff before physical damping
+decay_76_normal_mono,76,21.979,-273.354
+FAIL decay_76_normal_mono premature NoteOff before physical damping
+decay_76_quiet_mono,76,21.979,-780.021
+FAIL decay_76_quiet_mono premature NoteOff before physical damping
+FAIL timbre_40_mono extra/missing/retriggered NoteOn:expected=1 actual=2
+timbre_40_mono,40,29.979,-590.688
+FAIL timbre_40_mono premature NoteOff before physical damping
+FAIL timbre_40_mono false note52
+FAIL timbre_40_poly extra/missing/retriggered NoteOn:expected=1 actual=2
+timbre_40_poly,40,53.979,-497.354
+FAIL timbre_40_poly premature NoteOff before physical damping
+FAIL timbre_40_poly false note52
+FAIL timbre_52_mono extra/missing/retriggered NoteOn:expected=1 actual=2
+timbre_52_mono,52,43.312,-598.688
+FAIL timbre_52_mono premature NoteOff before physical damping
+FAIL timbre_52_mono false note64
+FAIL timbre_52_poly extra/missing/retriggered NoteOn:expected=1 actual=2
+timbre_52_poly,52,53.979,-492.021
+FAIL timbre_52_poly premature NoteOff before physical damping
+FAIL timbre_52_poly false note64
+FAIL timbre_64_mono extra/missing/retriggered NoteOn:expected=1 actual=2
+timbre_64_mono,64,40.646,-622.688
+FAIL timbre_64_mono premature NoteOff before physical damping
+FAIL timbre_64_mono false note76
+FAIL timbre_64_poly extra/missing/retriggered NoteOn:expected=1 actual=2
+timbre_64_poly,64,53.979,-489.354
+FAIL timbre_64_poly premature NoteOff before physical damping
+FAIL timbre_64_poly false note76
+FAIL timbre_76_mono extra/missing/retriggered NoteOn:expected=1 actual=2
+timbre_76_mono,76,21.979,-636.021
+FAIL timbre_76_mono premature NoteOff before physical damping
+FAIL timbre_76_mono false note88
+FAIL timbre_76_poly extra/missing/retriggered NoteOn:expected=1 actual=2
+timbre_76_poly,76,53.979,-524.021
+FAIL timbre_76_poly premature NoteOff before physical damping
+FAIL timbre_76_poly false note88
+FAIL stiff_40_mono extra/missing/retriggered NoteOn:expected=1 actual=2
+stiff_40_mono,40,48.646,-590.688
+FAIL stiff_40_mono premature NoteOff before physical damping
+FAIL stiff_40_mono false note52
+FAIL stiff_40_poly extra/missing/retriggered NoteOn:expected=1 actual=2
+stiff_40_poly,40,53.979,-494.688
+FAIL stiff_40_poly premature NoteOff before physical damping
+FAIL stiff_40_poly false note52
+FAIL stiff_52_mono extra/missing/retriggered NoteOn:expected=1 actual=2
+stiff_52_mono,52,48.646,-598.688
+FAIL stiff_52_mono premature NoteOff before physical damping
+FAIL stiff_52_mono false note64
+FAIL stiff_52_poly extra/missing/retriggered NoteOn:expected=1 actual=2
+stiff_52_poly,52,53.979,-489.354
+FAIL stiff_52_poly premature NoteOff before physical damping
+FAIL stiff_52_poly false note64
+FAIL stiff_64_mono extra/missing/retriggered NoteOn:expected=1 actual=2
+stiff_64_mono,64,32.646,-625.354
+FAIL stiff_64_mono premature NoteOff before physical damping
+FAIL stiff_64_mono false note76
+FAIL stiff_64_poly extra/missing/retriggered NoteOn:expected=1 actual=2
+stiff_64_poly,64,53.979,-489.354
+FAIL stiff_64_poly premature NoteOff before physical damping
+FAIL stiff_64_poly false note76
+level_40_03_mono,40,35.312,34.646
+level_40_09_mono,40,37.979,34.646
+level_40_27_mono,40,37.979,34.646
+level_52_03_mono,52,48.646,34.646
+level_52_09_mono,52,48.646,34.646
+level_52_27_mono,52,48.646,34.646
+level_64_03_mono,64,40.646,34.646
+level_64_09_mono,64,40.646,34.646
+level_64_27_mono,64,40.646,34.646
+true_octave_down_mono,52,45.979,29.979
+true_octave_down_mono,40,29.979,35.312
+true_octave_up_mono,52,45.979,35.312
+true_octave_up_mono,64,35.312,35.312
+damp_then_noise_mono,52,40.646,33.312
+damp_then_noise_poly,52,53.979,33.312
+recorded_acoustic_E2_minus00_mono,40,59.396,34.646
+recorded_acoustic_E2_minus12_mono,40,59.396,34.646
+recorded_acoustic_G3_minus00_mono,55,58.917,34.646
+recorded_acoustic_G3_minus12_mono,55,58.917,31.979
+recorded_electric_Fs3_minus00_mono,54,77.958,34.646
+recorded_electric_Fs3_minus12_mono,54,77.958,34.646
+recorded_nylon_Cs3_minus00_mono,49,67.312,34.646
+recorded_nylon_Cs3_minus12_mono,49,67.312,34.646
+FlysnapperGuitarQuality:FAIL (73981 checks,51 fixed-note cases x2 block sizes;56 failures).
+Observed functional detector timing only; not physical5/10ms live latency certification. Continuous bend uses a separate mandatory processor test.

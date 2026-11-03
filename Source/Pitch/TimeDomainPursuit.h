@@ -42,7 +42,9 @@ public:
     // A model normally requires a meaningful fundamental coefficient. Strong
     // octave-envelope evidence plus independent upper partials can support a
     // shared fundamental. Neither rule guarantees arbitrary octave separation
-    // or reconstruction of a wholly missing fundamental.
+    // or reconstruction of a wholly missing fundamental. A single held source
+    // may retain a weak root through an octave-up periodicity hint only with
+    // an observed root and independent odd-partial support.
     void analyse(const float* wave,int count,std::array<float,noteCount>& strength,
                  std::array<float,noteCount>& confidence,int maxVoices=6,float sensitivity=.65f,const SpectralEvidence* evidence=nullptr) noexcept;
 private:

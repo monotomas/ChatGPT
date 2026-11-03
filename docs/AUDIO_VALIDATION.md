@@ -125,9 +125,9 @@ sources, and every score was independently recomputed from emitted MIDI.
 Later corrections use this disclosed set as seen-data regression; the first
 blind result and its input audit remain unchanged.
 
-## Final source-19 known-data observations
+## Delivered 0.2.0 source-19 known-data observations
 
-At 48 kHz / 64 samples, the final frozen implementation matches all **107 mono
+At 48 kHz / 64 samples, the delivered 0.2.0 implementation matches all **107 mono
 reference notes** across the public development corpus and both disclosed
 confirmation corpora, with no extra notes, wrong initial notes, octave errors,
 early releases, hanging voices or output overflow in those mono cases.
@@ -149,7 +149,7 @@ The remaining failures concern overlapping octave/harmonic voices, weak voices,
 and false additional pitches on some recorded single-note inputs. Poly mode
 must not be described as error-free or as having universal six-string accuracy.
 
-Final observed mono first-correct-useful response is about 43–49 ms median across
+For 0.2.0, observed mono first-correct-useful response is about 43–49 ms median across
 the three corpora, with a largest observed value of 96.604 ms in these 48 kHz
 runs. The poly development corpus still contains late acquisitions up to about
 549.6 ms. The first-holdout poly median/P95/maximum is
@@ -168,6 +168,82 @@ well. CPU timing remains separately reported with all scheduler outliers and
 callback deadline misses; these checks do not provide a general realtime deadline
 guarantee. Actual Windows matrix/installer results must be read from the specific
 installation package's `Validation` evidence, not inferred from a Linux run.
+
+## 0.2.1 guitar behaviour update
+
+The user's subsequent Live report confirmed that audio/MIDI routing works and
+identified early releases on decaying guitar notes, changing-timbre/octave
+errors and missing continuous bend. The added controls in
+`Tests/AudioFixtures/guitar_controls` were generated without detector output,
+sealed before their first source-19 measurement, then disclosed to the DSP
+implementation owners. They are now **seen regression data**. The original
+failing baseline and its source/evaluator hashes remain unchanged in that
+folder's `baseline-source19` directory. The earlier blind 14/16 evidence also
+remains unchanged.
+
+At 48 kHz / 64 samples, the 51 new fixed-note case/mode combinations give:
+
+| Mode | Matched/reference, 0.2.0 → 0.2.1 | False octave NoteOns, 0.2.0 → 0.2.1 | Premature releases, 0.2.0 → 0.2.1 |
+| --- | ---: | ---: | ---: |
+| Mono |39/39 → 39/39 | 7 → 0 | 17 → 0 |
+| Poly on these controlled single-note inputs |12/12 → 12/12 | 7 → 0 | 11 → 0 |
+
+All 14 dynamic-decay cases now retain their periodic low-level tails until the
+controlled damping. Negative noise and damping-then-noise cases still release,
+and separately articulated genuine octave changes remain recognized. The
+full 44.1/48/96 kHz × 32/64/128-sample matrix has 459 fixed-note rows: 459/459
+references matched with no extra/missing notes, octave errors, premature
+releases, hanging voices or output overflow. These results concern the new
+controlled inputs; the poly row does not establish arbitrary multi-string
+transcription. Eight extended recorded-tail cases reuse four previously
+disclosed guitar recordings and passed already in 0.2.0. The new improvement
+evidence therefore comes from the controlled decay/timbre/inharmonic cases,
+not a newly unseen collection of recorded performances.
+
+The reproduced octave failures in the new baseline were **one octave upward**.
+The specifically downward octave glitches reported by the user have not been
+reproduced on these inputs. The implementation guards octave continuity, but
+this evidence cannot establish that the user's exact downward failure is fixed.
+
+With mono bend explicitly enabled, four independent phase-continuous,
+20-harmonic guitar-like controls retain one anchored NoteOn/Off. Both 2- and
+12-semitone ranges and 64/257-sample blocks pass with identical note and pitch
+decisions. Direct-detector absolute pitch errors in cents are:
+
+| Curve | P95 | Maximum |
+| --- | ---: | ---: |
+| Whole-step bend and return | 6.401 | 6.842 |
+| Semitone bend and return | 4.023 | 4.211 |
+| 5.5 Hz vibrato | 9.710 | 10.150 |
+| Fast 80 ms whole-step bend | 18.535 | 25.828 |
+
+The predeclared limits were 35 cents P95, 75 cents maximum dynamic error and 20
+cents maximum on settled segments; actual settled maxima are below 1.52 cents.
+There are no post-damping pitch changes beyond the separate 35-cent release-tail
+guard. These are synthetic pitch curves, not recorded/live guitar bends. The
+mandatory `FlysnapperGuitarQuality` test passes 93,927 checks; the separate
+`FlysnapperBendProcessor` and actual-VST3 tests check delivery through the
+processor/plugin as MIDI pitchwheel/range/channel messages. Default-bend-off
+native-evaluator rows for those four curves are retained as fixed-note
+diagnostics and are not presented as enabled-bend accuracy.
+
+Latency improvement is limited. Independent pairing of **each of the 107 old
+mono reference notes**, rather than only case medians, gives the same
+45.979/74.229/96.604 ms median/P95/maximum as 0.2.0. Two individual notes improve
+by 2.667/5.333 ms, one quieter re-pick is 2.667 ms slower, and 104 are unchanged.
+Both 5/10 ms physical latency goals remain unverified and are exceeded by many
+detector responses. The broad old poly results also remain 163/180 matched,
+17 missed, 20 extra NoteOns and three early releases. This update must not be
+described as a general low-latency or error-free guitar-transcription solution.
+
+Fresh reviewed-source proof is retained under `validation/audio-update21`:
+196 old known-data rows, 495 new rate/block rows, independent raw-MIDI scoring,
+the 107 per-note timing comparison and full enabled-bend test output. Exact
+source/executable hashes identify the isolated reviewed snapshot. All 691 raw
+event streams and non-CPU outcomes match the saved pre-automation-review
+candidate; the final configuration change is separately covered by processor
+automation regressions. CPU measurements retain their observed VM/scheduler
+outliers and establish no physical Live or realtime deadline guarantee.
 
 ## Reproducible evaluator
 

@@ -16,7 +16,7 @@ def redact(text: str) -> str:
     text=re.sub(r'(https?://)[^/@\s]+:[^/@\s]+@',r'\1[REDACTED]@',text)
     return text
 
-def installed_package_proof(path: Path | None,source: str,artifact_sha: str,build: dict):
+def installed_package_proof(path: Path | None,source: str,artifact_sha: str,build: dict,launcher_sha: str | None = None):
     if path is None or not path.is_file():raise ValueError('Actual Windows installation validation proof is missing')
     proof=json.loads(path.read_text(encoding='utf-8'))
     if proof.get('schema')!=1 or proof.get('status')!='passed' or proof.get('execution_platform')!='Windows':
@@ -29,11 +29,25 @@ def installed_package_proof(path: Path | None,source: str,artifact_sha: str,buil
         raise ValueError('Installed/recovery bundle hashes differ from the Windows build')
     if proof.get('unicode_paths_verified') is not True or proof.get('unrelated_plugin_preserved') is not True:
         raise ValueError('Installation isolation and Unicode checks are incomplete')
+    launcher_required=build.get('version')!='0.2.0' or proof.get('bat_launcher_verified') is True
+    logs=[('installation-powershell.txt','powershell_log_sha256'),('installed-vst3-host.txt','host_log_sha256')]
+    if launcher_required:
+        if proof.get('bat_launcher_verified') is not True or proof.get('bat_launcher_exit_code')!=0:
+            raise ValueError('Actual packaged BAT launcher did not pass')
+        recorded_sha=proof.get('bat_launcher_sha256')
+        if not isinstance(recorded_sha,str) or not re.fullmatch('[0-9a-f]{64}',recorded_sha) or launcher_sha is not None and recorded_sha!=launcher_sha:
+            raise ValueError('BAT launcher hash differs from the verified package')
+        marker='Installed Flysnapper '+str(build.get('version'))+':'
+        if proof.get('bat_launcher_marker')!=marker or proof.get('launcher_recovery_files_sha256')!=build.get('bundle_sha256'):
+            raise ValueError('BAT replacement/recovery proof is incomplete')
+        logs.append(('installation-launcher.txt','launcher_log_sha256'))
     members={'validation/windows-installation.json':path.read_bytes()}
-    for filename,key in (('installation-powershell.txt','powershell_log_sha256'),('installed-vst3-host.txt','host_log_sha256')):
+    for filename,key in logs:
         log=path.parent/filename
         if not log.is_file() or hashlib.sha256(log.read_bytes()).hexdigest()!=proof.get(key):raise ValueError('Installed-module verification log is missing or changed')
         members['validation/'+filename]=log.read_bytes()
+    if launcher_required and marker.encode('ascii') not in (path.parent/'installation-launcher.txt').read_bytes():
+        raise ValueError('BAT launcher completion marker is missing')
     text=(path.parent/'installed-vst3-host.txt').read_text(encoding='utf-8',errors='replace')
     count=re.search(r'RESULT actual VST3 host tests passed \((\d+) assertions\)\.',text)
     if not count or int(count.group(1))!=proof['host_assertions'] or 'PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.' not in text:
@@ -62,7 +76,7 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
         name=f'validation/windows-installation-failed-{source}.json'
         members[name]=installation_proof.read_bytes()
         status['installation_validation']={'path':name,'status':'failed'}
-        for filename in ('installation-powershell.txt','installed-vst3-host.txt'):
+        for filename in ('installation-powershell.txt','installed-vst3-host.txt','installation-launcher.txt'):
             diagnostic=installation_proof.parent/filename
             if diagnostic.is_file():
                 contents=redact(diagnostic.read_text(encoding='utf-8',errors='replace'))
@@ -80,9 +94,10 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
             embedded=json.loads(archive.read(prefix+'Validation/build-manifest.json'))
             if embedded!=build or archive.read(prefix+'Validation/test-results.xml')!=report.read_bytes():
                 raise ValueError('External CI proof differs from packaged proof')
+            launcher_sha=hashlib.sha256(archive.read(prefix+'INSTALL_FLYSNAPPER.bat')).hexdigest()
         name='downloads/Flysnapper-Windows-x64.zip';data=artifact.read_bytes();members[name]=data
         digest=hashlib.sha256(data).hexdigest()
-        members.update(installed_package_proof(installation_proof,source,digest,build))
+        members.update(installed_package_proof(installation_proof,source,digest,build,launcher_sha))
         status['installation_validation']={'path':'validation/windows-installation.json','sha256':hashlib.sha256(installation_proof.read_bytes()).hexdigest()}
         members['downloads/SHA256SUMS.txt']=f'{digest}  Flysnapper-Windows-x64.zip\n'.encode()
         status['artifact']={'path':name,'sha256':digest,'bytes':len(data)}

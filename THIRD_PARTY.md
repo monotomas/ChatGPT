@@ -1,6 +1,6 @@
 # Third-party notices
 
-Flysnapper 0.2.0 contains audio-to-MIDI detection and MIDI correction. The complete
+Flysnapper 0.2.1 contains audio-to-MIDI detection and MIDI correction. The complete
 GNU Affero General Public License v3 is in `LICENSE.txt`. Project sources use
 AGPL-3.0-or-later. A Windows installation package includes corresponding project
 source under `Source/Flysnapper-Source.zip` and a lock for the JUCE dependency.

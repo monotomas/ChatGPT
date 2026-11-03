@@ -31,7 +31,7 @@ class WindowsPackageTests(unittest.TestCase):
         p=self.bundle/shipping.BINARY;p.parent.mkdir(parents=True)
         pe=bytearray(512);pe[:2]=b'MZ';pe[60:64]=(128).to_bytes(4,'little');pe[128:134]=b'PE\0\0\x64\x86';p.write_bytes(pe)
         (self.bundle/'Contents/Resources').mkdir();(self.bundle/'Contents/Resources/moduleinfo.json').write_text('{}')
-        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperYin','FlysnapperAudioQuality']
+        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperYin','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperAudioQuality']
         self.manifest={'version':'1.0.0','stage':'complete','platform':'Windows-x64','tests':'passed','windows_verified':True,
                        'toolchain_probe':'passed','juceaide_unicode_probe':'passed','pitch_detection_implemented':True,
                        'required_test_names':self.required,'bundle_sha256':{n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(self.bundle).items()},
@@ -124,6 +124,10 @@ class WindowsPackageTests(unittest.TestCase):
                         '<testcase name="FlysnapperAudioQuality" status="disabled"/>'):
             self.report=''.join(f'<testcase name="{n}"/>' for n in self.required[:-1])+content;self.save_report()
             with self.assertRaises(ValueError):self.package()
+    def test_old_seven_group_proof_cannot_ship_the_guitar_bend_update(self):
+        self.manifest['required_test_names']=[name for name in self.required if name not in ('FlysnapperGuitarQuality','FlysnapperBendProcessor')]
+        self.save_manifest()
+        with self.assertRaisesRegex(ValueError,'required validation'):self.package()
     def test_tampered_or_extra_binary_bundle_file_blocks_package(self):
         (self.bundle/shipping.BINARY).write_bytes(b'tampered')
         with self.assertRaises(ValueError):self.package()
@@ -216,11 +220,15 @@ class WindowsPackageTests(unittest.TestCase):
     def installation_proof(self,commit):
         ps_log=self.base/'installation-powershell.txt';ps_log.write_text('fixture PS transaction result, not actual Windows proof')
         host_log=self.base/'installed-vst3-host.txt';host_log.write_text('RESULT actual VST3 host tests passed (123 assertions).\nPLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.\n')
+        launcher_log=self.base/'installation-launcher.txt';marker=f'Installed Flysnapper {self.manifest["version"]}:';launcher_log.write_text(marker+' fixture destination\n')
         proof={'schema':1,'status':'passed','execution_platform':'Windows','source_commit':commit,
                'artifact_sha256':hashlib.sha256(self.output.read_bytes()).hexdigest(),'installer_exit_code':0,
                'installed_host_exit_code':0,'host_assertions':123,'installed_files_sha256':self.manifest['bundle_sha256'],
                'recovery_files_sha256':self.manifest['bundle_sha256'],'unicode_paths_verified':True,'unrelated_plugin_preserved':True,
-               'powershell_log_sha256':hashlib.sha256(ps_log.read_bytes()).hexdigest(),'host_log_sha256':hashlib.sha256(host_log.read_bytes()).hexdigest()}
+               'powershell_log_sha256':hashlib.sha256(ps_log.read_bytes()).hexdigest(),'host_log_sha256':hashlib.sha256(host_log.read_bytes()).hexdigest(),
+               'bat_launcher_verified':True,'bat_launcher_exit_code':0,'bat_launcher_marker':marker,
+               'bat_launcher_sha256':hashlib.sha256((self.root/'INSTALL_FLYSNAPPER.bat').read_bytes()).hexdigest(),
+               'launcher_recovery_files_sha256':self.manifest['bundle_sha256'],'launcher_log_sha256':hashlib.sha256(launcher_log.read_bytes()).hexdigest()}
         path=self.base/'installation-validation.json';path.write_text(json.dumps(proof));return path
     def test_installed_module_proof_is_mandatory_and_bound_to_exact_zip_and_source(self):
         self.package();proof=self.installation_proof('a'*40)
@@ -228,15 +236,55 @@ class WindowsPackageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'missing'):publisher.installed_package_proof(None,'a'*40,'0'*64,self.manifest)
         with self.assertRaisesRegex(ValueError,'different source or ZIP'):publisher.installed_package_proof(proof,'b'*40,'0'*64,self.manifest)
         original=json.loads(proof.read_text())
-        for key,value in [('installer_exit_code',1),('installed_host_exit_code',1),('host_assertions',0),('unicode_paths_verified',False)]:
+        for key,value in [('installer_exit_code',1),('installed_host_exit_code',1),('host_assertions',0),('unicode_paths_verified',False),('bat_launcher_verified',False),('bat_launcher_exit_code',1),('launcher_recovery_files_sha256',{})]:
             document=original.copy();document[key]=value;proof.write_text(json.dumps(document))
             with self.subTest(key=key),self.assertRaises(ValueError):publisher.installed_package_proof(proof,'a'*40,hashlib.sha256(self.output.read_bytes()).hexdigest(),self.manifest)
         document=original.copy();document['execution_platform']='Linux';proof.write_text(json.dumps(document))
         with self.assertRaisesRegex(ValueError,'did not pass'):publisher.installed_package_proof(proof,'a'*40,'0'*64,self.manifest)
+    def test_legacy_020_install_proof_remains_valid_without_bat_claim(self):
+        self.package();proof=self.installation_proof('a'*40);document=json.loads(proof.read_text())
+        for key in list(document):
+            if key.startswith('bat_launcher') or key.startswith('launcher_'):document.pop(key)
+        proof.write_text(json.dumps(document));build={**self.manifest,'version':'0.2.0'}
+        publisher.installed_package_proof(proof,'a'*40,hashlib.sha256(self.output.read_bytes()).hexdigest(),build)
+    def test_cmd_launcher_quotes_unicode_and_shell_metacharacters(self):
+        cmd=Path('C:/Windows/System32/cmd.exe');bat=Path('D:/Olav Lægreid (test) & routing/INSTALL_FLYSNAPPER.bat');dest=Path('D:/Separate VST3 (test) & routing');backup=Path('D:/Recovery outside scan')
+        command=installed_verifier.launcher_command(cmd,bat,dest,backup)
+        self.assertEqual(command,f'"{cmd}" /d /s /c ""{bat}" -NoUI -Destination "{dest}" -BackupDirectory "{backup}""')
+        with self.assertRaises(ValueError):installed_verifier.launcher_command(cmd,Path('D:/bad"name.bat'),dest,backup)
+    def test_packaged_bat_launcher_native_windows_fixture_transaction(self):
+        if os.name!='nt':self.skipTest('The actual BAT command processor is exercised on native Windows CI')
+        package=self.extract();destination=self.base/'Olav Lægreid (test) & routing/Separate VST3';backup=self.base/'Olav Lægreid (test) & routing/Recovery outside scan'
+        cmd=Path(os.environ.get('SystemRoot','C:/Windows'))/'System32/cmd.exe'
+        command=installed_verifier.launcher_command(cmd,package/'INSTALL_FLYSNAPPER.bat',destination,backup)
+        # Real BAT/PS5 entry points, with deliberately fake PE fixture bytes.
+        # Actual compiled DLL loading remains the post-build installation gate.
+        for _ in range(2):
+            result=subprocess.run(command,executable=str(cmd),cwd=package,stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=120)
+            self.assertEqual(result.returncode,0,result.stdout.decode('utf-8',errors='replace'))
+            self.assertIn(b'Installed Flysnapper 1.0.0:',result.stdout)
+            self.assertEqual({n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(destination/'Flysnapper.vst3').items()},self.manifest['bundle_sha256'])
+        copies=list(backup.glob('*/Flysnapper.vst3'));self.assertEqual(len(copies),1)
+        self.assertEqual({n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(copies[0]).items()},self.manifest['bundle_sha256'])
+    def test_packaged_ps_entrypoint_accepts_private_recovery_directory(self):
+        shell=shutil.which('powershell.exe') if os.name=='nt' else shutil.which('pwsh')
+        portable=Path('/workspace/.flysnapper-tools/powershell/pwsh')
+        if not shell and portable.is_file():shell=str(portable)
+        if not shell:self.skipTest('PowerShell unavailable; native Windows CI runs this entrypoint')
+        package=self.extract();destination=self.base/'Olav Lægreid (test) & routing/Separate VST3';backup=self.base/'Olav Lægreid (test) & routing/Recovery outside scan'
+        env=os.environ.copy()
+        if os.name!='nt':env.update(XDG_CACHE_HOME=str(self.base/'xdg-cache'),XDG_CONFIG_HOME=str(self.base/'xdg-config'),XDG_DATA_HOME=str(self.base/'xdg-data'))
+        command=[shell,'-NoLogo','-NoProfile','-ExecutionPolicy','Bypass']+(['-STA'] if os.name=='nt' else [])+['-File',str(package/'Install-Flysnapper.ps1'),'-NoUI','-Destination',str(destination),'-BackupDirectory',str(backup)]
+        for _ in range(2):
+            result=subprocess.run(command,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=120)
+            self.assertEqual(result.returncode,0,result.stdout.decode('utf-8',errors='replace'))
+        copies=list(backup.glob('*/Flysnapper.vst3'));self.assertEqual(len(copies),1)
+        self.assertEqual({n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(copies[0]).items()},self.manifest['bundle_sha256'])
     def test_installed_module_host_must_execute_nonzero_tests_on_windows(self):
-        good='RESULT actual VST3 host tests passed (197218 assertions).\nPLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.'
-        self.assertEqual(installed_verifier.passed_host_output(good,0),197218)
-        for text,code in [(good,1),('',0),(good.replace('197218','0'),0),(good.replace('Windows x64','native Linux'),0)]:
+        for assertions in (1,271828):
+            good=f'RESULT actual VST3 host tests passed ({assertions} assertions).\nPLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.'
+            self.assertEqual(installed_verifier.passed_host_output(good,0),assertions)
+        for text,code in [(good,1),('',0),(good.replace(str(assertions),'0'),0),(good.replace('Windows x64','native Linux'),0)]:
             with self.assertRaises(ValueError):installed_verifier.passed_host_output(text,code)
     def test_host_discovery_refuses_stale_or_ambiguous_builds(self):
         with self.assertRaises(ValueError):installed_verifier.find_host(self.root)

@@ -1,0 +1,94 @@
+case,note,first_correct_ms,release_after_source_ms
+decay_40_normal_mono,40,45.979,35.979
+decay_40_normal_poly,40,53.979,35.979
+decay_40_quiet_mono,40,35.312,35.979
+decay_40_quiet_poly,40,56.646,35.979
+decay_52_normal_mono,52,48.646,35.979
+decay_52_quiet_mono,52,48.646,35.979
+decay_57_normal_mono,57,27.312,35.979
+decay_57_quiet_mono,57,27.312,35.979
+decay_64_normal_mono,64,40.646,35.979
+decay_64_normal_poly,64,53.979,35.979
+decay_64_quiet_mono,64,37.979,35.979
+decay_64_quiet_poly,64,53.979,35.979
+decay_76_normal_mono,76,21.979,35.979
+decay_76_quiet_mono,76,21.979,35.979
+timbre_40_mono,40,29.979,38.646
+timbre_40_poly,40,53.979,35.979
+timbre_52_mono,52,43.312,38.646
+timbre_52_poly,52,53.979,41.312
+timbre_64_mono,64,40.646,35.979
+timbre_64_poly,64,53.979,49.312
+timbre_76_mono,76,21.979,35.979
+timbre_76_poly,76,53.979,46.646
+stiff_40_mono,40,48.646,38.646
+stiff_40_poly,40,53.979,70.646
+stiff_52_mono,52,48.646,35.979
+stiff_52_poly,52,53.979,43.979
+stiff_64_mono,64,32.646,35.979
+stiff_64_poly,64,53.979,49.312
+level_40_03_mono,40,35.312,39.979
+level_40_09_mono,40,37.979,39.979
+level_40_27_mono,40,37.979,39.979
+level_52_03_mono,52,48.646,37.312
+level_52_09_mono,52,48.646,37.312
+level_52_27_mono,52,48.646,37.312
+level_64_03_mono,64,40.646,37.312
+level_64_09_mono,64,40.646,37.312
+level_64_27_mono,64,40.646,37.312
+true_octave_down_mono,52,45.979,29.979
+true_octave_down_mono,40,29.979,40.646
+true_octave_up_mono,52,45.979,37.979
+true_octave_up_mono,64,37.979,35.312
+damp_then_noise_mono,52,40.646,38.646
+damp_then_noise_poly,52,53.979,62.646
+bend_whole_step_mono,57,48.646,37.312
+BEND bend_whole_step_mono range=2 observations=976 absCents[median/p95/max]=0.140/6.401/6.842
+BEND settledMaxCents bend_whole_step_mono 0.140
+BEND movingMaxCents bend_whole_step_mono 6.842
+BEND releaseTailMaxCents bend_whole_step_mono 0.000
+bend_whole_step_mono,57,48.646,37.312
+BEND bend_whole_step_mono range=12 observations=976 absCents[median/p95/max]=0.140/6.401/6.842
+BEND settledMaxCents bend_whole_step_mono 0.140
+BEND movingMaxCents bend_whole_step_mono 6.842
+BEND releaseTailMaxCents bend_whole_step_mono 0.000
+bend_semitone_mono,57,40.646,37.312
+BEND bend_semitone_mono range=2 observations=982 absCents[median/p95/max]=0.088/4.023/4.211
+BEND settledMaxCents bend_semitone_mono 1.519
+BEND movingMaxCents bend_semitone_mono 4.211
+BEND releaseTailMaxCents bend_semitone_mono 0.000
+bend_semitone_mono,57,40.646,37.312
+BEND bend_semitone_mono range=12 observations=982 absCents[median/p95/max]=0.088/4.023/4.211
+BEND settledMaxCents bend_semitone_mono 1.519
+BEND movingMaxCents bend_semitone_mono 4.211
+BEND releaseTailMaxCents bend_semitone_mono 0.000
+bend_vibrato_mono,57,48.646,39.979
+BEND bend_vibrato_mono range=2 observations=976 absCents[median/p95/max]=5.405/9.710/10.150
+BEND settledMaxCents bend_vibrato_mono 0.042
+BEND movingMaxCents bend_vibrato_mono 10.150
+BEND releaseTailMaxCents bend_vibrato_mono 0.000
+bend_vibrato_mono,57,48.646,39.979
+BEND bend_vibrato_mono range=12 observations=976 absCents[median/p95/max]=5.405/9.710/10.150
+BEND settledMaxCents bend_vibrato_mono 0.042
+BEND movingMaxCents bend_vibrato_mono 10.150
+BEND releaseTailMaxCents bend_vibrato_mono 0.000
+bend_fast_bend_mono,57,48.646,37.312
+BEND bend_fast_bend_mono range=2 observations=976 absCents[median/p95/max]=0.029/18.535/25.828
+BEND settledMaxCents bend_fast_bend_mono 0.043
+BEND movingMaxCents bend_fast_bend_mono 25.828
+BEND releaseTailMaxCents bend_fast_bend_mono 0.000
+bend_fast_bend_mono,57,48.646,37.312
+BEND bend_fast_bend_mono range=12 observations=976 absCents[median/p95/max]=0.029/18.535/25.828
+BEND settledMaxCents bend_fast_bend_mono 0.043
+BEND movingMaxCents bend_fast_bend_mono 25.828
+BEND releaseTailMaxCents bend_fast_bend_mono 0.000
+recorded_acoustic_E2_minus00_mono,40,59.396,42.646
+recorded_acoustic_E2_minus12_mono,40,59.396,42.646
+recorded_acoustic_G3_minus00_mono,55,58.917,37.312
+recorded_acoustic_G3_minus12_mono,55,58.917,37.312
+recorded_electric_Fs3_minus00_mono,54,77.958,37.312
+recorded_electric_Fs3_minus12_mono,54,77.958,37.312
+recorded_nylon_Cs3_minus00_mono,49,67.312,37.312
+recorded_nylon_Cs3_minus12_mono,49,67.312,37.312
+FlysnapperGuitarQuality:PASS (93927 checks,51 fixed-note cases x2 block sizes plus4 bend cases x2 ranges x2 block sizes;0 failures).
+Observed functional detector timing only; not physical5/10ms live latency certification. MIDI bend delivery uses a separate mandatory processor test.

@@ -1,0 +1,26 @@
+{
+  "recorded_at_utc": "2026-11-03T23:10:25.709957+00:00",
+  "source_checkpoint": "0.2.1 final reviewed DSP; effectivebendconfigurationresetfix",
+  "base_git_commit": "bcd0b202e9b74c58b7c76e8f77abf2c14541df97",
+  "source_commit": null,
+  "source_sha256": {
+    "Source/Pitch/PitchDetector.cpp": "e70cc37f1b344c8dac325364a33e545e7393f3b0d305d526f6d8bb6e3b332a34",
+    "Source/Pitch/PitchDetector.h": "348537d970c7ef15ecefe69400ff39454ef147c19f7d451ae789936d0ca98e55",
+    "Source/Pitch/YinEstimator.cpp": "d364b3182a2fe298f3836b0a9a636c00b7ea8f2ab305627f5a90ee4027d2a90a",
+    "Source/Pitch/YinEstimator.h": "53608218b5cfef4e4bbc7e4c658830adbe2792c97dfc20768f67012bd4cc7b48",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Tools/audio_validation.cpp": "b753df06650a9c19f325ef52da60ecde486ea31dbb1f034d76cc778018eed9c6",
+    "Tests/GuitarQualityTests.cpp": "099c9fe2816cbcb1b9a34d520e6f2bb3f7b1c585a262cb40aea04a956a6f741c"
+  },
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compiler_flags": [
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG"
+  ],
+  "fixture_seal": "b28b7c7b9ff9b78c569e9279991071e34f18e44471e7d9101e692d24968154c7",
+  "scope": "Standalone detector plus independent guitar controls; known-data regressions, not Ableton or physical latency certification",
+  "detector_evaluator_sha256": "debd30e05e9991af92e7fd25132b44e525ef4c73271e96772acb4ba6c15fc5c2",
+  "guitar_quality_binary_sha256": "43d8e1bf750168d9adc8afacd834007ee6051f1568c7c9a527dd4b2beed22ec3"
+}

@@ -1,0 +1,1420 @@
+{
+  "schema": 1,
+  "scope": "guitar-user-defect-controls",
+  "sample_rate": 48000,
+  "source19_baseline_commit": "bcd0b202e9b74c58b7c76e8f77abf2c14541df97",
+  "detector_used_during_generation": false,
+  "recordings_are_disclosed": true,
+  "records": [
+    {
+      "name": "decay_40_normal",
+      "file": "pcm/decay_40_normal.wav",
+      "sha256": "6710a706312597d70ff274b81ca0fcff26775ab7fbc34a442b91ecea026b35c2",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.24,
+      "floor_peak": 0.0012
+    },
+    {
+      "name": "decay_40_quiet",
+      "file": "pcm/decay_40_quiet.wav",
+      "sha256": "ccdd2fc9716a97c585445a0f34c1aeffbf7f1cb3b2f98840b27cd20b0cbe99a0",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.035,
+      "floor_peak": 0.00055
+    },
+    {
+      "name": "decay_52_normal",
+      "file": "pcm/decay_52_normal.wav",
+      "sha256": "98b4b64bfddd246d473873e03ae8a22e57d8c98eb70b584c89eb0593b9ef1557",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.24,
+      "floor_peak": 0.0012
+    },
+    {
+      "name": "decay_52_quiet",
+      "file": "pcm/decay_52_quiet.wav",
+      "sha256": "08709345344919327e859142c5bded3c93c6752cf166553478543f1cf7483aee",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.035,
+      "floor_peak": 0.00055
+    },
+    {
+      "name": "decay_57_normal",
+      "file": "pcm/decay_57_normal.wav",
+      "sha256": "9e44c175e7e06e2d9a24e2e562697b2a8fe02db48c493ff0c0c90f5b791ce65b",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.24,
+      "floor_peak": 0.0012
+    },
+    {
+      "name": "decay_57_quiet",
+      "file": "pcm/decay_57_quiet.wav",
+      "sha256": "d2d3c8c8cffb7b77fc4bec756b167a9a601a0b7ca747aac93cabfa0906cf7173",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.035,
+      "floor_peak": 0.00055
+    },
+    {
+      "name": "decay_64_normal",
+      "file": "pcm/decay_64_normal.wav",
+      "sha256": "7d4f1bf92bc7207220c2b89759999cd1be7d89d1dabce9d22a479c384350d674",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.24,
+      "floor_peak": 0.0012
+    },
+    {
+      "name": "decay_64_quiet",
+      "file": "pcm/decay_64_quiet.wav",
+      "sha256": "bb444b17607b6f9a8a0c87565868a8a356afe66143159073cadb85be5fa8396d",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.035,
+      "floor_peak": 0.00055
+    },
+    {
+      "name": "decay_76_normal",
+      "file": "pcm/decay_76_normal.wav",
+      "sha256": "259c7876b020af7e6b619670e070fb313950b317edc8ee2fdb090abb8db3bdfb",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.24,
+      "floor_peak": 0.0012
+    },
+    {
+      "name": "decay_76_quiet",
+      "file": "pcm/decay_76_quiet.wav",
+      "sha256": "620f2fd8147c5cf7ed22023a8f174bc2088ada3313812aa132ed1b0fded2011c",
+      "frames": 86400,
+      "family": "guitar-dynamic-decay",
+      "description": "Single physically continuous modal tone:48dB decay then fixed low tail;4ms damping; no reattack.",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ],
+      "peak_gain": 0.035,
+      "floor_peak": 0.00055
+    },
+    {
+      "name": "timbre_40",
+      "file": "pcm/timbre_40.wav",
+      "sha256": "dcbcebf62038b992ce9c2d74613b76afb1aaafb8b193716144993b9cc7fc9b4a",
+      "frames": 67200,
+      "family": "guitar-timbre-morph",
+      "description": "Continuous same fundamental; odd/even partial balance changes without a new pick.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_52",
+      "file": "pcm/timbre_52.wav",
+      "sha256": "f335f040fa9e4c54f7c9e1c4839e6509a51cd9fba3d6a5eccbbfa15443de8e04",
+      "frames": 67200,
+      "family": "guitar-timbre-morph",
+      "description": "Continuous same fundamental; odd/even partial balance changes without a new pick.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_64",
+      "file": "pcm/timbre_64.wav",
+      "sha256": "01c9ea811c433d949a189b3c1f0563defcfa4d5029f842e5f99e230e92050c94",
+      "frames": 67200,
+      "family": "guitar-timbre-morph",
+      "description": "Continuous same fundamental; odd/even partial balance changes without a new pick.",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_76",
+      "file": "pcm/timbre_76.wav",
+      "sha256": "a6e51c5252aef66dbb161486bd6cbcb5fdc6a37c1359417b0f00e30bbcf6a95f",
+      "frames": 67200,
+      "family": "guitar-timbre-morph",
+      "description": "Continuous same fundamental; odd/even partial balance changes without a new pick.",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_40",
+      "file": "pcm/stiff_40.wav",
+      "sha256": "aa51b45cd40d3ffa9eb964e01badbbdd219449f684c44d5a048ae073d8852d55",
+      "frames": 67200,
+      "family": "guitar-inharmonic-tail",
+      "description": "Stiff-string partials and changing tone colour; fundamental does not change.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_52",
+      "file": "pcm/stiff_52.wav",
+      "sha256": "485c2dc53adfc8af36c8b5e50c2dbd479099de5b721d88d96f39470a9fb63b14",
+      "frames": 67200,
+      "family": "guitar-inharmonic-tail",
+      "description": "Stiff-string partials and changing tone colour; fundamental does not change.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_64",
+      "file": "pcm/stiff_64.wav",
+      "sha256": "1ca44a52bf73adc6f6189053952b18233f42dc5f57f01ab9f96c66f4edbacaa7",
+      "frames": 67200,
+      "family": "guitar-inharmonic-tail",
+      "description": "Stiff-string partials and changing tone colour; fundamental does not change.",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "level_40_03",
+      "file": "pcm/level_40_03.wav",
+      "sha256": "cd82b9bcff4d880dd6d2cf329f065e09066c00b2fe51fb87d2d7a0d45f211f96",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.03
+    },
+    {
+      "name": "level_40_09",
+      "file": "pcm/level_40_09.wav",
+      "sha256": "9fc7888bd92415d9ec4748736fa6f3ff1cd8337487d8463f597233f42cda37d9",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.09
+    },
+    {
+      "name": "level_40_27",
+      "file": "pcm/level_40_27.wav",
+      "sha256": "6cb6f718ee944c04e996988bffbef599dca8da8917ecc942b4c568b205d53959",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.27
+    },
+    {
+      "name": "level_52_03",
+      "file": "pcm/level_52_03.wav",
+      "sha256": "b437f7b793e6a55c0ddbdf23535a4a406297562106945de75c26b1a885ff4f36",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.03
+    },
+    {
+      "name": "level_52_09",
+      "file": "pcm/level_52_09.wav",
+      "sha256": "b7dbf78411c15993f1569b5b6d567910a84fcf2c60709d51c05780b8aebd6c42",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.09
+    },
+    {
+      "name": "level_52_27",
+      "file": "pcm/level_52_27.wav",
+      "sha256": "f218fd125b6d47b680281f08699ec6aacfc624cfd822dfb5fa2d0beb2c462135",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.27
+    },
+    {
+      "name": "level_64_03",
+      "file": "pcm/level_64_03.wav",
+      "sha256": "97837adb7a0136530cb02329b590c3973649018921891f8f71c7251be8ee48e2",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.03
+    },
+    {
+      "name": "level_64_09",
+      "file": "pcm/level_64_09.wav",
+      "sha256": "6c121f5d3620923955c4a2c2801ff97e13bc37e9d0ba0add9ef556b30e18a438",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.09
+    },
+    {
+      "name": "level_64_27",
+      "file": "pcm/level_64_27.wav",
+      "sha256": "f8e4a3ed017590f1b3472e8f042ca7925e56595834c78c409a7ba5c1c28fc11a",
+      "frames": 52800,
+      "family": "guitar-level-invariance",
+      "description": "Identical modal waveform at three absolute gains; all attacks above default gate.",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ],
+      "peak_gain": 0.27
+    },
+    {
+      "name": "true_octave_down",
+      "file": "pcm/true_octave_down.wav",
+      "sha256": "249fac65ed6436724172e91f5819645654ec2ed0ce25dba1083fdcaa9d0ecbed",
+      "frames": 62880,
+      "family": "guitar-true-octave-transition",
+      "description": "Two separately damped/rearticulated physical notes exactly one octave apart.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 25440
+        },
+        {
+          "note": 40,
+          "on_sample": 25440,
+          "off_sample": 48480
+        }
+      ]
+    },
+    {
+      "name": "true_octave_up",
+      "file": "pcm/true_octave_up.wav",
+      "sha256": "5634285fcd15a86d25d2e3d440186083a5e8559eff2644fd88dc3e77bc0f2ad4",
+      "frames": 62880,
+      "family": "guitar-true-octave-transition",
+      "description": "Two separately damped/rearticulated physical notes exactly one octave apart.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 25440
+        },
+        {
+          "note": 64,
+          "on_sample": 25440,
+          "off_sample": 48480
+        }
+      ]
+    },
+    {
+      "name": "damp_then_noise",
+      "file": "pcm/damp_then_noise.wav",
+      "sha256": "8fcba101409a061ce01988ca1e7d5c003ef268e87624ba40c1677027736ea14f",
+      "frames": 67200,
+      "family": "guitar-damp-noise",
+      "description": "Known source damp then broadband noise around-61dB RMS; no tonal source remains.",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "noise_only",
+      "file": "pcm/noise_only.wav",
+      "sha256": "244264a50dbd9f2d21e8b7a6782c556187b645a578772c929fbfea13f8f308bc",
+      "frames": 64800,
+      "family": "guitar-negative-noise",
+      "description": "Broadband noise only; no stable pitched source.",
+      "truth": []
+    },
+    {
+      "name": "bend_whole_step",
+      "file": "pcm/bend_whole_step.wav",
+      "sha256": "47226350c0e45883d8c90dbafca953bed52cdd301c5f370279b710c8fc7cb5b2",
+      "frames": 81600,
+      "family": "guitar-continuous-bend",
+      "description": "Single physical note with phase-continuous frequency curve; fixed-note evaluator is diagnostic only.",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 67200
+        }
+      ],
+      "pitch_curve": "whole_step",
+      "pitch_reference": "pitch-curves.tsv"
+    },
+    {
+      "name": "bend_semitone",
+      "file": "pcm/bend_semitone.wav",
+      "sha256": "dab464f964e6f93c211fdae52bb35546f03e42ce3621bb88e112314140fd558c",
+      "frames": 81600,
+      "family": "guitar-continuous-bend",
+      "description": "Single physical note with phase-continuous frequency curve; fixed-note evaluator is diagnostic only.",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 67200
+        }
+      ],
+      "pitch_curve": "semitone",
+      "pitch_reference": "pitch-curves.tsv"
+    },
+    {
+      "name": "bend_vibrato",
+      "file": "pcm/bend_vibrato.wav",
+      "sha256": "171bf72a3e6d13a19465ae1ee1dec8832b1fe745cf0c90142572bafbb6fc533c",
+      "frames": 81600,
+      "family": "guitar-continuous-bend",
+      "description": "Single physical note with phase-continuous frequency curve; fixed-note evaluator is diagnostic only.",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 67200
+        }
+      ],
+      "pitch_curve": "vibrato",
+      "pitch_reference": "pitch-curves.tsv"
+    },
+    {
+      "name": "bend_fast_bend",
+      "file": "pcm/bend_fast_bend.wav",
+      "sha256": "c26b99506acbdd2eb589566f4fae76efd3277db3ee7ad13d88d73b0f16a33427",
+      "frames": 81600,
+      "family": "guitar-continuous-bend",
+      "description": "Single physical note with phase-continuous frequency curve; fixed-note evaluator is diagnostic only.",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 67200
+        }
+      ],
+      "pitch_curve": "fast_bend",
+      "pitch_reference": "pitch-curves.tsv"
+    },
+    {
+      "name": "recorded_acoustic_E2_minus00",
+      "file": "pcm/recorded_acoustic_E2_minus00.wav",
+      "sha256": "43a3293c1f85ab6362299e7e5cfa9cecbd4c5d0928079d5521624f4d676d41a3",
+      "frames": 91200,
+      "family": "guitar-recorded-extended",
+      "description": "Known recorded note with a longer natural tail; deterministic gain,4ms controlled cutoff. Not an unseen source.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3292,
+          "off_sample": 76800
+        }
+      ],
+      "recorded_source": "tonejs/E2.ogg",
+      "recorded_source_sha256": "87b15c09a6cf1ea70a78bae39264875abf653e4597f0a473bd432021566e138b",
+      "attenuation_db": 0
+    },
+    {
+      "name": "recorded_acoustic_E2_minus12",
+      "file": "pcm/recorded_acoustic_E2_minus12.wav",
+      "sha256": "4c912774cbdf79a6ae6de8290c72779c770c64f9d5b54a069bcd72813070e016",
+      "frames": 91200,
+      "family": "guitar-recorded-extended",
+      "description": "Known recorded note with a longer natural tail; deterministic gain,4ms controlled cutoff. Not an unseen source.",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3292,
+          "off_sample": 76800
+        }
+      ],
+      "recorded_source": "tonejs/E2.ogg",
+      "recorded_source_sha256": "87b15c09a6cf1ea70a78bae39264875abf653e4597f0a473bd432021566e138b",
+      "attenuation_db": 12
+    },
+    {
+      "name": "recorded_acoustic_G3_minus00",
+      "file": "pcm/recorded_acoustic_G3_minus00.wav",
+      "sha256": "780403fdc964ec5591d8740b017cf37d30725d3f842bfb10a9c0d98bd9955517",
+      "frames": 91200,
+      "family": "guitar-recorded-extended",
+      "description": "Known recorded note with a longer natural tail; deterministic gain,4ms controlled cutoff. Not an unseen source.",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 3059,
+          "off_sample": 76800
+        }
+      ],
+      "recorded_source": "tonejs/G3.ogg",
+      "recorded_source_sha256": "ed2df06aace937048e283af4ebe83a636b04b2d8d58e6f6a41819e60baef8c82",
+      "attenuation_db": 0
+    },
+    {
+      "name": "recorded_acoustic_G3_minus12",
+      "file": "pcm/recorded_acoustic_G3_minus12.wav",
+      "sha256": "6b8d26d2c87fdf08a5aef8612581cb3e344e70d4b5e5bd49f4289c173495db78",
+      "frames": 91200,
+      "family": "guitar-recorded-extended",
+      "description": "Known recorded note with a longer natural tail; deterministic gain,4ms controlled cutoff. Not an unseen source.",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 3059,
+          "off_sample": 76800
+        }
+      ],
+      "recorded_source": "tonejs/G3.ogg",
+      "recorded_source_sha256": "ed2df06aace937048e283af4ebe83a636b04b2d8d58e6f6a41819e60baef8c82",
+      "attenuation_db": 12
+    },
+    {
+      "name": "recorded_electric_Fs3_minus00",
+      "file": "pcm/recorded_electric_Fs3_minus00.wav",
+      "sha256": "175d41e3026b5cdbd418ecb32566c2ebc689e696de90bfd6d1966dd9d806cd4e",
+      "frames": 91200,
+      "family": "guitar-recorded-extended",
+      "description": "Known recorded note with a longer natural tail; deterministic gain,4ms controlled cutoff. Not an unseen source.",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2401,
+          "off_sample": 76800
+        }
+      ],
+      "recorded_source": "confirmation/tonejs/electric_Fs3.ogg",
+      "recorded_source_sha256": "842e02dcb06ef71db69d9c23d0c4fc1d0381eae69130f2ddec5597a97cf402ec",
+      "attenuation_db": 0
+    },
+    {
+      "name": "recorded_electric_Fs3_minus12",
+      "file": "pcm/recorded_electric_Fs3_minus12.wav",
+      "sha256": "999b37c8a5d308b4d9d21b714711cdef9712c1c305f0f2541ccfc5bbd7eb1ab3",
+      "frames": 91200,
+      "family": "guitar-recorded-extended",
+      "description": "Known recorded note with a longer natural tail; deterministic gain,4ms controlled cutoff. Not an unseen source.",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2401,
+          "off_sample": 76800
+        }
+      ],
+      "recorded_source": "confirmation/tonejs/electric_Fs3.ogg",
+      "recorded_source_sha256": "842e02dcb06ef71db69d9c23d0c4fc1d0381eae69130f2ddec5597a97cf402ec",
+      "attenuation_db": 12
+    },
+    {
+      "name": "recorded_nylon_Cs3_minus00",
+      "file": "pcm/recorded_nylon_Cs3_minus00.wav",
+      "sha256": "93b7bc94d9abd7d0e2c5f7551c9e12a2d691216682c8e5ff5fc5ce2d61f165df",
+      "frames": 91200,
+      "family": "guitar-recorded-extended",
+      "description": "Known recorded note with a longer natural tail; deterministic gain,4ms controlled cutoff. Not an unseen source.",
+      "truth": [
+        {
+          "note": 49,
+          "on_sample": 2400,
+          "off_sample": 76800
+        }
+      ],
+      "recorded_source": "confirmation/tonejs/nylon_Cs3.ogg",
+      "recorded_source_sha256": "e8d8f7e0355c634f0398486d522935ec34e3dcf55b639a2bc01286d5e7e39a8f",
+      "attenuation_db": 0
+    },
+    {
+      "name": "recorded_nylon_Cs3_minus12",
+      "file": "pcm/recorded_nylon_Cs3_minus12.wav",
+      "sha256": "57bfc37c13118ab2a3fe69c8f3919a9a7453df7860bcd49c6ab0e5ac7495ec30",
+      "frames": 91200,
+      "family": "guitar-recorded-extended",
+      "description": "Known recorded note with a longer natural tail; deterministic gain,4ms controlled cutoff. Not an unseen source.",
+      "truth": [
+        {
+          "note": 49,
+          "on_sample": 2400,
+          "off_sample": 76800
+        }
+      ],
+      "recorded_source": "confirmation/tonejs/nylon_Cs3.ogg",
+      "recorded_source_sha256": "e8d8f7e0355c634f0398486d522935ec34e3dcf55b639a2bc01286d5e7e39a8f",
+      "attenuation_db": 12
+    }
+  ],
+  "cases": [
+    {
+      "name": "decay_40_normal_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_40_normal.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_40_normal_poly",
+      "family": "guitar-dynamic-decay",
+      "mode": "poly",
+      "file": "pcm/decay_40_normal.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_40_quiet_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_40_quiet.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_40_quiet_poly",
+      "family": "guitar-dynamic-decay",
+      "mode": "poly",
+      "file": "pcm/decay_40_quiet.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_52_normal_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_52_normal.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_52_quiet_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_52_quiet.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_57_normal_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_57_normal.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_57_quiet_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_57_quiet.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_64_normal_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_64_normal.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_64_normal_poly",
+      "family": "guitar-dynamic-decay",
+      "mode": "poly",
+      "file": "pcm/decay_64_normal.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_64_quiet_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_64_quiet.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_64_quiet_poly",
+      "family": "guitar-dynamic-decay",
+      "mode": "poly",
+      "file": "pcm/decay_64_quiet.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_76_normal_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_76_normal.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "decay_76_quiet_mono",
+      "family": "guitar-dynamic-decay",
+      "mode": "mono",
+      "file": "pcm/decay_76_quiet.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 72000
+        }
+      ]
+    },
+    {
+      "name": "timbre_40_mono",
+      "family": "guitar-timbre-morph",
+      "mode": "mono",
+      "file": "pcm/timbre_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_40_poly",
+      "family": "guitar-timbre-morph",
+      "mode": "poly",
+      "file": "pcm/timbre_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_52_mono",
+      "family": "guitar-timbre-morph",
+      "mode": "mono",
+      "file": "pcm/timbre_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_52_poly",
+      "family": "guitar-timbre-morph",
+      "mode": "poly",
+      "file": "pcm/timbre_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_64_mono",
+      "family": "guitar-timbre-morph",
+      "mode": "mono",
+      "file": "pcm/timbre_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_64_poly",
+      "family": "guitar-timbre-morph",
+      "mode": "poly",
+      "file": "pcm/timbre_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_76_mono",
+      "family": "guitar-timbre-morph",
+      "mode": "mono",
+      "file": "pcm/timbre_76.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "timbre_76_poly",
+      "family": "guitar-timbre-morph",
+      "mode": "poly",
+      "file": "pcm/timbre_76.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_40_mono",
+      "family": "guitar-inharmonic-tail",
+      "mode": "mono",
+      "file": "pcm/stiff_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_40_poly",
+      "family": "guitar-inharmonic-tail",
+      "mode": "poly",
+      "file": "pcm/stiff_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_52_mono",
+      "family": "guitar-inharmonic-tail",
+      "mode": "mono",
+      "file": "pcm/stiff_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_52_poly",
+      "family": "guitar-inharmonic-tail",
+      "mode": "poly",
+      "file": "pcm/stiff_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_64_mono",
+      "family": "guitar-inharmonic-tail",
+      "mode": "mono",
+      "file": "pcm/stiff_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "stiff_64_poly",
+      "family": "guitar-inharmonic-tail",
+      "mode": "poly",
+      "file": "pcm/stiff_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 52800
+        }
+      ]
+    },
+    {
+      "name": "level_40_03_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_40_03.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "level_40_09_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_40_09.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "level_40_27_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_40_27.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "level_52_03_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_52_03.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "level_52_09_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_52_09.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "level_52_27_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_52_27.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "level_64_03_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_64_03.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "level_64_09_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_64_09.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "level_64_27_mono",
+      "family": "guitar-level-invariance",
+      "mode": "mono",
+      "file": "pcm/level_64_27.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 38400
+        }
+      ]
+    },
+    {
+      "name": "true_octave_down_mono",
+      "family": "guitar-true-octave-transition",
+      "mode": "mono",
+      "file": "pcm/true_octave_down.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 25440
+        },
+        {
+          "note": 40,
+          "on_sample": 25440,
+          "off_sample": 48480
+        }
+      ]
+    },
+    {
+      "name": "true_octave_up_mono",
+      "family": "guitar-true-octave-transition",
+      "mode": "mono",
+      "file": "pcm/true_octave_up.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 25440
+        },
+        {
+          "note": 64,
+          "on_sample": 25440,
+          "off_sample": 48480
+        }
+      ]
+    },
+    {
+      "name": "damp_then_noise_mono",
+      "family": "guitar-damp-noise",
+      "mode": "mono",
+      "file": "pcm/damp_then_noise.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "damp_then_noise_poly",
+      "family": "guitar-damp-noise",
+      "mode": "poly",
+      "file": "pcm/damp_then_noise.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "noise_only_mono",
+      "family": "guitar-negative-noise",
+      "mode": "mono",
+      "file": "pcm/noise_only.wav",
+      "truth": []
+    },
+    {
+      "name": "noise_only_poly",
+      "family": "guitar-negative-noise",
+      "mode": "poly",
+      "file": "pcm/noise_only.wav",
+      "truth": []
+    },
+    {
+      "name": "bend_whole_step_mono",
+      "family": "guitar-continuous-bend",
+      "mode": "mono",
+      "file": "pcm/bend_whole_step.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 67200
+        }
+      ]
+    },
+    {
+      "name": "bend_semitone_mono",
+      "family": "guitar-continuous-bend",
+      "mode": "mono",
+      "file": "pcm/bend_semitone.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 67200
+        }
+      ]
+    },
+    {
+      "name": "bend_vibrato_mono",
+      "family": "guitar-continuous-bend",
+      "mode": "mono",
+      "file": "pcm/bend_vibrato.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 67200
+        }
+      ]
+    },
+    {
+      "name": "bend_fast_bend_mono",
+      "family": "guitar-continuous-bend",
+      "mode": "mono",
+      "file": "pcm/bend_fast_bend.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 67200
+        }
+      ]
+    },
+    {
+      "name": "recorded_acoustic_E2_minus00_mono",
+      "family": "guitar-recorded-extended",
+      "mode": "mono",
+      "file": "pcm/recorded_acoustic_E2_minus00.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3292,
+          "off_sample": 76800
+        }
+      ]
+    },
+    {
+      "name": "recorded_acoustic_E2_minus12_mono",
+      "family": "guitar-recorded-extended",
+      "mode": "mono",
+      "file": "pcm/recorded_acoustic_E2_minus12.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3292,
+          "off_sample": 76800
+        }
+      ]
+    },
+    {
+      "name": "recorded_acoustic_G3_minus00_mono",
+      "family": "guitar-recorded-extended",
+      "mode": "mono",
+      "file": "pcm/recorded_acoustic_G3_minus00.wav",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 3059,
+          "off_sample": 76800
+        }
+      ]
+    },
+    {
+      "name": "recorded_acoustic_G3_minus12_mono",
+      "family": "guitar-recorded-extended",
+      "mode": "mono",
+      "file": "pcm/recorded_acoustic_G3_minus12.wav",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 3059,
+          "off_sample": 76800
+        }
+      ]
+    },
+    {
+      "name": "recorded_electric_Fs3_minus00_mono",
+      "family": "guitar-recorded-extended",
+      "mode": "mono",
+      "file": "pcm/recorded_electric_Fs3_minus00.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2401,
+          "off_sample": 76800
+        }
+      ]
+    },
+    {
+      "name": "recorded_electric_Fs3_minus12_mono",
+      "family": "guitar-recorded-extended",
+      "mode": "mono",
+      "file": "pcm/recorded_electric_Fs3_minus12.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2401,
+          "off_sample": 76800
+        }
+      ]
+    },
+    {
+      "name": "recorded_nylon_Cs3_minus00_mono",
+      "family": "guitar-recorded-extended",
+      "mode": "mono",
+      "file": "pcm/recorded_nylon_Cs3_minus00.wav",
+      "truth": [
+        {
+          "note": 49,
+          "on_sample": 2400,
+          "off_sample": 76800
+        }
+      ]
+    },
+    {
+      "name": "recorded_nylon_Cs3_minus12_mono",
+      "family": "guitar-recorded-extended",
+      "mode": "mono",
+      "file": "pcm/recorded_nylon_Cs3_minus12.wav",
+      "truth": [
+        {
+          "note": 49,
+          "on_sample": 2400,
+          "off_sample": 76800
+        }
+      ]
+    }
+  ]
+}

@@ -17,7 +17,14 @@ installation avoids DLL locks.
 `Tools/package_windows.py` refuses Linux binaries, x86 PE files, the old routing
 prototype, absent pitch implementation, mismatching bundle hashes, missing
 Windows toolchain/Unicode probes, or missing/failed/skipped mandatory CTests.
-Required targets are Core, Yin, Pitch, PluginSmoke, ProcessorAudio, ActualVst3 and AudioQuality. The independent audio summary must pass, its report hashes must match, and its recorded DSP/source/fixture/policy hashes must match the packaged source. Stale passing measurements cannot ship after detector changes.
+Version 0.2.1 requires nine groups: Core, Yin, Pitch, PluginSmoke, ProcessorAudio,
+ActualVst3, AudioQuality, GuitarQuality and BendProcessor. The last two cover
+the guitar lifecycle/quality regressions and processor-level bend behavior.
+The seven original groups and unchanged 30-case basic audio gate remain
+mandatory. A previous seven-group proof cannot qualify the update.
+The independent audio summary must pass, its report hashes must match, and its
+recorded DSP/source/fixture/policy hashes must match the packaged source.
+Stale passing measurements cannot ship after detector changes.
 
 After those tests, `Tools/windows_audio_diagnostics.py` uses the same native
 evaluator whose SHA256 is bound to the passed basic test. It runs the complete
@@ -31,7 +38,7 @@ Packaging requires all three completed diagnostic reports and includes them
 under `Validation/windows-audio-diagnostics/{public,holdout,confirmation}/`, with
 CSV metrics/events, textual measurements, runner logs and provenance manifests.
 The aggregate manifest says `measurement_only: true` and `status: completed`.
-The unchanged30-case basic quality gate remains a separate mandatory pass.
+The unchanged 30-case basic quality gate remains a separate mandatory pass.
 
 Source-provenance keys use forward slashes on every platform. A native Windows
 run exposed that serializing `Path` with `str()` produced backslash keys that
@@ -115,6 +122,18 @@ The helper then launches the built native `FlysnapperVst3HostTests.exe` with the
 the installed files. It requires successful process exit, the native Windows
 completion marker and a positive assertion count. The ZIP and installed bundle
 must remain unchanged. The helper refuses ambiguous/stale host build paths.
+
+For 0.2.1, the helper also replaces the package through its actual
+`INSTALL_FLYSNAPPER.bat`, using the builtin Windows command processor, quoted
+Unicode paths with spaces/parentheses/ampersands, `-NoUI`, and closed standard
+input so the launcher's `pause` cannot block CI. The existing PowerShell entry
+point exposes its existing recovery-directory option for private test isolation;
+normal interactive defaults and the BAT itself are unchanged. The BAT must exit
+successfully, print the actual installed-version marker, create a new verified
+private recovery copy, and leave the installed/unrelated payload correct. The
+native host loads that final BAT-installed DLL. Its command, BAT hash, result
+marker and hashed launcher log are included in installation proof. Legacy 0.2.0
+proof remains valid without claiming this additional launcher execution.
 
 `artifacts/installation-validation.json` records the source revision, ZIP hash,
 installed/recovery hashes, installer/host exit codes, host executable hash and

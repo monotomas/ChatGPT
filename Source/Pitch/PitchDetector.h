@@ -14,8 +14,10 @@ struct Settings {
     float sensitivity=0.65f; // 0..1; higher detects weaker notes
     float releaseMs=35.0f;
     int polyphony=6;
+    bool monoBend=false;
+    float bendRangeSemitones=2.0f;
 };
-struct Event {bool on=false;int note=0,velocity=0,offset=0;};
+struct Event {bool on=false;int note=0,velocity=0,offset=0;bool pitchChange=false;float pitch=0;};
 struct Output {
     static constexpr size_t capacity=512;
     std::array<Event,capacity> events{};
@@ -30,6 +32,7 @@ struct Status {
     int strongestNote=-1;
     bool inputPresent=false;
     uint16_t activePitchClasses=0;
+    float continuousPitch=-1.0f;
 };
 // Causal, bounded detector. prepare() computes tables outside the audio thread.
 // process() appends sample-relative MIDI decisions; it never accesses GUI/files,
@@ -79,6 +82,10 @@ private:
     int phaseAttackAge=0,pitchHistoryCount=0,pitchHistoryWrite=0;
     std::array<float,4> pitchHistory{};
     float pitchHistoryRange=0;
+    float lastSentPitch=-1,phaseAttackOriginPitch=-1;
+    int lastPitchAnchor=-1;
+    bool monoTrackedOnly=false;
+    bool monoPhysicalStable=false;
     int polyAdmission=0,polyAnchor=-1;
     int pendingPolyRepick=-1,pendingPolyRepickAge=0;
     float pendingPhasePeriod=0;
@@ -99,5 +106,6 @@ private:
     void analysePoly(int count,int offset,Output&) noexcept;
     void updateVoices(int offset,Output&) noexcept;
     void emit(bool on,int note,int velocity,int offset,Output&) noexcept;
+    void emitPitch(int note,float pitch,int offset,Output&) noexcept;
 };
 }

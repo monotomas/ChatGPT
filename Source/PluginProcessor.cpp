@@ -17,6 +17,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout FlysnapperProcessor::paramet
     p.add(std::make_unique<juce::AudioParameterBool>(juce::ParameterID{"routingTest",1},"Routing Test",false));
     p.add(std::make_unique<juce::AudioParameterBool>(juce::ParameterID{"pitchEnabled",1},"Pitch Enabled",true));
     p.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID{"pitchMode",1},"Pitch Mode",juce::StringArray{"Mono","Poly"},0));
+    p.add(std::make_unique<juce::AudioParameterBool>(juce::ParameterID{"monoBend",1},"Mono Bend",false));
+    p.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID{"bendRange",1},"Bend Range",juce::StringArray{"2 semitones","12 semitones"},0));
     p.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"inputGate",1},"Input Threshold",juce::NormalisableRange<float>(-80.0f,-20.0f,1.0f),-55.0f));
     p.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"sensitivity",1},"Sensitivity",juce::NormalisableRange<float>(.35f,.95f,.01f),.65f));
     p.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"releaseMs",1},"Release",juce::NormalisableRange<float>(10.0f,150.0f,1.0f),35.0f));
@@ -36,6 +38,7 @@ FlysnapperProcessor::FlysnapperProcessor()
     pitchEnabled=parameters.getRawParameterValue("pitchEnabled");pitchMode=parameters.getRawParameterValue("pitchMode");
     inputGate=parameters.getRawParameterValue("inputGate");sensitivity=parameters.getRawParameterValue("sensitivity");
     releaseMs=parameters.getRawParameterValue("releaseMs");
+    monoBend=parameters.getRawParameterValue("monoBend");bendRange=parameters.getRawParameterValue("bendRange");
     for(int i=0;i<50;++i)mapValues[size_t(i)]=parameters.getRawParameterValue(mappingParameterId(i));
     result.ensureSize(131072);display.store(flysnapper::packSnapshot(engine.snapshot()));
     setLatencySamples(0);
@@ -60,6 +63,7 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     const int samples=audio.getNumSamples();
     result.clear();output.clear();
     bool resetNow=needsReset.exchange(false);
+    bool resetBendNow=false;
     if(auto* head=getPlayHead())if(auto pos=head->getPosition()) {
         const bool playing=pos->getIsPlaying();
         if(wasPlaying&&!playing)resetNow=true;
@@ -72,6 +76,7 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     if(resetNow) {
         engine.panic(0,output);engine.clearChord();testRemaining=-1;
         detectedEvents.clear();detector.reset(detectedEvents,0);detectedEvents.clear();
+        resetBendNow=true;
     }
     flysnapper::Settings settings;
     settings.correctionEnabled=correction->load()>=.5f&&!bypassed;
@@ -81,16 +86,23 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     bool bus=getBus(true,0)->isEnabled();sidechain.store(bus,std::memory_order_relaxed);
     const bool pitchActive=bus&&!bypassed&&pitchEnabled->load()>=.5f;
     const int currentPitchMode=int(pitchMode->load());
-    if((wasPitchEnabled&&!pitchActive)||(previousPitchMode>=0&&previousPitchMode!=currentPitchMode)) {
+    const bool currentMonoBend=currentPitchMode==0&&monoBend->load()>=.5f;
+    const int currentBendRange=bendRange->load()>=.5f?12:2;
+    if((wasPitchEnabled&&!pitchActive)||(previousPitchMode>=0&&previousPitchMode!=currentPitchMode)
+        ||previousMonoBend!=currentMonoBend||(currentMonoBend&&previousBendRange!=currentBendRange)) {
         engine.stopSource(flysnapper::Source::Generated,0,output);
         detectedEvents.clear();detector.reset(detectedEvents,0);detectedEvents.clear();
+        resetBendNow=true;
     }
     if(bypassed) {engine.stopSource(flysnapper::Source::Diagnostic,0,output);testRemaining=-1;}
     wasSidechain=bus;wasPitchEnabled=pitchActive;previousPitchMode=currentPitchMode;
+    previousMonoBend=currentMonoBend;previousBendRange=currentBendRange;
     flysnapper::pitch::Settings pitchSettings;
     pitchSettings.enabled=pitchActive;pitchSettings.polyphonic=currentPitchMode==1;
     pitchSettings.thresholdDb=inputGate->load();pitchSettings.sensitivity=sensitivity->load();
-    pitchSettings.releaseMs=releaseMs->load();detector.configure(pitchSettings);
+    pitchSettings.releaseMs=releaseMs->load();
+    pitchSettings.monoBend=currentMonoBend;
+    pitchSettings.bendRangeSemitones=float(currentBendRange);detector.configure(pitchSettings);
     // Bus activation is the host's only reliable connectivity signal. Digital
     // silence is processed normally and releases notes; it is not No Input.
     size_t count=0;bool inputOverflow=false;
@@ -148,8 +160,20 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
             detectedEvents.clear();detector.process(audioScratch.data(),n,detectedEvents);
             for(size_t i=0;i<detectedEvents.size;++i) {
                 const auto& event=detectedEvents.events[i];
-                const juce::uint8 raw[]{juce::uint8(event.on?0x90:0x80),juce::uint8(event.note),juce::uint8(event.velocity)};
-                append(start+event.offset,raw,3,flysnapper::Source::Generated);
+                if(event.pitchChange) {
+                    if(!currentMonoBend||!std::isfinite(event.pitch))continue;
+                    // The detector's acoustic anchor is corrected only at
+                    // Note On. Expression remains relative to that anchor,
+                    // preserving a bend around the corrected output note.
+                    const auto delta=double(event.pitch)-event.note;
+                    const int wheel=std::clamp(int(std::lround(8192.+8192.*delta/currentBendRange)),0,16383);
+                    const juce::uint8 raw[]{0xe1,juce::uint8(wheel&127),juce::uint8((wheel>>7)&127)};
+                    append(start+event.offset,raw,3,flysnapper::Source::Generated);
+                } else {
+                    const int channelOffset=currentMonoBend?1:0;
+                    const juce::uint8 raw[]{juce::uint8((event.on?0x90:0x80)|channelOffset),juce::uint8(event.note),juce::uint8(event.velocity)};
+                    append(start+event.offset,raw,3,flysnapper::Source::Generated);
+                }
             }
             if(detectedEvents.overflow){inputOverflow=true;break;}
         }
@@ -160,6 +184,7 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     if(inputOverflow) {
         engine.panic(0,output);engine.clearChord();testRemaining=-1;dropped.fetch_add(1);count=0;
         detectedEvents.clear();detector.reset(detectedEvents,0);detectedMask.store(0);
+        resetBendNow=true;
     }
     std::sort(inputs.begin(),inputs.begin()+std::ptrdiff_t(count),[](const auto& a,const auto& b){
         return a.offset<b.offset||(a.offset==b.offset&&a.sequence<b.sequence);
@@ -171,7 +196,32 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
         const juce::uint8 raw[]{juce::uint8(command|(e.channel-1)),juce::uint8(e.note),juce::uint8(e.value)};
         result.addEvent(raw,3,e.offset);if(e.type==flysnapper::EventType::NoteOn)++noteCount;
     } output.size=0; };
+    const auto wheel=[&](int value,int offset) {
+        const juce::uint8 bytes[]{0xe1,juce::uint8(value&127),juce::uint8((value>>7)&127)};
+        result.addEvent(bytes,3,offset);
+    };
+    const auto centreBend=[&](int offset) {
+        if(bendSession)wheel(8192,offset);
+        bendSession=false;
+        // A receiver may have been inserted or replaced between voices.
+        // Re-establish the advertised range before every new bent note.
+        bendConfiguredRange=0;
+    };
+    const auto prepareBend=[&](int offset) {
+        if(bendConfiguredRange==currentBendRange)return;
+        // Standard MIDI RPN 0: pitch-bend sensitivity. A receiver that ignores
+        // RPN must be set to the same 2/12-semitone range manually. This is
+        // ordinary channel expression, not MPE or a per-note polyphonic bend.
+        for(const auto pair:std::array<std::array<int,2>,6>{{{{101,0}},{{100,0}},{{6,currentBendRange}},{{38,0}},{{101,127}},{{100,127}}}}) {
+            const juce::uint8 bytes[]{0xb1,juce::uint8(pair[0]),juce::uint8(pair[1])};
+            result.addEvent(bytes,3,offset);
+        }
+        bendConfiguredRange=currentBendRange;
+    };
     drain();
+    // All generated Note Offs queued by panic/configuration changes precede
+    // the centre message; external channel-1 notes and wheel are untouched.
+    if(resetBendNow){centreBend(0);bendConfiguredRange=0;}
     for(size_t i=0;i<count;) {
         size_t end=i+1;while(end<count&&inputs[end].offset==inputs[i].offset)++end;
         int ons=0;
@@ -188,17 +238,31 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
         for(size_t j=i;j<end;++j) {
             const auto& e=inputs[j];const int status=e.data[0]&0xf0,ch=(e.data[0]&15)+1;
             if(e.source==flysnapper::Source::External&&ch==16)continue;
+            const bool generatedBend=e.source==flysnapper::Source::Generated&&currentMonoBend;
+            if(generatedBend&&engine.overloaded())continue;
+            if(generatedBend&&(status==0xe0||(status==0x90&&e.length==3&&e.data[2]>0))) {
+                prepareBend(e.offset);
+                // Pitch-change events precede their Note On. A defensive
+                // centre also covers a detector Note On without that event.
+                if(status!=0xe0&&!bendSession)wheel(8192,e.offset);
+                bendSession=true;
+            }
             if(status==0x90&&e.length==3&&e.data[2]>0)engine.noteOn(e.source,ch,e.data[1],e.data[2],e.offset,output);
             else if((status==0x80||status==0x90)&&e.length==3)engine.noteOff(e.source,ch,e.data[1],e.data[2],e.offset,output);
             else if(status==0xb0&&e.length==3)engine.controller(e.source,ch,e.data[1],e.data[2],e.offset,output);
             else result.addEvent(e.data.data(),e.length,e.offset); // Channel pressure, bend, etc. preserve as supplied by adapter.
             drain();
+            if(generatedBend&&((status==0x80)||(status==0x90&&e.data[2]==0)))centreBend(e.offset);
+            if(e.source==flysnapper::Source::External&&ch==2&&status==0xb0&&e.length==3&&e.data[1]==121)
+                bendConfiguredRange=0;
         }
         drain();i=end;
     }
     if(output.overflow)dropped.fetch_add(1);
+    if(engine.overloaded()){centreBend(std::max(0,samples-1));bendConfiguredRange=0;}
     faulted.store(engine.overloaded(),std::memory_order_relaxed);
     emitted.fetch_add(noteCount,std::memory_order_relaxed);
+    emittedEvents.fetch_add(unsigned(result.getNumEvents()),std::memory_order_relaxed);
     display.store(flysnapper::packSnapshot(engine.snapshot()),std::memory_order_release);
     // Retain our preallocated output buffer instead of swapping in an
     // arbitrary host buffer. The adapter owns/resizes its delivery buffer.
@@ -228,6 +292,12 @@ void FlysnapperProcessor::setStateInformation(const void* data,int bytes) {
         juce::ValueTree child("PARAM");child.setProperty("id",id,nullptr);child.setProperty("value",value,nullptr);values.addChild(child,-1,nullptr);
     };
     set("routingTest",0);
+    // Old schema-1 presets predate expression. Loading one into an instance
+    // already using bend must restore the legacy note-only/channel-1 mode.
+    for(const char* id:{"monoBend","bendRange"}) {
+        bool present=false;for(auto child:values)if(child.getProperty("id").toString()==id){present=true;break;}
+        if(!present)set(id,0);
+    }
     // Stable string IDs are authoritative. Unknown/new types retain defaults.
     const auto defaults=flysnapper::factoryDefaults();for(int i=0;i<50;++i)set(mappingParameterId(i),defaults[size_t(i)]);
     if(auto* table=state->getChildByName("ChordScales"))for(auto* item:table->getChildIterator()) {

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a deterministic, complete Flysnapper 0.2.0 source delivery ZIP.
+"""Create a deterministic, complete Flysnapper 0.2.1 source delivery ZIP.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 JUCE is deliberately acquired by the checked builder using dependencies.lock.json;
@@ -14,7 +14,7 @@ import stat
 import tempfile
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 PACKAGE_ROOT = f"Flysnapper-{VERSION}"
 FIXED_TIMESTAMP = (2026, 11, 3, 0, 0, 0)
 ROOT_FILES = frozenset({
@@ -32,6 +32,7 @@ REQUIRED_FILES = frozenset({
     "Source/Pitch/TimeDomainPursuit.h", "Source/Pitch/TimeDomainPursuit.cpp",
     "Source/Pitch/YinEstimator.h", "Source/Pitch/YinEstimator.cpp",
     "Tests/PitchTests.cpp", "Tests/YinEstimatorTests.cpp", "Tests/ProcessorAudioTests.cpp",
+    "Tests/GuitarQualityTests.cpp", "Tests/BendProcessorTests.cpp",
     "Source/Core/MidiEngine.h", "Source/Core/MidiEngine.cpp",
     "Source/Core/MusicData.h", "Source/Core/MusicData.cpp",
     "Source/Core/README.md", "Source/Core/Reference/ChordDictionary.h",
@@ -172,7 +173,7 @@ def verify_package(path: Path) -> None:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, help="Delivery ZIP path; default dist/Flysnapper-0.2.0-Source.zip")
+    parser.add_argument("--output", type=Path, help="Delivery ZIP path; default dist/Flysnapper-0.2.1-Source.zip")
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parent.parent
     output = args.output or root / "dist" / f"Flysnapper-{VERSION}-Source.zip"

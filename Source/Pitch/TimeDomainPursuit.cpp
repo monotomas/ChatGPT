@@ -295,6 +295,24 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
         if(cached<0)cached=computeActiveUpperSupport(note)?1:0;
         return cached!=0;
     };
+    // A single already-held string can make YIN prefer its upper octave when
+    // the odd partials fade relative to the evens. Preserve the original model
+    // only while its physical fundamental and an independent odd partial are
+    // still observed. This is continuity, never admission of a new voice.
+    // Multiple held voices keep the original independent-octave rules.
+    std::array<bool,noteCount> heldOctaveSupport{};
+    int activeCount=0;if(evidence)for(bool active:evidence->active)activeCount+=active;
+    if(evidence&&activeCount==1)for(int n=0;n<noteCount;++n)if(evidence->active[size_t(n)]&&anchor==n+12
+        &&hasIndependentPeaks(n,*evidence,evidence->active,false)) {
+        const float f=evidence->frequencies[size_t(n)];
+        for(int h:{3,5,7}) {
+            const float target=f*h;if(target>=evidence->maximumHz)continue;
+            // Odd partials of the held root cannot belong to its upper octave.
+            if(observedPeak(*evidence,target,target*.022f+evidence->resolutionHz*.05f,evidence->maximumMagnitude*.008f)) {
+                heldOctaveSupport[size_t(n)]=true;break;
+            }
+        }
+    }
     const double cutoff=.06+.12*(1-sensitivity);
     for(int iteration=0;iteration<maxVoices;++iteration){
         activeSupport.fill(-1);
@@ -302,7 +320,7 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
         std::array<double,columns> bestCoefficients{};
         for(int note=0;note<noteCount;++note){
             bool duplicate=false;for(int j=0;j<used;++j)duplicate|=selected[size_t(j)]==note;if(duplicate)continue;
-            if(anchor>=0&&anchor!=note&&octaveEvidence[size_t(note)]<=0&&!activeUpperSupport(note)&&!anchorSupport[size_t(note)])continue;
+            if(anchor>=0&&anchor!=note&&octaveEvidence[size_t(note)]<=0&&!activeUpperSupport(note)&&!heldOctaveSupport[size_t(note)]&&!anchorSupport[size_t(note)])continue;
             std::array<double,columns> correlation=projection[size_t(note)],beta{};
             for(int r=0;r<columns;++r)for(int j=0;j<used;++j)for(int c=0;c<columns;++c)
                 correlation[size_t(r)]-=data->cross(note,r,selected[size_t(j)],c)*coefficients[size_t(j)][size_t(c)];
@@ -314,10 +332,13 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
                 const double a=beta[size_t(c)]*model.weight[size_t(c)];totalAmplitude+=a*a;
                 if(c==0||c==harmonics)fundamental+=a*a;
             }
-            if(totalAmplitude<=0||(fundamental<totalAmplitude*.05&&anchor!=note&&!activeUpperSupport(note)))continue;
+            if(totalAmplitude<=0||(fundamental<totalAmplitude*.05&&anchor!=note&&!activeUpperSupport(note)&&!heldOctaveSupport[size_t(note)]))continue;
             bool weak=false;
             if(iteration>0&&score<firstScore*cutoff) {
-                if(score<firstScore*.006||score<energy*.006||!evidence)continue;
+                // A held root with physical evidence may be a small residual
+                // after the octave model has absorbed its strong even partials.
+                const double activeFloor=heldOctaveSupport[size_t(note)]?.0005:.006;
+                if(score<firstScore*activeFloor||score<energy*activeFloor||!evidence)continue;
                 auto explained=evidence->active;
                 for(int j=0;j<used;++j)explained[size_t(selected[size_t(j)])]=true;
                 if(!activeUpperSupport(note)&&!hasIndependentPeaks(note,*evidence,explained,false))continue;
@@ -326,7 +347,8 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
             if(score>bestScore){bestScore=score;best=note;bestCoefficients=beta;bestWeak=weak;}
         }
         if(iteration==0)firstScore=bestScore;
-        if(best<0||bestScore<firstScore*(bestWeak?.006:cutoff)||bestScore<energy*.006){
+        const double bestFloor=best>=0&&heldOctaveSupport[size_t(best)]?.0005:.006;
+        if(best<0||bestScore<firstScore*(bestWeak?bestFloor:cutoff)||bestScore<energy*bestFloor){
             refreshOctaveEvidence();
             int extra=-1;double strongest=0;
             for(int note=0;note<noteCount;++note){
@@ -403,7 +425,7 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
             }
             octaveSupported=independentStrong>=2&&independentMagnitude>magnitude*.02;
         }
-        if(fundamental<magnitude*.035&&!octaveSupported&&(anchor!=note))continue;
+        if(fundamental<magnitude*.035&&!octaveSupported&&(anchor!=note)&&!heldOctaveSupport[size_t(note)])continue;
         strength[size_t(note)]=float(std::sqrt(std::max(0.,magnitude)*.5));
         confidence[size_t(note)]=float(std::clamp(modelEnergy/energy,0.,1.));
     }

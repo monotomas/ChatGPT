@@ -1,0 +1,17 @@
+{
+  "audit": "Independent Python reconstruction from raw MIDI and sealed guitar annotations",
+  "rows": 495,
+  "configurations": 9,
+  "case_count": 55,
+  "fixture_manifest_sha256": "bd17fd0ebce0769be168a77cdb9b78453568a389686c10a05e9fd95b8c89335b",
+  "report_files_sha256": {
+    "audio-cases.csv": "3e96a2c1066ca07c02c6b9accbe8df4900cd8e611f63be651d99487c69e2cfc0",
+    "audio-events.csv": "1e87f14b8b1e401a9bfd9c5ecc681cfd3b0d1a93b46962f173a6bf887035fda5",
+    "audio-summary.txt": "8c486c29244ac4729e3c6655d5cac18b1493b0443e5082039223a637edd80cb8"
+  },
+  "scoring_differences": [],
+  "block_event_invariance_differences": [],
+  "false_octave_direction_counts": {},
+  "source_overflow_and_cpu_metrics_not_reconstructed": true,
+  "continuous_bend_rows_are_fixed_note_diagnostics": true
+}

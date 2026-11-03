@@ -1,4 +1,4 @@
-# Flysnapper – brukerveiledning
+# Flysnapper 0.2.1 – brukerveiledning
 
 Flysnapper gjør audio om til MIDI og korrigerer spille-MIDI etter en valgt
 skala eller et akkordspor. De to modulene kan brukes sammen eller hver for seg.
@@ -18,6 +18,13 @@ Ved oppdatering beholdes en sikkerhetskopi av den gamle Flysnapper-bundlen
 utenfor pluginmappen. Buffkiller og andre plugins blir ikke endret.
 Python, CMake og Visual Studio trengs ikke. Kildearkivet under `Source/`
 følger med for lisenskrav og videre utvikling.
+
+Du kan også installere manuelt: Lukk Ableton, og kopier **hele den ytterste
+`Flysnapper.vst3`-mappen**, med `Contents` og alt innhold, til VST3-mappen du
+bruker. Standardplasseringen er `C:\Program Files\Common Files\VST3`. Ved
+oppdatering flytter du først den gamle `Flysnapper.vst3` til en reservemappe
+utenfor VST3-mappen. Kopier deretter inn den nye, komplette mappen. Den innerste
+`.vst3`-filen alene er ikke hele pluginpakken.
 
 Åpne Ableton etter installasjonen og la programmet skanne den valgte
 VST3-mappen. Hvis mappen er en egendefinert VST3-mappe, må den være aktivert
@@ -44,14 +51,20 @@ fra pluginmappen. Ingen andre plugins eller Windows-innstillinger skal fjernes.
 MPE må være av. Kanal 16 er reservert for akkordkontroll, og disse notene
 sendes ikke videre til mottakerinstrumentet.
 
+Knappen `Audio / MIDI routing` åpner denne rutingsforklaringen i Flysnapper.
+Kilde- og mottakervalgene finnes i verten, utenfor pluginvinduet. En aktiv
+sidechain-buss er ikke i seg selv bevis på at et bestemt kildespor er valgt.
+
 ## Audio til MIDI
 
 Slå på `Audio to MIDI`. Velg `Monophonic` for én tone om gangen eller `Polyphonic` for
 inntil seks samtidige toner. Detektoren bruker A4 = 440 Hz og MIDI-noteområdet
 28–100. Den leverer vanlige MIDI-noter med velocity beregnet fra signalstyrken.
 
-- `Input threshold` bestemmer hvor svakt signal som behandles. En høyere
-  terskel avviser mer av bakgrunnsstøyen, men kan miste svake toner.
+- `New note threshold` setter minste nivå for en ny detektert note. En høyere
+  terskel avviser mer av bakgrunnsstøyen, men kan miste svake anslag. En allerede
+  holdt tone kan ringe svakere ut under terskelen mens pålitelig periodisk
+  toneinformasjon består.
 - `Sensitivity` bestemmer hvor lett svak toneinformasjon godtas. Høyere verdi
   kan hjelpe svake toner, men kan også øke antallet feilanslag.
 - `Release` bestemmer hvor lenge en tone får fortsette etter at toneinformasjonen
@@ -63,6 +76,40 @@ inngangen; en aktiv inngang kan fortsatt motta digital stillhet.
 
 Slå av `Audio to MIDI` for å bruke Flysnapper bare med eksternt MIDI.
 Eksterne holdte noter beholdes når audio-modulen slås av.
+
+### Bend og vibrato i monofonisk modus
+
+Slå på `Mono pitch bend` for å gjengi en sammenhengende gitarbend eller vibrato
+med vanlige MIDI-pitch-wheel-meldinger. Funksjonen er av som standard og er bare
+tilgjengelig i `Monophonic`. I `Polyphonic` er kontrollene deaktivert; det lagrede
+valget beholdes når du går tilbake til mono.
+
+Velg `Range: +/-2 st` for inntil to halvtoner opp eller ned, eller `Range: +/-12 st`
+for inntil en oktav. Bøyeområdet gjelder også mottakerinstrumentet. Flysnapper
+sender standard MIDI RPN for pitch-bend-sensitivitet før den genererte noten.
+Hvis instrumentet ignorerer dette, velger du samme område i instrumentet.
+Et annet område hos mottakeren gir feil størrelse på bend og vibrato.
+
+Med mono-bend bruker audio-genererte noter og pitch wheel **kanal 2**. Sett
+mottakeren til kanal 2 eller alle kanaler. Vanlig spille-MIDI på kanal 1
+beholder sin kanal og sine egne uttrykksmeldinger. Pitch wheel påvirker alle
+noter på samme MIDI-kanal; ikke send annet spille-MIDI på kanal 2 hvis det skal
+ha uavhengig bøying. Dette er vanlig MIDI og krever ikke MPE for én audio-stemme.
+
+Kanalskillet gjelder ved Flysnappers MIDI-utgang. Videre ruting i Live kan slå
+kanalene sammen, og enkelte instrumenter bruker felles pitch wheel for alle
+stemmer også når meldingene har ulike kanaler. For uavhengige keyboard- og
+audio-stemmer lar du keyboardet gå til sitt eget instrument og bruker en egen
+mottaker bare til audio-notene. Kanal 2 alene garanterer ikke uavhengig uttrykk
+gjennom hele verten og mottakerinstrumentet.
+
+Ved mono uten bend og i poly sendes audio-genererte noter på kanal 1.
+Kanal 16 er fortsatt akkordkontroll. Valgt kanal og forventet bøyeområde vises
+nederst i Pitch-to-MIDI-panelet.
+
+MIDI-korreksjonen velger den første uttonen ut fra skalaen eller akkorden.
+Den sammenhengende bøyingen følger deretter gitarens tonehøyde omkring denne
+uttonen. Slå av `Correction enabled` hvis bend skal følge den ukorrigerte tonen.
 
 ## MIDI-korreksjon
 

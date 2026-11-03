@@ -1,0 +1,63 @@
+{
+  "public": {
+    "audit": "Independent Python reconstruction from raw MIDI and sealed guitar annotations",
+    "rows": 81,
+    "configurations": 1,
+    "case_count": 81,
+    "fixture_manifest_sha256": "f7f88cb88a2a62bf4493e388b59f1dc8204ad2fd57469e463ab29d51072b6bb6",
+    "report_files_sha256": {
+      "audio-cases.csv": "2126f6a95c265e989d2fc346764ba727fbcf94985c3e6cddedccfa33f9f56f4e",
+      "audio-events.csv": "f62784cd874c4751c4f230d5645502fcd9fa6d6a307adc0ce41cf8314dc62327",
+      "audio-summary.txt": "c6ccef521ac239e3e3cd8f0ff7cc1e97d9baada6a00e6535f25804c4572270ce"
+    },
+    "scoring_differences": [],
+    "block_event_invariance_differences": [],
+    "false_octave_direction_counts": {
+      "down": 1
+    },
+    "source_overflow_and_cpu_metrics_not_reconstructed": true,
+    "continuous_bend_rows_are_fixed_note_diagnostics": false,
+    "source_report": "docs/validation/audio-final-public"
+  },
+  "holdout": {
+    "audit": "Independent Python reconstruction from raw MIDI and sealed guitar annotations",
+    "rows": 69,
+    "configurations": 1,
+    "case_count": 69,
+    "fixture_manifest_sha256": "816faff8b414f579e2b107057113c0c34df8685abfc768d26c978197e6e7d692",
+    "report_files_sha256": {
+      "audio-cases.csv": "4555bf65a55af86f757b36faf18285f8992071793ddd970b86fc193a3dfbc0a4",
+      "audio-events.csv": "e339e947c9e89b5166e8e5e1c9906c6862916268318844066d714575e2505cb8",
+      "audio-summary.txt": "67bd0a2c0895d8c1335cd3002b727dad571d4407d14a5ecb067a77b4c93ba968"
+    },
+    "scoring_differences": [],
+    "block_event_invariance_differences": [],
+    "false_octave_direction_counts": {
+      "up": 3
+    },
+    "source_overflow_and_cpu_metrics_not_reconstructed": true,
+    "continuous_bend_rows_are_fixed_note_diagnostics": false,
+    "source_report": "docs/validation/audio-final-holdout"
+  },
+  "confirmation": {
+    "audit": "Independent Python reconstruction from raw MIDI and sealed guitar annotations",
+    "rows": 46,
+    "configurations": 1,
+    "case_count": 46,
+    "fixture_manifest_sha256": "5baff69d15a05bac7500aef83cd9d2efcb73743aa2136ce041c8c56c5cfbbda0",
+    "report_files_sha256": {
+      "audio-cases.csv": "d87fef28ea1f575f9466c7392c7894d79a3ea19db1621f6df88a9e7b5c19a36e",
+      "audio-events.csv": "aab0130428ff8620d75584c83de829d5bc565e56befc1e0635885ad719fd3f56",
+      "audio-summary.txt": "a593dcd07bda88a6d71609415b27f8e82861cbf6a0df5840cf95e3ea472bab53"
+    },
+    "scoring_differences": [],
+    "block_event_invariance_differences": [],
+    "false_octave_direction_counts": {
+      "up": 3,
+      "down": 3
+    },
+    "source_overflow_and_cpu_metrics_not_reconstructed": true,
+    "continuous_bend_rows_are_fixed_note_diagnostics": false,
+    "source_report": "docs/validation/audio-final-confirmation"
+  }
+}

@@ -83,7 +83,8 @@ public:
 };
 void parametersAndState(){
     FlysnapperProcessor a,b;
-    check(a.getParameters().size()==60,"expected ten controls plus 50 mappings");
+    check(a.getParameters().size()==62,"expected twelve controls plus 50 mappings");
+    check(get(a,"monoBend")==0&&get(a,"bendRange")==0,"mono bend must default off with two-semitone range");
     check(a.acceptsMidi()&&a.producesMidi()&&!a.isMidiEffect()&&!a.supportsMPE(),"plugin role declarations");
     check(a.getLatencySamples()==0,"MIDI correction unexpectedly reports delay");
     const auto defaults=flysnapper::factoryDefaults();
@@ -116,6 +117,19 @@ void parametersAndState(){
     table->getFirstChildElement()->setAttribute("scale","unknown_future_scale");
     loadXml(b,*xml);check(get(b,FlysnapperProcessor::mappingParameterId(0))==defaults[0],"unknown scale should retain factory default");
     const auto previous=get(b,"root");
+    set(a,"monoBend",1);set(a,"bendRange",1);saveLoad(a,b);
+    check(get(b,"monoBend")==1&&get(b,"bendRange")==1,"mono bend settings lost across state restore");
+    auto legacy=stateXml(a);
+    auto* legacyValues=legacy->getChildByName("FLYSNAPPER_PARAMETERS");
+    check(legacyValues!=nullptr,"legacy compatibility state missing");
+    for(auto* child=legacyValues->getFirstChildElement();child!=nullptr;){
+        auto* next=child->getNextElement();
+        const auto id=child->getStringAttribute("id");
+        if(id=="monoBend"||id=="bendRange")legacyValues->removeChildElement(child,true);
+        child=next;
+    }
+    loadXml(b,*legacy);
+    check(get(b,"monoBend")==0&&get(b,"bendRange")==0,"legacy preset retained previous instance bend settings");
     xml->setAttribute("schema",999);loadXml(b,*xml);check(get(b,"root")==previous,"unknown schema changed state");
     juce::XmlElement foreign("BUFFKILLER_STATE");loadXml(b,foreign);check(get(b,"root")==previous,"foreign product state accepted");
     const char invalid[]{'b','a','d','\0'};b.setStateInformation(invalid,4);check(get(b,"root")==previous,"invalid binary state changed parameters");
@@ -223,6 +237,31 @@ void gui(){
     check(chord->getFont().getHeight()>=32&&chord->getHeight()>=60,"chord display too small");
     auto* flip=dynamic_cast<juce::TextButton*>(find(*editor,"flip"));check(flip!=nullptr,"flip missing");
     auto* viewport=dynamic_cast<juce::Viewport*>(find(*editor,"mappingViewport"));check(viewport!=nullptr,"mapping viewport missing");
+    auto* monoBend=dynamic_cast<juce::ToggleButton*>(find(*editor,"monoBend"));
+    auto* bendRange=dynamic_cast<juce::ComboBox*>(find(*editor,"bendRange"));
+    auto* bendStatus=dynamic_cast<juce::Label*>(find(*editor,"bendStatus"));
+    auto* routingHelp=dynamic_cast<juce::TextButton*>(find(*editor,"routingHelp"));
+    check(monoBend&&bendRange&&bendStatus&&routingHelp,"bend/routing controls missing from editor");
+    check(bendRange->getNumItems()==2,"bend range must expose two and twelve semitones");
+    monoBend->setToggleState(true,juce::sendNotificationSync);
+    bendRange->setSelectedItemIndex(1,juce::sendNotificationSync);
+    check(get(p,"monoBend")==1&&get(p,"bendRange")==1,"bend UI attachments did not update processor");
+    set(p,"pitchMode",1);
+    // This console test has no host message loop. Opening the editor must
+    // nevertheless reflect the stored mode immediately, without a timer tick.
+    editor.reset();editor.reset(p.createEditor());
+    monoBend=dynamic_cast<juce::ToggleButton*>(find(*editor,"monoBend"));
+    bendRange=dynamic_cast<juce::ComboBox*>(find(*editor,"bendRange"));
+    check(monoBend&&bendRange,"reopened bend controls missing");
+    check(!monoBend->isEnabled()&&!bendRange->isEnabled(),"mono bend controls remain active in Poly");
+    check(get(p,"monoBend")==1&&get(p,"bendRange")==1,"switching to Poly discarded stored mono bend choices");
+    set(p,"pitchMode",0);set(p,"monoBend",0);set(p,"bendRange",0);
+    editor.reset();editor.reset(p.createEditor());
+    monoBend=dynamic_cast<juce::ToggleButton*>(find(*editor,"monoBend"));
+    flip=dynamic_cast<juce::TextButton*>(find(*editor,"flip"));
+    viewport=dynamic_cast<juce::Viewport*>(find(*editor,"mappingViewport"));
+    check(monoBend&&flip&&viewport,"reopened front/back controls missing");
+    check(monoBend->isEnabled()&&!monoBend->getToggleState(),"mono bend control failed to restore in Mono");
     check(!viewport->isVisible(),"back side should start hidden");
     for(const auto& type:flysnapper::chordTypes()){
         auto* box=dynamic_cast<juce::ComboBox*>(find(*editor,"mapping_"+juce::String(type.id)));

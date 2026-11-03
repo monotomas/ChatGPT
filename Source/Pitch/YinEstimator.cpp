@@ -206,4 +206,66 @@ YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float 
     result.note=note;result.valid=true;
     return result;
 }
+YinEstimator::Result YinEstimator::track(const float* wave,int samples,float expectedPitch,
+                                       float searchSemitones,float minimumCorrelation) noexcept {
+    Result result;
+    if(!wave||samples<32||!std::isfinite(expectedPitch)||expectedPitch<lowNote-.5f||expectedPitch>highNote+.5f)return result;
+    searchSemitones=std::isfinite(searchSemitones)?std::clamp(searchSemitones,.1f,2.0f):.8f;
+    minimumCorrelation=std::isfinite(minimumCorrelation)?std::clamp(minimumCorrelation,.5f,.9999f):.9f;
+    const double expectedPeriod=rate/(440.0*std::pow(2.,(expectedPitch-69.)/12.));
+    const int count=std::min({samples,maxSamples,std::max(96,int(std::ceil(expectedPeriod*3.25)))});
+    const double minimumPeriod=std::max(2.0,expectedPeriod*std::pow(2.,-searchSemitones/12.));
+    const double maximumPeriod=std::min(double(count)-18.,expectedPeriod*std::pow(2.,searchSemitones/12.));
+    if(maximumPeriod<=minimumPeriod)return result;
+    const int comparison=count-int(std::ceil(maximumPeriod))-2;
+    if(comparison<16||comparison<expectedPeriod*.7)return result;
+    wave+=samples-count;
+    double energy=0,mean=0;
+    for(int i=0;i<count;++i){frame[size_t(i)]=std::isfinite(wave[i])?std::clamp(wave[i],-16.f,16.f):0;mean+=frame[size_t(i)];}
+    mean/=count;
+    for(int i=0;i<count;++i){frame[size_t(i)]-=float(mean);energy+=double(frame[size_t(i)])*frame[size_t(i)];}
+    if(energy<1e-13)return result;
+    result.rms=float(std::sqrt(energy/count));
+    // A DC-blocker's exponential tail has nearly perfect gain-normalised
+    // correlation at every lag, but is not an oscillating string. Require
+    // several observed polarity reversals and actual recent-cycle energy.
+    int crossings=0,polarity=0;
+    for(int i=0;i<count;++i){const float value=frame[size_t(i)];const int next=value>result.rms*.03f?1:value<-result.rms*.03f?-1:polarity;
+        if(polarity&&next!=polarity)++crossings;polarity=next;}
+    if(crossings<4)return result;
+    const int cycle=std::clamp(int(std::lround(expectedPeriod)),3,count/2);
+    const auto cyclePower=[&](int start) noexcept {double sum=0,squared=0;for(int i=0;i<cycle;++i){const double x=frame[size_t(start+i)];sum+=x;squared+=x*x;}return std::max(0.,squared-sum*sum/cycle);};
+    const double recentPower=cyclePower(count-cycle),priorPower=cyclePower(count-2*cycle);
+    if(recentPower<priorPower*.0625||recentPower*count<energy*cycle*.04)return result;
+    const auto correlation=[&](double period) noexcept {
+        const int integer=int(std::floor(period));const double u=period-integer;
+        const double w0=-u*(u-1)*(u-2)/6,w1=(u+1)*(u-1)*(u-2)/2,w2=-(u+1)*u*(u-2)/2,w3=(u+1)*u*(u-1)/6;
+        double a=0,b=0,aa=0,bb=0,ab=0;
+        for(int i=0;i<comparison;++i){const int p=i+integer;
+            const double x=frame[size_t(i)],y=w0*frame[size_t(p-1)]+w1*frame[size_t(p)]+w2*frame[size_t(p+1)]+w3*frame[size_t(p+2)];
+            a+=x;b+=y;aa+=x*x;bb+=y*y;ab+=x*y;
+        }
+        aa-=a*a/comparison;bb-=b*b/comparison;ab-=a*b/comparison;
+        return aa>1e-15&&bb>1e-15?std::clamp(ab/std::sqrt(aa*bb),-1.,1.):-1.;
+    };
+    double bestPeriod=std::clamp(expectedPeriod,minimumPeriod,maximumPeriod),best=correlation(bestPeriod);
+    for(int lag=int(std::ceil(minimumPeriod));lag<=int(std::floor(maximumPeriod));++lag){const double value=correlation(lag);if(value>best){best=value;bestPeriod=lag;}}
+    // A narrow bounded golden-section search refines the strongest integer
+    // maximum. Cubic interpolation keeps high-register pitch-wheel values
+    // independent of the analysis-rate sample grid.
+    double left=std::max(minimumPeriod,bestPeriod-1),right=std::min(maximumPeriod,bestPeriod+1);
+    constexpr double fraction=.6180339887498948482;
+    double a=right-fraction*(right-left),b=left+fraction*(right-left),ca=correlation(a),cb=correlation(b);
+    for(int step=0;step<10;++step){
+        if(ca>cb){right=b;b=a;cb=ca;a=right-fraction*(right-left);ca=correlation(a);}
+        else{left=a;a=b;ca=cb;b=left+fraction*(right-left);cb=correlation(b);}
+    }
+    if(ca>best){best=ca;bestPeriod=a;}if(cb>best){best=cb;bestPeriod=b;}
+    const double frequency=rate/bestPeriod,pitch=69+12*std::log2(frequency/440.0);
+    const int note=int(std::lround(pitch));
+    result.frequency=float(frequency);result.pitch=float(pitch);result.note=note;
+    result.confidence=result.periodicity=float(std::max(0.,best));
+    result.valid=best>=minimumCorrelation&&note>=lowNote&&note<=highNote;
+    return result;
+}
 }

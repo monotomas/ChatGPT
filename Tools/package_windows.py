@@ -49,7 +49,7 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
     if manifest.get('pitch_detection_implemented') is not True or 'prototype' in str(manifest.get('stage','')).lower():
         raise ValueError('The old routing-only prototype cannot be shipped as the complete product')
     required=manifest.get('required_test_names')
-    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperYin','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality'}<=set(required):
+    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperYin','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality','FlysnapperGuitarQuality','FlysnapperBendProcessor'}<=set(required):
         raise ValueError('Missing required validation target names')
     report=dist/'test-results.xml'
     if report.is_symlink():raise ValueError('Symlink test report is not accepted')

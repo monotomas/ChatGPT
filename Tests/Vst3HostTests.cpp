@@ -568,6 +568,86 @@ void testAudioPipeline(juce::AudioPluginFormatManager& formats,
     std::cout<<"PASS actual compiled VST3 mono/poly sidechain -> MIDI -> correction, simultaneous external/control MIDI and source-only shutdown\n";
 }
 
+void testAudioBend(juce::AudioPluginFormatManager& formats,
+                   const juce::PluginDescription& description) {
+    constexpr double twoPi=6.283185307179586476925286766559;
+    for(double rate:{44100.,48000.,96000.})for(int range:{2,12}) {
+        Session session(formats,description,rate,128);
+        auto& plugin=*session.plugin;
+        plugin.releaseResources();
+        check(plugin.getBus(true,0)->enable(true),"Bend test cannot enable sidechain");
+        plugin.prepareToPlay(rate,128);
+        setNormalised(plugin,"Pitch Enabled",1);
+        setNormalised(plugin,"Correction",0);
+        setNormalised(plugin,"Mono Bend",1);
+        setNormalised(plugin,"Bend Range",range==12?1.0f:0.0f);
+        std::vector<float> signal(size_t(std::ceil(rate*.75)));
+        std::vector<double> target(signal.size());
+        double phase=0;
+        for(size_t n=0;n<signal.size();++n) {
+            const double t=double(n)/rate;
+            const double bend=std::clamp((t-.15)*3.75,0.0,1.5);
+            const double vibrato=t>.15?.07*std::sin(twoPi*5*(t-.15)):0;
+            target[n]=57+bend+vibrato;
+            phase+=twoPi*440*std::pow(2.0,(target[n]-69)/12)/rate;
+            const double envelope=.25*std::min(1.,t/.002)*std::exp(-.8*t);
+            signal[n]=float(envelope*(std::sin(phase)+.30*std::sin(2*phase)+.12*std::sin(3*phase)));
+        }
+        session.audioSource=[&](int64_t sample){return sample>=0&&size_t(sample)<signal.size()?signal[size_t(sample)]:0.0f;};
+        int generatedOns=0,generatedOffs=0,externalOns=0,externalOffs=0,externalWheels=0;
+        bool rangeSent=false,generatedHeld=false,centredAfterOff=false;
+        std::vector<double> errors;
+        while(session.timeline.sample<rate*1.0) {
+            const int64_t start=session.timeline.sample;
+            juce::MidiBuffer midi;
+            if(start==0)midi.addEvent(juce::MidiMessage::noteOn(1,72,juce::uint8(91)),0);
+            const int64_t wheelAt=int64_t(rate*.30),offAt=int64_t(rate*.70);
+            if(start<=wheelAt&&wheelAt<start+128)midi.addEvent(juce::MidiMessage::pitchWheel(1,10000),int(wheelAt-start));
+            if(start<=offAt&&offAt<start+128)midi.addEvent(juce::MidiMessage::noteOff(1,72),int(offAt-start));
+            session.process(midi);
+            for(const auto metadata:midi) {
+                const auto m=metadata.getMessage();
+                check(metadata.samplePosition>=0&&metadata.samplePosition<128,"Bend event offset outside current callback");
+                const int64_t absolute=start+metadata.samplePosition;
+                check(m.getChannel()!=16,"Bend output leaked chord control channel");
+                if(m.getChannel()==1) {
+                    if(m.isNoteOn()){++externalOns;check(m.getNoteNumber()==72&&absolute==0,"Bend changed external Note On");}
+                    else if(m.isNoteOff()){++externalOffs;check(m.getNoteNumber()==72&&absolute==offAt,"Bend changed external Note Off");}
+                    else if(m.isPitchWheel()){++externalWheels;check(m.getPitchWheelValue()==10000&&absolute==wheelAt,"Audio bend altered external pitch wheel");}
+                }
+                if(m.getChannel()!=2)continue;
+                if(m.isController()&&m.getControllerNumber()==6&&m.getControllerValue()==range)rangeSent=true;
+                if(m.isNoteOn()) {
+                    check(rangeSent,"Bend sensitivity RPN was not sent before generated Note On");
+                    check(m.getNoteNumber()==57&&!generatedHeld,"Bend retriggered or changed generated anchor");
+                    ++generatedOns;generatedHeld=true;
+                    check(absolute<rate*.15,"Bend test failed acquisition before expression starts");
+                } else if(m.isNoteOff()) {
+                    check(m.getNoteNumber()==57&&generatedHeld,"Bend lost anchor Note Off binding");
+                    check(absolute>=rate*.72,"Bend ended an audible held note too early");
+                    ++generatedOffs;generatedHeld=false;
+                } else if(m.isPitchWheel()) {
+                    if(!generatedHeld&&generatedOffs>0&&m.getPitchWheelValue()==8192)centredAfterOff=true;
+                    if(generatedHeld&&absolute>=rate*.25&&absolute<rate*.70&&size_t(absolute)<target.size()) {
+                        const double reconstructed=57+(m.getPitchWheelValue()-8192)*range/8192.0;
+                        errors.push_back(std::abs(reconstructed-target[size_t(absolute)]));
+                    }
+                }
+            }
+        }
+        check(generatedOns==1&&generatedOffs==1&&!generatedHeld,"Compiled mono bend did not preserve one complete voice lifecycle");
+        check(externalOns==1&&externalOffs==1&&externalWheels==1,"Compiled bend lost concurrent channel-one MIDI");
+        check(centredAfterOff,"Compiled mono bend failed to centre wheel after generated release");
+        check(errors.size()>=15,"Compiled mono bend did not emit continuous pitch expression");
+        std::sort(errors.begin(),errors.end());
+        const auto p95=errors[size_t(std::ceil(errors.size()*.95))-1];
+        check(p95<.20,"Compiled pitch wheel did not follow the independent acoustic bend target");
+        std::cout<<"MEASURE actual VST3 mono bend "<<rate<<" Hz, +/-"<<range
+                 <<" semitones: "<<errors.size()<<" pitch updates, P95 error "<<100*p95<<" cents\n";
+    }
+    std::cout<<"PASS actual VST3 acoustic bend/vibrato, RPN range, generated channel isolation and wheel reset\n";
+}
+
 int run(int argc, const juce::String& path) {
     try {
         juce::ScopedJuceInitialiser_GUI gui;
@@ -592,6 +672,7 @@ int run(int argc, const juce::String& path) {
         testExpression(formats, *descriptions[0]);
         testLatchedControllerReset(formats, *descriptions[0]);
         testAudioPipeline(formats, *descriptions[0]);
+        testAudioBend(formats, *descriptions[0]);
         std::cout << "RESULT actual VST3 host tests passed (" << assertions << " assertions).\n";
 #if JUCE_WINDOWS
         std::cout << "PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.\n";

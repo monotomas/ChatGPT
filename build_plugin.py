@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build/test Flysnapper 0.2.0. Standard library only.
+"""Build/test Flysnapper 0.2.1. Standard library only.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 Windows tool discovery and Unicode patch adapted from Buffkiller 1.0.0.
@@ -30,7 +30,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from typing import Mapping, Sequence, NamedTuple
 
-BUILDER_REVISION = "2026.11.03-audio-midi-0.2.0"
+BUILDER_REVISION = "2026.11.03-guitar-bend-0.2.1"
 ROOT = Path(__file__).resolve().parent
 JUCE_TAG = "8.0.16-security"
 JUCE_COMMIT = "ea77444750de45e036e0279bb0291144bf8e3688"
@@ -293,7 +293,7 @@ def choose_direct_generator(installation: Path, env: Mapping[str, str],
 def build_command(cmake: str, build: Path, generator: str, jobs: int) -> list[str]:
     command = [cmake, "--build", str(build), "--config", "Release", "--target",
                "Flysnapper_VST3", "FlysnapperCoreTests",
-               "FlysnapperPluginTests", "FlysnapperVst3HostTests", "FlysnapperPitchTests", "FlysnapperProcessorAudioTests", "FlysnapperAudioValidation", "FlysnapperYinTests"]
+               "FlysnapperPluginTests", "FlysnapperVst3HostTests", "FlysnapperPitchTests", "FlysnapperProcessorAudioTests", "FlysnapperAudioValidation", "FlysnapperYinTests", "FlysnapperGuitarQualityTests", "FlysnapperBendProcessorTests"]
     if generator != "NMake Makefiles":
         command.extend(["--parallel", str(max(1, jobs))])
     return command
@@ -1172,7 +1172,7 @@ def finish_installation(choose: bool, directory: Path | None) -> bool:
     return elevate_install()
 
 
-REQUIRED_TESTS = {"FlysnapperCore", "FlysnapperPluginSmoke", "FlysnapperActualVst3", "FlysnapperPitch", "FlysnapperProcessorAudio", "FlysnapperAudioQuality", "FlysnapperYin"}
+REQUIRED_TESTS = {"FlysnapperCore", "FlysnapperPluginSmoke", "FlysnapperActualVst3", "FlysnapperPitch", "FlysnapperProcessorAudio", "FlysnapperAudioQuality", "FlysnapperYin", "FlysnapperGuitarQuality", "FlysnapperBendProcessor"}
 
 
 def verified_juce(git: str, directory: Path | None) -> Path:
@@ -1241,7 +1241,7 @@ def collect_result(build: Path, native: bool, extra_manifest=None) -> Path:
     if audio_target.exists(): shutil.rmtree(audio_target)
     shutil.copytree(audio_evidence, audio_target)
     manifest = {
-        "version": "0.2.0", "stage": "integrated-audio-midi", "builder_revision": BUILDER_REVISION,
+        "version": "0.2.1", "stage": "integrated-audio-midi", "builder_revision": BUILDER_REVISION,
         "platform": platform_name, "juce_commit": JUCE_COMMIT,
         "built_at": dt.datetime.now(dt.timezone.utc).isoformat(), "python": platform.python_version(),
         "source_commit": os.environ.get("GITHUB_SHA"),
@@ -1295,7 +1295,7 @@ def main(argv=None) -> int:
     _log = log.open("w", encoding="utf-8")
     try:
         with local_temporary_directory():
-            say("FLYSNAPPER 0.2.0 AUDIO + MIDI | " + BUILDER_REVISION + "\nLogg: " + str(log))
+            say("FLYSNAPPER 0.2.1 AUDIO + MIDI | " + BUILDER_REVISION + "\nLogg: " + str(log))
             if args.install_only:
                 return 0 if finish_installation(args.choose_install_dir, args.install_dir) else 1
             run([sys.executable, "-m", "unittest", "discover", "-s", ROOT / "Tests", "-p", "test_builder*.py", "-v"])

@@ -23,6 +23,12 @@ public:
     // by prepare(), including detuning within each endpoint's rounding bin.
     Result estimate(const float* wave,int samples,float threshold=.08f,
                     bool harmonicDisambiguation=true) noexcept;
+    // Follow an already observed oscillator in a narrow frequency interval.
+    // Correlation is normalised independently for the delayed and reference
+    // segments, so a changing decay envelope does not resemble pitch loss.
+    // This is tracking evidence, never a global note-acquisition decision.
+    Result track(const float* wave,int samples,float expectedPitch,
+                 float searchSemitones=.8f,float minimumCorrelation=.9f) noexcept;
 private:
     double rate=12000;
     int lowNote=28,highNote=100;

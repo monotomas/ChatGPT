@@ -1,0 +1,46 @@
+{
+  "scope": "Standalone pitch and guitar controls, not complete JUCE/Live runtime",
+  "instrumentation": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer",
+    "LeakSanitizer"
+  ],
+  "ASAN_OPTIONS": "detect_leaks=1",
+  "source_sha256": {
+    "Source/Pitch/PitchDetector.cpp": "e70cc37f1b344c8dac325364a33e545e7393f3b0d305d526f6d8bb6e3b332a34",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d364b3182a2fe298f3836b0a9a636c00b7ea8f2ab305627f5a90ee4027d2a90a",
+    "Source/Pitch/PitchDetector.h": "348537d970c7ef15ecefe69400ff39454ef147c19f7d451ae789936d0ca98e55",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "53608218b5cfef4e4bbc7e4c658830adbe2792c97dfc20768f67012bd4cc7b48",
+    "Tests/PitchTests.cpp": "afe83907a92d1b7a27b2fd08781f60096d9d64020b53aac0b9f1be75ea764e2f",
+    "Tests/GuitarQualityTests.cpp": "099c9fe2816cbcb1b9a34d520e6f2bb3f7b1c585a262cb40aea04a956a6f741c"
+  },
+  "source_stable": true,
+  "runs": [
+    {
+      "test": "pitch",
+      "exit_code": 0,
+      "binary_sha256": "304b2c06ac6cdcc9805bd2961321165b6b5d65cf711c21239547889d9da9150a",
+      "log_sha256": "ae76292b1bcc8738b01b1f1d2e43f958b843a23ec520d96379290c8673aa50b3"
+    },
+    {
+      "test": "guitar",
+      "exit_code": 0,
+      "binary_sha256": "b5e48af7379ac417d774b82f746d0f8ea04d44d6f3f887169ecc295270cf9356",
+      "log_sha256": "2266898d3bde5713776993e303fc49dee7c0de6ec23aa7cf53f253210935e0e3"
+    }
+  ],
+  "status": "passed",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compile_flags": [
+    "-std=c++17",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-I",
+    "Source"
+  ],
+  "execution_note": "Process-tracing permissions supplied for LeakSanitizer; all three sanitizers enabled."
+}

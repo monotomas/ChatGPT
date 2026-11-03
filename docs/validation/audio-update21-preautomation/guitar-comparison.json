@@ -1,0 +1,154 @@
+{
+  "evaluation_role": "seen-regression",
+  "guitar_fixed_cases": 51,
+  "guitar_full_rows": 495,
+  "fixed_mode_rows": 459,
+  "full_fixed_mode_counts": {
+    "expected": 459,
+    "matched": 459,
+    "missed": 0,
+    "false_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "hung": 0,
+    "overflow": 0
+  },
+  "same48k64_before_after": {
+    "mono": {
+      "source19": {
+        "expected": 39,
+        "matched": 39,
+        "missed": 0,
+        "false_note_ons": 7,
+        "octave_errors": 7,
+        "wrong_before_correct": 0,
+        "early_offs": 17,
+        "hung": 0,
+        "overflow": 0
+      },
+      "update21": {
+        "expected": 39,
+        "matched": 39,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "poly": {
+      "source19": {
+        "expected": 12,
+        "matched": 12,
+        "missed": 0,
+        "false_note_ons": 7,
+        "octave_errors": 7,
+        "wrong_before_correct": 0,
+        "early_offs": 11,
+        "hung": 0,
+        "overflow": 0
+      },
+      "update21": {
+        "expected": 12,
+        "matched": 12,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    }
+  },
+  "legacy_bend_rows_default_mono_bend_false": {
+    "expected": 36,
+    "matched": 36,
+    "missed": 0,
+    "false_note_ons": 72,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 27,
+    "hung": 0,
+    "overflow": 0
+  },
+  "true_mono_bend_enabled_results": [
+    {
+      "case": "bend_whole_step_mono",
+      "range_semitones": 2,
+      "observations": 976,
+      "median_cents": 0.14,
+      "p95_cents": 6.401,
+      "maximum_cents": 6.842
+    },
+    {
+      "case": "bend_whole_step_mono",
+      "range_semitones": 12,
+      "observations": 976,
+      "median_cents": 0.14,
+      "p95_cents": 6.401,
+      "maximum_cents": 6.842
+    },
+    {
+      "case": "bend_semitone_mono",
+      "range_semitones": 2,
+      "observations": 982,
+      "median_cents": 0.088,
+      "p95_cents": 4.023,
+      "maximum_cents": 4.211
+    },
+    {
+      "case": "bend_semitone_mono",
+      "range_semitones": 12,
+      "observations": 982,
+      "median_cents": 0.088,
+      "p95_cents": 4.023,
+      "maximum_cents": 4.211
+    },
+    {
+      "case": "bend_vibrato_mono",
+      "range_semitones": 2,
+      "observations": 976,
+      "median_cents": 5.405,
+      "p95_cents": 9.71,
+      "maximum_cents": 10.15
+    },
+    {
+      "case": "bend_vibrato_mono",
+      "range_semitones": 12,
+      "observations": 976,
+      "median_cents": 5.405,
+      "p95_cents": 9.71,
+      "maximum_cents": 10.15
+    },
+    {
+      "case": "bend_fast_bend_mono",
+      "range_semitones": 2,
+      "observations": 976,
+      "median_cents": 0.029,
+      "p95_cents": 18.535,
+      "maximum_cents": 25.828
+    },
+    {
+      "case": "bend_fast_bend_mono",
+      "range_semitones": 12,
+      "observations": 976,
+      "median_cents": 0.029,
+      "p95_cents": 18.535,
+      "maximum_cents": 25.828
+    }
+  ],
+  "guitar_quality_status": "passed",
+  "guitar_quality_checks": 93927,
+  "guitar_quality_failures": 0,
+  "source_snapshot_unchanged_after_measurement": true,
+  "live_source_matches_snapshot_after_measurement": true,
+  "source19_baseline_original_reports_unchanged": true,
+  "specific_user_downward_octave_reproduced": false,
+  "recorded_sources_are_previously_disclosed": true,
+  "musical_accuracy_not_universal": true,
+  "physical_5_10ms_latency_verified": false
+}
