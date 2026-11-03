@@ -1,16 +1,16 @@
-...............................MSVC x64: /tmp/tmp8lk3ff92/BuildTools/VC/Tools/MSVC/14.51.36231
-Windows SDK: 10.0.26100.0 | /tmp/tmp8lk3ff92/sdk
-Ressurskompilator: /tmp/tmp8lk3ff92/sdk/bin/10.0.26100.0/x64/rc.exe
-Manifestverktoy: /tmp/tmp8lk3ff92/sdk/bin/10.0.26100.0/x64/mt.exe
+...............................MSVC x64: /tmp/tmptuhj1h8f/BuildTools/VC/Tools/MSVC/14.51.36231
+Windows SDK: 10.0.26100.0 | /tmp/tmptuhj1h8f/sdk
+Ressurskompilator: /tmp/tmptuhj1h8f/sdk/bin/10.0.26100.0/x64/rc.exe
+Manifestverktoy: /tmp/tmptuhj1h8f/sdk/bin/10.0.26100.0/x64/mt.exe
 Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
 .Microsofts automatiske miljooppsett var ufullstendig. Kontrollerer verktøy og SDK-filer direkte.
 VsDevCmd.bat: Windows SDK-verktøyet rc.exe er ikke tilgjengelig i byggemiljoet.
-MSVC x64: /tmp/tmp25ito2or/BuildTools/VC/Tools/MSVC/14.51.36231
-Windows SDK: 10.0.26100.0 | /tmp/tmp25ito2or/Windows Kits/10
-Ressurskompilator: /tmp/tmp25ito2or/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe
-Manifestverktoy: /tmp/tmp25ito2or/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe
+MSVC x64: /tmp/tmp5c_avbb9/BuildTools/VC/Tools/MSVC/14.51.36231
+Windows SDK: 10.0.26100.0 | /tmp/tmp5c_avbb9/Windows Kits/10
+Ressurskompilator: /tmp/tmp5c_avbb9/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe
+Manifestverktoy: /tmp/tmp5c_avbb9/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe
 Byggemetode: NMake Makefiles (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
-........INSTALLERT: /workspace/ChatGPT/build/temp/tmpbcecdx8j/Plugins/Flysnapper.vst3
+........INSTALLERT: /workspace/ChatGPT/build/temp/tmpx92vtawl/Plugins/Flysnapper.vst3
 .usage: python -m unittest [-h] [--native] [--juce-dir JUCE_DIR] [--jobs JOBS]
                           [--install-sdk] [--install | --install-only]
                           [--choose-install-dir | --install-dir INSTALL_DIR]
@@ -19,16 +19,16 @@ python -m unittest: error: installation destination requires --install or --inst
                           [--install-sdk] [--install | --install-only]
                           [--choose-install-dir | --install-dir INSTALL_DIR]
 python -m unittest: error: --native is Linux validation only and cannot install
-.INSTALLERT: /tmp/tmpk0ko15p9/Plugins/Flysnapper.vst3
-Forrige versjon for gjenoppretting: /tmp/tmpk0ko15p9/dist/previous-installations/20261103-231913-889156/Flysnapper.vst3
+.INSTALLERT: /tmp/tmpvd6c8li3/Plugins/Flysnapper.vst3
+Forrige versjon for gjenoppretting: /tmp/tmpvd6c8li3/dist/previous-installations/20261103-232705-041051/Flysnapper.vst3
 ....Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
-Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmplg114nwl/sdk-install-20261103-231913.log
+Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmpdpfdotqw/sdk-install-20261103-232705.log
 Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
-Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmpwvhdy60r/sdk-install-20261103-231913.log
+Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmp_i8_f5vg/sdk-install-20261103-232705.log
 Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
-Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmppw0g1g_g/sdk-install-20261103-231913.log
+Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmph7a5rjku/sdk-install-20261103-232705.log
 .Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
-Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmpz9r6tov4/sdk-install-20261103-231913.log
+Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmpn7h6j5ae/sdk-install-20261103-232705.log
 Microsofts SDK-installasjon er ferdig. Kontrollerer filene pa nytt.
 ....missing
 ....missing
@@ -56,13 +56,13 @@ Kontrollert JUCE-byggekopi med Windows Unicode-rettelse brukes pa nytt.
 ...........................Delivery publication failed: Windows artifact proof belongs to a different source commit
 ...................s.......
 ----------------------------------------------------------------------
-Ran 152 tests in 8.929s
+Ran 152 tests in 10.694s
 
 OK (skipped=1)
-Published Windows delivery state: running a09f0faabd9b1a0600a1ed63031aa935146bd485
-Published Windows delivery state: failed 259c6ab59ecb422ee7709982404e665f4cbac5e3
-Published Windows delivery state: failed bd36562e965aab9e060e24415a3eaae4a5d58c2f
-Published Windows delivery state: completed c7cc2c7eb69a6b5ae172001477e20b30374f631f
-Published Windows delivery state: failed 3cb18449d506a6f4ba23c279985ec799f4db1abc
+Published Windows delivery state: running 439a19ce437b8ee1c8f71adc0cd856eb3f7ec5c6
+Published Windows delivery state: failed d7775ed5850eb196f189133945d1133a9c766767
+Published Windows delivery state: failed ac2307445c8064e0a60bf0f37d12eb9a35f6a3cd
+Published Windows delivery state: completed 85ba9849e88677587d47c9a5a5568b8f4e839442
+Published Windows delivery state: failed ae39fa139df39f1f80adb22f2686d2383b09a360
 Windows audio diagnostic measurements completed:729+621+414 configurations. Musical errors remain reported; no live latency certification.
 PASS PowerShell installer: Unicode, hashes, first install, replace, backup, unrelated plugin, failed rename rollback, tamper rejection

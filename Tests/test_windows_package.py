@@ -274,12 +274,27 @@ class WindowsPackageTests(unittest.TestCase):
         package=self.extract();destination=self.base/'Olav Lægreid (test) & routing/Separate VST3';backup=self.base/'Olav Lægreid (test) & routing/Recovery outside scan'
         env=os.environ.copy()
         if os.name!='nt':env.update(XDG_CACHE_HOME=str(self.base/'xdg-cache'),XDG_CONFIG_HOME=str(self.base/'xdg-config'),XDG_DATA_HOME=str(self.base/'xdg-data'))
-        command=[shell,'-NoLogo','-NoProfile','-ExecutionPolicy','Bypass']+(['-STA'] if os.name=='nt' else [])+['-File',str(package/'Install-Flysnapper.ps1'),'-NoUI','-Destination',str(destination),'-BackupDirectory',str(backup)]
-        for _ in range(2):
-            result=subprocess.run(command,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=120)
-            self.assertEqual(result.returncode,0,result.stdout.decode('utf-8',errors='replace'))
+        prefix=[shell,'-NoLogo','-NoProfile','-ExecutionPolicy','Bypass']+(['-STA'] if os.name=='nt' else [])+['-File',str(package/'Install-Flysnapper.ps1')]
+        # Exercise the native -File entry point with both root forms. The
+        # explicit first installation distinguishes default-root resolution
+        # from destination/backup handling in a failing native PS5 log.
+        for explicit_root in (True,False):
+            with self.subTest(explicit_package_root=explicit_root):
+                command=prefix+(['-PackageRoot',str(package)] if explicit_root else [])+['-NoUI','-Destination',str(destination),'-BackupDirectory',str(backup)]
+                result=subprocess.run(command,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=120)
+                self.assertEqual(result.returncode,0,result.stdout.decode('utf-8',errors='replace'))
         copies=list(backup.glob('*/Flysnapper.vst3'));self.assertEqual(len(copies),1)
         self.assertEqual({n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(copies[0]).items()},self.manifest['bundle_sha256'])
+        for parameter in ('PackageRoot','Destination','BackupDirectory'):
+            with self.subTest(reject_relative_parameter=parameter):
+                arguments={'PackageRoot':str(package),'Destination':str(destination),'BackupDirectory':str(backup)}
+                arguments[parameter]='relative-installer-test'
+                command=prefix+['-NoUI']+[item for name,value in arguments.items() for item in ('-'+name,value)]
+                result=subprocess.run(command,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=120)
+                self.assertNotEqual(result.returncode,0)
+                self.assertIn(b'Rejected value: [relative-installer-test]',result.stdout)
+                self.assertIn(b'Installer call stack:',result.stdout)
+                self.assertEqual({n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(destination/'Flysnapper.vst3').items()},self.manifest['bundle_sha256'])
     def test_installed_module_host_must_execute_nonzero_tests_on_windows(self):
         for assertions in (1,271828):
             good=f'RESULT actual VST3 host tests passed ({assertions} assertions).\nPLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.'

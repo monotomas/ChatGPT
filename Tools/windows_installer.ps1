@@ -3,7 +3,7 @@
 [CmdletBinding()]
 param(
     [string]$Destination,
-    [string]$PackageRoot = $PSScriptRoot,
+    [string]$PackageRoot = '',
     [string]$BackupDirectory = '',
     [switch]$NoUI,
     [switch]$VerifyOnly,
@@ -14,7 +14,7 @@ $ErrorActionPreference = 'Stop'
 
 function Get-FlysnapperFullPath([string]$Path) {
     if ([string]::IsNullOrWhiteSpace($Path) -or -not [IO.Path]::IsPathRooted($Path)) {
-        throw 'An absolute directory path is required.'
+        throw ('An absolute directory path is required. Rejected value: [' + $Path + ']')
     }
     return [IO.Path]::GetFullPath($Path).TrimEnd([IO.Path]::DirectorySeparatorChar, [IO.Path]::AltDirectorySeparatorChar)
 }
@@ -224,6 +224,13 @@ function Test-FlysnapperAccessDenied($ErrorRecord) {
 if ($LibraryOnly) { return }
 try {
     if (-not [Environment]::Is64BitOperatingSystem) { throw 'Flysnapper requires Windows x64.' }
+    # Resolve the default in the script body, after -File parameter binding,
+    # using the executing script path rather than a parameter-time root value.
+    if ([string]::IsNullOrWhiteSpace($PackageRoot)) {
+        if ([string]::IsNullOrWhiteSpace($PSCommandPath)) { throw 'The installer script path is unavailable.' }
+        $PackageRoot = [IO.Path]::GetDirectoryName($PSCommandPath)
+    }
+    $PackageRoot = Get-FlysnapperFullPath $PackageRoot
     $verified = Get-FlysnapperVerifiedPackage $PackageRoot
     if ($VerifyOnly) { Write-Host ('Verified Flysnapper ' + $verified.Version); exit 0 }
     if ([string]::IsNullOrWhiteSpace($Destination)) {
@@ -233,13 +240,17 @@ try {
     }
     try { $result = Install-FlysnapperPackage $PackageRoot $Destination $BackupDirectory }
     catch {
-        $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
-        $principal = New-Object Security.Principal.WindowsPrincipal($identity)
-        if (-not $NoUI -and (Test-FlysnapperAccessDenied $_) -and -not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-            $arguments = @('-NoLogo','-NoProfile','-ExecutionPolicy','Bypass','-STA','-File',('"' + $PSCommandPath + '"'),'-PackageRoot',('"' + $verified.Root + '"'),'-Destination',('"' + (Get-FlysnapperFullPath $Destination) + '"'))
-            if (-not [string]::IsNullOrEmpty($BackupDirectory)) { $arguments += @('-BackupDirectory',('"' + (Get-FlysnapperFullPath $BackupDirectory) + '"')) }
-            $process = Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList $arguments -Verb RunAs -Wait -PassThru
-            exit $process.ExitCode
+        # Only inspect elevation when it can be requested. Preserve ordinary
+        # validation errors, including in non-interactive portable checks.
+        if (-not $NoUI -and (Test-FlysnapperAccessDenied $_)) {
+            $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+            $principal = New-Object Security.Principal.WindowsPrincipal($identity)
+            if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+                $arguments = @('-NoLogo','-NoProfile','-ExecutionPolicy','Bypass','-STA','-File',('"' + $PSCommandPath + '"'),'-PackageRoot',('"' + $verified.Root + '"'),'-Destination',('"' + (Get-FlysnapperFullPath $Destination) + '"'))
+                if (-not [string]::IsNullOrEmpty($BackupDirectory)) { $arguments += @('-BackupDirectory',('"' + (Get-FlysnapperFullPath $BackupDirectory) + '"')) }
+                $process = Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList $arguments -Verb RunAs -Wait -PassThru
+                exit $process.ExitCode
+            }
         }
         throw
     }
@@ -251,6 +262,10 @@ try {
     }
     exit 0
 } catch {
-    Write-Error ('Installation stopped. Close Ableton/other plugin hosts and try again. ' + $_.Exception.Message) -ErrorAction Continue
+    $failure = $_
+    Write-Error ('Installation stopped. Close Ableton/other plugin hosts and try again. ' + $failure.Exception.Message) -ErrorAction Continue
+    if (-not [string]::IsNullOrWhiteSpace($failure.ScriptStackTrace)) {
+        Write-Host ('Installer call stack: ' + $failure.ScriptStackTrace)
+    }
     exit 1
 }

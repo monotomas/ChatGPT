@@ -135,6 +135,17 @@ native host loads that final BAT-installed DLL. Its command, BAT hash, result
 marker and hashed launcher log are included in installation proof. Legacy 0.2.0
 proof remains valid without claiming this additional launcher execution.
 
+The first native 0.2.1 run exposed a shared PowerShell 5.1 entrypoint failure:
+both the actual BAT and direct `-File` invocation stopped at the absolute-path
+guard, while explicit-root library calls passed. The installer now resolves its
+omitted package root from the executing script path inside the script body.
+The direct-entry regression checks both explicit and omitted package roots;
+relative package, destination and backup paths must still fail without changing
+the installed bundle. A rejected path and installer call stack are recorded on
+failure. The exact original rejection site was hidden by the old generic error,
+so this change is validated by native entrypoint execution rather than a claim
+that the user's earlier immediate exit had the same cause.
+
 `artifacts/installation-validation.json` records the source revision, ZIP hash,
 installed/recovery hashes, installer/host exit codes, host executable hash and
 assertion count. Its PowerShell and installed-host logs are hashed too. This proof

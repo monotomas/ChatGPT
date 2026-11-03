@@ -5,5 +5,11 @@
   "errors": 0,
   "skipped": 1,
   "skipped_scope": "Actual cmd/BAT execution requires native Windows; mandatory in the Windows workflow.",
-  "scope": "Python setup/packaging/provenance/installer regressions and retained audio fixture integrity."
+  "scope": "Python setup/packaging/provenance/installer regressions and retained audio fixture integrity.",
+  "log_sha256": "7c442cec717b153824e742fd780fff8a779a14c69ad3ce022151dbaa6b6f49b4",
+  "protocol_source_sha256": {
+    "Tools/windows_installer.ps1": "21da9621914ece1baa905791bcdffb2df5615b3952f73f43a832d64801856e8e",
+    "Tests/test_windows_package.py": "bc2616a7e567c0d38705bb07431cf3fd5d47de76313a4943511222dc20766961",
+    "Tools/verify_windows_install.py": "2afe4b443719983efa5cfc6eb426394e596bba8e776b3c265f1e1de98513dd84"
+  }
 }
