@@ -1,0 +1,8 @@
+case,family,mode,configurations,expected,matched,missed,false_note_ons,octave_errors,wrong_before_correct,early_offs,hung,overflow,latency_max_ms,deadline_misses
+confirm_sustain_06_poly,confirmation-held-modal,poly,1,1,1,0,1,1,0,0,0,0,53.979167,0
+confirm_voicing_01_poly,confirmation-polyphonic,poly,1,6,4,2,0,0,0,0,0,0,80.979167,0
+confirm_voicing_03_poly,confirmation-polyphonic,poly,1,5,4,1,0,0,0,0,0,0,101.979167,1
+confirm_recorded_05_poly,confirmation-recorded-electric,poly,1,1,1,0,2,1,0,0,0,0,53.916667,0
+confirm_recorded_06_poly,confirmation-recorded-electric,poly,1,1,1,0,1,0,0,0,0,0,53.958333,3
+confirm_recorded_08_poly,confirmation-recorded-nylon,poly,1,1,1,0,2,2,0,0,0,0,72.604167,0
+confirm_recorded_09_poly,confirmation-recorded-nylon,poly,1,1,1,0,3,2,0,0,0,0,64.645833,0

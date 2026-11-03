@@ -1,0 +1,221 @@
+{
+  "stage": "Private performance19, rebased against frozen behavioral17; directory uses earlier candidate18 label",
+  "evaluation_role": "seen-regression equivalence/performance; all196 cases were previously disclosed",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "release_flags": [
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG"
+  ],
+  "source_sha256": {
+    "baseline17": {
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/PitchDetector.cpp": "93857cf6fb0e8cb233b150572322a684bd53b0bf311225a6a22923800dbb0a3d",
+      "Source/Pitch/PitchDetector.h": "cf58bc44aacb8a4ad72a9a888c4469004a500e31d0e5ba921c100006577e5437",
+      "Source/Pitch/TimeDomainPursuit.cpp": "e5d8a31d3b2b2474b992d9dd205c496bd3b7b380b22506188aa393fe77ddd15f",
+      "Source/Pitch/TimeDomainPursuit.h": "bf340206b5c95e34f9d49d96c050c303e8eb3d5c0a01d06916e75bfd08f81ca0",
+      "Source/Pitch/YinEstimator.cpp": "27b7420f64be4fc762dd5486aefdfc4ac00a62e24bea6fd86b177bb39c7ae2f3",
+      "Source/Pitch/YinEstimator.h": "163d96387143f803c9acd58a27cc81e9935ab23a9214f1cfbab7d82ffc432b3a",
+      "Tests/PitchTests.cpp": "8e169406ff6bce388a91f39330e334fe49de4791217b7b3794c5f09ce7a303b3",
+      "Tests/YinEstimatorTests.cpp": "1dcece587814c8a5067109f87cb5056a8f8225ea140e24e5618b52afa1e63e6c",
+      "Tools/audio_validation.cpp": "b753df06650a9c19f325ef52da60ecde486ea31dbb1f034d76cc778018eed9c6"
+    },
+    "candidate18": {
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/PitchDetector.cpp": "025cd564c701de9bd2f32b970c274261f095c5c16368baf983e460e6667d377c",
+      "Source/Pitch/PitchDetector.h": "cf58bc44aacb8a4ad72a9a888c4469004a500e31d0e5ba921c100006577e5437",
+      "Source/Pitch/TimeDomainPursuit.cpp": "0fbbaf0cd5cdc7a8848d025625e6a4f19eede6a4ae101b41093356cda070c5f7",
+      "Source/Pitch/TimeDomainPursuit.h": "16243ad8954321f6e9846a259c1cf1f62defbde3d9300e96101ef8d76c1f1f33",
+      "Source/Pitch/YinEstimator.cpp": "27b7420f64be4fc762dd5486aefdfc4ac00a62e24bea6fd86b177bb39c7ae2f3",
+      "Source/Pitch/YinEstimator.h": "163d96387143f803c9acd58a27cc81e9935ab23a9214f1cfbab7d82ffc432b3a",
+      "Tests/PitchTests.cpp": "8e169406ff6bce388a91f39330e334fe49de4791217b7b3794c5f09ce7a303b3",
+      "Tests/YinEstimatorTests.cpp": "1dcece587814c8a5067109f87cb5056a8f8225ea140e24e5618b52afa1e63e6c",
+      "Tools/audio_validation.cpp": "b753df06650a9c19f325ef52da60ecde486ea31dbb1f034d76cc778018eed9c6"
+    }
+  },
+  "equivalence": {
+    "main": {
+      "cases": 81,
+      "events_byte_identical": true,
+      "non_cpu_metrics_identical": true,
+      "events_sha256": "f62784cd874c4751c4f230d5645502fcd9fa6d6a307adc0ce41cf8314dc62327"
+    },
+    "holdout": {
+      "cases": 69,
+      "events_byte_identical": true,
+      "non_cpu_metrics_identical": true,
+      "events_sha256": "e339e947c9e89b5166e8e5e1c9906c6862916268318844066d714575e2505cb8"
+    },
+    "confirmation": {
+      "cases": 46,
+      "events_byte_identical": true,
+      "non_cpu_metrics_identical": true,
+      "events_sha256": "aab0130428ff8620d75584c83de829d5bc565e56befc1e0635885ad719fd3f56"
+    }
+  },
+  "peak_controls": {
+    "count": 48000,
+    "baseline_candidate_and_sorted_fallback_identical": true,
+    "output": "48000 24817 358725973699206334"
+  },
+  "sanitizers": {
+    "instrumentation": [
+      "AddressSanitizer",
+      "UndefinedBehaviorSanitizer",
+      "LeakSanitizer"
+    ],
+    "runtime_options": {
+      "ASAN_OPTIONS": "detect_leaks=1"
+    },
+    "pitch_checks": 108908,
+    "yin_checks": 4327,
+    "status": "passed",
+    "logs_sha256": {
+      "pitch-asan.txt": "cad0780c8d79f021156a803ce8702f66f2e1eccd4a4d5c93fac4514f71546792",
+      "yin-asan.txt": "b3da08a5fd8fa480f4268b97f17ee1f4528d5d5cd36e163253dee268206efcc1"
+    }
+  },
+  "paired_cpu": {
+    "clock": "std::chrono::steady_clock wall processing time; uncensored shared-VM samples",
+    "configuration": "48000Hz /64samples",
+    "order": "baseline17,candidate,candidate,baseline17",
+    "cases_per_run": 196,
+    "all_abba_midi_events_byte_identical": true,
+    "all_non_cpu_metrics_identical": true,
+    "events_sha256": "627d37317a702615e18dd18afe66dbed2ca5be97a94b952b77e1db810fcbf705",
+    "runs": [
+      {
+        "order": 0,
+        "variant": "baseline17",
+        "modes": {
+          "mono": {
+            "global_cpu_median_p95_p99_max_us": [
+              1.261,
+              49.322,
+              135.008,
+              16159.192
+            ],
+            "deadline_misses": 18,
+            "mean_case_p95_us": 43.332829545454544,
+            "mean_case_p99_us": 126.9805909090909
+          },
+          "poly": {
+            "global_cpu_median_p95_p99_max_us": [
+              1.402,
+              475.488,
+              955.382,
+              6778.099
+            ],
+            "deadline_misses": 331,
+            "mean_case_p95_us": 422.5032685185185,
+            "mean_case_p99_us": 807.3061481481482
+          }
+        }
+      },
+      {
+        "order": 1,
+        "variant": "candidate18",
+        "modes": {
+          "mono": {
+            "global_cpu_median_p95_p99_max_us": [
+              1.252,
+              46.588,
+              116.461,
+              3208.74
+            ],
+            "deadline_misses": 7,
+            "mean_case_p95_us": 42.80770454545455,
+            "mean_case_p99_us": 104.50389772727273
+          },
+          "poly": {
+            "global_cpu_median_p95_p99_max_us": [
+              1.372,
+              362.713,
+              719.616,
+              47593.412
+            ],
+            "deadline_misses": 144,
+            "mean_case_p95_us": 300.51849074074073,
+            "mean_case_p99_us": 601.2640740740741
+          }
+        }
+      },
+      {
+        "order": 2,
+        "variant": "candidate18",
+        "modes": {
+          "mono": {
+            "global_cpu_median_p95_p99_max_us": [
+              1.252,
+              46.017,
+              114.268,
+              2797.426
+            ],
+            "deadline_misses": 8,
+            "mean_case_p95_us": 41.017272727272726,
+            "mean_case_p99_us": 109.08352272727272
+          },
+          "poly": {
+            "global_cpu_median_p95_p99_max_us": [
+              1.362,
+              334.311,
+              611.077,
+              11010.01
+            ],
+            "deadline_misses": 99,
+            "mean_case_p95_us": 272.2613148148148,
+            "mean_case_p99_us": 514.4108055555556
+          }
+        }
+      },
+      {
+        "order": 3,
+        "variant": "baseline17",
+        "modes": {
+          "mono": {
+            "global_cpu_median_p95_p99_max_us": [
+              1.252,
+              41.29,
+              94.278,
+              3162.882
+            ],
+            "deadline_misses": 6,
+            "mean_case_p95_us": 36.90742045454545,
+            "mean_case_p99_us": 86.70425
+          },
+          "poly": {
+            "global_cpu_median_p95_p99_max_us": [
+              1.372,
+              374.499,
+              650.655,
+              8204.431
+            ],
+            "deadline_misses": 111,
+            "mean_case_p95_us": 328.79450925925926,
+            "mean_case_p99_us": 552.1249814814814
+          }
+        }
+      }
+    ]
+  },
+  "joined_fixture_provenance": {
+    "original_manifests_sha256": {
+      "Tests/AudioFixtures/fixtures.tsv": "bed2eca207c577a8fb1e54c289c778a8e943fe55536dab35a38c570cbf670e13",
+      "Tests/AudioFixtures/fixtures.json": "f7f88cb88a2a62bf4493e388b59f1dc8204ad2fd57469e463ab29d51072b6bb6",
+      "Tests/AudioFixtures/holdout/fixtures.tsv": "13abbe3727f6693001fff3ec0df0207592dfe6a0f33e95ab6a89ca332c56f162",
+      "Tests/AudioFixtures/holdout/fixtures.json": "816faff8b414f579e2b107057113c0c34df8685abfc768d26c978197e6e7d692",
+      "Tests/AudioFixtures/confirmation/fixtures.tsv": "72573d677bea8b2fbf8564a8e20e8cb26d6cf6b0ec13d2427e9b031067ad892a",
+      "Tests/AudioFixtures/confirmation/fixtures.json": "5baff69d15a05bac7500aef83cd9d2efcb73743aa2136ce041c8c56c5cfbbda0"
+    },
+    "joined_tsv_sha256": "f20ef211d329420c16073be562ac4af3c641765f3ff9453aa6f2b861489c7431",
+    "count": 196,
+    "evaluation_role": "seen-regression performance/equivalence, not first blind"
+  },
+  "independent_review": {
+    "status": "no blocking equivalence issue for produced finite evidence",
+    "reviewer": "/root/dsp_finish/perf_verify/equivalence_review",
+    "no_source_changes": true
+  }
+}

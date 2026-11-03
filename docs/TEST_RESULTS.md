@@ -16,6 +16,17 @@ historiske logger fra eldre kildecommits er ikke erstatning for en ny kjøring.
 - `Validation/audio-validation/metrics.csv`, `events.csv` og
   `report-manifest.json`: observerte hendelser, første korrekte brukbare note,
   feilrate, slipp, CPU-frister og hashes for data/kode/evaluator som ble målt.
+- `Validation/windows-audio-diagnostics/`: ferske native Windows-målinger av
+  hele utviklingsmatrisen (729), første regresjonssamling (621) og andre
+  regresjonssamling (414). Samme evaluator er bundet til den beståtte CTest-
+  rapporten. Alle 1764 rader og hendelsesfiler må være komplette og konsistente;
+  musikalske feil rapporteres og skal ikke omtales som bestått produktkvalitet.
+
+Den faktiske Windows-installeren prøves også i en separat midlertidig mappe med
+norske tegn: første installasjon, erstatning, verifisert sikkerhetskopi og lasting
+av den **installerte** VST3-en i native testvert. Bevis/logg er publisert sammen
+med den konkrete GitHub-leveransen. Dette er en faktisk fil-/modulprøve; ingen
+systemmappe eller brukerinstallasjon er brukt i denne automatiseringen.
 
 ## Testgrupper
 

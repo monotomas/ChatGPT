@@ -1,0 +1,29 @@
+{
+  "validator": "Tracktion pluginval",
+  "tool_version": "pluginval - 1.0.4",
+  "tool_commit": "ed19c2c16b57a6d94db391bea3ef4a80b769d5bf",
+  "tool_juce_commit": "5179f4e720d8406ebd1b5401c86aea8da6cc83c9",
+  "tool_binary_sha256": "3472d239b0db7bd9bec718b55961b91fdfd83719efc59421168c63e084f80f0a",
+  "plugin_path": "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3",
+  "plugin_files_sha256": {
+    "Contents/Resources/moduleinfo.json": "9ea65e11ec8798c47a3eb1d29ec68421b25c0ebd1b7bdb941b770cd622d8ccdc",
+    "Contents/x86_64-linux/Flysnapper.so": "58c461324e9098c0ca824edccb4fc3978f2ede3aef82fddf0464095891e01df0"
+  },
+  "plugin_unchanged": true,
+  "strictness_level": 10,
+  "seed": "0x5eed1234",
+  "gui_tests_enabled": true,
+  "disabled_tests": [],
+  "reported_skips": [
+    "INFO: Skipping vst3 validator as validator path hasn't been set"
+  ],
+  "test_starts": 25,
+  "success_marker": true,
+  "process_exit_code": 0,
+  "timed_out": false,
+  "status": "passed",
+  "started_at_utc": "2026-11-03T20:36:32.361419+00:00",
+  "duration_seconds": 13.26788868299991,
+  "ableton_verified": false,
+  "audio_accuracy_validated": false
+}

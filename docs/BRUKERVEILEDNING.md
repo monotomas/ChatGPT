@@ -6,7 +6,8 @@ Flysnapper lager ingen instrumentlyd selv; et mottakerinstrument spiller MIDI-en
 
 ## Installasjon i Windows
 
-Pakk ut **hele** Windows x64-pakken til en egen mappe, gjerne på D:. Lukk
+Pakk ut **hele** Windows x64-pakken til en egen mappe, gjerne på D:. Windows 10
+eller nyere, 64-bit, er målplattformen. Lukk
 Ableton og andre pluginverter, og dobbeltklikk `INSTALL_FLYSNAPPER.bat`.
 Velg VST3-mappen som Ableton bruker. Dette kan være Windows sin vanlige
 VST3-mappe eller en egen VST3-mappe du allerede har aktivert i Ableton.
@@ -29,6 +30,7 @@ fra pluginmappen. Ingen andre plugins eller Windows-innstillinger skal fjernes.
 
 1. Legg Flysnapper som instrument på et MIDI-spor. Vanlig spille-MIDI går inn
    på kanal 1. Et eksternt keyboard og audio-generert MIDI kan brukes samtidig.
+   Ved livespilling settes Flysnapper-sporets monitorering til `In`.
 2. Velg audio-kildesporet i Abletons sidechain-panel for Flysnapper. Slå på
    sidechain-inngangen der. Audio rutes inn her; det skal ikke rutes som
    vanlig audio-utgang til et MIDI-spor.
@@ -101,5 +103,25 @@ Pakkens `Validation/audio-validation/metrics.csv` viser første korrekte brukbar
 note, feilnoter, manglende toner, slipp og CPU-tid i de automatiske lydprøvene.
 `summary.json` beskriver de grunnleggende kvalitetssjekkene. Testene inkluderer
 gitaropptak, men dekker ikke alle instrumenter, spilleteknikker eller lydmiljøer.
-De dokumenterer ikke en fysisk Ableton-kjede eller målene E2 under 10 ms og
-E3 under 5 ms.
+
+Denne versjonen oppfyller **ikke** målene E2 under 10 ms og E3 under 5 ms.
+Audio-til-MIDI bruker typisk omtrent 45–60 ms før første riktige brukbare note
+i målingene. Noen gitaranslag trenger nærmere 100 ms; enkelte krevende polyfone
+stemmer bruker over et halvt sekund eller blir ikke gjenkjent. Poly kan også
+legge til feiltoner. Svake grunntoner, overlappende oktaver og sterkt inharmoniske
+lyder er kjente vanskelige tilfeller. Bruk Mono når inngangen skal tolkes som én
+tone om gangen. MIDI-korreksjon av allerede innkommende MIDI venter ikke på
+et slikt analysevindu.
+
+Fullstendige Windows-målinger for alle tre lydsamlingene ligger under
+`Validation/windows-audio-diagnostics/`: 729 + 621 + 414 kombinasjoner av lyd,
+samplerate og blokkstørrelse. Rapportene beholder feil og CPU-fristbrudd som
+observerte resultater. De 30 grunnleggende kvalitetssjekkene er en egen kontroll.
+Målingene dokumenterer detektoren; en fysisk kjede gjennom lydkort, Ableton og
+mottakerinstrument er ikke målt her.
+
+For Poly er 64 eller 128 samples ved 48 kHz et mer forsiktig utgangspunkt enn
+de minste bufferne. Windows-prøvene fant CPU-fristbrudd ved blant annet
+32 samples / 96 kHz. Dette velges i vertens lydinnstillinger; mottakerinstrument
+og resten av settet bruker også CPU-tid. Større buffer fjerner ikke tiden
+detektoren trenger for å observere toneinformasjon.

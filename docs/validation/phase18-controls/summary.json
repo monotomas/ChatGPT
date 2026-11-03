@@ -1,0 +1,249 @@
+{
+  "summary": {
+    "public": {
+      "baseline": {
+        "expected": 117,
+        "matched": 114,
+        "missed": 3,
+        "false_note_ons": 1,
+        "octave_errors": 1,
+        "wrong_before_correct": 6,
+        "early_offs": 1,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 117,
+        "matched": 114,
+        "missed": 3,
+        "false_note_ons": 1,
+        "octave_errors": 1,
+        "wrong_before_correct": 6,
+        "early_offs": 1,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "regression": {
+      "baseline": {
+        "expected": 99,
+        "matched": 88,
+        "missed": 11,
+        "false_note_ons": 10,
+        "octave_errors": 3,
+        "wrong_before_correct": 4,
+        "early_offs": 2,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 99,
+        "matched": 88,
+        "missed": 11,
+        "false_note_ons": 10,
+        "octave_errors": 3,
+        "wrong_before_correct": 4,
+        "early_offs": 2,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "confirmation-seen": {
+      "baseline": {
+        "expected": 71,
+        "matched": 68,
+        "missed": 3,
+        "false_note_ons": 9,
+        "octave_errors": 6,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 71,
+        "matched": 68,
+        "missed": 3,
+        "false_note_ons": 9,
+        "octave_errors": 6,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "controls": {
+      "baseline": {
+        "expected": 33,
+        "matched": 33,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 33,
+        "matched": 33,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "bright-controls": {
+      "baseline": {
+        "expected": 33,
+        "matched": 33,
+        "missed": 0,
+        "false_note_ons": 1,
+        "octave_errors": 1,
+        "wrong_before_correct": 0,
+        "early_offs": 1,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 33,
+        "matched": 33,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "real-controls": {
+      "baseline": {
+        "expected": 24,
+        "matched": 19,
+        "missed": 5,
+        "false_note_ons": 6,
+        "octave_errors": 0,
+        "wrong_before_correct": 4,
+        "early_offs": 2,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 24,
+        "matched": 19,
+        "missed": 5,
+        "false_note_ons": 4,
+        "octave_errors": 0,
+        "wrong_before_correct": 4,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "position-controls": {
+      "baseline": {
+        "expected": 90,
+        "matched": 72,
+        "missed": 18,
+        "false_note_ons": 13,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 13,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 90,
+        "matched": 72,
+        "missed": 18,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "articulation": {
+      "baseline": {
+        "expected": 48,
+        "matched": 45,
+        "missed": 3,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 48,
+        "matched": 45,
+        "missed": 3,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "inharmonic": {
+      "baseline": {
+        "expected": 48,
+        "matched": 38,
+        "missed": 10,
+        "false_note_ons": 26,
+        "octave_errors": 1,
+        "wrong_before_correct": 0,
+        "early_offs": 16,
+        "hung": 0,
+        "overflow": 0
+      },
+      "candidate": {
+        "expected": 48,
+        "matched": 38,
+        "missed": 10,
+        "false_note_ons": 9,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 9,
+        "hung": 0,
+        "overflow": 0
+      }
+    }
+  },
+  "regressions": [],
+  "baseline_commit": "b45d8a82203512512cd09bbb46caf9d31c24937e",
+  "evaluation_role": "seen-regression-and-independent-articulation-controls",
+  "cases_compared": 325,
+  "phase_velocity_review": "independent-phase-review.md",
+  "physical_latency_verified": false,
+  "source_sha256": {
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/PitchDetector.cpp": "4ac6b74c682c0f4bbe51e4a96cbe6f0fe1686815b7f65c58d6657800da23607c",
+    "Source/Pitch/PitchDetector.h": "9840ce8691895feb59717ac1eb8474326ad2a0d552bb5fea96e3e317e9e03a88",
+    "Source/Pitch/TimeDomainPursuit.cpp": "e5d8a31d3b2b2474b992d9dd205c496bd3b7b380b22506188aa393fe77ddd15f",
+    "Source/Pitch/TimeDomainPursuit.h": "bf340206b5c95e34f9d49d96c050c303e8eb3d5c0a01d06916e75bfd08f81ca0",
+    "Source/Pitch/YinEstimator.cpp": "27b7420f64be4fc762dd5486aefdfc4ac00a62e24bea6fd86b177bb39c7ae2f3",
+    "Source/Pitch/YinEstimator.h": "163d96387143f803c9acd58a27cc81e9935ab23a9214f1cfbab7d82ffc432b3a"
+  },
+  "runtime_controls": 111165,
+  "sanitizers": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer",
+    "LeakSanitizer"
+  ],
+  "sanitizer_exit_code": 0,
+  "retained_limits": [
+    "Three held-stiff same-pitch restarts remain in the additional36-case study.",
+    "Existing missed polyphonic voices, initial errors and acquisition delays are not waived.",
+    "Known196 data is a regression set after its first-blind audits; no fresh unseen claim.",
+    "CPU observations were shared-VM diagnostics, not realtime or end-to-end guarantees."
+  ]
+}

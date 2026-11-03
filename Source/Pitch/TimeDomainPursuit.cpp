@@ -128,12 +128,26 @@ bool TimeDomainPursuit::copyPrediction(std::array<float,predictionSamples>& out)
     if(!data||!data->predictionValid)return false;
     out=data->prediction;return true;
 }
+namespace {
+// Actual detector peaks are strictly frequency-ordered. Other evidence uses
+// the original bounded linear search unless the caller asserts that order.
+bool observedPeak(const TimeDomainPursuit::SpectralEvidence& evidence,float target,float tolerance,
+                  float minimumMagnitude,float minimumNovelty=-1) noexcept {
+    const int count=std::clamp(evidence.count,0,int(evidence.peaks.size()));
+    auto qualifies=[&](int i) noexcept {const auto& p=evidence.peaks[size_t(i)];return p.magnitude>=minimumMagnitude&&(minimumNovelty<0||p.novelty>=minimumNovelty)&&std::abs(p.frequency-target)<tolerance;};
+    if(!evidence.sortedPeaks){for(int i=0;i<count;++i)if(qualifies(i))return true;return false;}
+    int first=0,last=count;
+    while(first<last){const int middle=(first+last)/2;if(evidence.peaks[size_t(middle)].frequency<target)first=middle+1;else last=middle;}
+    for(int i=first;i<count&&std::abs(evidence.peaks[size_t(i)].frequency-target)<tolerance;++i)if(qualifies(i))return true;
+    for(int i=first-1;i>=0&&std::abs(evidence.peaks[size_t(i)].frequency-target)<tolerance;--i)if(qualifies(i))return true;
+    return false;
+}
+}
 bool TimeDomainPursuit::hasIndependentPeaks(int note,const SpectralEvidence& evidence,
                                           const std::array<bool,noteCount>& explained,bool requireNovelty) noexcept {
     if(note<0||note>=noteCount||evidence.count<2||evidence.maximumMagnitude<=0)return false;
     const float frequency=evidence.frequencies[size_t(note)];
     if(!std::isfinite(frequency)||frequency<=0)return false;
-    const int peakCount=std::clamp(evidence.count,0,int(evidence.peaks.size()));
     int supported=0;bool fundamental=false;
     for(int harmonic=1;harmonic<=8;++harmonic) {
         const float target=frequency*harmonic;if(target>=evidence.maximumHz)break;
@@ -145,13 +159,8 @@ bool TimeDomainPursuit::hasIndependentPeaks(int note,const SpectralEvidence& evi
             if(nearest>=1&&f*nearest<evidence.maximumHz&&std::abs(target-f*nearest)<evidence.resolutionHz)shared=true;
         }
         if(shared){if(harmonic==1)return false;continue;}
-        bool found=false;
-        for(int p=0;p<peakCount;++p) {
-            const auto& peak=evidence.peaks[size_t(p)];
-            if(peak.magnitude<evidence.maximumMagnitude*(harmonic==1?.015f:.008f))continue;
-            if(requireNovelty&&peak.novelty<.25f)continue;
-            if(std::abs(peak.frequency-target)<target*.022f+evidence.resolutionHz*.05f){found=true;break;}
-        }
+        const bool found=observedPeak(evidence,target,target*.022f+evidence.resolutionHz*.05f,
+            evidence.maximumMagnitude*(harmonic==1?.015f:.008f),requireNovelty?.25f:-1);
         if(found){++supported;if(harmonic==1)fundamental=true;}
         else if(harmonic==1)return false;
     }
@@ -162,13 +171,11 @@ bool independentOfAnchor(int note,const TimeDomainPursuit::SpectralEvidence& evi
     if(note<0||note>=TimeDomainPursuit::noteCount||evidence.anchorNote<0||evidence.anchorNote>=TimeDomainPursuit::noteCount)return false;
     const float f=evidence.frequencies[size_t(note)],hint=evidence.frequencies[size_t(evidence.anchorNote)];
     if(!std::isfinite(f)||!std::isfinite(hint)||f<=0||hint<=0||evidence.maximumMagnitude<=0)return false;
-    const int peakCount=std::clamp(evidence.count,0,int(evidence.peaks.size()));
     int count=0;
     for(int h=1;h<=8&&f*h<evidence.maximumHz;++h){
         float target=f*h;int nearest=int(std::lround(target/hint));
         if(nearest>=1&&std::abs(target-hint*nearest)<evidence.resolutionHz)continue;
-        for(int p=0;p<peakCount;++p){const auto& peak=evidence.peaks[size_t(p)];
-            if(peak.magnitude>=evidence.maximumMagnitude*.008f&&std::abs(peak.frequency-target)<target*.022f+evidence.resolutionHz*.05f){++count;break;}}
+        if(observedPeak(evidence,target,target*.022f+evidence.resolutionHz*.05f,evidence.maximumMagnitude*.008f))++count;
     }
     return count>=minimum;
 }
@@ -188,10 +195,15 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
     mean/=samples;
     for(int i=0;i<samples;++i){frame[size_t(i)]-=float(mean);energy+=double(frame[size_t(i)])*frame[size_t(i)];}
     if(energy<1e-12)return;
+    // This evidence is frame-constant; selected-model-dependent active-upper
+    // support keeps its separate cache, reset for every selection iteration.
+    std::array<bool,noteCount> anchorSupport{};
+    if(anchor>=0)for(int n=0;n<noteCount;++n)anchorSupport[size_t(n)]=n==anchor||independentOfAnchor(n,*evidence,n<anchor?3:2);
     std::array<std::array<double,columns>,noteCount> projection{};
     for(int note=0;note<noteCount;++note){
         const auto& m=data->models[size_t(note)];
         for(int c=0;c<columns;++c){
+            if(!m.valid[size_t(c)])continue; // Prepared basis and projection are exactly zero.
             const auto* basis=m.basis.data()+c*maxSamples;
             projection[size_t(note)][size_t(c)]=dot(basis,frame.data(),samples);
         }
@@ -290,6 +302,7 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
         std::array<double,columns> bestCoefficients{};
         for(int note=0;note<noteCount;++note){
             bool duplicate=false;for(int j=0;j<used;++j)duplicate|=selected[size_t(j)]==note;if(duplicate)continue;
+            if(anchor>=0&&anchor!=note&&octaveEvidence[size_t(note)]<=0&&!activeUpperSupport(note)&&!anchorSupport[size_t(note)])continue;
             std::array<double,columns> correlation=projection[size_t(note)],beta{};
             for(int r=0;r<columns;++r)for(int j=0;j<used;++j)for(int c=0;c<columns;++c)
                 correlation[size_t(r)]-=data->cross(note,r,selected[size_t(j)],c)*coefficients[size_t(j)][size_t(c)];
@@ -302,8 +315,6 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
                 if(c==0||c==harmonics)fundamental+=a*a;
             }
             if(totalAmplitude<=0||(fundamental<totalAmplitude*.05&&anchor!=note&&!activeUpperSupport(note)))continue;
-            if(anchor>=0&&anchor!=note&&octaveEvidence[size_t(note)]<=0&&!activeUpperSupport(note)
-                &&!independentOfAnchor(note,*evidence,note<anchor?3:2))continue;
             bool weak=false;
             if(iteration>0&&score<firstScore*cutoff) {
                 if(score<firstScore*.006||score<energy*.006||!evidence)continue;

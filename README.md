@@ -47,6 +47,13 @@ stillhet er ikke bevis på frakobling.
 
 ## Målinger og begrensninger
 
+Audio-til-MIDI oppfyller foreløpig ikke målene E2 under 10 ms og E3 under 5 ms.
+Første riktige brukbare tone kommer typisk etter omtrent 45–60 ms i prøvene;
+enkelte tilfeller tar lengre tid. Polyfon gjenkjenning kan fortsatt legge til
+feiltoner eller miste stemmer, særlig ved svake grunntoner og overlappende
+oktaver. Full funksjonalitet i begge moduler betyr ikke feilfri transkripsjon
+av vilkårlig audio. Vanlig MIDI-korreksjon trenger ingen ekstra observasjonsblokk.
+
 Se `docs/AUDIO_VALIDATION.md` og `docs/TEST_RESULTS.md` for det som faktisk er
 målt, inkludert feilnoter og første korrekte brukbare note. En Windows-kompilering
 og en VST3-testvert dokumenterer ikke fysisk lydkort-/Ableton-latency. Rapporter

@@ -340,6 +340,7 @@ void PitchDetector::analysePoly(int count,int,Output&) noexcept {
         }
         if(!root&&!(fifth&&seventh))evidence.anchorNote=-1;
     }
+    evidence.sortedPeaks=true;
     polyAnchor=evidence.anchorNote;
     if(polyAnchor>=0){measuredPeriod=float(analysisRate)/hint.frequency;measuredPeriodNote=polyAnchor;}
     const float flatness=std::exp(logarithms/std::max(bins,1))/(total/std::max(bins,1)+1e-20f);

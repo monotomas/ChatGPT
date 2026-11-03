@@ -1,0 +1,38 @@
+{
+  "baseline_commit": "aa6d56cc94f2727e03ebd088ed583ec5c8f5bda1",
+  "scope": "Output-preserving performance optimization, all196 known cases are seen regression",
+  "groups": {
+    "public": {
+      "cases": 81,
+      "events_byte_identical": true,
+      "all_non_cpu_fields_identical": true,
+      "changes": []
+    },
+    "regression": {
+      "cases": 69,
+      "events_byte_identical": true,
+      "all_non_cpu_fields_identical": true,
+      "changes": []
+    },
+    "confirmation-seen": {
+      "cases": 46,
+      "events_byte_identical": true,
+      "all_non_cpu_fields_identical": true,
+      "changes": []
+    }
+  },
+  "pitch_controls": 111165,
+  "pitch_controls_passed": true,
+  "source_sha256": {
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/PitchDetector.cpp": "4cf657611c4fdf48162165a20779c186a26e0d86448da9f62f0046ace62bad63",
+    "Source/Pitch/PitchDetector.h": "9840ce8691895feb59717ac1eb8474326ad2a0d552bb5fea96e3e317e9e03a88",
+    "Source/Pitch/TimeDomainPursuit.cpp": "0fbbaf0cd5cdc7a8848d025625e6a4f19eede6a4ae101b41093356cda070c5f7",
+    "Source/Pitch/TimeDomainPursuit.h": "16243ad8954321f6e9846a259c1cf1f62defbde3d9300e96101ef8d76c1f1f33",
+    "Source/Pitch/YinEstimator.cpp": "27b7420f64be4fc762dd5486aefdfc4ac00a62e24bea6fd86b177bb39c7ae2f3",
+    "Source/Pitch/YinEstimator.h": "163d96387143f803c9acd58a27cc81e9935ab23a9214f1cfbab7d82ffc432b3a"
+  },
+  "behavior_thresholds_changed": false,
+  "physical_latency_verified": false
+}

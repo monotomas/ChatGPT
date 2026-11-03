@@ -40,7 +40,7 @@ def verify(root):
         for item in json.loads(p.read_text())['files']:
             if item['upstream_path'].endswith('.ogg'):prior.add(item['upstream_path'])
     if any(item['upstream_path'] in prior for item in source['files'] if item['upstream_path'].endswith('.ogg')):raise ValueError('Confirmation reused a previous recorded note')
-    print('Verified second sealed confirmation:25 waveforms/46 cases,9 disjoint recorded notes; no detector evaluated')
+    print('Verified second sealed confirmation:25 waveforms/46 cases,9 disjoint recorded notes; verification does not execute the detector')
 
 def generate(root):
     import numpy as np

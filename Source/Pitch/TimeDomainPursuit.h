@@ -28,6 +28,8 @@ public:
         // Optional stable periodic-series anchor, still subject to observed
         // fundamental or coprime upper-partial evidence in the caller.
         int anchorNote=-1;
+        // True only when the supplied finite peaks are in frequency order.
+        bool sortedPeaks=false;
     };
     // Requires two resolved physical partials (including the fundamental),
     // independent of harmonics already accounted for by other voices. Novel

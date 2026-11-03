@@ -1,0 +1,41 @@
+{
+  "scope": "Standalone final pitch detector and fixture regressions; not the complete JUCE/VST3/driver runtime",
+  "instrumentation": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer",
+    "LeakSanitizer"
+  ],
+  "flags": [
+    "-std=c++17",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer"
+  ],
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "exit_code": 0,
+  "checks": 111165,
+  "runtime_options": {
+    "ASAN_OPTIONS": "detect_leaks=1"
+  },
+  "source_sha256": {
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/PitchDetector.cpp": "4cf657611c4fdf48162165a20779c186a26e0d86448da9f62f0046ace62bad63",
+    "Source/Pitch/TimeDomainPursuit.cpp": "0fbbaf0cd5cdc7a8848d025625e6a4f19eede6a4ae101b41093356cda070c5f7",
+    "Source/Pitch/YinEstimator.cpp": "27b7420f64be4fc762dd5486aefdfc4ac00a62e24bea6fd86b177bb39c7ae2f3",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/PitchDetector.h": "9840ce8691895feb59717ac1eb8474326ad2a0d552bb5fea96e3e317e9e03a88",
+    "Source/Pitch/TimeDomainPursuit.h": "16243ad8954321f6e9846a259c1cf1f62defbde3d9300e96101ef8d76c1f1f33",
+    "Source/Pitch/YinEstimator.h": "163d96387143f803c9acd58a27cc81e9935ab23a9214f1cfbab7d82ffc432b3a",
+    "Tests/PitchTests.cpp": "afe83907a92d1b7a27b2fd08781f60096d9d64020b53aac0b9f1be75ea764e2f"
+  },
+  "binary_sha256": "ab116a8f8d561051c690a4610dfa6a43b165d8d5e3c450f919c52668141df0e4",
+  "fixture_argument": "Tests/AudioFixtures",
+  "execution_note": "Process-tracing permissions supplied for LeakSanitizer; all three sanitizers enabled.",
+  "compiled_sources": [
+    "Source/Pitch/PitchDetector.cpp",
+    "Source/Pitch/TimeDomainPursuit.cpp",
+    "Source/Pitch/YinEstimator.cpp",
+    "Tests/PitchTests.cpp"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "audit": "independent Python recomputation from raw MIDI events and frozen reference annotations",
+  "rows": 46,
+  "case_count": 46,
+  "configuration_count": 1,
+  "configurations": [
+    {
+      "rate": 48000,
+      "block": 64
+    }
+  ],
+  "block_invariance_assessed": false,
+  "cross_rate_invariance_assessed": false,
+  "evaluation_role": "seen-regression",
+  "scoring_differences": [],
+  "block_event_invariance_differences": [],
+  "cross_rate_outcome_invariance_differences": [],
+  "cross_rate_recall_identity_differences": [],
+  "cross_rate_note_sequence_differences": [],
+  "cross_rate_velocity_differences": [],
+  "maximum_cross_rate_matching_event_time_spread_ms": 0.0,
+  "maximum_cross_rate_correct_response_spread_ms": 0.0,
+  "fixture_manifest_sha256": "5baff69d15a05bac7500aef83cd9d2efcb73743aa2136ce041c8c56c5cfbbda0",
+  "original_report_sha256": {
+    "audio-cases.csv": "d87fef28ea1f575f9466c7392c7894d79a3ea19db1621f6df88a9e7b5c19a36e",
+    "audio-events.csv": "aab0130428ff8620d75584c83de829d5bc565e56befc1e0635885ad719fd3f56",
+    "audio-summary.txt": "a593dcd07bda88a6d71609415b27f8e82861cbf6a0df5840cf95e3ea472bab53",
+    "measurement-manifest.json": "762f342b0a30bf35799a89a2ef110339ec776fea4f5b6974d33ec31e0600d6c2"
+  },
+  "source_changed_during_measurement": false,
+  "detector_binary_sha256": "971436cc4474563c849a3f5e41753253c400edcd61db842bae95badf03521502",
+  "heldout_first_audit": false
+}

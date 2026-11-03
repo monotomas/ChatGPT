@@ -72,10 +72,10 @@ Run integrity verification without decoding libraries or network access:
 python Tools/audio_validation_holdout.py --verify
 ```
 
-After recording an algorithm/source freeze, the independent audit command is:
+After recording a source freeze, reproduce the disclosed corpus as regression:
 
 ```sh
-python Tools/audio_validation_run.py --holdout --full --output docs/validation/audio-holdout-full
+python Tools/audio_validation_run.py --holdout --full --evaluation-role seen-regression --output build/audio-holdout-regression
 ```
 
 It applies the same fixed matching/scoring rules as the development evaluator
@@ -110,12 +110,64 @@ the frozen 30-case gate. `Tests/AudioFixtures/confirmation/README.md` declares
 its provenance, limits, source-label sanitation and modifications;
 `SEALED_SHA256.txt` records its fixed manifest identity.
 
-The second set is generated and verified without executing the detector. Its
-first evaluation must follow a new source freeze and be explicitly marked
-`--evaluation-role first-blind`. Any later reuse after examining its failures is
+The second set was generated and verified without executing the detector. Its
+first evaluation followed the iteration-16 source freeze and is explicitly marked
+`--evaluation-role first-blind`. Later reuse after examining its failures is
 `seen-regression`. The wrapper records this distinction. Preparation of another
 confirmation set cannot retroactively turn the first holdout into a passing
 unseen audit or erase its recorded errors.
+
+Its first frozen iteration-16 evaluation is retained at
+`validation/audio-iteration16-confirmation-first/README.md`. It found three wrong
+initial mono notes and additional/missing polyphonic pitches. All nine recorded
+inputs were independently reconstructed sample-for-sample from the retained
+sources, and every score was independently recomputed from emitted MIDI.
+Later corrections use this disclosed set as seen-data regression; the first
+blind result and its input audit remain unchanged.
+
+## Final source-19 known-data observations
+
+At 48 kHz / 64 samples, the final frozen implementation matches all **107 mono
+reference notes** across the public development corpus and both disclosed
+confirmation corpora, with no extra notes, wrong initial notes, octave errors,
+early releases, hanging voices or output overflow in those mono cases.
+These are known-data regression observations after the earlier blind findings
+were used for corrections, not a new unseen-data generalization result.
+
+| Corpus | Mono matched/reference | Poly matched/reference | Poly misses | Poly extra Note Ons | Poly early releases |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Public development, 81 cases | 50/50 | 64/67 | 3 | 1 | 1 |
+| First disclosed holdout, 69 cases | 30/30 | 58/69 | 11 | 10 | 2 |
+| Second disclosed confirmation, 46 cases | 27/27 | 41/44 | 3 | 9 | 0 |
+
+Across these known cases, poly matches 163/180 reference notes with 17 misses,
+20 additional Note Ons, 10 octave extras, 10 wrong-before-correct counts and
+three early releases. No hanging voice or output overflow was observed. A wrong
+note can precede several expected voices; wrong-before-correct is therefore a
+per-reference count rather than a count of unique false output events.
+The remaining failures concern overlapping octave/harmonic voices, weak voices,
+and false additional pitches on some recorded single-note inputs. Poly mode
+must not be described as error-free or as having universal six-string accuracy.
+
+Final observed mono first-correct-useful response is about 43–49 ms median across
+the three corpora, with a largest observed value of 96.604 ms in these 48 kHz
+runs. The poly development corpus still contains late acquisitions up to about
+549.6 ms. The first-holdout poly median/P95/maximum is
+59.313/88.646/109.979 ms; second-confirmation poly is
+53.979/86.979/101.979 ms. These exclude the driver, Ableton, receiver and output
+hardware. Neither the E2-under-10-ms nor E3-under-5-ms objective is established;
+the measured detector responses themselves exceed those goals.
+
+The fresh native public evidence is retained under
+`validation/audio-final-public`; the independent final seen regressions are
+`validation/audio-final-holdout` and `validation/audio-final-confirmation`.
+The latter two report source stability, independent score reconstruction and
+byte-identical emitted events/non-CPU outcomes compared with iteration18.
+The native public event file was independently checked against iteration18 as
+well. CPU timing remains separately reported with all scheduler outliers and
+callback deadline misses; these checks do not provide a general realtime deadline
+guarantee. Actual Windows matrix/installer results must be read from the specific
+installation package's `Validation` evidence, not inferred from a Linux run.
 
 ## Reproducible evaluator
 
