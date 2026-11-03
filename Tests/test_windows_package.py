@@ -27,7 +27,7 @@ class WindowsPackageTests(unittest.TestCase):
         p=self.bundle/shipping.BINARY;p.parent.mkdir(parents=True)
         pe=bytearray(512);pe[:2]=b'MZ';pe[60:64]=(128).to_bytes(4,'little');pe[128:134]=b'PE\0\0\x64\x86';p.write_bytes(pe)
         (self.bundle/'Contents/Resources').mkdir();(self.bundle/'Contents/Resources/moduleinfo.json').write_text('{}')
-        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch']
+        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperAudioQuality']
         self.manifest={'version':'1.0.0','stage':'complete','platform':'Windows-x64','tests':'passed','windows_verified':True,
                        'toolchain_probe':'passed','juceaide_unicode_probe':'passed','pitch_detection_implemented':True,
                        'required_test_names':self.required,'bundle_sha256':{n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(self.bundle).items()},
@@ -35,6 +35,21 @@ class WindowsPackageTests(unittest.TestCase):
         self.save_manifest();self.report=''.join(f'<testcase name="{n}" status="run"/>' for n in self.required)
         self.save_report();(self.dist/'automated-tests.txt').write_text('fixture pass log, not actual plugin testing')
         self.output=self.base/'Windows.zip'
+        evidence=self.dist/'audio-validation';evidence.mkdir()
+        audio_sources=['Source/Pitch/PitchDetector.cpp','Source/Pitch/PitchDetector.h','Tools/audio_quality_gate.py','Tools/audio_validation.cpp']
+        for name in audio_sources+['Tests/AudioFixtures/quality_gate.json','Tests/AudioFixtures/fixtures.json','Tests/AudioFixtures/fixtures.tsv']:
+            path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True)
+            if not path.exists():path.write_text('fixture '+name)
+        summary={'gate':'FlysnapperAudioQuality','status':'passed','cases_checked':1,'cases_failed':0,'physical_live_latency_verified':False,'user_5_10ms_goals_verified':False}
+        (evidence/'summary.json').write_text(json.dumps(summary))
+        (evidence/'metrics.csv').write_text('fixture,not actual audio measurement\n')
+        h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+        self.audio_proof={'status':'passed','evaluator_exit_code':0,'summary_sha256':h(evidence/'summary.json'),'metrics_sha256':h(evidence/'metrics.csv'),
+                         'source_sha256':{name:h(self.root/name) for name in audio_sources},
+                         'policy_sha256':h(self.root/'Tests/AudioFixtures/quality_gate.json'),
+                         'fixture_manifest_sha256':h(self.root/'Tests/AudioFixtures/fixtures.json'),
+                         'fixture_inventory_sha256':h(self.root/'Tests/AudioFixtures/fixtures.tsv')}
+        (evidence/'report-manifest.json').write_text(json.dumps(self.audio_proof))
     def save_manifest(self):
         (self.dist/'build-manifest.json').write_text(json.dumps(self.manifest))
     def save_report(self):
@@ -49,7 +64,7 @@ class WindowsPackageTests(unittest.TestCase):
         with ZipFile(self.output) as z:
             p='Flysnapper-1.0.0-Windows-x64/'
             for n in ('INSTALL_FLYSNAPPER.bat','Install-Flysnapper.ps1','Flysnapper.vst3/'+shipping.BINARY,
-                      'Source/Flysnapper-Source.zip','Validation/test-results.xml','Validation/build-manifest.json'):
+                      'Source/Flysnapper-Source.zip','Validation/test-results.xml','Validation/build-manifest.json','Validation/audio-validation/summary.json'):
                 self.assertIn(p+n,z.namelist())
             release=json.loads(z.read(p+'release-manifest.json'))
             for n,h in release['files'].items():self.assertEqual(hashlib.sha256(z.read(p+n)).hexdigest(),h)
@@ -62,9 +77,9 @@ class WindowsPackageTests(unittest.TestCase):
                 self.assertFalse(self.output.exists());self.manifest[key]=old
         self.save_manifest()
     def test_required_test_must_exist_and_run_without_skip_or_failure(self):
-        for content in ('','<testcase name="FlysnapperPitch"><skipped/></testcase>',
-                        '<testcase name="FlysnapperPitch"><failure/></testcase>',
-                        '<testcase name="FlysnapperPitch" status="disabled"/>'):
+        for content in ('','<testcase name="FlysnapperAudioQuality"><skipped/></testcase>',
+                        '<testcase name="FlysnapperAudioQuality"><failure/></testcase>',
+                        '<testcase name="FlysnapperAudioQuality" status="disabled"/>'):
             self.report=''.join(f'<testcase name="{n}"/>' for n in self.required[:-1])+content;self.save_report()
             with self.assertRaises(ValueError):self.package()
     def test_tampered_or_extra_binary_bundle_file_blocks_package(self):
@@ -80,6 +95,17 @@ class WindowsPackageTests(unittest.TestCase):
     def test_unsafe_windows_paths_are_rejected(self):
         for name in ('../x','/x','a//b','a/../b','a\\b','C:x','CON','a/COM1.txt','a./x','x:stream'):
             with self.subTest(name=name),self.assertRaises(ValueError):shipping.safe_relative(name)
+    def test_failed_stale_or_tampered_audio_report_cannot_ship(self):
+        evidence=self.dist/'audio-validation'
+        original=(evidence/'summary.json').read_bytes()
+        (evidence/'summary.json').write_text(json.dumps({'gate':'FlysnapperAudioQuality','status':'failed','cases_checked':30,'cases_failed':1}))
+        with self.assertRaises(ValueError):self.package()
+        (evidence/'summary.json').write_bytes(original)
+        (self.root/'Source/Pitch/PitchDetector.cpp').write_text('changed after passing measurement')
+        with self.assertRaisesRegex(ValueError,'different source'):self.package()
+    def test_duplicate_required_pass_and_skip_cannot_ship(self):
+        self.report+='<testcase name="FlysnapperAudioQuality"><skipped/></testcase>';self.save_report()
+        with self.assertRaisesRegex(ValueError,'exactly once'):self.package()
     def test_package_is_deterministic(self):
         self.package();first=self.output.read_bytes();self.package();self.assertEqual(first,self.output.read_bytes())
     def make_git_source(self):
@@ -127,6 +153,7 @@ class WindowsPackageTests(unittest.TestCase):
         script.write_text(r'''
 $ErrorActionPreference = 'Stop'
 . $env:FLYSNAPPER_INSTALLER_SOURCE -LibraryOnly
+function Get-FileHash { throw 'Installer must not depend on external Get-FileHash module discovery' }
 function Assert-Test($Condition, $Message) { if (-not $Condition) { throw $Message } }
 if ($env:OS -eq 'Windows_NT') {
     $dialog = New-FlysnapperFolderDialog
@@ -153,7 +180,7 @@ Assert-Test ([IO.File]::ReadAllText((Join-Path $second.Backup 'old-user-file.txt
 Assert-Test ([IO.File]::ReadAllText($other) -eq 'unchanged Buffkiller') 'Other plugin altered'
 Assert-Test (-not (Test-FlysnapperWithin $second.Backup $dest)) 'Backup remains in scan root'
 $before = Get-FlysnapperInventory $second.Installed
-foreach ($bad in @((Join-Path $package 'NestedVST3'), (Join-Path $dest 'Flysnapper.vst3'))) {
+foreach ($bad in @((Join-Path $package 'NestedVST3'), (Join-Path $dest 'Flysnapper.vst3'), ([IO.Path]::GetDirectoryName($package)))) {
     $failed = $false
     try { Install-FlysnapperPackage $package $bad $backup | Out-Null } catch { $failed = $true }
     Assert-Test $failed 'Unsafe destination was accepted'

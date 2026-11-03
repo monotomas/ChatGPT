@@ -36,6 +36,14 @@ function Assert-FlysnapperNoLinks([string]$Path) {
         $current = $parent
     }
 }
+function Get-FlysnapperFileHash([string]$Path) {
+    # Use .NET directly: PowerShell 7 can pass a module search path to Windows
+    # PowerShell 5.1 in which the Get-FileHash cmdlet is not discoverable.
+    $stream = [IO.File]::OpenRead($Path)
+    $sha256 = [Security.Cryptography.SHA256]::Create()
+    try { return [BitConverter]::ToString($sha256.ComputeHash($stream)).Replace('-','').ToLowerInvariant() }
+    finally { $sha256.Dispose(); $stream.Dispose() }
+}
 function Get-FlysnapperInventory([string]$Root) {
     $rootPath = Get-FlysnapperFullPath $Root
     Assert-FlysnapperNoLinks $rootPath
@@ -50,7 +58,7 @@ function Get-FlysnapperInventory([string]$Root) {
             else {
                 $relative = $item.FullName.Substring($rootPath.Length + 1).Replace('\','/')
                 if ($inventory.ContainsKey($relative)) { throw ('Case-colliding item: ' + $relative) }
-                $inventory.Add($relative, (Get-FileHash -LiteralPath $item.FullName -Algorithm SHA256).Hash.ToLowerInvariant())
+                $inventory.Add($relative, (Get-FlysnapperFileHash $item.FullName))
             }
         }
     }
@@ -142,7 +150,7 @@ function Install-FlysnapperPackage([string]$Root, [string]$TargetDirectory, [str
     if ($destinationPath.EndsWith('.vst3', [StringComparison]::OrdinalIgnoreCase) -or $destinationPath.Length -le 3) {
         throw 'Choose the VST3 parent directory, not a drive root or a plugin bundle.'
     }
-    if (Test-FlysnapperWithin $destinationPath $package.Root) { throw 'Choose a VST3 directory outside the extracted installer package.' }
+    if ((Test-FlysnapperWithin $destinationPath $package.Root) -or (Test-FlysnapperWithin $package.Root $destinationPath)) { throw 'Keep the extracted installer package outside the VST3 scan directory, and choose a separate VST3 directory.' }
     if ([string]::IsNullOrEmpty($BackupDirectory)) {
         $BackupDirectory = Join-Path ([Environment]::GetFolderPath('LocalApplicationData')) 'Flysnapper/Backups'
     }

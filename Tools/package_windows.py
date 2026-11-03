@@ -49,7 +49,7 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
     if manifest.get('pitch_detection_implemented') is not True or 'prototype' in str(manifest.get('stage','')).lower():
         raise ValueError('The old routing-only prototype cannot be shipped as the complete product')
     required=manifest.get('required_test_names')
-    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3'}<=set(required):
+    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality'}<=set(required):
         raise ValueError('Missing required validation target names')
     report=dist/'test-results.xml'
     if report.is_symlink():raise ValueError('Symlink test report is not accepted')
@@ -57,6 +57,7 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
     passed={c.get('name') for c in cases if c.find('failure') is None and c.find('error') is None
             and c.find('skipped') is None and c.get('status','run') not in ('notrun','disabled')}
     if not set(required)<=passed:raise ValueError('All required test cases must finish without failure or skip')
+    if any(sum(c.get('name')==name for c in cases)!=1 for name in required):raise ValueError('Required test cases must occur exactly once')
     if any(c.find('failure') is not None or c.find('error') is not None for c in cases):raise ValueError('Test report contains a failure')
     bundle=files_below(dist/'Flysnapper.vst3')
     actual={n:hashlib.sha256(b).hexdigest() for n,b in bundle.items()}
@@ -68,11 +69,34 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
         raise ValueError('Windows binary hash differs from passed-test manifest')
     return bundle,manifest
 
+def verified_audio_evidence(root: Path,dist: Path) -> dict[str,bytes]:
+    evidence=files_below(dist/'audio-validation')
+    summary=json.loads(evidence['summary.json'])
+    proof=json.loads(evidence['report-manifest.json'])
+    if summary.get('gate')!='FlysnapperAudioQuality' or summary.get('status')!='passed' or summary.get('cases_failed')!=0 or not isinstance(summary.get('cases_checked'),int) or summary['cases_checked']<=0:
+        raise ValueError('Independent audio quality gate did not pass')
+    if proof.get('status')!='passed' or proof.get('evaluator_exit_code')!=0:
+        raise ValueError('Independent audio evaluator proof did not pass')
+    for filename,key in (('summary.json','summary_sha256'),('metrics.csv','metrics_sha256')):
+        if hashlib.sha256(evidence[filename]).hexdigest()!=proof.get(key):raise ValueError('Audio evidence checksum mismatch: '+filename)
+    source=proof.get('source_sha256')
+    required={'Source/Pitch/PitchDetector.cpp','Source/Pitch/PitchDetector.h','Tools/audio_quality_gate.py','Tools/audio_validation.cpp'}
+    if not isinstance(source,dict) or not required<=source.keys():raise ValueError('Audio evidence source provenance is incomplete')
+    for name,digest in source.items():
+        safe_relative(name);path=root/name
+        if path.is_symlink() or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=digest:
+            raise ValueError('Audio evidence belongs to different source: '+name)
+    for name,key in (('Tests/AudioFixtures/quality_gate.json','policy_sha256'),('Tests/AudioFixtures/fixtures.json','fixture_manifest_sha256'),('Tests/AudioFixtures/fixtures.tsv','fixture_inventory_sha256')):
+        path=root/name
+        if path.is_symlink() or hashlib.sha256(path.read_bytes()).hexdigest()!=proof.get(key):raise ValueError('Audio evidence policy/fixture provenance differs: '+name)
+    return evidence
+
 def build_package(root: Path,dist: Path,output: Path) -> Path:
     root=root.resolve(strict=True)
     version=json.loads((root/'dependencies.lock.json').read_text(encoding='utf-8')).get('project_version','')
     if not re.fullmatch(r'\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?',version):raise ValueError('Invalid project version')
     bundle,build=verified_payload(dist,version)
+    audio_evidence=verified_audio_evidence(root,dist)
     for p in (root/'Tools/windows_installer.ps1',root/'INSTALL_FLYSNAPPER.bat'):
         if p.is_symlink() or not p.is_file():raise ValueError('Native installer missing or linked')
     members={'Flysnapper.vst3/'+n:b for n,b in bundle.items()}
@@ -82,6 +106,7 @@ def build_package(root: Path,dist: Path,output: Path) -> Path:
     members['Validation/build-manifest.json']=json.dumps(build,indent=2,ensure_ascii=False).encode('utf-8')+b'\n'
     members['Validation/test-results.xml']=(dist/'test-results.xml').read_bytes()
     members['Validation/automated-tests.txt']=(dist/'automated-tests.txt').read_bytes()
+    members.update({'Validation/audio-validation/'+name:data for name,data in audio_evidence.items()})
     members['LES_MEG.txt']=(f'''Flysnapper {version} - Windows x64 VST3\r\n\r\nPakk ut HELE ZIP-filen til en egen mappe, for eksempel pa D:.\r\nLukk Ableton og andre pluginverter. Dobbeltklikk INSTALL_FLYSNAPPER.bat.\r\nVelg VST3-mappen som Ableton bruker. Installeren kopierer bare Flysnapper.vst3.\r\nIngen Python, CMake eller Visual Studio kreves.\r\nVed erstatning beholdes en kontrollert sikkerhetskopi utenfor VST3-mappen.\r\nBuffkiller og andre plugins blir ikke endret.\r\n\r\nKanal 1 er spille-MIDI, kanal 16 er akkordkontroll. Velg sidechain-audio\r\ni vertens eget panel. Mono/poly velges i Flysnapper.\r\nSe Source/Flysnapper-Source.zip for kilde, full veiledning og maalte grenser.\r\nWindows-bygg og automatiske tester finnes under Validation. Dette er ikke\r\ni seg selv dokumentasjon av fysisk lydkortlatency eller en Ableton-test.\r\n''').encode('utf-8-sig')
     spec=importlib.util.spec_from_file_location('flysnapper_source_shipping',root/'Tools/package_source.py')
     source=importlib.util.module_from_spec(spec);spec.loader.exec_module(source)

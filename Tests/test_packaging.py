@@ -6,6 +6,7 @@ from pathlib import Path
 import stat
 import tempfile
 import unittest
+from unittest import mock
 from zipfile import ZipFile
 
 SCRIPT = Path(__file__).resolve().parents[1] / "Tools/package_source.py"
@@ -101,8 +102,30 @@ class PackagingTests(unittest.TestCase):
 
     def test_case_collision_rejected_for_windows(self):
         (self.root / "Source/plugineditor.cpp").write_text("collision", encoding="utf-8")
+        # On a case-insensitive Windows directory the write above names the
+        # same physical file. Feed a case-colliding directory inventory to test
+        # the portable collector rather than assume Linux filesystem behavior.
+        walk = package.os.walk
+        def case_colliding_inventory(directory, **options):
+            for current, directories, names in walk(directory, **options):
+                if Path(current).resolve() == (self.root / "Source").resolve():
+                    names = [n for n in names if n.casefold() != "plugineditor.cpp"]
+                    names += ["PluginEditor.cpp", "plugineditor.cpp"]
+                yield current, directories, names
+        with mock.patch.object(package.os, "walk", side_effect=case_colliding_inventory):
+            with self.assertRaisesRegex(ValueError, "Case-colliding"):
+                package.build_package(self.root, self.output)
+
+    def test_verification_rejects_case_colliding_zip_members(self):
+        package.build_package(self.root, self.output)
+        with ZipFile(self.output) as source:
+            members = {name: source.read(name) for name in source.namelist()}
+        damaged = self.output.with_name("case-collision.zip")
+        with ZipFile(damaged, "w") as archive:
+            for name, data in members.items(): archive.writestr(name, data)
+            archive.writestr(package.PACKAGE_ROOT + "/Source/plugineditor.cpp", b"collision")
         with self.assertRaisesRegex(ValueError, "Case-colliding"):
-            package.build_package(self.root, self.output)
+            package.verify_package(damaged)
 
     def test_verification_detects_changed_or_unlisted_members(self):
         package.build_package(self.root, self.output)

@@ -54,19 +54,19 @@ def _safe_name(relative: str) -> None:
 def collect_files(root: Path, output: Path) -> dict[str, bytes]:
     """Read an explicit source inventory; reject links instead of following them."""
     root = root.resolve(strict=True)
-    excluded_output = output.absolute()
+    excluded_output = output.resolve(strict=False)
     members: dict[str, bytes] = {}
     folded_names: set[str] = set()
 
     def include(path: Path) -> None:
-        if path.absolute() == excluded_output:
-            return
         if path.is_symlink():
             raise ValueError(f"Symbolic links are not packaged: {path}")
         if not path.is_file():
             raise ValueError(f"Not a regular source file: {path}")
         # Also catches a symlink in an ancestor, even if supplied by an unusual walker.
         actual = path.resolve(strict=True)
+        if actual == excluded_output:
+            return
         if not actual.is_relative_to(root):
             raise ValueError(f"Source path escapes repository: {path}")
         relative = path.relative_to(root).as_posix()
@@ -139,6 +139,8 @@ def verify_package(path: Path) -> None:
         names = archive.namelist()
         if len(names) != len(set(names)):
             raise ValueError("Duplicate archive members")
+        if len(names) != len({n.casefold() for n in names}):
+            raise ValueError("Case-colliding archive members")
         prefix = PACKAGE_ROOT + "/"
         for name in names:
             _safe_name(name)

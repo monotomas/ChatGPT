@@ -10,14 +10,14 @@ The installer verifies the complete extracted inventory and Windows PE machine
 before writing to the selected VST3 parent directory. It replaces only
 `Flysnapper.vst3`, using a verified staging copy, a verified recovery copy outside
 the scan directory, and transactional rename/rollback. Reparse points are
-rejected before traversal. Other plugins are not changed. UAC is requested only
+rejected before traversal. The extracted package and selected scan directory must be separate in both directions to prevent duplicate scanned bundles. Other plugins are not changed. UAC is requested only
 if the selected destination requires elevated access. Closing Ableton before
 installation avoids DLL locks.
 
 `Tools/package_windows.py` refuses Linux binaries, x86 PE files, the old routing
 prototype, absent pitch implementation, mismatching bundle hashes, missing
 Windows toolchain/Unicode probes, or missing/failed/skipped mandatory CTests.
-Required targets are Core, Pitch, PluginSmoke, ProcessorAudio and ActualVst3.
+Required targets are Core, Pitch, PluginSmoke, ProcessorAudio, ActualVst3 and AudioQuality. The independent audio summary must pass, its report hashes must match, and its recorded DSP/source/fixture/policy hashes must match the packaged source. Stale passing measurements cannot ship after detector changes.
 Passing this gate does not establish physical audio latency or Ableton behavior.
 
 ## Build and delivery protocol
@@ -54,6 +54,6 @@ archives, publication history and redaction. With PowerShell available it
 executes real installer functions against deliberately fake PE fixture bytes:
 Unicode paths, first installation, replacement, recovery preservation, unrelated
 plugin preservation, injected rename-failure rollback and tamper rejection.
-These fixtures validate installer logic, not DLL loading. Windows CI uses native
+These fixtures validate installer logic, not DLL loading. The installer hashes files with builtin .NET SHA256 rather than depending on PowerShell module discovery. Windows CI uses native
 Windows PowerShell 5.1; Linux may additionally use verified portable PowerShell 7.
 The compiled VST3 tests are a separate mandatory stage.

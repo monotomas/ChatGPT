@@ -88,3 +88,45 @@ false notes, but increased response time and still missed weak/octave voices.
 These are measured engineering tradeoffs, not approved changes to the user's
 live-latency requirement. Final measurements must refer to the final source hash;
 intermediate reports under `docs/validation/audio-*` are diagnostic history only.
+
+## Frozen basic release quality gate
+
+`Tools/audio_quality_gate.py` is a separate failing/passing release gate. Its
+fixed policy is `Tests/AudioFixtures/quality_gate.json`, frozen on 3 November 2026
+before the next algorithm iteration. It selects 30 cases without excluding the
+known failing guitar/noise/retrigger/chord examples:
+
+| Group | Cases | Maximum first useful detector response |
+|---|---:|---:|
+| Silence, click, low noise, white noise and colored noise, each mono/poly | 10 | No pitched Note On permitted |
+| Synthetic mono strings, missing fundamental, vibrato and both repeat styles | 9 | 60ms |
+| All eight recorded mono guitar notes | 8 | 100ms |
+| Major triad, six-note open E minor and five-note strummed A minor | 3 | 120ms |
+
+All reference notes must be matched with no extra Note On, earlier wrong note,
+octave error, premature release, hanging voice or buffer overflow. Release P95
+must be at most 100ms. These are **basic usefulness/accuracy ceilings**, not the
+user's acceptable live response. In particular, passing 60/100/120ms checks must
+never be described as meeting 5/10ms detector or end-to-end latency goals. Those
+goals still require their own measured evidence.
+
+Example CTest-style invocation:
+
+```sh
+python Tools/audio_quality_gate.py --evaluator path/to/FlysnapperAudioValidation --fixtures Tests/AudioFixtures --output build/audio-quality
+```
+
+The gate validates every source/PCM hash, full 81-row CSV schema and annotation
+inventory, finite numbers, count/percentile consistency and fresh evaluator
+outputs. Only the fixed 30 cases are subjected to the basic quality ceilings;
+the remaining cases remain openly reported measurements. Python optimization
+cannot disable these checks. An evaluator failure, malformed/stale output or
+failed musical criterion returns nonzero. `Tests/test_audio_quality_gate.py`
+contains 24 blackbox regression tests, including optimized-Python, NaN, tampered
+policy ceilings, truncated CSV, failed evaluator and reused-success attacks.
+
+Output under `build/audio-quality` includes `metrics.csv`, `events.csv`,
+`measurements.txt`, `summary.json` and `report-manifest.json`. The summary always
+keeps physical/live5/10ms certification false; passing this gate alone is not
+full musical product acceptance. A failed gate must block automatic release
+artifact publication.
