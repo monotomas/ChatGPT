@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <cstdint>
 #include "TimeDomainPursuit.h"
+#include "YinEstimator.h"
 
 namespace flysnapper::pitch {
 struct Settings {
@@ -60,6 +61,7 @@ private:
     std::array<int,fftSize> bitReverse{};
     std::array<float,fftSize/2+1> spectrum{},residual{};
     TimeDomainPursuit pursuit;
+    YinEstimator monoEstimator;
     double preparedPursuitRate=0;
     std::array<float,noteCount> frequency{},scores{},strength{},previousStrength{},retriggerBaseline{};
     std::array<int,noteCount> confirmations{};
@@ -70,6 +72,8 @@ private:
     int releaseSamples=420;
     float currentPitch=-1,previousPitch=-1,dcPole=.998f,previousAttackRatio=0;
     int attackCooldown=0,attackRemaining=0;
+    float innovationEnvelope=0,previousInnovationRatio=0,innovationCoefficient=0;
+    bool phaseAttack=false;
     bool configured=false,needsReset=false;
     void fft(bool inverse=false) noexcept;
     void analyse(int offset,Output&) noexcept;

@@ -39,8 +39,18 @@ LOG_DIR = ROOT / "logs"
 DIST = ROOT / "dist"
 _log = None
 
+def console_print(text: str) -> None:
+    # Redirected Windows Python 3.10-3.14 may use CP1252. Diagnostic text
+    # must never abort a valid build or alter the captured command response.
+    try:
+        print(text, flush=True)
+    except UnicodeEncodeError:
+        encoding = getattr(sys.stdout, "encoding", None) or "ascii"
+        escaped = text.encode(encoding, errors="backslashreplace").decode(encoding)
+        print(escaped, flush=True)
+
 def say(text: str) -> None:
-    print(text, flush=True)
+    console_print(text)
     if _log is not None:
         _log.write(text + "\n"); _log.flush()
 
@@ -61,10 +71,14 @@ def run(args: Sequence[str | Path], cwd: Path | None = None, capture: bool = Fal
         env: Mapping[str, str] | None = None) -> str:
     cmd = [str(a) for a in args]
     say("\n> " + subprocess.list2cmdline(cmd))
+    child_environment = dict(os.environ if env is None else env)
+    # Python subprocesses must emit the UTF-8 stream that this reader expects.
+    # Preserve every other SDK/proxy/authentication binding and the caller dict.
+    child_environment.update(PYTHONIOENCODING="utf-8", PYTHONUTF8="1")
     process = subprocess.Popen(
         cmd, cwd=str(cwd or ROOT), stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT, encoding="utf-8", errors="replace",
-        env=None if env is None else dict(env),
+        env=child_environment,
     )
     lines: list[str] = []
     assert process.stdout is not None
@@ -81,7 +95,7 @@ def run(args: Sequence[str | Path], cwd: Path | None = None, capture: bool = Fal
         _log.flush()
     if result != 0:
         if capture:
-            print(output, flush=True)
+            console_print(output)
         raise CommandError(cmd, result, output)
     return output
 

@@ -142,7 +142,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p)
     label(allowedTitle,"ALLOWED NOTES",12.0f,muted,true);
     label(pitchTitle,"1  PITCH TO MIDI",16.0f,blue,true);
     label(sidechain,"Sidechain disabled",13.0f,muted);
-    label(detectedNotes,"Detected notes: —",14.0f,blue);
+    label(detectedNotes,"Detected notes: none",14.0f,blue);
     label(tuning,"A4 = 440 Hz",12.0f,muted);
     label(gateTitle,"INPUT THRESHOLD",11.0f,muted,true);
     label(sensitivityTitle,"SENSITIVITY",11.0f,muted,true);
@@ -274,7 +274,7 @@ void FlysnapperEditor::timerCallback(){
     juce::String detected;
     const auto detectedMask=processor.getDetectedMask();
     for(int i=0;i<12;++i)if(detectedMask&(1u<<i)){if(detected.isNotEmpty())detected+="  ";detected+=noteNames[i];}
-    detectedNotes.setText(detected.isEmpty()?"Detected notes: —":"Detected notes: "+detected,juce::dontSendNotification);
+    detectedNotes.setText(detected.isEmpty()?"Detected notes: none":"Detected notes: "+detected,juce::dontSendNotification);
     const auto count=processor.outputNotes();
     if(count!=previousOutputCount){activityTicks=8;previousOutputCount=count;}else if(activityTicks>0)--activityTicks;
     const bool fault=processor.capacityFault();
