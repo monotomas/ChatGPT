@@ -26,6 +26,97 @@ The checked-in PCM fixtures and native C++ evaluator require no audio decoder,
 network connection or numpy at execution time. Regeneration alone needs numpy
 and FFmpeg, via `Tools/audio_validation_fixtures.py`.
 
+## Separate sealed holdout
+
+The development corpus above is distinct from
+`Tests/AudioFixtures/holdout`. The holdout was prepared on 3 November 2026 before
+the detector passed its first fixed 30-case quality gate. It contains 39 PCM
+waveforms and 69 case/mode combinations: 18 independently seeded synthetic
+plucks, nine new synthetic polyphonic voicings, and twelve recorded isolated
+notes from electric and nylon/classical guitar timbres. Each single-note
+waveform is evaluated in both mono and poly modes; the nine voicings are poly
+cases. Its full rate/block matrix contains 621 runs.
+
+These recordings come from the same pinned tonejs-instruments collection,
+commit `622c2f1c32c8cfce4158ddc3eb26e518ddef37e5`, but use additional
+timbres rather than the eight acoustic guitar notes in the development corpus.
+The sample license is CC-BY-3.0. The upstream collection credits Karoryfer
+Samples for electric guitar and Freesound contributor quartertone's
+"classicalguitar-multisampled" for nylon guitar; Nicholaus P. Brosowsky compiled
+and edited the collection. Original source paths, hashes, license and attribution
+files are retained under `holdout/tonejs`. See `holdout/README.md` for complete
+attribution and declared modifications.
+
+Recorded labels were checked independently against sustained harmonic peak
+frequencies, including a check that supported harmonic indices have no common
+divisor greater than one. Those frequency checks are retained in the manifest;
+the detector under test did not supply reference labels. Derived recordings
+retain the original file attack/leading silence, use a common gain of .35, a
+650ms crop, 50ms initial padding, 250ms terminal padding and a 4ms terminal
+taper. The fixed absolute-amplitude >=.001 (-60dBFS) onset rule is the same rule as
+the development corpus. This is waveform-onset timing, not mechanical pick
+contact.
+
+Synthetic holdout signals vary pluck position, partial balance, attack, detuning,
+phase and spectral holes using seeds not used by the development corpus. The
+reference waveforms and annotations were sealed before evaluating a frozen
+candidate. The sealed `holdout/fixtures.json` SHA256 is:
+
+```text
+816faff8b414f579e2b107057113c0c34df8685abfc768d26c978197e6e7d692
+```
+
+Run integrity verification without decoding libraries or network access:
+
+```sh
+python Tools/audio_validation_holdout.py --verify
+```
+
+After recording an algorithm/source freeze, the independent audit command is:
+
+```sh
+python Tools/audio_validation_run.py --holdout --full --output docs/validation/audio-holdout-full
+```
+
+It applies the same fixed matching/scoring rules as the development evaluator
+and records all detector/header/helper hashes, executable hash, compiler,
+fixture-manifest hash and whether source files changed during the run. The
+holdout is not used to relax or replace the fixed quality gate. Once its
+outcomes have been revealed, any later detector tuning against them must be
+identified as a follow-up using seen data, not another first unseen audit. The
+first frozen-candidate report must remain available.
+
+This holdout broadens timbre and synthetic-model coverage. It is still a small
+controlled corpus of edited isolated recordings and synthetic mixtures. It does
+not establish generalization to natural live six-string performances, pickup
+noise, every instrument or arbitrary mixtures. It also includes neither a DAW
+nor physical input/output hardware.
+
+The first frozen iteration-14 audit is retained at
+`validation/audio-iteration14-holdout-full/README.md`, with the original raw
+reports and an independent Python scoring reconstruction. It found substantial
+mono retrigger and polyphonic recall/false-note errors despite the separate
+basic gate passing. Those first-blind observations must remain available after
+any later regression fixes; subsequent reuse of this corpus is seen-data work.
+
+## Second sealed confirmation
+
+A second disjoint confirmation set was prepared after preserving the first
+blind iteration-14 results. It has 25 waveforms and 46 case/mode combinations
+(414 full-matrix runs): nine new licensed recorded notes across three guitar
+timbres, independently randomized held tones/articulations/voicings, and
+unpitched controls. It has not replaced or changed either previous corpus or
+the frozen 30-case gate. `Tests/AudioFixtures/confirmation/README.md` declares
+its provenance, limits, source-label sanitation and modifications;
+`SEALED_SHA256.txt` records its fixed manifest identity.
+
+The second set is generated and verified without executing the detector. Its
+first evaluation must follow a new source freeze and be explicitly marked
+`--evaluation-role first-blind`. Any later reuse after examining its failures is
+`seen-regression`. The wrapper records this distinction. Preparation of another
+confirmation set cannot retroactively turn the first holdout into a passing
+unseen audit or erase its recorded errors.
+
 ## Reproducible evaluator
 
 On a machine with GCC or Clang, run:
@@ -77,6 +168,38 @@ stalls remain in maximum/deadline counts; no outliers are removed.
 Successful tool execution means the measurement completed. It is not automatic
 product acceptance, and must not be cited as satisfying the user's 5/10ms goal
 when the actual quality/response measurements do not satisfy it.
+
+## Three evidence levels and final product acceptance
+
+The following results answer different questions and must remain distinct:
+
+| Evidence | Scope | Meaning of success | What it does not establish |
+|---|---|---|---|
+| Frozen basic quality gate | 30 selected development cases at 48kHz / 64 samples | The explicit minimum accuracy/lifecycle criteria below passed | Accuracy on the other cases, all host configurations, or the user's 5/10ms target |
+| Broad development matrix | All 81 development cases at three rates and three block sizes: 729 runs | Measurement completed with known source/input hashes; all errors remain reported | An automatic musical pass, unseen-data generalization, or final product acceptance |
+| Sealed holdout audit | 69 separate cases over the same matrix: 621 runs | Independent observed behavior of the frozen candidate on previously unexamined fixtures | Universal guitar accuracy, a fresh unseen test after subsequent tuning, or physical latency compliance |
+
+Passing the 30-case gate is a prerequisite for automatic packaging. It is not a
+substitute for reviewing the broad matrix or holdout. A development snapshot
+can pass all mechanical/host tests and the selected quality gate while still
+emitting incorrect polyphonic notes elsewhere. Missed, false, octave and
+release/retrigger errors from the broader evaluations must not be erased or
+relabelled as passed just because a CTest runner returned zero.
+
+Final product claims also need evidence for the actual Windows build and
+installer, the compiled VST3's routing/state behavior and the relevant host
+configuration. A JUCE test host is not an Ableton Live execution. Detector
+response must be assessed together with note accuracy, rather than selecting
+an early wrong guess as the latency result. Physical guitar-to-receiver-audio
+latency includes input driver/converter, host routing, receiver attack and
+output hardware; these standalone tests do not measure that chain.
+
+The user's 5/10ms objectives remain separate acceptance requirements. The basic
+quality gate's 60/100/120ms ceilings were chosen only to reject unusable or
+unstable note extraction during development. They do not redefine acceptable
+live latency. Final delivery documentation must identify which objectives have
+measured support and which material limitations remain. No test description
+should imply full product readiness from a selected-case pass alone.
 
 ## Development findings
 

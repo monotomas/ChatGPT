@@ -1,7 +1,9 @@
 # Third-party notices
 
-Flysnapper 0.1.0 is a routing/MIDI prototype. The complete GNU Affero General
-Public License v3 is in `LICENSE.txt`. Project sources use AGPL-3.0-or-later.
+Flysnapper 0.2.0 contains audio-to-MIDI detection and MIDI correction. The complete
+GNU Affero General Public License v3 is in `LICENSE.txt`. Project sources use
+AGPL-3.0-or-later. A Windows installation package includes corresponding project
+source under `Source/Flysnapper-Source.zip` and a lock for the JUCE dependency.
 
 ## Buffkiller reference
 
@@ -39,18 +41,44 @@ selected licences. No closed-source commercial JUCE licence is granted here.
 
 ## External tools and assets
 
-CMake, Git, Python, MSVC and the Windows SDK are external build tools. No external
-font, sample, model, impulse response or artwork is embedded. No audio pitch
-estimation algorithm is shipped in this routing prototype.
+CMake, Git, Python, MSVC and the Windows SDK are external build tools. Optional
+pluginval validation uses the separately built official Tracktion tool; it is
+not part of the plugin. Upstream tool and JUCE notices remain authoritative.
+
+The pitch detector is implemented in the project's `Source/Pitch` directory.
+Its YIN estimator follows the published cumulative mean-normalised difference
+method of Alain de Cheveigné and Hideki Kawahara, “YIN, a fundamental frequency
+estimator for speech and music”, JASA 111 (2002), DOI 10.1121/1.1458024. This is
+an independent implementation, not copied third-party estimator code. Harmonic
+group pursuit, note lifecycle and integration code are also included as source.
+No pretrained model or commercial pitch engine is embedded.
 
 ## Guitar validation recordings
 
-Eight acoustic guitar notes from Nicholaus P. Brosowsky's tonejs-instruments,
-commit 622c2f1c32c8cfce4158ddc3eb26e518ddef37e5, are included under the upstream
-CC-BY 3.0 sample license. Original source: University of Iowa Electronic Music
-Studios acoustic guitar sample library. Original compressed recordings and
-upstream attribution/license files are retained in Tests/AudioFixtures/tonejs.
-Decoded/cropped/gain-adjusted validation WAVs remain CC-BY 3.0. Exact changes,
-source links and hashes: Tests/AudioFixtures/README.md and tonejs/manifest.json.
-These are test data; no samples or upstream detector code are used in plugin
-processing. Synthetic test waveforms are AGPL-3.0-or-later project data.
+The development, first holdout and second confirmation corpora include guitar
+recordings from Nicholaus P. Brosowsky's **tonejs-instruments**, pinned to commit
+`622c2f1c32c8cfce4158ddc3eb26e518ddef37e5`:
+
+- Collection: https://github.com/nbrosowsky/tonejs-instruments
+- Sample licence stated by the collection: Creative Commons Attribution 3.0,
+  https://creativecommons.org/licenses/by/3.0/
+- Acoustic guitar source: University of Iowa Electronic Music Studios,
+  http://theremin.music.uiowa.edu/
+- Electric guitar source: Karoryfer Samples,
+  https://www.karoryfer.com/karoryfer-samples
+- Nylon guitar source: Freesound user **quartertone**, pack
+  `11573__quartertone__classicalguitar-multisampled`, https://freesound.org/
+
+The original compressed recordings, upstream licence/readme/source-attribution
+files and per-file hashes are retained in the `tonejs` directories under
+`Tests/AudioFixtures`, `Tests/AudioFixtures/holdout` and
+`Tests/AudioFixtures/confirmation`. Their respective READMEs and manifests
+identify the active recordings, exclusions and exact derivation steps. Derived
+WAVs apply the documented decoding, mono conversion, gain, crop, terminal taper
+and silence padding; they remain under CC-BY 3.0. Upstream trimming, normalisation,
+denoising and occasional pitch correction are described in the retained notices.
+Artificial mixtures of isolated recordings are identified as such.
+
+These samples are test data included in corresponding source. The plugin does
+not play, embed or learn from these recordings at runtime. Synthetic test
+waveforms and project fixture-generation tools use AGPL-3.0-or-later.

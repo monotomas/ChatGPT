@@ -171,6 +171,9 @@ class AudioQualityGateTests(unittest.TestCase):
         self.assertFalse(summary["user_5_10ms_goals_verified"])
         manifest = json.loads((result.output / "report-manifest.json").read_text())
         self.assertEqual(manifest["evaluator_exit_code"], 0)
+        self.assertIn("Source/Pitch/PitchDetector.cpp", manifest["source_sha256"])
+        self.assertTrue(all("\\" not in name for name in manifest["source_sha256"]),
+                        "Provenance keys must be portable paths on Windows too")
         for name, key in (("summary.json", "summary_sha256"), ("metrics.csv", "metrics_sha256")):
             self.assertEqual(hashlib.sha256((result.output / name).read_bytes()).hexdigest(), manifest[key])
         self.assertTrue((result.output / "events.csv").is_file())

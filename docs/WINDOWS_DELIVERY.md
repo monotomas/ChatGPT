@@ -17,7 +17,13 @@ installation avoids DLL locks.
 `Tools/package_windows.py` refuses Linux binaries, x86 PE files, the old routing
 prototype, absent pitch implementation, mismatching bundle hashes, missing
 Windows toolchain/Unicode probes, or missing/failed/skipped mandatory CTests.
-Required targets are Core, Pitch, PluginSmoke, ProcessorAudio, ActualVst3 and AudioQuality. The independent audio summary must pass, its report hashes must match, and its recorded DSP/source/fixture/policy hashes must match the packaged source. Stale passing measurements cannot ship after detector changes.
+Required targets are Core, Yin, Pitch, PluginSmoke, ProcessorAudio, ActualVst3 and AudioQuality. The independent audio summary must pass, its report hashes must match, and its recorded DSP/source/fixture/policy hashes must match the packaged source. Stale passing measurements cannot ship after detector changes.
+
+Source-provenance keys use forward slashes on every platform. A native Windows
+run exposed that serializing `Path` with `str()` produced backslash keys that
+the packager could not match. Producers now use `as_posix()`. The packager also
+accepts safe older backslash representations, rejecting traversal and duplicate
+aliases; it never changes the recorded evidence or source digests.
 Passing this gate does not establish physical audio latency or Ableton behavior.
 
 ## Build and delivery protocol

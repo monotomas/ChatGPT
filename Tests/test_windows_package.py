@@ -97,6 +97,20 @@ class WindowsPackageTests(unittest.TestCase):
     def test_unsafe_windows_paths_are_rejected(self):
         for name in ('../x','/x','a//b','a/../b','a\\b','C:x','CON','a/COM1.txt','a./x','x:stream'):
             with self.subTest(name=name),self.assertRaises(ValueError):shipping.safe_relative(name)
+    def test_native_windows_provenance_paths_normalize_without_changing_hashes(self):
+        proof=self.audio_proof.copy();proof['source_sha256']={name.replace('/','\\'):digest for name,digest in self.audio_proof['source_sha256'].items()}
+        path=self.dist/'audio-validation/report-manifest.json';path.write_text(json.dumps(proof))
+        before=path.read_bytes();self.package();self.assertEqual(path.read_bytes(),before)
+        shipping.verify_package(self.output)
+    def test_duplicate_or_unsafe_windows_provenance_paths_are_rejected(self):
+        path=self.dist/'audio-validation/report-manifest.json'
+        proof=self.audio_proof.copy();proof['source_sha256']=self.audio_proof['source_sha256'].copy()
+        proof['source_sha256']['Source\\Pitch\\PitchDetector.cpp']=proof['source_sha256']['Source/Pitch/PitchDetector.cpp']
+        path.write_text(json.dumps(proof))
+        with self.assertRaisesRegex(ValueError,'Duplicate'):self.package()
+        proof['source_sha256']=self.audio_proof['source_sha256'].copy();proof['source_sha256']['..\\outside.cpp']='0'*64
+        path.write_text(json.dumps(proof))
+        with self.assertRaisesRegex(ValueError,'Unsafe'):self.package()
     def test_failed_stale_or_tampered_audio_report_cannot_ship(self):
         evidence=self.dist/'audio-validation'
         original=(evidence/'summary.json').read_bytes()

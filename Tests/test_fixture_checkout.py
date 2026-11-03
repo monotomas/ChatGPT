@@ -11,13 +11,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class FixtureCheckoutTests(unittest.TestCase):
-    def test_autocrlf_checkout_preserves_pinned_main_and_holdout_sources(self):
+    def test_autocrlf_checkout_preserves_pinned_sources_and_measurement_proof(self):
         with tempfile.TemporaryDirectory(prefix='flysnapper-checkout-') as temp:
             source = Path(temp) / 'source'
             source.mkdir()
             fixture_names = (
                 'Tests/AudioFixtures/tonejs/README.md',
                 'Tests/AudioFixtures/holdout/tonejs/README.md',
+                'docs/validation/audio-iteration14-holdout-full/measurement-manifest.json',
             )
             for name in fixture_names:
                 path = source / name

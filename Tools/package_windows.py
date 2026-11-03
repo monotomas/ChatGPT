@@ -79,11 +79,21 @@ def verified_audio_evidence(root: Path,dist: Path) -> dict[str,bytes]:
         raise ValueError('Independent audio evaluator proof did not pass')
     for filename,key in (('summary.json','summary_sha256'),('metrics.csv','metrics_sha256')):
         if hashlib.sha256(evidence[filename]).hexdigest()!=proof.get(key):raise ValueError('Audio evidence checksum mismatch: '+filename)
-    source=proof.get('source_sha256')
+    recorded=proof.get('source_sha256')
+    if not isinstance(recorded,dict):raise ValueError('Audio evidence source provenance is incomplete')
+    # Older Windows reports recorded native Path strings. Accept their safe
+    # representation without altering hashes, source bytes, quality thresholds
+    # or evidence; new producers always write portable forward-slash paths.
+    source={};folded=set()
+    for native_name,digest in recorded.items():
+        if not isinstance(native_name,str):raise ValueError('Invalid audio evidence source path')
+        name=safe_relative(native_name.replace('\\','/'))
+        if name.casefold() in folded:raise ValueError('Duplicate audio evidence source path')
+        folded.add(name.casefold());source[name]=digest
     required={'Source/Pitch/PitchDetector.cpp','Source/Pitch/PitchDetector.h','Tools/audio_quality_gate.py','Tools/audio_validation.cpp'}
-    if not isinstance(source,dict) or not required<=source.keys():raise ValueError('Audio evidence source provenance is incomplete')
+    if not required<=source.keys():raise ValueError('Audio evidence source provenance is incomplete')
     for name,digest in source.items():
-        safe_relative(name);path=root/name
+        path=root/name
         if path.is_symlink() or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=digest:
             raise ValueError('Audio evidence belongs to different source: '+name)
     for name,key in (('Tests/AudioFixtures/quality_gate.json','policy_sha256'),('Tests/AudioFixtures/fixtures.json','fixture_manifest_sha256'),('Tests/AudioFixtures/fixtures.tsv','fixture_inventory_sha256')):

@@ -1,0 +1,1602 @@
+{
+  "version": 1,
+  "scope": "second-sealed-confirmation",
+  "prepared_after": "first-blind-iteration14-audit",
+  "generator": "Tools/audio_validation_confirmation.py",
+  "detector_evaluated_during_preparation": false,
+  "excluded_sources": [
+    {
+      "source": "nylon_D5.ogg",
+      "reason": "Upstreamfilename implies MIDI74 (587.33Hz), but independent sustained FFT peak is~621.8Hz (MIDI75); omitted before detector evaluation and replaced by independently verified A4. Originalfile retained for provenance."
+    }
+  ],
+  "records": [
+    {
+      "file": "pcm/confirm_sustain_01.wav",
+      "sha256": "0fb9b93abe8430294266ced3abf2fbd758995882049eb3a62f1ea83f505fb7e0",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-held-modal",
+      "truth": [
+        {
+          "note": 43,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Single controlled pluck, evolving decays/weak beating, no later attack"
+    },
+    {
+      "file": "pcm/confirm_sustain_02.wav",
+      "sha256": "0759b7c91e3611fb4b8e6ef8279276adaf114e45772e42b542f560b10c654180",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-held-modal",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Single controlled pluck, evolving decays/weak beating, no later attack"
+    },
+    {
+      "file": "pcm/confirm_sustain_03.wav",
+      "sha256": "199fb29dd2f06cea3436facd6e5b96d79c52ee3ff67c5bac13201778d8a1e811",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-held-modal",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Single controlled pluck, evolving decays/weak beating, no later attack"
+    },
+    {
+      "file": "pcm/confirm_sustain_04.wav",
+      "sha256": "341da361e726029c529947d66705f2ab45bfa2275b62eb4e95bb55aa47397105",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-held-modal",
+      "truth": [
+        {
+          "note": 62,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Single controlled pluck, evolving decays/weak beating, no later attack"
+    },
+    {
+      "file": "pcm/confirm_sustain_05.wav",
+      "sha256": "4f5221a33a6bbb570e622ebe9c9cf7d2aefa51232c3b6aedd9d8466721d519c2",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-held-modal",
+      "truth": [
+        {
+          "note": 70,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Single controlled pluck, evolving decays/weak beating, no later attack"
+    },
+    {
+      "file": "pcm/confirm_sustain_06.wav",
+      "sha256": "54c7e013a6210627997701fd4d95f701ae00f2da3b21c69bc9114522759cb88f",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-held-modal",
+      "truth": [
+        {
+          "note": 81,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Single controlled pluck, evolving decays/weak beating, no later attack"
+    },
+    {
+      "file": "pcm/confirm_articulation_01.wav",
+      "sha256": "c12465e30dc462fa7dd572e19de6cd9ff9b42007516d6a77cdd797f7d161a9c4",
+      "sample_rate": 48000,
+      "frames": 46080,
+      "family": "confirmation-gap-repeat",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 10800
+        },
+        {
+          "note": 48,
+          "on_sample": 12960,
+          "off_sample": 21360
+        },
+        {
+          "note": 48,
+          "on_sample": 23520,
+          "off_sample": 31920
+        }
+      ],
+      "description": "Three controlled attacks/fret changes, reference lifecycle known by construction"
+    },
+    {
+      "file": "pcm/confirm_articulation_02.wav",
+      "sha256": "e757e327aaf5b31c1f603b5f283df7d7980df40784c846ad9834bd6824bb3743",
+      "sample_rate": 48000,
+      "frames": 46080,
+      "family": "confirmation-continuous-repeat",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 57,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 57,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ],
+      "description": "Three controlled attacks/fret changes, reference lifecycle known by construction"
+    },
+    {
+      "file": "pcm/confirm_articulation_03.wav",
+      "sha256": "f352ed2b4ed6867c393ce64362ed425902977b69a348bde3a147d67cc8c560e6",
+      "sample_rate": 48000,
+      "frames": 46080,
+      "family": "confirmation-quieter-repeat",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 64,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 64,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ],
+      "description": "Three controlled attacks/fret changes, reference lifecycle known by construction"
+    },
+    {
+      "file": "pcm/confirm_articulation_04.wav",
+      "sha256": "ed4a6d9d42deea59efbd9fb3ab925293df07f45fab7b96d5eaaf36039704048d",
+      "sample_rate": 48000,
+      "frames": 46080,
+      "family": "confirmation-legato-change",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 54,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 57,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ],
+      "description": "Three controlled attacks/fret changes, reference lifecycle known by construction"
+    },
+    {
+      "file": "pcm/confirm_voicing_01.wav",
+      "sha256": "7371c12001f4aafde2a797e99986916a7fac5d531ff50c64df9a681c3fb64362",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-polyphonic",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 30240
+        },
+        {
+          "note": 47,
+          "on_sample": 2640,
+          "off_sample": 30480
+        },
+        {
+          "note": 52,
+          "on_sample": 2880,
+          "off_sample": 30720
+        },
+        {
+          "note": 56,
+          "on_sample": 3120,
+          "off_sample": 30960
+        },
+        {
+          "note": 62,
+          "on_sample": 3360,
+          "off_sample": 31200
+        },
+        {
+          "note": 64,
+          "on_sample": 3600,
+          "off_sample": 31440
+        }
+      ],
+      "description": "New controlled voicing; final case adds a weak late independent pitch under a sustained strong note"
+    },
+    {
+      "file": "pcm/confirm_voicing_02.wav",
+      "sha256": "7aca5ede24368dfe530593e15c721faa5c12df1ec847c21f9aaa14d8c8d036c1",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-polyphonic",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 30240
+        },
+        {
+          "note": 57,
+          "on_sample": 2640,
+          "off_sample": 30480
+        },
+        {
+          "note": 62,
+          "on_sample": 2880,
+          "off_sample": 30720
+        },
+        {
+          "note": 65,
+          "on_sample": 3120,
+          "off_sample": 30960
+        }
+      ],
+      "description": "New controlled voicing; final case adds a weak late independent pitch under a sustained strong note"
+    },
+    {
+      "file": "pcm/confirm_voicing_03.wav",
+      "sha256": "3d46bf4622625170e02b18ac81971c54d2f73f0debe6c498e2a9d20c3991172d",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-polyphonic",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 30240
+        },
+        {
+          "note": 52,
+          "on_sample": 2640,
+          "off_sample": 30480
+        },
+        {
+          "note": 56,
+          "on_sample": 2880,
+          "off_sample": 30720
+        },
+        {
+          "note": 61,
+          "on_sample": 3120,
+          "off_sample": 30960
+        },
+        {
+          "note": 64,
+          "on_sample": 3360,
+          "off_sample": 31200
+        }
+      ],
+      "description": "New controlled voicing; final case adds a weak late independent pitch under a sustained strong note"
+    },
+    {
+      "file": "pcm/confirm_voicing_04.wav",
+      "sha256": "c9d2a02cb17d1ac754a7986233de649739305c47bb871e924d3e23f5b8d04ebf",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-polyphonic",
+      "truth": [
+        {
+          "note": 43,
+          "on_sample": 2400,
+          "off_sample": 30240
+        },
+        {
+          "note": 65,
+          "on_sample": 14400,
+          "off_sample": 27840
+        }
+      ],
+      "description": "New controlled voicing; final case adds a weak late independent pitch under a sustained strong note"
+    },
+    {
+      "file": "pcm/confirm_unpitched_01.wav",
+      "sha256": "bbe0bdf804b12368fbc124d995e3f4848d3ee5276147d88d5e4d713e85c90620",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "confirmation-noise",
+      "truth": [],
+      "description": "Broadband/colored unpitched negative control"
+    },
+    {
+      "file": "pcm/confirm_unpitched_02.wav",
+      "sha256": "d7347041c718981069944935bcbeadfefad3c85997587ba08d05f63d3ab8249a",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "confirmation-noise",
+      "truth": [],
+      "description": "Broadband/colored unpitched negative control"
+    },
+    {
+      "file": "pcm/confirm_recorded_01.wav",
+      "sha256": "048f045a48bcb12958505cbf52b91ed744281c05b681ac11d5673e2ed5202666",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-acoustic",
+      "truth": [
+        {
+          "note": 41,
+          "on_sample": 3413,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    },
+    {
+      "file": "pcm/confirm_recorded_02.wav",
+      "sha256": "4d4a112a741eca217201a11057c5af5b16e6b73266cf548c86215860b68ecd2e",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-acoustic",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 3235,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    },
+    {
+      "file": "pcm/confirm_recorded_03.wav",
+      "sha256": "c78a63c27b84d27f057a22e7583f713ffb98b7f1b0462895b8ddc6bc3345cac2",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-acoustic",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 3196,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    },
+    {
+      "file": "pcm/confirm_recorded_04.wav",
+      "sha256": "51a041da410af9589dd3396d028d2e34f0e49f19cbc9cc413b3611109b17864d",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-electric",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    },
+    {
+      "file": "pcm/confirm_recorded_05.wav",
+      "sha256": "88894c793f5e6179ec766fa16a6a8dd5376ff6e169f13feea5f50919cd213553",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-electric",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2403,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    },
+    {
+      "file": "pcm/confirm_recorded_06.wav",
+      "sha256": "f20ebca995a1e2f03f983b2270ee213dc6dea3a6327cdffa877e2a53ee5c1b0b",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-electric",
+      "truth": [
+        {
+          "note": 63,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    },
+    {
+      "file": "pcm/confirm_recorded_07.wav",
+      "sha256": "7cb929f7a24208716e7db29a8db45440eb913bf38e24208735ce765dacc4fc62",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-nylon",
+      "truth": [
+        {
+          "note": 49,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    },
+    {
+      "file": "pcm/confirm_recorded_08.wav",
+      "sha256": "4534154e34f5444e8e5f9ec8cb84ac41ec54f785f8e7bb4b2fce2533f231829d",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-nylon",
+      "truth": [
+        {
+          "note": 68,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    },
+    {
+      "file": "pcm/confirm_recorded_09.wav",
+      "sha256": "3e92c9e3d7483025b6d972feba1a642160d0e22b5a9c891894370abb33e4ed0a",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "confirmation-recorded-nylon",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ],
+      "description": "Disjoint edited isolated recording,650ms crop/.35 gain/4ms controlled cutoff"
+    }
+  ],
+  "cases": [
+    {
+      "name": "confirm_sustain_01_mono",
+      "family": "confirmation-held-modal",
+      "mode": "mono",
+      "file": "pcm/confirm_sustain_01.wav",
+      "truth": [
+        {
+          "note": 43,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_01_poly",
+      "family": "confirmation-held-modal",
+      "mode": "poly",
+      "file": "pcm/confirm_sustain_01.wav",
+      "truth": [
+        {
+          "note": 43,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_02_mono",
+      "family": "confirmation-held-modal",
+      "mode": "mono",
+      "file": "pcm/confirm_sustain_02.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_02_poly",
+      "family": "confirmation-held-modal",
+      "mode": "poly",
+      "file": "pcm/confirm_sustain_02.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_03_mono",
+      "family": "confirmation-held-modal",
+      "mode": "mono",
+      "file": "pcm/confirm_sustain_03.wav",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_03_poly",
+      "family": "confirmation-held-modal",
+      "mode": "poly",
+      "file": "pcm/confirm_sustain_03.wav",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_04_mono",
+      "family": "confirmation-held-modal",
+      "mode": "mono",
+      "file": "pcm/confirm_sustain_04.wav",
+      "truth": [
+        {
+          "note": 62,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_04_poly",
+      "family": "confirmation-held-modal",
+      "mode": "poly",
+      "file": "pcm/confirm_sustain_04.wav",
+      "truth": [
+        {
+          "note": 62,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_05_mono",
+      "family": "confirmation-held-modal",
+      "mode": "mono",
+      "file": "pcm/confirm_sustain_05.wav",
+      "truth": [
+        {
+          "note": 70,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_05_poly",
+      "family": "confirmation-held-modal",
+      "mode": "poly",
+      "file": "pcm/confirm_sustain_05.wav",
+      "truth": [
+        {
+          "note": 70,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_06_mono",
+      "family": "confirmation-held-modal",
+      "mode": "mono",
+      "file": "pcm/confirm_sustain_06.wav",
+      "truth": [
+        {
+          "note": 81,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_sustain_06_poly",
+      "family": "confirmation-held-modal",
+      "mode": "poly",
+      "file": "pcm/confirm_sustain_06.wav",
+      "truth": [
+        {
+          "note": 81,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_articulation_01_mono",
+      "family": "confirmation-gap-repeat",
+      "mode": "mono",
+      "file": "pcm/confirm_articulation_01.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 10800
+        },
+        {
+          "note": 48,
+          "on_sample": 12960,
+          "off_sample": 21360
+        },
+        {
+          "note": 48,
+          "on_sample": 23520,
+          "off_sample": 31920
+        }
+      ]
+    },
+    {
+      "name": "confirm_articulation_01_poly",
+      "family": "confirmation-gap-repeat",
+      "mode": "poly",
+      "file": "pcm/confirm_articulation_01.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 10800
+        },
+        {
+          "note": 48,
+          "on_sample": 12960,
+          "off_sample": 21360
+        },
+        {
+          "note": 48,
+          "on_sample": 23520,
+          "off_sample": 31920
+        }
+      ]
+    },
+    {
+      "name": "confirm_articulation_02_mono",
+      "family": "confirmation-continuous-repeat",
+      "mode": "mono",
+      "file": "pcm/confirm_articulation_02.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 57,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 57,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ]
+    },
+    {
+      "name": "confirm_articulation_02_poly",
+      "family": "confirmation-continuous-repeat",
+      "mode": "poly",
+      "file": "pcm/confirm_articulation_02.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 57,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 57,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ]
+    },
+    {
+      "name": "confirm_articulation_03_mono",
+      "family": "confirmation-quieter-repeat",
+      "mode": "mono",
+      "file": "pcm/confirm_articulation_03.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 64,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 64,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ]
+    },
+    {
+      "name": "confirm_articulation_03_poly",
+      "family": "confirmation-quieter-repeat",
+      "mode": "poly",
+      "file": "pcm/confirm_articulation_03.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 64,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 64,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ]
+    },
+    {
+      "name": "confirm_articulation_04_mono",
+      "family": "confirmation-legato-change",
+      "mode": "mono",
+      "file": "pcm/confirm_articulation_04.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 54,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 57,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ]
+    },
+    {
+      "name": "confirm_articulation_04_poly",
+      "family": "confirmation-legato-change",
+      "mode": "poly",
+      "file": "pcm/confirm_articulation_04.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 12960
+        },
+        {
+          "note": 54,
+          "on_sample": 12960,
+          "off_sample": 23520
+        },
+        {
+          "note": 57,
+          "on_sample": 23520,
+          "off_sample": 34080
+        }
+      ]
+    },
+    {
+      "name": "confirm_voicing_01_poly",
+      "family": "confirmation-polyphonic",
+      "mode": "poly",
+      "file": "pcm/confirm_voicing_01.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 30240
+        },
+        {
+          "note": 47,
+          "on_sample": 2640,
+          "off_sample": 30480
+        },
+        {
+          "note": 52,
+          "on_sample": 2880,
+          "off_sample": 30720
+        },
+        {
+          "note": 56,
+          "on_sample": 3120,
+          "off_sample": 30960
+        },
+        {
+          "note": 62,
+          "on_sample": 3360,
+          "off_sample": 31200
+        },
+        {
+          "note": 64,
+          "on_sample": 3600,
+          "off_sample": 31440
+        }
+      ]
+    },
+    {
+      "name": "confirm_voicing_02_poly",
+      "family": "confirmation-polyphonic",
+      "mode": "poly",
+      "file": "pcm/confirm_voicing_02.wav",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 30240
+        },
+        {
+          "note": 57,
+          "on_sample": 2640,
+          "off_sample": 30480
+        },
+        {
+          "note": 62,
+          "on_sample": 2880,
+          "off_sample": 30720
+        },
+        {
+          "note": 65,
+          "on_sample": 3120,
+          "off_sample": 30960
+        }
+      ]
+    },
+    {
+      "name": "confirm_voicing_03_poly",
+      "family": "confirmation-polyphonic",
+      "mode": "poly",
+      "file": "pcm/confirm_voicing_03.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 30240
+        },
+        {
+          "note": 52,
+          "on_sample": 2640,
+          "off_sample": 30480
+        },
+        {
+          "note": 56,
+          "on_sample": 2880,
+          "off_sample": 30720
+        },
+        {
+          "note": 61,
+          "on_sample": 3120,
+          "off_sample": 30960
+        },
+        {
+          "note": 64,
+          "on_sample": 3360,
+          "off_sample": 31200
+        }
+      ]
+    },
+    {
+      "name": "confirm_voicing_04_poly",
+      "family": "confirmation-polyphonic",
+      "mode": "poly",
+      "file": "pcm/confirm_voicing_04.wav",
+      "truth": [
+        {
+          "note": 43,
+          "on_sample": 2400,
+          "off_sample": 30240
+        },
+        {
+          "note": 65,
+          "on_sample": 14400,
+          "off_sample": 27840
+        }
+      ]
+    },
+    {
+      "name": "confirm_unpitched_01_mono",
+      "family": "confirmation-noise",
+      "mode": "mono",
+      "file": "pcm/confirm_unpitched_01.wav",
+      "truth": []
+    },
+    {
+      "name": "confirm_unpitched_01_poly",
+      "family": "confirmation-noise",
+      "mode": "poly",
+      "file": "pcm/confirm_unpitched_01.wav",
+      "truth": []
+    },
+    {
+      "name": "confirm_unpitched_02_mono",
+      "family": "confirmation-noise",
+      "mode": "mono",
+      "file": "pcm/confirm_unpitched_02.wav",
+      "truth": []
+    },
+    {
+      "name": "confirm_unpitched_02_poly",
+      "family": "confirmation-noise",
+      "mode": "poly",
+      "file": "pcm/confirm_unpitched_02.wav",
+      "truth": []
+    },
+    {
+      "name": "confirm_recorded_01_mono",
+      "family": "confirmation-recorded-acoustic",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_01.wav",
+      "truth": [
+        {
+          "note": 41,
+          "on_sample": 3413,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_01_poly",
+      "family": "confirmation-recorded-acoustic",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_01.wav",
+      "truth": [
+        {
+          "note": 41,
+          "on_sample": 3413,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_02_mono",
+      "family": "confirmation-recorded-acoustic",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_02.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 3235,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_02_poly",
+      "family": "confirmation-recorded-acoustic",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_02.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 3235,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_03_mono",
+      "family": "confirmation-recorded-acoustic",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_03.wav",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 3196,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_03_poly",
+      "family": "confirmation-recorded-acoustic",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_03.wav",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 3196,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_04_mono",
+      "family": "confirmation-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_04.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_04_poly",
+      "family": "confirmation-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_04.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_05_mono",
+      "family": "confirmation-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_05.wav",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2403,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_05_poly",
+      "family": "confirmation-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_05.wav",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2403,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_06_mono",
+      "family": "confirmation-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_06.wav",
+      "truth": [
+        {
+          "note": 63,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_06_poly",
+      "family": "confirmation-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_06.wav",
+      "truth": [
+        {
+          "note": 63,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_07_mono",
+      "family": "confirmation-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_07.wav",
+      "truth": [
+        {
+          "note": 49,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_07_poly",
+      "family": "confirmation-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_07.wav",
+      "truth": [
+        {
+          "note": 49,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_08_mono",
+      "family": "confirmation-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_08.wav",
+      "truth": [
+        {
+          "note": 68,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_08_poly",
+      "family": "confirmation-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_08.wav",
+      "truth": [
+        {
+          "note": 68,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_09_mono",
+      "family": "confirmation-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/confirm_recorded_09.wav",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "confirm_recorded_09_poly",
+      "family": "confirmation-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/confirm_recorded_09.wav",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    }
+  ],
+  "recorded_label_frequency_checks": [
+    {
+      "source": "acoustic_F2.ogg",
+      "expected_midi": 41,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 87.13442220885634,
+          "cents": -3.4266254995325993,
+          "relative_peak": 0.2651801292555955
+        },
+        {
+          "harmonic": 2,
+          "hz": 174.02274620812,
+          "cents": -5.873159853119483,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 3,
+          "hz": 261.9516713812785,
+          "cents": 0.20157120815472315,
+          "relative_peak": 0.3068881839009721
+        },
+        {
+          "harmonic": 4,
+          "hz": 348.951681511871,
+          "cents": -1.371487938550716,
+          "relative_peak": 0.1126519505702886
+        },
+        {
+          "harmonic": 5,
+          "hz": 436.2522735115959,
+          "cents": -1.1227624962216944,
+          "relative_peak": 0.2604732222018256
+        },
+        {
+          "harmonic": 6,
+          "hz": 523.4678411940918,
+          "cents": -1.2381384167598866,
+          "relative_peak": 0.18833604606200102
+        },
+        {
+          "harmonic": 8,
+          "hz": 698.0150995181006,
+          "cents": -1.0943341804183366,
+          "relative_peak": 0.03145710892671174
+        }
+      ]
+    },
+    {
+      "source": "acoustic_A3.ogg",
+      "expected_midi": 57,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 220.283590107374,
+          "cents": 2.2302031181332387,
+          "relative_peak": 0.8420589914455853
+        },
+        {
+          "harmonic": 2,
+          "hz": 439.37874386870914,
+          "cents": -2.44613587516419,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 3,
+          "hz": 658.8099995849606,
+          "cents": -3.124285980083097,
+          "relative_peak": 0.08177650366945195
+        },
+        {
+          "harmonic": 4,
+          "hz": 878.4258904011326,
+          "cents": -3.0995367815399804,
+          "relative_peak": 0.07014843777730112
+        },
+        {
+          "harmonic": 5,
+          "hz": 1098.71945044598,
+          "cents": -2.0165658148393857,
+          "relative_peak": 0.14739164686014788
+        },
+        {
+          "harmonic": 6,
+          "hz": 1320.199703827427,
+          "cents": 0.26189993577256127,
+          "relative_peak": 0.0668134762837587
+        },
+        {
+          "harmonic": 8,
+          "hz": 1764.356042012298,
+          "cents": 4.279551782588722,
+          "relative_peak": 0.05070487184704882
+        }
+      ]
+    },
+    {
+      "source": "acoustic_C4.ogg",
+      "expected_midi": 60,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 261.2702306160566,
+          "cents": -2.3529261630721896,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 523.2124718398451,
+          "cents": -0.12791149892257503,
+          "relative_peak": 0.664025653510816
+        },
+        {
+          "harmonic": 3,
+          "hz": 784.2165051528397,
+          "cents": -1.4568220296257979,
+          "relative_peak": 0.07255674270469988
+        },
+        {
+          "harmonic": 5,
+          "hz": 1307.9804618896283,
+          "cents": -0.19503981367042456,
+          "relative_peak": 0.15931081725742854
+        },
+        {
+          "harmonic": 6,
+          "hz": 1570.6461351749635,
+          "cents": 0.9843000866313942,
+          "relative_peak": 0.059719403991700025
+        }
+      ]
+    },
+    {
+      "source": "electric_Fs3.ogg",
+      "expected_midi": 54,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 184.6411619821237,
+          "cents": -3.335178563630165,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 369.0613954413026,
+          "cents": -4.371224466627641,
+          "relative_peak": 0.16649290454034835
+        },
+        {
+          "harmonic": 3,
+          "hz": 556.0954592010302,
+          "cents": 3.4398388672472886,
+          "relative_peak": 0.15342484666399508
+        },
+        {
+          "harmonic": 4,
+          "hz": 742.3380229669267,
+          "cents": 5.487291153435062,
+          "relative_peak": 0.06296222233670115
+        },
+        {
+          "harmonic": 5,
+          "hz": 929.1342910106875,
+          "cents": 7.746612927666026,
+          "relative_peak": 0.03170564150147828
+        }
+      ]
+    },
+    {
+      "source": "electric_C4.ogg",
+      "expected_midi": 60,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 261.12698585536464,
+          "cents": -3.302357765908157,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 522.4940190114374,
+          "cents": -2.5068011888653716,
+          "relative_peak": 0.3895608440395788
+        },
+        {
+          "harmonic": 3,
+          "hz": 783.4558735709475,
+          "cents": -3.1368049323980784,
+          "relative_peak": 0.0778962686473363
+        },
+        {
+          "harmonic": 4,
+          "hz": 1046.4199697389759,
+          "cents": -0.1361405420469716,
+          "relative_peak": 0.03014957706035617
+        },
+        {
+          "harmonic": 5,
+          "hz": 1309.0316491904593,
+          "cents": 1.1957457599335686,
+          "relative_peak": 0.030065481669217867
+        },
+        {
+          "harmonic": 6,
+          "hz": 1574.5537110215998,
+          "cents": 5.28605016069477,
+          "relative_peak": 0.040844009009329274
+        }
+      ]
+    },
+    {
+      "source": "electric_Ds4.ogg",
+      "expected_midi": 63,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 311.177841194909,
+          "cents": 0.282968041641754,
+          "relative_peak": 0.8561592424319815
+        },
+        {
+          "harmonic": 2,
+          "hz": 622.0084564286147,
+          "cents": -0.6831951634914634,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 3,
+          "hz": 933.035856999577,
+          "cents": -0.6401986690864332,
+          "relative_peak": 0.4580348780531823
+        },
+        {
+          "harmonic": 4,
+          "hz": 1244.1263868266863,
+          "cents": -0.5308526006202858,
+          "relative_peak": 0.11142718346016277
+        },
+        {
+          "harmonic": 5,
+          "hz": 1555.545750832555,
+          "cents": -0.09923582686862359,
+          "relative_peak": 0.1709021841250037
+        },
+        {
+          "harmonic": 6,
+          "hz": 1866.1316394407977,
+          "cents": -0.5846041823111633,
+          "relative_peak": 0.07485273619157598
+        },
+        {
+          "harmonic": 7,
+          "hz": 2177.1977061317293,
+          "cents": -0.549515699017696,
+          "relative_peak": 0.03761363844571354
+        }
+      ]
+    },
+    {
+      "source": "nylon_Cs3.ogg",
+      "expected_midi": 49,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 138.5629233069684,
+          "cents": -0.35470149523696715,
+          "relative_peak": 0.5620679083293962
+        },
+        {
+          "harmonic": 2,
+          "hz": 277.29962147920685,
+          "cents": 0.730547977568838,
+          "relative_peak": 0.9534271619801856
+        },
+        {
+          "harmonic": 3,
+          "hz": 415.91913607711496,
+          "cents": 0.6044470186425778,
+          "relative_peak": 0.6685122369820268
+        },
+        {
+          "harmonic": 4,
+          "hz": 554.5827744320272,
+          "cents": 0.679139149850456,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 5,
+          "hz": 693.2892578838316,
+          "cents": 0.8309460045620763,
+          "relative_peak": 0.19011395603770476
+        },
+        {
+          "harmonic": 6,
+          "hz": 832.0710391066258,
+          "cents": 1.0888172585188325,
+          "relative_peak": 0.4756313044879595
+        },
+        {
+          "harmonic": 7,
+          "hz": 971.0735903914868,
+          "cents": 1.666622032816546,
+          "relative_peak": 0.16773281663900788
+        }
+      ]
+    },
+    {
+      "source": "nylon_Gs4.ogg",
+      "expected_midi": 68,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 414.7613155128448,
+          "cents": -2.2666189333263853,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 830.1412905260993,
+          "cents": -0.9759426372554869,
+          "relative_peak": 0.752255233982764
+        },
+        {
+          "harmonic": 3,
+          "hz": 1245.1121459916055,
+          "cents": -1.1146872260523086,
+          "relative_peak": 0.1930272579872091
+        },
+        {
+          "harmonic": 4,
+          "hz": 1661.3171106007494,
+          "cents": 0.10246114609604302,
+          "relative_peak": 0.12348914659735624
+        },
+        {
+          "harmonic": 5,
+          "hz": 2077.4253466453056,
+          "cents": 0.7517322213234077,
+          "relative_peak": 0.34673889907110056
+        },
+        {
+          "harmonic": 6,
+          "hz": 2492.955357420816,
+          "cents": 0.782942111780533,
+          "relative_peak": 0.054364817347001264
+        },
+        {
+          "harmonic": 7,
+          "hz": 2910.0559666568424,
+          "cents": 1.739858343418866,
+          "relative_peak": 0.042691090924337
+        },
+        {
+          "harmonic": 8,
+          "hz": 3327.457416886929,
+          "cents": 2.6137294156182347,
+          "relative_peak": 0.09362968228569186
+        }
+      ]
+    },
+    {
+      "source": "nylon_A4.ogg",
+      "expected_midi": 69,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 440.4060050514452,
+          "cents": 1.5967401743035947,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 879.2209510444609,
+          "cents": -1.5333107135652804,
+          "relative_peak": 0.4288355064412707
+        },
+        {
+          "harmonic": 3,
+          "hz": 1315.3261818849844,
+          "cents": -6.140781812221969,
+          "relative_peak": 0.04244208258168095
+        },
+        {
+          "harmonic": 4,
+          "hz": 1758.4825482939816,
+          "cents": -1.4932938777413982,
+          "relative_peak": 0.08460474790929885
+        },
+        {
+          "harmonic": 5,
+          "hz": 2197.8666140137957,
+          "cents": -1.6796283621047121,
+          "relative_peak": 0.11089706028449138
+        }
+      ]
+    }
+  ]
+}
