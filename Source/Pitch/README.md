@@ -42,10 +42,17 @@ Held notes use 62-cent hysteresis against vibrato-triggered note chatter. There
 is no generated pitch bend; meaningful pitch changes create new MIDI notes.
 
 A same-pitch repick can have little amplitude change. Monophonic repicks are
-therefore also detected from bounded one-period prediction innovation. Following
+therefore also detected from bounded one-period prediction innovation. The
+prediction period follows continuous measured pitch, independently of the
+quantised MIDI note. Ordinary amplitude onsets use period-dependent smoothing:
+a bright bass waveform maximum must not become a new musical attack. Following
 an innovation the old voice is retained while fresh post-attack audio is
 estimated. This avoids retriggering a stale pitch when the actual new attack has
-a different pitch. A falling-input veto suppresses release transients.
+a different pitch. A falling-input veto suppresses release transients. In polyphonic mode, this
+repick path is restricted to exactly one held voice with a matching stable
+periodic anchor. It waits for a complete fresh observation and confirming hops
+before ending and restarting that note; an added voice or changed pitch cancels
+the pending repick.
 
 ## Polyphonic estimator
 
@@ -97,7 +104,8 @@ bindings and reset the detector rather than silently losing a Note Off.
 Processing does not allocate C++ heap objects, lock, build strings, read files
 or call GUI code. Prepared harmonic tables are heap-owned, not a multi-megabyte
 stack object. `Tests/PitchTests.cpp` checks functional audio conversion, declared
-range, stable detuning, lifecycle and prepared processing allocations. This is
+range, stable pure/bright detuning at three host rates, lifecycle and prepared
+processing allocations. This is
 separate from independent fixture validation and whole-host allocation tests.
 
 ## Evidence and scope

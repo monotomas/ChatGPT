@@ -68,13 +68,14 @@ void declaredRangeAndRealtime(){
         check(ons==1&&offs==1,"declared detector range has missing or repeated notes");
     }
     // Stable detuning is a valid continuous pitch, not a permanent dead band.
-    for(int rate:{44100,48000,96000})for(float cents:{-40.0f,40.0f}){
+    for(int rate:{44100,48000,96000})for(int note:{40,52,64,76})for(float cents:{-40.0f,40.0f})for(bool bright:{false,true}){
         detector->prepare(rate);events.clear();detector->reset(events);std::vector<float> audio(size_t(rate/2),0);
-        double frequency=440*std::pow(2.0,(52-69+cents/100)/12.0);
-        for(int i=0;i<int(rate/3);++i)audio[size_t(i)]=float(.15*std::sin(6.283185307179586*frequency*i/rate));
+        const double frequency=440*std::pow(2.0,(note-69+cents/100)/12.0);
+        for(int i=0;i<int(rate/3);++i)for(int h=1;h<=(bright?12:1);++h)if(frequency*h<rate*.45)
+            audio[size_t(i)]+=float((bright?.03:.15)*std::sin(6.283185307179586*frequency*h*i/rate+.17*h)/std::pow(double(h),.8));
         auto result=run(*detector,audio,64);int ons=0,offs=0;
-        for(auto e:result){check(e.note==52,"stable detuned tone mapped to wrong semitone");if(e.on)++ons;else ++offs;}
-        check(ons==1&&offs==1,"stable detuned tone fell in an acquisition dead zone");
+        for(auto e:result){check(e.note==note,"stable detuned tone mapped to wrong semitone");if(e.on)++ons;else ++offs;}
+        check(ons==1&&offs==1,"stable detuned tone had a dead zone or false bright-waveform retrigger");
     }
     detector->prepare(48000);auto audio=tone(48000,60,512);Settings settings;settings.polyphonic=true;detector->configure(settings);
     events.clear();detector->reset(events);detector->process(audio.data(),512,events);

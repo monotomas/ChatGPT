@@ -71,14 +71,16 @@ private:
     float dcX=0,dcY=0,low1=0,low2=0,low3=0,low4=0,envelope=0,fastEnvelope=0,slowEnvelope=0;
     float gate=0.001778f,lowpass=0,releaseCoefficient=0,attackCoefficient=0,fastCoefficient=0,slowCoefficient=0;
     int releaseSamples=420;
-    float currentPitch=-1,previousPitch=-1,dcPole=.998f,previousAttackRatio=0;
+    float currentPitch=-1,previousPitch=-1,dcPole=.998f,previousAttackRatio=0,measuredPeriod=0;
+    int measuredPeriodNote=-1;
     int attackCooldown=0,attackRemaining=0;
-    float innovationEnvelope=0,previousInnovationRatio=0,innovationCoefficient=0;
+    float innovationEnvelope=0,previousInnovationRatio=0,innovationCoefficient=0,onsetEnvelope=0,onsetCoefficient=0;
     bool phaseAttack=false;
     int phaseAttackAge=0,pitchHistoryCount=0,pitchHistoryWrite=0;
     std::array<float,4> pitchHistory{};
     float pitchHistoryRange=0;
     int polyAdmission=0,polyAnchor=-1;
+    int pendingPolyRepick=-1,pendingPolyRepickAge=0;
     std::array<float,fftSize/2+1> spectralBaseline{};
     float spectralUpdate=0;
     std::array<bool,noteCount> independentNovelty{};
