@@ -1,0 +1,195 @@
+test_cache_changes_with_sdk_and_toolchain (test_builder.EnvironmentFixTests.test_cache_changes_with_sdk_and_toolchain) ... ok
+test_checked_project_never_uses_vs_instance_generator (test_builder.EnvironmentFixTests.test_checked_project_never_uses_vs_instance_generator) ... ok
+test_correct_child_environment_does_not_modify_parent (test_builder.EnvironmentFixTests.test_correct_child_environment_does_not_modify_parent) ... ok
+test_explicit_rc_and_mt_forwarded_to_cmake (test_builder.EnvironmentFixTests.test_explicit_rc_and_mt_forwarded_to_cmake) ... ok
+MSVC x64: C:\Users\runneradmin\AppData\Local\Temp\tmpeuwc9z1x\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | C:\Users\runneradmin\AppData\Local\Temp\tmpeuwc9z1x\sdk
+Ressurskompilator: C:\Users\runneradmin\AppData\Local\Temp\tmpeuwc9z1x\sdk\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: C:\Users\runneradmin\AppData\Local\Temp\tmpeuwc9z1x\sdk\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+test_installed_ninja_preferred (test_builder.EnvironmentFixTests.test_installed_ninja_preferred) ... ok
+Microsofts automatiske miljooppsett var ufullstendig. Kontrollerer verkt�y og SDK-filer direkte.
+VsDevCmd.bat: Windows SDK-verkt�yet rc.exe er ikke tilgjengelig i byggemiljoet.
+MSVC x64: C:\Users\runneradmin\AppData\Local\Temp\tmpkupjs069\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | C:\Users\runneradmin\AppData\Local\Temp\tmpkupjs069\Windows Kits\10
+Ressurskompilator: C:\Users\runneradmin\AppData\Local\Temp\tmpkupjs069\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: C:\Users\runneradmin\AppData\Local\Temp\tmpkupjs069\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: NMake Makefiles (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+test_setup_recovers_after_exact_reported_rc_error (test_builder.EnvironmentFixTests.test_setup_recovers_after_exact_reported_rc_error) ... ok
+test_build_command_contains_current_targets_only (test_builder.FlysnapperSafetyTests.test_build_command_contains_current_targets_only) ... ok
+test_changed_resource_or_binary_blocks_install (test_builder.FlysnapperSafetyTests.test_changed_resource_or_binary_blocks_install) ... ok
+test_copy_failure_restores_old_installation (test_builder.FlysnapperSafetyTests.test_copy_failure_restores_old_installation) ... ok
+test_ctest_failure_exit_propagates (test_builder.FlysnapperSafetyTests.test_ctest_failure_exit_propagates) ... ok
+test_current_complete_result_passes (test_builder.FlysnapperSafetyTests.test_current_complete_result_passes) ... ok
+test_default_does_not_install (test_builder.FlysnapperSafetyTests.test_default_does_not_install) ... ok
+test_failed_tests_or_native_manifest_blocks_install (test_builder.FlysnapperSafetyTests.test_failed_tests_or_native_manifest_blocks_install) ... ok
+INSTALLERT: D:\a\ChatGPT\ChatGPT\build\temp\tmpoiavs5z2\Plugins\Flysnapper.vst3
+test_install_fixture_in_actual_builder_temporary_context (test_builder.FlysnapperSafetyTests.test_install_fixture_in_actual_builder_temporary_context) ... ok
+test_invalid_destination_does_not_implicitly_install (test_builder.FlysnapperSafetyTests.test_invalid_destination_does_not_implicitly_install) ... usage: python.exe -m unittest [-h] [--native] [--juce-dir JUCE_DIR]
+                              [--jobs JOBS] [--install-sdk]
+                              [--install | --install-only]
+                              [--choose-install-dir | --install-dir INSTALL_DIR]
+python.exe -m unittest: error: installation destination requires --install or --install-only
+ok
+test_missing_current_results_cannot_reuse_old_file (test_builder.FlysnapperSafetyTests.test_missing_current_results_cannot_reuse_old_file) ... ok
+test_native_cannot_install_windows_bundle (test_builder.FlysnapperSafetyTests.test_native_cannot_install_windows_bundle) ... usage: python.exe -m unittest [-h] [--native] [--juce-dir JUCE_DIR]
+                              [--jobs JOBS] [--install-sdk]
+                              [--install | --install-only]
+                              [--choose-install-dir | --install-dir INSTALL_DIR]
+python.exe -m unittest: error: --native is Linux validation only and cannot install
+ok
+INSTALLERT: C:\Users\runneradmin\AppData\Local\Temp\tmpowhc68pm\Plugins\Flysnapper.vst3
+Forrige versjon for gjenoppretting: C:\Users\RUNNER~1\AppData\Local\Temp\tmpowhc68pm\dist\previous-installations\20261103-170255-528255\Flysnapper.vst3
+test_replaces_only_flysnapper_and_keeps_recovery_outside_scan (test_builder.FlysnapperSafetyTests.test_replaces_only_flysnapper_and_keeps_recovery_outside_scan) ... ok
+test_skipped_required_test_fails_readiness (test_builder.FlysnapperSafetyTests.test_skipped_required_test_fails_readiness) ... ok
+test_stale_staging_is_preserved (test_builder.FlysnapperSafetyTests.test_stale_staging_is_preserved) ... ok
+test_test_inventory_must_contain_required_tests (test_builder.FlysnapperSafetyTests.test_test_inventory_must_contain_required_tests) ... ok
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: C:\Users\RUNNER~1\AppData\Local\Temp\tmpwocq07m7\sdk-install-20261103-170255.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: C:\Users\RUNNER~1\AppData\Local\Temp\tmpo5kw23a3\sdk-install-20261103-170255.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: C:\Users\RUNNER~1\AppData\Local\Temp\tmpc1naxvtg\sdk-install-20261103-170255.log
+test_installer_exit_failure_or_restart_never_reported_as_ready (test_builder.InstallSafetyTests.test_installer_exit_failure_or_restart_never_reported_as_ready) ... ok
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: C:\Users\RUNNER~1\AppData\Local\Temp\tmpx1of0mqh\sdk-install-20261103-170255.log
+Microsofts SDK-installasjon er ferdig. Kontrollerer filene pa nytt.
+test_installer_only_selects_x64_and_never_reboots (test_builder.InstallSafetyTests.test_installer_only_selects_x64_and_never_reboots) ... ok
+test_never_installs_when_sdk_exists_even_with_permission_flag (test_builder.InstallSafetyTests.test_never_installs_when_sdk_exists_even_with_permission_flag) ... ok
+test_no_download_or_install_without_explicit_flag (test_builder.InstallSafetyTests.test_no_download_or_install_without_explicit_flag) ... ok
+test_only_https_microsoft_download_host_allowed (test_builder.InstallSafetyTests.test_only_https_microsoft_download_host_allowed) ... ok
+missing
+test_rechecks_files_after_installer_and_calls_only_once (test_builder.InstallSafetyTests.test_rechecks_files_after_installer_and_calls_only_once) ... ok
+test_redirect_to_other_host_rejected_before_following (test_builder.InstallSafetyTests.test_redirect_to_other_host_rejected_before_following) ... ok
+test_signature_check_requires_success_marker (test_builder.InstallSafetyTests.test_signature_check_requires_success_marker) ... ok
+test_signature_command_requires_valid_microsoft_publisher (test_builder.InstallSafetyTests.test_signature_command_requires_valid_microsoft_publisher) ... ok
+missing
+test_success_exit_does_not_hide_still_missing_sdk (test_builder.InstallSafetyTests.test_success_exit_does_not_hide_still_missing_sdk) ... ok
+test_crlf_input_is_supported (test_builder.PatchTests.test_crlf_input_is_supported) ... ok
+test_non_windows_keeps_utf8_entry (test_builder.PatchTests.test_non_windows_keeps_utf8_entry) ... ok
+test_preserves_descriptive_juce_file_failures (test_builder.PatchTests.test_preserves_descriptive_juce_file_failures) ... ok
+test_refuses_double_patching (test_builder.PatchTests.test_refuses_double_patching) ... ok
+test_rejects_unknown_missing_or_duplicate_patterns (test_builder.PatchTests.test_rejects_unknown_missing_or_duplicate_patterns) ... ok
+test_source_payload_is_not_silently_reinterpreted (test_builder.PatchTests.test_source_payload_is_not_silently_reinterpreted) ... ok
+test_wide_entry_and_direct_wide_string_on_windows (test_builder.PatchTests.test_wide_entry_and_direct_wide_string_on_windows) ... ok
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+test_compile_failure_does_not_run_the_test_executable (test_builder.PreflightTests.test_compile_failure_does_not_run_the_test_executable) ... ok
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+test_no_false_positive_if_build_created_no_executable (test_builder.PreflightTests.test_no_false_positive_if_build_created_no_executable) ... ok
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+test_no_false_positive_if_executable_returns_wrong_output (test_builder.PreflightTests.test_no_false_positive_if_executable_returns_wrong_output) ... ok
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+FLYSNAPPER_TOOLCHAIN_OK
+test_requires_actual_executable_and_success_output (test_builder.PreflightTests.test_requires_actual_executable_and_success_output) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+test_actual_output_required_and_unicode_arguments_kept (test_builder.ResourceProbeTests.test_actual_output_required_and_unicode_arguments_kept) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_empty_or_invalid_resource_rejected (test_builder.ResourceProbeTests.test_empty_or_invalid_resource_rejected) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_helper_failure_stops_before_rc (test_builder.ResourceProbeTests.test_helper_failure_stops_before_rc) ... ok
+test_missing_helper_rejected (test_builder.ResourceProbeTests.test_missing_helper_rejected) ... ok
+test_missing_info_rejected (test_builder.ResourceProbeTests.test_missing_info_rejected) ... ok
+test_new_cmake_cache_leaves_old_cache_unchanged (test_builder.ResourceProbeTests.test_new_cmake_cache_leaves_old_cache_unchanged) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_old_resource_does_not_mask_new_failure (test_builder.ResourceProbeTests.test_old_resource_does_not_mask_new_failure) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_resource_compiler_failure_is_propagated (test_builder.ResourceProbeTests.test_resource_compiler_failure_is_propagated) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_resource_compiler_must_create_nonempty_output (test_builder.ResourceProbeTests.test_resource_compiler_must_create_nonempty_output) ... ok
+test_absent_sdk_reports_all_checked_locations_and_install_option (test_builder.SdkDiscoveryTests.test_absent_sdk_reports_all_checked_locations_and_install_option) ... ok
+test_compiler_exe_alone_is_rejected (test_builder.SdkDiscoveryTests.test_compiler_exe_alone_is_rejected) ... ok
+test_complete_older_sdk_beats_partial_newer_one (test_builder.SdkDiscoveryTests.test_complete_older_sdk_beats_partial_newer_one) ... ok
+test_environment_registry_default_and_path_roots_are_considered (test_builder.SdkDiscoveryTests.test_environment_registry_default_and_path_roots_are_considered) ... ok
+test_latest_complete_msvc_selected (test_builder.SdkDiscoveryTests.test_latest_complete_msvc_selected) ... ok
+test_missing_rc_or_mt_is_rejected (test_builder.SdkDiscoveryTests.test_missing_rc_or_mt_is_rejected) ... ok
+test_never_combines_incomplete_sdk_versions (test_builder.SdkDiscoveryTests.test_never_combines_incomplete_sdk_versions) ... ok
+test_no_recursive_scan_of_entire_drive (test_builder.SdkDiscoveryTests.test_no_recursive_scan_of_entire_drive) ... ok
+test_numeric_version_order (test_builder.SdkDiscoveryTests.test_numeric_version_order) ... ok
+test_sdk_found_when_rc_not_on_path (test_builder.SdkDiscoveryTests.test_sdk_found_when_rc_not_on_path) ... ok
+test_tools_without_headers_are_not_a_complete_sdk (test_builder.SdkDiscoveryTests.test_tools_without_headers_are_not_a_complete_sdk) ... ok
+test_ucrt_static_library_is_required (test_builder.SdkDiscoveryTests.test_ucrt_static_library_is_required) ... ok
+test_x86_resource_tools_are_supported_with_x64_libraries (test_builder.SdkDiscoveryTests.test_x86_resource_tools_are_supported_with_x64_libraries) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+test_copy_changes_only_juceaide_and_keeps_original_clean (test_builder.SnapshotTests.test_copy_changes_only_juceaide_and_keeps_original_clean) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+test_different_source_gets_separate_copy (test_builder.SnapshotTests.test_different_source_gets_separate_copy) ... ok
+test_external_symlinks_rejected (test_builder.SnapshotTests.test_external_symlinks_rejected) ... skipped 'symlink creation can require privilege on Windows'
+test_incomplete_source_is_rejected (test_builder.SnapshotTests.test_incomplete_source_is_rejected) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+test_missing_manifest_is_not_trusted (test_builder.SnapshotTests.test_missing_manifest_is_not_trusted) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+test_modified_build_copy_is_not_trusted_or_overwritten (test_builder.SnapshotTests.test_modified_build_copy_is_not_trusted_or_overwritten) ... ok
+test_partial_copy_failure_is_not_published (test_builder.SnapshotTests.test_partial_copy_failure_is_not_published) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+Kontrollert JUCE-byggekopi med Windows Unicode-rettelse brukes pa nytt.
+test_repeat_uses_verified_copy_without_rewriting (test_builder.SnapshotTests.test_repeat_uses_verified_copy_without_rewriting) ... ok
+test_case_collision_rejected_for_windows (test_packaging.PackagingTests.test_case_collision_rejected_for_windows) ... FAIL
+test_complete_safe_extract_and_all_hashes (test_packaging.PackagingTests.test_complete_safe_extract_and_all_hashes) ... ok
+test_deterministic_repeated_packages (test_packaging.PackagingTests.test_deterministic_repeated_packages) ... ok
+test_incomplete_source_fails_before_output (test_packaging.PackagingTests.test_incomplete_source_fails_before_output) ... ok
+test_self_exclusion_inside_included_tree (test_packaging.PackagingTests.test_self_exclusion_inside_included_tree) ... FAIL
+test_symlink_file_or_directory_rejected (test_packaging.PackagingTests.test_symlink_file_or_directory_rejected) ... ok
+test_symlink_output_rejected (test_packaging.PackagingTests.test_symlink_output_rejected) ... ok
+test_unsafe_names_rejected (test_packaging.PackagingTests.test_unsafe_names_rejected) ... ok
+test_verification_detects_changed_or_unlisted_members (test_packaging.PackagingTests.test_verification_detects_changed_or_unlisted_members) ... ok
+test_log_redaction (test_windows_package.GitDeliveryTests.test_log_redaction) ... ok
+test_running_and_failed_states_append_without_overwriting_previous_payload (test_windows_package.GitDeliveryTests.test_running_and_failed_states_append_without_overwriting_previous_payload) ... ok
+test_32bit_pe_is_rejected_even_with_matching_hashes (test_windows_package.WindowsPackageTests.test_32bit_pe_is_rejected_even_with_matching_hashes) ... ok
+test_bad_completed_provenance_publishes_failed_state_instead_of_staying_running (test_windows_package.WindowsPackageTests.test_bad_completed_provenance_publishes_failed_state_instead_of_staying_running) ... Delivery publication failed: Windows artifact proof belongs to a different source commit
+ok
+test_complete_package_contains_prebuilt_binary_installer_source_and_proof (test_windows_package.WindowsPackageTests.test_complete_package_contains_prebuilt_binary_installer_source_and_proof) ... ok
+test_complete_publication_and_failed_next_build_preserve_verified_artifact (test_windows_package.WindowsPackageTests.test_complete_publication_and_failed_next_build_preserve_verified_artifact) ... ok
+test_extra_resource_cannot_escape_bundle_manifest (test_windows_package.WindowsPackageTests.test_extra_resource_cannot_escape_bundle_manifest) ... ok
+test_installer_transaction_integrity_unicode_recovery_and_rollback (test_windows_package.WindowsPackageTests.test_installer_transaction_integrity_unicode_recovery_and_rollback) ... FAIL
+test_linux_failed_or_incomplete_proof_is_rejected (test_windows_package.WindowsPackageTests.test_linux_failed_or_incomplete_proof_is_rejected) ... ok
+test_package_is_deterministic (test_windows_package.WindowsPackageTests.test_package_is_deterministic) ... ok
+test_required_test_must_exist_and_run_without_skip_or_failure (test_windows_package.WindowsPackageTests.test_required_test_must_exist_and_run_without_skip_or_failure) ... ok
+test_tampered_or_extra_binary_bundle_file_blocks_package (test_windows_package.WindowsPackageTests.test_tampered_or_extra_binary_bundle_file_blocks_package) ... ok
+test_unsafe_windows_paths_are_rejected (test_windows_package.WindowsPackageTests.test_unsafe_windows_paths_are_rejected) ... ok
+
+======================================================================
+FAIL: test_case_collision_rejected_for_windows (test_packaging.PackagingTests.test_case_collision_rejected_for_windows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\a\ChatGPT\ChatGPT\Tests\test_packaging.py", line 104, in test_case_collision_rejected_for_windows
+    with self.assertRaisesRegex(ValueError, "Case-colliding"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_self_exclusion_inside_included_tree (test_packaging.PackagingTests.test_self_exclusion_inside_included_tree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\a\ChatGPT\ChatGPT\Tests\test_packaging.py", line 67, in test_self_exclusion_inside_included_tree
+    self.assertNotIn(package.PACKAGE_ROOT + "/docs/delivery.zip", archive.namelist())
+AssertionError: 'Flysnapper-0.2.0/docs/delivery.zip' unexpectedly found in ['Flysnapper-0.2.0/.github/workflows/windows.yml', 'Flysnapper-0.2.0/BUILD_FLYSNAPPER.bat', 'Flysnapper-0.2.0/CMakeLists.txt', 'Flysnapper-0.2.0/INSTALL_FLYSNAPPER.bat', 'Flysnapper-0.2.0/LICENSE.txt', 'Flysnapper-0.2.0/README.md', 'Flysnapper-0.2.0/SHA256SUMS.txt', 'Flysnapper-0.2.0/Source/Core/MidiEngine.cpp', 'Flysnapper-0.2.0/Source/Core/MidiEngine.h', 'Flysnapper-0.2.0/Source/Core/MusicData.cpp', 'Flysnapper-0.2.0/Source/Core/MusicData.h', 'Flysnapper-0.2.0/Source/Core/README.md', 'Flysnapper-0.2.0/Source/Core/Reference/ChordDictionary.h', 'Flysnapper-0.2.0/Source/Core/Reference/ChordInput.h', 'Flysnapper-0.2.0/Source/Core/Reference/ChordNames.h', 'Flysnapper-0.2.0/Source/Pitch/PitchDetector.cpp', 'Flysnapper-0.2.0/Source/Pitch/PitchDetector.h', 'Flysnapper-0.2.0/Source/PluginEditor.cpp', 'Flysnapper-0.2.0/Source/PluginEditor.h', 'Flysnapper-0.2.0/Source/PluginProcessor.cpp', 'Flysnapper-0.2.0/Source/PluginProcessor.h', 'Flysnapper-0.2.0/THIRD_PARTY.md', 'Flysnapper-0.2.0/Tests/CoreTests.cpp', 'Flysnapper-0.2.0/Tests/PitchTests.cpp', 'Flysnapper-0.2.0/Tests/PluginTests.cpp', 'Flysnapper-0.2.0/Tests/ProcessorAudioTests.cpp', 'Flysnapper-0.2.0/Tests/Vst3HostTests.cpp', 'Flysnapper-0.2.0/Tests/test_builder.py', 'Flysnapper-0.2.0/Tests/test_packaging.py', 'Flysnapper-0.2.0/Tools/package_source.py', 'Flysnapper-0.2.0/build_plugin.py', 'Flysnapper-0.2.0/dependencies.lock.json', 'Flysnapper-0.2.0/docs/HOST_TEST_PLAN.md', 'Flysnapper-0.2.0/docs/PROTOTYPE_POLICIES.md', 'Flysnapper-0.2.0/docs/delivery.zip']
+
+======================================================================
+FAIL: test_installer_transaction_integrity_unicode_recovery_and_rollback (test_windows_package.WindowsPackageTests.test_installer_transaction_integrity_unicode_recovery_and_rollback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\a\ChatGPT\ChatGPT\Tests\test_windows_package.py", line 192, in test_installer_transaction_integrity_unicode_recovery_and_rollback
+    self.assertEqual(result.returncode,0,result.stdout)
+AssertionError: 1 != 0 : Get-FileHash : The term 'Get-FileHash' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At D:\a\ChatGPT\ChatGPT\Tools\windows_installer.ps1:53 char:44
++                 $inventory.Add($relative, (Get-FileHash -LiteralPath  ...
++                                            ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Get-FileHash:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+
+
+Published Windows delivery state: running 7815bc65c9f315db9597539ec9e81393cf36d49c
+Published Windows delivery state: failed 00dcdceb97431e4d4e845d80b3287a0d663ade42
+Published Windows delivery state: failed 76c7bcf9aa86ea378641c123c3e66e3b10c98d3d
+Published Windows delivery state: completed 79b6afdd6b6c60839ff5868dca0440de950d4b7b
+Published Windows delivery state: failed c8e07dd1c5f6532d14490be6872078c5d4bc8549
+----------------------------------------------------------------------
+Ran 94 tests in 13.212s
+
+FAILED (failures=3, skipped=1)
