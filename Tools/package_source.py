@@ -38,6 +38,9 @@ REQUIRED_FILES = frozenset({
     "Source/Core/Reference/ChordNames.h", "Source/Core/Reference/ChordInput.h",
     "Tests/CoreTests.cpp", "Tests/PluginTests.cpp", "Tests/Vst3HostTests.cpp",
     "Tests/test_builder.py", "Tests/test_packaging.py", "Tools/package_source.py",
+    "Tools/audio_validation.cpp", "Tools/audio_quality_gate.py", "Tools/audio_validation_run.py",
+    "Tools/audio_validation_verify.py", "Tools/audio_validation_holdout.py", "Tools/audio_validation_confirmation.py",
+    "Tools/windows_audio_diagnostics.py",
     "docs/PROTOTYPE_POLICIES.md", "docs/HOST_TEST_PLAN.md", "docs/BRUKERVEILEDNING.md",
     ".github/workflows/windows.yml",
 })

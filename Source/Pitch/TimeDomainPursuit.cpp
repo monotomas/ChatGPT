@@ -4,6 +4,7 @@
 #include <cmath>
 #include <stdexcept>
 #include <vector>
+#include <cstdint>
 #if defined(__SSE2__) || defined(_M_X64)
 #include <emmintrin.h>
 #endif
@@ -233,8 +234,58 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
             if(strong>=3)octaveEvidence[size_t(note+12)]=std::max(octaveEvidence[size_t(note+12)],excess);
         }
     };
+    auto computeActiveUpperSupport=[&](int note) noexcept {
+        if(!evidence||!evidence->active[size_t(note)])return false;
+        const double frequency=evidence->frequencies[size_t(note)];int found=0;
+        if(!std::isfinite(frequency)||frequency<=0||!std::isfinite(evidence->maximumMagnitude)||evidence->maximumMagnitude<=0)return false;
+        const int peakCount=std::clamp(evidence->count,0,int(evidence->peaks.size()));
+        bool lowerSelected=false;for(int j=0;j<used;++j)lowerSelected|=selected[size_t(j)]==note-12;
+        if(!lowerSelected)return false;
+        const double base=frequency*.5;
+        if(base*16>=evidence->maximumHz)return false;
+        std::array<double,16> physical{};int oddFound=0;
+        for(int h=1;h<=16;++h){
+            const double target=base*h;double value=0;
+            for(int q=0;q<peakCount;++q){const auto& peak=evidence->peaks[size_t(q)];
+                if(std::abs(peak.frequency-target)<target*.022f+evidence->resolutionHz*.05f)value=std::max(value,double(peak.magnitude));
+            }
+            physical[size_t(h-1)]=std::max(value,double(evidence->maximumMagnitude)*.004);
+            if(h%2&&value>=evidence->maximumMagnitude*.008)++oddFound;
+        }
+        if(oddFound<5)return false;
+        double sx=0,sy=0,sxx=0,sxy=0;
+        for(int h=1;h<=15;h+=2){double x=std::log(double(h)),y=std::log(physical[size_t(h-1)]);sx+=x;sy+=y;sxx+=x*x;sxy+=x*y;}
+        const double slope=std::clamp((8*sxy-sx*sy)/(8*sxx-sx*sx),-3.,.5),intercept=(sy-slope*sx)/8;
+        double excess=0;int strong=0;
+        for(int h=10;h<=16;h+=2){double ratio=physical[size_t(h-1)]/std::exp(intercept+slope*std::log(double(h)));excess+=std::log(std::max(ratio,1e-9));if(ratio>2)++strong;}
+        if(strong<2||excess<4*std::log(1.8))return false;
+        for(int h=3;h<=8;++h){
+            const double target=frequency*h;if(target>=evidence->maximumHz)break;
+            bool shared=false;
+            for(int j=0;j<used&&!shared;++j){
+                const double other=evidence->frequencies[size_t(selected[size_t(j)])];
+                if(!std::isfinite(other)||other<=0)continue;
+                const int k=int(std::lround(target/other));
+                if(k>=1&&k<=8&&std::abs(target-other*k)<evidence->resolutionHz)shared=true;
+            }
+            if(shared)continue;
+            for(int q=0;q<peakCount;++q){const auto& peak=evidence->peaks[size_t(q)];
+                if(peak.magnitude>=evidence->maximumMagnitude*.008f&&std::abs(peak.frequency-target)<target*.022f+evidence->resolutionHz*.05f){++found;break;}
+            }
+        }
+        return found>=2;
+    };
+    // The selected models stay fixed while candidates are compared. Cache
+    // this selected-model-dependent result only within that one iteration.
+    std::array<int8_t,noteCount> activeSupport{};activeSupport.fill(-1);
+    auto activeUpperSupport=[&](int note) noexcept {
+        auto& cached=activeSupport[size_t(note)];
+        if(cached<0)cached=computeActiveUpperSupport(note)?1:0;
+        return cached!=0;
+    };
     const double cutoff=.06+.12*(1-sensitivity);
     for(int iteration=0;iteration<maxVoices;++iteration){
+        activeSupport.fill(-1);
         int best=-1;double bestScore=0;bool bestWeak=false;
         std::array<double,columns> bestCoefficients{};
         for(int note=0;note<noteCount;++note){
@@ -250,15 +301,15 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
                 const double a=beta[size_t(c)]*model.weight[size_t(c)];totalAmplitude+=a*a;
                 if(c==0||c==harmonics)fundamental+=a*a;
             }
-            if(totalAmplitude<=0||(fundamental<totalAmplitude*.05&&(anchor!=note)))continue;
-            if(anchor>=0&&anchor!=note&&octaveEvidence[size_t(note)]<=0
+            if(totalAmplitude<=0||(fundamental<totalAmplitude*.05&&anchor!=note&&!activeUpperSupport(note)))continue;
+            if(anchor>=0&&anchor!=note&&octaveEvidence[size_t(note)]<=0&&!activeUpperSupport(note)
                 &&!independentOfAnchor(note,*evidence,note<anchor?3:2))continue;
             bool weak=false;
             if(iteration>0&&score<firstScore*cutoff) {
                 if(score<firstScore*.006||score<energy*.006||!evidence)continue;
                 auto explained=evidence->active;
                 for(int j=0;j<used;++j)explained[size_t(selected[size_t(j)])]=true;
-                if(!hasIndependentPeaks(note,*evidence,explained,false))continue;
+                if(!activeUpperSupport(note)&&!hasIndependentPeaks(note,*evidence,explained,false))continue;
                 weak=true;
             }
             if(score>bestScore){bestScore=score;best=note;bestCoefficients=beta;bestWeak=weak;}

@@ -35,6 +35,17 @@ period estimator. A weighted harmonic-series check prefers a higher series only
 when its partials dominate the measured power; see `YinEstimator.md`. This is a
 generic timbre assumption with measured tests, not a proof for arbitrary audio.
 
+At acquisition, a body transient can also make the strict YIN threshold favour
+a long common period before the stronger physical series has become periodic
+enough. A secondary, more tolerant higher-frequency candidate is considered
+only when a strict candidate already exists and lacks a resolved root or a
+primitive low-order missing-fundamental series. The higher candidate must have
+a resolved root and multiple measured partials. An already held strict MIDI
+identity is protected from this reinterpretation; a genuinely different strict
+pitch may still start a new note. Strict-invalid input is never promoted into
+an early lenient guess. These are bounded past-audio checks, with remaining
+body/weak-series ambiguity retained in the independent measurements.
+
 New decisions require three consistent estimates and a short continuous-pitch
 stability interval. Stability is measured across estimates, not by a permanent
 fractional-semitone dead zone: a stable note detuned by 40 cents remains valid.
@@ -105,7 +116,9 @@ Processing does not allocate C++ heap objects, lock, build strings, read files
 or call GUI code. Prepared harmonic tables are heap-owned, not a multi-megabyte
 stack object. `Tests/PitchTests.cpp` checks functional audio conversion, declared
 range, stable pure/bright detuning at three host rates, lifecycle and prepared
-processing allocations. This is
+processing allocations. It also loads the pinned recorded octave mixture and
+a separate bright-lower/independently-damped-upper control, protecting acquired
+voice continuity and timely release. This is
 separate from independent fixture validation and whole-host allocation tests.
 
 ## Evidence and scope

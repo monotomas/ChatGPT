@@ -8,6 +8,11 @@
 #include <iostream>
 #include <limits>
 #include <memory>
+#include <cstdint>
+#include <filesystem>
+#include <fstream>
+#include <iterator>
+#include <string>
 #include <stdexcept>
 #include <vector>
 namespace {std::atomic<bool> countAllocations{false};std::atomic<size_t> allocationCount{0};}
@@ -110,4 +115,64 @@ void transitions(){
     out.clear();settings.polyphonic=false;d->configure(settings);d->process(a.data(),128,out);check(std::none_of(out.events.begin(),out.events.begin()+std::ptrdiff_t(out.size),[](auto e){return e.on;}),"mode change reused old audio onset");
 }
 }
-int main(){try{silenceAndInvalid();monoAndBlocks();polyphony();causalPrediction();transitions();declaredRangeAndRealtime();std::cout<<"FlysnapperPitch: PASS ("<<checks<<" checks; synthetic functional tests, not physical latency acceptance)\n";return 0;}catch(const std::exception& e){std::cerr<<"FlysnapperPitch: FAIL: "<<e.what()<<"\n";return 1;}}
+
+std::vector<float> readRegressionWave(const std::filesystem::path& file){
+    std::ifstream stream(file,std::ios::binary);
+    if(!stream)throw std::runtime_error("Cannot open pitch lifecycle regression fixture");
+    const std::vector<uint8_t> bytes((std::istreambuf_iterator<char>(stream)),{});
+    const auto u16=[&](size_t at){if(at+2>bytes.size())throw std::runtime_error("Truncated regression WAV");return uint16_t(bytes[at])|(uint16_t(bytes[at+1])<<8);};
+    const auto u32=[&](size_t at){return uint32_t(u16(at))|(uint32_t(u16(at+2))<<16);};
+    if(bytes.size()<12||std::string(reinterpret_cast<const char*>(bytes.data()),4)!="RIFF"
+        ||std::string(reinterpret_cast<const char*>(bytes.data()+8),4)!="WAVE")throw std::runtime_error("Not a regression WAV");
+    size_t data=0,length=0;int format=0,channels=0,rate=0,bits=0;
+    for(size_t at=12;at+8<=bytes.size();){
+        const uint32_t count=u32(at+4);
+        if(at+8+uint64_t(count)>bytes.size())throw std::runtime_error("Regression WAV chunk outside file");
+        const std::string name(reinterpret_cast<const char*>(bytes.data()+at),4);
+        if(name=="fmt "){
+            if(count<16)throw std::runtime_error("Truncated regression WAV format");
+            format=u16(at+8);channels=u16(at+10);rate=int(u32(at+12));bits=u16(at+22);
+        }else if(name=="data"){data=at+8;length=count;}
+        at+=8+count+(count&1);
+    }
+    if(format!=1||channels!=1||rate!=48000||bits!=16||!data||(length&1))throw std::runtime_error("Regression fixture must be48kHz mono PCM16");
+    std::vector<float> audio(length/2);
+    for(size_t i=0;i<audio.size();++i)audio[i]=float(int16_t(u16(data+2*i)))/32768.f;
+    return audio;
+}
+void acquiredOctaveContinuity(const std::filesystem::path& fixtures){
+    auto detector=std::make_unique<PitchDetector>();detector->prepare(48000);
+    Settings settings;settings.polyphonic=true;detector->configure(settings);
+    const auto recorded=readRegressionWave(fixtures/"pcm"/"recorded_E_octaves.wav");
+    const auto result=run(*detector,recorded,64);
+    int ons=0,offs=0,first=-1,last=-1;
+    for(auto event:result)if(event.note==52){if(event.on){++ons;first=event.sample;}else{++offs;last=event.sample;}}
+    check(ons==1&&offs==1,"Acquired recorded middle octave was fragmented or missing");
+    check(first>=0&&first<12000,"Recorded middle octave acquisition regression");
+    check(last>=35520&&last<=40800,"Acquired middle octave ended before its source or failed to release within100ms");
+    // A bright lower string must not keep an independently damped upper
+    // string alive merely because its own high partials remain present.
+    detector->prepare(48000);detector->configure(settings);
+    const auto bright=readRegressionWave(fixtures/"regressions"/"bright_lower_upper_damped.wav");
+    const auto damped=run(*detector,bright,64);
+    int lowerOns=0,lowerOffs=0,upperOns=0,upperOffs=0,lowerEnd=-1,upperEnd=-1;
+    for(auto event:damped){
+        check(event.note==40||event.note==52,"Bright damping control emitted an unrelated pitch");
+        if(event.note==40){if(event.on)++lowerOns;else{++lowerOffs;lowerEnd=event.sample;}}
+        if(event.note==52){if(event.on)++upperOns;else{++upperOffs;upperEnd=event.sample;}}
+    }
+    check(lowerOns==1&&lowerOffs==1&&upperOns==1&&upperOffs==1,"Bright independent-damping lifecycle mismatch");
+    check(lowerEnd>=30720&&lowerEnd<=36000,"Continuing bright lower voice ended early or hung");
+    check(upperEnd>=13920&&upperEnd<=19200,"Damped upper voice followed the lower harmonics instead of releasing within100ms");
+    std::cout<<"PASS acquired recorded octave continuity and independently damped upper under a bright lower string\n";
+}
+int runTests(const std::vector<std::filesystem::path>& args){try{
+    if(args.size()!=2)throw std::runtime_error("FlysnapperPitchTests <AudioFixtures directory>");
+    silenceAndInvalid();monoAndBlocks();polyphony();causalPrediction();transitions();declaredRangeAndRealtime();acquiredOctaveContinuity(args[1]);
+    std::cout<<"FlysnapperPitch: PASS ("<<checks<<" checks; functional audio controls, not physical latency acceptance)\n";return 0;
+}catch(const std::exception& e){std::cerr<<"FlysnapperPitch: FAIL: "<<e.what()<<'\n';return 1;}}
+#ifdef _WIN32
+int wmain(int argc,wchar_t** argv){std::vector<std::filesystem::path> args;for(int i=0;i<argc;++i)args.emplace_back(argv[i]);return runTests(args);}
+#else
+int main(int argc,char** argv){std::vector<std::filesystem::path> args;for(int i=0;i<argc;++i)args.emplace_back(argv[i]);return runTests(args);}
+#endif

@@ -1,0 +1,21 @@
+{
+  "scope": "Supplemental articulation regression, separate from immutable81/69/46corpora and frozen30policy",
+  "file": "bright_lower_upper_damped.wav",
+  "sha256": "7fcb3a7101c9d8bb779c83af4905dc722c29671712ea4a00e7ca4a2213d02f85",
+  "sample_rate": 48000,
+  "frames": 48000,
+  "truth": [
+    {
+      "note": 40,
+      "on_sample": 2400,
+      "off_sample": 31200
+    },
+    {
+      "note": 52,
+      "on_sample": 2400,
+      "off_sample": 14400
+    }
+  ],
+  "source": "Tools/audio_validation_fixtures.py modal generator, gains.18, seeds1/2, brightness.55/1.25, lowerduration.6s, upperduration.25s, prepend.05s",
+  "license": "AGPL-3.0-or-later"
+}

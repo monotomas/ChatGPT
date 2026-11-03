@@ -3,9 +3,10 @@
 Actual compiled VST3 validation remains a separate mandatory CTest.
 """
 from __future__ import annotations
-import hashlib,importlib.util,json,os,shutil,subprocess,sys,tempfile,unittest
+import csv,hashlib,importlib.util,io,json,os,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
 from unittest import mock
+from types import SimpleNamespace
 from zipfile import ZipFile
 ROOT=Path(__file__).resolve().parents[1]
 def module(name,path):
@@ -13,6 +14,7 @@ def module(name,path):
 shipping=module('windows_shipping_test',ROOT/'Tools/package_windows.py')
 source=module('source_shipping_test',ROOT/'Tools/package_source.py')
 publisher=module('publisher_shipping_test',ROOT/'Tools/publish_windows_delivery.py')
+diagnostics=module('diagnostics_shipping_test',ROOT/'Tools/windows_audio_diagnostics.py')
 with mock.patch.dict(sys.modules,{'package_windows':shipping}):
     installed_verifier=module('installed_verifier_shipping_test',ROOT/'Tools/verify_windows_install.py')
 
@@ -42,18 +44,52 @@ class WindowsPackageTests(unittest.TestCase):
         for name in audio_sources+['Tests/AudioFixtures/quality_gate.json','Tests/AudioFixtures/fixtures.json','Tests/AudioFixtures/fixtures.tsv']:
             path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True)
             if not path.exists():path.write_text('fixture '+name)
+        for fixture_dir,_,_,_ in diagnostics.SPECS.values():
+            path=self.root/fixture_dir/'fixtures.json';path.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/fixture_dir/'fixtures.json',path)
         summary={'gate':'FlysnapperAudioQuality','status':'passed','cases_checked':1,'cases_failed':0,'physical_live_latency_verified':False,'user_5_10ms_goals_verified':False}
         (evidence/'summary.json').write_text(json.dumps(summary))
         (evidence/'metrics.csv').write_text('fixture,not actual audio measurement\n')
         h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-        self.audio_proof={'status':'passed','evaluator_exit_code':0,'summary_sha256':h(evidence/'summary.json'),'metrics_sha256':h(evidence/'metrics.csv'),
+        self.audio_proof={'status':'passed','evaluator_exit_code':0,'evaluator_sha256':hashlib.sha256(b'fixture evaluator, not native Windows execution').hexdigest(),'summary_sha256':h(evidence/'summary.json'),'metrics_sha256':h(evidence/'metrics.csv'),
                          'source_sha256':{name:h(self.root/name) for name in audio_sources},
                          'policy_sha256':h(self.root/'Tests/AudioFixtures/quality_gate.json'),
                          'fixture_manifest_sha256':h(self.root/'Tests/AudioFixtures/fixtures.json'),
                          'fixture_inventory_sha256':h(self.root/'Tests/AudioFixtures/fixtures.tsv')}
         (evidence/'report-manifest.json').write_text(json.dumps(self.audio_proof))
+        self.make_diagnostic_fixture()
     def save_manifest(self):
         (self.dist/'build-manifest.json').write_text(json.dumps(self.manifest))
+        path=self.dist/'windows-audio-diagnostics'/diagnostics.MANIFEST
+        if path.is_file():
+            document=json.loads(path.read_text());document['source_commit']=self.manifest['source_commit'];path.write_text(json.dumps(document))
+    def make_diagnostic_fixture(self):
+        base=self.dist/'windows-audio-diagnostics';base.mkdir()
+        fields=['case','family','mode','rate','block',*diagnostics.INTS,*diagnostics.LATENCY,*diagnostics.RELEASE,*diagnostics.CPU]
+        source=self.audio_proof['source_sha256'];runner_source={n:d for n,d in source.items() if n.startswith('Source/Pitch/') or n=='Tools/audio_validation.cpp'}
+        manifest={'schema':1,'kind':'WindowsAudioDiagnostics','status':'completed','measurement_only':True,'execution_platform':'Windows','source_commit':self.manifest['source_commit'],'evaluator_sha256':self.audio_proof['evaluator_sha256'],'basic_report_sha256':hashlib.sha256((self.dist/'audio-validation/report-manifest.json').read_bytes()).hexdigest(),'source_sha256':source,'orchestration_source_sha256':diagnostics.orchestration_sources(self.root),'datasets':{}}
+        for name,(fixture_dir,count,role,_) in diagnostics.SPECS.items():
+            destination=base/name;destination.mkdir();reference=json.loads((self.root/fixture_dir/'fixtures.json').read_text())['cases']
+            with (destination/'audio-cases.csv').open('w',newline='') as mf,(destination/'audio-events.csv').open('w',newline='') as ef:
+                metrics=csv.DictWriter(mf,fieldnames=fields);metrics.writeheader();events=csv.DictWriter(ef,fieldnames=['case','rate','block','on','note','velocity','sample','time_ms']);events.writeheader()
+                for case in reference:
+                    for rate in diagnostics.RATES:
+                        for block in diagnostics.BLOCKS:
+                            expected=len(case['truth']);row=dict.fromkeys(fields,'0');row.update(case=case['name'],family=case['family'],mode=case['mode'],rate=rate,block=block,expected=expected,matched=expected)
+                            # A diagnostic is allowed to report musical failure.
+                            extras=2 if name=='public' and case is reference[0] else 0;row['false_note_ons']=extras
+                            for key in diagnostics.LATENCY:row[key]='5' if expected else ''
+                            for key in diagnostics.RELEASE:row[key]='20' if expected else ''
+                            for key in diagnostics.CPU:row[key]='1'
+                            metrics.writerow(row)
+                            for n in range(expected+extras):
+                                sample=2400+n*500
+                                for on,offset in ((1,0),(0,1000)):events.writerow({'case':case['name'],'rate':rate,'block':block,'on':on,'note':60,'velocity':100 if on else 0,'sample':sample+offset,'time_ms':f'{1000*(sample+offset)/rate:.6f}'})
+            fixture_hash=hashlib.sha256((self.root/fixture_dir/'fixtures.json').read_bytes()).hexdigest()
+            measurement={'runner_exit_code':0,'source_changed_during_measurement':False,'measurement_not_acceptance':True,'binary_sha256':manifest['evaluator_sha256'],'source_sha256':runner_source,'evaluation_role':role,'fixtures_sha256':fixture_hash,'configuration':'full:44100/48000/96000Hz x32/64/128samples','independent_holdout':name!='public','second_confirmation':name=='confirmation'}
+            (destination/'measurement-manifest.json').write_text(json.dumps(measurement));(destination/'audio-summary.txt').write_text('Fixture measurements with intentional errors; not actual audio validation.');(destination/'runner-output.txt').write_text('Fixture process output; not native Windows execution.')
+            manifest['datasets'][name]={'case_configurations':count*9,'reference_cases':count,'evaluation_role':role,'fixture_manifest_sha256':fixture_hash,'runner_exit_code':0}
+        manifest['files_sha256']={n:hashlib.sha256(b).hexdigest() for n,b in diagnostics.inventory(base).items()}
+        (base/diagnostics.MANIFEST).write_text(json.dumps(manifest))
     def save_report(self):
         (self.dist/'test-results.xml').write_text('<testsuite>'+self.report+'</testsuite>')
     def package(self):return shipping.build_package(self.root,self.dist,self.output)
@@ -66,7 +102,11 @@ class WindowsPackageTests(unittest.TestCase):
         with ZipFile(self.output) as z:
             p='Flysnapper-1.0.0-Windows-x64/'
             for n in ('INSTALL_FLYSNAPPER.bat','Install-Flysnapper.ps1','BRUKERVEILEDNING.md','Flysnapper.vst3/'+shipping.BINARY,
-                      'Source/Flysnapper-Source.zip','Validation/test-results.xml','Validation/build-manifest.json','Validation/audio-validation/summary.json'):
+                      'Source/Flysnapper-Source.zip','Validation/test-results.xml','Validation/build-manifest.json','Validation/audio-validation/summary.json',
+                      'Validation/windows-audio-diagnostics/diagnostics-manifest.json',
+                      'Validation/windows-audio-diagnostics/public/audio-cases.csv',
+                      'Validation/windows-audio-diagnostics/holdout/audio-events.csv',
+                      'Validation/windows-audio-diagnostics/confirmation/measurement-manifest.json'):
                 self.assertIn(p+n,z.namelist())
             release=json.loads(z.read(p+'release-manifest.json'))
             for n,h in release['files'].items():self.assertEqual(hashlib.sha256(z.read(p+n)).hexdigest(),h)
@@ -100,8 +140,57 @@ class WindowsPackageTests(unittest.TestCase):
     def test_native_windows_provenance_paths_normalize_without_changing_hashes(self):
         proof=self.audio_proof.copy();proof['source_sha256']={name.replace('/','\\'):digest for name,digest in self.audio_proof['source_sha256'].items()}
         path=self.dist/'audio-validation/report-manifest.json';path.write_text(json.dumps(proof))
+        diagnostic_path=self.dist/'windows-audio-diagnostics'/diagnostics.MANIFEST
+        document=json.loads(diagnostic_path.read_text());document['basic_report_sha256']=hashlib.sha256(path.read_bytes()).hexdigest();diagnostic_path.write_text(json.dumps(document))
         before=path.read_bytes();self.package();self.assertEqual(path.read_bytes(),before)
         shipping.verify_package(self.output)
+    def test_full_diagnostics_are_measurements_allowing_errors_but_require_all_corpora(self):
+        files=diagnostics.verify_saved(self.root,self.dist,self.manifest)
+        document=json.loads(files[diagnostics.MANIFEST]);self.assertTrue(document['measurement_only'])
+        rows=list(csv.DictReader(files['public/audio-cases.csv'].decode().splitlines()))
+        self.assertTrue(any(int(row['false_note_ons'])>0 for row in rows))
+        self.package()
+        shutil.rmtree(self.dist/'windows-audio-diagnostics/confirmation')
+        with self.assertRaisesRegex(ValueError,'inventory'):self.package()
+    def test_stale_or_failed_diagnostic_runner_cannot_ship(self):
+        base=self.dist/'windows-audio-diagnostics';path=base/'holdout/measurement-manifest.json';original=path.read_bytes()
+        manifest_path=base/diagnostics.MANIFEST;document=json.loads(manifest_path.read_text())
+        for key,value in (('source_changed_during_measurement',True),('runner_exit_code',1),('binary_sha256','0'*64),('evaluation_role','first-blind')):
+            data=json.loads(original);data[key]=value;path.write_text(json.dumps(data));document['files_sha256']['holdout/measurement-manifest.json']=hashlib.sha256(path.read_bytes()).hexdigest();manifest_path.write_text(json.dumps(document))
+            with self.subTest(key=key),self.assertRaises(ValueError):self.package()
+        path.write_bytes(original)
+    def test_truncated_or_nonfinite_full_matrix_cannot_be_hidden_by_fresh_checksum(self):
+        base=self.dist/'windows-audio-diagnostics';path=base/'public/audio-cases.csv';original=path.read_bytes();manifest_path=base/diagnostics.MANIFEST
+        reader=csv.DictReader(io.StringIO(original.decode(),newline=''));rows=list(reader);rows[0]['cpu_median_us']='nan'
+        invalid=io.StringIO(newline='');writer=csv.DictWriter(invalid,fieldnames=reader.fieldnames);writer.writeheader();writer.writerows(rows)
+        for payload in (b''.join(original.splitlines(keepends=True)[:-1]),invalid.getvalue().encode()):
+            path.write_bytes(payload);document=json.loads(manifest_path.read_text());document['files_sha256']['public/audio-cases.csv']=hashlib.sha256(payload).hexdigest();manifest_path.write_text(json.dumps(document))
+            with self.assertRaises(ValueError):self.package()
+    def test_diagnostic_driver_runs_three_explicit_roles_with_bound_fixture_evaluator(self):
+        # This tests orchestration using explicit fixture PE bytes/processes;
+        # only actual Windows CI can establish native measurements.
+        base=self.dist/'windows-audio-diagnostics'
+        saved={name:{n:(base/name/n).read_bytes() for n in diagnostics.FILES if n!='runner-output.txt'} for name in diagnostics.SPECS}
+        shutil.rmtree(base)
+        evaluator=self.root/'build/w-fixture/FlysnapperAudioValidation.exe';evaluator.parent.mkdir(parents=True);shutil.copyfile(self.bundle/shipping.BINARY,evaluator)
+        self.audio_proof['evaluator_sha256']=hashlib.sha256(evaluator.read_bytes()).hexdigest()
+        (self.dist/'audio-validation/report-manifest.json').write_text(json.dumps(self.audio_proof))
+        calls=[]
+        def fake_run(command,**kwargs):
+            destination=Path(command[command.index('--output')+1]);name=destination.name;calls.append(command)
+            self.assertEqual(command[command.index('--executable')+1],str(evaluator.resolve()))
+            self.assertEqual(command[command.index('--evaluation-role')+1],diagnostics.SPECS[name][2]);self.assertIn('--full',command)
+            for filename,data in saved[name].items():
+                if filename=='measurement-manifest.json':
+                    document=json.loads(data);document['binary_sha256']=self.audio_proof['evaluator_sha256'];data=json.dumps(document).encode()
+                (destination/filename).write_bytes(data)
+            kwargs['stdout'].write(b'Fixture process protocol only; no native audio execution.\n')
+            return subprocess.CompletedProcess(command,0)
+        with mock.patch.dict(sys.modules,{'package_windows':shipping}),mock.patch.object(diagnostics,'os',SimpleNamespace(name='nt',environ=os.environ.copy())),mock.patch.object(diagnostics.platform,'system',return_value='Windows'),mock.patch.object(diagnostics.subprocess,'run',side_effect=fake_run):
+            result=diagnostics.run(self.root,self.dist,self.manifest['source_commit'])
+        self.assertEqual(result['status'],'completed');self.assertTrue(result['measurement_only']);self.assertEqual(len(calls),3)
+        self.assertIn('--holdout',calls[1]);self.assertIn('--confirmation',calls[2])
+        diagnostics.verify_saved(self.root,self.dist,self.manifest)
     def test_duplicate_or_unsafe_windows_provenance_paths_are_rejected(self):
         path=self.dist/'audio-validation/report-manifest.json'
         proof=self.audio_proof.copy();proof['source_sha256']=self.audio_proof['source_sha256'].copy()

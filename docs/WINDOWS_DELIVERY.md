@@ -19,6 +19,20 @@ prototype, absent pitch implementation, mismatching bundle hashes, missing
 Windows toolchain/Unicode probes, or missing/failed/skipped mandatory CTests.
 Required targets are Core, Yin, Pitch, PluginSmoke, ProcessorAudio, ActualVst3 and AudioQuality. The independent audio summary must pass, its report hashes must match, and its recorded DSP/source/fixture/policy hashes must match the packaged source. Stale passing measurements cannot ship after detector changes.
 
+After those tests, `Tools/windows_audio_diagnostics.py` uses the same native
+evaluator whose SHA256 is bound to the passed basic test. It runs the complete
+public729, first-holdout621 and confirmation414 matrices. The latter two are
+explicitly seen-data regressions. Execution, fixture integrity, unchanged source
+and evaluator, complete case/rate/block inventory, finite/count-consistent
+metrics and matching event counts are required. Musical errors remain in the
+reports; completion does not add an accuracy or latency acceptance threshold.
+
+Packaging requires all three completed diagnostic reports and includes them
+under `Validation/windows-audio-diagnostics/{public,holdout,confirmation}/`, with
+CSV metrics/events, textual measurements, runner logs and provenance manifests.
+The aggregate manifest says `measurement_only: true` and `status: completed`.
+The unchanged30-case basic quality gate remains a separate mandatory pass.
+
 Source-provenance keys use forward slashes on every platform. A native Windows
 run exposed that serializing `Path` with `str()` produced backslash keys that
 the packager could not match. Producers now use `as_posix()`. The packager also

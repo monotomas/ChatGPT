@@ -10,6 +10,44 @@ namespace {
 constexpr double pi=3.14159265358979323846;
 float db(float amplitude) noexcept {return 20.0f*std::log10(std::max(amplitude,0.000001f));}
 float finite(float x) noexcept {return std::isfinite(x)?std::clamp(x,-16.0f,16.0f):0.0f;}
+// Validate a frequency hypothesis against the supplied past-only observation.
+// A local log-power fit checks peak-centre agreement within 1.5%; a broad
+// Rayleigh main lobe alone must not validate a nearby body resonance.
+struct MonoSeriesEvidence {uint16_t mask=0;int count=0;bool root=false;};
+MonoSeriesEvidence measureMonoSeries(const float* wave,int count,double frequency,double rate) noexcept {
+    MonoSeriesEvidence evidence;
+    if(count<128||count>1024||frequency<=0||frequency>=rate*.45)return evidence;
+    std::array<float,1024> windowed{};double mean=0;
+    for(int i=0;i<count;++i)mean+=wave[i];
+    mean/=count;
+    const double windowAngle=2*pi/(count-1),stepC=std::cos(windowAngle),stepS=std::sin(windowAngle);double c=1,s=0;
+    for(int i=0;i<count;++i){windowed[size_t(i)]=float((wave[i]-mean)*(.5-.5*c));const double next=c*stepC-s*stepS;s=s*stepC+c*stepS;c=next;}
+    const auto power=[&](double hz) noexcept {
+        if(hz<=0||hz>=rate*.45)return 0.;
+        const double angle=2*pi*hz/rate,dc=std::cos(angle),ds=std::sin(angle);double c=1,s=0,re=0,im=0;
+        for(int i=0;i<count;++i){re+=windowed[size_t(i)]*c;im+=windowed[size_t(i)]*s;const double next=c*dc-s*ds;s=s*dc+c*ds;c=next;}
+        return re*re+im*im;
+    };
+    std::array<double,12> powers{};double maximum=0;
+    for(int h=1;h<=12;++h){powers[size_t(h-1)]=power(frequency*h);maximum=std::max(maximum,powers[size_t(h-1)]);}
+    if(maximum<1e-20)return evidence;
+    for(int h=1;h<=12;++h){
+        const double center=powers[size_t(h-1)];if(center<maximum*.0016)continue;
+        const double hz=frequency*h,a=std::log(std::max(power(hz*.985),1e-30)),b=std::log(std::max(center,1e-30)),d=std::log(std::max(power(hz*1.015),1e-30));
+        const double curvature=a-2*b+d;if(curvature>=-1e-12)continue;
+        const double displacement=.5*(a-d)/curvature;
+        if(std::abs(displacement)>1)continue;
+        evidence.mask=uint16_t(evidence.mask|(1u<<(h-1)));++evidence.count;if(h==1)evidence.root=true;
+    }
+    return evidence;
+}
+// Low-order coprime partials can establish a genuinely missing fundamental.
+// Preserve that strict candidate instead of preferring a stronger overtone.
+bool hasPrimitiveLowSeries(uint16_t mask) noexcept {
+    for(int a=2;a<=3;++a)if(mask&(1u<<(a-1)))for(int b=a+1;b<=12;++b)
+        if((mask&(1u<<(b-1)))&&std::gcd(a,b)==1)return true;
+    return false;
+}
 }
 PitchDetector::PitchDetector(){prepare(48000.0);}
 void PitchDetector::prepare(double sr) {
@@ -177,6 +215,22 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
     const float threshold=std::clamp(.08f+(config.sensitivity-.65f)*.08f,.035f,.11f);
     const int primary=std::min(count,512);
     auto estimate=monoEstimator.estimate(frame.data()+count-primary,primary,threshold,true);
+    // A body transient can make a long common period pass the strict YIN test
+    // before the actual source period. Consider a second, bounded candidate
+    // only when the strict result lacks physical root/primitive-series support.
+    // Never turn a strict-invalid observation into an early low-confidence note.
+    // An already-held strict note retains its identity through timbre changes.
+    if(estimate.valid&&primary>=128&&!voices[size_t(estimate.note-lowNote)].active){
+        const auto secondary=monoEstimator.estimate(frame.data()+count-primary,primary,std::min(.25f,threshold+.07f),true);
+        if(secondary.valid&&secondary.frequency>estimate.frequency*1.5f){
+            const auto strictEvidence=measureMonoSeries(frame.data()+count-primary,primary,estimate.frequency,analysisRate);
+            if(!strictEvidence.root&&!hasPrimitiveLowSeries(strictEvidence.mask)){
+                const auto higherEvidence=measureMonoSeries(frame.data()+count-primary,primary,secondary.frequency,analysisRate);
+                if(higherEvidence.root&&higherEvidence.count>=3)estimate=secondary;
+            }
+        }
+    }
+
     if(!estimate.valid&&count>512) {
         auto bass=monoEstimator.estimate(frame.data(),count,threshold,true);
         if(bass.valid&&bass.note<36&&bass.confidence>.97f)estimate=bass;

@@ -146,3 +146,21 @@ prediction with later arriving audio to distinguish a new acoustic attack from
 beating already represented by the held harmonic model. A falling observed
 energy veto prevents release tapers from reopening voice admission. All
 prediction arrays and processing work are fixed-size and allocation-free.
+
+## Already acquired octave continuity
+
+An already active octave may retain its model while a selected lower octave
+absorbs its shared fundamental, but only with broad measured upper-partial
+support. The guard fits the lower note's odd partials through15 and requires
+high even-partial excess at10/12/14/16, plus two resolved upper partials outside
+other selected models' eight-partial coverage. It does not admit a new voice,
+remove the absolute score floor, or bypass the final joint-model output gate.
+Its selected-model-dependent result is cached only within one selection
+iteration; it is recalculated after model selection changes.
+
+The acquired E3 in the recorded E2/E3/E4 mixture remains held through its actual
+source ending. Independent bright-lower/upper-damping controls reject an earlier
+retention attempt that extended a damped upper voice by more than200ms. The
+routine pitch test now includes that negative control and the recorded sustain
+regression. Missing voices and other polyphonic limitations remain reported;
+this guard does not establish general octave separation or live latency.

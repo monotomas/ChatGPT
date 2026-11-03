@@ -43,6 +43,9 @@ jobs:
             python build_plugin.py --jobs 2 *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG -Append
             $buildExit = $LASTEXITCODE
             if ($buildExit -ne 0) { exit $buildExit }
+            python Tools/windows_audio_diagnostics.py --source-root "$target" --source-commit "$env:GITHUB_SHA" *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG -Append
+            $buildExit = $LASTEXITCODE
+            if ($buildExit -ne 0) { exit $buildExit }
             New-Item -ItemType Directory -Path "$env:GITHUB_WORKSPACE\artifacts" -Force | Out-Null
             python Tools/package_windows.py --output "$env:GITHUB_WORKSPACE\artifacts\Flysnapper-Windows-x64.zip" *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG -Append
             $buildExit = $LASTEXITCODE

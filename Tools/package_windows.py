@@ -107,6 +107,9 @@ def build_package(root: Path,dist: Path,output: Path) -> Path:
     if not re.fullmatch(r'\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?',version):raise ValueError('Invalid project version')
     bundle,build=verified_payload(dist,version)
     audio_evidence=verified_audio_evidence(root,dist)
+    diagnostic_spec=importlib.util.spec_from_file_location('flysnapper_windows_diagnostics',Path(__file__).with_name('windows_audio_diagnostics.py'))
+    diagnostics=importlib.util.module_from_spec(diagnostic_spec);diagnostic_spec.loader.exec_module(diagnostics)
+    diagnostic_evidence=diagnostics.verify_saved(root,dist,build)
     for p in (root/'Tools/windows_installer.ps1',root/'INSTALL_FLYSNAPPER.bat'):
         if p.is_symlink() or not p.is_file():raise ValueError('Native installer missing or linked')
     members={'Flysnapper.vst3/'+n:b for n,b in bundle.items()}
@@ -118,6 +121,7 @@ def build_package(root: Path,dist: Path,output: Path) -> Path:
     members['Validation/test-results.xml']=(dist/'test-results.xml').read_bytes()
     members['Validation/automated-tests.txt']=(dist/'automated-tests.txt').read_bytes()
     members.update({'Validation/audio-validation/'+name:data for name,data in audio_evidence.items()})
+    members.update({'Validation/windows-audio-diagnostics/'+name:data for name,data in diagnostic_evidence.items()})
     members['LES_MEG.txt']=(f'''Flysnapper {version} - Windows x64 VST3\r\n\r\nPakk ut HELE ZIP-filen til en egen mappe, for eksempel pa D:.\r\nLukk Ableton og andre pluginverter. Dobbeltklikk INSTALL_FLYSNAPPER.bat.\r\nVelg VST3-mappen som Ableton bruker. Installeren kopierer bare Flysnapper.vst3.\r\nIngen Python, CMake eller Visual Studio kreves.\r\nVed erstatning beholdes en kontrollert sikkerhetskopi utenfor VST3-mappen.\r\nBuffkiller og andre plugins blir ikke endret.\r\n\r\nKanal 1 er spille-MIDI, kanal 16 er akkordkontroll. Velg sidechain-audio\r\ni vertens eget panel. Mono/poly velges i Flysnapper.\r\nSe BRUKERVEILEDNING.md for ruting, betjening og maalte grenser.\r\nKildekoden finnes i Source/Flysnapper-Source.zip.\r\nWindows-bygg og automatiske tester finnes under Validation. Dette er ikke\r\ni seg selv dokumentasjon av fysisk lydkortlatency eller en Ableton-test.\r\n''').encode('utf-8-sig')
     spec=importlib.util.spec_from_file_location('flysnapper_source_shipping',root/'Tools/package_source.py')
     source=importlib.util.module_from_spec(spec);spec.loader.exec_module(source)
