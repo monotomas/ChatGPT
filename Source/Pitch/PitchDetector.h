@@ -53,7 +53,8 @@ private:
     Settings config;
     Status view;
     double rate=48000.0,analysisRate=12000.0;
-    int decimation=4,decimationPhase=0;
+    double analysisPhase=0,analysisStep=.25;
+    float previousFiltered=0;
     std::array<float,windowSize> ring{};
     std::array<float,512> window{};
     std::array<Complex,fftSize> transform{};
@@ -77,7 +78,7 @@ private:
     int phaseAttackAge=0,pitchHistoryCount=0,pitchHistoryWrite=0;
     std::array<float,4> pitchHistory{};
     float pitchHistoryRange=0;
-    int polyAdmission=0;
+    int polyAdmission=0,polyAnchor=-1;
     std::array<float,fftSize/2+1> spectralBaseline{};
     float spectralUpdate=0;
     std::array<bool,noteCount> independentNovelty{};

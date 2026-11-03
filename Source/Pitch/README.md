@@ -7,9 +7,12 @@ user-facing processing module. `PitchDetector.h` is the integration contract.
 ## Causal processing
 
 `prepare` builds frequency/FFT and harmonic regression tables outside audio
-processing. The internal analysis rate is the host rate divided by
-`floor(hostRate / 12000)`, with a minimum divisor of one. A rate-dependent 12 Hz
-DC blocker and four cascaded one-pole low-pass stages precede decimation. The
+processing. The internal analysis rate is 12 kHz (or the host rate below
+12 kHz). A bounded phase accumulator interpolates between two filtered host
+samples already received. This makes the observation interval equal at
+44.1/48/96 kHz and delays a fractional decision by less than one host sample;
+it never reads future audio. A rate-dependent 12 Hz DC blocker and four
+cascaded one-pole low-pass stages precede resampling. The
 filter coefficient scales with host rate; a fixed coefficient must not be used
 because it would increasingly remove bass notes at high host rates.
 
@@ -49,22 +52,32 @@ a different pitch. A falling-input veto suppresses release transients.
 `TimeDomainPursuit` fits free-phase harmonic groups and refits their shared
 partials jointly. It can use upper partials even when neighbouring fundamentals
 cannot be separated by the short FFT. The FFT is used for independent tonality
-and acoustic-innovation checks, not as a rigid requirement that every root
-produce its own isolated spectral maximum. Algorithm and numerical details are
+and acoustic-innovation checks. A stable, confident YIN series can anchor the
+harmonic pursuit when a merged fundamental would favour a neighbouring note.
+A newly proposed anchor requires an observed fundamental or both coprime
+upper partials 5 and 7; an arbitrary common divisor of played notes is insufficient.
+Competing groups require physical partials independent of that series, with
+the separate octave-envelope prior retained for shared octave voices. These
+are guitar-oriented timbre assumptions, not universal source-separation proofs.
+Algorithm and numerical details are
 in `TimeDomainPursuit.md`.
 
 Polyphonic processing observes a trailing 512-internal-sample frame. At 48/96 kHz
-host rates that is 42.67 ms of audio. First decisions also require confirmation.
+host rates that is 42.67 ms of audio. First decisions also require six
+consistent estimates with a supported periodic anchor, otherwise ten.
 This is explicitly incompatible with a general 5/10 ms live-latency claim.
 Independent measurements, including failures, are in `docs/AUDIO_VALIDATION.md`.
 
 Shared harmonic models can otherwise invent new voices while an old sound
 changes timbre during decay. New polyphonic voices are admitted during an
-initial acoustic acquisition interval, renewed by positive spectral innovation
-in the actual audio. Existing voices can continue or release outside that
-interval. Admission uses audio partial energy, not the fitted note strengths,
-so model reassignment cannot feed its own onset detector. Quiet independent
-voices and legato transitions remain important independent test cases.
+initial acoustic acquisition interval. Renewal uses a bounded prediction of
+the next 32 internal samples from the past-only harmonic model. The prediction
+is compared with actual samples only after they arrive. Unexpected withdrawal
+of energy is treated as release rather than a new attack. Quiet new voices
+can alternatively provide two novel independent spectral peaks. Existing
+voices can continue or release outside admission. Per-frame note-strength
+reassignment alone cannot reopen the interval. Quiet independent voices,
+legato transitions and overlapping octave releases remain independent tests.
 
 ## Note lifecycle and integration
 

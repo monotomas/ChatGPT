@@ -48,16 +48,19 @@ fundamental signal. These limitations must stay visible in the independent
 end-to-end fixture measurements; passing the basic controls does not establish
 product acceptance.
 
-Standalone helper controls, including the rejected early candidate's tests:
+The production standalone checks are reproducible through CMake:
 
 ```sh
-g++ -std=c++17 -O2 -DFLYSNAPPER_TIME_DOMAIN_TESTS -I Source Source/Pitch/EarlyEstimator.cpp Source/Pitch/TimeDomainPursuit.cpp Tests/EarlyEstimatorTests.cpp -o harmonic-tests
-./harmonic-tests
+cmake --build build/native-release --target FlysnapperPitchTests
+ctest --test-dir build/native-release -R '^FlysnapperPitch$' --output-on-failure
 ```
 
-That run passed 1,400 checks. The same test binary also passed AddressSanitizer
-and UndefinedBehaviorSanitizer instrumentation. Sanitizer testing concerned
-these helpers; it did not test a DAW, audio driver or full VST3 chain.
+These include exact synthetic triads and adjacent semitones, all declared
+monophonic notes at 44.1/48/96 kHz, detuning, lifecycle, prepared C++ allocation
+checks, and prediction against harmonic samples not passed to the analyser.
+They are separate from the independent recorded-audio corpus and do not test
+a DAW or audio driver. Earlier helper-only controls passed sanitizer checks;
+that does not certify the complete plugin or callback deadlines.
 
 ## Octave-overlap experiment: joint solve and envelope prior
 
@@ -114,3 +117,32 @@ In the 81-case experimental comparison, this change reduced the open-E fixture's
 maximum first-useful-note delay from 304.65 to 48.65 ms. No other musical outcome
 count (matches, false onsets or early releases) changed. The broader recorded
 mixture failures remain and must not be hidden by that local improvement.
+
+## Physical evidence and periodic anchor
+
+A separate actual-audio FFT supplies resolved peaks and their temporal novelty.
+A stable, confident YIN estimate can provide a periodic-series anchor when its
+fundamental or coprime upper partials 5 and 7 are observed. The anchor itself may
+have a weak fitted fundamental; competing groups require independent physical
+partials, with three required below the anchor and two above. Existing octave
+prior evidence remains a separate route because true octave sources can share
+all lower-series frequencies. This is a guitar timbre prior: a quiet low sine
+under a strong higher series cannot be universally distinguished from a body
+resonance. Recorded-mixture recall and release errors must remain visible.
+
+The ordinary relative residual cutoff is lowered only for a candidate with
+two resolved independent physical partials including its fundamental; global
+sensitivity is not silently increased. Explained-series checks include every
+integer harmonic up to the analysis bandwidth, rather than only the eight
+partials explicitly fitted. Otherwise a high harmonic of an existing low
+note can be mistaken for new independent evidence.
+
+## Causal next-hop prediction
+
+Prepared bases also include 32 continuation samples for each column. Following
+the joint fit, the analyser synthesises that short continuation and exposes it
+through `copyPrediction`. This reads no future input. The caller compares the
+prediction with later arriving audio to distinguish a new acoustic attack from
+beating already represented by the held harmonic model. A falling observed
+energy veto prevents release tapers from reopening voice admission. All
+prediction arrays and processing work are fixed-size and allocation-free.

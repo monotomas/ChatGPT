@@ -66,9 +66,9 @@ VST3 adaptation, a DAW or physical end-to-end latency.
 
 The standalone executable passed 607 checks, including pure tones throughout
 MIDI 28-100, a stable +40-cent tone, nonfinite input and all eight recordings.
-An additional315 controls cover notes92-100 through the actual causal48-to-12kHz
+An additional 315 controls cover notes 92–100 through the actual causal 48-to-12-kHz
 frontend, with five starting phases and seven prefix/trailing observation
-endpoints from128 through1024 samples (each estimator frame capped at512).
+endpoints from 128 through 1024 samples (each estimator frame capped at 512).
 Every filtered high-note control produced its correct MIDI note.
 AddressSanitizer and UndefinedBehaviorSanitizer also passed. The final detector
 must still pass its independent full streaming evaluation after integration.

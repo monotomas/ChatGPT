@@ -18,13 +18,13 @@ VERSION = "0.2.0"
 PACKAGE_ROOT = f"Flysnapper-{VERSION}"
 FIXED_TIMESTAMP = (2026, 11, 3, 0, 0, 0)
 ROOT_FILES = frozenset({
-    ".gitignore", "README.md", "CMakeLists.txt", "BUILD_FLYSNAPPER.bat", "INSTALL_FLYSNAPPER.bat",
+    ".gitignore", ".gitattributes", "README.md", "CMakeLists.txt", "BUILD_FLYSNAPPER.bat", "INSTALL_FLYSNAPPER.bat",
     "build_plugin.py", "dependencies.lock.json", "LICENSE.txt", "THIRD_PARTY.md",
 })
 ROOT_DIRECTORIES = frozenset({"Source", "Tests", "Tools", "docs", ".github"})
 EXCLUDED_NAMES = frozenset({".git", ".venv", "__pycache__", "deps", "build", "dist", "logs"})
 REQUIRED_FILES = frozenset({
-    "README.md", "CMakeLists.txt", "BUILD_FLYSNAPPER.bat", "INSTALL_FLYSNAPPER.bat", "build_plugin.py",
+    ".gitattributes", "README.md", "CMakeLists.txt", "BUILD_FLYSNAPPER.bat", "INSTALL_FLYSNAPPER.bat", "build_plugin.py",
     "dependencies.lock.json", "LICENSE.txt", "THIRD_PARTY.md",
     "Source/PluginProcessor.h", "Source/PluginProcessor.cpp",
     "Source/PluginEditor.h", "Source/PluginEditor.cpp",

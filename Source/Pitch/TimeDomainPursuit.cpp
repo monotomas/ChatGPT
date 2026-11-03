@@ -156,12 +156,29 @@ bool TimeDomainPursuit::hasIndependentPeaks(int note,const SpectralEvidence& evi
     }
     return fundamental&&supported>=2;
 }
+namespace {
+bool independentOfAnchor(int note,const TimeDomainPursuit::SpectralEvidence& evidence,int minimum) noexcept {
+    if(note<0||note>=TimeDomainPursuit::noteCount||evidence.anchorNote<0||evidence.anchorNote>=TimeDomainPursuit::noteCount)return false;
+    const float f=evidence.frequencies[size_t(note)],hint=evidence.frequencies[size_t(evidence.anchorNote)];
+    if(!std::isfinite(f)||!std::isfinite(hint)||f<=0||hint<=0||evidence.maximumMagnitude<=0)return false;
+    const int peakCount=std::clamp(evidence.count,0,int(evidence.peaks.size()));
+    int count=0;
+    for(int h=1;h<=8&&f*h<evidence.maximumHz;++h){
+        float target=f*h;int nearest=int(std::lround(target/hint));
+        if(nearest>=1&&std::abs(target-hint*nearest)<evidence.resolutionHz)continue;
+        for(int p=0;p<peakCount;++p){const auto& peak=evidence.peaks[size_t(p)];
+            if(peak.magnitude>=evidence.maximumMagnitude*.008f&&std::abs(peak.frequency-target)<target*.022f+evidence.resolutionHz*.05f){++count;break;}}
+    }
+    return count>=minimum;
+}
+}
 void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,noteCount>& strength,
                               std::array<float,noteCount>& confidence,int maxVoices,float sensitivity,const SpectralEvidence* evidence) noexcept {
     strength.fill(0);confidence.fill(0);
     if(data)data->predictionValid=false;
     if(!data||!wave||count<data->samples)return;
     maxVoices=std::clamp(maxVoices,1,6);sensitivity=std::clamp(sensitivity,0.f,1.f);
+    const int anchor=evidence&&evidence->anchorNote>=0&&evidence->anchorNote<noteCount?evidence->anchorNote:-1;
     const int samples=data->samples;
     std::array<float,maxSamples> frame{};
     double mean=0,energy=0;
@@ -233,7 +250,9 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
                 const double a=beta[size_t(c)]*model.weight[size_t(c)];totalAmplitude+=a*a;
                 if(c==0||c==harmonics)fundamental+=a*a;
             }
-            if(totalAmplitude<=0||fundamental<totalAmplitude*.05)continue;
+            if(totalAmplitude<=0||(fundamental<totalAmplitude*.05&&(anchor!=note)))continue;
+            if(anchor>=0&&anchor!=note&&octaveEvidence[size_t(note)]<=0
+                &&!independentOfAnchor(note,*evidence,note<anchor?3:2))continue;
             bool weak=false;
             if(iteration>0&&score<firstScore*cutoff) {
                 if(score<firstScore*.006||score<energy*.006||!evidence)continue;
@@ -322,7 +341,7 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
             }
             octaveSupported=independentStrong>=2&&independentMagnitude>magnitude*.02;
         }
-        if(fundamental<magnitude*.035&&!octaveSupported)continue;
+        if(fundamental<magnitude*.035&&!octaveSupported&&(anchor!=note))continue;
         strength[size_t(note)]=float(std::sqrt(std::max(0.,magnitude)*.5));
         confidence[size_t(note)]=float(std::clamp(modelEnergy/energy,0.,1.));
     }

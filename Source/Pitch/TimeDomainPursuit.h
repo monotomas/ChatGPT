@@ -25,6 +25,9 @@ public:
         std::array<float,noteCount> frequencies{};
         std::array<bool,noteCount> active{};
         float resolutionHz=23.4375f,maximumMagnitude=0,maximumHz=5400;
+        // Optional stable periodic-series anchor, still subject to observed
+        // fundamental or coprime upper-partial evidence in the caller.
+        int anchorNote=-1;
     };
     // Requires two resolved physical partials (including the fundamental),
     // independent of harmonics already accounted for by other voices. Novel

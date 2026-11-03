@@ -1,0 +1,3 @@
+# Fixture manifests pin original upstream bytes, including licenses/readmes.
+# Git's Windows CRLF conversion must not change their verified SHA256 values.
+Tests/AudioFixtures/** -text

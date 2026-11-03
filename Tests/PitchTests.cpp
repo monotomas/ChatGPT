@@ -61,28 +61,28 @@ void polyphony(){
 void declaredRangeAndRealtime(){
     auto detector=std::make_unique<PitchDetector>();detector->prepare(48000);
     Output events;
-    for(int note=PitchDetector::lowNote;note<=PitchDetector::highNote;++note){
-        events.clear();detector->reset(events);auto audio=tone(48000,note,14400);audio.resize(21600,0);
+    for(int rate:{44100,48000,96000})for(int note=PitchDetector::lowNote;note<=PitchDetector::highNote;++note){
+        detector->prepare(rate);events.clear();detector->reset(events);auto audio=tone(rate,note,int(rate*.30));audio.resize(size_t(rate*.45),0);
         auto result=run(*detector,audio,128);int ons=0,offs=0;
         for(auto e:result){if(e.note!=note)std::cerr<<"Declared range expected="<<note<<" got="<<e.note<<" on="<<e.on<<" sample="<<e.sample<<"\n";check(e.note==note,"declared MIDI range produced an octave or semitone error");if(e.on)++ons;else ++offs;}
         check(ons==1&&offs==1,"declared detector range has missing or repeated notes");
     }
     // Stable detuning is a valid continuous pitch, not a permanent dead band.
-    for(float cents:{-40.0f,40.0f}){
-        events.clear();detector->reset(events);std::vector<float> audio(24000,0);
+    for(int rate:{44100,48000,96000})for(float cents:{-40.0f,40.0f}){
+        detector->prepare(rate);events.clear();detector->reset(events);std::vector<float> audio(size_t(rate/2),0);
         double frequency=440*std::pow(2.0,(52-69+cents/100)/12.0);
-        for(int i=0;i<16000;++i)audio[size_t(i)]=float(.15*std::sin(6.283185307179586*frequency*i/48000));
+        for(int i=0;i<int(rate/3);++i)audio[size_t(i)]=float(.15*std::sin(6.283185307179586*frequency*i/rate));
         auto result=run(*detector,audio,64);int ons=0,offs=0;
         for(auto e:result){check(e.note==52,"stable detuned tone mapped to wrong semitone");if(e.on)++ons;else ++offs;}
         check(ons==1&&offs==1,"stable detuned tone fell in an acquisition dead zone");
     }
-    auto audio=tone(48000,60,512);Settings settings;settings.polyphonic=true;detector->configure(settings);
+    detector->prepare(48000);auto audio=tone(48000,60,512);Settings settings;settings.polyphonic=true;detector->configure(settings);
     events.clear();detector->reset(events);detector->process(audio.data(),512,events);
     allocationCount.store(0);countAllocations.store(true);
     for(int i=0;i<64;++i){events.clear();detector->process(audio.data(),512,events);}
     countAllocations.store(false);
     check(allocationCount.load()==0,"prepared detector allocated C++ objects during audio processing");
-    std::cout<<"PASS declared MIDI28..100, stable+/-40cent notes and prepared C++ allocation check (malloc/host wrapper excluded)\n";
+    std::cout<<"PASS declared MIDI28..100 at44.1/48/96kHz, stable+/-40cent notes and prepared C++ allocation check (malloc/host wrapper excluded)\n";
 }
 void causalPrediction(){
     TimeDomainPursuit model;model.prepare(12000,512);
