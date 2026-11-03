@@ -1,0 +1,25 @@
+name: Windows build capability check
+on:
+  push:
+    branches: [ci/flysnapper-windows-probe]
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish runner readiness through Git
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch --orphan ci/flysnapper-windows-ready
+          git rm -rf .
+          @{status='ready'; source_commit=$env:GITHUB_SHA; run_id=$env:GITHUB_RUN_ID; runner_os=$env:RUNNER_OS} | ConvertTo-Json | Set-Content -Encoding utf8 status.json
+          git add status.json
+          git commit -m "Confirm Windows build runner and artifact delivery"
+          git push origin HEAD:refs/heads/ci/flysnapper-windows-ready
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
