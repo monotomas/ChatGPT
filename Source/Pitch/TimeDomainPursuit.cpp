@@ -54,6 +54,7 @@ void inverse(std::array<double,columns*columns>& matrix) {
 struct TimeDomainPursuit::Data {
     struct Model {
         std::array<float,columns*maxSamples> basis{};
+        std::array<float,columns*predictionSamples> continuation{};
         std::array<double,columns*columns> inv{};
         std::array<double,columns> phase{},mean{},weight{};
         std::array<bool,columns> valid{};
@@ -62,6 +63,7 @@ struct TimeDomainPursuit::Data {
     std::vector<float> gram;
     int samples=512;
     double rate=12000;
+    std::array<float,predictionSamples> prediction{};bool predictionValid=false;
     float cross(int noteA,int colA,int noteB,int colB) const noexcept {
         return gram[size_t((noteA*columns+colA)*components+noteB*columns+colB)];
     }
@@ -88,6 +90,10 @@ void TimeDomainPursuit::prepare(double analysisRate,int samples){
             for(int i=0;i<samples;++i){
                 const double angle=m.phase[size_t(c)]*i;
                 m.basis[size_t(c*maxSamples+i)]=float(((cosine?std::cos(angle):std::sin(angle))-m.mean[size_t(c)])*m.weight[size_t(c)]);
+            }
+            for(int i=0;i<predictionSamples;++i) {
+                const double angle=m.phase[size_t(c)]*(samples+i);
+                m.continuation[size_t(c*predictionSamples+i)]=float(((cosine?std::cos(angle):std::sin(angle))-m.mean[size_t(c)])*m.weight[size_t(c)]);
             }
         }
     }
@@ -117,9 +123,43 @@ void TimeDomainPursuit::prepare(double analysisRate,int samples){
     }
     data=std::move(next);
 }
+bool TimeDomainPursuit::copyPrediction(std::array<float,predictionSamples>& out) const noexcept {
+    if(!data||!data->predictionValid)return false;
+    out=data->prediction;return true;
+}
+bool TimeDomainPursuit::hasIndependentPeaks(int note,const SpectralEvidence& evidence,
+                                          const std::array<bool,noteCount>& explained,bool requireNovelty) noexcept {
+    if(note<0||note>=noteCount||evidence.count<2||evidence.maximumMagnitude<=0)return false;
+    const float frequency=evidence.frequencies[size_t(note)];
+    if(!std::isfinite(frequency)||frequency<=0)return false;
+    const int peakCount=std::clamp(evidence.count,0,int(evidence.peaks.size()));
+    int supported=0;bool fundamental=false;
+    for(int harmonic=1;harmonic<=8;++harmonic) {
+        const float target=frequency*harmonic;if(target>=evidence.maximumHz)break;
+        bool shared=false;
+        for(int other=0;other<noteCount&&!shared;++other)if(other!=note&&explained[size_t(other)]) {
+            const float f=evidence.frequencies[size_t(other)];
+            if(!std::isfinite(f)||f<=0)continue;
+            const int nearest=int(std::lround(target/f));
+            if(nearest>=1&&f*nearest<evidence.maximumHz&&std::abs(target-f*nearest)<evidence.resolutionHz)shared=true;
+        }
+        if(shared){if(harmonic==1)return false;continue;}
+        bool found=false;
+        for(int p=0;p<peakCount;++p) {
+            const auto& peak=evidence.peaks[size_t(p)];
+            if(peak.magnitude<evidence.maximumMagnitude*(harmonic==1?.015f:.008f))continue;
+            if(requireNovelty&&peak.novelty<.25f)continue;
+            if(std::abs(peak.frequency-target)<target*.022f+evidence.resolutionHz*.05f){found=true;break;}
+        }
+        if(found){++supported;if(harmonic==1)fundamental=true;}
+        else if(harmonic==1)return false;
+    }
+    return fundamental&&supported>=2;
+}
 void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,noteCount>& strength,
-                              std::array<float,noteCount>& confidence,int maxVoices,float sensitivity) noexcept {
+                              std::array<float,noteCount>& confidence,int maxVoices,float sensitivity,const SpectralEvidence* evidence) noexcept {
     strength.fill(0);confidence.fill(0);
+    if(data)data->predictionValid=false;
     if(!data||!wave||count<data->samples)return;
     maxVoices=std::clamp(maxVoices,1,6);sensitivity=std::clamp(sensitivity,0.f,1.f);
     const int samples=data->samples;
@@ -140,10 +180,45 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
     }
     std::array<int,6> selected{};selected.fill(-1);
     std::array<std::array<double,columns>,6> coefficients{};
-    int used=0;double firstScore=0,residualEnergy=energy;
+    int used=0;double firstScore=0;
+    std::array<double,noteCount> octaveEvidence{};
+    constexpr int maxJoint=6*columns;
+    std::array<float,maxJoint*maxJoint> joint{};
+    // A lower note's freely fitted even harmonics can absorb an additional
+    // octave voice. Fit a generic log-linear decay to the odd partials, then
+    // require broad even-partial excess before proposing the octave. This is
+    // an instrument-envelope prior, not a chord/scale rule. Evidence survives
+    // subsequent joint reallocation within this frame, never across frames.
+    auto refreshOctaveEvidence=[&]() noexcept {
+        for(int j=0;j<used;++j){
+            const int note=selected[size_t(j)];
+            if(note+12>=noteCount)continue;
+            std::array<double,harmonics> amp{};
+            const auto& model=data->models[size_t(note)];
+            for(int h=0;h<harmonics;++h){
+                const double a=coefficients[size_t(j)][size_t(h)],b=coefficients[size_t(j)][size_t(h+harmonics)];
+                amp[size_t(h)]=std::sqrt(a*a+b*b)*model.weight[size_t(h)];
+            }
+            double sx=0,sy=0,sxx=0,sxy=0;
+            for(int h:{0,2,4,6}){
+                const double x=std::log(double(h+1)),y=std::log(std::max(amp[size_t(h)],1e-9));
+                sx+=x;sy+=y;sxx+=x*x;sxy+=x*y;
+            }
+            const double slope=std::clamp((4*sxy-sx*sy)/(4*sxx-sx*sx),-3.0,.5);
+            const double intercept=(sy-slope*sx)/4;
+            int strong=0;double excess=0;
+            for(int h:{1,3,5,7}){
+                const double predicted=std::exp(intercept+slope*std::log(double(h+1)));
+                const double ratio=amp[size_t(h)]/std::max(predicted,1e-9);
+                if(ratio>2.0)++strong;
+                excess+=std::max(0.,std::log(std::max(ratio,1e-9)));
+            }
+            if(strong>=3)octaveEvidence[size_t(note+12)]=std::max(octaveEvidence[size_t(note+12)],excess);
+        }
+    };
     const double cutoff=.06+.12*(1-sensitivity);
     for(int iteration=0;iteration<maxVoices;++iteration){
-        int best=-1;double bestScore=0;
+        int best=-1;double bestScore=0;bool bestWeak=false;
         std::array<double,columns> bestCoefficients{};
         for(int note=0;note<noteCount;++note){
             bool duplicate=false;for(int j=0;j<used;++j)duplicate|=selected[size_t(j)]==note;if(duplicate)continue;
@@ -159,32 +234,59 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
                 if(c==0||c==harmonics)fundamental+=a*a;
             }
             if(totalAmplitude<=0||fundamental<totalAmplitude*.05)continue;
-            if(score>bestScore){bestScore=score;best=note;bestCoefficients=beta;}
+            bool weak=false;
+            if(iteration>0&&score<firstScore*cutoff) {
+                if(score<firstScore*.006||score<energy*.006||!evidence)continue;
+                auto explained=evidence->active;
+                for(int j=0;j<used;++j)explained[size_t(selected[size_t(j)])]=true;
+                if(!hasIndependentPeaks(note,*evidence,explained,false))continue;
+                weak=true;
+            }
+            if(score>bestScore){bestScore=score;best=note;bestCoefficients=beta;bestWeak=weak;}
         }
-        if(best<0)break;
         if(iteration==0)firstScore=bestScore;
-        if(bestScore<firstScore*cutoff||bestScore<energy*.006)break;
+        if(best<0||bestScore<firstScore*(bestWeak?.006:cutoff)||bestScore<energy*.006){
+            refreshOctaveEvidence();
+            int extra=-1;double strongest=0;
+            for(int note=0;note<noteCount;++note){
+                bool duplicate=false;for(int j=0;j<used;++j)duplicate|=selected[size_t(j)]==note;
+                if(!duplicate&&octaveEvidence[size_t(note)]>strongest){extra=note;strongest=octaveEvidence[size_t(note)];}
+            }
+            if(extra<0)break;
+            best=extra;bestCoefficients={};
+        }
         selected[size_t(used)]=best;coefficients[size_t(used)]=bestCoefficients;++used;
-        // Block coordinate descent solves the joint ridge regression. Shared
-        // harmonic columns are jointly refitted instead of subtracting a fixed
-        // 1/h envelope. Number of sweeps/voices/columns is strictly bounded.
-        for(int sweep=0;sweep<12;++sweep)for(int j=0;j<used;++j){
-            const int note=selected[size_t(j)];auto correlation=projection[size_t(note)];
-            for(int r=0;r<columns;++r)for(int other=0;other<used;++other)if(other!=j)for(int c=0;c<columns;++c)
-                correlation[size_t(r)]-=data->cross(note,r,selected[size_t(other)],c)*coefficients[size_t(other)][size_t(c)];
-            std::array<double,columns> next{};
-            const auto& model=data->models[size_t(note)];
-            for(int r=0;r<columns;++r)for(int c=0;c<columns;++c)next[size_t(r)]+=model.inv[size_t(r*columns+c)]*correlation[size_t(c)];
-            coefficients[size_t(j)]=next;
+        // Nearly shared octave/fifth columns make a small fixed number of
+        // coordinate sweeps allocation-dependent despite a small residual.
+        // Solve the positive-definite joint ridge system directly. Appending
+        // sixteen columns preserves the already factored leading block; only
+        // the new rows are factorised. Maximum dimension is exactly 96, with
+        // stack storage and no heap activity, waits, or unbounded loops.
+        const int dimension=used*columns,previousDimension=(used-1)*columns;
+        std::array<double,maxJoint> rhs{},solution{};
+        for(int i=0;i<dimension;++i)rhs[size_t(i)]=projection[size_t(selected[size_t(i/columns)])][size_t(i%columns)];
+        for(int i=previousDimension;i<dimension;++i){
+            const int ni=selected[size_t(i/columns)],ci=i%columns;
+            for(int j=0;j<=i;++j){
+                double value=data->cross(ni,ci,selected[size_t(j/columns)],j%columns);
+                if(i==j)value+=ridge*samples;
+                value-=dot(joint.data()+i*maxJoint,joint.data()+j*maxJoint,j);
+                joint[size_t(i*maxJoint+j)]=float(i==j?std::sqrt(std::max(value,1e-10)):value/joint[size_t(j*maxJoint+j)]);
+            }
         }
-        double fit=0;
-        for(int j=0;j<used;++j)for(int r=0;r<columns;++r){
-            fit+=2*projection[size_t(selected[size_t(j)])][size_t(r)]*coefficients[size_t(j)][size_t(r)];
-            for(int other=0;other<used;++other)for(int c=0;c<columns;++c)
-                fit-=coefficients[size_t(j)][size_t(r)]*data->cross(selected[size_t(j)],r,selected[size_t(other)],c)*coefficients[size_t(other)][size_t(c)];
+        for(int i=0;i<dimension;++i){
+            double value=rhs[size_t(i)];
+            for(int j=0;j<i;++j)value-=joint[size_t(i*maxJoint+j)]*solution[size_t(j)];
+            solution[size_t(i)]=value/joint[size_t(i*maxJoint+i)];
         }
-        residualEnergy=std::max(0.,energy-fit);
-        if(residualEnergy<energy*.008)break;
+        for(int i=dimension-1;i>=0;--i){
+            double value=solution[size_t(i)];
+            for(int j=i+1;j<dimension;++j)value-=joint[size_t(j*maxJoint+i)]*solution[size_t(j)];
+            solution[size_t(i)]=value/joint[size_t(i*maxJoint+i)];
+        }
+        for(int j=0;j<used;++j)for(int c=0;c<columns;++c)coefficients[size_t(j)][size_t(c)]=solution[size_t(j*columns+c)];
+        refreshOctaveEvidence();
+        // Additional note hypotheses may reduce envelope complexity even if waveform residual is small.
     }
     for(int j=0;j<used;++j){
         const int note=selected[size_t(j)];const auto& model=data->models[size_t(note)];
@@ -194,9 +296,49 @@ void TimeDomainPursuit::analyse(const float* wave,int count,std::array<float,not
             if(c==0||c==harmonics)fundamental+=amplitude*amplitude;
             for(int r=0;r<columns;++r)modelEnergy+=coefficients[size_t(j)][size_t(c)]*data->cross(note,c,note,r)*coefficients[size_t(j)][size_t(r)];
         }
-        if(fundamental<magnitude*.035)continue;
+        // A strongly supported octave may share its fundamental with an
+        // existing lower note's third or even harmonic. In that case require
+        // independent upper partials instead of discarding an already fitted
+        // voice merely because ridge allocation favoured the lower column.
+        bool octaveSupported=false;
+        if(octaveEvidence[size_t(note)]>0&&modelEnergy>energy*.015){
+            double largest=0,independentMagnitude=0;int independentStrong=0;
+            std::array<double,harmonics> amplitudes{};
+            for(int h=0;h<harmonics;++h){
+                double a=coefficients[size_t(j)][size_t(h)],b=coefficients[size_t(j)][size_t(h+harmonics)];
+                amplitudes[size_t(h)]=std::sqrt(a*a+b*b)*model.weight[size_t(h)];largest=std::max(largest,amplitudes[size_t(h)]);
+            }
+            for(int h=4;h<harmonics;++h){
+                if(!model.valid[size_t(h)])continue;
+                bool shared=false;
+                for(int other=0;other<used&&!shared;++other)if(other!=j){
+                    const auto& m=data->models[size_t(selected[size_t(other)])];
+                    for(int k=0;k<harmonics;++k)if(m.valid[size_t(k)]&&std::abs(model.phase[size_t(h)]-m.phase[size_t(k)])*samples<1.0){shared=true;break;}
+                }
+                if(!shared){
+                    const double a=amplitudes[size_t(h)];independentMagnitude+=a*a;
+                    if(a>largest*.10)++independentStrong;
+                }
+            }
+            octaveSupported=independentStrong>=2&&independentMagnitude>magnitude*.02;
+        }
+        if(fundamental<magnitude*.035&&!octaveSupported)continue;
         strength[size_t(note)]=float(std::sqrt(std::max(0.,magnitude)*.5));
         confidence[size_t(note)]=float(std::clamp(modelEnergy/energy,0.,1.));
     }
+    data->prediction.fill(float(mean));
+    for(int j=0;j<used;++j) {
+        const auto& model=data->models[size_t(selected[size_t(j)])];
+        for(int c=0;c<columns;++c) {
+            const float coefficient=float(coefficients[size_t(j)][size_t(c)]);
+            for(int i=0;i<predictionSamples;++i)data->prediction[size_t(i)]+=coefficient*model.continuation[size_t(c*predictionSamples+i)];
+        }
+    }
+    // This is analytic continuation of the past-only fitted oscillator model.
+    // It reads no future audio. The caller compares it with samples only when
+    // they actually arrive, providing an onset-innovation signal that is not
+    // confused by beating already represented by the current voices.
+    data->predictionValid=used>0;
+
 }
 }

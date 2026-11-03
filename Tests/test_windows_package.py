@@ -27,7 +27,7 @@ class WindowsPackageTests(unittest.TestCase):
         p=self.bundle/shipping.BINARY;p.parent.mkdir(parents=True)
         pe=bytearray(512);pe[:2]=b'MZ';pe[60:64]=(128).to_bytes(4,'little');pe[128:134]=b'PE\0\0\x64\x86';p.write_bytes(pe)
         (self.bundle/'Contents/Resources').mkdir();(self.bundle/'Contents/Resources/moduleinfo.json').write_text('{}')
-        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperAudioQuality']
+        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperYin','FlysnapperAudioQuality']
         self.manifest={'version':'1.0.0','stage':'complete','platform':'Windows-x64','tests':'passed','windows_verified':True,
                        'toolchain_probe':'passed','juceaide_unicode_probe':'passed','pitch_detection_implemented':True,
                        'required_test_names':self.required,'bundle_sha256':{n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(self.bundle).items()},
@@ -63,7 +63,7 @@ class WindowsPackageTests(unittest.TestCase):
         self.package();shipping.verify_package(self.output)
         with ZipFile(self.output) as z:
             p='Flysnapper-1.0.0-Windows-x64/'
-            for n in ('INSTALL_FLYSNAPPER.bat','Install-Flysnapper.ps1','Flysnapper.vst3/'+shipping.BINARY,
+            for n in ('INSTALL_FLYSNAPPER.bat','Install-Flysnapper.ps1','BRUKERVEILEDNING.md','Flysnapper.vst3/'+shipping.BINARY,
                       'Source/Flysnapper-Source.zip','Validation/test-results.xml','Validation/build-manifest.json','Validation/audio-validation/summary.json'):
                 self.assertIn(p+n,z.namelist())
             release=json.loads(z.read(p+'release-manifest.json'))

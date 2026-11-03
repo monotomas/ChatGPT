@@ -89,7 +89,7 @@ Result evaluate(const Fixture& fixture,const Wave& w,int rate,int block){
     // Short correct guesses cannot become an artificially good low-latency score.
     for(size_t i=0;i<truth.size();++i){const auto& t=truth[i];for(size_t j=0;j<intervals.size();++j){auto& interval=intervals[j];
             int usable=std::min(int(std::llround(.020*rate)),t.off-t.on);
-            if(!interval.matched&&interval.note==t.note&&activeAt(t,interval.on,2)&&interval.off-interval.on>=usable){chosen[i]=int(j);interval.matched=true;break;}}
+            if(!interval.matched&&interval.note==t.note&&activeAt(t,interval.on,2)&&std::min(interval.off,t.off)-std::max(interval.on,t.on)>=usable){chosen[i]=int(j);interval.matched=true;break;}}
         if(chosen[i]>=0){auto& interval=intervals[size_t(chosen[i])];++result.matched;result.latency.push_back(1000.0*(interval.on-t.on)/rate);
             if(interval.off<t.off-int(.01*rate))++result.earlyOffs;else result.release.push_back(1000.0*(interval.off-t.off)/rate);
         }else ++result.missed;

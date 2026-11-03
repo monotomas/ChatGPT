@@ -29,14 +29,16 @@ REQUIRED_FILES = frozenset({
     "Source/PluginProcessor.h", "Source/PluginProcessor.cpp",
     "Source/PluginEditor.h", "Source/PluginEditor.cpp",
     "Source/Pitch/PitchDetector.h", "Source/Pitch/PitchDetector.cpp",
-    "Tests/PitchTests.cpp", "Tests/ProcessorAudioTests.cpp",
+    "Source/Pitch/TimeDomainPursuit.h", "Source/Pitch/TimeDomainPursuit.cpp",
+    "Source/Pitch/YinEstimator.h", "Source/Pitch/YinEstimator.cpp",
+    "Tests/PitchTests.cpp", "Tests/YinEstimatorTests.cpp", "Tests/ProcessorAudioTests.cpp",
     "Source/Core/MidiEngine.h", "Source/Core/MidiEngine.cpp",
     "Source/Core/MusicData.h", "Source/Core/MusicData.cpp",
     "Source/Core/README.md", "Source/Core/Reference/ChordDictionary.h",
     "Source/Core/Reference/ChordNames.h", "Source/Core/Reference/ChordInput.h",
     "Tests/CoreTests.cpp", "Tests/PluginTests.cpp", "Tests/Vst3HostTests.cpp",
     "Tests/test_builder.py", "Tests/test_packaging.py", "Tools/package_source.py",
-    "docs/PROTOTYPE_POLICIES.md", "docs/HOST_TEST_PLAN.md",
+    "docs/PROTOTYPE_POLICIES.md", "docs/HOST_TEST_PLAN.md", "docs/BRUKERVEILEDNING.md",
     ".github/workflows/windows.yml",
 })
 

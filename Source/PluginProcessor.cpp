@@ -123,21 +123,27 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     if(pitchActive&&samples>0) {
         const auto input=getBusBuffer(audio,true,0);
         const int channels=input.getNumChannels();
+        auto clean=[](float value) noexcept {
+            return std::isfinite(value)?std::clamp(value,-16.0f,16.0f):0.0f;
+        };
         double firstEnergy=0,secondEnergy=0,sumEnergy=0;
         if(channels>1)for(int i=0;i<samples;++i) {
-            const float rawA=input.getSample(0,i),rawB=input.getSample(1,i);
-            const double a=std::isfinite(rawA)?rawA:0.0,b=std::isfinite(rawB)?rawB:0.0;
+            const double a=clean(input.getSample(0,i)),b=clean(input.getSample(1,i));
             firstEnergy+=a*a;secondEnergy+=b*b;sumEnergy+=(a+b)*(a+b);
         }
-        // Preserve a phase-inverted stereo source instead of cancelling it.
+        // A nearly phase-inverted pair necessarily has meaningful energy in
+        // both channels. Keep a fixed left-channel polarity reference here;
+        // choosing whichever side is louder can flip the waveform every block
+        // when their gains cross, manufacturing a different apparent pitch.
         const bool antiPhase=channels>1&&sumEnergy<.25*std::max(firstEnergy,secondEnergy);
-        const int stronger=secondEnergy>firstEnergy?1:0;
         for(int start=0;start<samples;start+=int(audioScratch.size())) {
             const int n=std::min(int(audioScratch.size()),samples-start);
             for(int i=0;i<n;++i) {
-                float value=channels?input.getSample(antiPhase?stronger:0,start+i):0.0f;
-                if(channels>1&&!antiPhase)value=.5f*(value+input.getSample(1,start+i));
-                audioScratch[size_t(i)]=std::isfinite(value)?value:0.0f;
+                float value=channels?clean(input.getSample(0,start+i)):0.0f;
+                // Sanitize each channel before mixing: NaN/Inf in one side
+                // must not erase a valid signal in the other side.
+                if(channels>1&&!antiPhase)value=.5f*value+.5f*clean(input.getSample(1,start+i));
+                audioScratch[size_t(i)]=value;
             }
             detectedEvents.clear();detector.process(audioScratch.data(),n,detectedEvents);
             for(size_t i=0;i<detectedEvents.size;++i) {

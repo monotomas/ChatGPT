@@ -11,6 +11,7 @@
 #include <functional>
 #include <iostream>
 #include <memory>
+#include <limits>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -85,12 +86,14 @@ public:
         check(processor->setBusesLayout(layout),"Sidechain transition rejected");
     }
     void block(int count,const Signal& signal,const std::vector<Input>& input={},bool bypass=false) {
+        blockStereo(count,signal,signal,input,bypass);
+    }
+    void blockStereo(int count,const Signal& left,const Signal& right,const std::vector<Input>& input={},bool bypass=false) {
         juce::AudioBuffer<float> audio(2,count);
         juce::MidiBuffer midi;
         midi.ensureSize(131072);
         for(int n=0;n<count;++n) {
-            const float sample=signal(position+n);
-            audio.setSample(0,n,sample);audio.setSample(1,n,sample);
+            audio.setSample(0,n,left(position+n));audio.setSample(1,n,right(position+n));
         }
         for(const auto& e:input)if(e.sample>=position&&e.sample<position+count)
             midi.addEvent(e.message,int(e.sample-position));
@@ -293,6 +296,57 @@ void stateAndEditorIndependence() {
     std::cout<<"PASS audio settings state and identical audio-to-MIDI with editor closed/open\n";
 }
 
+void stereoFiniteAndStablePolarity() {
+    const auto signal=tone(48000,69,.30);
+    auto render=[&](const Signal& left,const Signal& right){
+        Harness h(48000,257);
+        const std::array<int,4> pattern{17,64,257,128};
+        int remaining=24000;size_t i=0;
+        while(remaining>0){const int count=std::min(remaining,pattern[i++%pattern.size()]);h.blockStereo(count,left,right);remaining-=count;}
+        h.allReleased("stereo sanitization/polarity");
+        const auto ons=h.ons();check(ons.size()==1,"Stereo preprocessing changed one sustained tone into silence or extra attacks");
+        for(const auto& on:ons)check(on.pitch==69,"Stereo preprocessing manufactured a wrong MIDI pitch");
+        return h.notes;
+    };
+    const auto reference=render(signal,signal);
+    for(float bad:{std::numeric_limits<float>::quiet_NaN(),std::numeric_limits<float>::infinity(),-std::numeric_limits<float>::infinity()}){
+        const Signal invalid=[=](int64_t){return bad;};
+        render(signal,invalid);render(invalid,signal);
+    }
+    // The physical input differs by only two percent of the right-side gain.
+    // A per-block louder-channel choice used to invert the entire resulting
+    // waveform and turn A4 into a completely unrelated low MIDI note.
+    const Signal inverted=[&](int64_t sample){return -signal(sample)*((sample/64)%2?1.01f:.99f);};
+    const auto crossed=render(signal,inverted);
+    check(crossed==reference,"Anti-phase gain crossings changed note timing/pitch/velocity despite a stable left signal");
+    std::cout<<"PASS finite stereo side survives NaN/Inf on either channel; anti-phase gain crossings retain fixed polarity and identical MIDI\n";
+}
+
+void legacyAudioParameterDefaults() {
+    Harness source,target;
+    juce::MemoryBlock state;source.processor->getStateInformation(state);
+    auto xml=juce::AudioProcessor::getXmlFromBinary(state.getData(),int(state.getSize()));
+    check(xml!=nullptr,"Cannot inspect state for legacy migration fixture");
+    auto* values=xml->getChildByName("FLYSNAPPER_PARAMETERS");check(values!=nullptr,"Legacy fixture parameter tree missing");
+    const std::array<const char*,5> audioIds{"pitchEnabled","pitchMode","inputGate","sensitivity","releaseMs"};
+    for(auto* child=values->getFirstChildElement();child;){
+        auto* next=child->getNextElement();const auto id=child->getStringAttribute("id");
+        if(std::any_of(audioIds.begin(),audioIds.end(),[&](const char* name){return id==name;}))values->removeChildElement(child,true);
+        child=next;
+    }
+    set(*target.processor,"pitchEnabled",0);set(*target.processor,"pitchMode",1);set(*target.processor,"inputGate",-24);
+    set(*target.processor,"sensitivity",.9f);set(*target.processor,"releaseMs",140);
+    juce::MemoryBlock legacy;juce::AudioProcessor::copyXmlToBinary(*xml,legacy);
+    target.processor->setStateInformation(legacy.getData(),int(legacy.getSize()));
+    for(const char* id:audioIds){
+        auto* parameter=target.processor->parameters.getParameter(id);check(parameter!=nullptr,"Missing migration parameter");
+        const float expected=parameter->convertFrom0to1(parameter->getDefaultValue());
+        check(std::abs(get(*target.processor,id)-expected)<.00001f,std::string("Legacy state retained warm-instance audio setting: ")+id);
+    }
+    target.run(256,silence);target.allReleased("legacy state factory defaults");
+    std::cout<<"PASS missing legacy pitch parameters restore factory defaults instead of warm-instance values\n";
+}
+
 void repeatedSilenceAndSourceCycles() {
     Harness h;
     for(int cycle=0;cycle<12;++cycle) {
@@ -321,7 +375,7 @@ int main() {
         juce::ScopedJuceInitialiser_GUI gui;
         disabledAndSilentInput();monoRatesAndVariableBlocks();correctionAtDecisionSample();
         concurrentExternalOwnership();polyphonyAndModeTransition();stateAndEditorIndependence();
-        repeatedSilenceAndSourceCycles();
+        repeatedSilenceAndSourceCycles();stereoFiniteAndStablePolarity();legacyAudioParameterDefaults();
         std::cout<<"FlysnapperProcessorAudio: PASS ("<<checks<<" checks). Functional integration budget is 150 ms; actual first-note timings are printed, not substituted for the requested live latency goals.\n";
         return 0;
     }catch(const std::exception& error) {

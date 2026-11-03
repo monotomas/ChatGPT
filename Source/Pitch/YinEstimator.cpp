@@ -54,11 +54,42 @@ YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float 
         if(b<=a&&b<c){
             const float denominator=a-2*b+c;
             const float interpolated=std::abs(denominator)>1e-12f?std::clamp(.5f*(a-c)/denominator,-.5f,.5f):0;
-            const float value=std::max(0.f,b-.25f*(a-c)*interpolated);
+            float value=lag<8?std::max(0.f,b-.25f*(a-c)*interpolated):b;
+            float refined=interpolated;
+            if(lag<8){
+                double averageDifference=0;for(int k=1;k<=lag;++k)averageDifference+=difference[size_t(k)];
+                averageDifference/=lag;
+                if(averageDifference>1e-12){
+                    const auto evaluate=[&](float period) noexcept {
+                        const int integer=int(std::floor(period));const double u=period-integer;
+                        const double w0=-u*(u-1)*(u-2)/6,w1=(u+1)*(u-1)*(u-2)/2;
+                        const double w2=-(u+1)*u*(u-2)/2,w3=(u+1)*u*(u-1)/6;
+                        double sum=0;
+                        for(int i=0;i<comparison;++i){const int p=i+integer;
+                            const double shifted=w0*frame[size_t(p-1)]+w1*frame[size_t(p)]+w2*frame[size_t(p+1)]+w3*frame[size_t(p+2)];
+                            const double error=frame[size_t(i)]-shifted;sum+=error*error;
+                        }
+                        return float(sum/averageDifference);
+                    };
+                    float bestPeriod=float(lag)+refined,bestValue=evaluate(bestPeriod);
+                    for(int step=-4;step<=4;++step){const float period=float(lag)+step*.125f;const float error=evaluate(period);
+                        if(error<bestValue){bestPeriod=period;bestValue=error;}}
+                    const float leftPeriod=std::max(float(lag)-.5f,bestPeriod-.0625f),rightPeriod=std::min(float(lag)+.5f,bestPeriod+.0625f);
+                    if(rightPeriod>leftPeriod){
+                        const float left=evaluate(leftPeriod),right=evaluate(rightPeriod),curvature=left-2*bestValue+right;
+                        if(curvature>1e-12f&&bestPeriod>leftPeriod&&bestPeriod<rightPeriod){
+                            const float displacement=std::clamp(.5f*(left-right)/curvature,-1.f,1.f)*.0625f;
+                            const float period=std::clamp(bestPeriod+displacement,float(lag)-.5f,float(lag)+.5f),error=evaluate(period);
+                            if(error<bestValue){bestValue=error;bestPeriod=period;}
+                        }
+                    }
+                    value=bestValue;refined=bestPeriod-lag;
+                }
+            }
             // Threshold the interpolated minimum as well as its frequency.
             // Otherwise high notes whose periods fall between sample lags can
             // incorrectly wait for an integer-aligned double period.
-            if(value<threshold){chosen=lag;delta=interpolated;minimum=value;break;}
+            if(value<threshold){chosen=lag;delta=refined;minimum=value;break;}
         }
     }
     if(chosen<0)return result;
@@ -100,7 +131,7 @@ YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float 
     const double pitch=69+12*std::log2(frequency/440.0);
     const int note=int(std::lround(pitch));
     result.frequency=float(frequency);result.pitch=float(pitch);
-    if(note<lowNote||note>highNote||std::abs(pitch-note)>.35)return result;
+    if(note<lowNote||note>highNote)return result;
     result.note=note;result.valid=true;
     return result;
 }

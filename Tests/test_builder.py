@@ -158,7 +158,7 @@ class SnapshotTests(unittest.TestCase):
             root=Path(temp);source=source_fixture(root/'deps/JUCE')
             with mock.patch.object(b,'ROOT',root),mock.patch.object(b.shutil,'copytree',side_effect=OSError('full disk')):
                 with self.assertRaises(OSError):b.prepare_unicode_juce(source)
-            self.assertEqual(list((root/'build/dependencies').iterdir()),[])
+            self.assertEqual(list((root/'build/j').iterdir()),[])
             self.assertEqual((source/b.JUCEAIDE_MAIN).read_text(),ORIGINAL)
 
     @unittest.skipIf(os.name=='nt','symlink creation can require privilege on Windows')
@@ -250,7 +250,9 @@ class ResourceProbeTests(unittest.TestCase):
                 with mock.patch.object(b,'run',return_value='') as run:
                     new=b.configure_checked_project('cmake',root/'unicode-JUCE',tools)
                 self.assertNotEqual(old,new)
-                self.assertTrue(str(new).endswith('-unicode3'))
+                self.assertTrue(new.name.startswith('w-'))
+                self.assertEqual(len(new.name),14)
+                self.assertIn('-DCMAKE_OBJECT_PATH_MAX=220',run.call_args.args[0])
                 self.assertEqual(cache.read_bytes(),b'old failed build')
                 self.assertIn('-DJUCE_DIR='+str(root/'unicode-JUCE'),run.call_args.args[0])
 

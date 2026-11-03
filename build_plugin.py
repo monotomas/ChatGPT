@@ -82,13 +82,16 @@ def run(args: Sequence[str | Path], cwd: Path | None = None, capture: bool = Fal
     )
     lines: list[str] = []
     assert process.stdout is not None
-    for line in process.stdout:
-        line = line.rstrip("\r\n")
-        lines.append(line)
-        if not capture:
-            say(line)
-        elif _log is not None:
-            _log.write(line + "\n")
+    try:
+        for line in process.stdout:
+            line = line.rstrip("\r\n")
+            lines.append(line)
+            if not capture:
+                say(line)
+            elif _log is not None:
+                _log.write(line + "\n")
+    finally:
+        process.stdout.close()
     result = process.wait()
     output = "\n".join(lines)
     if _log is not None:
@@ -290,7 +293,7 @@ def choose_direct_generator(installation: Path, env: Mapping[str, str],
 def build_command(cmake: str, build: Path, generator: str, jobs: int) -> list[str]:
     command = [cmake, "--build", str(build), "--config", "Release", "--target",
                "Flysnapper_VST3", "FlysnapperCoreTests",
-               "FlysnapperPluginTests", "FlysnapperVst3HostTests", "FlysnapperPitchTests", "FlysnapperProcessorAudioTests", "FlysnapperAudioValidation"]
+               "FlysnapperPluginTests", "FlysnapperVst3HostTests", "FlysnapperPitchTests", "FlysnapperProcessorAudioTests", "FlysnapperAudioValidation", "FlysnapperYinTests"]
     if generator != "NMake Makefiles":
         command.extend(["--parallel", str(max(1, jobs))])
     return command
@@ -801,6 +804,7 @@ def checked_cmake_flags(tools: CheckedTools) -> list[str]:
     binpath = tools.msvc / "bin/Hostx64/x64"
     return [
         "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_OBJECT_PATH_MAX=220",
         "-DCMAKE_C_COMPILER:FILEPATH=" + (binpath / "cl.exe").as_posix(),
         "-DCMAKE_CXX_COMPILER:FILEPATH=" + (binpath / "cl.exe").as_posix(),
         "-DCMAKE_RC_COMPILER:FILEPATH=" + (tools.sdk.bin_dir / "rc.exe").as_posix(),
@@ -861,8 +865,17 @@ def preflight_toolchain(cmake: str, tools: CheckedTools) -> None:
 
 def configure_checked_project(cmake: str, juce: Path, tools: CheckedTools) -> Path:
     previous = checked_build_directory(tools, "direct")
-    # Keep the failed fix2 cache untouched; its helper/source paths are different.
-    build = previous.with_name(previous.name + "-unicode3")
+    # The actual Windows CI failure was a 264-character /Fo path. The longer
+    # ProcessorAudioTests target crossed MAX_PATH while shorter targets passed.
+    # Keep original Unicode source paths and resource probes, but use a compact,
+    # separate build namespace and force CMake's object-directory hashing.
+    token = hashlib.sha256((str(previous) + "|unicode-short-v1|" + JUCE_COMMIT).encode("utf-8")).hexdigest()[:12]
+    build = ROOT / "build" / ("w-" + token)
+    # Even a directory-hashed object needs this fixed target/hash/basename tail.
+    # Fail before expensive compilation if the checkout is too deep for it.
+    minimum_tail = "CMakeFiles/FlysnapperProcessorAudioTests.dir/" + "0" * 32 + "/juce_audio_processors_headless_lv2_libs.cpp.obj"
+    if len(str(build)) + 1 + len(minimum_tail) > 220:
+        raise RuntimeError("Windows-kildebanen er for dyp for sikre MSVC-objektfiler. Bruk den ferdigbygde Windows-pakken; utviklerbygg krever en kortere utsjekkingsbane. Ingen kildefiler er flyttet eller endret.")
     run([cmake, "-S", ROOT, "-B", build, "-G", tools.generator,
          *checked_cmake_flags(tools), f"-DJUCE_DIR={juce}",
          "-DFLYSNAPPER_CORE_ONLY=OFF", "-DFLYSNAPPER_BUILD_TESTS=ON"], env=tools.environment)
@@ -978,8 +991,8 @@ def prepare_unicode_juce(juce: Path) -> Path:
         sort_keys=True, separators=(",", ":"), ensure_ascii=True,
     )
     token = hashlib.sha256(identity.encode("utf-8")).hexdigest()[:20]
-    parent = ROOT / "build" / "dependencies"
-    destination = parent / ("JUCE-unicode3-" + token)
+    parent = ROOT / "build" / "j"
+    destination = parent / ("u-" + token)
     manifest = {
         "upstream_commit": JUCE_COMMIT, "patch": JUCEAIDE_PATCH_REVISION,
         "original_main_sha256": original_main_hash,
@@ -1159,7 +1172,7 @@ def finish_installation(choose: bool, directory: Path | None) -> bool:
     return elevate_install()
 
 
-REQUIRED_TESTS = {"FlysnapperCore", "FlysnapperPluginSmoke", "FlysnapperActualVst3", "FlysnapperPitch", "FlysnapperProcessorAudio", "FlysnapperAudioQuality"}
+REQUIRED_TESTS = {"FlysnapperCore", "FlysnapperPluginSmoke", "FlysnapperActualVst3", "FlysnapperPitch", "FlysnapperProcessorAudio", "FlysnapperAudioQuality", "FlysnapperYin"}
 
 
 def verified_juce(git: str, directory: Path | None) -> Path:

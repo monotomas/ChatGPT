@@ -47,6 +47,8 @@ def validate_row(row,reference):
         require(all(math.isfinite(n) for n in nums),f'{name}: non-finite measurement')
         require(all(a<=b for a,b in zip(nums,nums[1:])),f'{name}: invalid percentile ordering')
         if group==CPU_FIELDS:require(all(n>=0 for n in nums),f'{name}: negative callback time')
+        if group==LATENCY_FIELDS:require(all(n>=-2000/48000-1e-6 for n in nums),f'{name}: latency contradicts matching tolerance')
+        if group==RELEASE_FIELDS:require(all(n>=-10.000001 for n in nums),f'{name}: release contradicts early-off classification')
 
 def require(condition,message='Validation failed'):
     if not condition:raise ValueError(message)
@@ -82,7 +84,10 @@ def main():
             (output/'report-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
             raise SystemExit(result.returncode)
         csv_path=current/'audio-cases.csv'
-        with csv_path.open(newline='') as f:rows=list(csv.DictReader(f))
+        with csv_path.open(newline='') as f:
+            reader=csv.DictReader(f)
+            require(reader.fieldnames is not None and len(reader.fieldnames)==len(CSV_FIELDS) and set(reader.fieldnames)==CSV_FIELDS,'Incomplete or duplicate CSV header')
+            rows=list(reader)
         require(len(rows) == 81 and len({r['case'] for r in rows}) == 81, 'Expected81fresh independentcase measurements')
         measured={r['case']:r for r in rows}
         require(set(measured) == set(reference), 'Measurement/reference case inventory differs')

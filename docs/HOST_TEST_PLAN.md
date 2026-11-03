@@ -1,69 +1,61 @@
-# Avgrenset vertstest – Flysnapper 0.1.0 prototype
+# Flysnapper – intern vertsverifikasjon
 
-Dette er en testplan, ikke et bestått Ableton-resultat. Den automatiske testen
-`FlysnapperActualVst3` laster den faktiske kompilerte VST3-modulen i en liten
-JUCE-testvert. Ingen audio-driver eller DAW brukes der. Resultater fra Windows,
-Live eller fysisk latency må føres separat.
+Dette er utviklerens kontrollplan for den integrerte pluginen. Den er ikke en
+oppgave til brukeren og er ikke i seg selv et bestått Ableton-resultat.
+`FlysnapperActualVst3` laster den faktiske kompilerte modulen i en JUCE-testvert;
+en ekstra pluginval-kjøring kan supplere den. Driver-, Live- og fysiske
+latencymålinger føres separat, med faktisk tilgjengelig vert og utstyr.
 
-## Windows / Ableton Live 12 Suite
+## Funksjonelle kontroller
 
-Bruk den komplette pakken og bygg/test før installasjon. Behold Buffkiller urørt.
-Oppgi Windows-versjon, eksakt Live-versjon, CPU, audiointerface/driver,
-samplerate og bufferstørrelse i testresultatet. Start med MPE deaktivert.
+Bruk en aktuell, bygget plugin og registrer kildecommit, binærhash, plattform,
+vertsversjon, samplerate og blokkstørrelse. MPE er deaktivert i standardoppsettet.
 
-1. Sett Flysnapper som instrument på et MIDI-spor. Velg keyboardet som vanlig
-   inngang, uten å filtrere hele sporet til kanal 16.
-2. Send et eget akkordspor direkte til Flysnapper-pluginen på kanal 16. Spill
-   MIDI 48/52/55. Akkordvisningen skal vise C; kontrollnotene skal ikke høres på
-   mottakerinstrumentet.
-3. Velg Flysnapper-pluginens MIDI-utgang som MIDI From på et mottakerspor med
-   et raskt instrument og Monitor In. Bruk pluginutgangen i nedre velger.
-   Spill MIDI 61 på keyboardet: med Chord Notes skal MIDI 60 komme ut. Ved
-   slipp skal samme ut-note avsluttes, også om akkorden er endret imens.
-4. Trykk Send test note i Flysnapper og spill keyboard samtidig. Begge kilder
-   skal nå mottakeren. Testnoten slippes automatisk etter 100 ms; en ekstern
-   keyboardnote som fortsatt holdes skal fortsette. Den automatiserbare
-   Routing Test-parameteren kan også slås av for en særskilt kildestopp-prøve.
-5. Velg audio-kildesporet i Lives native sidechain-panel. Kontroller status ved
-   signal, digital stillhet, No Input og sidechain av. Stillhet må ikke
-   omtales som sikker frakobling. Den første prototypen utfører ikke
-   pitchgjenkjenning; sidechain-lyd skal ikke høres fra Flysnapper.
-6. Velg Chord Scale. Endre en rad på baksiden til Chromatic og bekreft at
-   innstilling faktisk brukes. Prøv Fixed Scale og transponering. Flip skal
-   ikke avslutte en holdt note eller endre MIDI-resultatet.
-7. Lagre settet med flere ulikt innstilte Flysnapper-instansser. Lukk og åpne
-   settet igjen. Innstillingene skal bevares uten gamle aktive noter og uten
-   krysskobling mellom instansene.
-8. Test play/stop, loop og seek med holdte noter, både med åpent og lukket GUI.
-   Kontroller stopp/panic samt deaktivering og fjerning av pluginen. Ved
-   fjerning uten en siste prosesseringsblokk kan pluginen ikke sende Note Off;
-   vertens opprydding på mottakersporet må da kontrolleres særskilt.
-9. Aktiver MPE som negativ kontroll. Kontroller at inkompatibel konfigurering
-   varsles der den kan oppdages. Vanlig kanal-16-oppsett skal ikke hevdes å
-   gi generell MPE-støtte.
+1. Kontroller instrumentklassifisering, separat SDK kAux-sidechain og MIDI
+   inn/ut på de annonserte kanalene. Velg mono eller stereo sidechain og prøv
+   aktiv inngang, digital stillhet, deaktivert inngang og blokker uten samples.
+2. Send spille-MIDI på kanal 1 og akkord-MIDI på kanal 16 i samme blokk, også
+   på samme sampleoffset. Holdte akkordnoter skal bli med ved neste skifte;
+   akkordkontroll skal aldri lekke til mottakerinstrumentet.
+3. Send faktiske audio-samples gjennom den kompilerte VST3-en i både Mono og
+   Poly. Kontroller genererte noter, offsets og korreksjon ved beslutningstid.
+   Prøv samtidig eksternt MIDI og kollisjoner med samme genererte uttone.
+4. Slå av audio-modulen og bytt Mono/Poly med holdte noter. Generert MIDI skal
+   ryddes uten å avslutte eksterne noter som fortsatt holdes. Bypass, transport-
+   stopp/seek og Panic skal rydde sine dokumenterte kilder og pedaler.
+5. Kontroller alle korreksjonsmodi, faste skalaer, grunntransponering og
+   baksidens 50 uavhengige skalaoppsett. Flip skal ikke endre MIDI eller tid.
+6. Lagre og gjenåpne flere ulikt innstilte instanser. Innstillinger skal
+   gjenopprettes uten gamle aktive noter og uten krysskobling mellom instanser.
+7. Prøv ulike samplerater og blokkstørrelser, inkludert variable blokker,
+   uvanlig mange MIDI-hendelser og gjentatt prepare/release. Registrer om
+   buffere går fulle; overbelastning skal gi avgrenset, dokumentert opprydding.
+8. Kontroller editorens skalering, tastatur/parameterendringer, åpning/lukking,
+   forsiden og alle 50 radene på baksiden, både med og uten prosessering.
 
-Før MIDI-sampleposisjoner og faktisk mottatt note/velocity i resultatet, helst
-med et MIDI-monitorverktøy. Et åpent vindu eller synlig signalnivå er ikke en
-funksjonell godkjenning.
+Ved fjerning av en plugin uten en siste prosesseringsblokk kan pluginen ikke
+sende Note Off. Vertens opprydding på mottakersporet må derfor kontrolleres
+separat i en faktisk DAW. Ingen automatisk adaptertest etablerer alle verters
+støtte for MPE, uttrykkskontroll eller fjerning.
 
-## Latencymåling
+## Ableton-ruting
 
-Mål først kjeden med genererte hendelser, uten pitchdetektor. Definer tydelig
-hvor start og slutt er målt, og noter mottakerinstrumentets anslag. Mål deretter
-pitchdetektor separat når den finnes. Pluginens rapporterte 0 samples er ingen
-måling av driver-, verts-, audio-til-MIDI- eller akustisk forsinkelse.
+Den brukerdefinerte rutingen står i `BRUKERVEILEDNING.md`: audio via sidechain,
+eksternt spille-MIDI på kanal 1, akkordsporets direkte utgang til kanal 16 og
+pluginens MIDI-utgang som kilde for et mottakerinstrument. Kontroller denne
+rutingen i Live når Live faktisk er tilgjengelig. Utviklingen skal fortsette
+med de uavhengige verts- og lydtestene uten å kreve mellomtester fra brukeren.
 
-Før antall hendelser, feil/manglende anslag, median, P95/P99 og maksimum i
-millisekunder. Skille et tidlig feilanslag fra første riktige brukbare note.
-Ikke godkjenn end-to-end-målene ut fra CPU-tid eller et gjennomsnitt alene.
+## Lydkvalitet og forsinkelse
 
-## Resultatmal
+Den frosne grunnleggende lydkvalitetskontrollen, hele målekorpuset og separat
+holdout er beskrevet i `AUDIO_VALIDATION.md`. Notegjenkjenning og fysisk
+forsinkelse skal ikke godkjennes fra et åpent vindu, et signalmeter eller en
+vellykket kompilering. Oppgi antall korrekte, feilaktige og manglende anslag,
+første korrekte brukbare note, median, P95/P99 og maksimum. Tidlige feilanslag
+rapporteres selv om en riktig note følger senere.
 
-| Område | Plattform/versjon | Resultat | Evidens/avvik |
-| --- | --- | --- | --- |
-| Faktisk VST3-testvert | Fra byggeloggen | Ikke kjørt i denne malen | CTest-logg |
-| Windows/MSVC | Fylles etter faktisk kjøring | Ikke verifisert | Bygge-/testlogg |
-| Live-ruting og gjenåpning | Fylles etter faktisk kjøring | Ikke verifisert | Kort registrering av punkt 1–9 |
-| Fysisk end-to-end-latency | Interface/driver/rate/buffer | Ikke målt | Målegrense og fordelingsstatistikk |
-
-Denne malen endrer ikke statusen til faktiske tester i leveransens testrapport.
+For fysisk ende-til-ende-måling registreres instrument, interface, driver,
+samplerate, buffer, mottakerinstrument og nøyaktige start-/sluttpunkter.
+Mål også MIDI-korreksjon og pitchdetektor separat. Rapporter de faktiske
+fordelingene; CPU-tid og rapportert plugin-latency erstatter ikke disse målingene.

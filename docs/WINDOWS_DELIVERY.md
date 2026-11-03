@@ -57,3 +57,25 @@ plugin preservation, injected rename-failure rollback and tamper rejection.
 These fixtures validate installer logic, not DLL loading. The installer hashes files with builtin .NET SHA256 rather than depending on PowerShell module discovery. Windows CI uses native
 Windows PowerShell 5.1; Linux may additionally use verified portable PowerShell 7.
 The compiled VST3 tests are a separate mandatory stage.
+
+## MSVC object-path safety
+
+An actual Windows CI run reached the new ProcessorAudioTests target and failed
+with C1083 on its longest JUCE compilation unit. Its full `/Fo` object filename
+was 264 characters, crossing the legacy Windows 260-character boundary. Shorter
+plugin/test targets had already compiled successfully.
+
+Generated project caches now use `build/w-<identity>`, and the independently
+verified Unicode-patched JUCE copy uses `build/j/u-<content identity>`. The exact
+reported object path becomes 218 characters. CMake additionally receives
+`CMAKE_OBJECT_PATH_MAX=220` to hash longer object directories. The original
+checkout path remains Unicode; the real wide-argument/resource preflight remains
+mandatory. No source or test format is omitted to avoid the failure.
+
+`Tests/test_builder_paths.py` preserves the exact failing Windows path as a
+regression and exercises real CMake/Ninja generation for a long Unicode fixture,
+confirming hashed object directories under the configured budget. That generator
+probe uses a forced compiler descriptor and is not an MSVC execution. The full
+Windows build remains the final native proof. Developer checkout paths too deep
+even for a hashed object tail fail before expensive compilation with a concrete
+message; end users install the prebuilt Windows package.

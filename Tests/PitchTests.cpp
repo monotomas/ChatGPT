@@ -3,11 +3,20 @@
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
+#include <atomic>
+#include <new>
 #include <iostream>
 #include <limits>
 #include <memory>
 #include <stdexcept>
 #include <vector>
+namespace {std::atomic<bool> countAllocations{false};std::atomic<size_t> allocationCount{0};}
+void* operator new(std::size_t n){if(countAllocations.load(std::memory_order_relaxed))allocationCount.fetch_add(1,std::memory_order_relaxed);if(void* p=std::malloc(n?n:1))return p;throw std::bad_alloc();}
+void* operator new[](std::size_t n){return ::operator new(n);}
+void operator delete(void* p) noexcept {std::free(p);}
+void operator delete[](void* p) noexcept {std::free(p);}
+void operator delete(void* p,std::size_t) noexcept {std::free(p);}
+void operator delete[](void* p,std::size_t) noexcept {std::free(p);}
 using namespace flysnapper::pitch;
 namespace {
 int checks=0;
@@ -40,7 +49,7 @@ void monoAndBlocks(){
     }
 }
 void polyphony(){
-    for(const auto notes:{std::vector<int>{60,64,67},std::vector<int>{48,52,55},std::vector<int>{52,53}}){
+    for(const auto& notes:{std::vector<int>{60,64,67},std::vector<int>{48,52,55},std::vector<int>{52,53}}){
         auto d=std::make_unique<PitchDetector>();d->prepare(48000);Settings settings;settings.polyphonic=true;d->configure(settings);
         std::vector<float> a(24000,0);for(int note:notes){auto n=tone(48000,note,16000);for(size_t i=0;i<n.size();++i)a[i]+=n[i]/float(notes.size());}
         auto out=run(*d,a,128);std::vector<int> actual;int offs=0;
@@ -48,6 +57,49 @@ void polyphony(){
         std::sort(actual.begin(),actual.end());auto expected=notes;std::sort(expected.begin(),expected.end());
         check(actual==expected,"polyphonic chord emitted wrong or missing note");check(offs==int(notes.size()),"polyphonic note offs mismatch");check(d->status().activeNotes==0,"polyphonic voice left active");
     }
+}
+void declaredRangeAndRealtime(){
+    auto detector=std::make_unique<PitchDetector>();detector->prepare(48000);
+    Output events;
+    for(int note=PitchDetector::lowNote;note<=PitchDetector::highNote;++note){
+        events.clear();detector->reset(events);auto audio=tone(48000,note,14400);audio.resize(21600,0);
+        auto result=run(*detector,audio,128);int ons=0,offs=0;
+        for(auto e:result){if(e.note!=note)std::cerr<<"Declared range expected="<<note<<" got="<<e.note<<" on="<<e.on<<" sample="<<e.sample<<"\n";check(e.note==note,"declared MIDI range produced an octave or semitone error");if(e.on)++ons;else ++offs;}
+        check(ons==1&&offs==1,"declared detector range has missing or repeated notes");
+    }
+    // Stable detuning is a valid continuous pitch, not a permanent dead band.
+    for(float cents:{-40.0f,40.0f}){
+        events.clear();detector->reset(events);std::vector<float> audio(24000,0);
+        double frequency=440*std::pow(2.0,(52-69+cents/100)/12.0);
+        for(int i=0;i<16000;++i)audio[size_t(i)]=float(.15*std::sin(6.283185307179586*frequency*i/48000));
+        auto result=run(*detector,audio,64);int ons=0,offs=0;
+        for(auto e:result){check(e.note==52,"stable detuned tone mapped to wrong semitone");if(e.on)++ons;else ++offs;}
+        check(ons==1&&offs==1,"stable detuned tone fell in an acquisition dead zone");
+    }
+    auto audio=tone(48000,60,512);Settings settings;settings.polyphonic=true;detector->configure(settings);
+    events.clear();detector->reset(events);detector->process(audio.data(),512,events);
+    allocationCount.store(0);countAllocations.store(true);
+    for(int i=0;i<64;++i){events.clear();detector->process(audio.data(),512,events);}
+    countAllocations.store(false);
+    check(allocationCount.load()==0,"prepared detector allocated C++ objects during audio processing");
+    std::cout<<"PASS declared MIDI28..100, stable+/-40cent notes and prepared C++ allocation check (malloc/host wrapper excluded)\n";
+}
+void causalPrediction(){
+    TimeDomainPursuit model;model.prepare(12000,512);
+    std::array<float,544> wave{};
+    for(int note:{48,52,55}){
+        const double f=440*std::pow(2.0,(note-69)/12.0);
+        for(int i=0;i<int(wave.size());++i)for(int h=1;h<=8;++h)
+            wave[size_t(i)]+=float(.05*std::sin(6.283185307179586*f*h*(i+123)/12000+.11*h)/std::pow(double(h),1.25));
+    }
+    std::array<float,73> strength{},confidence{};std::array<float,32> prediction{};
+    model.analyse(wave.data(),512,strength,confidence);
+    check(model.copyPrediction(prediction),"valid harmonic frame lacked a causal next-hop prediction");
+    double error=0,power=0;
+    for(int i=0;i<32;++i){double actual=wave[size_t(512+i)],delta=actual-prediction[size_t(i)];error+=delta*delta;power+=actual*actual;}
+    check(std::sqrt(error/std::max(power,1e-20))<.10,"harmonic prediction phase/amplitude mismatch on unseen next samples");
+    model.analyse(nullptr,0,strength,confidence);
+    check(!model.copyPrediction(prediction),"invalid frame retained a stale harmonic prediction");
 }
 void transitions(){
     auto d=std::make_unique<PitchDetector>();d->prepare(48000);auto a=tone(48000,60,8000);auto result=run(*d,a,64);check(std::any_of(result.begin(),result.end(),[](auto e){return e.on&&e.note==60;}),"transition setup note missing");
@@ -57,4 +109,4 @@ void transitions(){
     out.clear();settings.polyphonic=false;d->configure(settings);d->process(a.data(),128,out);check(std::none_of(out.events.begin(),out.events.begin()+std::ptrdiff_t(out.size),[](auto e){return e.on;}),"mode change reused old audio onset");
 }
 }
-int main(){try{silenceAndInvalid();monoAndBlocks();polyphony();transitions();std::cout<<"FlysnapperPitch: PASS ("<<checks<<" checks; synthetic functional tests, not physical latency acceptance)\n";return 0;}catch(const std::exception& e){std::cerr<<"FlysnapperPitch: FAIL: "<<e.what()<<"\n";return 1;}}
+int main(){try{silenceAndInvalid();monoAndBlocks();polyphony();causalPrediction();transitions();declaredRangeAndRealtime();std::cout<<"FlysnapperPitch: PASS ("<<checks<<" checks; synthetic functional tests, not physical latency acceptance)\n";return 0;}catch(const std::exception& e){std::cerr<<"FlysnapperPitch: FAIL: "<<e.what()<<"\n";return 1;}}

@@ -49,7 +49,7 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
     if manifest.get('pitch_detection_implemented') is not True or 'prototype' in str(manifest.get('stage','')).lower():
         raise ValueError('The old routing-only prototype cannot be shipped as the complete product')
     required=manifest.get('required_test_names')
-    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality'}<=set(required):
+    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperYin','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality'}<=set(required):
         raise ValueError('Missing required validation target names')
     report=dist/'test-results.xml'
     if report.is_symlink():raise ValueError('Symlink test report is not accepted')
@@ -103,11 +103,12 @@ def build_package(root: Path,dist: Path,output: Path) -> Path:
     members['Install-Flysnapper.ps1']=(root/'Tools/windows_installer.ps1').read_bytes()
     members['INSTALL_FLYSNAPPER.bat']=(root/'INSTALL_FLYSNAPPER.bat').read_bytes()
     for n in ('LICENSE.txt','THIRD_PARTY.md'):members[n]=(root/n).read_bytes()
+    members['BRUKERVEILEDNING.md']=(root/'docs/BRUKERVEILEDNING.md').read_bytes()
     members['Validation/build-manifest.json']=json.dumps(build,indent=2,ensure_ascii=False).encode('utf-8')+b'\n'
     members['Validation/test-results.xml']=(dist/'test-results.xml').read_bytes()
     members['Validation/automated-tests.txt']=(dist/'automated-tests.txt').read_bytes()
     members.update({'Validation/audio-validation/'+name:data for name,data in audio_evidence.items()})
-    members['LES_MEG.txt']=(f'''Flysnapper {version} - Windows x64 VST3\r\n\r\nPakk ut HELE ZIP-filen til en egen mappe, for eksempel pa D:.\r\nLukk Ableton og andre pluginverter. Dobbeltklikk INSTALL_FLYSNAPPER.bat.\r\nVelg VST3-mappen som Ableton bruker. Installeren kopierer bare Flysnapper.vst3.\r\nIngen Python, CMake eller Visual Studio kreves.\r\nVed erstatning beholdes en kontrollert sikkerhetskopi utenfor VST3-mappen.\r\nBuffkiller og andre plugins blir ikke endret.\r\n\r\nKanal 1 er spille-MIDI, kanal 16 er akkordkontroll. Velg sidechain-audio\r\ni vertens eget panel. Mono/poly velges i Flysnapper.\r\nSe Source/Flysnapper-Source.zip for kilde, full veiledning og maalte grenser.\r\nWindows-bygg og automatiske tester finnes under Validation. Dette er ikke\r\ni seg selv dokumentasjon av fysisk lydkortlatency eller en Ableton-test.\r\n''').encode('utf-8-sig')
+    members['LES_MEG.txt']=(f'''Flysnapper {version} - Windows x64 VST3\r\n\r\nPakk ut HELE ZIP-filen til en egen mappe, for eksempel pa D:.\r\nLukk Ableton og andre pluginverter. Dobbeltklikk INSTALL_FLYSNAPPER.bat.\r\nVelg VST3-mappen som Ableton bruker. Installeren kopierer bare Flysnapper.vst3.\r\nIngen Python, CMake eller Visual Studio kreves.\r\nVed erstatning beholdes en kontrollert sikkerhetskopi utenfor VST3-mappen.\r\nBuffkiller og andre plugins blir ikke endret.\r\n\r\nKanal 1 er spille-MIDI, kanal 16 er akkordkontroll. Velg sidechain-audio\r\ni vertens eget panel. Mono/poly velges i Flysnapper.\r\nSe BRUKERVEILEDNING.md for ruting, betjening og maalte grenser.\r\nKildekoden finnes i Source/Flysnapper-Source.zip.\r\nWindows-bygg og automatiske tester finnes under Validation. Dette er ikke\r\ni seg selv dokumentasjon av fysisk lydkortlatency eller en Ableton-test.\r\n''').encode('utf-8-sig')
     spec=importlib.util.spec_from_file_location('flysnapper_source_shipping',root/'Tools/package_source.py')
     source=importlib.util.module_from_spec(spec);spec.loader.exec_module(source)
     with tempfile.TemporaryDirectory(prefix='flysnapper-corresponding-source-') as temp:

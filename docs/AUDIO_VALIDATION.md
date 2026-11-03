@@ -56,8 +56,8 @@ Output contains:
 
 ## Scoring
 
-A matched correct note must remain active for at least 20ms (or the reference
-note's shorter remaining duration). The onset timestamp is the original emitted
+A matched correct note must remain active with at least 20ms of overlap with the active reference note
+(or its whole duration if shorter). The onset timestamp is the original emitted
 Note On, but a brief correct guess cannot count as a useful low-latency result.
 Earlier wrong notes are reported independently. Other counters include missed
 reference notes, extra Note Ons, octave errors, premature releases (>10ms before

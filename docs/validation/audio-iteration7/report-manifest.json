@@ -1,0 +1,24 @@
+{
+  "recorded_at_utc": "2026-11-03T17:10:56.216409+00:00",
+  "evaluator_sha256": "48384a26c97ffdf8022cf722a62a7c61e35feafb1b2a23d18e3a74199eb302df",
+  "fixture_manifest_sha256": "f7f88cb88a2a62bf4493e388b59f1dc8204ad2fd57469e463ab29d51072b6bb6",
+  "fixture_inventory_sha256": "bed2eca207c577a8fb1e54c289c778a8e943fe55536dab35a38c570cbf670e13",
+  "policy_sha256": "474213eb6d826fb94b6401e6db048184644f55ccb31612341dd9bb66d8358235",
+  "source_sha256": {
+    "Tools/audio_validation.cpp": "d8e50dc2eda4090806bb953fed1ef38b1887d1a97bdaaeb926ebf5657d63f2d7",
+    "Tools/audio_quality_gate.py": "b975076b2a251f8ba1b302decc41bd70afc4da525767f62b0360d279e3f8298d",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/PitchDetector.h": "7e3cef49ad102b93ceca27bea3372d84526467ef93cba5595078dc615125095f",
+    "Source/Pitch/TimeDomainPursuit.h": "964653c170941734062f0214e42b6d05ac6a0ae46a7f58ef4eb418c6b933fb03",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/PitchDetector.cpp": "d17055c32c55e7ddb8b5d6979ae1975e004f08867d8d5d854f5f9e6a7aaa06f7",
+    "Source/Pitch/TimeDomainPursuit.cpp": "a5e3b2565256361591a13c4f05b8ea2ef0911f906e8740315000861d3d806e75"
+  },
+  "scope": "Basic useful note accuracy; NOT physical or detector 5/10ms target acceptance",
+  "sample_rate": 48000,
+  "block_size": 64,
+  "evaluator_exit_code": 0,
+  "status": "failed",
+  "summary_sha256": "fde3d44368696546ff7d433b749690d856d991054c540b5e24ca12e8c789186b",
+  "metrics_sha256": "a621681029d4b8f6130b549704d1752fe52f0cb7227d7d1fb1bc8a08f9a476f7"
+}

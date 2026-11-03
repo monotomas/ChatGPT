@@ -1,25 +1,20 @@
-# Neste milepæl
+# Vedlikehold og videre utvikling
 
-0.1.0 er en avgrenset, testet rutings-/MIDI-prototype. Se TEST_RESULTS.md for
-utført verifikasjon. Original handover med faseplan ligger under handover/.
+Gjeldende bestilling er hele Flysnapper, se PRODUCT_SPEC.md. Eldre prototypestopp
+og pålegg om at brukeren først må prøve ruting, er ikke gjeldende arbeidskrav.
+Utvikleren eier feilretting, lydmålinger, byggekjede og installasjonspakking.
 
-1. Bygg på ekte Windows x64 via BUILD_FLYSNAPPER.bat eller den vedlagte manuelle
-   GitHub Actions-arbeidsflyten. Den siste krever at kildeprosjektet først finnes
-   i brukerens GitHub-repo. Ingenting er pushet her. Ikke kall Python-fixturetester
-   for en gjennomført Windows-kompilering.
-2. Utfør HOST_TEST_PLAN.md i Ableton Live 12 Suite. Løs eventuelle observerte
-   bus-/kanal-/eventproblemer før større DSP-integrasjon. Noter særlig faktisk
-   sidechain-status ved No Input; en aktiv buss alene beviser ikke kildetilkobling.
-3. Avklar de få musikalske overgangene i PROTOTYPE_POLICIES.md med konkrete
-   spillbare eksempler. Fabrikkanbefalingene for skalaer er allerede redigerbare
-   og trenger ikke ny godkjenning rad for rad.
-4. Etabler fysisk ruting-/mottakerforsinkelse med den genererte testnoten. Start
-   deretter kausal mono-sammenligning og separat poly-gjennomførbarhet etter
-   handoverens fase C/D. Bruk representative gitaropptak og tidsriktig fasit,
-   ikke bare sinus eller kjøringstid for MIDI-korreksjonen. Falske første noter,
-   manglende anslag, oktavfeil og release/retrigger må telle med i resultatene.
+Før en ny Windows-pakke kan leveres skal alle obligatoriske tester kjøres på
+faktisk Windows, og den uavhengige AudioQuality-kontrollen må bestå. Mål også
+hele lydkorpuset og en separat kontrollklang med andre anslag/timbre. Ikke
+endre annotasjoner eller godta feilnoter bare for å få grønt bygg.
 
-Nye detektorer skal levere vanlige tekniske Generated-hendelser til den samme
-MIDI-korreksjonsmodulen. De skal ikke gå ut og inn via Live eller innføre en
-uønsket tredje funksjonsmodul. Mono og poly er fortsatt produktmål; ingen av dem
-er fjernet eller erklært oppfylt av denne prototypen.
+Publisering av verifiserte installasjonspakker skjer automatisk fra
+release/full-flysnapper til downloads/flysnapper-complete. Kildecommit,
+Windows-/Unicode-bevis, testresultater og filhashes må passe sammen. Bruk
+immutable GitHub-lenker i chatten, ikke interne workspace-/sandbox-lenker.
+
+Brukeren skal ikke feilsøke kildekode, kompilere normale sluttbrukerpakker eller
+bli delaktig i mellomliggende utviklerprøver. Eventuelle gjenstående begrensninger
+må beskrives konkret i leveransen. Ikke erklær fysisk 5/10ms-latency eller faktisk
+Ableton-godkjenning på grunnlag av motor- eller testvertresultater.

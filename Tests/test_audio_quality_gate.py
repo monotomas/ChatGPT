@@ -291,6 +291,7 @@ class AudioQualityGateTests(unittest.TestCase):
         variants = {
             "missing unused column": self.csv_text(rows, tuple(f for f in FIELDS if f != "cpu_max_us")),
             "duplicate header": canonical.replace("cpu_max_us", "cpu_p99_us", 1),
+            "duplicate extra header with valid repeated values": self.csv_text(rows, FIELDS + ("cpu_max_us",)),
             "extra column": self.csv_text(rows, FIELDS + ("unexpected",)),
             "extra row value": "\n".join([lines[0], lines[1] + ",extra", *lines[2:]]) + "\n",
             "truncated row": "\n".join([lines[0], ",".join(lines[1].split(",")[:-1]), *lines[2:]]) + "\n",

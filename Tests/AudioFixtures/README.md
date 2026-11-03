@@ -66,8 +66,8 @@ C++ runner input. Run `python Tools/audio_validation_verify.py` to check every
 original/derived hash and annotation using only Python's standard library.
 
 `Tools/audio_validation.cpp` measures emitted MIDI against those annotations.
-A correct note must remain emitted for at least 20ms(or the reference note's
-shorter remaining duration) to count as a useful result. Short correct guesses
+A correct note must remain emitted with at least 20ms of overlap with the active reference note
+(or its whole duration if shorter) to count as a useful result. Short correct guesses
 cannot inflate the low-latency score. Wrong earlier notes, missing notes,
 extra note-ons, octave errors, premature releases and hanging voices are
 counted separately. Reported detector response excludes the audio driver,
