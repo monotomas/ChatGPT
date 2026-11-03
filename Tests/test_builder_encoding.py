@@ -15,7 +15,7 @@ b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
 
 class BuilderEncodingTests(unittest.TestCase):
     def test_cp1252_console_keeps_full_unicode_in_log(self):
-        data=io.BytesIO();console=io.TextIOWrapper(data,encoding='cp1252',write_through=True)
+        data=io.BytesIO();console=io.TextIOWrapper(data,encoding='cp1252',newline='',write_through=True)
         log=io.StringIO();text='Olav L\u00e6greid \u6f22 \ufffd'
         with contextlib.redirect_stdout(console),mock.patch.object(b,'_log',log):b.say(text)
         self.assertEqual(data.getvalue().decode('cp1252'),'Olav L\u00e6greid \\u6f22 \\ufffd\n')
@@ -31,7 +31,7 @@ class BuilderEncodingTests(unittest.TestCase):
         self.assertEqual(env,original)
 
     def test_nonzero_child_preserves_exit_status_under_cp1252(self):
-        data=io.BytesIO();console=io.TextIOWrapper(data,encoding='cp1252',write_through=True)
+        data=io.BytesIO();console=io.TextIOWrapper(data,encoding='cp1252',newline='',write_through=True)
         with contextlib.redirect_stdout(console),self.assertRaises(b.CommandError) as caught:
             b.run([sys.executable,'-c',"import sys; print('\\u6f22 \\ufffd'); sys.exit(7)"],capture=True)
         self.assertEqual(caught.exception.returncode,7)
