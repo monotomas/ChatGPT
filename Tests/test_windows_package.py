@@ -13,6 +13,8 @@ def module(name,path):
 shipping=module('windows_shipping_test',ROOT/'Tools/package_windows.py')
 source=module('source_shipping_test',ROOT/'Tools/package_source.py')
 publisher=module('publisher_shipping_test',ROOT/'Tools/publish_windows_delivery.py')
+with mock.patch.dict(sys.modules,{'package_windows':shipping}):
+    installed_verifier=module('installed_verifier_shipping_test',ROOT/'Tools/verify_windows_install.py')
 
 class WindowsPackageTests(unittest.TestCase):
     def setUp(self):
@@ -108,6 +110,39 @@ class WindowsPackageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'exactly once'):self.package()
     def test_package_is_deterministic(self):
         self.package();first=self.output.read_bytes();self.package();self.assertEqual(first,self.output.read_bytes())
+    def installation_proof(self,commit):
+        ps_log=self.base/'installation-powershell.txt';ps_log.write_text('fixture PS transaction result, not actual Windows proof')
+        host_log=self.base/'installed-vst3-host.txt';host_log.write_text('RESULT actual VST3 host tests passed (123 assertions).\nPLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.\n')
+        proof={'schema':1,'status':'passed','execution_platform':'Windows','source_commit':commit,
+               'artifact_sha256':hashlib.sha256(self.output.read_bytes()).hexdigest(),'installer_exit_code':0,
+               'installed_host_exit_code':0,'host_assertions':123,'installed_files_sha256':self.manifest['bundle_sha256'],
+               'recovery_files_sha256':self.manifest['bundle_sha256'],'unicode_paths_verified':True,'unrelated_plugin_preserved':True,
+               'powershell_log_sha256':hashlib.sha256(ps_log.read_bytes()).hexdigest(),'host_log_sha256':hashlib.sha256(host_log.read_bytes()).hexdigest()}
+        path=self.base/'installation-validation.json';path.write_text(json.dumps(proof));return path
+    def test_installed_module_proof_is_mandatory_and_bound_to_exact_zip_and_source(self):
+        self.package();proof=self.installation_proof('a'*40)
+        publisher.installed_package_proof(proof,'a'*40,hashlib.sha256(self.output.read_bytes()).hexdigest(),self.manifest)
+        with self.assertRaisesRegex(ValueError,'missing'):publisher.installed_package_proof(None,'a'*40,'0'*64,self.manifest)
+        with self.assertRaisesRegex(ValueError,'different source or ZIP'):publisher.installed_package_proof(proof,'b'*40,'0'*64,self.manifest)
+        original=json.loads(proof.read_text())
+        for key,value in [('installer_exit_code',1),('installed_host_exit_code',1),('host_assertions',0),('unicode_paths_verified',False)]:
+            document=original.copy();document[key]=value;proof.write_text(json.dumps(document))
+            with self.subTest(key=key),self.assertRaises(ValueError):publisher.installed_package_proof(proof,'a'*40,hashlib.sha256(self.output.read_bytes()).hexdigest(),self.manifest)
+        document=original.copy();document['execution_platform']='Linux';proof.write_text(json.dumps(document))
+        with self.assertRaisesRegex(ValueError,'did not pass'):publisher.installed_package_proof(proof,'a'*40,'0'*64,self.manifest)
+    def test_installed_module_host_must_execute_nonzero_tests_on_windows(self):
+        good='RESULT actual VST3 host tests passed (197218 assertions).\nPLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.'
+        self.assertEqual(installed_verifier.passed_host_output(good,0),197218)
+        for text,code in [(good,1),('',0),(good.replace('197218','0'),0),(good.replace('Windows x64','native Linux'),0)]:
+            with self.assertRaises(ValueError):installed_verifier.passed_host_output(text,code)
+    def test_host_discovery_refuses_stale_or_ambiguous_builds(self):
+        with self.assertRaises(ValueError):installed_verifier.find_host(self.root)
+        host=self.root/'build/w-0123456789ab/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe'
+        host.parent.mkdir(parents=True);host.write_bytes(b'fixture')
+        self.assertEqual(installed_verifier.find_host(self.root),host)
+        other=self.root/'build/w-111111111111/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe'
+        other.parent.mkdir(parents=True);other.write_bytes(b'fixture')
+        with self.assertRaises(ValueError):installed_verifier.find_host(self.root)
     def make_git_source(self):
         remote=self.base/'remote.git'
         subprocess.run(['git','init','--quiet','--bare',str(remote)],check=True)
@@ -118,7 +153,7 @@ class WindowsPackageTests(unittest.TestCase):
     def test_complete_publication_and_failed_next_build_preserve_verified_artifact(self):
         git,commit=self.make_git_source();self.manifest['source_commit']=commit;self.save_manifest();self.package()
         with mock.patch.dict(os.environ,{'GITHUB_SHA':commit}),mock.patch.dict(sys.modules,{'package_windows':shipping}):
-            publisher.publish(self.root,'completed',self.output,None,self.dist/'build-manifest.json',self.dist/'test-results.xml')
+            publisher.publish(self.root,'completed',self.output,None,self.dist/'build-manifest.json',self.dist/'test-results.xml',installation_proof=self.installation_proof(commit))
         git('fetch','--quiet','origin',publisher.BRANCH)
         state=json.loads(git('show','FETCH_HEAD:status.json'))
         self.assertEqual(state['status'],'completed');self.assertEqual(state['source_commit'],commit)
@@ -141,6 +176,24 @@ class WindowsPackageTests(unittest.TestCase):
         state=json.loads(git('show','FETCH_HEAD:status.json'))
         self.assertEqual(state['status'],'failed');self.assertIn('different source commit',state['error'])
         self.assertIsNone(state['artifact'])
+    def test_packaged_installer_driver_protocol_with_fixture_payload(self):
+        shell=shutil.which('powershell.exe') if os.name=='nt' else shutil.which('pwsh')
+        portable=Path('/workspace/.flysnapper-tools/powershell/pwsh')
+        if not shell and portable.is_file():shell=str(portable)
+        if not shell:self.skipTest('PowerShell unavailable; native Windows CI runs this protocol')
+        package=self.extract();script=self.base/'actual-driver-fixture.ps1';script.write_text(installed_verifier.PS_DRIVER,encoding='utf-8-sig')
+        result_file=self.base/'driver-result.json';env=os.environ.copy()
+        env.update(FLYSNAPPER_VERIFY_PACKAGE=str(package),FLYSNAPPER_VERIFY_DEST=str(self.base/'Olav Lægreid/Separate VST3'),
+                   FLYSNAPPER_VERIFY_BACKUP=str(self.base/'Olav Lægreid/Recovery'),FLYSNAPPER_VERIFY_RESULT=str(result_file))
+        if os.name!='nt':env.update(XDG_CACHE_HOME=str(self.base/'xdg-cache'),XDG_CONFIG_HOME=str(self.base/'xdg-config'),XDG_DATA_HOME=str(self.base/'xdg-data'))
+        command=[shell,'-NoLogo','-NoProfile','-ExecutionPolicy','Bypass']+(['-STA'] if os.name=='nt' else [])+['-File',str(script)]
+        result=subprocess.run(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env=env)
+        self.assertEqual(result.returncode,0,result.stdout.decode('utf-8',errors='replace'))
+        document=json.loads(result_file.read_text(encoding='utf-8-sig'))
+        self.assertEqual(document['installed_files_sha256'],self.manifest['bundle_sha256'])
+        self.assertEqual(document['recovery_files_sha256'],self.manifest['bundle_sha256'])
+        self.assertTrue(document['unrelated_plugin_preserved'])
+        self.assertIn('Olav Lægreid',document['installed_bundle'])
     def test_installer_transaction_integrity_unicode_recovery_and_rollback(self):
         shell=shutil.which('powershell.exe') if os.name=='nt' else shutil.which('pwsh')
         portable=Path('/workspace/.flysnapper-tools/powershell/pwsh')

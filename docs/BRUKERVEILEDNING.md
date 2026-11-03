@@ -22,6 +22,9 @@ følger med for lisenskrav og videre utvikling.
 VST3-mappen. Hvis mappen er en egendefinert VST3-mappe, må den være aktivert
 i Abletons plugininnstillinger.
 
+For å avinstallere lukker du pluginvertene og fjerner bare `Flysnapper.vst3`
+fra pluginmappen. Ingen andre plugins eller Windows-innstillinger skal fjernes.
+
 ## Ruting i Ableton
 
 1. Legg Flysnapper som instrument på et MIDI-spor. Vanlig spille-MIDI går inn
@@ -41,7 +44,7 @@ sendes ikke videre til mottakerinstrumentet.
 
 ## Audio til MIDI
 
-Slå på `Pitch to MIDI`. Velg `Mono` for én tone om gangen eller `Poly` for
+Slå på `Audio to MIDI`. Velg `Monophonic` for én tone om gangen eller `Polyphonic` for
 inntil seks samtidige toner. Detektoren bruker A4 = 440 Hz og MIDI-noteområdet
 28–100. Den leverer vanlige MIDI-noter med velocity beregnet fra signalstyrken.
 
@@ -56,7 +59,7 @@ Inngangsmåleren viser mottatt signal. De detekterte tonenavnene viser
 toneklassene før korreksjon. Sidechain-status viser at verten har aktivert
 inngangen; en aktiv inngang kan fortsatt motta digital stillhet.
 
-Slå av `Pitch to MIDI` for å bruke Flysnapper bare med eksternt MIDI.
+Slå av `Audio to MIDI` for å bruke Flysnapper bare med eksternt MIDI.
 Eksterne holdte noter beholdes når audio-modulen slås av.
 
 ## MIDI-korreksjon
@@ -69,9 +72,10 @@ gjennom uten halvtoneendring inntil du velger en annen korreksjon.
 - `Chord Scale`: gjenkjenn akkordtypen og bruk skalaen som er valgt for denne
   typen på baksiden, transponert til akkordens grunntone.
 
-Flip-knappen åpner baksiden. Alle 50 akkordtyper har sitt eget skalaoppsett;
+`Chord / scale setup` åpner baksiden; `Back to playing` tar deg tilbake. Alle 50 akkordtyper har sitt eget skalaoppsett;
 valg for én type endrer ikke de andre typene. Innstillingene lagres per
-plugininstans sammen med Ableton-settet.
+plugininstans sammen med Ableton-settet. `Reset all 50 to factory` setter alle
+50 tilordninger tilbake til fabrikkvalgene.
 
 `Allowed Notes` viser hvilke toneklasser som er tillatt. Akkordnavnet bygger
 på Buffkillers akkordbibliotek. Noter som holdes på akkordsporet gjennom et
@@ -83,7 +87,7 @@ En holdt spille-note beholder uttonen den startet med, også når akkorden endre
 Nye noter bruker den nye akkorden. Tomt eller ukjent akkordsett i en av
 akkordmodusene undertrykker nye noter til en gyldig akkord finnes.
 
-Slå av `Correction` for ukorrigert audio-til-MIDI og MIDI-gjennomgang.
+Slå av `Correction enabled` for ukorrigert audio-til-MIDI og MIDI-gjennomgang.
 `Panic` avslutter aktive noter og rydder holdpedaler hvis mottakeren henger.
 Flip endrer bare visningen og avbryter ikke noter.
 

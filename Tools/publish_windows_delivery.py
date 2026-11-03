@@ -16,7 +16,31 @@ def redact(text: str) -> str:
     text=re.sub(r'(https?://)[^/@\s]+:[^/@\s]+@',r'\1[REDACTED]@',text)
     return text
 
-def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_manifest: Path | None,report: Path | None,error: str | None = None):
+def installed_package_proof(path: Path | None,source: str,artifact_sha: str,build: dict):
+    if path is None or not path.is_file():raise ValueError('Actual Windows installation validation proof is missing')
+    proof=json.loads(path.read_text(encoding='utf-8'))
+    if proof.get('schema')!=1 or proof.get('status')!='passed' or proof.get('execution_platform')!='Windows':
+        raise ValueError('Actual Windows installation validation did not pass')
+    if proof.get('source_commit')!=source or proof.get('artifact_sha256')!=artifact_sha:
+        raise ValueError('Installation proof belongs to a different source or ZIP')
+    if proof.get('installer_exit_code')!=0 or proof.get('installed_host_exit_code')!=0 or not isinstance(proof.get('host_assertions'),int) or proof['host_assertions']<=0:
+        raise ValueError('Actual installer or installed-module host test failed')
+    if proof.get('installed_files_sha256')!=build.get('bundle_sha256') or proof.get('recovery_files_sha256')!=build.get('bundle_sha256'):
+        raise ValueError('Installed/recovery bundle hashes differ from the Windows build')
+    if proof.get('unicode_paths_verified') is not True or proof.get('unrelated_plugin_preserved') is not True:
+        raise ValueError('Installation isolation and Unicode checks are incomplete')
+    members={'validation/windows-installation.json':path.read_bytes()}
+    for filename,key in (('installation-powershell.txt','powershell_log_sha256'),('installed-vst3-host.txt','host_log_sha256')):
+        log=path.parent/filename
+        if not log.is_file() or hashlib.sha256(log.read_bytes()).hexdigest()!=proof.get(key):raise ValueError('Installed-module verification log is missing or changed')
+        members['validation/'+filename]=log.read_bytes()
+    text=(path.parent/'installed-vst3-host.txt').read_text(encoding='utf-8',errors='replace')
+    count=re.search(r'RESULT actual VST3 host tests passed \((\d+) assertions\)\.',text)
+    if not count or int(count.group(1))!=proof['host_assertions'] or 'PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.' not in text:
+        raise ValueError('Installed VST3 host completion proof is inconsistent')
+    return members
+
+def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_manifest: Path | None,report: Path | None,error: str | None = None,installation_proof: Path | None = None):
     def git(*args,input=None,env=None,check=True):
         return subprocess.run(['git','-C',str(root),*map(str,args)],input=input,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=env,check=check)
     source=git('rev-parse','HEAD').stdout.decode().strip()
@@ -34,6 +58,15 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
         # Preserve beginning/tool versions and latest diagnostics when exceptionally large.
         if len(contents)>2_000_000:contents=contents[:250_000]+'\n[BOUNDED CI LOG: middle omitted]\n'+contents[-1_750_000:]
         name=f'logs/windows-{source}.txt';members[name]=contents.encode();status['log']=name
+    if result=='failed' and installation_proof is not None and installation_proof.is_file():
+        name=f'validation/windows-installation-failed-{source}.json'
+        members[name]=installation_proof.read_bytes()
+        status['installation_validation']={'path':name,'status':'failed'}
+        for filename in ('installation-powershell.txt','installed-vst3-host.txt'):
+            diagnostic=installation_proof.parent/filename
+            if diagnostic.is_file():
+                contents=redact(diagnostic.read_text(encoding='utf-8',errors='replace'))
+                members[f'logs/{source}-{filename}']=contents[-2_000_000:].encode('utf-8')
     if result=='completed':
         from package_windows import verify_package
         verify_package(artifact)
@@ -49,6 +82,8 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
                 raise ValueError('External CI proof differs from packaged proof')
         name='downloads/Flysnapper-Windows-x64.zip';data=artifact.read_bytes();members[name]=data
         digest=hashlib.sha256(data).hexdigest()
+        members.update(installed_package_proof(installation_proof,source,digest,build))
+        status['installation_validation']={'path':'validation/windows-installation.json','sha256':hashlib.sha256(installation_proof.read_bytes()).hexdigest()}
         members['downloads/SHA256SUMS.txt']=f'{digest}  Flysnapper-Windows-x64.zip\n'.encode()
         status['artifact']={'path':name,'sha256':digest,'bytes':len(data)}
         for path,name in ((build_manifest,'validation/windows-build-manifest.json'),(report,'validation/windows-test-results.xml')):
@@ -81,13 +116,13 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
     p.add_argument('--result',choices=('running','completed','failed'),required=True)
-    p.add_argument('--artifact',type=Path);p.add_argument('--log',type=Path);p.add_argument('--build-manifest',type=Path);p.add_argument('--test-results',type=Path)
+    p.add_argument('--artifact',type=Path);p.add_argument('--log',type=Path);p.add_argument('--build-manifest',type=Path);p.add_argument('--test-results',type=Path);p.add_argument('--installation-proof',type=Path)
     a=p.parse_args(argv)
-    try:publish(a.root,a.result,a.artifact,a.log,a.build_manifest,a.test_results)
+    try:publish(a.root,a.result,a.artifact,a.log,a.build_manifest,a.test_results,installation_proof=a.installation_proof)
     except (ValueError,OSError,RuntimeError,subprocess.CalledProcessError) as e:
         message=redact(str(e))
         if a.result=='completed':
-            try:publish(a.root,'failed',None,a.log,None,None,error='Artifact verification failed: '+message)
+            try:publish(a.root,'failed',None,a.log,None,None,error='Artifact verification failed: '+message,installation_proof=a.installation_proof)
             except (ValueError,OSError,RuntimeError,subprocess.CalledProcessError) as secondary:
                 message+='; failure-state publication also failed: '+redact(str(secondary))
         p.exit(1,'Delivery publication failed: '+message+'\n')

@@ -52,15 +52,23 @@ jobs:
             }
           }
           exit $buildExit
+      - name: Install packaged Windows plugin privately and validate the installed module
+        id: installation
+        shell: pwsh
+        run: |
+          $target = Join-Path $env:RUNNER_TEMP 'Olav Lægreid\Flysnapper'
+          python Tools/verify_windows_install.py --artifact artifacts/Flysnapper-Windows-x64.zip --source-root "$target" --source-commit "$env:GITHUB_SHA" --output artifacts/installation-validation.json *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG -Append
+          exit $LASTEXITCODE
       - name: Publish verified Windows ZIP or failure proof through Git
         if: always()
         shell: pwsh
         env:
           BUILD_OUTCOME: ${{ steps.build.outcome }}
+          INSTALL_OUTCOME: ${{ steps.installation.outcome }}
           JOB_STATUS: ${{ job.status }}
         run: |
-          $state = if ($env:BUILD_OUTCOME -eq 'success' -and $env:JOB_STATUS -eq 'success') { 'completed' } else { 'failed' }
-          python Tools/publish_windows_delivery.py --result $state --artifact artifacts/Flysnapper-Windows-x64.zip --log "$env:DELIVERY_LOG" --build-manifest dist/build-manifest.json --test-results dist/test-results.xml
+          $state = if ($env:BUILD_OUTCOME -eq 'success' -and $env:INSTALL_OUTCOME -eq 'success' -and $env:JOB_STATUS -eq 'success') { 'completed' } else { 'failed' }
+          python Tools/publish_windows_delivery.py --result $state --artifact artifacts/Flysnapper-Windows-x64.zip --log "$env:DELIVERY_LOG" --build-manifest dist/build-manifest.json --test-results dist/test-results.xml --installation-proof artifacts/installation-validation.json
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4
         if: always()

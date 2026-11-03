@@ -79,3 +79,31 @@ probe uses a forced compiler descriptor and is not an MSVC execution. The full
 Windows build remains the final native proof. Developer checkout paths too deep
 even for a hashed object tail fail before expensive compilation with a concrete
 message; end users install the prebuilt Windows package.
+
+## Actual packaged-module installation gate
+
+After packaging, Windows CI runs `Tools/verify_windows_install.py`. It verifies
+and extracts the **actual ZIP**, invokes that package's PowerShell installer in
+library mode inside a private Unicode temporary directory, then performs a second
+installation to exercise replacement and the recovery copy. Both installed and
+recovery bundle inventories must exactly match the package/build hashes. A
+separate control plugin remains untouched. No system plugin directory, UAC prompt
+or interactive window is involved.
+
+The helper then launches the built native `FlysnapperVst3HostTests.exe` with the
+**installed bundle path**, repeating the full compiled-module host suite against
+the installed files. It requires successful process exit, the native Windows
+completion marker and a positive assertion count. The ZIP and installed bundle
+must remain unchanged. The helper refuses ambiguous/stale host build paths.
+
+`artifacts/installation-validation.json` records the source revision, ZIP hash,
+installed/recovery hashes, installer/host exit codes, host executable hash and
+assertion count. Its PowerShell and installed-host logs are hashed too. This proof
+is produced after packaging and kept outside the ZIP to avoid circular repacking.
+
+Completed publication additionally requires the installation step to succeed and
+its proof to match the exact source, ZIP and Windows bundle. Git delivery includes
+`validation/windows-installation.json` and the matching logs alongside the ZIP.
+If installation validation fails, the failed proof/logs are published for diagnosis
+and no completed artifact claim is emitted. Fixture regression tests of this
+protocol are separate from the actual native Windows installation gate.
