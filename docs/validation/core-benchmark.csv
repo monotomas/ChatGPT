@@ -1,0 +1,11 @@
+Core CPU benchmark; sample rate 48000 Hz; iterations 2000; warmup 200 per case.
+load,buffer_samples,block_deadline_us,median_us,p95_us,p99_us,max_us,deadline_misses
+idle,32,666.667,0.191,0.291,0.331,52.306,0
+idle,64,1333.333,0.190,0.290,0.331,0.791,0
+idle,128,2666.667,0.190,0.191,0.331,11.526,0
+musical_4_note_events,32,666.667,0.681,0.691,0.821,12.889,0
+musical_4_note_events,64,1333.333,0.681,0.691,0.822,14.130,0
+musical_4_note_events,128,2666.667,0.681,0.701,0.831,234.123,0
+dense_2048_note_events,32,666.667,398.605,659.537,799.272,2268.788,87
+dense_2048_note_events,64,1333.333,609.725,699.045,793.354,1979.534,6
+dense_2048_note_events,128,2666.667,531.860,675.941,787.655,3785.042,1

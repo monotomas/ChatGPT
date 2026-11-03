@@ -1,0 +1,60 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+#include "Pitch/PitchDetector.h"
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <iostream>
+#include <limits>
+#include <memory>
+#include <stdexcept>
+#include <vector>
+using namespace flysnapper::pitch;
+namespace {
+int checks=0;
+void check(bool condition,const char* message){++checks;if(!condition)throw std::runtime_error(message);}
+struct Seen {bool on;int note,velocity,sample;};
+std::vector<float> tone(int rate,int note,int length,bool harmonics=true){
+    std::vector<float> out(size_t(length),0);double f=440*std::pow(2.0,(note-69)/12.0);
+    for(int i=0;i<length;++i){double x=0,t=double(i)/rate;for(int h=1;h<=(harmonics?12:1);++h)if(f*h<rate*.45)x+=std::sin(6.283185307179586*f*h*t+.17*h)/std::pow(double(h),1.25);out[size_t(i)]=float(.15*x*std::min(1.0,t/.001));}
+    return out;
+}
+std::vector<Seen> run(PitchDetector& detector,const std::vector<float>& audio,int block){
+    std::vector<Seen> out;Output events;
+    for(int i=0;i<int(audio.size());i+=block){events.clear();int count=std::min(block,int(audio.size())-i);detector.process(audio.data()+i,count,events);check(!events.overflow,"bounded normal output overflowed");
+        for(size_t j=0;j<events.size;++j){const auto& e=events.events[j];check(e.offset>=0&&e.offset<count,"sample offset outside supplied block");check(e.note>=28&&e.note<=100,"detected pitch outside range");check(e.velocity>=0&&e.velocity<=127,"invalid velocity");out.push_back({e.on,e.note,e.velocity,i+e.offset});}}
+    return out;
+}
+void silenceAndInvalid(){
+    auto d=std::make_unique<PitchDetector>();d->prepare(48000);std::vector<float> silence(4800,0);
+    auto result=run(*d,silence,32);check(result.empty(),"silence generated a note");
+    silence[12]=std::numeric_limits<float>::quiet_NaN();silence[50]=std::numeric_limits<float>::infinity();
+    result=run(*d,silence,127);check(result.empty(),"nonfinite input generated notes");
+    check(std::isfinite(d->status().levelDb),"nonfinite status");
+}
+void monoAndBlocks(){
+    for(int rate:{44100,48000,96000})for(int block:{32,127,512})for(int note:{40,52,60,69,84}){
+        auto d=std::make_unique<PitchDetector>();d->prepare(rate);auto a=tone(rate,note,rate/3);a.resize(size_t(rate/2),0);
+        auto out=run(*d,a,block);int ons=0,offs=0;
+        for(auto e:out){check(e.note==note,"monophonic stable harmonic tone emitted wrong note");if(e.on){++ons;check(e.sample<rate*.16,"monophonic acquisition functional bound exceeded");check(e.velocity>0,"note on lacks velocity");}else ++offs;}
+        check(ons==1&&offs==1,"monophonic note lifecycle mismatch");check(d->status().activeNotes==0,"monophonic voice left active");
+    }
+}
+void polyphony(){
+    for(const auto notes:{std::vector<int>{60,64,67},std::vector<int>{48,52,55},std::vector<int>{52,53}}){
+        auto d=std::make_unique<PitchDetector>();d->prepare(48000);Settings settings;settings.polyphonic=true;d->configure(settings);
+        std::vector<float> a(24000,0);for(int note:notes){auto n=tone(48000,note,16000);for(size_t i=0;i<n.size();++i)a[i]+=n[i]/float(notes.size());}
+        auto out=run(*d,a,128);std::vector<int> actual;int offs=0;
+        for(auto e:out)if(e.on)actual.push_back(e.note);else ++offs;
+        std::sort(actual.begin(),actual.end());auto expected=notes;std::sort(expected.begin(),expected.end());
+        check(actual==expected,"polyphonic chord emitted wrong or missing note");check(offs==int(notes.size()),"polyphonic note offs mismatch");check(d->status().activeNotes==0,"polyphonic voice left active");
+    }
+}
+void transitions(){
+    auto d=std::make_unique<PitchDetector>();d->prepare(48000);auto a=tone(48000,60,8000);auto result=run(*d,a,64);check(std::any_of(result.begin(),result.end(),[](auto e){return e.on&&e.note==60;}),"transition setup note missing");
+    Output out;d->reset(out,17);check(out.size==1&&!out.events[0].on&&out.events[0].note==60&&out.events[0].offset==17,"reset did not end held note");
+    run(*d,a,64);Settings settings;settings.enabled=false;d->configure(settings);out.clear();d->process(a.data(),128,out);check(out.size==1&&!out.events[0].on,"disable did not end held note");
+    out.clear();d->process(a.data(),128,out);check(out.size==0,"disabled detector still emits");settings.enabled=true;settings.polyphonic=true;d->configure(settings);run(*d,a,64);check(d->status().activeNotes<=6,"detector polyphony bound exceeded");
+    out.clear();settings.polyphonic=false;d->configure(settings);d->process(a.data(),128,out);check(std::none_of(out.events.begin(),out.events.begin()+std::ptrdiff_t(out.size),[](auto e){return e.on;}),"mode change reused old audio onset");
+}
+}
+int main(){try{silenceAndInvalid();monoAndBlocks();polyphony();transitions();std::cout<<"FlysnapperPitch: PASS ("<<checks<<" checks; synthetic functional tests, not physical latency acceptance)\n";return 0;}catch(const std::exception& e){std::cerr<<"FlysnapperPitch: FAIL: "<<e.what()<<"\n";return 1;}}

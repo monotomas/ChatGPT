@@ -1,0 +1,82 @@
+name	family	mode	wav	truth_note_on_off_samples
+modal_40_mono	synthetic-modal	mono	pcm/modal_40.wav	40:2400:19200
+modal_40_poly	synthetic-modal	poly	pcm/modal_40.wav	40:2400:19200
+modal_41_mono	synthetic-modal	mono	pcm/modal_41.wav	41:2400:19200
+modal_41_poly	synthetic-modal	poly	pcm/modal_41.wav	41:2400:19200
+modal_45_mono	synthetic-modal	mono	pcm/modal_45.wav	45:2400:19200
+modal_45_poly	synthetic-modal	poly	pcm/modal_45.wav	45:2400:19200
+modal_48_mono	synthetic-modal	mono	pcm/modal_48.wav	48:2400:19200
+modal_48_poly	synthetic-modal	poly	pcm/modal_48.wav	48:2400:19200
+modal_52_mono	synthetic-modal	mono	pcm/modal_52.wav	52:2400:19200
+modal_52_poly	synthetic-modal	poly	pcm/modal_52.wav	52:2400:19200
+modal_57_mono	synthetic-modal	mono	pcm/modal_57.wav	57:2400:19200
+modal_57_poly	synthetic-modal	poly	pcm/modal_57.wav	57:2400:19200
+modal_60_mono	synthetic-modal	mono	pcm/modal_60.wav	60:2400:19200
+modal_60_poly	synthetic-modal	poly	pcm/modal_60.wav	60:2400:19200
+modal_64_mono	synthetic-modal	mono	pcm/modal_64.wav	64:2400:19200
+modal_64_poly	synthetic-modal	poly	pcm/modal_64.wav	64:2400:19200
+modal_69_mono	synthetic-modal	mono	pcm/modal_69.wav	69:2400:19200
+modal_69_poly	synthetic-modal	poly	pcm/modal_69.wav	69:2400:19200
+modal_76_mono	synthetic-modal	mono	pcm/modal_76.wav	76:2400:19200
+modal_76_poly	synthetic-modal	poly	pcm/modal_76.wav	76:2400:19200
+modal_84_mono	synthetic-modal	mono	pcm/modal_84.wav	84:2400:19200
+modal_84_poly	synthetic-modal	poly	pcm/modal_84.wav	84:2400:19200
+karplus_40_mono	synthetic-karplus	mono	pcm/karplus_40.wav	40:2400:19200
+karplus_40_poly	synthetic-karplus	poly	pcm/karplus_40.wav	40:2400:19200
+karplus_52_mono	synthetic-karplus	mono	pcm/karplus_52.wav	52:2400:19200
+karplus_52_poly	synthetic-karplus	poly	pcm/karplus_52.wav	52:2400:19200
+karplus_64_mono	synthetic-karplus	mono	pcm/karplus_64.wav	64:2400:19200
+karplus_64_poly	synthetic-karplus	poly	pcm/karplus_64.wav	64:2400:19200
+karplus_76_mono	synthetic-karplus	mono	pcm/karplus_76.wav	76:2400:19200
+karplus_76_poly	synthetic-karplus	poly	pcm/karplus_76.wav	76:2400:19200
+missing_fundamental_52_mono	synthetic-missing-fundamental	mono	pcm/missing_fundamental_52.wav	52:2400:19200
+missing_fundamental_52_poly	synthetic-missing-fundamental	poly	pcm/missing_fundamental_52.wav	52:2400:19200
+detuned_52_mono	synthetic-detuning	mono	pcm/detuned_52.wav	52:2400:19200
+detuned_52_poly	synthetic-detuning	poly	pcm/detuned_52.wav	52:2400:19200
+vibrato_64_mono	synthetic-vibrato	mono	pcm/vibrato_64.wav	64:2400:31200
+vibrato_64_poly	synthetic-vibrato	poly	pcm/vibrato_64.wav	64:2400:31200
+soft_attack_52_mono	synthetic-soft	mono	pcm/soft_attack_52.wav	52:2400:19200
+soft_attack_52_poly	synthetic-soft	poly	pcm/soft_attack_52.wav	52:2400:19200
+weak_fundamental_40_mono	synthetic-bright	mono	pcm/weak_fundamental_40.wav	40:2400:19200
+weak_fundamental_40_poly	synthetic-bright	poly	pcm/weak_fundamental_40.wav	40:2400:19200
+repeated_52_mono	synthetic-repeated	mono	pcm/repeated_52.wav	52:2400:10080,52:12480:20160,52:22560:30240
+repeated_52_poly	synthetic-repeated	poly	pcm/repeated_52.wav	52:2400:10080,52:12480:20160,52:22560:30240
+continuous_repick_52_mono	synthetic-repick	mono	pcm/continuous_repick_52.wav	52:2400:12000,52:12000:21600,52:21600:31200
+continuous_repick_52_poly	synthetic-repick	poly	pcm/continuous_repick_52.wav	52:2400:12000,52:12000:21600,52:21600:31200
+chromatic_up_mono	synthetic-run	mono	pcm/chromatic_up.wav	52:2400:8160,53:9600:15360,54:16800:22560,55:24000:29760,56:31200:36960,57:38400:44160,58:45600:51360,59:52800:58560
+chromatic_down_mono	synthetic-run	mono	pcm/chromatic_down.wav	59:2400:8160,58:9600:15360,57:16800:22560,56:24000:29760,55:31200:36960,54:38400:44160,53:45600:51360,52:52800:58560
+major_triad_poly	synthetic-poly	poly	pcm/major_triad.wav	48:2400:24000,52:2400:24000,55:2400:24000
+open_e_minor_poly	synthetic-poly	poly	pcm/open_e_minor.wav	40:2400:24000,47:2400:24000,52:2400:24000,55:2400:24000,59:2400:24000,64:2400:24000
+strummed_a_minor_poly	synthetic-poly	poly	pcm/strummed_a_minor.wav	45:2400:24000,52:2640:24240,57:2928:24528,60:3264:24864,64:3648:25248
+adjacent_semitone_poly	synthetic-poly	poly	pcm/adjacent_semitone.wav	52:2400:24000,53:2400:24000
+octaves_poly	synthetic-poly	poly	pcm/octaves.wav	40:2400:24000,52:2400:24000,64:2400:24000
+weak_upper_poly	synthetic-poly	poly	pcm/weak_upper.wav	48:2400:24000,64:2400:24000
+staggered_poly	synthetic-poly	poly	pcm/staggered.wav	48:2400:24000,55:7680:29280,64:13440:35040
+digital_silence_mono	silence	mono	pcm/digital_silence.wav	
+digital_silence_poly	silence	poly	pcm/digital_silence.wav	
+unpitched_click_mono	noise	mono	pcm/unpitched_click.wav	
+unpitched_click_poly	noise	poly	pcm/unpitched_click.wav	
+noise_floor_mono	noise	mono	pcm/noise_floor.wav	
+noise_floor_poly	noise	poly	pcm/noise_floor.wav	
+broadband_noise_mono	noise	mono	pcm/broadband_noise.wav	
+broadband_noise_poly	noise	poly	pcm/broadband_noise.wav	
+colored_noise_mono	noise	mono	pcm/colored_noise.wav	
+colored_noise_poly	noise	poly	pcm/colored_noise.wav	
+recorded_E2_mono	recorded-single	mono	pcm/recorded_E2.wav	40:3321:36000
+recorded_E2_poly	recorded-single	poly	pcm/recorded_E2.wav	40:3321:36000
+recorded_A2_mono	recorded-single	mono	pcm/recorded_A2.wav	45:3204:36000
+recorded_A2_poly	recorded-single	poly	pcm/recorded_A2.wav	45:3204:36000
+recorded_D3_mono	recorded-single	mono	pcm/recorded_D3.wav	50:3092:36000
+recorded_D3_poly	recorded-single	poly	pcm/recorded_D3.wav	50:3092:36000
+recorded_G3_mono	recorded-single	mono	pcm/recorded_G3.wav	55:3075:36000
+recorded_G3_poly	recorded-single	poly	pcm/recorded_G3.wav	55:3075:36000
+recorded_B3_mono	recorded-single	mono	pcm/recorded_B3.wav	59:3111:36000
+recorded_B3_poly	recorded-single	poly	pcm/recorded_B3.wav	59:3111:36000
+recorded_E3_mono	recorded-single	mono	pcm/recorded_E3.wav	52:2904:36000
+recorded_E3_poly	recorded-single	poly	pcm/recorded_E3.wav	52:2904:36000
+recorded_E4_mono	recorded-single	mono	pcm/recorded_E4.wav	64:3423:36000
+recorded_E4_poly	recorded-single	poly	pcm/recorded_E4.wav	64:3423:36000
+recorded_Fs3_mono	recorded-single	mono	pcm/recorded_Fs3.wav	54:3227:36000
+recorded_Fs3_poly	recorded-single	poly	pcm/recorded_Fs3.wav	54:3227:36000
+recorded_E_octaves_poly	recorded-note-mixture	poly	pcm/recorded_E_octaves.wav	40:3321:36000,52:2904:36000,64:3423:36000
+recorded_strings_poly	recorded-note-mixture	poly	pcm/recorded_strings.wav	40:3321:36000,45:3540:36336,50:3764:36672,55:4083:37008,59:4455:37344,64:5103:37680

@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "frozen_date": "2026-11-03",
+  "scope": "Basic useful note accuracy; NOT physical or detector 5/10ms target acceptance",
+  "required_zero": [
+    "missed",
+    "false_note_ons",
+    "octave_errors",
+    "wrong_before_correct",
+    "early_offs",
+    "hung",
+    "overflow"
+  ],
+  "release_p95_max_ms": 100,
+  "sample_rate": 48000,
+  "block_size": 64,
+  "cases": [
+    {
+      "name": "digital_silence_mono",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "digital_silence_poly",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "unpitched_click_mono",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "unpitched_click_poly",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "noise_floor_mono",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "noise_floor_poly",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "broadband_noise_mono",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "broadband_noise_poly",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "colored_noise_mono",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "colored_noise_poly",
+      "group": "negative",
+      "maximum_detector_response_ms": null
+    },
+    {
+      "name": "modal_40_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "modal_52_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "modal_64_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "modal_84_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "karplus_40_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "missing_fundamental_52_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "vibrato_64_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "repeated_52_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "continuous_repick_52_mono",
+      "group": "synthetic-mono",
+      "maximum_detector_response_ms": 60
+    },
+    {
+      "name": "recorded_E2_mono",
+      "group": "recorded-mono",
+      "maximum_detector_response_ms": 100
+    },
+    {
+      "name": "recorded_A2_mono",
+      "group": "recorded-mono",
+      "maximum_detector_response_ms": 100
+    },
+    {
+      "name": "recorded_D3_mono",
+      "group": "recorded-mono",
+      "maximum_detector_response_ms": 100
+    },
+    {
+      "name": "recorded_G3_mono",
+      "group": "recorded-mono",
+      "maximum_detector_response_ms": 100
+    },
+    {
+      "name": "recorded_B3_mono",
+      "group": "recorded-mono",
+      "maximum_detector_response_ms": 100
+    },
+    {
+      "name": "recorded_E3_mono",
+      "group": "recorded-mono",
+      "maximum_detector_response_ms": 100
+    },
+    {
+      "name": "recorded_E4_mono",
+      "group": "recorded-mono",
+      "maximum_detector_response_ms": 100
+    },
+    {
+      "name": "recorded_Fs3_mono",
+      "group": "recorded-mono",
+      "maximum_detector_response_ms": 100
+    },
+    {
+      "name": "major_triad_poly",
+      "group": "polyphonic-chord",
+      "maximum_detector_response_ms": 120
+    },
+    {
+      "name": "open_e_minor_poly",
+      "group": "polyphonic-chord",
+      "maximum_detector_response_ms": 120
+    },
+    {
+      "name": "strummed_a_minor_poly",
+      "group": "polyphonic-chord",
+      "maximum_detector_response_ms": 120
+    }
+  ]
+}

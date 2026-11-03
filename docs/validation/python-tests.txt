@@ -1,0 +1,61 @@
+PYTHON FIXTURE TESTS ON LINUX — NOT WINDOWS/MSVC EXECUTION
+
+MSVC x64: /tmp/tmpv5j1mo_f/BuildTools/VC/Tools/MSVC/14.51.36231
+Windows SDK: 10.0.26100.0 | /tmp/tmpv5j1mo_f/sdk
+Ressurskompilator: /tmp/tmpv5j1mo_f/sdk/bin/10.0.26100.0/x64/rc.exe
+Manifestverktoy: /tmp/tmpv5j1mo_f/sdk/bin/10.0.26100.0/x64/mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+Microsofts automatiske miljooppsett var ufullstendig. Kontrollerer verktøy og SDK-filer direkte.
+VsDevCmd.bat: Windows SDK-verktøyet rc.exe er ikke tilgjengelig i byggemiljoet.
+MSVC x64: /tmp/tmp8zp7lwym/BuildTools/VC/Tools/MSVC/14.51.36231
+Windows SDK: 10.0.26100.0 | /tmp/tmp8zp7lwym/Windows Kits/10
+Ressurskompilator: /tmp/tmp8zp7lwym/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe
+Manifestverktoy: /tmp/tmp8zp7lwym/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe
+Byggemetode: NMake Makefiles (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+INSTALLERT: /workspace/ChatGPT/build/temp/tmpdi8a43mo/Plugins/Flysnapper.vst3
+usage: python -m unittest [-h] [--native] [--juce-dir JUCE_DIR] [--jobs JOBS]
+                          [--install-sdk] [--install | --install-only]
+                          [--choose-install-dir | --install-dir INSTALL_DIR]
+python -m unittest: error: installation destination requires --install or --install-only
+usage: python -m unittest [-h] [--native] [--juce-dir JUCE_DIR] [--jobs JOBS]
+                          [--install-sdk] [--install | --install-only]
+                          [--choose-install-dir | --install-dir INSTALL_DIR]
+python -m unittest: error: --native is Linux validation only and cannot install
+INSTALLERT: /tmp/tmp8ksj7weo/Plugins/Flysnapper.vst3
+Forrige versjon for gjenoppretting: /tmp/tmp8ksj7weo/dist/previous-installations/20261103-020601-911150/Flysnapper.vst3
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmpc0b9lalo/sdk-install-20261103-020601.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmpdbbfa5_b/sdk-install-20261103-020601.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmpbb4f_8lv/sdk-install-20261103-020601.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /tmp/tmpbac4fqv1/sdk-install-20261103-020601.log
+Microsofts SDK-installasjon er ferdig. Kontrollerer filene pa nytt.
+missing
+missing
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+FLYSNAPPER_TOOLCHAIN_OK
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+Kontrollert JUCE-byggekopi med Windows Unicode-rettelse brukes pa nytt.
+----------------------------------------------------------------------
+Ran 81 tests in 0.146s
+
+OK

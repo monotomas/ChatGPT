@@ -1,0 +1,75 @@
+name: Flysnapper complete Windows x64 package
+on:
+  push:
+    branches: [release/full-flysnapper]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: flysnapper-windows-delivery
+  cancel-in-progress: false
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 60
+    env:
+      DELIVERY_LOG: ${{ github.workspace }}\windows-ci.log
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Record running state through Git
+        run: python Tools/publish_windows_delivery.py --result running
+      - name: Python and Windows PowerShell installer regressions
+        shell: pwsh
+        run: |
+          python -m unittest discover -s Tests -p "test*.py" -v *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG
+          exit $LASTEXITCODE
+      - name: Build and validate in Unicode path
+        id: build
+        shell: pwsh
+        run: |
+          $target = Join-Path $env:RUNNER_TEMP 'Olav Lægreid\Flysnapper'
+          New-Item -ItemType Directory -Path $target -Force | Out-Null
+          Get-ChildItem -Force | Where-Object { $_.Name -notin @('.git','build','deps','dist','logs','artifacts','__pycache__') } | Copy-Item -Destination $target -Recurse -Force
+          "Flysnapper source: $env:GITHUB_SHA" | Out-File -FilePath $env:DELIVERY_LOG -Append -Encoding utf8
+          Set-Location $target
+          $buildExit = 1
+          try {
+            python build_plugin.py --jobs 2 *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG -Append
+            $buildExit = $LASTEXITCODE
+            if ($buildExit -ne 0) { exit $buildExit }
+            New-Item -ItemType Directory -Path "$env:GITHUB_WORKSPACE\artifacts" -Force | Out-Null
+            python Tools/package_windows.py --output "$env:GITHUB_WORKSPACE\artifacts\Flysnapper-Windows-x64.zip" *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG -Append
+            $buildExit = $LASTEXITCODE
+          } finally {
+            foreach ($folder in @('dist','logs')) {
+              if (Test-Path $folder) { Copy-Item -Path $folder -Destination $env:GITHUB_WORKSPACE -Recurse -Force }
+            }
+          }
+          exit $buildExit
+      - name: Publish verified Windows ZIP or failure proof through Git
+        if: always()
+        shell: pwsh
+        env:
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          $state = if ($env:BUILD_OUTCOME -eq 'success' -and $env:JOB_STATUS -eq 'success') { 'completed' } else { 'failed' }
+          python Tools/publish_windows_delivery.py --result $state --artifact artifacts/Flysnapper-Windows-x64.zip --log "$env:DELIVERY_LOG" --build-manifest dist/build-manifest.json --test-results dist/test-results.xml
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Flysnapper-Windows-x64
+          path: |
+            artifacts/
+            dist/build-manifest.json
+            dist/test-results.xml
+            windows-ci.log
+            logs/
+          if-no-files-found: warn

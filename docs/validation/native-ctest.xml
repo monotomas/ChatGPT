@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="(empty)"
+	tests="3"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname=""
+	time="0"
+	timestamp="2026-11-03T02:12:35"
+	>
+	<testcase name="FlysnapperCore" classname="FlysnapperCore" time="0.0673308" status="run">
+		<properties/>
+		<system-out>Flysnapper core: 6 suites passed, 2104154 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+</system-out>
+	</testcase>
+	<testcase name="FlysnapperPluginSmoke" classname="FlysnapperPluginSmoke" time="0.159495" status="run">
+		<properties/>
+		<system-out>PASS 50 x 19 choices, stable IDs, mixed table, instances, malformed state, transient test reset
+PASS block-internal chord timing, routing role isolation, note binding, bypass, generated/external, sustain, panic, expression
+PASS generated sample schedule at 3 rates x 5 blocks, seek/stop, zero-frame reset, bounded overload, sidechain bus layouts
+PASS warmed processor C++ new allocation check (malloc/realloc and host wrapper excluded)
+PASS actual JUCE editor: large chord, 50x19 menus, flip/close continuity; front/back PNG snapshots written
+FlysnapperPluginSmoke: PASS (225603 assertions)
+</system-out>
+	</testcase>
+	<testcase name="FlysnapperActualVst3" classname="FlysnapperActualVst3" time="0.657937" status="run">
+		<properties/>
+		<system-out>PASS actual VST3 discovery and instrument classification
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 257 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 257 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 2...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+</testsuite>

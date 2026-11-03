@@ -1,0 +1,17 @@
+{
+  "recorded_at_utc": "2026-11-03T16:53:34.574384+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_sha256": {
+    "Tools/audio_validation.cpp": "1ddc7d36f1404872ca2e81cfdec388513cc26c4e5c563ac16a50a8fc75e46ae9",
+    "Source/Pitch/PitchDetector.cpp": "c54e925c0d0c6983f814f60fbdba4737242865b3f4dcdf8ea80e5228144044a8",
+    "Source/Pitch/PitchDetector.h": "5891b974b40bfa600f56fdabfaac0a156bf4b0642a01d2b8eab0818c79766887"
+  },
+  "binary_sha256": "46a93152eeb610f5c6d54de7552f96011da6c9960e5749e644bf691fbc54ba78",
+  "fixtures_sha256": "0df34cde4a34e6e2eb5679f1fd8effc1f7ba2aa38841e47e82c5918e2a6e193a",
+  "configuration": "quick:48000Hz/64samples",
+  "measurement_not_acceptance": true,
+  "minimum_useful_correct_note_ms": 20,
+  "runner_exit_code": 0,
+  "source_changed_during_measurement": false
+}

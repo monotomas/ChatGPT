@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "stage": "routing-midi-prototype",
+  "builder_revision": "2026.11.03-prototype-0.1.0",
+  "platform": "Linux-x86_64",
+  "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
+  "built_at": "2026-11-03T02:12:36.677794+00:00",
+  "python": "3.12.14",
+  "vst3_sha256": "2586ef38f71653dd0792978df52330cda2d7f856cd490ecd9a79bb94f421bde8",
+  "bundle_sha256": {
+    "Contents/Resources/moduleinfo.json": "cc694043e5965a99fe73746d37eb49c48a3fad0407bddad62643e9e4d0aefcd6",
+    "Contents/x86_64-linux/Flysnapper.so": "2586ef38f71653dd0792978df52330cda2d7f856cd490ecd9a79bb94f421bde8"
+  },
+  "tests": "passed",
+  "required_test_names": [
+    "FlysnapperActualVst3",
+    "FlysnapperCore",
+    "FlysnapperPluginSmoke"
+  ],
+  "ableton_verified": false,
+  "pitch_detection_implemented": false,
+  "windows_verified": false
+}
