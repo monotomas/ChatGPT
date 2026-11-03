@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "stage": "integrated-audio-midi",
+  "builder_revision": "2026.11.03-audio-midi-0.2.0",
+  "platform": "Windows-x64",
+  "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
+  "built_at": "2026-11-03T19:24:20.698557+00:00",
+  "python": "3.12.10",
+  "source_commit": "b82ebf5c68fdb7e04f0cd9178c4990932868b413",
+  "vst3_sha256": "7b7edd97e3160f2b647c791a59ec3d95efc3108d553a7b44919eb6a80479fa64",
+  "bundle_sha256": {
+    "Contents/Resources/moduleinfo.json": "9d026fe173fb15be3c399ab40eb4d738765c98da2d4425e190205c34ecef933c",
+    "Contents/x86_64-win/Flysnapper.vst3": "7b7edd97e3160f2b647c791a59ec3d95efc3108d553a7b44919eb6a80479fa64"
+  },
+  "tests": "passed",
+  "required_test_names": [
+    "FlysnapperActualVst3",
+    "FlysnapperAudioQuality",
+    "FlysnapperCore",
+    "FlysnapperPitch",
+    "FlysnapperPluginSmoke",
+    "FlysnapperProcessorAudio",
+    "FlysnapperYin"
+  ],
+  "ableton_verified": false,
+  "pitch_detection_implemented": true,
+  "visual_studio_build_version": "17.14.37824.6",
+  "windows_sdk_version": "10.0.26100.0",
+  "toolchain_probe": "passed",
+  "juceaide_unicode_probe": "passed",
+  "juce_unicode_patch": "windows-wide-argv-v1",
+  "windows_verified": true
+}

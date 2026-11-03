@@ -1,0 +1,25 @@
+PASS actual VST3 discovery and instrument classification
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 257 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 257 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 32 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 128 samples
+PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 257 samples
+PASS actual VST3 named sidechain activation, audio, digital silence and deactivation
+PASS actual VST3 generated/external simultaneous events, 4800-sample test gate, source-only shutdown
+PASS actual VST3 all settings/table state roundtrip, instance isolation, no revived notes
+PASS actual VST3 stop/restart/seek flush, no stale chord or repeated note offs
+MEASURE actual VST3 Controller Modulation Wheel (coarse): 73 Channel 2 offset in=17 out=17
+MEASURE actual VST3 Pitch wheel 12345 Channel 2 offset in=17 out=17
+MEASURE actual VST3 Channel pressure 41 Channel 2 offset in=17 out=17
+MEASURE actual VST3 Program change 17 Channel 2 offset in=17 out=17
+PASS actual VST3 CC1, pitch bend, channel pressure and program-change values
+PASS actual VST3 forwarded CC66/CC69 released at transport stop without active core voices
+MEASURE actual VST3 audio first useful note 18.6458 ms (functional sample observation, excludes driver/Live/synth latency)
+PASS actual compiled VST3 mono/poly sidechain -> MIDI -> correction, simultaneous external/control MIDI and source-only shutdown
+RESULT actual VST3 host tests passed (197218 assertions).
+PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
+NOT VERIFIED BY THIS TEST: Ableton Live, audio-driver/end-to-end latency or general musical accuracy.

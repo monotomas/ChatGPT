@@ -1,10 +1,19 @@
 {
   "schema": 1,
   "source_commit": "b82ebf5c68fdb7e04f0cd9178c4990932868b413",
-  "status": "running",
+  "status": "completed",
   "run_id": "41699686624",
   "run_attempt": "1",
   "repository": "monotomas/ChatGPT",
-  "updated_at": "2026-11-03T19:14:15.857115+00:00",
-  "artifact": null
+  "updated_at": "2026-11-03T19:24:25.838580+00:00",
+  "artifact": {
+    "path": "downloads/Flysnapper-Windows-x64.zip",
+    "sha256": "cbcea7a60906a0c965cfc17f370a4c87b07c967acb9cb16ae91be3e433fbb7ea",
+    "bytes": 11719522
+  },
+  "log": "logs/windows-b82ebf5c68fdb7e04f0cd9178c4990932868b413.txt",
+  "installation_validation": {
+    "path": "validation/windows-installation.json",
+    "sha256": "ba86795c77865556755daf72c62eeda2bc4248375ed79ab489a57ea1de89d55b"
+  }
 }

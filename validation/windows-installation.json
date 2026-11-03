@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "execution_platform": "Windows",
+  "execution_architecture": "AMD64",
+  "source_commit": "b82ebf5c68fdb7e04f0cd9178c4990932868b413",
+  "artifact_sha256": "cbcea7a60906a0c965cfc17f370a4c87b07c967acb9cb16ae91be3e433fbb7ea",
+  "artifact_bytes": 11719522,
+  "recorded_at_utc": "2026-11-03T19:24:23.153992+00:00",
+  "installer_exit_code": 0,
+  "installed_host_exit_code": 0,
+  "host_assertions": 197218,
+  "host_binary_sha256": "b5ba37ab474acf308fa4c3af9429e8c9ba4ab6dc6cc6a7523fcd22b81766d38c",
+  "ableton_verified": false,
+  "scope": "Actual packaged Windows installer and installed compiled VST3; no system install or DAW/driver validation",
+  "installed_files_sha256": {
+    "Contents/Resources/moduleinfo.json": "9d026fe173fb15be3c399ab40eb4d738765c98da2d4425e190205c34ecef933c",
+    "Contents/x86_64-win/Flysnapper.vst3": "7b7edd97e3160f2b647c791a59ec3d95efc3108d553a7b44919eb6a80479fa64"
+  },
+  "recovery_files_sha256": {
+    "Contents/Resources/moduleinfo.json": "9d026fe173fb15be3c399ab40eb4d738765c98da2d4425e190205c34ecef933c",
+    "Contents/x86_64-win/Flysnapper.vst3": "7b7edd97e3160f2b647c791a59ec3d95efc3108d553a7b44919eb6a80479fa64"
+  },
+  "unrelated_plugin_preserved": true,
+  "extraction_path": "D:\\a\\_temp\\flysnapper-install-5fvazns2\\Olav Lægreid\\Utpakket\\Flysnapper-0.2.0-Windows-x64",
+  "installed_bundle_path": "D:\\a\\_temp\\flysnapper-install-5fvazns2\\Olav Lægreid\\Separate VST3\\Flysnapper.vst3",
+  "recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-5fvazns2\\Olav Lægreid\\Recovery outside scan\\20261103-192423-8109027-596fa13b49e744c2a424b63a55fc96e1\\Flysnapper.vst3",
+  "unicode_paths_verified": true,
+  "installed_host_command": [
+    "D:\\a\\_temp\\Olav Lægreid\\Flysnapper\\build\\w-a40571ed5356\\FlysnapperVst3HostTests_artefacts\\Release\\FlysnapperVst3HostTests.exe",
+    "D:\\a\\_temp\\flysnapper-install-5fvazns2\\Olav Lægreid\\Separate VST3\\Flysnapper.vst3"
+  ],
+  "powershell_log_sha256": "2ea8dd40e8c9b9b6bee2e215f993c0b18e9b34d97612656ee56d36ca72646f37",
+  "host_log_sha256": "8c02cf5d50b2f51cac243b3ac7b12f8fa32d2707824244d9d8a1f4e3e2506f73"
+}
