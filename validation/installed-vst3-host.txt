@@ -20,6 +20,13 @@ PASS actual VST3 CC1, pitch bend, channel pressure and program-change values
 PASS actual VST3 forwarded CC66/CC69 released at transport stop without active core voices
 MEASURE actual VST3 audio first useful note 18.6458 ms (functional sample observation, excludes driver/Live/synth latency)
 PASS actual compiled VST3 mono/poly sidechain -> MIDI -> correction, simultaneous external/control MIDI and source-only shutdown
-RESULT actual VST3 host tests passed (197218 assertions).
+MEASURE actual VST3 mono bend 44100 Hz, +/-2 semitones: 152 pitch updates, P95 error 4.30367 cents
+MEASURE actual VST3 mono bend 44100 Hz, +/-12 semitones: 152 pitch updates, P95 error 4.30367 cents
+MEASURE actual VST3 mono bend 48000 Hz, +/-2 semitones: 152 pitch updates, P95 error 4.30476 cents
+MEASURE actual VST3 mono bend 48000 Hz, +/-12 semitones: 152 pitch updates, P95 error 4.30476 cents
+MEASURE actual VST3 mono bend 96000 Hz, +/-2 semitones: 150 pitch updates, P95 error 4.31094 cents
+MEASURE actual VST3 mono bend 96000 Hz, +/-12 semitones: 150 pitch updates, P95 error 4.31094 cents
+PASS actual VST3 acoustic bend/vibrato, RPN range, generated channel isolation and wheel reset
+RESULT actual VST3 host tests passed (952458 assertions).
 PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
 NOT VERIFIED BY THIS TEST: Ableton Live, audio-driver/end-to-end latency or general musical accuracy.
