@@ -89,3 +89,9 @@ The baseline's missing poly-bend capability also affects its pass count, so
 `compare.py` reproduces `comparison.json` with complete family/mode metrics and
 raw hashes. Numerical policy, intended labels, PCM and original failure reports
 remain unchanged. No musical-readiness approval follows from this capture.
+
+An independent [signal-content audit](annotation_audit/README.md) examines the
+false repeated attack and the electric-percussion semantic boundary without
+changing those labels or scores. It preserves strong versus noise-dominated
+partial evidence, historical-window timing, and the distinction between an
+author's suppression intent and proof that a recording is non-tonal.

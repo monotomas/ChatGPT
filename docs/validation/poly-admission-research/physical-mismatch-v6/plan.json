@@ -1,0 +1,120 @@
+{
+  "scope": "Post-development synthetic falsification, not unseen acceptance",
+  "cases": [
+    {
+      "name": "partial_decay_40_0.0_1.0",
+      "kind": "partial_decay",
+      "note": 40,
+      "stiffness": 0.0,
+      "boost": 1.0
+    },
+    {
+      "name": "partial_decay_40_0.0_5.0",
+      "kind": "partial_decay",
+      "note": 40,
+      "stiffness": 0.0,
+      "boost": 5.0
+    },
+    {
+      "name": "partial_decay_40_0.0004_1.0",
+      "kind": "partial_decay",
+      "note": 40,
+      "stiffness": 0.0004,
+      "boost": 1.0
+    },
+    {
+      "name": "partial_decay_40_0.0004_5.0",
+      "kind": "partial_decay",
+      "note": 40,
+      "stiffness": 0.0004,
+      "boost": 5.0
+    },
+    {
+      "name": "partial_decay_45_0.0_1.0",
+      "kind": "partial_decay",
+      "note": 45,
+      "stiffness": 0.0,
+      "boost": 1.0
+    },
+    {
+      "name": "partial_decay_45_0.0_5.0",
+      "kind": "partial_decay",
+      "note": 45,
+      "stiffness": 0.0,
+      "boost": 5.0
+    },
+    {
+      "name": "partial_decay_45_0.0004_1.0",
+      "kind": "partial_decay",
+      "note": 45,
+      "stiffness": 0.0004,
+      "boost": 1.0
+    },
+    {
+      "name": "partial_decay_45_0.0004_5.0",
+      "kind": "partial_decay",
+      "note": 45,
+      "stiffness": 0.0004,
+      "boost": 5.0
+    },
+    {
+      "name": "partial_decay_52_0.0_1.0",
+      "kind": "partial_decay",
+      "note": 52,
+      "stiffness": 0.0,
+      "boost": 1.0
+    },
+    {
+      "name": "partial_decay_52_0.0_5.0",
+      "kind": "partial_decay",
+      "note": 52,
+      "stiffness": 0.0,
+      "boost": 5.0
+    },
+    {
+      "name": "partial_decay_52_0.0004_1.0",
+      "kind": "partial_decay",
+      "note": 52,
+      "stiffness": 0.0004,
+      "boost": 1.0
+    },
+    {
+      "name": "partial_decay_52_0.0004_5.0",
+      "kind": "partial_decay",
+      "note": 52,
+      "stiffness": 0.0004,
+      "boost": 5.0
+    },
+    {
+      "name": "same_note_phase_reset",
+      "kind": "same_note_phase_reset",
+      "note": 45,
+      "stiffness": 0.0003,
+      "boost": 1.0
+    },
+    {
+      "name": "odd_partial_morph",
+      "kind": "odd_partial_morph",
+      "note": 45,
+      "stiffness": 0.0003,
+      "boost": 1.0
+    },
+    {
+      "name": "gain_swell",
+      "kind": "gain_swell",
+      "note": 45,
+      "stiffness": 0.0003,
+      "boost": 1.0
+    },
+    {
+      "name": "gain_withdrawal",
+      "kind": "gain_withdrawal",
+      "note": 45,
+      "stiffness": 0.0003,
+      "boost": 1.0
+    }
+  ],
+  "samples": 512,
+  "rate": 12000,
+  "frame_start_sample": 700
+}

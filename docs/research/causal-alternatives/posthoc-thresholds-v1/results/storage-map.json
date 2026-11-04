@@ -1,0 +1,12 @@
+{
+  "scope": "Lossless compact archive encoding only; no event/score changes",
+  "cases.csv.gz": {
+    "decompresses_to": "cases.csv",
+    "uncompressed_bytes": 1542289,
+    "uncompressed_sha256": "99540937c517e1e4851364b286458a1abc8357b0ba3bdcc17108d0024609a3eb",
+    "compressed_bytes": 77247,
+    "compressed_sha256": "764801370d5ca3d75cb34ad7831409c5cbeed0c0ad92f3d15b789ae95d4f503c"
+  },
+  "original_result_directory": "/tmp/flysnapper-causal-thresholds-v1-results",
+  "note": "manifest.json retains original output_sha256 for uncompressed cases.csv; decompression reconstructs it exactly."
+}

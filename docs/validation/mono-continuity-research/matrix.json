@@ -1,0 +1,230 @@
+[
+  {
+    "variant": "v1",
+    "realnoise": {
+      "cases": 64,
+      "passed": 34,
+      "expected": 48,
+      "matched": 48,
+      "missed": 0,
+      "extra_note_ons": 42,
+      "noise_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 0,
+      "early_offs": 28,
+      "late_offs": 0,
+      "hung": 0,
+      "overflow": 0
+    },
+    "old107": {
+      "expected": 107,
+      "matched": 102,
+      "missed": 5,
+      "false_note_ons": 1,
+      "wrong_before_correct": 1,
+      "early_offs": 0
+    }
+  },
+  {
+    "variant": "v2",
+    "realnoise": {
+      "cases": 64,
+      "passed": 42,
+      "expected": 48,
+      "matched": 48,
+      "missed": 0,
+      "extra_note_ons": 24,
+      "noise_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 0,
+      "early_offs": 17,
+      "late_offs": 3,
+      "hung": 0,
+      "overflow": 0
+    }
+  },
+  {
+    "variant": "v3",
+    "realnoise": {
+      "cases": 64,
+      "passed": 46,
+      "expected": 48,
+      "matched": 48,
+      "missed": 0,
+      "extra_note_ons": 24,
+      "noise_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 0,
+      "early_offs": 14,
+      "late_offs": 2,
+      "hung": 0,
+      "overflow": 0
+    },
+    "controls": {
+      "cases": 34,
+      "passed": 21,
+      "expected": 77,
+      "matched": 67,
+      "missed": 10,
+      "extra_note_ons": 2,
+      "early_offs": 2,
+      "late_offs": 10,
+      "noise_note_ons": 0,
+      "hung": 0,
+      "overflow": 0
+    },
+    "old107": {
+      "expected": 107,
+      "matched": 103,
+      "missed": 4,
+      "false_note_ons": 1,
+      "wrong_before_correct": 1,
+      "early_offs": 0
+    }
+  },
+  {
+    "variant": "v4",
+    "realnoise": {
+      "cases": 64,
+      "passed": 46,
+      "expected": 48,
+      "matched": 48,
+      "missed": 0,
+      "extra_note_ons": 24,
+      "noise_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 0,
+      "early_offs": 16,
+      "late_offs": 0,
+      "hung": 0,
+      "overflow": 0
+    }
+  },
+  {
+    "variant": "v5",
+    "realnoise": {
+      "cases": 64,
+      "passed": 44,
+      "expected": 48,
+      "matched": 48,
+      "missed": 0,
+      "extra_note_ons": 26,
+      "noise_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 0,
+      "early_offs": 18,
+      "late_offs": 0,
+      "hung": 0,
+      "overflow": 0
+    },
+    "controls": {
+      "cases": 34,
+      "passed": 27,
+      "expected": 77,
+      "matched": 77,
+      "missed": 0,
+      "extra_note_ons": 1,
+      "early_offs": 3,
+      "late_offs": 0,
+      "noise_note_ons": 0,
+      "hung": 0,
+      "overflow": 0
+    }
+  },
+  {
+    "variant": "v6",
+    "realnoise": {
+      "cases": 64,
+      "passed": 46,
+      "expected": 48,
+      "matched": 48,
+      "missed": 0,
+      "extra_note_ons": 24,
+      "noise_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 0,
+      "early_offs": 16,
+      "late_offs": 0,
+      "hung": 0,
+      "overflow": 0
+    },
+    "controls": {
+      "cases": 34,
+      "passed": 29,
+      "expected": 77,
+      "matched": 77,
+      "missed": 0,
+      "extra_note_ons": 4,
+      "early_offs": 4,
+      "late_offs": 0,
+      "noise_note_ons": 0,
+      "hung": 0,
+      "overflow": 0
+    },
+    "old107": {
+      "expected": 107,
+      "matched": 104,
+      "missed": 3,
+      "false_note_ons": 1,
+      "wrong_before_correct": 1,
+      "early_offs": 0
+    }
+  },
+  {
+    "variant": "v7",
+    "realnoise": {
+      "cases": 64,
+      "passed": 38,
+      "expected": 48,
+      "matched": 48,
+      "missed": 0,
+      "extra_note_ons": 42,
+      "noise_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 0,
+      "early_offs": 24,
+      "late_offs": 0,
+      "hung": 0,
+      "overflow": 0
+    }
+  },
+  {
+    "variant": "v8-final",
+    "realnoise": {
+      "cases": 64,
+      "passed": 34,
+      "expected": 48,
+      "matched": 48,
+      "missed": 0,
+      "extra_note_ons": 40,
+      "noise_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 0,
+      "early_offs": 28,
+      "late_offs": 0,
+      "hung": 0,
+      "overflow": 0
+    },
+    "controls": {
+      "cases": 34,
+      "passed": 29,
+      "expected": 77,
+      "matched": 77,
+      "missed": 0,
+      "extra_note_ons": 8,
+      "early_offs": 4,
+      "late_offs": 0,
+      "noise_note_ons": 0,
+      "hung": 0,
+      "overflow": 0
+    },
+    "old107": {
+      "expected": 107,
+      "matched": 107,
+      "missed": 0,
+      "false_note_ons": 1,
+      "wrong_before_correct": 1,
+      "early_offs": 0
+    }
+  }
+]

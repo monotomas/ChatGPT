@@ -1,0 +1,29 @@
+{
+  "scope": "Seen functional regressions, NOT musical readiness or physical latency",
+  "source": "/tmp/flysnapper-mono-continuity-v6",
+  "recorded_utc": "2026-11-04T02:36:51.302911+00:00",
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/HarmonicContinuity.cpp": "b57ff3b7be304010b2e96c74381cb9c4eaa23f25ea36adb8ac8bd5be5e3e197b",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/PitchDetector.cpp": "3b6fc7ec41d2c173bea5372da40398147395a34ee63091ea90ed98ecf32bde8f",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/HarmonicContinuity.h": "7cbbd3da40280e6f98280f2aa85b7bdda51297eae2babfe9b94b8fc9151768ac",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.h": "900f67eb4d18ebd64c8ec833a54a046a398663fdbe305044e9e4cb647beb5ea2",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1"
+  },
+  "source_changed": false,
+  "results": {
+    "public": 0,
+    "holdout": 0,
+    "confirmation": 0
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "name": "bend_return_N40_25ms",
+    "kind": "bend",
+    "note": 40,
+    "ms": 25,
+    "expected": [
+      40
+    ]
+  },
+  {
+    "name": "bend_return_N40_80ms",
+    "kind": "bend",
+    "note": 40,
+    "ms": 80,
+    "expected": [
+      40
+    ]
+  },
+  {
+    "name": "bend_return_N40_220ms",
+    "kind": "bend",
+    "note": 40,
+    "ms": 220,
+    "expected": [
+      40
+    ]
+  },
+  {
+    "name": "bend_return_N57_25ms",
+    "kind": "bend",
+    "note": 57,
+    "ms": 25,
+    "expected": [
+      57
+    ]
+  },
+  {
+    "name": "bend_return_N57_80ms",
+    "kind": "bend",
+    "note": 57,
+    "ms": 80,
+    "expected": [
+      57
+    ]
+  },
+  {
+    "name": "bend_return_N57_220ms",
+    "kind": "bend",
+    "note": 57,
+    "ms": 220,
+    "expected": [
+      57
+    ]
+  },
+  {
+    "name": "hammer_pull_2semi",
+    "kind": "hammer",
+    "note": 45,
+    "jump": 2,
+    "expected": [
+      45,
+      47,
+      45
+    ]
+  },
+  {
+    "name": "hammer_pull_12semi",
+    "kind": "hammer",
+    "note": 45,
+    "jump": 12,
+    "expected": [
+      45,
+      57,
+      45
+    ]
+  },
+  {
+    "name": "fretted_slide_35ms",
+    "kind": "slide",
+    "note": 45,
+    "step": 0.035,
+    "expected": [
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ]
+  },
+  {
+    "name": "same_anchor_independent_repick",
+    "kind": "repick",
+    "note": 40,
+    "expected": [
+      40,
+      40,
+      40
+    ]
+  }
+]

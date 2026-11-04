@@ -3,3 +3,5 @@
 Tests/AudioFixtures/** -text
 # Stored measurements and their manifests also carry byte-level provenance.
 docs/validation/** -text
+# Research captures and their hash inventories also preserve exact bytes.
+docs/research/** -text

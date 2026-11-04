@@ -1,0 +1,95 @@
+{
+  "scope": "Private causal integer-note admission benchmark; not per-voice bends or musical acceptance",
+  "model": "piano",
+  "block": 64,
+  "weights_sha256": "d29cb6a8c4a75e341727cf182a156775050790c14c6e8e176f3d659ae570ed2a",
+  "inputs": [
+    {
+      "id": "public-modal40",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_40.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.645856,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 1204.669363,
+      "cpu_ms": 1368.152,
+      "callback_us": {
+        "median": 4.686,
+        "p95": 11516.763,
+        "p99": 16201.817,
+        "maximum": 276280.817
+      },
+      "deadline_misses": 77,
+      "events_file": "000-events.json",
+      "frames_file": "000-frames.f32"
+    },
+    {
+      "id": "single45-strong-third",
+      "file": "/tmp/flysnapper-causal-implementation/bench/controls/single45-strong-third.wav",
+      "source_frames": 55200,
+      "processed_frames": 67200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.29391,
+      "first_frame_sample": 1728,
+      "frame_count": 118,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 1735.985931,
+      "cpu_ms": 1917.646,
+      "callback_us": {
+        "median": 5.428,
+        "p95": 12290.54,
+        "p99": 16616.226,
+        "maximum": 182192.625
+      },
+      "deadline_misses": 120,
+      "events_file": "001-events.json",
+      "frames_file": "001-frames.f32"
+    },
+    {
+      "id": "two-string-45-64",
+      "file": "/tmp/flysnapper-causal-implementation/bench/controls/two-string-45-64.wav",
+      "source_frames": 55200,
+      "processed_frames": 67200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.039124,
+      "first_frame_sample": 1728,
+      "frame_count": 118,
+      "event_count": 8,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1565.018936,
+      "cpu_ms": 1619.804,
+      "callback_us": {
+        "median": 5.108,
+        "p95": 11880.687,
+        "p99": 13215.78,
+        "maximum": 123761.386
+      },
+      "deadline_misses": 120,
+      "events_file": "002-events.json",
+      "frames_file": "002-frames.f32"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+--- /tmp/flysnapper-poly-mains-veto/baseline/Source/Pitch/PitchDetector.cpp	2026-11-04 02:45:12.603062305 +0000
++++ /tmp/flysnapper-poly-mains-veto/candidate/Source/Pitch/PitchDetector.cpp	2026-11-04 02:45:13.710500266 +0000
+@@ -556,6 +556,33 @@
+     // merged fundamental would otherwise favour a neighbouring MIDI group.
+     // It does not imply that the complete input is monophonic.
+     auto hint=monoEstimator.estimate(frame.data(),512,.08f,true);
++    bool mainsOnlyFrame=false;
++    if(config.autoInput&&hint.valid){
++        // This is only a cheap dispatch screen copied from the component's
++        // candidate range, never a rejection based on pitch proximity. The
++        // component must positively explain the actual unrounded frequency.
++        bool nearMains=false;
++        for(int family=0;family<2;++family){
++            const double base=noiseConditioner.mainsFrequency(family);
++            const double harmonic=std::round(double(hint.frequency)/base);
++            nearMains|=harmonic>=1&&harmonic<=NoiseConditioner::harmonics
++                &&std::abs(double(hint.frequency)-base*harmonic)<=.35*harmonic;
++        }
++        if(nearMains)mainsOnlyFrame=noiseConditioner.assess(frame.data(),512,
++            hint.frequency,hint.confidence,false,false).mainsOnly;
++    }
++    bool anyHeld=view.activeNotes>0;
++    for(const auto& voice:voices)anyHeld|=voice.active;
++    if(mainsOnlyFrame&&!anyHeld){
++        // A cold mains family must not bootstrap a false voice or freeze its
++        // own cancellation/noise learning as if it were a pending string.
++        candidateProtectionRemaining=0;
++        pitchHistoryCount=pitchHistoryWrite=0;
++        predictionValid=false;predictionAge=0;
++        predictionFast=predictionSlow=predictionObserved=predictionExpected=0;
++        view.confidence=0;view.strongestNote=-1;view.continuousPitch=-1;
++        return;
++    }
+     if(hint.valid&&hint.confidence>.90f){
+         pitchHistory[size_t(pitchHistoryWrite)]=hint.pitch;pitchHistoryWrite=(pitchHistoryWrite+1)%4;pitchHistoryCount=std::min(pitchHistoryCount+1,4);
+         float lo=hint.pitch,hi=hint.pitch;for(int i=0;i<pitchHistoryCount;++i){lo=std::min(lo,pitchHistory[size_t(i)]);hi=std::max(hi,pitchHistory[size_t(i)]);}
+@@ -656,7 +683,10 @@
+     for(int n=0;n<noteCount;++n) {
+         const float minimum=voices[size_t(n)].active?gate*.08f:gate*.8f;
+         if(strength[size_t(n)]<minimum){strength[size_t(n)]=0;scores[size_t(n)]=0;}
+-        candidateAdmissible[size_t(n)]=strength[size_t(n)]>0;
++        // A held musical source may pass through a mains frequency. Preserve
++        // its existing observation/lifecycle; only new admissions are vetoed.
++        candidateAdmissible[size_t(n)]=strength[size_t(n)]>0
++            &&(!mainsOnlyFrame||voices[size_t(n)].active);
+         if(strength[size_t(n)]>strongest){strongest=strength[size_t(n)];view.strongestNote=n+lowNote;}
+         view.confidence=std::max(view.confidence,scores[size_t(n)]);
+     }

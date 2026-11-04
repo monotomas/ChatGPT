@@ -1,0 +1,9 @@
+stable PASS
+stiff PASS
+gain PASS
+fundamental_contamination energy=0 max_departure=1 min_continuing=0 min_continuity=0
+broadband energy=0 max_novelty_fraction=0
+coherent_phase_reset max_departure=6 reset=0.490874 coherence=0.936966
+phase_coherent_repick energy=16
+smooth_chirp min_continuity=0.999596 max_departure=0 energy=0
+HarmonicContinuity mechanism PASS (research only, no recorded mixture acceptance).

@@ -1,0 +1,20 @@
+{
+  "scope": "Deterministic decoding-only repeat of the sealed post-hoc study, not an independent detector acceptance test",
+  "policy_sha256": "b2a108ba36ee7a38ab5f02c7efebd541f629bb9d90ef06f0e8ca9a0aa7850290",
+  "default_transcripts_reproduced_all_inputs": {
+    "fast": true,
+    "piano": true
+  },
+  "input_probability_matrices_unchanged": true,
+  "all9072_case_score_rows_reproduced": true,
+  "summary_and_all_decoded_events_byte_identical_on_repeat": true,
+  "compressed_csv_lossless": true,
+  "new_model_or_kernel_execution": false,
+  "retained_output_hashes": {
+    "manifest.json": "5efdf02148effa36fb4c4bf75e609b92542178e656ee2cc6dff92095bb583e16",
+    "summary.json": "57fa8b716d1df108dc4e4b0c166a6faf28af41298cdf15c8e75f9f809230068d",
+    "storage-map.json": "6f0c9b099b3d12a4f172a9d13eb2e6c96be939a521700a6c6920521b68f5c218",
+    "decoded-events.json.gz": "d015af3a35eaf29496502d5bd3d862a0f71581a79ac863cc0a2cc8362e2cba16",
+    "cases.csv.gz": "764801370d5ca3d75cb34ad7831409c5cbeed0c0ad92f3d15b789ae95d4f503c"
+  }
+}

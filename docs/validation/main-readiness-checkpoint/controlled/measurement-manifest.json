@@ -1,0 +1,51 @@
+{
+  "recorded_at_utc": "2026-11-04T02:34:18.393678+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_snapshot": "/tmp/flysnapper-final-main-readiness-64r6ryo_",
+  "source_commit": "ddceefbf9a49f2f265cb692863ab43ad4c2389a9",
+  "base_git_head": "ddceefbf9a49f2f265cb692863ab43ad4c2389a9",
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/PitchDetector.cpp": "fb8fc9df50d5ebadcbc6027e9f94f085a5e52bad47577c8ccf5471a28bebd9b9",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.h": "e38fadd1b2e55c1f1fe2f8ab8daa6597802cfe8eba528e269209a1f5126dfa90",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "driver/readiness_capture.cpp": "915f728d0df54fbf86a4cb92ef7ff3ad0d6bcf4f2ac5b3e3e4fdc7ecb2ab07e1"
+  },
+  "compiled_sources": [
+    "Source/Pitch/ArticulationTracker.cpp",
+    "Source/Pitch/EarlyEstimator.cpp",
+    "Source/Pitch/NoiseConditioner.cpp",
+    "Source/Pitch/PitchDetector.cpp",
+    "Source/Pitch/PolyphonicTracker.cpp",
+    "Source/Pitch/TimeDomainPursuit.cpp",
+    "Source/Pitch/YinEstimator.cpp"
+  ],
+  "fixture_seal": "d5af9fb3fefb4d41918e62810d59290c1dd741d95337d58ec34efcdcf14f9fba",
+  "configuration": "48000/64",
+  "scope": "Research detector capture before MIDI/MPE routing, not musical readiness or physical latency proof",
+  "compiler_exit_code": 0,
+  "executable_sha256": "90e63258b93259f73a62aad1b0a6aea9636a551755fbe6c6b68463eb604ed29a",
+  "capture_exit_code": 0,
+  "source_changed_during_measurement": false,
+  "score_exit_code": 1,
+  "files_sha256": {
+    "compile.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scoring-console.txt": "f97cfc0eb6435abad168d892086f7e320332ee82e00d5e1c9fd978d3544bb1c1",
+    "capture.csv": "c3612c3c6ecde7d6e99361702b28abf5c4f6d6467e68d5e58b6a5b3460b66865",
+    "capture-console.txt": "ca86fc5ad824169f796892f66a9b69156741533e40e8595c4d30aa860a31c9ea",
+    "events.csv": "6715a5d0accd54f92febe2d6c2f958e5ba90ecdfe09e0804b9f88d148c5b4e39",
+    "scoring/cases.json": "9b225b9944f7b27fdf2bd640a5b7cb47ff88275b9acc51ab8a496723159c8bc3",
+    "scoring/summary.json": "f97cfc0eb6435abad168d892086f7e320332ee82e00d5e1c9fd978d3544bb1c1"
+  }
+}

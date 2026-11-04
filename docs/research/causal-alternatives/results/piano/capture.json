@@ -1,0 +1,5054 @@
+{
+  "scope": "Private causal integer-note admission benchmark; not per-voice bends or musical acceptance",
+  "model": "piano",
+  "block": 64,
+  "weights_sha256": "d29cb6a8c4a75e341727cf182a156775050790c14c6e8e176f3d659ae570ed2a",
+  "inputs": [
+    {
+      "id": "public:pcm/modal_40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_40.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 6.60306,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 1332.793839,
+      "cpu_ms": 1516.573,
+      "callback_us": {
+        "median": 6.57,
+        "p95": 18350.139,
+        "p99": 19699.181,
+        "maximum": 188620.352
+      },
+      "deadline_misses": 77,
+      "events_file": "000-events.json",
+      "frames_file": "000-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_41.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_41.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 4.810608,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 5,
+      "wall_ms": 1071.856702,
+      "cpu_ms": 1243.759,
+      "callback_us": {
+        "median": 5.428,
+        "p95": 11010.856,
+        "p99": 13435.549,
+        "maximum": 202470.239
+      },
+      "deadline_misses": 77,
+      "events_file": "001-events.json",
+      "frames_file": "001-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_45.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_45.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.990534,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 5,
+      "wall_ms": 1241.004557,
+      "cpu_ms": 1241.549,
+      "callback_us": {
+        "median": 6.62,
+        "p95": 12714.759,
+        "p99": 20178.184,
+        "maximum": 165651.468
+      },
+      "deadline_misses": 77,
+      "events_file": "002-events.json",
+      "frames_file": "002-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_48.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_48.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 7.63022,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1239.781631,
+      "cpu_ms": 1266.796,
+      "callback_us": {
+        "median": 6.469,
+        "p95": 13120.426,
+        "p99": 20063.566,
+        "maximum": 122128.376
+      },
+      "deadline_misses": 77,
+      "events_file": "003-events.json",
+      "frames_file": "003-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_52.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_52.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 4.135095,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1106.701169,
+      "cpu_ms": 1110.539,
+      "callback_us": {
+        "median": 4.948,
+        "p95": 11910.267,
+        "p99": 19955.076,
+        "maximum": 111641.008
+      },
+      "deadline_misses": 77,
+      "events_file": "004-events.json",
+      "frames_file": "004-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_57.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_57.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 6.413632,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1083.08916,
+      "cpu_ms": 1135.34,
+      "callback_us": {
+        "median": 5.038,
+        "p95": 11555.086,
+        "p99": 19914.808,
+        "maximum": 122191.317
+      },
+      "deadline_misses": 77,
+      "events_file": "005-events.json",
+      "frames_file": "005-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_60.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_60.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.027829,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1005.962915,
+      "cpu_ms": 1006.546,
+      "callback_us": {
+        "median": 4.567,
+        "p95": 10658.793,
+        "p99": 12722.412,
+        "maximum": 141425.836
+      },
+      "deadline_misses": 77,
+      "events_file": "006-events.json",
+      "frames_file": "006-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_64.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_64.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.090678,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 959.403714,
+      "cpu_ms": 960.127,
+      "callback_us": {
+        "median": 4.597,
+        "p95": 11073.913,
+        "p99": 11972.501,
+        "maximum": 108457.176
+      },
+      "deadline_misses": 77,
+      "events_file": "007-events.json",
+      "frames_file": "007-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_69.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_69.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.120653,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1055.563642,
+      "cpu_ms": 1056.266,
+      "callback_us": {
+        "median": 5.008,
+        "p95": 11655.306,
+        "p99": 19608.007,
+        "maximum": 111364.622
+      },
+      "deadline_misses": 77,
+      "events_file": "008-events.json",
+      "frames_file": "008-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_76.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_76.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.478127,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1221.203538,
+      "cpu_ms": 1221.668,
+      "callback_us": {
+        "median": 6.66,
+        "p95": 11587.376,
+        "p99": 20249.439,
+        "maximum": 161691.52
+      },
+      "deadline_misses": 77,
+      "events_file": "009-events.json",
+      "frames_file": "009-frames.f32"
+    },
+    {
+      "id": "public:pcm/modal_84.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/modal_84.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.477499,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1117.716568,
+      "cpu_ms": 1119.678,
+      "callback_us": {
+        "median": 5.598,
+        "p95": 11914.594,
+        "p99": 19347.794,
+        "maximum": 113688.794
+      },
+      "deadline_misses": 77,
+      "events_file": "010-events.json",
+      "frames_file": "010-frames.f32"
+    },
+    {
+      "id": "public:pcm/karplus_40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/karplus_40.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.209046,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1140.596633,
+      "cpu_ms": 1141.304,
+      "callback_us": {
+        "median": 4.847,
+        "p95": 12618.989,
+        "p99": 16578.39,
+        "maximum": 147523.995
+      },
+      "deadline_misses": 77,
+      "events_file": "011-events.json",
+      "frames_file": "011-frames.f32"
+    },
+    {
+      "id": "public:pcm/karplus_52.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/karplus_52.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.141106,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1099.380332,
+      "cpu_ms": 1100.281,
+      "callback_us": {
+        "median": 5.078,
+        "p95": 11863.138,
+        "p99": 20000.622,
+        "maximum": 102538.367
+      },
+      "deadline_misses": 77,
+      "events_file": "012-events.json",
+      "frames_file": "012-frames.f32"
+    },
+    {
+      "id": "public:pcm/karplus_64.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/karplus_64.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.381759,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1536.803198,
+      "cpu_ms": 1537.538,
+      "callback_us": {
+        "median": 7.291,
+        "p95": 20003.137,
+        "p99": 20294.776,
+        "maximum": 118685.819
+      },
+      "deadline_misses": 77,
+      "events_file": "013-events.json",
+      "frames_file": "013-frames.f32"
+    },
+    {
+      "id": "public:pcm/karplus_76.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/karplus_76.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.649501,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1284.043738,
+      "cpu_ms": 1284.573,
+      "callback_us": {
+        "median": 6.5,
+        "p95": 13147.64,
+        "p99": 20085.339,
+        "maximum": 157588.635
+      },
+      "deadline_misses": 77,
+      "events_file": "014-events.json",
+      "frames_file": "014-frames.f32"
+    },
+    {
+      "id": "public:pcm/missing_fundamental_52.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/missing_fundamental_52.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.838479,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1146.237006,
+      "cpu_ms": 1147.678,
+      "callback_us": {
+        "median": 4.857,
+        "p95": 11829.102,
+        "p99": 19960.645,
+        "maximum": 180791.12
+      },
+      "deadline_misses": 77,
+      "events_file": "015-events.json",
+      "frames_file": "015-frames.f32"
+    },
+    {
+      "id": "public:pcm/detuned_52.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/detuned_52.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.248722,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1205.108934,
+      "cpu_ms": 1205.879,
+      "callback_us": {
+        "median": 6.129,
+        "p95": 11892.817,
+        "p99": 19982.278,
+        "maximum": 183375.177
+      },
+      "deadline_misses": 77,
+      "events_file": "016-events.json",
+      "frames_file": "016-frames.f32"
+    },
+    {
+      "id": "public:pcm/vibrato_64.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/vibrato_64.wav",
+      "source_frames": 43200,
+      "processed_frames": 55232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.346916,
+      "first_frame_sample": 1728,
+      "frame_count": 97,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1352.486883,
+      "cpu_ms": 1356.755,
+      "callback_us": {
+        "median": 5.097,
+        "p95": 11797.916,
+        "p99": 18276.462,
+        "maximum": 113977.655
+      },
+      "deadline_misses": 99,
+      "events_file": "017-events.json",
+      "frames_file": "017-frames.f32"
+    },
+    {
+      "id": "public:pcm/soft_attack_52.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/soft_attack_52.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.858043,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1331.700639,
+      "cpu_ms": 1374.559,
+      "callback_us": {
+        "median": 7.101,
+        "p95": 16260.892,
+        "p99": 20304.39,
+        "maximum": 143436.485
+      },
+      "deadline_misses": 77,
+      "events_file": "018-events.json",
+      "frames_file": "018-frames.f32"
+    },
+    {
+      "id": "public:pcm/weak_fundamental_40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/weak_fundamental_40.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.38263,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 24,
+      "hung_after_silence": 0,
+      "peak_held": 9,
+      "wall_ms": 1230.904069,
+      "cpu_ms": 1231.712,
+      "callback_us": {
+        "median": 5.609,
+        "p95": 12901.247,
+        "p99": 19962.491,
+        "maximum": 139093.181
+      },
+      "deadline_misses": 77,
+      "events_file": "019-events.json",
+      "frames_file": "019-frames.f32"
+    },
+    {
+      "id": "public:pcm/repeated_52.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/repeated_52.wav",
+      "source_frames": 42240,
+      "processed_frames": 54272,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.613606,
+      "first_frame_sample": 1728,
+      "frame_count": 95,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1382.358284,
+      "cpu_ms": 1383.244,
+      "callback_us": {
+        "median": 4.967,
+        "p95": 12073.272,
+        "p99": 19737.862,
+        "maximum": 140653.854
+      },
+      "deadline_misses": 97,
+      "events_file": "020-events.json",
+      "frames_file": "020-frames.f32"
+    },
+    {
+      "id": "public:pcm/continuous_repick_52.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/continuous_repick_52.wav",
+      "source_frames": 43200,
+      "processed_frames": 55232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.316721,
+      "first_frame_sample": 1728,
+      "frame_count": 97,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1542.22522,
+      "cpu_ms": 1543.218,
+      "callback_us": {
+        "median": 5.888,
+        "p95": 12785.567,
+        "p99": 19917.874,
+        "maximum": 131958.828
+      },
+      "deadline_misses": 99,
+      "events_file": "021-events.json",
+      "frames_file": "021-frames.f32"
+    },
+    {
+      "id": "public:pcm/chromatic_up.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/chromatic_up.wav",
+      "source_frames": 70560,
+      "processed_frames": 82560,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.302399,
+      "first_frame_sample": 1728,
+      "frame_count": 146,
+      "event_count": 16,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2075.923457,
+      "cpu_ms": 2077.214,
+      "callback_us": {
+        "median": 5.067,
+        "p95": 12113.16,
+        "p99": 19882.273,
+        "maximum": 118031.886
+      },
+      "deadline_misses": 148,
+      "events_file": "022-events.json",
+      "frames_file": "022-frames.f32"
+    },
+    {
+      "id": "public:pcm/chromatic_down.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/chromatic_down.wav",
+      "source_frames": 70560,
+      "processed_frames": 82560,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.061999,
+      "first_frame_sample": 1728,
+      "frame_count": 146,
+      "event_count": 16,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1932.792546,
+      "cpu_ms": 1933.758,
+      "callback_us": {
+        "median": 5.057,
+        "p95": 12015.93,
+        "p99": 13428.615,
+        "maximum": 111187.567
+      },
+      "deadline_misses": 148,
+      "events_file": "023-events.json",
+      "frames_file": "023-frames.f32"
+    },
+    {
+      "id": "public:pcm/major_triad.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/major_triad.wav",
+      "source_frames": 36000,
+      "processed_frames": 48000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.151921,
+      "first_frame_sample": 1728,
+      "frame_count": 84,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 5,
+      "wall_ms": 1285.371624,
+      "cpu_ms": 1285.94,
+      "callback_us": {
+        "median": 5.047,
+        "p95": 12315.83,
+        "p99": 20080.234,
+        "maximum": 118288.217
+      },
+      "deadline_misses": 86,
+      "events_file": "024-events.json",
+      "frames_file": "024-frames.f32"
+    },
+    {
+      "id": "public:pcm/open_e_minor.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/open_e_minor.wav",
+      "source_frames": 36000,
+      "processed_frames": 48000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.842076,
+      "first_frame_sample": 1728,
+      "frame_count": 84,
+      "event_count": 22,
+      "hung_after_silence": 0,
+      "peak_held": 6,
+      "wall_ms": 1407.635684,
+      "cpu_ms": 1408.297,
+      "callback_us": {
+        "median": 5.968,
+        "p95": 14709.536,
+        "p99": 19659.266,
+        "maximum": 161790.563
+      },
+      "deadline_misses": 86,
+      "events_file": "025-events.json",
+      "frames_file": "025-frames.f32"
+    },
+    {
+      "id": "public:pcm/strummed_a_minor.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/strummed_a_minor.wav",
+      "source_frames": 37248,
+      "processed_frames": 49280,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 6.739028,
+      "first_frame_sample": 1728,
+      "frame_count": 86,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 5,
+      "wall_ms": 1385.987152,
+      "cpu_ms": 1391.48,
+      "callback_us": {
+        "median": 5.278,
+        "p95": 12497.336,
+        "p99": 19962.391,
+        "maximum": 168527.523
+      },
+      "deadline_misses": 88,
+      "events_file": "026-events.json",
+      "frames_file": "026-frames.f32"
+    },
+    {
+      "id": "public:pcm/adjacent_semitone.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/adjacent_semitone.wav",
+      "source_frames": 36000,
+      "processed_frames": 48000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.13738,
+      "first_frame_sample": 1728,
+      "frame_count": 84,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1318.58526,
+      "cpu_ms": 1316.786,
+      "callback_us": {
+        "median": 5.058,
+        "p95": 11936.913,
+        "p99": 19439.974,
+        "maximum": 149720.595
+      },
+      "deadline_misses": 86,
+      "events_file": "027-events.json",
+      "frames_file": "027-frames.f32"
+    },
+    {
+      "id": "public:pcm/octaves.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/octaves.wav",
+      "source_frames": 36000,
+      "processed_frames": 48000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.93365,
+      "first_frame_sample": 1728,
+      "frame_count": 84,
+      "event_count": 8,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1249.890479,
+      "cpu_ms": 1250.408,
+      "callback_us": {
+        "median": 4.918,
+        "p95": 12051.471,
+        "p99": 19955.791,
+        "maximum": 123611.154
+      },
+      "deadline_misses": 86,
+      "events_file": "028-events.json",
+      "frames_file": "028-frames.f32"
+    },
+    {
+      "id": "public:pcm/weak_upper.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/weak_upper.wav",
+      "source_frames": 36000,
+      "processed_frames": 48000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.963714,
+      "first_frame_sample": 1728,
+      "frame_count": 84,
+      "event_count": 8,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1310.288819,
+      "cpu_ms": 1310.819,
+      "callback_us": {
+        "median": 5.328,
+        "p95": 12153.121,
+        "p99": 20021.948,
+        "maximum": 120860.033
+      },
+      "deadline_misses": 86,
+      "events_file": "029-events.json",
+      "frames_file": "029-frames.f32"
+    },
+    {
+      "id": "public:pcm/staggered.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/staggered.wav",
+      "source_frames": 47040,
+      "processed_frames": 59072,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.241712,
+      "first_frame_sample": 1728,
+      "frame_count": 103,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 1442.368961,
+      "cpu_ms": 1443.283,
+      "callback_us": {
+        "median": 5.147,
+        "p95": 11310.393,
+        "p99": 19866.891,
+        "maximum": 108890.321
+      },
+      "deadline_misses": 105,
+      "events_file": "030-events.json",
+      "frames_file": "030-frames.f32"
+    },
+    {
+      "id": "public:pcm/digital_silence.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/digital_silence.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.870177,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 1058.611339,
+      "cpu_ms": 1059.275,
+      "callback_us": {
+        "median": 4.587,
+        "p95": 10893.681,
+        "p99": 19768.769,
+        "maximum": 142600.697
+      },
+      "deadline_misses": 77,
+      "events_file": "031-events.json",
+      "frames_file": "031-frames.f32"
+    },
+    {
+      "id": "public:pcm/unpitched_click.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/unpitched_click.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.935844,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 1280.291702,
+      "cpu_ms": 1280.979,
+      "callback_us": {
+        "median": 6.51,
+        "p95": 15560.893,
+        "p99": 20084.873,
+        "maximum": 108039.219
+      },
+      "deadline_misses": 77,
+      "events_file": "032-events.json",
+      "frames_file": "032-frames.f32"
+    },
+    {
+      "id": "public:pcm/noise_floor.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/noise_floor.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 3.157709,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 1214.648377,
+      "cpu_ms": 1220.692,
+      "callback_us": {
+        "median": 5.828,
+        "p95": 12767.899,
+        "p99": 20050.522,
+        "maximum": 137028.216
+      },
+      "deadline_misses": 77,
+      "events_file": "033-events.json",
+      "frames_file": "033-frames.f32"
+    },
+    {
+      "id": "public:pcm/broadband_noise.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/broadband_noise.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.134084,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 20,
+      "hung_after_silence": 0,
+      "peak_held": 5,
+      "wall_ms": 1053.430353,
+      "cpu_ms": 1054.207,
+      "callback_us": {
+        "median": 4.507,
+        "p95": 11520.502,
+        "p99": 19470.945,
+        "maximum": 108005.38
+      },
+      "deadline_misses": 77,
+      "events_file": "034-events.json",
+      "frames_file": "034-frames.f32"
+    },
+    {
+      "id": "public:pcm/colored_noise.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/colored_noise.wav",
+      "source_frames": 31200,
+      "processed_frames": 43200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.118412,
+      "first_frame_sample": 1728,
+      "frame_count": 75,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1218.9556,
+      "cpu_ms": 1219.82,
+      "callback_us": {
+        "median": 6.409,
+        "p95": 12909.954,
+        "p99": 20056.39,
+        "maximum": 124324.04
+      },
+      "deadline_misses": 77,
+      "events_file": "035-events.json",
+      "frames_file": "035-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_E2.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_E2.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.247412,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1477.674036,
+      "cpu_ms": 1478.352,
+      "callback_us": {
+        "median": 4.697,
+        "p95": 10779.644,
+        "p99": 19959.819,
+        "maximum": 181706.38
+      },
+      "deadline_misses": 107,
+      "events_file": "036-events.json",
+      "frames_file": "036-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_A2.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_A2.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.795337,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1263.775371,
+      "cpu_ms": 1264.692,
+      "callback_us": {
+        "median": 4.396,
+        "p95": 10824.81,
+        "p99": 11397.251,
+        "maximum": 102914.372
+      },
+      "deadline_misses": 107,
+      "events_file": "037-events.json",
+      "frames_file": "037-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_D3.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_D3.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.297415,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1388.417817,
+      "cpu_ms": 1388.815,
+      "callback_us": {
+        "median": 4.536,
+        "p95": 11559.819,
+        "p99": 13456.455,
+        "maximum": 106464.195
+      },
+      "deadline_misses": 107,
+      "events_file": "038-events.json",
+      "frames_file": "038-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_G3.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_G3.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.043791,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1450.467796,
+      "cpu_ms": 1451.171,
+      "callback_us": {
+        "median": 4.817,
+        "p95": 11683.791,
+        "p99": 13485.978,
+        "maximum": 157199.215
+      },
+      "deadline_misses": 107,
+      "events_file": "039-events.json",
+      "frames_file": "039-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_B3.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_B3.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.39679,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1578.736724,
+      "cpu_ms": 1579.838,
+      "callback_us": {
+        "median": 5.598,
+        "p95": 12183.791,
+        "p99": 20122.005,
+        "maximum": 116195.659
+      },
+      "deadline_misses": 107,
+      "events_file": "040-events.json",
+      "frames_file": "040-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_E3.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_E3.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.07226,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1558.353645,
+      "cpu_ms": 1561.511,
+      "callback_us": {
+        "median": 5.228,
+        "p95": 11991.934,
+        "p99": 19958.006,
+        "maximum": 163806.044
+      },
+      "deadline_misses": 107,
+      "events_file": "041-events.json",
+      "frames_file": "041-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_E4.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_E4.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.597976,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1484.785836,
+      "cpu_ms": 1486.044,
+      "callback_us": {
+        "median": 4.847,
+        "p95": 12107.734,
+        "p99": 19911.035,
+        "maximum": 111735.348
+      },
+      "deadline_misses": 107,
+      "events_file": "042-events.json",
+      "frames_file": "042-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_Fs3.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_Fs3.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.912419,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1487.761359,
+      "cpu_ms": 1488.895,
+      "callback_us": {
+        "median": 5.067,
+        "p95": 11867.38,
+        "p99": 19952.506,
+        "maximum": 114886.136
+      },
+      "deadline_misses": 107,
+      "events_file": "043-events.json",
+      "frames_file": "043-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_E_octaves.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_E_octaves.wav",
+      "source_frames": 48000,
+      "processed_frames": 60032,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.188745,
+      "first_frame_sample": 1728,
+      "frame_count": 105,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1450.765996,
+      "cpu_ms": 1450.049,
+      "callback_us": {
+        "median": 4.937,
+        "p95": 11329.08,
+        "p99": 19906.078,
+        "maximum": 114920.908
+      },
+      "deadline_misses": 107,
+      "events_file": "044-events.json",
+      "frames_file": "044-frames.f32"
+    },
+    {
+      "id": "public:pcm/recorded_strings.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/pcm/recorded_strings.wav",
+      "source_frames": 49680,
+      "processed_frames": 61696,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.781507,
+      "first_frame_sample": 1728,
+      "frame_count": 108,
+      "event_count": 26,
+      "hung_after_silence": 0,
+      "peak_held": 8,
+      "wall_ms": 1439.761447,
+      "cpu_ms": 1440.974,
+      "callback_us": {
+        "median": 4.607,
+        "p95": 11195.294,
+        "p99": 19897.266,
+        "maximum": 107394.792
+      },
+      "deadline_misses": 110,
+      "events_file": "045-events.json",
+      "frames_file": "045-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_01.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_01.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.828446,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1147.541294,
+      "cpu_ms": 1148.09,
+      "callback_us": {
+        "median": 4.938,
+        "p95": 11715.137,
+        "p99": 19920.029,
+        "maximum": 113263.292
+      },
+      "deadline_misses": 81,
+      "events_file": "046-events.json",
+      "frames_file": "046-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_02.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_02.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.046186,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 20,
+      "hung_after_silence": 0,
+      "peak_held": 6,
+      "wall_ms": 1354.734117,
+      "cpu_ms": 1355.435,
+      "callback_us": {
+        "median": 6.459,
+        "p95": 16334.943,
+        "p99": 20271.324,
+        "maximum": 114242.25
+      },
+      "deadline_misses": 81,
+      "events_file": "047-events.json",
+      "frames_file": "047-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_03.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_03.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.65521,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1158.75835,
+      "cpu_ms": 1159.476,
+      "callback_us": {
+        "median": 5.368,
+        "p95": 11488.394,
+        "p99": 19387.137,
+        "maximum": 124020.683
+      },
+      "deadline_misses": 81,
+      "events_file": "048-events.json",
+      "frames_file": "048-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_04.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_04.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 3.631594,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1205.631903,
+      "cpu_ms": 1207.568,
+      "callback_us": {
+        "median": 4.737,
+        "p95": 12788.925,
+        "p99": 19861.152,
+        "maximum": 110041.692
+      },
+      "deadline_misses": 81,
+      "events_file": "049-events.json",
+      "frames_file": "049-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_05.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_05.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.978136,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1118.779127,
+      "cpu_ms": 1119.226,
+      "callback_us": {
+        "median": 4.597,
+        "p95": 11788.906,
+        "p99": 17454.097,
+        "maximum": 117674.964
+      },
+      "deadline_misses": 81,
+      "events_file": "050-events.json",
+      "frames_file": "050-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_06.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_06.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.758823,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1063.444837,
+      "cpu_ms": 1064.066,
+      "callback_us": {
+        "median": 4.406,
+        "p95": 11532.259,
+        "p99": 12786.341,
+        "maximum": 122316.101
+      },
+      "deadline_misses": 81,
+      "events_file": "051-events.json",
+      "frames_file": "051-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_07.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_07.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.220642,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 20,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1414.388516,
+      "cpu_ms": 1415.008,
+      "callback_us": {
+        "median": 6.719,
+        "p95": 19784.941,
+        "p99": 23660.042,
+        "maximum": 112255.464
+      },
+      "deadline_misses": 81,
+      "events_file": "052-events.json",
+      "frames_file": "052-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_08.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_08.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.179912,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1270.294452,
+      "cpu_ms": 1273.333,
+      "callback_us": {
+        "median": 6.349,
+        "p95": 11644.844,
+        "p99": 19964.235,
+        "maximum": 135644.217
+      },
+      "deadline_misses": 81,
+      "events_file": "053-events.json",
+      "frames_file": "053-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_09.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_09.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.097831,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1231.306459,
+      "cpu_ms": 1231.997,
+      "callback_us": {
+        "median": 5.598,
+        "p95": 12445.34,
+        "p99": 19395.97,
+        "maximum": 108937.55
+      },
+      "deadline_misses": 81,
+      "events_file": "054-events.json",
+      "frames_file": "054-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_10.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_10.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.089759,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1516.281678,
+      "cpu_ms": 1516.982,
+      "callback_us": {
+        "median": 7.04,
+        "p95": 19277.664,
+        "p99": 19952.166,
+        "maximum": 132696.446
+      },
+      "deadline_misses": 81,
+      "events_file": "055-events.json",
+      "frames_file": "055-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_11.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_11.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.346356,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1361.112665,
+      "cpu_ms": 1361.842,
+      "callback_us": {
+        "median": 6.169,
+        "p95": 12747.333,
+        "p99": 19973.547,
+        "maximum": 194721.28
+      },
+      "deadline_misses": 81,
+      "events_file": "056-events.json",
+      "frames_file": "056-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_12.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_12.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 4.382918,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1328.413325,
+      "cpu_ms": 1330.107,
+      "callback_us": {
+        "median": 6.58,
+        "p95": 13009.619,
+        "p99": 20023.01,
+        "maximum": 119001.411
+      },
+      "deadline_misses": 81,
+      "events_file": "057-events.json",
+      "frames_file": "057-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_13.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_13.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.200122,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1340.90989,
+      "cpu_ms": 1341.568,
+      "callback_us": {
+        "median": 6.54,
+        "p95": 12340.046,
+        "p99": 20107.555,
+        "maximum": 185264.454
+      },
+      "deadline_misses": 81,
+      "events_file": "058-events.json",
+      "frames_file": "058-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_14.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_14.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.264086,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1206.358934,
+      "cpu_ms": 1207,
+      "callback_us": {
+        "median": 4.967,
+        "p95": 12015.69,
+        "p99": 19979.475,
+        "maximum": 140392.066
+      },
+      "deadline_misses": 81,
+      "events_file": "059-events.json",
+      "frames_file": "059-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_15.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_15.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.009202,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1210.351963,
+      "cpu_ms": 1211.307,
+      "callback_us": {
+        "median": 4.627,
+        "p95": 11835.213,
+        "p99": 20307.758,
+        "maximum": 119931.518
+      },
+      "deadline_misses": 81,
+      "events_file": "060-events.json",
+      "frames_file": "060-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_16.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_16.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.819252,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1203.631339,
+      "cpu_ms": 1204.555,
+      "callback_us": {
+        "median": 5.157,
+        "p95": 12505.879,
+        "p99": 19884.766,
+        "maximum": 102561.41
+      },
+      "deadline_misses": 81,
+      "events_file": "061-events.json",
+      "frames_file": "061-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_17.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_17.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.943084,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1219.61484,
+      "cpu_ms": 1220.21,
+      "callback_us": {
+        "median": 5.078,
+        "p95": 12584.194,
+        "p99": 20075.836,
+        "maximum": 115257.377
+      },
+      "deadline_misses": 81,
+      "events_file": "062-events.json",
+      "frames_file": "062-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_modal_18.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_modal_18.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.082589,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1427.331709,
+      "cpu_ms": 1427.95,
+      "callback_us": {
+        "median": 6.82,
+        "p95": 19752.883,
+        "p99": 20068.426,
+        "maximum": 122353.93
+      },
+      "deadline_misses": 81,
+      "events_file": "063-events.json",
+      "frames_file": "063-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_01.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_01.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.839822,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 16,
+      "hung_after_silence": 0,
+      "peak_held": 7,
+      "wall_ms": 1413.651526,
+      "cpu_ms": 1414.334,
+      "callback_us": {
+        "median": 5.358,
+        "p95": 11878.947,
+        "p99": 20060.574,
+        "maximum": 118461.172
+      },
+      "deadline_misses": 94,
+      "events_file": "064-events.json",
+      "frames_file": "064-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_02.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_02.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 4.487341,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 8,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 1359.618574,
+      "cpu_ms": 1362.693,
+      "callback_us": {
+        "median": 4.747,
+        "p95": 11817.017,
+        "p99": 20092.211,
+        "maximum": 108659.746
+      },
+      "deadline_misses": 94,
+      "events_file": "065-events.json",
+      "frames_file": "065-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_03.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_03.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.084832,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 6,
+      "wall_ms": 1300.41907,
+      "cpu_ms": 1301.228,
+      "callback_us": {
+        "median": 4.917,
+        "p95": 11471.338,
+        "p99": 18126.103,
+        "maximum": 139955.933
+      },
+      "deadline_misses": 94,
+      "events_file": "066-events.json",
+      "frames_file": "066-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_04.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_04.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.833062,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 18,
+      "hung_after_silence": 0,
+      "peak_held": 6,
+      "wall_ms": 1376.641273,
+      "cpu_ms": 1377.452,
+      "callback_us": {
+        "median": 5.118,
+        "p95": 11888.639,
+        "p99": 19264.87,
+        "maximum": 116624.341
+      },
+      "deadline_misses": 94,
+      "events_file": "067-events.json",
+      "frames_file": "067-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_05.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_05.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.203726,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 5,
+      "wall_ms": 1349.049249,
+      "cpu_ms": 1349.546,
+      "callback_us": {
+        "median": 4.837,
+        "p95": 12057.967,
+        "p99": 14554.243,
+        "maximum": 164927.323
+      },
+      "deadline_misses": 94,
+      "events_file": "068-events.json",
+      "frames_file": "068-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_06.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_06.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.888022,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 6,
+      "wall_ms": 1441.861408,
+      "cpu_ms": 1442.404,
+      "callback_us": {
+        "median": 5.218,
+        "p95": 12452.507,
+        "p99": 22045.593,
+        "maximum": 108319.106
+      },
+      "deadline_misses": 94,
+      "events_file": "069-events.json",
+      "frames_file": "069-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_07.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_07.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.314138,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1544.360847,
+      "cpu_ms": 1544.702,
+      "callback_us": {
+        "median": 5.758,
+        "p95": 13634.963,
+        "p99": 20084.884,
+        "maximum": 170090.321
+      },
+      "deadline_misses": 94,
+      "events_file": "070-events.json",
+      "frames_file": "070-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_08.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_08.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.933549,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1777.69606,
+      "cpu_ms": 1778.007,
+      "callback_us": {
+        "median": 6.87,
+        "p95": 19458.47,
+        "p99": 19883.875,
+        "maximum": 109511.509
+      },
+      "deadline_misses": 94,
+      "events_file": "071-events.json",
+      "frames_file": "071-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_poly_09.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_poly_09.wav",
+      "source_frames": 40800,
+      "processed_frames": 52800,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.334238,
+      "first_frame_sample": 1728,
+      "frame_count": 92,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1787.757883,
+      "cpu_ms": 1789.031,
+      "callback_us": {
+        "median": 6.82,
+        "p95": 19397.98,
+        "p99": 20226.106,
+        "maximum": 192277.605
+      },
+      "deadline_misses": 94,
+      "events_file": "072-events.json",
+      "frames_file": "072-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_01.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_01.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 7.422542,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1994.161534,
+      "cpu_ms": 1997.339,
+      "callback_us": {
+        "median": 6.69,
+        "p95": 19959.806,
+        "p99": 20257.993,
+        "maximum": 169259.981
+      },
+      "deadline_misses": 103,
+      "events_file": "073-events.json",
+      "frames_file": "073-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_02.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_02.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.997915,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2003.914419,
+      "cpu_ms": 2004.641,
+      "callback_us": {
+        "median": 6.9,
+        "p95": 19820.641,
+        "p99": 20124.576,
+        "maximum": 126675.878
+      },
+      "deadline_misses": 103,
+      "events_file": "074-events.json",
+      "frames_file": "074-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_03.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_03.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.066625,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1629.302744,
+      "cpu_ms": 1630.804,
+      "callback_us": {
+        "median": 5.048,
+        "p95": 13230.531,
+        "p99": 19989.358,
+        "maximum": 155458.931
+      },
+      "deadline_misses": 103,
+      "events_file": "075-events.json",
+      "frames_file": "075-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_04.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_04.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.568091,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1727.364757,
+      "cpu_ms": 1727.516,
+      "callback_us": {
+        "median": 6.449,
+        "p95": 14023.327,
+        "p99": 20049.216,
+        "maximum": 191774.339
+      },
+      "deadline_misses": 103,
+      "events_file": "076-events.json",
+      "frames_file": "076-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_05.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_05.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.869042,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1417.162973,
+      "cpu_ms": 1417.186,
+      "callback_us": {
+        "median": 5.087,
+        "p95": 11812.196,
+        "p99": 19062.24,
+        "maximum": 118000.176
+      },
+      "deadline_misses": 103,
+      "events_file": "077-events.json",
+      "frames_file": "077-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_06.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_06.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.360627,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1743.335517,
+      "cpu_ms": 1744.577,
+      "callback_us": {
+        "median": 6.179,
+        "p95": 15345.208,
+        "p99": 19876.094,
+        "maximum": 192573.149
+      },
+      "deadline_misses": 103,
+      "events_file": "078-events.json",
+      "frames_file": "078-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_07.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_07.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.807615,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 1736.90278,
+      "cpu_ms": 1737.209,
+      "callback_us": {
+        "median": 6.59,
+        "p95": 16240.953,
+        "p99": 20189.492,
+        "maximum": 161264.726
+      },
+      "deadline_misses": 103,
+      "events_file": "079-events.json",
+      "frames_file": "079-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_08.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_08.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.295131,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1397.849635,
+      "cpu_ms": 1398.349,
+      "callback_us": {
+        "median": 4.607,
+        "p95": 11845.667,
+        "p99": 13555.259,
+        "maximum": 156828.11
+      },
+      "deadline_misses": 103,
+      "events_file": "080-events.json",
+      "frames_file": "080-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_09.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_09.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.423235,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1693.986267,
+      "cpu_ms": 1691.754,
+      "callback_us": {
+        "median": 6.079,
+        "p95": 17568.334,
+        "p99": 18780.455,
+        "maximum": 115995.958
+      },
+      "deadline_misses": 103,
+      "events_file": "081-events.json",
+      "frames_file": "081-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_10.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_10.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.197657,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1709.942189,
+      "cpu_ms": 1708.385,
+      "callback_us": {
+        "median": 6.359,
+        "p95": 17399.255,
+        "p99": 18777.278,
+        "maximum": 164146.99
+      },
+      "deadline_misses": 103,
+      "events_file": "082-events.json",
+      "frames_file": "082-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_11.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_11.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.87223,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1387.200902,
+      "cpu_ms": 1384.738,
+      "callback_us": {
+        "median": 4.297,
+        "p95": 11792.2,
+        "p99": 15161.028,
+        "maximum": 120612.028
+      },
+      "deadline_misses": 103,
+      "events_file": "083-events.json",
+      "frames_file": "083-frames.f32"
+    },
+    {
+      "id": "holdout:pcm/hidden_recorded_12.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/holdout/pcm/hidden_recorded_12.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.807035,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1365.604197,
+      "cpu_ms": 1365.988,
+      "callback_us": {
+        "median": 4.356,
+        "p95": 11412.693,
+        "p99": 19345.735,
+        "maximum": 115056.629
+      },
+      "deadline_misses": 103,
+      "events_file": "084-events.json",
+      "frames_file": "084-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_sustain_01.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_sustain_01.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.17166,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1548.437072,
+      "cpu_ms": 1546.565,
+      "callback_us": {
+        "median": 5.438,
+        "p95": 11913.178,
+        "p99": 20560.189,
+        "maximum": 112289.495
+      },
+      "deadline_misses": 103,
+      "events_file": "085-events.json",
+      "frames_file": "085-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_sustain_02.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_sustain_02.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.268632,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1216.779095,
+      "cpu_ms": 1217.757,
+      "callback_us": {
+        "median": 4.296,
+        "p95": 10694.728,
+        "p99": 12145.029,
+        "maximum": 103243.78
+      },
+      "deadline_misses": 103,
+      "events_file": "086-events.json",
+      "frames_file": "086-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_sustain_03.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_sustain_03.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.787906,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1364.749917,
+      "cpu_ms": 1364.177,
+      "callback_us": {
+        "median": 4.687,
+        "p95": 11112.522,
+        "p99": 19891.354,
+        "maximum": 105918.505
+      },
+      "deadline_misses": 103,
+      "events_file": "087-events.json",
+      "frames_file": "087-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_sustain_04.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_sustain_04.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.828065,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1344.369933,
+      "cpu_ms": 1344.334,
+      "callback_us": {
+        "median": 4.406,
+        "p95": 11488.363,
+        "p99": 13782.212,
+        "maximum": 117635.209
+      },
+      "deadline_misses": 103,
+      "events_file": "088-events.json",
+      "frames_file": "088-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_sustain_05.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_sustain_05.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 7.442591,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1396.295073,
+      "cpu_ms": 1398.426,
+      "callback_us": {
+        "median": 4.367,
+        "p95": 11483.205,
+        "p99": 19666.324,
+        "maximum": 112928.917
+      },
+      "deadline_misses": 103,
+      "events_file": "089-events.json",
+      "frames_file": "089-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_sustain_06.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_sustain_06.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.794976,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1337.129838,
+      "cpu_ms": 1337.619,
+      "callback_us": {
+        "median": 4.477,
+        "p95": 11404.95,
+        "p99": 13929.518,
+        "maximum": 117075.377
+      },
+      "deadline_misses": 103,
+      "events_file": "090-events.json",
+      "frames_file": "090-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_articulation_01.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_articulation_01.wav",
+      "source_frames": 46080,
+      "processed_frames": 58112,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.781166,
+      "first_frame_sample": 1728,
+      "frame_count": 102,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 1432.946669,
+      "cpu_ms": 1433.966,
+      "callback_us": {
+        "median": 4.807,
+        "p95": 11364.802,
+        "p99": 19714.775,
+        "maximum": 106860.606
+      },
+      "deadline_misses": 104,
+      "events_file": "091-events.json",
+      "frames_file": "091-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_articulation_02.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_articulation_02.wav",
+      "source_frames": 46080,
+      "processed_frames": 58112,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.783379,
+      "first_frame_sample": 1728,
+      "frame_count": 102,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1554.063454,
+      "cpu_ms": 1554.069,
+      "callback_us": {
+        "median": 5.118,
+        "p95": 12003.719,
+        "p99": 20143.515,
+        "maximum": 108008.792
+      },
+      "deadline_misses": 104,
+      "events_file": "092-events.json",
+      "frames_file": "092-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_articulation_03.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_articulation_03.wav",
+      "source_frames": 46080,
+      "processed_frames": 58112,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.853021,
+      "first_frame_sample": 1728,
+      "frame_count": 102,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1432.324639,
+      "cpu_ms": 1432.828,
+      "callback_us": {
+        "median": 4.576,
+        "p95": 11582.15,
+        "p99": 19722.194,
+        "maximum": 114878.277
+      },
+      "deadline_misses": 104,
+      "events_file": "093-events.json",
+      "frames_file": "093-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_articulation_04.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_articulation_04.wav",
+      "source_frames": 46080,
+      "processed_frames": 58112,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.958547,
+      "first_frame_sample": 1728,
+      "frame_count": 102,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1462.592765,
+      "cpu_ms": 1463.88,
+      "callback_us": {
+        "median": 4.637,
+        "p95": 11547.989,
+        "p99": 19660.955,
+        "maximum": 103056.004
+      },
+      "deadline_misses": 104,
+      "events_file": "094-events.json",
+      "frames_file": "094-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_voicing_01.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_voicing_01.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.80397,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 26,
+      "hung_after_silence": 0,
+      "peak_held": 8,
+      "wall_ms": 1496.553214,
+      "cpu_ms": 1496.964,
+      "callback_us": {
+        "median": 5.478,
+        "p95": 11831.406,
+        "p99": 19859.147,
+        "maximum": 105342.061
+      },
+      "deadline_misses": 103,
+      "events_file": "095-events.json",
+      "frames_file": "095-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_voicing_02.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_voicing_02.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.986432,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 5,
+      "wall_ms": 1687.535647,
+      "cpu_ms": 1689.392,
+      "callback_us": {
+        "median": 6.21,
+        "p95": 13370.436,
+        "p99": 20054.764,
+        "maximum": 173110.2
+      },
+      "deadline_misses": 103,
+      "events_file": "096-events.json",
+      "frames_file": "096-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_voicing_03.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_voicing_03.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.269533,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 28,
+      "hung_after_silence": 0,
+      "peak_held": 7,
+      "wall_ms": 1495.513321,
+      "cpu_ms": 1496.008,
+      "callback_us": {
+        "median": 5.108,
+        "p95": 11530.974,
+        "p99": 19952.894,
+        "maximum": 148398.998
+      },
+      "deadline_misses": 103,
+      "events_file": "097-events.json",
+      "frames_file": "097-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_voicing_04.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_voicing_04.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.807595,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 6,
+      "wall_ms": 1633.198281,
+      "cpu_ms": 1634.693,
+      "callback_us": {
+        "median": 5.157,
+        "p95": 12499.112,
+        "p99": 19429.036,
+        "maximum": 178072.187
+      },
+      "deadline_misses": 103,
+      "events_file": "098-events.json",
+      "frames_file": "098-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_unpitched_01.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_unpitched_01.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.803739,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 1178.232224,
+      "cpu_ms": 1178.663,
+      "callback_us": {
+        "median": 4.697,
+        "p95": 12045.205,
+        "p99": 19410.549,
+        "maximum": 112085.571
+      },
+      "deadline_misses": 81,
+      "events_file": "099-events.json",
+      "frames_file": "099-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_unpitched_02.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_unpitched_02.wav",
+      "source_frames": 33600,
+      "processed_frames": 45632,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.548923,
+      "first_frame_sample": 1728,
+      "frame_count": 79,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1199.417488,
+      "cpu_ms": 1200.01,
+      "callback_us": {
+        "median": 4.987,
+        "p95": 11274.985,
+        "p99": 19536.886,
+        "maximum": 141451.055
+      },
+      "deadline_misses": 81,
+      "events_file": "100-events.json",
+      "frames_file": "100-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_01.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_01.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.752223,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1365.557785,
+      "cpu_ms": 1366.124,
+      "callback_us": {
+        "median": 4.807,
+        "p95": 11062.193,
+        "p99": 19459.631,
+        "maximum": 105762.807
+      },
+      "deadline_misses": 103,
+      "events_file": "101-events.json",
+      "frames_file": "101-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_02.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_02.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.802337,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1379.921816,
+      "cpu_ms": 1381.274,
+      "callback_us": {
+        "median": 4.466,
+        "p95": 12045.465,
+        "p99": 17784.581,
+        "maximum": 109548.165
+      },
+      "deadline_misses": 103,
+      "events_file": "102-events.json",
+      "frames_file": "102-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_03.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_03.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.035738,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1533.853064,
+      "cpu_ms": 1534.285,
+      "callback_us": {
+        "median": 4.988,
+        "p95": 12153.314,
+        "p99": 19854.803,
+        "maximum": 161614.651
+      },
+      "deadline_misses": 103,
+      "events_file": "103-events.json",
+      "frames_file": "103-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_04.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_04.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.138521,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1588.093275,
+      "cpu_ms": 1589.844,
+      "callback_us": {
+        "median": 5.558,
+        "p95": 12672.561,
+        "p99": 20110.752,
+        "maximum": 137480.953
+      },
+      "deadline_misses": 103,
+      "events_file": "104-events.json",
+      "frames_file": "104-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_05.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_05.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.834729,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1405.792587,
+      "cpu_ms": 1406.245,
+      "callback_us": {
+        "median": 4.647,
+        "p95": 11241.905,
+        "p99": 19895.366,
+        "maximum": 107169.505
+      },
+      "deadline_misses": 103,
+      "events_file": "105-events.json",
+      "frames_file": "105-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_06.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_06.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.768648,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1431.637272,
+      "cpu_ms": 1433.84,
+      "callback_us": {
+        "median": 4.566,
+        "p95": 10958.852,
+        "p99": 19897.068,
+        "maximum": 107358.463
+      },
+      "deadline_misses": 103,
+      "events_file": "106-events.json",
+      "frames_file": "106-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_07.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_07.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.969212,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1417.219319,
+      "cpu_ms": 1417.66,
+      "callback_us": {
+        "median": 4.807,
+        "p95": 11710.667,
+        "p99": 19841.066,
+        "maximum": 125555.303
+      },
+      "deadline_misses": 103,
+      "events_file": "107-events.json",
+      "frames_file": "107-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_08.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_08.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.782938,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1376.716257,
+      "cpu_ms": 1377.181,
+      "callback_us": {
+        "median": 4.547,
+        "p95": 10957.261,
+        "p99": 19947.523,
+        "maximum": 138894.692
+      },
+      "deadline_misses": 103,
+      "events_file": "108-events.json",
+      "frames_file": "108-frames.f32"
+    },
+    {
+      "id": "confirmation:pcm/confirm_recorded_09.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/confirmation/pcm/confirm_recorded_09.wav",
+      "source_frames": 45600,
+      "processed_frames": 57600,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.960348,
+      "first_frame_sample": 1728,
+      "frame_count": 101,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1358.783104,
+      "cpu_ms": 1359.834,
+      "callback_us": {
+        "median": 4.547,
+        "p95": 11794.509,
+        "p99": 14698.655,
+        "maximum": 106301.239
+      },
+      "deadline_misses": 103,
+      "events_file": "109-events.json",
+      "frames_file": "109-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak25.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.182455,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2015.618958,
+      "cpu_ms": 2012.475,
+      "callback_us": {
+        "median": 4.556,
+        "p95": 11398.789,
+        "p99": 15416.218,
+        "maximum": 117353.759
+      },
+      "deadline_misses": 159,
+      "events_file": "110-events.json",
+      "frames_file": "110-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak150.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.814585,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2059.783902,
+      "cpu_ms": 2063.38,
+      "callback_us": {
+        "median": 4.616,
+        "p95": 11433.429,
+        "p99": 19556.428,
+        "maximum": 106510.736
+      },
+      "deadline_misses": 159,
+      "events_file": "111-events.json",
+      "frames_file": "111-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak25.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.142371,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 2125.828606,
+      "cpu_ms": 2127.683,
+      "callback_us": {
+        "median": 4.497,
+        "p95": 11532.796,
+        "p99": 19657.206,
+        "maximum": 164493.717
+      },
+      "deadline_misses": 159,
+      "events_file": "112-events.json",
+      "frames_file": "112-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak150.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.17898,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 2057.192984,
+      "cpu_ms": 2058.292,
+      "callback_us": {
+        "median": 4.537,
+        "p95": 11228.53,
+        "p99": 19009.598,
+        "maximum": 105882.143
+      },
+      "deadline_misses": 159,
+      "events_file": "113-events.json",
+      "frames_file": "113-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-perc_1_rr1_1_noise_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-perc_1_rr1_1_noise_peak25.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.319967,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 2331.970213,
+      "cpu_ms": 2333.262,
+      "callback_us": {
+        "median": 5.738,
+        "p95": 12638.962,
+        "p99": 19069.647,
+        "maximum": 131516.859
+      },
+      "deadline_misses": 159,
+      "events_file": "114-events.json",
+      "frames_file": "114-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-perc_1_rr1_1_noise_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-perc_1_rr1_1_noise_peak150.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.94085,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 2143.767699,
+      "cpu_ms": 2144.654,
+      "callback_us": {
+        "median": 4.577,
+        "p95": 11358.532,
+        "p99": 19039.171,
+        "maximum": 175197.52
+      },
+      "deadline_misses": 159,
+      "events_file": "115-events.json",
+      "frames_file": "115-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-perc_4_rr1_1_noise_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-perc_4_rr1_1_noise_peak25.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.884998,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2125.137674,
+      "cpu_ms": 2126.088,
+      "callback_us": {
+        "median": 4.666,
+        "p95": 10989.78,
+        "p99": 19001.937,
+        "maximum": 162934.976
+      },
+      "deadline_misses": 159,
+      "events_file": "116-events.json",
+      "frames_file": "116-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-perc_4_rr1_1_noise_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-perc_4_rr1_1_noise_peak150.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.843467,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 0,
+      "hung_after_silence": 0,
+      "peak_held": 0,
+      "wall_ms": 1899.400679,
+      "cpu_ms": 1900.654,
+      "callback_us": {
+        "median": 4.356,
+        "p95": 10880.006,
+        "p99": 11923.839,
+        "maximum": 113789.135
+      },
+      "deadline_misses": 159,
+      "events_file": "117-events.json",
+      "frames_file": "117-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-mute_strings1_rr1_2_noise_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-mute_strings1_rr1_2_noise_peak25.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.795667,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2070.171551,
+      "cpu_ms": 2071.364,
+      "callback_us": {
+        "median": 4.707,
+        "p95": 11479.657,
+        "p99": 19315.503,
+        "maximum": 111174.538
+      },
+      "deadline_misses": 159,
+      "events_file": "118-events.json",
+      "frames_file": "118-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-mute_strings1_rr1_2_noise_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-mute_strings1_rr1_2_noise_peak150.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.571175,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2235.866211,
+      "cpu_ms": 2244.537,
+      "callback_us": {
+        "median": 5.358,
+        "p95": 12211.962,
+        "p99": 19364.185,
+        "maximum": 119635.181
+      },
+      "deadline_misses": 159,
+      "events_file": "119-events.json",
+      "frames_file": "119-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-mute_strings3_rr1_2_noise_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-mute_strings3_rr1_2_noise_peak25.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.742398,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 30,
+      "hung_after_silence": 0,
+      "peak_held": 6,
+      "wall_ms": 2077.473193,
+      "cpu_ms": 2078.516,
+      "callback_us": {
+        "median": 4.657,
+        "p95": 11703.125,
+        "p99": 15672.193,
+        "maximum": 112318.769
+      },
+      "deadline_misses": 159,
+      "events_file": "120-events.json",
+      "frames_file": "120-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-mute_strings3_rr1_2_noise_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-mute_strings3_rr1_2_noise_peak150.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.115957,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2198.199703,
+      "cpu_ms": 2199.408,
+      "callback_us": {
+        "median": 5.038,
+        "p95": 11327.784,
+        "p99": 19316.516,
+        "maximum": 112575.492
+      },
+      "deadline_misses": 159,
+      "events_file": "121-events.json",
+      "frames_file": "121-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-perc_1_rr1_2_noise_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-perc_1_rr1_2_noise_peak25.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.954119,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2196.75977,
+      "cpu_ms": 2197.756,
+      "callback_us": {
+        "median": 4.867,
+        "p95": 11937.94,
+        "p99": 19766.286,
+        "maximum": 111421.507
+      },
+      "deadline_misses": 159,
+      "events_file": "122-events.json",
+      "frames_file": "122-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-perc_1_rr1_2_noise_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-perc_1_rr1_2_noise_peak150.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.950815,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1991.181911,
+      "cpu_ms": 1991.429,
+      "callback_us": {
+        "median": 4.436,
+        "p95": 11033.462,
+        "p99": 12922.185,
+        "maximum": 157523.866
+      },
+      "deadline_misses": 159,
+      "events_file": "123-events.json",
+      "frames_file": "123-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-perc_4_rr1_2_noise_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-perc_4_rr1_2_noise_peak25.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.100054,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2044.478321,
+      "cpu_ms": 2045.777,
+      "callback_us": {
+        "median": 4.787,
+        "p95": 11778.155,
+        "p99": 13308.083,
+        "maximum": 121137.716
+      },
+      "deadline_misses": 159,
+      "events_file": "124-events.json",
+      "frames_file": "124-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-perc_4_rr1_2_noise_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-perc_4_rr1_2_noise_peak150.wav",
+      "source_frames": 76800,
+      "processed_frames": 88832,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.141505,
+      "first_frame_sample": 1728,
+      "frame_count": 157,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2072.324324,
+      "cpu_ms": 2073.595,
+      "callback_us": {
+        "median": 4.807,
+        "p95": 11956.189,
+        "p99": 13850.851,
+        "maximum": 115065.473
+      },
+      "deadline_misses": 159,
+      "events_file": "125-events.json",
+      "frames_file": "125-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25.wav",
+      "source_frames": 67200,
+      "processed_frames": 79232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.534602,
+      "first_frame_sample": 1728,
+      "frame_count": 140,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1732.643216,
+      "cpu_ms": 1741.758,
+      "callback_us": {
+        "median": 4.516,
+        "p95": 11397.728,
+        "p99": 12148.75,
+        "maximum": 118513.801
+      },
+      "deadline_misses": 142,
+      "events_file": "126-events.json",
+      "frames_file": "126-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150.wav",
+      "source_frames": 67200,
+      "processed_frames": 79232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.32234,
+      "first_frame_sample": 1728,
+      "frame_count": 140,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1780.588935,
+      "cpu_ms": 1781.664,
+      "callback_us": {
+        "median": 4.427,
+        "p95": 11447.921,
+        "p99": 12436.944,
+        "maximum": 112533.098
+      },
+      "deadline_misses": 142,
+      "events_file": "127-events.json",
+      "frames_file": "127-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25.wav",
+      "source_frames": 84000,
+      "processed_frames": 96000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.980749,
+      "first_frame_sample": 1728,
+      "frame_count": 170,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 3004.616061,
+      "cpu_ms": 3137.971,
+      "callback_us": {
+        "median": 6.529,
+        "p95": 17984.473,
+        "p99": 19947.766,
+        "maximum": 121738.316
+      },
+      "deadline_misses": 172,
+      "events_file": "128-events.json",
+      "frames_file": "128-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150.wav",
+      "source_frames": 84000,
+      "processed_frames": 96000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.950905,
+      "first_frame_sample": 1728,
+      "frame_count": 170,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2445.070427,
+      "cpu_ms": 2486.828,
+      "callback_us": {
+        "median": 5.227,
+        "p95": 12138.487,
+        "p99": 18004.382,
+        "maximum": 116369.063
+      },
+      "deadline_misses": 172,
+      "events_file": "129-events.json",
+      "frames_file": "129-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.209034,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2236.009284,
+      "cpu_ms": 2236.212,
+      "callback_us": {
+        "median": 5.048,
+        "p95": 12160.189,
+        "p99": 15795.808,
+        "maximum": 173388.022
+      },
+      "deadline_misses": 163,
+      "events_file": "130-events.json",
+      "frames_file": "130-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.249964,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2167.730247,
+      "cpu_ms": 2168.868,
+      "callback_us": {
+        "median": 4.957,
+        "p95": 11376.096,
+        "p99": 17517.634,
+        "maximum": 160021.217
+      },
+      "deadline_misses": 163,
+      "events_file": "131-events.json",
+      "frames_file": "131-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.147103,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2252.435601,
+      "cpu_ms": 2253.626,
+      "callback_us": {
+        "median": 4.747,
+        "p95": 11322.862,
+        "p99": 18720.59,
+        "maximum": 159000.935
+      },
+      "deadline_misses": 163,
+      "events_file": "132-events.json",
+      "frames_file": "132-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.871379,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2482.463993,
+      "cpu_ms": 2483.664,
+      "callback_us": {
+        "median": 6.32,
+        "p95": 12820.142,
+        "p99": 19257.308,
+        "maximum": 107302.611
+      },
+      "deadline_misses": 163,
+      "events_file": "133-events.json",
+      "frames_file": "133-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.774916,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2592.661656,
+      "cpu_ms": 2593.346,
+      "callback_us": {
+        "median": 6.409,
+        "p95": 14880.743,
+        "p99": 19530.26,
+        "maximum": 158523.357
+      },
+      "deadline_misses": 163,
+      "events_file": "134-events.json",
+      "frames_file": "134-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.368968,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2683.94991,
+      "cpu_ms": 2464.512,
+      "callback_us": {
+        "median": 5.968,
+        "p95": 13040.439,
+        "p99": 30259.508,
+        "maximum": 112888.978
+      },
+      "deadline_misses": 163,
+      "events_file": "135-events.json",
+      "frames_file": "135-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.796128,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2676.722031,
+      "cpu_ms": 2562.175,
+      "callback_us": {
+        "median": 6.299,
+        "p95": 14096.191,
+        "p99": 20960.131,
+        "maximum": 157048.064
+      },
+      "deadline_misses": 163,
+      "events_file": "136-events.json",
+      "frames_file": "136-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.825842,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2316.9394,
+      "cpu_ms": 2314.1,
+      "callback_us": {
+        "median": 5.147,
+        "p95": 12015.166,
+        "p99": 19407.431,
+        "maximum": 145368.222
+      },
+      "deadline_misses": 163,
+      "events_file": "137-events.json",
+      "frames_file": "137-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25.wav",
+      "source_frames": 67200,
+      "processed_frames": 79232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.772683,
+      "first_frame_sample": 1728,
+      "frame_count": 140,
+      "event_count": 22,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1770.053102,
+      "cpu_ms": 1771.204,
+      "callback_us": {
+        "median": 4.577,
+        "p95": 11669.297,
+        "p99": 12386.551,
+        "maximum": 114783.472
+      },
+      "deadline_misses": 142,
+      "events_file": "138-events.json",
+      "frames_file": "138-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150.wav",
+      "source_frames": 67200,
+      "processed_frames": 79232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.825461,
+      "first_frame_sample": 1728,
+      "frame_count": 140,
+      "event_count": 14,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1758.196866,
+      "cpu_ms": 1757.807,
+      "callback_us": {
+        "median": 4.477,
+        "p95": 11523.002,
+        "p99": 12470.553,
+        "maximum": 118529.155
+      },
+      "deadline_misses": 142,
+      "events_file": "139-events.json",
+      "frames_file": "139-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25.wav",
+      "source_frames": 84000,
+      "processed_frames": 96000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.761317,
+      "first_frame_sample": 1728,
+      "frame_count": 170,
+      "event_count": 22,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2216.685948,
+      "cpu_ms": 2218.005,
+      "callback_us": {
+        "median": 4.567,
+        "p95": 11692.23,
+        "p99": 16668.608,
+        "maximum": 109904.449
+      },
+      "deadline_misses": 172,
+      "events_file": "140-events.json",
+      "frames_file": "140-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150.wav",
+      "source_frames": 84000,
+      "processed_frames": 96000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.953499,
+      "first_frame_sample": 1728,
+      "frame_count": 170,
+      "event_count": 16,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2062.320197,
+      "cpu_ms": 2063.027,
+      "callback_us": {
+        "median": 4.557,
+        "p95": 11077.497,
+        "p99": 11600.526,
+        "maximum": 112077.901
+      },
+      "deadline_misses": 172,
+      "events_file": "141-events.json",
+      "frames_file": "141-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 5.309677,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 18,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1962.347819,
+      "cpu_ms": 1962.801,
+      "callback_us": {
+        "median": 4.267,
+        "p95": 10976.58,
+        "p99": 12135.291,
+        "maximum": 109024.026
+      },
+      "deadline_misses": 163,
+      "events_file": "142-events.json",
+      "frames_file": "142-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.080285,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 16,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2259.79589,
+      "cpu_ms": 2259.969,
+      "callback_us": {
+        "median": 4.697,
+        "p95": 11669.167,
+        "p99": 19821.969,
+        "maximum": 111980.576
+      },
+      "deadline_misses": 163,
+      "events_file": "143-events.json",
+      "frames_file": "143-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.766645,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 18,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2038.323473,
+      "cpu_ms": 2039.307,
+      "callback_us": {
+        "median": 4.557,
+        "p95": 11283.249,
+        "p99": 13775.349,
+        "maximum": 111683.51
+      },
+      "deadline_misses": 163,
+      "events_file": "144-events.json",
+      "frames_file": "144-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.08385,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 18,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 1963.254328,
+      "cpu_ms": 1964.235,
+      "callback_us": {
+        "median": 4.447,
+        "p95": 11134.791,
+        "p99": 11908.277,
+        "maximum": 106808.961
+      },
+      "deadline_misses": 163,
+      "events_file": "145-events.json",
+      "frames_file": "145-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.009832,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 24,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2204.45964,
+      "cpu_ms": 2205.862,
+      "callback_us": {
+        "median": 4.958,
+        "p95": 11670.498,
+        "p99": 19732.335,
+        "maximum": 109004.275
+      },
+      "deadline_misses": 164,
+      "events_file": "146-events.json",
+      "frames_file": "146-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.127654,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 24,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2142.898488,
+      "cpu_ms": 2144.214,
+      "callback_us": {
+        "median": 4.687,
+        "p95": 11644.87,
+        "p99": 17743.439,
+        "maximum": 118310.624
+      },
+      "deadline_misses": 163,
+      "events_file": "147-events.json",
+      "frames_file": "147-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.9068,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 24,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2039.225278,
+      "cpu_ms": 2040.882,
+      "callback_us": {
+        "median": 4.858,
+        "p95": 11518.925,
+        "p99": 12595.956,
+        "maximum": 114915.905
+      },
+      "deadline_misses": 163,
+      "events_file": "148-events.json",
+      "frames_file": "148-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 3.085631,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 22,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2090.684767,
+      "cpu_ms": 2098.59,
+      "callback_us": {
+        "median": 4.727,
+        "p95": 11701.944,
+        "p99": 13011.526,
+        "maximum": 160634.128
+      },
+      "deadline_misses": 163,
+      "events_file": "149-events.json",
+      "frames_file": "149-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25.wav",
+      "source_frames": 67200,
+      "processed_frames": 79232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.840523,
+      "first_frame_sample": 1728,
+      "frame_count": 140,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1864.832041,
+      "cpu_ms": 1865.386,
+      "callback_us": {
+        "median": 4.517,
+        "p95": 11559.794,
+        "p99": 19107.719,
+        "maximum": 114570.327
+      },
+      "deadline_misses": 142,
+      "events_file": "150-events.json",
+      "frames_file": "150-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150.wav",
+      "source_frames": 67200,
+      "processed_frames": 79232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.772464,
+      "first_frame_sample": 1728,
+      "frame_count": 140,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1653.462239,
+      "cpu_ms": 1654.679,
+      "callback_us": {
+        "median": 4.356,
+        "p95": 10882.09,
+        "p99": 11308.216,
+        "maximum": 108394.748
+      },
+      "deadline_misses": 142,
+      "events_file": "151-events.json",
+      "frames_file": "151-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25.wav",
+      "source_frames": 84000,
+      "processed_frames": 96000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.759604,
+      "first_frame_sample": 1728,
+      "frame_count": 170,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2234.61916,
+      "cpu_ms": 2234.769,
+      "callback_us": {
+        "median": 5.238,
+        "p95": 11749.564,
+        "p99": 19189.669,
+        "maximum": 111267.488
+      },
+      "deadline_misses": 172,
+      "events_file": "152-events.json",
+      "frames_file": "152-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150.wav",
+      "source_frames": 84000,
+      "processed_frames": 96000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.074226,
+      "first_frame_sample": 1728,
+      "frame_count": 170,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2249.397461,
+      "cpu_ms": 2250.56,
+      "callback_us": {
+        "median": 4.767,
+        "p95": 11446.199,
+        "p99": 19432.094,
+        "maximum": 111886.858
+      },
+      "deadline_misses": 172,
+      "events_file": "153-events.json",
+      "frames_file": "153-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.868073,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 8,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2117.958702,
+      "cpu_ms": 2119.497,
+      "callback_us": {
+        "median": 4.727,
+        "p95": 11915.516,
+        "p99": 13786.071,
+        "maximum": 117250.314
+      },
+      "deadline_misses": 163,
+      "events_file": "154-events.json",
+      "frames_file": "154-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.095014,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2054.603776,
+      "cpu_ms": 2055.477,
+      "callback_us": {
+        "median": 4.326,
+        "p95": 11704.197,
+        "p99": 12519.183,
+        "maximum": 149494.925
+      },
+      "deadline_misses": 163,
+      "events_file": "155-events.json",
+      "frames_file": "155-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.197455,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 8,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2150.315546,
+      "cpu_ms": 2158.324,
+      "callback_us": {
+        "median": 4.687,
+        "p95": 11380.491,
+        "p99": 19129.704,
+        "maximum": 114483.941
+      },
+      "deadline_misses": 163,
+      "events_file": "156-events.json",
+      "frames_file": "156-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.751232,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 8,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2285.260782,
+      "cpu_ms": 2285.188,
+      "callback_us": {
+        "median": 5.398,
+        "p95": 11950.446,
+        "p99": 18109.018,
+        "maximum": 107891.027
+      },
+      "deadline_misses": 163,
+      "events_file": "157-events.json",
+      "frames_file": "157-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.931446,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 16,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 2356.391189,
+      "cpu_ms": 2356.329,
+      "callback_us": {
+        "median": 4.847,
+        "p95": 12641.791,
+        "p99": 19850.715,
+        "maximum": 128734.487
+      },
+      "deadline_misses": 163,
+      "events_file": "158-events.json",
+      "frames_file": "158-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.912619,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 16,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 2195.533507,
+      "cpu_ms": 2195.486,
+      "callback_us": {
+        "median": 4.497,
+        "p95": 11575.165,
+        "p99": 19833.691,
+        "maximum": 124817.515
+      },
+      "deadline_misses": 163,
+      "events_file": "159-events.json",
+      "frames_file": "159-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.341077,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 3,
+      "wall_ms": 2549.881914,
+      "cpu_ms": 2393.128,
+      "callback_us": {
+        "median": 4.917,
+        "p95": 11903.597,
+        "p99": 19872.268,
+        "maximum": 141535.787
+      },
+      "deadline_misses": 163,
+      "events_file": "160-events.json",
+      "frames_file": "160-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 2.170958,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 12,
+      "hung_after_silence": 0,
+      "peak_held": 4,
+      "wall_ms": 2319.640593,
+      "cpu_ms": 2320.779,
+      "callback_us": {
+        "median": 4.697,
+        "p95": 11840.585,
+        "p99": 21105.03,
+        "maximum": 164622.98
+      },
+      "deadline_misses": 163,
+      "events_file": "161-events.json",
+      "frames_file": "161-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25.wav",
+      "source_frames": 67200,
+      "processed_frames": 79232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.804202,
+      "first_frame_sample": 1728,
+      "frame_count": 140,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 1770.465617,
+      "cpu_ms": 1770.427,
+      "callback_us": {
+        "median": 4.397,
+        "p95": 11155.39,
+        "p99": 13060.232,
+        "maximum": 103456.211
+      },
+      "deadline_misses": 142,
+      "events_file": "162-events.json",
+      "frames_file": "162-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150.wav",
+      "source_frames": 67200,
+      "processed_frames": 79232,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.904466,
+      "first_frame_sample": 1728,
+      "frame_count": 140,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1686.771302,
+      "cpu_ms": 1686.739,
+      "callback_us": {
+        "median": 4.266,
+        "p95": 11010.578,
+        "p99": 11500.416,
+        "maximum": 109784.63
+      },
+      "deadline_misses": 142,
+      "events_file": "163-events.json",
+      "frames_file": "163-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25.wav",
+      "source_frames": 84000,
+      "processed_frames": 96000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 8.517212,
+      "first_frame_sample": 1728,
+      "frame_count": 170,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2175.896989,
+      "cpu_ms": 2176.343,
+      "callback_us": {
+        "median": 4.396,
+        "p95": 11591.581,
+        "p99": 13032.896,
+        "maximum": 120519.482
+      },
+      "deadline_misses": 172,
+      "events_file": "164-events.json",
+      "frames_file": "164-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150.wav",
+      "source_frames": 84000,
+      "processed_frames": 96000,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.849216,
+      "first_frame_sample": 1728,
+      "frame_count": 170,
+      "event_count": 2,
+      "hung_after_silence": 0,
+      "peak_held": 1,
+      "wall_ms": 2191.558127,
+      "cpu_ms": 2190.345,
+      "callback_us": {
+        "median": 4.467,
+        "p95": 11654.765,
+        "p99": 15526.575,
+        "maximum": 113862.236
+      },
+      "deadline_misses": 172,
+      "events_file": "165-events.json",
+      "frames_file": "165-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.901121,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1979.316808,
+      "cpu_ms": 1980.259,
+      "callback_us": {
+        "median": 4.306,
+        "p95": 11437.356,
+        "p99": 12456.342,
+        "maximum": 110777.204
+      },
+      "deadline_misses": 163,
+      "events_file": "166-events.json",
+      "frames_file": "166-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.772192,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1954.372308,
+      "cpu_ms": 1955.549,
+      "callback_us": {
+        "median": 4.356,
+        "p95": 11386.771,
+        "p99": 12469.351,
+        "maximum": 106580.422
+      },
+      "deadline_misses": 163,
+      "events_file": "167-events.json",
+      "frames_file": "167-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.973428,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1990.139515,
+      "cpu_ms": 1991.254,
+      "callback_us": {
+        "median": 4.446,
+        "p95": 11501.85,
+        "p99": 12335.845,
+        "maximum": 120229.599
+      },
+      "deadline_misses": 163,
+      "events_file": "168-events.json",
+      "frames_file": "168-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.815936,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 10,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 1957.878205,
+      "cpu_ms": 1957.263,
+      "callback_us": {
+        "median": 4.346,
+        "p95": 11229.128,
+        "p99": 12052.708,
+        "maximum": 118957.118
+      },
+      "deadline_misses": 163,
+      "events_file": "169-events.json",
+      "frames_file": "169-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.801985,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2176.570062,
+      "cpu_ms": 2176.966,
+      "callback_us": {
+        "median": 4.817,
+        "p95": 11897.761,
+        "p99": 18132.585,
+        "maximum": 116377.219
+      },
+      "deadline_misses": 163,
+      "events_file": "170-events.json",
+      "frames_file": "170-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.752653,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 8,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2259.271398,
+      "cpu_ms": 2260.163,
+      "callback_us": {
+        "median": 4.878,
+        "p95": 12151.494,
+        "p99": 17750.274,
+        "maximum": 167325.303
+      },
+      "deadline_misses": 163,
+      "events_file": "171-events.json",
+      "frames_file": "171-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 4.981875,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 4,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2107.167729,
+      "cpu_ms": 2112.093,
+      "callback_us": {
+        "median": 4.416,
+        "p95": 11122.562,
+        "p99": 17769.102,
+        "maximum": 149459.151
+      },
+      "deadline_misses": 163,
+      "events_file": "172-events.json",
+      "frames_file": "172-frames.f32"
+    },
+    {
+      "id": "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise/pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "source_frames": 79200,
+      "processed_frames": 91200,
+      "model": "piano",
+      "block": 64,
+      "threshold": {
+        "on": 0.6,
+        "off": 0.36
+      },
+      "initialization_ms": 1.74981,
+      "first_frame_sample": 1728,
+      "frame_count": 161,
+      "event_count": 6,
+      "hung_after_silence": 0,
+      "peak_held": 2,
+      "wall_ms": 2078.409209,
+      "cpu_ms": 2079.175,
+      "callback_us": {
+        "median": 4.367,
+        "p95": 11906.663,
+        "p99": 13149.646,
+        "maximum": 112514.823
+      },
+      "deadline_misses": 163,
+      "events_file": "173-events.json",
+      "frames_file": "173-frames.f32"
+    }
+  ]
+}

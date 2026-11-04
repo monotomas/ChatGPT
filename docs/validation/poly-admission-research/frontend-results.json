@@ -1,0 +1,1118 @@
+[
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 64.0,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 9.580458774567046e-07,
+    "selection_variance": 9.580458774567046e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0004905194892578327,
+    "baseline_parameters": [
+      -0.015817183541174635,
+      0.0,
+      0.06384438628160657,
+      0.009661761639853562,
+      0.031892679109282826
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.07799714500288246,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 461.80490697824047,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          3.011548020261683,
+          14.798126056828446,
+          1.5593855321913428
+        ],
+        "root_fraction": 5.2873926928492245e-09,
+        "cost": 4.8089201938052495e-05,
+        "parameters": [
+          -0.021210027647112967,
+          0.0007709862442415873,
+          0.06650422910994297,
+          -0.0017427296514220861,
+          0.07701453307601902,
+          -0.02238028530966018,
+          0.009737722279344439,
+          0.06110122418016825,
+          -0.0010969566848288367,
+          0.06103487247619646
+        ],
+        "success": false,
+        "iterations": 150,
+        "seconds": 1.3944797950025531
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 410.95777635612944,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          52.61586033658958,
+          43.5171834166852,
+          45.65091776066337
+        ],
+        "root_fraction": 0.9589986851296005,
+        "cost": 9.680308581106855e-05,
+        "parameters": [
+          0.002358486541355184,
+          0.14356384118420543,
+          0.0542467308674079,
+          0.025166997336713383,
+          -0.2759865462127283,
+          -0.001268621433196966,
+          0.0,
+          0.0,
+          0.00043216455586236093,
+          0.14739160542892654
+        ],
+        "success": true,
+        "iterations": 75,
+        "seconds": 0.5474337970008492
+      }
+    ],
+    "mode": "manual",
+    "analysis_end_sample": 768,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 85.33333333333333,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 9.133479797895969e-07,
+    "selection_variance": 9.133479797895969e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0004676341656522736,
+    "baseline_parameters": [
+      -0.01506200805815439,
+      0.0,
+      0.051325599207494715,
+      -0.00752296285942845,
+      -0.016033941952793965
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.06690298800094752,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 508.99251819404674,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.4921951624631099,
+          18.208999074800712,
+          0.2657559006830691
+        ],
+        "root_fraction": 1.0265692636820192e-10,
+        "cost": 2.746877431721403e-06,
+        "parameters": [
+          -0.02200920494588445,
+          0.00332953842748578,
+          0.02915527490074485,
+          0.0007189822762583205,
+          0.0077109425823100155,
+          -0.02318828954521661,
+          0.0730828113217904,
+          0.029518707816180073,
+          0.00028617269828578847,
+          0.006334967460061783
+        ],
+        "success": false,
+        "iterations": 150,
+        "seconds": 1.3910089139972115
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 507.6859637586636,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          37.31887766439871,
+          14.550657042262554,
+          8.404088687647414
+        ],
+        "root_fraction": 0.9475125786594618,
+        "cost": 3.940216285763661e-06,
+        "parameters": [
+          -0.0006709637224202598,
+          0.0,
+          0.03575676323830576,
+          -0.003992150832425727,
+          0.074775317425152,
+          -0.005482696540922319,
+          0.06927744288109862,
+          0.2106761584959388,
+          0.005039406452837429,
+          -0.10922564020862442
+        ],
+        "success": true,
+        "iterations": 149,
+        "seconds": 1.4691897130032885
+      }
+    ],
+    "mode": "manual",
+    "analysis_end_sample": 1024,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 106.66666666666667,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 7.627881806683246e-07,
+    "selection_variance": 7.627881806683246e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0003905475485021822,
+    "baseline_parameters": [
+      -0.014144853169568412,
+      0.0,
+      0.028519529360618107,
+      -0.001375535266263263,
+      -0.1444957685713031
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.07226365099631948,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 511.8455002964197,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.11468416477684178,
+          17.423042515354176,
+          0.05438694733294943
+        ],
+        "root_fraction": 1.209820920574047e-08,
+        "cost": 1.178505478078293e-07,
+        "parameters": [
+          -0.020088493248558378,
+          0.0006884031765283025,
+          0.03321258142330256,
+          0.00017744938385395637,
+          0.002144123741177974,
+          0.016177876791919465,
+          0.0,
+          0.0,
+          -0.00017823348928808683,
+          -0.02315496176730938
+        ],
+        "success": true,
+        "iterations": 149,
+        "seconds": 1.270699009000964
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 511.78719115166916,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          39.57348698313165,
+          15.462493388914929,
+          8.914184057267795
+        ],
+        "root_fraction": 0.9535423325697008,
+        "cost": 1.6232807424837566e-07,
+        "parameters": [
+          0.00010571595899623485,
+          0.0,
+          0.03518268552324507,
+          -6.327697856861126e-05,
+          -0.013784619106003303,
+          -0.0020614083651793107,
+          0.03330385803153296,
+          0.0,
+          0.00132926239467122,
+          0.003989318336656509
+        ],
+        "success": true,
+        "iterations": 70,
+        "seconds": 0.548465642001247
+      }
+    ],
+    "mode": "manual",
+    "analysis_end_sample": 1280,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 128.0,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 8.405933755386667e-07,
+    "selection_variance": 8.405933755386667e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.00043038380827579737,
+    "baseline_parameters": [
+      -0.016802405218372393,
+      0.0,
+      0.05206510603232245,
+      0.0026754638517184444,
+      0.12862549447373783
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.060705397998390254,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 511.9932748452738,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.020369153237671717,
+          16.191550947577042,
+          0.008814836141081516
+        ],
+        "root_fraction": 1.2832968391444275e-10,
+        "cost": 5.65312051233648e-09,
+        "parameters": [
+          -0.019547733134817308,
+          0.0,
+          0.03606645174168146,
+          4.2722718485076314e-05,
+          -0.0005018552682481677,
+          -0.0010605073275838904,
+          0.009892596697288456,
+          2.5115492186108023e-06,
+          -3.79435917353834e-05,
+          5.6241754041217255e-05
+        ],
+        "success": true,
+        "iterations": 76,
+        "seconds": 0.6150582650006982
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 511.99226173043525,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          37.87431440152404,
+          14.981360556101038,
+          8.822808325569664
+        ],
+        "root_fraction": 0.9578668082386316,
+        "cost": 6.5047381342355806e-09,
+        "parameters": [
+          1.2929229088123825e-05,
+          0.0011359603334776351,
+          0.03615859379157397,
+          0.00017730942182032688,
+          -0.0015085889424625186,
+          -3.678736260823099e-05,
+          0.0003192623638641936,
+          5.382017544395187e-05,
+          0.0007438184353989088,
+          0.00029765883549101634
+        ],
+        "success": true,
+        "iterations": 41,
+        "seconds": 0.30854678100149613
+      }
+    ],
+    "mode": "manual",
+    "analysis_end_sample": 1536,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 170.66666666666666,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 7.21039083982142e-07,
+    "selection_variance": 7.21039083982142e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0003691720109988567,
+    "baseline_parameters": [
+      -0.013613923006869859,
+      0.0,
+      0.03605914460049536,
+      0.002131493892797406,
+      -0.2052045040482973
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.07142730200575897,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 511.99980679838126,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.000652684307919939,
+          17.34997294023481,
+          0.0028607290283413317
+        ],
+        "root_fraction": 1.2372030099107635e-13,
+        "cost": 1.3930591817430494e-10,
+        "parameters": [
+          -0.019551242790097043,
+          0.0,
+          0.03605816041434729,
+          2.459685173199995e-05,
+          5.7786700708431476e-05,
+          -0.0003501057717253713,
+          0.012136689895980043,
+          0.00016925087373689915,
+          -0.00010907203028948984,
+          -0.0004576122249644548
+        ],
+        "success": true,
+        "iterations": 72,
+        "seconds": 0.5854648059976171
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 511.99991433765064,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          40.422294294488275,
+          15.779717310766308,
+          9.090982273025821
+        ],
+        "root_fraction": 0.9578722662722406,
+        "cost": 6.176590193233158e-11,
+        "parameters": [
+          2.0769691596240255e-06,
+          0.0,
+          0.03599191701620695,
+          -1.644578871705586e-07,
+          -0.0002187609886079074,
+          -8.369793386639397e-05,
+          0.0001691683177477625,
+          3.785024137309449e-05,
+          0.0006826119047671378,
+          -4.4617279220442906e-05
+        ],
+        "success": true,
+        "iterations": 45,
+        "seconds": 0.3423162590042921
+      }
+    ],
+    "mode": "manual",
+    "analysis_end_sample": 2048,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 256.0,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 8.634036069200445e-07,
+    "selection_variance": 8.634036069200445e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.00044206264674306276,
+    "baseline_parameters": [
+      -0.01667140283815363,
+      0.0,
+      0.04492595866947909,
+      0.004223756256962508,
+      0.10239525597098095
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.06822019199898932,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 511.99987346677085,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.0014484892109865553,
+          15.615904487239046,
+          0.0010048580884241432
+        ],
+        "root_fraction": 7.370927005754317e-13,
+        "cost": 1.092492464398391e-10,
+        "parameters": [
+          -0.019549728033688398,
+          0.0,
+          0.03601191842680997,
+          3.154468571734969e-05,
+          -1.7967917666428993e-05,
+          -0.0005808846667445976,
+          0.012424488749067382,
+          4.836759459816873e-06,
+          -0.00012444752589966452,
+          -1.7528936500330777e-07
+        ],
+        "success": true,
+        "iterations": 61,
+        "seconds": 0.48177720100648
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 511.99994883784996,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          36.38032656589633,
+          14.201515796640626,
+          8.182753266938606
+        ],
+        "root_fraction": 0.9578967450377718,
+        "cost": 4.4173584868210666e-11,
+        "parameters": [
+          2.69345867887325e-06,
+          3.707599626119976e-06,
+          0.036000686831502496,
+          1.642997406339261e-06,
+          -0.0001597403756890149,
+          -7.234689638520882e-05,
+          1.5886486797781267e-05,
+          3.524314470059332e-05,
+          0.0006759292523400605,
+          -5.460836660219193e-05
+        ],
+        "success": true,
+        "iterations": 24,
+        "seconds": 0.16257851999398554
+      }
+    ],
+    "mode": "manual",
+    "analysis_end_sample": 3072,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 64.0,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 9.580458774567046e-07,
+    "selection_variance": 9.580458774567046e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0004905194892578327,
+    "baseline_parameters": [
+      -0.015817183541174635,
+      0.0,
+      0.06384438628160657,
+      0.009661761639853562,
+      0.031892679109282826
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.0658386029972462,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 461.80490697824047,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          3.011548020261683,
+          14.798126056828446,
+          1.5593855321913428
+        ],
+        "root_fraction": 5.2873926928492245e-09,
+        "cost": 4.8089201938052495e-05,
+        "parameters": [
+          -0.021210027647112967,
+          0.0007709862442415873,
+          0.06650422910994297,
+          -0.0017427296514220861,
+          0.07701453307601902,
+          -0.02238028530966018,
+          0.009737722279344439,
+          0.06110122418016825,
+          -0.0010969566848288367,
+          0.06103487247619646
+        ],
+        "success": false,
+        "iterations": 150,
+        "seconds": 1.3769984090031357
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 410.95777635612944,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          52.61586033658958,
+          43.5171834166852,
+          45.65091776066337
+        ],
+        "root_fraction": 0.9589986851296005,
+        "cost": 9.680308581106855e-05,
+        "parameters": [
+          0.002358486541355184,
+          0.14356384118420543,
+          0.0542467308674079,
+          0.025166997336713383,
+          -0.2759865462127283,
+          -0.001268621433196966,
+          0.0,
+          0.0,
+          0.00043216455586236093,
+          0.14739160542892654
+        ],
+        "success": true,
+        "iterations": 75,
+        "seconds": 0.5883082389991614
+      }
+    ],
+    "mode": "auto",
+    "analysis_end_sample": 768,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 85.33333333333333,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 9.133479797895969e-07,
+    "selection_variance": 9.133479797895969e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0004676341656522736,
+    "baseline_parameters": [
+      -0.01506200805815439,
+      0.0,
+      0.051325599207494715,
+      -0.00752296285942845,
+      -0.016033941952793965
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.0641095450046123,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 508.99251819404674,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.4921951624631099,
+          18.208999074800712,
+          0.2657559006830691
+        ],
+        "root_fraction": 1.0265692636820192e-10,
+        "cost": 2.746877431721403e-06,
+        "parameters": [
+          -0.02200920494588445,
+          0.00332953842748578,
+          0.02915527490074485,
+          0.0007189822762583205,
+          0.0077109425823100155,
+          -0.02318828954521661,
+          0.0730828113217904,
+          0.029518707816180073,
+          0.00028617269828578847,
+          0.006334967460061783
+        ],
+        "success": false,
+        "iterations": 150,
+        "seconds": 1.2507933169981698
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 507.6859637586636,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          37.31887766439871,
+          14.550657042262554,
+          8.404088687647414
+        ],
+        "root_fraction": 0.9475125786594618,
+        "cost": 3.940216285763661e-06,
+        "parameters": [
+          -0.0006709637224202598,
+          0.0,
+          0.03575676323830576,
+          -0.003992150832425727,
+          0.074775317425152,
+          -0.005482696540922319,
+          0.06927744288109862,
+          0.2106761584959388,
+          0.005039406452837429,
+          -0.10922564020862442
+        ],
+        "success": true,
+        "iterations": 149,
+        "seconds": 1.2669885070063174
+      }
+    ],
+    "mode": "auto",
+    "analysis_end_sample": 1024,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 106.66666666666667,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 7.627881806683246e-07,
+    "selection_variance": 7.627881806683246e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0003905475485021822,
+    "baseline_parameters": [
+      -0.014144853169568412,
+      0.0,
+      0.028519529360618107,
+      -0.001375535266263263,
+      -0.1444957685713031
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.05509519900078885,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 511.8455002964197,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.11468416477684178,
+          17.423042515354176,
+          0.05438694733294943
+        ],
+        "root_fraction": 1.209820920574047e-08,
+        "cost": 1.178505478078293e-07,
+        "parameters": [
+          -0.020088493248558378,
+          0.0006884031765283025,
+          0.03321258142330256,
+          0.00017744938385395637,
+          0.002144123741177974,
+          0.016177876791919465,
+          0.0,
+          0.0,
+          -0.00017823348928808683,
+          -0.02315496176730938
+        ],
+        "success": true,
+        "iterations": 149,
+        "seconds": 1.1135813329965458
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 511.78719115166916,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          39.57348698313165,
+          15.462493388914929,
+          8.914184057267795
+        ],
+        "root_fraction": 0.9535423325697008,
+        "cost": 1.6232807424837566e-07,
+        "parameters": [
+          0.00010571595899623485,
+          0.0,
+          0.03518268552324507,
+          -6.327697856861126e-05,
+          -0.013784619106003303,
+          -0.0020614083651793107,
+          0.03330385803153296,
+          0.0,
+          0.00132926239467122,
+          0.003989318336656509
+        ],
+        "success": true,
+        "iterations": 70,
+        "seconds": 0.5370050849960535
+      }
+    ],
+    "mode": "auto",
+    "analysis_end_sample": 1280,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 128.0,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 8.405933755386667e-07,
+    "selection_variance": 8.405933755386667e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.00043038380827579737,
+    "baseline_parameters": [
+      -0.016802405218372393,
+      0.0,
+      0.05206510603232245,
+      0.0026754638517184444,
+      0.12862549447373783
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.06055097900389228,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 511.9932748452738,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.020369153237671717,
+          16.191550947577042,
+          0.008814836141081516
+        ],
+        "root_fraction": 1.2832968391444275e-10,
+        "cost": 5.65312051233648e-09,
+        "parameters": [
+          -0.019547733134817308,
+          0.0,
+          0.03606645174168146,
+          4.2722718485076314e-05,
+          -0.0005018552682481677,
+          -0.0010605073275838904,
+          0.009892596697288456,
+          2.5115492186108023e-06,
+          -3.79435917353834e-05,
+          5.6241754041217255e-05
+        ],
+        "success": true,
+        "iterations": 76,
+        "seconds": 0.6092344719945686
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 511.99226173043525,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          37.87431440152404,
+          14.981360556101038,
+          8.822808325569664
+        ],
+        "root_fraction": 0.9578668082386316,
+        "cost": 6.5047381342355806e-09,
+        "parameters": [
+          1.2929229088123825e-05,
+          0.0011359603334776351,
+          0.03615859379157397,
+          0.00017730942182032688,
+          -0.0015085889424625186,
+          -3.678736260823099e-05,
+          0.0003192623638641936,
+          5.382017544395187e-05,
+          0.0007438184353989088,
+          0.00029765883549101634
+        ],
+        "success": true,
+        "iterations": 41,
+        "seconds": 0.308599468000466
+      }
+    ],
+    "mode": "auto",
+    "analysis_end_sample": 1536,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 170.66666666666666,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 7.21039083982142e-07,
+    "selection_variance": 7.21039083982142e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0003691720109988567,
+    "baseline_parameters": [
+      -0.013613923006869859,
+      0.0,
+      0.03605914460049536,
+      0.002131493892797406,
+      -0.2052045040482973
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.07011844400403788,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 511.99980679838126,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.000652684307919939,
+          17.34997294023481,
+          0.0028607290283413317
+        ],
+        "root_fraction": 1.2372030099107635e-13,
+        "cost": 1.3930591817430494e-10,
+        "parameters": [
+          -0.019551242790097043,
+          0.0,
+          0.03605816041434729,
+          2.459685173199995e-05,
+          5.7786700708431476e-05,
+          -0.0003501057717253713,
+          0.012136689895980043,
+          0.00016925087373689915,
+          -0.00010907203028948984,
+          -0.0004576122249644548
+        ],
+        "success": true,
+        "iterations": 72,
+        "seconds": 0.6071894179985975
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 511.99991433765064,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          40.422294294488275,
+          15.779717310766308,
+          9.090982273025821
+        ],
+        "root_fraction": 0.9578722662722406,
+        "cost": 6.176590193233158e-11,
+        "parameters": [
+          2.0769691596240255e-06,
+          0.0,
+          0.03599191701620695,
+          -1.644578871705586e-07,
+          -0.0002187609886079074,
+          -8.369793386639397e-05,
+          0.0001691683177477625,
+          3.785024137309449e-05,
+          0.0006826119047671378,
+          -4.4617279220442906e-05
+        ],
+        "success": true,
+        "iterations": 45,
+        "seconds": 0.34219713900529314
+      }
+    ],
+    "mode": "auto",
+    "analysis_end_sample": 2048,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  },
+  {
+    "kind": "actual-processed-frame",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 256.0,
+    "dynamic": true,
+    "generated_noise_std": 0.0,
+    "spectral_noise_variance": 1e-12,
+    "null_model_uncertainty_variance": 8.634036069200445e-07,
+    "selection_variance": 8.634036069200445e-07,
+    "prior_anchor": 45,
+    "truth_notes": [],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.00044206264674306276,
+    "baseline_parameters": [
+      -0.01667140283815363,
+      0.0,
+      0.04492595866947909,
+      0.004223756256962508,
+      0.10239525597098095
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.0770080180009245,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 511.99987346677085,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          0.0014484892109865553,
+          15.615904487239046,
+          0.0010048580884241432
+        ],
+        "root_fraction": 7.370927005754317e-13,
+        "cost": 1.092492464398391e-10,
+        "parameters": [
+          -0.019549728033688398,
+          0.0,
+          0.03601191842680997,
+          3.154468571734969e-05,
+          -1.7967917666428993e-05,
+          -0.0005808846667445976,
+          0.012424488749067382,
+          4.836759459816873e-06,
+          -0.00012444752589966452,
+          -1.7528936500330777e-07
+        ],
+        "success": true,
+        "iterations": 61,
+        "seconds": 0.5077335900059552
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 511.99994883784996,
+        "bic_penalty": 180.91141412614573,
+        "coefficient_z_first3": [
+          36.38032656589633,
+          14.201515796640626,
+          8.182753266938606
+        ],
+        "root_fraction": 0.9578967450377718,
+        "cost": 4.4173584868210666e-11,
+        "parameters": [
+          2.69345867887325e-06,
+          3.707599626119976e-06,
+          0.036000686831502496,
+          1.642997406339261e-06,
+          -0.0001597403756890149,
+          -7.234689638520882e-05,
+          1.5886486797781267e-05,
+          3.524314470059332e-05,
+          0.0006759292523400605,
+          -5.460836660219193e-05
+        ],
+        "success": true,
+        "iterations": 24,
+        "seconds": 0.15833923500031233
+      }
+    ],
+    "mode": "auto",
+    "analysis_end_sample": 3072,
+    "anchor_actual_first_host_sample": 2687,
+    "expected_notes_for_diagnostic_only": [
+      45,
+      64
+    ]
+  }
+]

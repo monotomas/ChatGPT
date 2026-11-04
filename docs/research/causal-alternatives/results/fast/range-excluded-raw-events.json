@@ -1,0 +1,671 @@
+{
+  "public:pcm/modal_40.wav": [],
+  "public:pcm/modal_41.wav": [],
+  "public:pcm/modal_45.wav": [],
+  "public:pcm/modal_48.wav": [],
+  "public:pcm/modal_52.wav": [],
+  "public:pcm/modal_57.wav": [],
+  "public:pcm/modal_60.wav": [],
+  "public:pcm/modal_64.wav": [],
+  "public:pcm/modal_69.wav": [],
+  "public:pcm/modal_76.wav": [],
+  "public:pcm/modal_84.wav": [],
+  "public:pcm/karplus_40.wav": [],
+  "public:pcm/karplus_52.wav": [],
+  "public:pcm/karplus_64.wav": [],
+  "public:pcm/karplus_76.wav": [],
+  "public:pcm/missing_fundamental_52.wav": [],
+  "public:pcm/detuned_52.wav": [],
+  "public:pcm/vibrato_64.wav": [],
+  "public:pcm/soft_attack_52.wav": [],
+  "public:pcm/weak_fundamental_40.wav": [],
+  "public:pcm/repeated_52.wav": [],
+  "public:pcm/continuous_repick_52.wav": [],
+  "public:pcm/chromatic_up.wav": [],
+  "public:pcm/chromatic_down.wav": [],
+  "public:pcm/major_triad.wav": [],
+  "public:pcm/open_e_minor.wav": [],
+  "public:pcm/strummed_a_minor.wav": [],
+  "public:pcm/adjacent_semitone.wav": [],
+  "public:pcm/octaves.wav": [],
+  "public:pcm/weak_upper.wav": [],
+  "public:pcm/staggered.wav": [],
+  "public:pcm/digital_silence.wav": [],
+  "public:pcm/unpitched_click.wav": [],
+  "public:pcm/noise_floor.wav": [],
+  "public:pcm/broadband_noise.wav": [
+    {
+      "sample": 25152,
+      "on": 1,
+      "note": 23,
+      "probability": 0.721882700920105,
+      "feature_time": 0.4961451247165533
+    },
+    {
+      "sample": 26240,
+      "on": 0,
+      "note": 23,
+      "probability": 0.36608004570007324,
+      "feature_time": 0.5193650793650794
+    },
+    {
+      "sample": 26816,
+      "on": 1,
+      "note": 23,
+      "probability": 0.8967265486717224,
+      "feature_time": 0.5309750566893424
+    },
+    {
+      "sample": 26816,
+      "on": 1,
+      "note": 24,
+      "probability": 0.8320105671882629,
+      "feature_time": 0.5309750566893424
+    },
+    {
+      "sample": 28480,
+      "on": 1,
+      "note": 22,
+      "probability": 0.7189198732376099,
+      "feature_time": 0.5658049886621315
+    },
+    {
+      "sample": 28480,
+      "on": 0,
+      "note": 24,
+      "probability": 0.2356540411710739,
+      "feature_time": 0.5658049886621315
+    },
+    {
+      "sample": 32384,
+      "on": 0,
+      "note": 23,
+      "probability": 0.2543318569660187,
+      "feature_time": 0.6470748299319727
+    },
+    {
+      "sample": 32960,
+      "on": 1,
+      "note": 23,
+      "probability": 0.9389036297798157,
+      "feature_time": 0.6586848072562358
+    },
+    {
+      "sample": 34048,
+      "on": 1,
+      "note": 24,
+      "probability": 0.8018091917037964,
+      "feature_time": 0.6819047619047619
+    },
+    {
+      "sample": 34624,
+      "on": 0,
+      "note": 24,
+      "probability": 0.22054123878479004,
+      "feature_time": 0.693514739229025
+    },
+    {
+      "sample": 35200,
+      "on": 0,
+      "note": 22,
+      "probability": 0.39529484510421753,
+      "feature_time": 0.705124716553288
+    },
+    {
+      "sample": 35712,
+      "on": 1,
+      "note": 22,
+      "probability": 0.775649905204773,
+      "feature_time": 0.7167346938775511
+    },
+    {
+      "sample": 37440,
+      "on": 0,
+      "note": 23,
+      "probability": 0.2505539059638977,
+      "feature_time": 0.7515646258503401
+    },
+    {
+      "sample": 38528,
+      "on": 0,
+      "note": 22,
+      "probability": 0.27820247411727905,
+      "feature_time": 0.7747845804988662
+    },
+    {
+      "sample": 40192,
+      "on": 1,
+      "note": 23,
+      "probability": 0.7639448046684265,
+      "feature_time": 0.8096145124716553
+    },
+    {
+      "sample": 40768,
+      "on": 0,
+      "note": 23,
+      "probability": 0.37994933128356934,
+      "feature_time": 0.8212244897959183
+    }
+  ],
+  "public:pcm/colored_noise.wav": [
+    {
+      "sample": 27968,
+      "on": 1,
+      "note": 22,
+      "probability": 0.7432066798210144,
+      "feature_time": 0.5541950113378685
+    },
+    {
+      "sample": 31872,
+      "on": 0,
+      "note": 22,
+      "probability": 0.28310254216194153,
+      "feature_time": 0.6354648526077098
+    },
+    {
+      "sample": 32384,
+      "on": 1,
+      "note": 22,
+      "probability": 0.7062835693359375,
+      "feature_time": 0.6470748299319727
+    },
+    {
+      "sample": 35200,
+      "on": 1,
+      "note": 23,
+      "probability": 0.7864707112312317,
+      "feature_time": 0.705124716553288
+    },
+    {
+      "sample": 35712,
+      "on": 0,
+      "note": 23,
+      "probability": 0.2288047969341278,
+      "feature_time": 0.7167346938775511
+    },
+    {
+      "sample": 36288,
+      "on": 0,
+      "note": 22,
+      "probability": 0.24360358715057373,
+      "feature_time": 0.728344671201814
+    }
+  ],
+  "public:pcm/recorded_E2.wav": [],
+  "public:pcm/recorded_A2.wav": [],
+  "public:pcm/recorded_D3.wav": [],
+  "public:pcm/recorded_G3.wav": [],
+  "public:pcm/recorded_B3.wav": [],
+  "public:pcm/recorded_E3.wav": [],
+  "public:pcm/recorded_E4.wav": [],
+  "public:pcm/recorded_Fs3.wav": [],
+  "public:pcm/recorded_E_octaves.wav": [],
+  "public:pcm/recorded_strings.wav": [],
+  "holdout:pcm/hidden_modal_01.wav": [],
+  "holdout:pcm/hidden_modal_02.wav": [],
+  "holdout:pcm/hidden_modal_03.wav": [],
+  "holdout:pcm/hidden_modal_04.wav": [],
+  "holdout:pcm/hidden_modal_05.wav": [],
+  "holdout:pcm/hidden_modal_06.wav": [],
+  "holdout:pcm/hidden_modal_07.wav": [],
+  "holdout:pcm/hidden_modal_08.wav": [],
+  "holdout:pcm/hidden_modal_09.wav": [],
+  "holdout:pcm/hidden_modal_10.wav": [],
+  "holdout:pcm/hidden_modal_11.wav": [],
+  "holdout:pcm/hidden_modal_12.wav": [],
+  "holdout:pcm/hidden_modal_13.wav": [],
+  "holdout:pcm/hidden_modal_14.wav": [],
+  "holdout:pcm/hidden_modal_15.wav": [],
+  "holdout:pcm/hidden_modal_16.wav": [],
+  "holdout:pcm/hidden_modal_17.wav": [],
+  "holdout:pcm/hidden_modal_18.wav": [],
+  "holdout:pcm/hidden_poly_01.wav": [],
+  "holdout:pcm/hidden_poly_02.wav": [],
+  "holdout:pcm/hidden_poly_03.wav": [],
+  "holdout:pcm/hidden_poly_04.wav": [],
+  "holdout:pcm/hidden_poly_05.wav": [],
+  "holdout:pcm/hidden_poly_06.wav": [],
+  "holdout:pcm/hidden_poly_07.wav": [],
+  "holdout:pcm/hidden_poly_08.wav": [],
+  "holdout:pcm/hidden_poly_09.wav": [],
+  "holdout:pcm/hidden_recorded_01.wav": [],
+  "holdout:pcm/hidden_recorded_02.wav": [],
+  "holdout:pcm/hidden_recorded_03.wav": [],
+  "holdout:pcm/hidden_recorded_04.wav": [],
+  "holdout:pcm/hidden_recorded_05.wav": [],
+  "holdout:pcm/hidden_recorded_06.wav": [],
+  "holdout:pcm/hidden_recorded_07.wav": [],
+  "holdout:pcm/hidden_recorded_08.wav": [],
+  "holdout:pcm/hidden_recorded_09.wav": [],
+  "holdout:pcm/hidden_recorded_10.wav": [],
+  "holdout:pcm/hidden_recorded_11.wav": [],
+  "holdout:pcm/hidden_recorded_12.wav": [],
+  "confirmation:pcm/confirm_sustain_01.wav": [],
+  "confirmation:pcm/confirm_sustain_02.wav": [],
+  "confirmation:pcm/confirm_sustain_03.wav": [],
+  "confirmation:pcm/confirm_sustain_04.wav": [],
+  "confirmation:pcm/confirm_sustain_05.wav": [],
+  "confirmation:pcm/confirm_sustain_06.wav": [],
+  "confirmation:pcm/confirm_articulation_01.wav": [],
+  "confirmation:pcm/confirm_articulation_02.wav": [],
+  "confirmation:pcm/confirm_articulation_03.wav": [],
+  "confirmation:pcm/confirm_articulation_04.wav": [],
+  "confirmation:pcm/confirm_voicing_01.wav": [],
+  "confirmation:pcm/confirm_voicing_02.wav": [],
+  "confirmation:pcm/confirm_voicing_03.wav": [],
+  "confirmation:pcm/confirm_voicing_04.wav": [],
+  "confirmation:pcm/confirm_unpitched_01.wav": [],
+  "confirmation:pcm/confirm_unpitched_02.wav": [
+    {
+      "sample": 34624,
+      "on": 1,
+      "note": 23,
+      "probability": 0.8280088901519775,
+      "feature_time": 0.693514739229025
+    },
+    {
+      "sample": 37440,
+      "on": 0,
+      "note": 23,
+      "probability": 0.40059730410575867,
+      "feature_time": 0.7515646258503401
+    }
+  ],
+  "confirmation:pcm/confirm_recorded_01.wav": [],
+  "confirmation:pcm/confirm_recorded_02.wav": [],
+  "confirmation:pcm/confirm_recorded_03.wav": [],
+  "confirmation:pcm/confirm_recorded_04.wav": [],
+  "confirmation:pcm/confirm_recorded_05.wav": [],
+  "confirmation:pcm/confirm_recorded_06.wav": [],
+  "confirmation:pcm/confirm_recorded_07.wav": [],
+  "confirmation:pcm/confirm_recorded_08.wav": [],
+  "confirmation:pcm/confirm_recorded_09.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak25.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak150.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak25.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak150.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-perc_1_rr1_1_noise_peak25.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-perc_1_rr1_1_noise_peak150.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-perc_4_rr1_1_noise_peak25.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-perc_4_rr1_1_noise_peak150.wav": [],
+  "recorded_noise:pcm/Samples-electric-mute_strings1_rr1_2_noise_peak25.wav": [],
+  "recorded_noise:pcm/Samples-electric-mute_strings1_rr1_2_noise_peak150.wav": [],
+  "recorded_noise:pcm/Samples-electric-mute_strings3_rr1_2_noise_peak25.wav": [
+    {
+      "sample": 18496,
+      "on": 1,
+      "note": 22,
+      "probability": 0.8169311881065369,
+      "feature_time": 0.3568253968253968
+    },
+    {
+      "sample": 18496,
+      "on": 1,
+      "note": 23,
+      "probability": 0.7076963186264038,
+      "feature_time": 0.3568253968253968
+    },
+    {
+      "sample": 19008,
+      "on": 0,
+      "note": 22,
+      "probability": 0.3785243034362793,
+      "feature_time": 0.3684353741496599
+    },
+    {
+      "sample": 19008,
+      "on": 0,
+      "note": 23,
+      "probability": 0.1355607956647873,
+      "feature_time": 0.3684353741496599
+    },
+    {
+      "sample": 19584,
+      "on": 1,
+      "note": 22,
+      "probability": 0.8031433820724487,
+      "feature_time": 0.3800453514739229
+    },
+    {
+      "sample": 23488,
+      "on": 1,
+      "note": 23,
+      "probability": 0.8656841516494751,
+      "feature_time": 0.46131519274376415
+    },
+    {
+      "sample": 24064,
+      "on": 0,
+      "note": 23,
+      "probability": 0.04006550833582878,
+      "feature_time": 0.4729251700680272
+    },
+    {
+      "sample": 24064,
+      "on": 1,
+      "note": 27,
+      "probability": 0.7466129064559937,
+      "feature_time": 0.4729251700680272
+    },
+    {
+      "sample": 24576,
+      "on": 0,
+      "note": 27,
+      "probability": 0.2104559987783432,
+      "feature_time": 0.48453514739229026
+    },
+    {
+      "sample": 25152,
+      "on": 0,
+      "note": 22,
+      "probability": 0.17894670367240906,
+      "feature_time": 0.4961451247165533
+    },
+    {
+      "sample": 25728,
+      "on": 1,
+      "note": 22,
+      "probability": 0.7044593691825867,
+      "feature_time": 0.5077551020408163
+    },
+    {
+      "sample": 26816,
+      "on": 0,
+      "note": 22,
+      "probability": 0.32391276955604553,
+      "feature_time": 0.5309750566893424
+    },
+    {
+      "sample": 51328,
+      "on": 1,
+      "note": 22,
+      "probability": 0.9029973149299622,
+      "feature_time": 1.041814058956916
+    },
+    {
+      "sample": 51328,
+      "on": 1,
+      "note": 23,
+      "probability": 0.8690385818481445,
+      "feature_time": 1.041814058956916
+    },
+    {
+      "sample": 52480,
+      "on": 0,
+      "note": 23,
+      "probability": 0.225249245762825,
+      "feature_time": 1.0650340136054421
+    },
+    {
+      "sample": 52480,
+      "on": 1,
+      "note": 27,
+      "probability": 0.7139922976493835,
+      "feature_time": 1.0650340136054421
+    },
+    {
+      "sample": 52992,
+      "on": 0,
+      "note": 27,
+      "probability": 0.3512400686740875,
+      "feature_time": 1.0766439909297052
+    },
+    {
+      "sample": 54144,
+      "on": 0,
+      "note": 22,
+      "probability": 0.3195725083351135,
+      "feature_time": 1.0998639455782313
+    },
+    {
+      "sample": 55232,
+      "on": 1,
+      "note": 23,
+      "probability": 0.707196831703186,
+      "feature_time": 1.1230839002267574
+    },
+    {
+      "sample": 55808,
+      "on": 0,
+      "note": 23,
+      "probability": 0.2714489996433258,
+      "feature_time": 1.1346938775510205
+    },
+    {
+      "sample": 56896,
+      "on": 1,
+      "note": 22,
+      "probability": 0.8354599475860596,
+      "feature_time": 1.1579138321995466
+    },
+    {
+      "sample": 57472,
+      "on": 0,
+      "note": 22,
+      "probability": 0.149350106716156,
+      "feature_time": 1.1695238095238096
+    },
+    {
+      "sample": 57472,
+      "on": 1,
+      "note": 23,
+      "probability": 0.7238674163818359,
+      "feature_time": 1.1695238095238096
+    },
+    {
+      "sample": 58048,
+      "on": 0,
+      "note": 23,
+      "probability": 0.050176262855529785,
+      "feature_time": 1.1811337868480725
+    },
+    {
+      "sample": 58624,
+      "on": 1,
+      "note": 22,
+      "probability": 0.794714093208313,
+      "feature_time": 1.1927437641723355
+    },
+    {
+      "sample": 59136,
+      "on": 0,
+      "note": 22,
+      "probability": 0.17871083319187164,
+      "feature_time": 1.2043537414965986
+    }
+  ],
+  "recorded_noise:pcm/Samples-electric-mute_strings3_rr1_2_noise_peak150.wav": [
+    {
+      "sample": 18496,
+      "on": 1,
+      "note": 22,
+      "probability": 0.7177198529243469,
+      "feature_time": 0.3568253968253968
+    },
+    {
+      "sample": 19008,
+      "on": 0,
+      "note": 22,
+      "probability": 0.33362671732902527,
+      "feature_time": 0.3684353741496599
+    },
+    {
+      "sample": 20160,
+      "on": 1,
+      "note": 22,
+      "probability": 0.7260110378265381,
+      "feature_time": 0.39165532879818593
+    },
+    {
+      "sample": 23488,
+      "on": 1,
+      "note": 23,
+      "probability": 0.8611404895782471,
+      "feature_time": 0.46131519274376415
+    },
+    {
+      "sample": 24064,
+      "on": 0,
+      "note": 23,
+      "probability": 0.1432950794696808,
+      "feature_time": 0.4729251700680272
+    },
+    {
+      "sample": 24064,
+      "on": 1,
+      "note": 27,
+      "probability": 0.8585501313209534,
+      "feature_time": 0.4729251700680272
+    },
+    {
+      "sample": 24576,
+      "on": 0,
+      "note": 27,
+      "probability": 0.3671814501285553,
+      "feature_time": 0.48453514739229026
+    },
+    {
+      "sample": 27968,
+      "on": 0,
+      "note": 22,
+      "probability": 0.2966858446598053,
+      "feature_time": 0.5541950113378685
+    },
+    {
+      "sample": 51328,
+      "on": 1,
+      "note": 22,
+      "probability": 0.7739323973655701,
+      "feature_time": 1.041814058956916
+    },
+    {
+      "sample": 51328,
+      "on": 1,
+      "note": 23,
+      "probability": 0.7585052847862244,
+      "feature_time": 1.041814058956916
+    },
+    {
+      "sample": 51904,
+      "on": 0,
+      "note": 23,
+      "probability": 0.32604163885116577,
+      "feature_time": 1.053424036281179
+    },
+    {
+      "sample": 53568,
+      "on": 1,
+      "note": 26,
+      "probability": 0.783830463886261,
+      "feature_time": 1.0882539682539683
+    },
+    {
+      "sample": 54144,
+      "on": 0,
+      "note": 22,
+      "probability": 0.40305066108703613,
+      "feature_time": 1.0998639455782313
+    },
+    {
+      "sample": 54144,
+      "on": 0,
+      "note": 26,
+      "probability": 0.3412662446498871,
+      "feature_time": 1.0998639455782313
+    },
+    {
+      "sample": 56896,
+      "on": 1,
+      "note": 22,
+      "probability": 0.897885799407959,
+      "feature_time": 1.1579138321995466
+    },
+    {
+      "sample": 57472,
+      "on": 0,
+      "note": 22,
+      "probability": 0.397134006023407,
+      "feature_time": 1.1695238095238096
+    },
+    {
+      "sample": 57472,
+      "on": 1,
+      "note": 23,
+      "probability": 0.8031660914421082,
+      "feature_time": 1.1695238095238096
+    },
+    {
+      "sample": 58048,
+      "on": 1,
+      "note": 22,
+      "probability": 0.764945387840271,
+      "feature_time": 1.1811337868480725
+    },
+    {
+      "sample": 58048,
+      "on": 0,
+      "note": 23,
+      "probability": 0.15510033071041107,
+      "feature_time": 1.1811337868480725
+    },
+    {
+      "sample": 60800,
+      "on": 0,
+      "note": 22,
+      "probability": 0.368697851896286,
+      "feature_time": 1.2391836734693877
+    }
+  ],
+  "recorded_noise:pcm/Samples-electric-perc_1_rr1_2_noise_peak25.wav": [],
+  "recorded_noise:pcm/Samples-electric-perc_1_rr1_2_noise_peak150.wav": [],
+  "recorded_noise:pcm/Samples-electric-perc_4_rr1_2_noise_peak25.wav": [],
+  "recorded_noise:pcm/Samples-electric-perc_4_rr1_2_noise_peak150.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav": [],
+  "recorded_noise:pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav": [],
+  "recorded_noise:pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav": [],
+  "recorded_noise:pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav": []
+}

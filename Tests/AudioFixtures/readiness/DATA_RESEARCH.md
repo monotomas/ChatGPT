@@ -63,3 +63,16 @@ any new detector evaluation.
 Earlier findings, including dummy mirdata GuitarSet WAVs, unpaired BasicPitch
 annotations, NATSolo rendered outputs, and the EG-IPT README/LICENSE conflict,
 are retained in `recorded_hammers/data-research.json`. They remain excluded.
+
+## IDMT-SMT-Guitar follow-up
+
+The [pinned source audit](source_research/idmt-2026-11-04/README.md) reads the
+original authors' 2014 paper and three public repository references. The paper
+establishes genuine manually annotated electric-guitar techniques, including
+bending, slide and vibrato, but does not declare hammer-on/pull-off as dataset
+classes. Its 50 ms onset / 200 ms offset evaluation tolerances are not physical
+5/10 ms ground truth. The available GS-Detector mirror points to 234 isolated
+normal-note WAVs; code/paper licenses do not establish the third-party audio's
+terms. Original Fraunhofer/Zenodo metadata, archive hashes and license remain
+unverified under the current network policy. No audio or new acceptance
+coverage was adopted from that audit.

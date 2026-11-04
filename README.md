@@ -12,7 +12,7 @@ og MIDI-korreksjon til akkordtoner, akkordstyrt skala eller fast skala. Sidechai
 tilfører audio; spille-MIDI kommer på kanal 1 og akkordkontroll på kanal 16.
 Generert og eksternt spille-MIDI kan brukes samtidig.
 
-## Installer den ferdige Windows-pakken
+## Tidligere Windows-pakke (0.2.1)
 
 Last ned **Windows x64-installasjonspakken**, pakk ut hele ZIP-filen til en egen
 mappe (for eksempel på D:), lukk Ableton og dobbeltklikk
@@ -24,7 +24,7 @@ Kildepakken er inkludert for videre utvikling og lisenskrav. Den er forskjellig
 fra den ferdige Windows-pakken. `BUILD_FLYSNAPPER.bat` er et utviklerverktøy;
 sluttbrukeren trenger ikke bygge pluginen.
 
-## Bruk
+## Bruk i 0.2.1
 
 1. Legg Flysnapper som instrument på et MIDI-spor.
 2. Velg audio-kilden i vertens eget sidechain-panel. Slå på `Audio to MIDI` og

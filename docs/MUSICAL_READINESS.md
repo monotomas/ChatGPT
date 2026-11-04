@@ -54,15 +54,74 @@ the Windows packager rejects that stage. This explicit release hold remains
 even if all protocol/unit tests pass. Retained failed model experiments and
 host reviews are in [the research evidence](validation/musical-readiness-research/README.md).
 
-The [native mono-v20/poly17 checkpoint](validation/musical-readiness-research/native-checkpoint-v20/README.md)
-passed 12 of 13 groups with unchanged source hashes; the strict simultaneous
-poly hammer/source-acquisition group failed. Broader independent evidence is
-more restrictive: the first new recorded-noise candidate passed only 37/128
-runs, with many false same-note rearticulations and extra poly voices. A fresh
-oracle-seeded six-source tracking set passed 2/8 for both models 17 and 19,
-with different improvements and regressions. Correct initial voices were
-deliberately supplied in that experiment; it does not test acquisition.
-All of these failures remain release blockers.
+## Frozen current-source results
+
+The [exact current-source acoustic checkpoint](validation/main-readiness-checkpoint/README.md)
+uses the Pitch source at `ddceefbf9a49f2f265cb692863ab43ad4c2389a9`,
+mono-v20/poly17. Its three captures completed successfully and retained their
+failing score exits, raw note/pitch events and source hashes. These are seen
+regression sets at 48 kHz/64 samples, before MIDI correction and routing.
+
+| Suite | Mono configurations passed | Poly configurations passed | Total passed |
+| --- | ---: | ---: | ---: |
+| Controlled signals | 29/34 | 2/38 | 31/72 |
+| Real isolated hammer samples | 2/8 | 3/8 | 5/16 |
+| Recorded noise/quiet-note controls | 34/64 | 3/64 | 37/128 |
+| All configurations | 65/106 | 8/110 | 73/216 |
+
+All 16 quiet real mono plucks pass. This does not establish robust behavior:
+the 32 real mono note/noise mixtures still produce 48 extra onsets and 28
+premature first releases. Poly noise-only controls generate 65 onsets. The
+controlled mono slide and hammer/pull families retain all intended notes,
+but the fastest bend and music/handling cases still fail. Broader human
+technique coverage remains missing. Conditional matched-note latency is
+reported with these failures; it does not count a missed note as a fast one.
+
+The separately retained
+[native mono-v20/poly17 checkpoint](validation/musical-readiness-research/native-checkpoint-v20/README.md)
+passed 12 of 13 groups with matching compiled-source hashes. Strict
+simultaneous poly source acquisition failed. Protocol and functional passes
+cannot approve the failed acoustic results. There has been no new frozen
+Windows, installer or Ableton acceptance run for this research candidate.
+
+## Rejected alternatives
+
+These bounded investigations preserve source snapshots, raw failures and
+reproduction instructions. None supplies a replacement ready for adoption:
+
+* [Monophonic continuity](validation/mono-continuity-research/README.md): one
+  variant reduces recorded-noise extras from 50 to 24 but loses three genuine
+  repicks. Another restores all 107 older reference notes while retaining 40
+  extras and 28 early releases. Both falsely rearticulate a fast low bend.
+* [Harmonic continuity observer](validation/harmonic-continuity-research/README.md):
+  a bounded, allocation-free mathematical mechanism passes ideal-frequency
+  checks; actual detector frequency/history uncertainty defeats the intended
+  noise distinction. Its unit success is not end-to-end musical success.
+* [Dynamic poly models](validation/poly-research/dynamic-models-v2/README.md):
+  joint frequency/chirp estimation improves some bends, but the best strict
+  score is 4/8 and costs about 6.6 ms P95 on the shared worker. Weak tails,
+  phase resets and execution deadlines remain unresolved. Correct initial
+  voices were deliberately supplied; these are not acquisition results.
+* [Additional-source admission](validation/poly-admission-research/README.md):
+  a physical model can recover a clean overlapping second source, but timbre
+  changes still invent an extra octave. The offline optimizer is too slow for
+  an audio callback and noisy early acquisitions still fail.
+* [Poly mains-only admission veto](validation/poly-mains-admission-veto/README.md):
+  reusing positive mains evidence removes four pure-hum onsets, but also loses
+  three previously found wanted notes in handling/quiet-addition controls.
+  Aggregate case passes increase while those genuine-note regressions remain.
+  The candidate is rejected; the unchanged current source is still measured
+  in the table above.
+* [Audited streaming neural alternative](research/causal-alternatives/README.md):
+  the published integer-note model has no independent continuous bends and
+  produces many false notes on the same recorded inputs. A bounded post-hoc
+  threshold study cannot retain the existing poly recall/extra-note baseline;
+  fewer errors come with missed notes or substantial delay. No external
+  runtime or model weights have been incorporated into the product.
+
+All data used in those comparisons is now seen development data. No failed
+variant has been silently substituted into the current-source checkpoint,
+and none justifies removing the release hold.
 
 ## Host evidence
 
@@ -79,8 +138,11 @@ user before this work and should be preserved.
 The pinned [Guitar-TECHS site](https://github.com/guitar-techs/guitar-techs.github.io/tree/19a2954f789bfd192b2b4732788ceb000c1dd687)
 describes the [Zenodo dataset](https://zenodo.org/records/14963133), a potential
 source of labelled recorded techniques. The current cloud network policy
-blocks `zenodo.org`. An additive domain change has been saved in the cloud
-configuration draft; that draft does not change the running policy. Continue
+blocks `zenodo.org` and the original `www.idmt.fraunhofer.de` source for the
+IDMT guitar technique recordings. Additive domain changes have been saved in
+the cloud configuration draft; that draft does not change the running policy.
+These access limits are separate from the demonstrated algorithm failures;
+access to more recordings would not itself fix them. Continue
 with legitimately available sources without bypassing the policy. Verify
 the actual source repository, license, file hashes and annotations before
 using or redistributing any recording.

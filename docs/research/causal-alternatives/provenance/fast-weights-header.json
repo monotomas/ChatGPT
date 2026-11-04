@@ -1,0 +1,175 @@
+{
+  "model": "fast",
+  "tensors": {
+    "G_im": {
+      "offset": 0,
+      "shape": [
+        8,
+        8,
+        3,
+        257
+      ]
+    },
+    "G_re": {
+      "offset": 49344,
+      "shape": [
+        8,
+        8,
+        3,
+        257
+      ]
+    },
+    "Qk": {
+      "offset": 98688,
+      "shape": [
+        3,
+        8,
+        264
+      ]
+    },
+    "bn_add": {
+      "offset": 105024,
+      "shape": [
+        1
+      ]
+    },
+    "bn_mul": {
+      "offset": 105025,
+      "shape": [
+        1
+      ]
+    },
+    "c1_b": {
+      "offset": 105026,
+      "shape": [
+        8
+      ]
+    },
+    "c2_b": {
+      "offset": 105034,
+      "shape": [
+        32
+      ]
+    },
+    "c2_w": {
+      "offset": 105066,
+      "shape": [
+        32,
+        1,
+        7,
+        7
+      ]
+    },
+    "c3_b": {
+      "offset": 106634,
+      "shape": [
+        1
+      ]
+    },
+    "c3_w": {
+      "offset": 106635,
+      "shape": [
+        1,
+        32,
+        7,
+        3
+      ]
+    },
+    "cqt_a": {
+      "offset": 107307,
+      "shape": [
+        36,
+        256
+      ]
+    },
+    "cqt_b": {
+      "offset": 116523,
+      "shape": [
+        36,
+        256
+      ]
+    },
+    "cqt_scale": {
+      "offset": 125739,
+      "shape": [
+        309
+      ]
+    },
+    "cr_b": {
+      "offset": 126048,
+      "shape": [
+        1
+      ]
+    },
+    "cr_w": {
+      "offset": 126049,
+      "shape": [
+        1,
+        8,
+        5,
+        5
+      ]
+    },
+    "lowpass": {
+      "offset": 126249,
+      "shape": [
+        256
+      ]
+    }
+  },
+  "const": {
+    "SR": 22050,
+    "HOP": 256,
+    "WIN": 43844,
+    "N_OCT": 9,
+    "N_BINS": 309,
+    "SHIFTS": [
+      -36,
+      0,
+      36,
+      57,
+      72,
+      84,
+      93,
+      101
+    ],
+    "END_OFF": [
+      68,
+      34,
+      17,
+      8,
+      4,
+      2,
+      1,
+      0,
+      0
+    ],
+    "NFFT": 512,
+    "L": 2,
+    "HOPF": 1,
+    "R": 8,
+    "D": 0,
+    "head": "models/ft/R-T-L2-OW-w10L-s0.npz",
+    "row_macs": 381696,
+    "COL_MACS": 165888
+  },
+  "revision": "b93e9658481c",
+  "threshold": {
+    "on": 0.7,
+    "off": 0.42
+  },
+  "source": {
+    "dir": "pitchtest/web/weights",
+    "head": "models/ft/R-T-L2-OW-w10L-s0.npz",
+    "commit": "78a3dd19dda521e38904750045842edf38938389",
+    "manifestSha256": "3a63adfafbfb1aa6a378eee07ae30a02a4daa1af0102d3c0d01d652c3e26f94c",
+    "weightsSha256": "4fb4ff7b23d36124e53b58b9d7497a089eec8ac7a91bb53a201858a47fade396",
+    "dropped": [
+      "c1_w",
+      "c4_b",
+      "c4_w",
+      "c5_b",
+      "c5_w"
+    ]
+  }
+}

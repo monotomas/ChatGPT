@@ -1,0 +1,45 @@
+{
+  "actual_emission_timestamps_only": true,
+  "created_at_utc": "2026-11-04T02:45:01.100121+00:00",
+  "defined_before_grid_decoding": true,
+  "evaluation_role": "POST HOC SEEN-REGRESSION PARAMETER STUDY; not blind acceptance",
+  "interpolation_delay_alignment_or_backdating": false,
+  "name": "Predeclared bounded post-hoc probability operating-point study",
+  "new_kernel_or_model_execution": false,
+  "off_rule": "0.6*on",
+  "on_grid": [
+    0.7,
+    0.8,
+    0.9,
+    0.95,
+    0.98,
+    0.995
+  ],
+  "primary_scope": "all88keys MIDI21..108",
+  "published_defaults": {
+    "fast": {
+      "off": 0.42,
+      "on": 0.7
+    },
+    "piano": {
+      "off": 0.36,
+      "on": 0.6
+    }
+  },
+  "recorded_positive_subsets": {
+    "music_plus_noise_expected": 32,
+    "quiet_pluck_expected": 16
+  },
+  "reference_scoring": "unchanged archived integer-event matching/release scorer",
+  "requested_criteria": {
+    "known_poly_expected": 180,
+    "known_poly_extra_note_ons_max": 20,
+    "known_poly_matched_min": 163,
+    "recorded_noise_only_note_ons_max": 0,
+    "recorded_positive_expected": 48,
+    "recorded_positive_matched_min": 48
+  },
+  "secondary_scope": "pre-existing Flysnapper MIDI28..100; all excluded raw admissions counted",
+  "source_frame_inputs": "saved original float32 probability matrices only",
+  "top_voice_truncation": false
+}

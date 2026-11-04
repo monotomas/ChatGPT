@@ -1,0 +1,62 @@
+{
+  "scope": "Additional-source hypothesis falsification; not full detector/latency/acceptance",
+  "kinds": [
+    "pair_clean",
+    "third_boost_single",
+    "stiff_third_single",
+    "missing_root_single",
+    "body_resonance",
+    "vibrato_single",
+    "chirp_single"
+  ],
+  "configurations": [
+    [
+      256,
+      700,
+      0.0
+    ],
+    [
+      256,
+      700,
+      0.003
+    ],
+    [
+      256,
+      700,
+      0.02
+    ],
+    [
+      512,
+      700,
+      0.0
+    ],
+    [
+      512,
+      700,
+      0.003
+    ],
+    [
+      512,
+      700,
+      0.02
+    ],
+    [
+      1024,
+      700,
+      0.0
+    ],
+    [
+      1024,
+      700,
+      0.003
+    ],
+    [
+      1024,
+      700,
+      0.02
+    ]
+  ],
+  "dynamic": true,
+  "root_prior": "Existing detector anchor only; companions from three FFT peaks",
+  "selection": "BIC gain against measured median spectral noise; each of first3 companion partials >3 covariance-normalized amplitude"
+}

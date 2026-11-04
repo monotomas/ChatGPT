@@ -1,0 +1,71 @@
+{
+  "scope": "PARTIAL MONO seen-control diagnostic, not readiness",
+  "cases": 34,
+  "passed": 29,
+  "totals": {
+    "expected": 77,
+    "matched": 77,
+    "missed": 0,
+    "extra_note_ons": 4,
+    "early_offs": 4,
+    "late_offs": 0,
+    "noise_note_ons": 0,
+    "hung": 0,
+    "overflow": 0
+  },
+  "failures": [
+    {
+      "case": "music_handling_snr6_gain1_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 1,
+      "failures": [
+        "note-precision",
+        "premature-release"
+      ]
+    },
+    {
+      "case": "music_handling_snr6_gain4_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 1,
+      "failures": [
+        "note-precision",
+        "premature-release"
+      ]
+    },
+    {
+      "case": "music_handling_snr12_gain1_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 1,
+      "failures": [
+        "note-precision",
+        "premature-release",
+        "steady-pitch:s0-n0"
+      ]
+    },
+    {
+      "case": "music_handling_snr12_gain4_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 1,
+      "failures": [
+        "note-precision",
+        "premature-release",
+        "steady-pitch:s0-n0"
+      ]
+    },
+    {
+      "case": "smooth_bend_80ms_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 0,
+      "failures": [
+        "pitch-p95:s0-n0"
+      ]
+    }
+  ],
+  "binary_sha256": "a5432bf4b052796b336f3f19ee0f5a232682aed3dcc7b4771675dc306efe38b8",
+  "fixture_seal": "d5af9fb3fefb4d41918e62810d59290c1dd741d95337d58ec34efcdcf14f9fba"
+}

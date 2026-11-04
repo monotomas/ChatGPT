@@ -49,3 +49,10 @@ bends but regress other motion/phase-reset cases in independent tests. This
 is an unresolved modeling problem, not a reason to label an incomplete
 installer finished. See the retained [model audit](../../validation/musical-readiness-research/README.md)
 and [readiness protocol](../../../Tests/AudioFixtures/readiness/README.md).
+
+A later [streaming-implementation benchmark](../causal-alternatives/README.md)
+inspects three additional candidates and measures the compact PitchPlease
+models privately against 324 disclosed project cases. They recover additional
+notes but produce many more false voices; neither is accepted as a standalone
+replacement. External kernels and model weights are excluded from this source
+delivery, with provenance and redistribution limitations recorded separately.

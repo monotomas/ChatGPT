@@ -1,0 +1,2010 @@
+{
+  "scope": "Seen synthetic oracle-seeded tracking research, not note acquisition, real guitar, MPE delivery, or musical acceptance",
+  "fixture_seal": "226e669e942444bbf789e8c18d3c86fe34ca48bb3b46dacce600746931287eb5",
+  "main_source_modified": false,
+  "baseline23_voice_output_identical_after_environment_restart": true,
+  "all_variants_use_unchanged_policy": true,
+  "cpu_not_isolated_or_certified": true,
+  "environment_at_resumed_experiments": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "cpu_max": "400000 100000",
+    "affinity_cpu_count": 5
+  },
+  "variants": [
+    {
+      "variant": 23,
+      "method": "Joint quadratic phase / F0 / chirp variable projection; isotropic complex prior",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "c3fac1dbc6fe86716930ec04bf79ed67bc91b766d1f52ccf4cddceaec02d6c97",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 1765.589,
+        "p95": 2419.609,
+        "maximum": 22104.551
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6373736300005817,
+            "p95": 2.8776784500003316,
+            "maximum": 7.433448549999611
+          },
+          "worst_voice_p95_cents": 4.244499499999677,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.2774020199998404,
+            "p95": 5.343591930000002,
+            "maximum": 13.742792930000292
+          },
+          "worst_voice_p95_cents": 8.160364929999986,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.2467259899997316,
+            "p95": 16.75417909999979,
+            "maximum": 49.62847709999991
+          },
+          "worst_voice_p95_cents": 25.96552910000014,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-1-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.3551089799999545,
+            "p95": 9.842100480000227,
+            "maximum": 22.70337052000002
+          },
+          "worst_voice_p95_cents": 12.234297479999867,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.919381610000471,
+            "p95": 16.318973340000298,
+            "maximum": 45.645876719999734
+          },
+          "worst_voice_p95_cents": 25.399045280000365,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.186368239999894,
+            "p95": 19.005426249999857,
+            "maximum": 149.87780837999978
+          },
+          "worst_voice_p95_cents": 60.20495346999937,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.456407810000428,
+            "p95": 29.362577189999683,
+            "maximum": 216.1265428100002
+          },
+          "worst_voice_p95_cents": 67.78860681000012,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.129111089999583,
+            "p95": 22.49761084999946,
+            "maximum": 44.91152315000022
+          },
+          "worst_voice_p95_cents": 28.581071050000162,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95",
+            "voice-3-p95",
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "c6d493df406d54bcaf3a679f31b5f872ff67a39eb99cd405603e3a8a0e8f7684",
+          "gzip_sha256": "67f1ebc56810243e70cf8c9d5b09cb4e3a5c5f3890e95d96ec6849a1dad397dc",
+          "bytes": 204225
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "839f21116baf55cac8449f15827928b05bcc1938bab36c3a0f1079ad614e349c",
+          "gzip_sha256": "e37aa9f0a2e35744cd74a75c16220e95645952ab39149e6562e83f09b86153a2",
+          "bytes": 1874935
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "101b0b439d29b930eec5995baaa4cbcc4746cf00f7563523e6eaa485a989960d",
+          "gzip_sha256": "922963e67a0774ce2b321bd91426981277e69ac5edd1f6d07c7bbaaca9b60cd8",
+          "bytes": 1827329
+        }
+      }
+    },
+    {
+      "variant": 24,
+      "method": "23 plus marginal information-based velocity attenuation",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "30ddd2cb6d2ebe53425658e9ef6594184c955c976e9285b34b20e0fede8fff4e",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 1774.162,
+        "p95": 2354.654,
+        "maximum": 6961.878
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6373736300005817,
+            "p95": 2.877552750000234,
+            "maximum": 7.433448549999611
+          },
+          "worst_voice_p95_cents": 4.244499499999677,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.2774020199998404,
+            "p95": 5.34282893000011,
+            "maximum": 13.742792930000292
+          },
+          "worst_voice_p95_cents": 8.159982930000353,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.2502609000000007,
+            "p95": 16.749601099999722,
+            "maximum": 49.62122909999991
+          },
+          "worst_voice_p95_cents": 25.983076099999636,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-1-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.3551089799999545,
+            "p95": 9.841337480000334,
+            "maximum": 22.691545520000034
+          },
+          "worst_voice_p95_cents": 12.238493480000301,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.917683919999803,
+            "p95": 16.345977319999605,
+            "maximum": 45.661897719999445
+          },
+          "worst_voice_p95_cents": 25.309018280000117,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.17211217000002,
+            "p95": 19.02144824999965,
+            "maximum": 149.8293623799995
+          },
+          "worst_voice_p95_cents": 60.14849646999991,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.484527090000711,
+            "p95": 30.800157810000428,
+            "maximum": 215.27891781000008
+          },
+          "worst_voice_p95_cents": 67.47274981000047,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.056137060000054,
+            "p95": 21.980895010000268,
+            "maximum": 42.314477150000585
+          },
+          "worst_voice_p95_cents": 27.719612750000522,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "180091754569c012c306787cdf4768c88746df27c21b46ac00f6c053a83fd1fa",
+          "gzip_sha256": "12a2c10b2cf9750582850700c62b582797ca5c04f4ad55d8f125b5dd3b349670",
+          "bytes": 204177
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "a20f525705d17d4ab24cb2f97326faeee8b669a7007582e6b490f32ff82b4dc4",
+          "gzip_sha256": "2915f656ffe41d6b9942c6dc21ee70294d45bf8bfda2cd554204e81c58bd2513",
+          "bytes": 1875053
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "887a138d79d80424330e8893ce213adf02c704e581310494a2e20e5454b5f267",
+          "gzip_sha256": "7deacef03962aa2e0e2361a2b9317a7166f54e580da3e152204089ecd96c312d",
+          "bytes": 1827413
+        }
+      }
+    },
+    {
+      "variant": 25,
+      "method": "23 plus weak prior and fixed nonlinear blocks during phase innovation",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "bf53fc50dce62fb545b77866fd409bddb6edeb4a763c08eecd8fb819797c371a",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 2,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 1946.498,
+        "p95": 2682.95,
+        "maximum": 6020.656
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6373736300005817,
+            "p95": 2.8776784500003316,
+            "maximum": 7.433448549999611
+          },
+          "worst_voice_p95_cents": 4.244499499999677,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.2774020199998404,
+            "p95": 5.343591930000002,
+            "maximum": 13.742792930000292
+          },
+          "worst_voice_p95_cents": 8.160364929999986,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 58.59170971000012,
+            "p95": 938.6966336299998,
+            "maximum": 1534.9433536299998
+          },
+          "worst_voice_p95_cents": 1450.1449216300002,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-median",
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-p95",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 86.28499896000008,
+            "p95": 783.3678999599997,
+            "maximum": 1273.0277809599997
+          },
+          "worst_voice_p95_cents": 1169.2672529600004,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-median",
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-p95",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 193.5455688700003,
+            "p95": 1553.3214287199996,
+            "maximum": 2069.62792148
+          },
+          "worst_voice_p95_cents": 1865.9578014799997,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-median",
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-p95",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 70.97847487999971,
+            "p95": 726.3093833400006,
+            "maximum": 1111.0937827599996
+          },
+          "worst_voice_p95_cents": 908.9327567600002,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-median",
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-p95",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 105.83709184999961,
+            "p95": 1453.4943521899997,
+            "maximum": 2105.48499585
+          },
+          "worst_voice_p95_cents": 1903.3239698499997,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-median",
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-p95",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 102.50595412999957,
+            "p95": 1550.5241918499999,
+            "maximum": 1550.5241918499999
+          },
+          "worst_voice_p95_cents": 1550.5241918499999,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-median",
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-p95",
+            "voice-5-max"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "ec676cf7fb9e38f57b620f1362b53c4903d31a26524c1ee8429b4709dc1b1cba",
+          "gzip_sha256": "19c11ecf6e18f937adf1a9130ec2c072d69a7cc78fe239f62f53329425a30e24",
+          "bytes": 204292
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "e8a68f9440b1a7f29dcf872048f1d1fe897d0eb2235a28083f1f514f70fcffe7",
+          "gzip_sha256": "afe01477d665cca664821d8a12be5de5fe556a6dec98ced6fbfd4c1919b96bdc",
+          "bytes": 1870657
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "338c93542e5f44ee0acd9129bd380cb7eb26860f1e71c9f52a386fa3259d9af8",
+          "gzip_sha256": "a0bd131c46beba28e8e6089efd62d6d77dcca809b41a5e2b1083c97fc9473bf7",
+          "bytes": 1831245
+        }
+      }
+    },
+    {
+      "variant": 26,
+      "method": "23 plus per-partial adaptive coefficient precision",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "83ad502a49a890b189cbf237f095d8ee32cb2b198b99ed2d96f240e110b68e5d",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 1861.902,
+        "p95": 3473.963,
+        "maximum": 24600.363
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6712601700002097,
+            "p95": 3.2086715500000196,
+            "maximum": 7.902794499999999
+          },
+          "worst_voice_p95_cents": 4.679374499999511,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.414652289999907,
+            "p95": 6.14454589000033,
+            "maximum": 15.776788930000407
+          },
+          "worst_voice_p95_cents": 9.193075070000134,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.552933810000013,
+            "p95": 24.626959369999923,
+            "maximum": 66.7839340999997
+          },
+          "worst_voice_p95_cents": 33.03454409999986,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-0-p95",
+            "voice-1-p95",
+            "voice-4-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.6948360300002037,
+            "p95": 10.451387999999895,
+            "maximum": 20.540800479999888
+          },
+          "worst_voice_p95_cents": 12.009993480000247,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.238035820000107,
+            "p95": 21.314649279999998,
+            "maximum": 72.36216528000057
+          },
+          "worst_voice_p95_cents": 33.97748072000013,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.290963169999685,
+            "p95": 103.05639007000025,
+            "maximum": 162.01955959000003
+          },
+          "worst_voice_p95_cents": 141.6116449199997,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-5-p95"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.992432670000113,
+            "p95": 300.92407715000036,
+            "maximum": 388.4975636900002
+          },
+          "worst_voice_p95_cents": 312.9901420499998,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-p95",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.725400559999372,
+            "p95": 23.590217910000177,
+            "maximum": 59.14568415000048
+          },
+          "worst_voice_p95_cents": 33.472307609999774,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-3-p95",
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "e5f9208124a738a223b687b5014a286bbc10fb77aa8914407ce6900489c50326",
+          "gzip_sha256": "9ab932216c67164869b5efd6869891b5ef57e4027f200ac8370a8042373e1e4a",
+          "bytes": 204226
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "9fcccf345f935a0ff84a116ce6d0c6f99bc5cbfb37c9e805e32d5820896298ce",
+          "gzip_sha256": "3db608ba9dccaa505d4b3a11f29e430caf14f0891d2d98ff81f0df1c7c4df7ac",
+          "bytes": 1875117
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "5239a9fe9e61702fcf1d18edc7149ad556b09c4b36fd28d39bfec26f5fa3cfd4",
+          "gzip_sha256": "303cb748de98581c6f53360c4b458f31aff6f465bb82bc262512b984444474be",
+          "bytes": 1826614
+        }
+      }
+    },
+    {
+      "variant": 27,
+      "method": "23 plus Huber residual likelihood and weighted variable projection",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "38cc543a190ad2a475b2910d10cf0e64d18a537f3707bf1600f8325b92e4e959",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 2217.61,
+        "p95": 2907.754,
+        "maximum": 14377.969
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6516777499996351,
+            "p95": 2.997474499999697,
+            "maximum": 7.7471544999994535
+          },
+          "worst_voice_p95_cents": 4.358558499999532,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.2888470199996505,
+            "p95": 5.354484320000097,
+            "maximum": 14.047204930000134
+          },
+          "worst_voice_p95_cents": 8.012045070000084,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.2609418999998354,
+            "p95": 17.149000099999512,
+            "maximum": 51.64378209999967
+          },
+          "worst_voice_p95_cents": 25.582914099999954,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-1-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.2306506400004764,
+            "p95": 9.768047640000077,
+            "maximum": 24.58363451999972
+          },
+          "worst_voice_p95_cents": 12.18357951999991,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.95603727999989,
+            "p95": 16.814293499999877,
+            "maximum": 41.902188280000274
+          },
+          "worst_voice_p95_cents": 25.804109719999957,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.094293170000185,
+            "p95": 18.859314510000047,
+            "maximum": 150.69911337999997
+          },
+          "worst_voice_p95_cents": 62.486524469999694,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.489283369999896,
+            "p95": 32.07454671999983,
+            "maximum": 128.45124619000003
+          },
+          "worst_voice_p95_cents": 69.82107781000053,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.1073002199999,
+            "p95": 22.595466090000116,
+            "maximum": 44.69942615000022
+          },
+          "worst_voice_p95_cents": 28.658028750000142,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "114955d26218cc023ad87990ae48b0088401d3f9179e5cefef10000c21723437",
+          "gzip_sha256": "41a95e010a540ac0f25c4db07ecae7aecce3fffa24037d107771fe80d8438b6d",
+          "bytes": 204194
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "919d64e3d3d6bc6ef3020267933618b3b1b8ac593ac854023844b3185517f21b",
+          "gzip_sha256": "6e754a21da63d306be85da636bb2d4af4ffb8a1445e33d53a137cbabc6800cde",
+          "bytes": 1875179
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "1f433cc7e032992c7507696323c82fbebeb3081ec44f4e6fbcdf719f4dea177d",
+          "gzip_sha256": "43f3412b87613d6447614ee29ace71c1d8e892071f6dd2c4972fab7dbab777aa",
+          "bytes": 1827347
+        }
+      }
+    },
+    {
+      "variant": 28,
+      "method": "23 plus Gaussian evidence phase-reset alternative and finite-window parameter freeze",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "e16eee84116d473f164649ab2ca3cb83bf98c2aa31f0af916023751efe5a668b",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 4763.917,
+        "p95": 6025.819,
+        "maximum": 37562.203
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6373736300005817,
+            "p95": 2.8776784500003316,
+            "maximum": 7.433448549999611
+          },
+          "worst_voice_p95_cents": 4.244499499999677,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.2774020199998404,
+            "p95": 5.343591930000002,
+            "maximum": 13.742792930000292
+          },
+          "worst_voice_p95_cents": 8.160364929999986,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.2467259899997316,
+            "p95": 16.75417909999979,
+            "maximum": 49.62847709999991
+          },
+          "worst_voice_p95_cents": 25.96552910000014,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-1-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.3551089799999545,
+            "p95": 9.842100480000227,
+            "maximum": 22.70337052000002
+          },
+          "worst_voice_p95_cents": 12.234297479999867,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.919381610000471,
+            "p95": 16.318973340000298,
+            "maximum": 45.645876719999734
+          },
+          "worst_voice_p95_cents": 25.399045280000365,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.186368239999894,
+            "p95": 19.005426249999857,
+            "maximum": 149.87780837999978
+          },
+          "worst_voice_p95_cents": 60.20495346999937,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 121.15150580000034,
+            "p95": 1368.3862609199998,
+            "maximum": 2074.3829464600003
+          },
+          "worst_voice_p95_cents": 1908.1351964599999,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-median",
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-p95",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.129111089999583,
+            "p95": 22.49761084999946,
+            "maximum": 44.91152315000022
+          },
+          "worst_voice_p95_cents": 28.581071050000162,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95",
+            "voice-3-p95",
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "05d146a2b25b353eb0c554e06460201311ee1fee533f80e1b0107e71b7fc95c2",
+          "gzip_sha256": "6d6417cf0e1da13367bb59c074b209d5f1304ac9fe762a40f5e84aa09b2febb1",
+          "bytes": 204350
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "850c25f83819947d7a9aefe10e11986b7fd7ee5adc52fe1e00ff877f7d4c15f9",
+          "gzip_sha256": "3a29740f679ca43855c60597a4bb1d340c481986363052633167eaa69e5c36c8",
+          "bytes": 1874858
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "702a1d51542db4705de070723a94ba75d635b7023927cbac955c8102572e8b5a",
+          "gzip_sha256": "2ac09c35cebc5c049a503b048af81c33cb60a952c9787f952749366b6e75ada0",
+          "bytes": 1826726
+        }
+      }
+    },
+    {
+      "variant": 29,
+      "method": "23 with twelve modeled harmonics rather than eight",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "e328be884b6121b4455d838ca8ffd94fa85fc0e2f89ac739b7cf80d4cbb4e3a7",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 4,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 4266.479,
+        "p95": 6647.21,
+        "maximum": 17890.44
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.7394158299995013,
+            "p95": 3.0759195499996395,
+            "maximum": 7.516227549999854
+          },
+          "worst_voice_p95_cents": 3.764472550000164,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.4211937100000682,
+            "p95": 5.576487289999932,
+            "maximum": 13.801538930000135
+          },
+          "worst_voice_p95_cents": 8.40107193000037,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.5967013700004316,
+            "p95": 16.93978719000029,
+            "maximum": 49.72727809999995
+          },
+          "worst_voice_p95_cents": 25.458878900000315,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-1-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.263549420000089,
+            "p95": 10.319745590000196,
+            "maximum": 20.561733640000313
+          },
+          "worst_voice_p95_cents": 13.759431519999765,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.2812249199999144,
+            "p95": 18.07060173000039,
+            "maximum": 42.92414628000003
+          },
+          "worst_voice_p95_cents": 23.935838349999727,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.53233414999994,
+            "p95": 59.753439419999665,
+            "maximum": 90.10124229999974
+          },
+          "worst_voice_p95_cents": 84.86945213999988,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-5-p95"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 1.3787891500001592,
+            "p95": 25.308766150000395,
+            "maximum": 183.40406981000044
+          },
+          "worst_voice_p95_cents": 56.493287810000226,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-max",
+            "voice-1-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 7.639890069999922,
+            "p95": 29.139100989999633,
+            "maximum": 66.05351309000014
+          },
+          "worst_voice_p95_cents": 43.2828633699998,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "voice-2-p95",
+            "voice-3-p95",
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "9c378697bb0978d2ab5bb98984d4a9a8c610647ecae5cfdc5b8e466bef7b5dde",
+          "gzip_sha256": "760ba28462f57a3eb4c8560d95ea883f5a637291446ca9b685b85a311be7a1d1",
+          "bytes": 204411
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "733938be665b6f543019ebe7a632eb18713da4f28b9438661050ed01283a4aef",
+          "gzip_sha256": "0734a68e0b0e294d04ebd59db8df5b035c62f0b11d39443cac7541cc24fc281e",
+          "bytes": 1875233
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "a2ec7f596be8d14dd7a2f1675c6142728cb40880e8bafb379155e2f6a35e55a6",
+          "gzip_sha256": "fb5ce0b151ec3143e93221f46c7d0117b441034808a6414a05e77637a2a78a7b",
+          "bytes": 1827534
+        }
+      }
+    },
+    {
+      "variant": 30,
+      "method": "23 plus joint physical stiffness parameter",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "f15fbbc68756d82cad50724d54700ac757993cb1536749fe2e0f7e412cf2873c",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 2205.762,
+        "p95": 3331.642,
+        "maximum": 12337.993
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.818190629999549,
+            "p95": 3.8602215499999204,
+            "maximum": 8.08156554999968
+          },
+          "worst_voice_p95_cents": 5.334983550000061,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.7300754499999016,
+            "p95": 6.105005930000118,
+            "maximum": 14.146386930000432
+          },
+          "worst_voice_p95_cents": 8.486902930000184,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.959412900000302,
+            "p95": 23.971205099999793,
+            "maximum": 56.884794100000136
+          },
+          "worst_voice_p95_cents": 34.46995689999994,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-0-p95",
+            "voice-1-p95",
+            "voice-4-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.7005903799997668,
+            "p95": 6.326808640000081,
+            "maximum": 15.009555359999638
+          },
+          "worst_voice_p95_cents": 10.293760480000458,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.7664286100003608,
+            "p95": 22.438951350000025,
+            "maximum": 58.76756165000003
+          },
+          "worst_voice_p95_cents": 30.947466719999994,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-0-p95",
+            "voice-2-p95",
+            "voice-3-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.2281178499999896,
+            "p95": 16.437372250000237,
+            "maximum": 153.7252925399997
+          },
+          "worst_voice_p95_cents": 56.48512693000001,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.6809591500002625,
+            "p95": 30.576234810000358,
+            "maximum": 146.72651881000007
+          },
+          "worst_voice_p95_cents": 54.07075318999972,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-1-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.831051559999366,
+            "p95": 20.171989090000153,
+            "maximum": 57.76303208999991
+          },
+          "worst_voice_p95_cents": 27.78991989999966,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "97e0b40104028dbdd3b2a66fa139c4b7bc6ee2d0ea127d6cc880d1a9e770bc26",
+          "gzip_sha256": "4a7ed8d602d0de0ee292fc555ecc2db4162a995cd0ad9092f5d8c4839cd2de1f",
+          "bytes": 204182
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "3409d53519cfc3ac4ff1fc754870ba08944a20d56547396b34d0a160cae32980",
+          "gzip_sha256": "1c7d208770c7dc265ac2ae72e181264c2865d232ebd13e900188aa4f7578c149",
+          "bytes": 1875072
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "c9984d50c93f857fe606faf3c7540c0cdf8057b9bdb7a050a555ffa5fb7b3c07",
+          "gzip_sha256": "f83dfe27c79a93d17c35781b7484b1e05f77d19e16d6f7fc64e962e8073fc17a",
+          "bytes": 1827340
+        }
+      }
+    },
+    {
+      "variant": 31,
+      "method": "Radial/tangential coefficient prior plus band-SNR phase weighting",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "f34104c55f9b2d5d7e47724a66f9ac2dd7e5d2af1103801513bb20f2601dd9b8",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 2158.672,
+        "p95": 3017.997,
+        "maximum": 8050.122
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6674451700000361,
+            "p95": 3.1378431699998544,
+            "maximum": 7.863121499999437
+          },
+          "worst_voice_p95_cents": 4.655342499999904,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.3666660199994851,
+            "p95": 5.751001930000399,
+            "maximum": 15.740548930000386
+          },
+          "worst_voice_p95_cents": 8.484304070000093,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.5424596299998825,
+            "p95": 25.13288980999988,
+            "maximum": 78.13799910000014
+          },
+          "worst_voice_p95_cents": 39.26852210000007,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-4-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.416309360000014,
+            "p95": 10.56183465000018,
+            "maximum": 24.92312448000007
+          },
+          "worst_voice_p95_cents": 15.207090479999863,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.851114079999718,
+            "p95": 26.361326650000194,
+            "maximum": 74.64449828
+          },
+          "worst_voice_p95_cents": 39.41157328000031,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "voice-0-p95",
+            "voice-2-p95",
+            "voice-3-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.809068149999973,
+            "p95": 20.924654530000453,
+            "maximum": 146.06196737999966
+          },
+          "worst_voice_p95_cents": 57.736676060000036,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-5-p95"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.859620810000308,
+            "p95": 29.437795150000312,
+            "maximum": 213.1522238100004
+          },
+          "worst_voice_p95_cents": 54.03799567000007,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.441285259999518,
+            "p95": 24.864071000000365,
+            "maximum": 69.07982583999939
+          },
+          "worst_voice_p95_cents": 35.11289415000007,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95",
+            "voice-3-p95",
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "9574d8b865dcb0af63018049299d54b22864f4fca6a62ad3c625f476b4fbbeb0",
+          "gzip_sha256": "dc4a29b02a567aaec35dd86379aed7e7707e20d11b073003ea1d8c71606f4d18",
+          "bytes": 204252
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "f6ca9429d8375ed3c3f4041cb831fac18652955e98ec07a72b198d40589259d9",
+          "gzip_sha256": "0b57633edcd8bb5a2f0663559004fca09278398c5a18433f7369bb64cd26bf66",
+          "bytes": 1875193
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "55f0ad1e8bcaed6a2a8a646e617132704912fc427f5f0c21d9c0944c2a068b17",
+          "gzip_sha256": "5392dfc1491e5ed52b56b193cfbcefc746d05d0155af796b4494b39ca679342d",
+          "bytes": 1827021
+        }
+      }
+    },
+    {
+      "variant": 32,
+      "method": "Radial-withdrawal prior ablation without SNR weighting",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "fd994b9101e5fbbacac7cfa0c3bf91902357ae244ce4c6b1dcdaac14e974a158",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 2168.496,
+        "p95": 3433.333,
+        "maximum": 11257.641
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6673177499997962,
+            "p95": 3.136329499999846,
+            "maximum": 7.86426549999959
+          },
+          "worst_voice_p95_cents": 4.653434499999776,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.3693370199995059,
+            "p95": 5.791636289999502,
+            "maximum": 15.738641930000341
+          },
+          "worst_voice_p95_cents": 8.52931706999982,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.5632491500005017,
+            "p95": 25.337248099999954,
+            "maximum": 79.57308809999972
+          },
+          "worst_voice_p95_cents": 40.05658089999997,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-1-p95",
+            "voice-1-max",
+            "voice-4-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.4575083599996503,
+            "p95": 10.577526640000201,
+            "maximum": 24.844923479999892
+          },
+          "worst_voice_p95_cents": 14.91221448000033,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.840665279999911,
+            "p95": 26.291899649999806,
+            "maximum": 75.43147028000021
+          },
+          "worst_voice_p95_cents": 40.303830279999886,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-3-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.746011579999987,
+            "p95": 20.949869420000056,
+            "maximum": 145.70910737999938
+          },
+          "worst_voice_p95_cents": 56.03648562000032,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max",
+            "voice-5-p95"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.7752673299998207,
+            "p95": 28.25685032999985,
+            "maximum": 216.56485180999994
+          },
+          "worst_voice_p95_cents": 56.361097189999754,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.447821849999457,
+            "p95": 24.764121089999946,
+            "maximum": 63.37304512999964
+          },
+          "worst_voice_p95_cents": 34.510077359999514,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95",
+            "voice-3-p95",
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "4cef30f9c5152b2c477e664a912cacaa50521da9312806125a09c736446a9ada",
+          "gzip_sha256": "0d4f64b8afe9d4a8e300451672c53d7647eb7c458a4284c68482d6109523d544",
+          "bytes": 204287
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "b856e2ce95dca1d140c676a88987da5e226aae0c4f69823fec0e0bec524a882d",
+          "gzip_sha256": "17e161db5ccf2cbafbe1ea21b3d21b85f35ef823d8672b672522d949b1a9ed99",
+          "bytes": 1875074
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "463c2e9b883541865e06f1ffc127b4188478a28ac9a65f854e9c8465be451543",
+          "gzip_sha256": "df235231ac5714e01c7ba032e1ece2477ab5ebbfb05f35beb4a41bff25f757a9",
+          "bytes": 1827096
+        }
+      }
+    },
+    {
+      "variant": 33,
+      "method": "Band-SNR phase weighting ablation without radial freedom",
+      "source_sha256": {
+        "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+        "PolyphonicTracker.cpp": "903c3206719a84240630aab16eeeda164693ebcecf6d5d28ff3c0adbc7e79080",
+        "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+        "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+        "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+        "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+      },
+      "strict_passed_cases": 3,
+      "cases": 8,
+      "cpu_us_six_sources": {
+        "median": 2196.279,
+        "p95": 3433.423,
+        "maximum": 11152.905
+      },
+      "results": [
+        {
+          "case": "g_major_static",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 0.6370499799999152,
+            "p95": 2.879203450000034,
+            "maximum": 7.432685549999718
+          },
+          "worst_voice_p95_cents": 4.244499499999677,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "c_major7_opposed",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 1.2804540199994108,
+            "p95": 5.343591930000002,
+            "maximum": 13.743554930000101
+          },
+          "worst_voice_p95_cents": 8.154641930000395,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "d_add9_vibrato",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.2509141900002305,
+            "p95": 16.75456110000013,
+            "maximum": 49.58880410000006
+          },
+          "worst_voice_p95_cents": 25.951796100000024,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-1-p95"
+          ]
+        },
+        {
+          "case": "b7_pickup_nodes",
+          "passed": true,
+          "aggregate_cents": {
+            "median": 3.3353895200001205,
+            "p95": 9.839209259999393,
+            "maximum": 22.89296151999949
+          },
+          "worst_voice_p95_cents": 12.130555519999575,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": []
+        },
+        {
+          "case": "e7_reversal_windows",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 2.930207349999847,
+            "p95": 16.351699319999824,
+            "maximum": 45.591326719999614
+          },
+          "worst_voice_p95_cents": 25.456266280000506,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-2-p95"
+          ]
+        },
+        {
+          "case": "a_minor6_weak_tail",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 4.210542150000407,
+            "p95": 19.031748249999936,
+            "maximum": 149.7317063799997
+          },
+          "worst_voice_p95_cents": 60.631055469999495,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-maximum",
+            "voice-2-p95",
+            "voice-2-max"
+          ]
+        },
+        {
+          "case": "d7_neighbour_attack",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 3.473230080000178,
+            "p95": 25.94215063000007,
+            "maximum": 114.96247619000002
+          },
+          "worst_voice_p95_cents": 64.70289781000034,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "pitch-p95",
+            "pitch-maximum",
+            "voice-0-p95",
+            "voice-0-max",
+            "voice-3-p95",
+            "voice-3-max",
+            "voice-4-p95",
+            "voice-4-max",
+            "voice-5-max"
+          ]
+        },
+        {
+          "case": "g13_stiff_strum",
+          "passed": false,
+          "aggregate_cents": {
+            "median": 5.05777708999986,
+            "p95": 22.54854999999978,
+            "maximum": 44.78467714999965
+          },
+          "worst_voice_p95_cents": 29.026655130000023,
+          "missing_source_frames": 0,
+          "extra_source_frames": 0,
+          "duplicate_source_frames": 0,
+          "failures": [
+            "voice-3-p95",
+            "voice-4-p95"
+          ]
+        }
+      ],
+      "compressed_raw": {
+        "capture/frames.csv": {
+          "raw_sha256": "8eead26a73bbd000ac8aaaafb50620104f7c9c7c5e8f07d71cb22d78d36fcc6a",
+          "gzip_sha256": "be88e2e35d78175894b1eb3a644cfc85a66dba187e2f55a5837ac8b921067d8f",
+          "bytes": 204289
+        },
+        "capture/voices.csv": {
+          "raw_sha256": "0ea74dd3dd2782b6692b2800c1ca537c3ccbda07cc10439f28ba912f11b1ed3b",
+          "gzip_sha256": "5c9351e2a8253e2994bbaf0c6ddac92998c95a9ea1266b22007378dff4684cd6",
+          "bytes": 1875049
+        },
+        "scoring/errors.csv": {
+          "raw_sha256": "3697da66ba3e739395b89e0a7bd21381afd6fa877c298f5536e7ffbcc310c7d0",
+          "gzip_sha256": "29a0bf4a0f6ee99ca923200eff7628cf0fd7942dfa02b93629faaf84d0a1ddfd",
+          "bytes": 1827338
+        }
+      }
+    }
+  ]
+}

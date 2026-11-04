@@ -1,0 +1,684 @@
+[
+  {
+    "kind": "pair_clean",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45,
+      64
+    ],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 33,
+    "baseline_cost": 0.0005808361524328787,
+    "baseline_parameters": [
+      -0.015339799802936724,
+      0.0
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.006980430000112392,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": true,
+        "likelihood_gain": 580731724.3458972,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          6.996391787126927,
+          15405.680730417405,
+          9.879197469613125
+        ],
+        "cost": 1.0442808698141583e-07,
+        "parameters": [
+          -0.019552092651308292,
+          0.0,
+          -0.008551063694102278,
+          0.051300715315046284
+        ],
+        "success": true,
+        "iterations": 24,
+        "seconds": 0.08189107699581655
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 554252678.8373572,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          35070.409304885325,
+          13765.857558257165,
+          8374.36106846241
+        ],
+        "cost": 2.6583473595521438e-05,
+        "parameters": [
+          -0.0002473106284371031,
+          0.0,
+          -0.010856787729214976,
+          0.23100302872096104
+        ],
+        "success": true,
+        "iterations": 15,
+        "seconds": 0.06065441200189525
+      }
+    ]
+  },
+  {
+    "kind": "third_boost_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45
+    ],
+    "proposed": [
+      33,
+      57,
+      64,
+      69
+    ],
+    "admitted_companion": 33,
+    "baseline_cost": 8.764367633831245e-05,
+    "baseline_parameters": [
+      -5.269518038194897e-06,
+      0.0
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.0038610730043728836,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": true,
+        "likelihood_gain": 83849874.81545925,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          17.278816177496843,
+          3469.2222105045844,
+          33.06437677601533
+        ],
+        "cost": 3.793801522853203e-06,
+        "parameters": [
+          -5.711090629714854e-05,
+          6.39522855085154e-05,
+          0.015838915384594594,
+          0.01815396960929307
+        ],
+        "success": true,
+        "iterations": 24,
+        "seconds": 0.08480480100115528
+      },
+      {
+        "note": 57,
+        "accepted": true,
+        "likelihood_gain": 24281203.68118004,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          2514.576042080626,
+          1326.975096198487,
+          1936.5950884254494
+        ],
+        "cost": 6.336247265713241e-05,
+        "parameters": [
+          -8.454842062693625e-06,
+          0.0,
+          0.058981575094241685,
+          0.007720708274537044
+        ],
+        "success": true,
+        "iterations": 28,
+        "seconds": 0.11275328999909107
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 55260618.866432846,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          4801.169338573941,
+          1958.4986136597984,
+          1058.4023133514809
+        ],
+        "cost": 3.23830574718796e-05,
+        "parameters": [
+          -0.00020180528828442367,
+          0.0003264261687611087,
+          0.01594355079492666,
+          0.001716158585734515
+        ],
+        "success": true,
+        "iterations": 11,
+        "seconds": 0.05974240499926964
+      },
+      {
+        "note": 69,
+        "accepted": true,
+        "likelihood_gain": 3738947.992804832,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          1078.239933546273,
+          519.925484315219,
+          622.2748665324156
+        ],
+        "cost": 8.390472834550762e-05,
+        "parameters": [
+          -1.2302188290519197e-05,
+          1.717730663590202e-06,
+          -0.08272154274006074,
+          1.4132748317659818e-05
+        ],
+        "success": true,
+        "iterations": 30,
+        "seconds": 0.10605740200116998
+      }
+    ]
+  },
+  {
+    "kind": "stiff_third_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45
+    ],
+    "proposed": [
+      33,
+      57,
+      64
+    ],
+    "admitted_companion": 33,
+    "baseline_cost": 8.448172746450406e-05,
+    "baseline_parameters": [
+      -4.819505214879081e-06,
+      0.4000222824679565
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.013846924004610628,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": true,
+        "likelihood_gain": 80987509.43493176,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          15.43322832708165,
+          3438.610869093929,
+          24.64696564449948
+        ],
+        "cost": 3.4942180295723093e-06,
+        "parameters": [
+          2.6252010659127432e-05,
+          0.3999702907651407,
+          -0.010377788899780069,
+          0.10295027646082687
+        ],
+        "success": true,
+        "iterations": 48,
+        "seconds": 0.16590256199560827
+      },
+      {
+        "note": 57,
+        "accepted": true,
+        "likelihood_gain": 21830986.76039143,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          2579.624859922257,
+          1260.6067657580463,
+          1623.9918116671658
+        ],
+        "cost": 6.265074070411263e-05,
+        "parameters": [
+          -1.3774869621356913e-05,
+          0.40003286929451415,
+          0.048586133355463176,
+          1.0
+        ],
+        "success": true,
+        "iterations": 41,
+        "seconds": 0.15686566200020025
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 50421029.3410727,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          4716.659286722484,
+          1667.0535460933556,
+          1006.0882004972282
+        ],
+        "cost": 3.406069812343136e-05,
+        "parameters": [
+          -0.0001507811190968307,
+          0.4001493556256011,
+          0.1277576177022225,
+          0.02715409513393066
+        ],
+        "success": true,
+        "iterations": 27,
+        "seconds": 0.09765689600317273
+      }
+    ]
+  },
+  {
+    "kind": "missing_root_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 52.0,
+    "truth_notes": [
+      52
+    ],
+    "proposed": [
+      61,
+      64,
+      71,
+      76
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 7.83744948912607e-06,
+    "baseline_parameters": [
+      -2.6753409508438e-06,
+      1.8108754794050617e-06
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.005095202002848964,
+    "comparisons": [
+      {
+        "note": 61,
+        "accepted": true,
+        "likelihood_gain": 486420.80864763825,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          220.7289673423516,
+          70.38163892814012,
+          386.60621315560803
+        ],
+        "cost": 7.351028680478432e-06,
+        "parameters": [
+          -1.1056296148521341e-06,
+          0.0,
+          -2.900588159716542e-09,
+          0.0
+        ],
+        "success": true,
+        "iterations": 1,
+        "seconds": 0.00842921799630858
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 5590208.999865639,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          1487.9066632921733,
+          608.014056378428,
+          360.69052733593213
+        ],
+        "cost": 2.2472404892604314e-06,
+        "parameters": [
+          2.2337797677692953e-07,
+          3.12064003189001e-06,
+          0.010213409132441191,
+          6.887240905513806e-06
+        ],
+        "success": true,
+        "iterations": 33,
+        "seconds": 0.11117854199983412
+      },
+      {
+        "note": 71,
+        "accepted": true,
+        "likelihood_gain": 1911997.1786886125,
+        "bic_penalty": 137.24314175086917,
+        "coefficient_z_first3": [
+          881.0927570094607,
+          358.22089333028856,
+          206.68944299106735
+        ],
+        "cost": 5.925452310437457e-06,
+        "parameters": [
+          -1.0623982082612813e-06,
+          0.0,
+          6.524258508681933e-08,
+          1.0672717342893703e-09
+        ],
+        "success": true,
+        "iterations": 2,
+        "seconds": 0.013767627999186516
+      },
+      {
+        "note": 76,
+        "accepted": true,
+        "likelihood_gain": 849541.2779284258,
+        "bic_penalty": 112.28984325071114,
+        "coefficient_z_first3": [
+          596.3908937940045,
+          227.9983406528396,
+          153.43015830551732
+        ],
+        "cost": 6.987908211197644e-06,
+        "parameters": [
+          -3.201691199173961e-05,
+          8.028496403393991e-05,
+          5.376075535846649e-05,
+          0.0
+        ],
+        "success": true,
+        "iterations": 23,
+        "seconds": 0.08106256799510447
+      }
+    ]
+  },
+  {
+    "kind": "body_resonance",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 52,
+    "truth_notes": [
+      52
+    ],
+    "proposed": [
+      45
+    ],
+    "admitted_companion": null,
+    "baseline_cost": 3.4968452424027143,
+    "baseline_parameters": [
+      -0.004364378762749858,
+      0.5156376390906537
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.017644610998104326,
+    "comparisons": [
+      {
+        "note": 45,
+        "accepted": false,
+        "likelihood_gain": 3496845235813.274,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          1341455.691034132,
+          0.0017042663716434518,
+          20.36465024245374
+        ],
+        "cost": 6.589440684698641e-09,
+        "parameters": [
+          0.019550003914373174,
+          0.0,
+          -2.471383369005889e-09,
+          0.0
+        ],
+        "success": true,
+        "iterations": 19,
+        "seconds": 0.07260296500317054
+      }
+    ]
+  },
+  {
+    "kind": "vibrato_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45
+    ],
+    "proposed": [
+      33,
+      52,
+      57,
+      64,
+      69
+    ],
+    "admitted_companion": 33,
+    "baseline_cost": 0.013899134738569944,
+    "baseline_parameters": [
+      0.026254589416071113,
+      0.021872560326203196
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.009948227998393122,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": true,
+        "likelihood_gain": 3642653967.783313,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          10228.791139826935,
+          7038.682754708959,
+          15576.622576722719
+        ],
+        "cost": 0.01025648077078663,
+        "parameters": [
+          0.03381161297748201,
+          0.009590080424272136,
+          0.5,
+          0.6700628810776587
+        ],
+        "success": true,
+        "iterations": 36,
+        "seconds": 0.1285638520057546
+      },
+      {
+        "note": 52,
+        "accepted": true,
+        "likelihood_gain": 1445928435.2869775,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          18520.148946900972,
+          669.2234240977034,
+          11258.361424846431
+        ],
+        "cost": 0.012453206303282966,
+        "parameters": [
+          0.024640554447940836,
+          0.029712393744750206,
+          0.024241555782450908,
+          0.0
+        ],
+        "success": true,
+        "iterations": 18,
+        "seconds": 0.05915400500089163
+      },
+      {
+        "note": 57,
+        "accepted": true,
+        "likelihood_gain": 2014376665.3338141,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          13657.93674439682,
+          14444.948121923644,
+          14862.077814036671
+        ],
+        "cost": 0.01188475807323613,
+        "parameters": [
+          0.028318333615520427,
+          0.017341644038077406,
+          0.5,
+          0.0
+        ],
+        "success": true,
+        "iterations": 17,
+        "seconds": 0.06925332600076217
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 1202189281.123759,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          10925.294292285373,
+          15241.809341332404,
+          13892.618803573485
+        ],
+        "cost": 0.012696945457446185,
+        "parameters": [
+          0.027130695386984423,
+          0.020235776595021994,
+          -0.5,
+          1.0
+        ],
+        "success": true,
+        "iterations": 33,
+        "seconds": 0.12110245400253916
+      },
+      {
+        "note": 69,
+        "accepted": true,
+        "likelihood_gain": 374900858.2200411,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          7250.669246416169,
+          9328.405239018412,
+          6839.691017757095
+        ],
+        "cost": 0.013524233880349902,
+        "parameters": [
+          0.025505795535986784,
+          0.023352483197449318,
+          0.19148560333813303,
+          0.0
+        ],
+        "success": true,
+        "iterations": 15,
+        "seconds": 0.0915673740018974
+      }
+    ]
+  },
+  {
+    "kind": "chirp_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45
+    ],
+    "proposed": [
+      46,
+      58,
+      65,
+      70
+    ],
+    "admitted_companion": 46,
+    "baseline_cost": 0.449320589774598,
+    "baseline_parameters": [
+      0.5,
+      1.0
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.0052795830051763915,
+    "comparisons": [
+      {
+        "note": 46,
+        "accepted": true,
+        "likelihood_gain": 435774342902.663,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          817136.2511818003,
+          555490.8024710246,
+          384470.062409266
+        ],
+        "cost": 0.01354624687193496,
+        "parameters": [
+          -0.20329513465653565,
+          0.8460920472038458,
+          -0.16799962537230204,
+          0.013917803679073285
+        ],
+        "success": true,
+        "iterations": 29,
+        "seconds": 0.0983693320013117
+      },
+      {
+        "note": 58,
+        "accepted": true,
+        "likelihood_gain": 185924000674.43915,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          254415.48558621097,
+          103229.93320044117,
+          34063.98365282338
+        ],
+        "cost": 0.26339658910015884,
+        "parameters": [
+          0.5,
+          1.0,
+          -0.3912799595246987,
+          1.0
+        ],
+        "success": true,
+        "iterations": 16,
+        "seconds": 0.05568135700013954
+      },
+      {
+        "note": 65,
+        "accepted": true,
+        "likelihood_gain": 81016984415.51697,
+        "bic_penalty": 162.1964402510272,
+        "coefficient_z_first3": [
+          166944.58391494173,
+          36735.256187046696,
+          92163.42858386821
+        ],
+        "cost": 0.368303605359081,
+        "parameters": [
+          0.5,
+          0.8925861854138184,
+          -0.20354457282729457,
+          0.9956834019119678
+        ],
+        "success": true,
+        "iterations": 24,
+        "seconds": 0.1001486949971877
+      },
+      {
+        "note": 70,
+        "accepted": true,
+        "likelihood_gain": 46012066342.31658,
+        "bic_penalty": 149.7197910009482,
+        "coefficient_z_first3": [
+          106948.01762784629,
+          86881.21119107075,
+          59846.73075578945
+        ],
+        "cost": 0.4033085234322814,
+        "parameters": [
+          0.5,
+          1.0,
+          -0.20224232115068683,
+          1.0
+        ],
+        "success": true,
+        "iterations": 19,
+        "seconds": 0.06728655799815897
+      }
+    ]
+  }
+]

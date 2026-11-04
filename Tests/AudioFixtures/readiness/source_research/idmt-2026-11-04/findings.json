@@ -1,0 +1,120 @@
+{
+  "scope": "Read-only source/annotation and rights-scope research, not dataset adoption or detector acceptance",
+  "repositories": [
+    {
+      "name": "idmt-technique",
+      "commit": "63d74e500c6f620b1980eb783f0de7c225ff6685",
+      "repository": "https://github.com/Earl-Ju/guitar-technique-classification.git",
+      "files": 18,
+      "audio_count": 0,
+      "audio_examples": [],
+      "license_files": [
+        "LICENSE",
+        "README.md"
+      ],
+      "audio_paths_are_not_pcm_verification": true,
+      "raw_audio_downloaded_for_this_audit": false
+    },
+    {
+      "name": "idmt-gsdetector",
+      "commit": "cf3697a57abbe4b21e46245fe900b6abb61ad419",
+      "repository": "https://github.com/mogeadis/GS-Detector.git",
+      "files": 473,
+      "audio_count": 234,
+      "audio_examples": [
+        "Datasets/Bridge Pickup/audio/G53-40100-1111-235.wav",
+        "Datasets/Bridge Pickup/audio/G53-41101-1111-236.wav",
+        "Datasets/Bridge Pickup/audio/G53-42102-1111-237.wav",
+        "Datasets/Bridge Pickup/audio/G53-43103-1111-238.wav",
+        "Datasets/Bridge Pickup/audio/G53-44104-1111-239.wav",
+        "Datasets/Bridge Pickup/audio/G53-45105-1111-240.wav",
+        "Datasets/Bridge Pickup/audio/G53-45200-1111-248.wav",
+        "Datasets/Bridge Pickup/audio/G53-46106-1111-241.wav"
+      ],
+      "license_files": [
+        "LICENSE.md",
+        "README.md"
+      ],
+      "audio_paths_are_not_pcm_verification": true,
+      "raw_audio_downloaded_for_this_audit": false
+    },
+    {
+      "name": "idmt-elec5305",
+      "commit": "26a268130aac08254f82a1fdb3cbcdbbf28fcfeb",
+      "repository": "https://github.com/pgaft/elec5305-project-520432082.git",
+      "files": 7,
+      "audio_count": 0,
+      "audio_examples": [],
+      "license_files": [
+        "README.md"
+      ],
+      "audio_paths_are_not_pcm_verification": true,
+      "raw_audio_downloaded_for_this_audit": false
+    }
+  ],
+  "original_author_paper": {
+    "url": "https://raw.githubusercontent.com/jakobabesser/publications/1a5c54631d4eca40c9c0aea77d94a9e564d1bbe4/pdf/Kehling_2014_DAFX.pdf",
+    "sha256": "103f7f176593c334dd5254e2805566fabcf84dc815b5f4d7d1fe76c26e25f29f",
+    "bytes": 1331022,
+    "purpose": "Read-only original-author paper inspection; not redistributed"
+  },
+  "mirror_metadata": [
+    {
+      "path": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/mogeadis/GS-Detector/cf3697a57abbe4b21e46245fe900b6abb61ad419/LICENSE.md",
+      "sha256": "a5c0411db631b7dc596eb26f849c3ebb71047c1b11e10c5c43438ac79d7d3c74",
+      "bytes": 21285
+    },
+    {
+      "path": "Datasets/Bridge Pickup/annotation/G53-40100-1111-235.xml",
+      "url": "https://raw.githubusercontent.com/mogeadis/GS-Detector/cf3697a57abbe4b21e46245fe900b6abb61ad419/Datasets/Bridge%20Pickup/annotation/G53-40100-1111-235.xml",
+      "sha256": "920e5c510479e5ae61fad47769f58345e47a1ca5bf86f80729aff9603d890674",
+      "bytes": 591
+    }
+  ],
+  "primary_dataset_urls": [
+    "https://www.idmt.fraunhofer.de/en/publications/datasets/guitar.html",
+    "https://www.idmt.fraunhofer.de/en/business_units/smt/guitar.html"
+  ],
+  "third_party_record_reference": "https://zenodo.org/records/7544110",
+  "third_party_archive_name": "IDMT-SMT-GUITAR_V2.zip",
+  "runtime_policy_allowed_primary_hosts": false,
+  "dataset_license_verified": false,
+  "raw_dataset_audio_evaluated": false,
+  "original_paper_expression_classes": [
+    "normal",
+    "bending",
+    "slide",
+    "vibrato",
+    "harmonics",
+    "dead notes"
+  ],
+  "hammer_pull_declared_dataset_class_verified": false,
+  "mirror_pickup_counts": {
+    "Bridge Pickup": 78,
+    "Middle Pickup": 78,
+    "Neck Pickup": 78
+  },
+  "mirror_xml_spotcheck": {
+    "path": "Datasets/Bridge Pickup/annotation/G53-40100-1111-235.xml",
+    "pitch": 40,
+    "onset_seconds": 0.227,
+    "offset_seconds": 2.5,
+    "fret": 0,
+    "string": 1,
+    "excitation_style": "PK",
+    "expression_style": "NO"
+  },
+  "primary_paper_evaluation_tolerances": {
+    "onset_ms": 50,
+    "offset_ms": 200,
+    "additional_frame_ms": 5
+  },
+  "required_followup": [
+    "Read original Fraunhofer/Zenodo metadata and usage/license terms through permitted access.",
+    "Verify actual archived WAV/XML bytes, dataset subset and recording/annotation procedures before using or redistributing recordings.",
+    "Inspect whether SL means discrete fretted sliding and whether any real hammer/pull transitions exist; current evidence does not establish them.",
+    "Do not turn coarse event annotations or published50/200ms evaluation tolerances into physical5/10ms or continuous-cents truth."
+  ],
+  "mirror_all234_filename_middle_codes": "1111"
+}

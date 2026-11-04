@@ -1,0 +1,729 @@
+{
+  "scope": "Optimistic synthetic six-source continuous tracking with every true voice seeded once; no note-acquisition, real-guitar or musical-readiness proof",
+  "fixture_seal": "226e669e942444bbf789e8c18d3c86fe34ca48bb3b46dacce600746931287eb5",
+  "policy_sha256": "03976d0824e8c67bc4656c395a49e4976529dce058b9bb65a97af03adacf9728",
+  "capture_sha256": {
+    "frames.csv": "8eead26a73bbd000ac8aaaafb50620104f7c9c7c5e8f07d71cb22d78d36fcc6a",
+    "voices.csv": "0ea74dd3dd2782b6692b2800c1ca537c3ccbda07cc10439f28ba912f11b1ed3b"
+  },
+  "cases": 8,
+  "passed_cases": 3,
+  "failed_cases": 5,
+  "causal_error_not_delay_aligned": true,
+  "identity_matching": "Original seeded physical-string-to-ID mapping, never nearest-reference reassignment",
+  "oracle_seeded_all_true_voices": true,
+  "note_acquisition_tested": false,
+  "real_audio": false,
+  "musical_readiness_eligible": false,
+  "results": [
+    {
+      "case": "g_major_static",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 0,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 0,
+      "error_cents": {
+        "median": 0.6370499799999152,
+        "p95": 2.879203450000034,
+        "maximum": 7.432685549999718
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.1277545500000485,
+            "p95": 3.417335550000189,
+            "maximum": 7.432685549999718
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.3471329799999978,
+            "p95": 1.039510020000023,
+            "maximum": 2.0546000199999526
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.0205588299996293,
+            "p95": 3.1716658299998812,
+            "maximum": 5.1339468300000135
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.9190877499996475,
+            "p95": 2.517827749999668,
+            "maximum": 4.573185750000164
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.384239499999751,
+            "p95": 4.244499499999677,
+            "maximum": 7.11658449999959
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.233015630000466,
+            "p95": 0.6419516299999373,
+            "maximum": 0.8845666300004495
+          }
+        }
+      },
+      "wall_us": {
+        "median": 2184.768,
+        "p95": 3409.756,
+        "maximum": 5319.085
+      },
+      "thread_cpu_us": {
+        "median": 2184.1,
+        "p95": 3401.776,
+        "maximum": 5316.943
+      },
+      "failures": [],
+      "passed": true
+    },
+    {
+      "case": "c_major7_opposed",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 0,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 0,
+      "error_cents": {
+        "median": 1.2804540199994108,
+        "p95": 5.343591930000002,
+        "maximum": 13.743554930000101
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.7923637100004441,
+            "p95": 5.301066290000023,
+            "maximum": 9.391566289999531
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.8203029100002368,
+            "p95": 2.5768130399995925,
+            "maximum": 5.261059890000297
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.812738959999848,
+            "p95": 2.6994835899998293,
+            "maximum": 4.088432390000207
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.7952787399998726,
+            "p95": 6.160588739999895,
+            "maximum": 10.666872959999552
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.6092169300000023,
+            "p95": 8.154641930000395,
+            "maximum": 13.743554930000101
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.9481940199997041,
+            "p95": 2.6110210199995265,
+            "maximum": 4.300169019999345
+          }
+        }
+      },
+      "wall_us": {
+        "median": 2399.744,
+        "p95": 3441.983,
+        "maximum": 4671.069
+      },
+      "thread_cpu_us": {
+        "median": 2398.849,
+        "p95": 3441.315,
+        "maximum": 4663.989
+      },
+      "failures": [],
+      "passed": true
+    },
+    {
+      "case": "d_add9_vibrato",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 0,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 0,
+      "error_cents": {
+        "median": 2.2509141900002305,
+        "p95": 16.75456110000013,
+        "maximum": 49.58880410000006
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 4.965246369999932,
+            "p95": 18.422354369999994,
+            "maximum": 36.01154137000009
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 6.176405099999727,
+            "p95": 25.951796100000024,
+            "maximum": 49.58880410000006
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.0504246299999807,
+            "p95": 6.171709500000588,
+            "maximum": 11.888135639999575
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.1398494200001608,
+            "p95": 3.4555068399996003,
+            "maximum": 6.207363670000632
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 4.413847190000553,
+            "p95": 20.67666519000042,
+            "maximum": 36.11894118999999
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.8152024200001051,
+            "p95": 3.1373183899994217,
+            "maximum": 7.036347349999517
+          }
+        }
+      },
+      "wall_us": {
+        "median": 2025.764,
+        "p95": 3433.802,
+        "maximum": 4804.744
+      },
+      "thread_cpu_us": {
+        "median": 2025.264,
+        "p95": 3432.342,
+        "maximum": 4803.336
+      },
+      "failures": [
+        "voice-1-p95"
+      ],
+      "passed": false
+    },
+    {
+      "case": "b7_pickup_nodes",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 0,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 0,
+      "error_cents": {
+        "median": 3.3353895200001205,
+        "p95": 9.839209259999393,
+        "maximum": 22.89296151999949
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 4.553404480000012,
+            "p95": 12.130555519999575,
+            "maximum": 22.89296151999949
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 3.569009959999647,
+            "p95": 8.897760960000056,
+            "maximum": 11.722543959999854
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 3.7401539699999375,
+            "p95": 8.820723819999898,
+            "maximum": 12.038157599999977
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 5.822309620000254,
+            "p95": 10.211677240000228,
+            "maximum": 15.956993239999662
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 3.4570126399998458,
+            "p95": 10.592517359999931,
+            "maximum": 19.28953164000049
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.1539780999996196,
+            "p95": 3.162356629999863,
+            "maximum": 5.464091970000595
+          }
+        }
+      },
+      "wall_us": {
+        "median": 2247.74,
+        "p95": 3601.999,
+        "maximum": 22020.021
+      },
+      "thread_cpu_us": {
+        "median": 2223.439,
+        "p95": 3515.675,
+        "maximum": 5224.171
+      },
+      "failures": [],
+      "passed": true
+    },
+    {
+      "case": "e7_reversal_windows",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 0,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 0,
+      "error_cents": {
+        "median": 2.930207349999847,
+        "p95": 16.351699319999824,
+        "maximum": 45.591326719999614
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 5.389265649999686,
+            "p95": 19.84839034999979,
+            "maximum": 35.46347234999985
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.9850473099999988,
+            "p95": 9.054752520000164,
+            "maximum": 13.185072470000136
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 5.099840719999804,
+            "p95": 25.456266280000506,
+            "maximum": 45.591326719999614
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 5.840465889999535,
+            "p95": 19.229417139999327,
+            "maximum": 38.52738552000048
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.694117080000069,
+            "p95": 9.993159079999714,
+            "maximum": 14.609731920000257
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.5548785200005568,
+            "p95": 2.0391154799995093,
+            "maximum": 4.018943479999848
+          }
+        }
+      },
+      "wall_us": {
+        "median": 2314.799,
+        "p95": 3461.302,
+        "maximum": 11154.478
+      },
+      "thread_cpu_us": {
+        "median": 2314.193,
+        "p95": 3450.399,
+        "maximum": 11152.905
+      },
+      "failures": [
+        "voice-2-p95"
+      ],
+      "passed": false
+    },
+    {
+      "case": "a_minor6_weak_tail",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 84,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 15,
+      "error_cents": {
+        "median": 4.210542150000407,
+        "p95": 19.031748249999936,
+        "maximum": 149.7317063799997
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 3.6220768299997985,
+            "p95": 10.824945169999722,
+            "maximum": 16.57984082999988
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 4.318410269999617,
+            "p95": 15.226271620000631,
+            "maximum": 27.595138190000057
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 6.892152159999654,
+            "p95": 60.631055469999495,
+            "maximum": 149.7317063799997
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 4.988740150000126,
+            "p95": 11.040757149999791,
+            "maximum": 22.360108150000002
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.6125731299993618,
+            "p95": 4.27060118000071,
+            "maximum": 5.523298769999485
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 8.384862749999655,
+            "p95": 24.5168357499999,
+            "maximum": 36.828073249999704
+          }
+        }
+      },
+      "wall_us": {
+        "median": 2282.866,
+        "p95": 2978.149,
+        "maximum": 5677.077
+      },
+      "thread_cpu_us": {
+        "median": 2281.785,
+        "p95": 2977.347,
+        "maximum": 5676.07
+      },
+      "failures": [
+        "pitch-maximum",
+        "voice-2-p95",
+        "voice-2-max"
+      ],
+      "passed": false
+    },
+    {
+      "case": "d7_neighbour_attack",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 18,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 16,
+      "error_cents": {
+        "median": 3.473230080000178,
+        "p95": 25.94215063000007,
+        "maximum": 114.96247619000002
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 5.044391540000248,
+            "p95": 25.94215063000007,
+            "maximum": 100.85131790999995
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.6750231500002997,
+            "p95": 9.489980150000576,
+            "maximum": 18.719324849999452
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.1860023000002116,
+            "p95": 10.179064349999578,
+            "maximum": 46.328308209999136
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 4.4785926700001255,
+            "p95": 38.233322669999836,
+            "maximum": 113.5839983299995
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 5.343336189999803,
+            "p95": 64.70289781000034,
+            "maximum": 114.96247619000002
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.545129940000379,
+            "p95": 18.75997783999992,
+            "maximum": 92.60943430000026
+          }
+        }
+      },
+      "wall_us": {
+        "median": 2205.002,
+        "p95": 2914.866,
+        "maximum": 3146.727
+      },
+      "thread_cpu_us": {
+        "median": 2203.649,
+        "p95": 2913.261,
+        "maximum": 3145.617
+      },
+      "failures": [
+        "pitch-p95",
+        "pitch-maximum",
+        "voice-0-p95",
+        "voice-0-max",
+        "voice-3-p95",
+        "voice-3-max",
+        "voice-4-p95",
+        "voice-4-max",
+        "voice-5-max"
+      ],
+      "passed": false
+    },
+    {
+      "case": "g13_stiff_strum",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 0,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 0,
+      "error_cents": {
+        "median": 5.05777708999986,
+        "p95": 22.54854999999978,
+        "maximum": 44.78467714999965
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.4963392600000134,
+            "p95": 6.001283259999468,
+            "maximum": 16.76330474000025
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 3.910572000000201,
+            "p95": 12.493259000000023,
+            "maximum": 27.003985999999713
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 8.526862089999554,
+            "p95": 24.85910708999981,
+            "maximum": 39.74825208999988
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 9.252496150000411,
+            "p95": 25.697274150000027,
+            "maximum": 44.58040714999996
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 9.383502040000025,
+            "p95": 29.026655130000023,
+            "maximum": 44.78467714999965
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 3.8473970500007226,
+            "p95": 9.616046320000038,
+            "maximum": 15.613066519999563
+          }
+        }
+      },
+      "wall_us": {
+        "median": 2021.898,
+        "p95": 2637.613,
+        "maximum": 6500.656
+      },
+      "thread_cpu_us": {
+        "median": 2021.268,
+        "p95": 2599.176,
+        "maximum": 6499.131
+      },
+      "failures": [
+        "voice-3-p95",
+        "voice-4-p95"
+      ],
+      "passed": false
+    }
+  ]
+}

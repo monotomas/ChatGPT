@@ -1,0 +1,45 @@
+{
+  "recorded_at_utc": "2026-11-04T01:48:25.495900+00:00",
+  "source_original": "/tmp/flysnapper-polyprobe/chirp26",
+  "source_sha256": {
+    "PolyphonicTracker.cpp": "83ad502a49a890b189cbf237f095d8ee32cb2b198b99ed2d96f240e110b68e5d",
+    "PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+    "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1"
+  },
+  "fixture_seal": "226e669e942444bbf789e8c18d3c86fe34ca48bb3b46dacce600746931287eb5",
+  "support_sha256": {
+    "capture.cpp": "67741f82550424bf175470ad2245c3ffefc7312d2442fa4b98e04cf835ddaa2f",
+    "score.py": "bba83cd597b7f64219f0a0bbd35295fa86f2d457b7cbcde9a8c12523f587b4ca",
+    "verify.py": "af586d614f8b871b68c31036cfd2601cd5d916e262df417e5629dee6e2349e81",
+    "run.py": "d2f77d0f976a7d44864137d9b8dc31f29f4382f57c9f5ea991547cad32bc0d60"
+  },
+  "scope": "All true identities/pitches seeded once: optimistic tracking only, no acquisition or musical readiness",
+  "compile_exit_code": 0,
+  "executable_sha256": "57d537ad4b2f143b0956f1b80edae39747eab8bdd194680b953446fb20bb5c2f",
+  "capture_exit_code": 0,
+  "scoring_exit_code": 1,
+  "source_snapshot_changed": false,
+  "owner_source_changed": false,
+  "files_sha256": {
+    "scoring-console.txt": "0f5f8ef990ac09c8aa0af259633d7f491805efa4fd8c78cfadac88ae0a0782f7",
+    "capture-console.txt": "714f91b040ab76696e2e24897db3de270af13a854d114835d4eb231c86cfeb79",
+    "compile.txt": "60934c06f0e7716e7a423db37214fe845ec59f997b08da5bda579199c62d77b0",
+    "run.py": "d2f77d0f976a7d44864137d9b8dc31f29f4382f57c9f5ea991547cad32bc0d60",
+    "verify.py": "af586d614f8b871b68c31036cfd2601cd5d916e262df417e5629dee6e2349e81",
+    "score.py": "bba83cd597b7f64219f0a0bbd35295fa86f2d457b7cbcde9a8c12523f587b4ca",
+    "capture.cpp": "67741f82550424bf175470ad2245c3ffefc7312d2442fa4b98e04cf835ddaa2f",
+    "scoring/errors.csv": "5239a9fe9e61702fcf1d18edc7149ad556b09c4b36fd28d39bfec26f5fa3cfd4",
+    "scoring/summary.json": "1df0ef033d0d3c92393f59f6e7cde4bced19543ad1e8a8bac720a6295b1c7dba",
+    "capture/voices.csv": "9fcccf345f935a0ff84a116ce6d0c6f99bc5cbfb37c9e805e32d5820896298ce",
+    "capture/frames.csv": "e5f9208124a738a223b687b5014a286bbc10fb77aa8914407ce6900489c50326",
+    "source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "source/Pitch/PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+    "source/Pitch/PolyphonicTracker.cpp": "83ad502a49a890b189cbf237f095d8ee32cb2b198b99ed2d96f240e110b68e5d"
+  }
+}

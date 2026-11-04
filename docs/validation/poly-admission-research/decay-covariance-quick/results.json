@@ -1,0 +1,760 @@
+[
+  {
+    "kind": "pair_clean",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45,
+      64
+    ],
+    "proposed": [
+      33,
+      64
+    ],
+    "admitted_companion": 64,
+    "baseline_cost": 0.0005016586825105912,
+    "baseline_parameters": [
+      -0.015272418792555042,
+      0.0,
+      0.04718979267043304
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.040310383003088646,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 501658664.5052047,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.011348283934323274,
+          15009.339951389291,
+          0.019844006867905287
+        ],
+        "root_fraction": 4.752548413960373e-17,
+        "cost": 1.8005386586414447e-11,
+        "parameters": [
+          -0.019550032968989894,
+          3.090150351641225e-08,
+          0.03600081212987516,
+          1.3601411744981239e-05,
+          0.0,
+          0.035996173356767455
+        ],
+        "success": true,
+        "iterations": 44,
+        "seconds": 0.2513211940022302
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 501658664.3829651,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          35041.907918222336,
+          14011.046589168553,
+          8401.716989511951
+        ],
+        "root_fraction": 0.9556203316920864,
+        "cost": 1.8127626183745904e-11,
+        "parameters": [
+          -9.131812166410713e-09,
+          0.0,
+          0.03599984217920585,
+          -6.653984097598142e-06,
+          0.000267861813689999,
+          0.03599715903603557
+        ],
+        "success": true,
+        "iterations": 38,
+        "seconds": 0.19593383600295056
+      }
+    ]
+  },
+  {
+    "kind": "third_boost_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45
+    ],
+    "proposed": [
+      33,
+      57,
+      64,
+      69
+    ],
+    "admitted_companion": null,
+    "baseline_cost": 3.378888862353395e-11,
+    "baseline_parameters": [
+      -4.733034513439974e-09,
+      1.8533459328211215e-14,
+      0.03599999296352549
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.030398246002732776,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 0.0012331828385042435,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.0006084825950899149,
+          0.02639635426166019,
+          0.00047181440994386117
+        ],
+        "root_fraction": 1.2279614475311728e-09,
+        "cost": 3.378765544069545e-11,
+        "parameters": [
+          -2.45265459633533e-09,
+          0.0,
+          0.03600025507654732,
+          0.0010137194271196766,
+          0.0005364426269229677,
+          8.669691779694475e-06
+        ],
+        "success": true,
+        "iterations": 18,
+        "seconds": 0.16773210600513266
+      },
+      {
+        "note": 57,
+        "accepted": false,
+        "likelihood_gain": 0.0004422507339499586,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.0063175755801797235,
+          0.007027657946826797,
+          0.012544318121084232
+        ],
+        "root_fraction": 0.5568001140557658,
+        "cost": 3.37884463728e-11,
+        "parameters": [
+          -6.367440855017081e-09,
+          4.854420650343454e-09,
+          0.03599999479257499,
+          -0.010138141933532829,
+          8.944078217502498e-05,
+          0.0008124419116639168
+        ],
+        "success": true,
+        "iterations": 18,
+        "seconds": 0.13307256199914264
+      },
+      {
+        "note": 64,
+        "accepted": false,
+        "likelihood_gain": 0.0010558477726421464,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.013560479554954355,
+          0.010989576810987816,
+          0.009864845320455973
+        ],
+        "root_fraction": 0.8001046039380528,
+        "cost": 3.378783277576131e-11,
+        "parameters": [
+          -4.495841703079865e-09,
+          8.630562487237196e-15,
+          0.03599999168859256,
+          3.5307597140600895e-05,
+          3.709466716071445e-06,
+          9.709454913015761e-13
+        ],
+        "success": true,
+        "iterations": 6,
+        "seconds": 0.09597583900176687
+      },
+      {
+        "note": 69,
+        "accepted": false,
+        "likelihood_gain": -0.000121891468700783,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.006276419066032974,
+          0.002972862788112961,
+          0.007756846843193547
+        ],
+        "root_fraction": 0.4815251369959613,
+        "cost": 3.3789010515002653e-11,
+        "parameters": [
+          -7.470460861437247e-09,
+          8.975540554235594e-09,
+          0.03599999429427399,
+          0.0003451713925194872,
+          2.642640418640173e-06,
+          2.0882506110161682e-06
+        ],
+        "success": true,
+        "iterations": 14,
+        "seconds": 0.09264336500200443
+      }
+    ]
+  },
+  {
+    "kind": "stiff_third_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45
+    ],
+    "proposed": [
+      33,
+      57,
+      64
+    ],
+    "admitted_companion": null,
+    "baseline_cost": 3.378902063503462e-11,
+    "baseline_parameters": [
+      -5.929190318756633e-09,
+      0.4000000021489172,
+      0.035999992848138936
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.03196398600266548,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 0.000856494682243308,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.00025456435222450286,
+          0.005460710453858493,
+          0.0005363252233061415
+        ],
+        "root_fraction": 1.8752538057511524e-07,
+        "cost": 3.3788164140352375e-11,
+        "parameters": [
+          -7.642218434534923e-09,
+          0.4000000028952148,
+          0.03599998949365307,
+          0.0312703862754549,
+          0.09524603952618448,
+          0.17957770310993268
+        ],
+        "success": true,
+        "iterations": 23,
+        "seconds": 0.17473339800199028
+      },
+      {
+        "note": 57,
+        "accepted": false,
+        "likelihood_gain": 0.00043473202846776657,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.006542872266267004,
+          0.005851668996342024,
+          0.010759529253762359
+        ],
+        "root_fraction": 0.9865242506285766,
+        "cost": 3.378858590300615e-11,
+        "parameters": [
+          -5.469267749661706e-09,
+          0.4000000009822937,
+          0.03599999423579748,
+          0.0093820278174061,
+          0.11459606127351851,
+          0.18375085415236742
+        ],
+        "success": true,
+        "iterations": 20,
+        "seconds": 0.1550878360067145
+      },
+      {
+        "note": 64,
+        "accepted": false,
+        "likelihood_gain": 0.0010385735649476085,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.014275364571750188,
+          0.01126771319471135,
+          0.010530341121077732
+        ],
+        "root_fraction": 0.4729124015755062,
+        "cost": 3.378798206146967e-11,
+        "parameters": [
+          -4.707904406075684e-09,
+          0.3999999994715348,
+          0.03599999183795473,
+          0.2231530765018028,
+          0.022257104685103328,
+          9.590166809901143e-05
+        ],
+        "success": true,
+        "iterations": 21,
+        "seconds": 0.10964874899946153
+      }
+    ]
+  },
+  {
+    "kind": "missing_root_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 52.0,
+    "truth_notes": [
+      52
+    ],
+    "proposed": [
+      61,
+      64,
+      71,
+      76
+    ],
+    "admitted_companion": null,
+    "baseline_cost": 3.297131827255478e-12,
+    "baseline_parameters": [
+      -6.43398985728988e-09,
+      3.734113034832966e-09,
+      0.035999994786620984
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.01942114400299033,
+    "comparisons": [
+      {
+        "note": 61,
+        "accepted": false,
+        "likelihood_gain": 5.572025288706131e-05,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.0009818750829930867,
+          0.0003480247699847783,
+          0.003875575782615622
+        ],
+        "root_fraction": 0.016878565635619687,
+        "cost": 3.297076107002591e-12,
+        "parameters": [
+          -6.441428589557171e-09,
+          4.2925562271879195e-09,
+          0.03599998974469802,
+          -5.055214574458624e-06,
+          0.0,
+          3.969677525361443e-07
+        ],
+        "success": true,
+        "iterations": 10,
+        "seconds": 0.09443908099638065
+      },
+      {
+        "note": 64,
+        "accepted": false,
+        "likelihood_gain": 0.0002050659445125825,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          0.004367772650894772,
+          0.0038061396020268932,
+          0.0032501049808207876
+        ],
+        "root_fraction": 0.7640752705565901,
+        "cost": 3.2969267613109653e-12,
+        "parameters": [
+          -4.549055956619232e-09,
+          0.0,
+          0.03599998801417959,
+          -0.01813307095796165,
+          3.735657158629197e-08,
+          0.0007942020453614969
+        ],
+        "success": true,
+        "iterations": 29,
+        "seconds": 0.17002541499823565
+      },
+      {
+        "note": 71,
+        "accepted": false,
+        "likelihood_gain": 7.874801115510803e-05,
+        "bic_penalty": 143.48146637590867,
+        "coefficient_z_first3": [
+          0.006225663562583254,
+          0.0035619713785833736,
+          0.0009800035255021732
+        ],
+        "root_fraction": 0.9164092028327051,
+        "cost": 3.297053079244323e-12,
+        "parameters": [
+          -7.512362318903927e-09,
+          8.753111934472534e-09,
+          0.035999934573568176,
+          1.9872641103098122e-05,
+          3.285978698107378e-07,
+          4.30064523460234e-06
+        ],
+        "success": true,
+        "iterations": 9,
+        "seconds": 0.04390478200366488
+      },
+      {
+        "note": 76,
+        "accepted": false,
+        "likelihood_gain": 0.0001342906953477866,
+        "bic_penalty": 118.52816787575064,
+        "coefficient_z_first3": [
+          0.0035895158652416177,
+          0.0028959528316489683,
+          0.0024529083585074236
+        ],
+        "root_fraction": 0.7960625152302204,
+        "cost": 3.29699753656013e-12,
+        "parameters": [
+          -4.4161825608438654e-09,
+          1.9626115350448636e-15,
+          0.03599996860496433,
+          -0.0014611260641839044,
+          0.0,
+          0.0
+        ],
+        "success": true,
+        "iterations": 16,
+        "seconds": 0.1384413769992534
+      }
+    ]
+  },
+  {
+    "kind": "body_resonance",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 52,
+    "truth_notes": [
+      52
+    ],
+    "proposed": [
+      45
+    ],
+    "admitted_companion": null,
+    "baseline_cost": 3.496845235997964,
+    "baseline_parameters": [
+      -0.004364341537522628,
+      0.5156365481306366,
+      0.0
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.026903213001787663,
+    "comparisons": [
+      {
+        "note": 45,
+        "accepted": false,
+        "likelihood_gain": 3496845235931.8877,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          1340701.619577389,
+          0.03892738743043805,
+          0.278780369123979
+        ],
+        "root_fraction": 0.6431034387790552,
+        "cost": 6.607591215372965e-11,
+        "parameters": [
+          0.019549946222870346,
+          5.054862773430519e-07,
+          0.0,
+          -4.3140746532793943e-07,
+          8.237492610760894e-06,
+          5.105167846491378e-07
+        ],
+        "success": true,
+        "iterations": 25,
+        "seconds": 0.110274078004295
+      }
+    ]
+  },
+  {
+    "kind": "vibrato_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45
+    ],
+    "proposed": [
+      33,
+      52,
+      57,
+      64,
+      69
+    ],
+    "admitted_companion": 57,
+    "baseline_cost": 0.013887868006794573,
+    "baseline_parameters": [
+      0.026374925229705245,
+      0.021717288249531227,
+      0.019926239529037184
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.022126127005321905,
+    "comparisons": [
+      {
+        "note": 33,
+        "accepted": false,
+        "likelihood_gain": 3631388710.27025,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          10228.790351658718,
+          7038.674450513946,
+          15576.623071968706
+        ],
+        "root_fraction": 0.028742556724761652,
+        "cost": 0.010256479296524323,
+        "parameters": [
+          0.03381159899833648,
+          0.009590100780827445,
+          0.0,
+          0.5,
+          0.6700631264954688,
+          0.0
+        ],
+        "success": true,
+        "iterations": 31,
+        "seconds": 0.22010885200143093
+      },
+      {
+        "note": 52,
+        "accepted": true,
+        "likelihood_gain": 1435910769.8685164,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          18452.98595048831,
+          761.0319196309194,
+          11231.699418499575
+        ],
+        "root_fraction": 0.11844555437541295,
+        "cost": 0.012451957236926057,
+        "parameters": [
+          0.024706859397390875,
+          0.029633203003801855,
+          0.006986231606606406,
+          0.024084356358153956,
+          0.0,
+          0.0
+        ],
+        "success": true,
+        "iterations": 27,
+        "seconds": 0.13564955699985148
+      },
+      {
+        "note": 57,
+        "accepted": true,
+        "likelihood_gain": 1813249564.6571815,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          6749.1302514141025,
+          13765.766347309222,
+          15711.43324137656
+        ],
+        "root_fraction": 0.14712409891097408,
+        "cost": 0.012074618442137391,
+        "parameters": [
+          0.02360946116077822,
+          0.02230429289152162,
+          0.07321911608265012,
+          -0.5,
+          0.6745740003343003,
+          3.0
+        ],
+        "success": true,
+        "iterations": 48,
+        "seconds": 0.31830369000090286
+      },
+      {
+        "note": 64,
+        "accepted": true,
+        "likelihood_gain": 1284873116.75219,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          12839.294960266383,
+          15849.33628194013,
+          13921.714628684118
+        ],
+        "root_fraction": 0.3960070540378973,
+        "cost": 0.012602994890042383,
+        "parameters": [
+          0.027597025077500666,
+          0.01951142283021192,
+          0.06000733052002465,
+          -0.5,
+          1.0,
+          0.0
+        ],
+        "success": true,
+        "iterations": 53,
+        "seconds": 0.28950247899774695
+      },
+      {
+        "note": 69,
+        "accepted": true,
+        "likelihood_gain": 869940810.0224775,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          12144.332483823393,
+          17294.237011784517,
+          2723.8150799355126
+        ],
+        "root_fraction": 0.4046168661031346,
+        "cost": 0.013017927196772095,
+        "parameters": [
+          0.02482734521381355,
+          0.022108799612570097,
+          0.032992821280971384,
+          -0.5,
+          0.0,
+          3.0
+        ],
+        "success": true,
+        "iterations": 55,
+        "seconds": 0.3173050819968921
+      }
+    ]
+  },
+  {
+    "kind": "chirp_single",
+    "samples": 512,
+    "history_ms": 42.666666666666664,
+    "frame_end_ms": 101.0,
+    "dynamic": false,
+    "generated_noise_std": 0.0,
+    "estimated_noise_variance": 1e-12,
+    "prior_anchor": 45.0,
+    "truth_notes": [
+      45
+    ],
+    "proposed": [
+      46,
+      58,
+      65,
+      70
+    ],
+    "admitted_companion": 46,
+    "baseline_cost": 0.4480412927092801,
+    "baseline_parameters": [
+      0.5,
+      1.0,
+      0.22303980844766874
+    ],
+    "baseline_success": true,
+    "baseline_seconds": 0.012845486002333928,
+    "comparisons": [
+      {
+        "note": 46,
+        "accepted": true,
+        "likelihood_gain": 434495047313.10443,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          817136.2171622555,
+          555490.7868482899,
+          384470.0582852249
+        ],
+        "root_fraction": 0.7780199538551472,
+        "cost": 0.013546245396175704,
+        "parameters": [
+          -0.203295083762744,
+          0.8460919750283536,
+          0.0,
+          -0.16799962052259287,
+          0.013917798030312591,
+          0.0
+        ],
+        "success": true,
+        "iterations": 30,
+        "seconds": 0.16363985599309672
+      },
+      {
+        "note": 58,
+        "accepted": true,
+        "likelihood_gain": 186932103644.12494,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          255256.13558316868,
+          104986.51817854421,
+          29026.722207917006
+        ],
+        "root_fraction": 0.7934492935789529,
+        "cost": 0.2611091890651552,
+        "parameters": [
+          0.5,
+          1.0,
+          0.27119367496843816,
+          -0.389811063176528,
+          1.0,
+          2.209977129966459
+        ],
+        "success": true,
+        "iterations": 24,
+        "seconds": 0.1632890420005424
+      },
+      {
+        "note": 65,
+        "accepted": true,
+        "likelihood_gain": 81006197312.21909,
+        "bic_penalty": 168.4347648760667,
+        "coefficient_z_first3": [
+          166362.21310439476,
+          37666.54929236073,
+          95227.56328249749
+        ],
+        "root_fraction": 0.7658324984794265,
+        "cost": 0.36703509539706103,
+        "parameters": [
+          0.5,
+          0.8890797373783524,
+          0.1902297579796153,
+          -0.2092833396228945,
+          1.0,
+          2.116705953159522
+        ],
+        "success": true,
+        "iterations": 45,
+        "seconds": 0.28952635400492
+      },
+      {
+        "note": 70,
+        "accepted": true,
+        "likelihood_gain": 47085702147.36019,
+        "bic_penalty": 155.9581156259877,
+        "coefficient_z_first3": [
+          107830.15448571896,
+          88869.2249275839,
+          58190.89781702096
+        ],
+        "root_fraction": 0.8420626531588032,
+        "cost": 0.40095559056191993,
+        "parameters": [
+          0.5,
+          1.0,
+          0.22884529335674794,
+          -0.20899969004502816,
+          1.0,
+          3.0
+        ],
+        "success": true,
+        "iterations": 28,
+        "seconds": 0.1652939889972913
+      }
+    ]
+  }
+]

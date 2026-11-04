@@ -1,0 +1,35 @@
+{
+  "controlled72": {
+    "repo_path": "Tests/AudioFixtures/readiness/fixtures.json",
+    "sha256": "faa79bd35617c0bb9b1c44e0d458b791741e977be29181e58a42486eaa4fc036",
+    "case_count": 72,
+    "scope": "Previously seen regression corpus; not blind.",
+    "seal": "d5af9fb3fefb4d41918e62810d59290c1dd741d95337d58ec34efcdcf14f9fba"
+  },
+  "legacy-public": {
+    "repo_path": "Tests/AudioFixtures/fixtures.json",
+    "sha256": "f7f88cb88a2a62bf4493e388b59f1dc8204ad2fd57469e463ab29d51072b6bb6",
+    "case_count": 81,
+    "scope": "Previously seen regression corpus; not blind."
+  },
+  "legacy-holdout": {
+    "repo_path": "Tests/AudioFixtures/holdout/fixtures.json",
+    "sha256": "816faff8b414f579e2b107057113c0c34df8685abfc768d26c978197e6e7d692",
+    "case_count": 69,
+    "scope": "Previously seen regression corpus; not blind."
+  },
+  "legacy-confirmation": {
+    "repo_path": "Tests/AudioFixtures/confirmation/fixtures.json",
+    "sha256": "5baff69d15a05bac7500aef83cd9d2efcb73743aa2136ce041c8c56c5cfbbda0",
+    "case_count": 46,
+    "scope": "Previously seen regression corpus; not blind.",
+    "seal": "5baff69d15a05bac7500aef83cd9d2efcb73743aa2136ce041c8c56c5cfbbda0  fixtures.json"
+  },
+  "recorded-noise128": {
+    "repo_path": "Tests/AudioFixtures/readiness/recorded_noise/fixtures.json",
+    "sha256": "c3f4c7d9be5b876e2f0e763fa21481950513f68805af8f99f7a468d53bdb8f88",
+    "case_count": 128,
+    "scope": "Previously seen regression corpus; not blind.",
+    "seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d"
+  }
+}

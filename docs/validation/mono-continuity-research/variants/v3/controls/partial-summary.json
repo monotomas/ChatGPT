@@ -1,0 +1,152 @@
+{
+  "scope": "PARTIAL MONO seen-control diagnostic, not readiness",
+  "cases": 34,
+  "passed": 21,
+  "totals": {
+    "expected": 77,
+    "matched": 67,
+    "missed": 10,
+    "extra_note_ons": 2,
+    "early_offs": 2,
+    "late_offs": 10,
+    "noise_note_ons": 0,
+    "hung": 0,
+    "overflow": 0
+  },
+  "failures": [
+    {
+      "case": "quiet_hum_31_gain1_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release"
+      ]
+    },
+    {
+      "case": "quiet_hum_31_gain8_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release"
+      ]
+    },
+    {
+      "case": "music_handling_snr12_gain1_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 1,
+      "failures": [
+        "note-precision",
+        "premature-release",
+        "steady-pitch:s0-n0"
+      ]
+    },
+    {
+      "case": "music_handling_snr12_gain4_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 1,
+      "failures": [
+        "note-precision",
+        "premature-release",
+        "steady-pitch:s0-n0"
+      ]
+    },
+    {
+      "case": "music_handling_snr24_gain1_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 0,
+      "failures": [
+        "steady-pitch:s0-n0"
+      ]
+    },
+    {
+      "case": "music_handling_snr24_gain4_mono",
+      "matched": 1,
+      "missed": 0,
+      "extra_note_ons": 0,
+      "failures": [
+        "steady-pitch:s0-n0"
+      ]
+    },
+    {
+      "case": "fretted_slide_up_35ms_mono",
+      "matched": 6,
+      "missed": 2,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release",
+        "missed-discrete-articulation",
+        "note-recall"
+      ]
+    },
+    {
+      "case": "fretted_slide_down_35ms_mono",
+      "matched": 6,
+      "missed": 2,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release",
+        "missed-discrete-articulation",
+        "note-recall"
+      ]
+    },
+    {
+      "case": "fretted_slide_up_65ms_mono",
+      "matched": 7,
+      "missed": 1,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release",
+        "missed-discrete-articulation",
+        "note-recall"
+      ]
+    },
+    {
+      "case": "fretted_slide_down_65ms_mono",
+      "matched": 7,
+      "missed": 1,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release",
+        "missed-discrete-articulation",
+        "note-recall"
+      ]
+    },
+    {
+      "case": "fretted_slide_up_105ms_mono",
+      "matched": 6,
+      "missed": 2,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release",
+        "missed-discrete-articulation",
+        "note-recall"
+      ]
+    },
+    {
+      "case": "fretted_slide_down_105ms_mono",
+      "matched": 6,
+      "missed": 2,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release",
+        "missed-discrete-articulation",
+        "note-recall"
+      ]
+    },
+    {
+      "case": "quiet_new_note_after_decay_noise_mono",
+      "matched": 2,
+      "missed": 0,
+      "extra_note_ons": 0,
+      "failures": [
+        "late-release",
+        "steady-pitch:s0-n1"
+      ]
+    }
+  ]
+}

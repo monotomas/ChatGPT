@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "name": "Flysnapper musical-readiness research policy",
+  "defined_before_new_measurements": true,
+  "synthetic_success_is_not_musical_acceptance": true,
+  "requires_independently_labelled_real_guitar_articulations": true,
+  "required_real_techniques": ["fretted_slide", "hammer_on", "pull_off", "bend", "vibrato", "handling_or_squeak_noise"],
+  "original_physical_latency_goals": {"E2_max_ms_exclusive": 10, "E3_max_ms_exclusive": 5, "verified_in_cloud": false},
+  "detector_research_checkpoints_not_original_goal_fulfillment": {
+    "mono_first_correct": {"median_ms_max": 20, "p95_ms_max": 35, "max_ms_max": 60},
+    "poly_first_correct": {"median_ms_max": 25, "p95_ms_max": 40, "max_ms_max": 75},
+    "fretted_or_hammer_transition": {"median_ms_max": 12, "p95_ms_max": 20, "max_ms_max": 30}
+  },
+  "mandatory_clean_and_12dB_SNR_controls": {
+    "note_precision_min": 1.0,
+    "note_recall_min": 1.0,
+    "noise_only_note_ons_max": 0,
+    "false_octave_note_ons_max": 0,
+    "wrong_before_correct_max": 0,
+    "bend_retriggers_max": 0,
+    "missed_discrete_articulations_max": 0,
+    "hanging_voices_max": 0,
+    "output_overflow_max": 0,
+    "early_release_tolerance_ms": 10,
+    "release_after_physical_damping_ms_max": 80,
+    "pitch_error_p95_cents_max": 25,
+    "pitch_error_max_cents_max": 75,
+    "steady_pitch_error_cents_max": 15
+  },
+  "6dB_SNR_challenge_controls": {
+    "note_precision_min": 0.99,
+    "note_recall_min": 0.95,
+    "false_octave_note_ons_max": 0,
+    "noise_only_note_ons_max": 0,
+    "release_after_physical_damping_ms_max": 100,
+    "failures_remain_reported": true
+  },
+  "scoring": {
+    "onset_backdating_allowed": false,
+    "curve_delay_alignment_allowed": false,
+    "minimum_useful_ms_long_note": 20,
+    "minimum_useful_ms_short_note": 10,
+    "short_note_duration_ms_max": 80,
+    "one_to_one_note_and_voice_matching": true,
+    "implementation_voice_ids_need_not_equal_physical_string_ids": true,
+    "all_sample_rates_and_blocks_retain_raw_events": true
+  },
+  "semantic_limit": "Identical waveforms cannot reveal whether a musician intended a quiet ringing string. Clearly labelled non-tonal handling noise and pitched interference are retained separately; no universal intent-classification claim is permitted."
+}

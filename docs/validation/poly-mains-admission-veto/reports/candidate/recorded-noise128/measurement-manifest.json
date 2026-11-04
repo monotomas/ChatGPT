@@ -1,0 +1,31 @@
+{
+  "scope": "Bounded research comparison; every supplied source followed by existing driver behavior",
+  "variant": "candidate",
+  "dataset": "recorded-noise128",
+  "capture_exit_code": 0,
+  "capture_seconds": 25.272676973996568,
+  "binary_sha256": "364267d382844ce62cbac8f301b99413d2089f2d9e30e73bd007580f87deb2e7",
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/PitchDetector.cpp": "c5d4197b046eb201635c17c5f6374359f6386448299b29dfe88ad3f9e74dc56f",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.h": "e38fadd1b2e55c1f1fe2f8ab8daa6597802cfe8eba528e269209a1f5126dfa90",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "Tools/audio_validation.cpp": "b753df06650a9c19f325ef52da60ecde486ea31dbb1f034d76cc778018eed9c6",
+    "Tools/readiness_capture.cpp": "915f728d0df54fbf86a4cb92ef7ff3ad0d6bcf4f2ac5b3e3e4fdc7ecb2ab07e1"
+  },
+  "source_changed_during_measurement": false,
+  "fixture_manifest_sha256": "c3f4c7d9be5b876e2f0e763fa21481950513f68805af8f99f7a468d53bdb8f88",
+  "fixture_seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d",
+  "score_exit_code": 1
+}

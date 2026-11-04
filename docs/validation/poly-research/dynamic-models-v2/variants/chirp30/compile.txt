@@ -1,0 +1,5 @@
+In file included from /tmp/flysnapper-polyprobe/chirp30/audit8/capture.cpp:27:
+/tmp/flysnapper-polyprobe/chirp30/audit8/source/Pitch/PolyphonicTracker.cpp:47:27: warning: ‘flysnapper::pitch::PolyphonicTracker::Data’ has a field ‘std::array<flysnapper::pitch::{anonymous}::Model, 6> flysnapper::pitch::PolyphonicTracker::Data::models’ whose type has internal linkage [-Wsubobject-linkage]
+   47 | struct PolyphonicTracker::Data{
+      |                           ^~~~
+/tmp/flysnapper-polyprobe/chirp30/audit8/source/Pitch/PolyphonicTracker.cpp:47:27: warning: ‘flysnapper::pitch::PolyphonicTracker::Data’ has a field ‘std::array<flysnapper::pitch::{anonymous}::Model, 6> flysnapper::pitch::PolyphonicTracker::Data::trials’ whose type has internal linkage [-Wsubobject-linkage]

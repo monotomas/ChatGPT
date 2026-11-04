@@ -1,0 +1,211 @@
+{
+  "scope": "Additional seen causal falsification, synthetic harmonic input, not musical readiness or physical latency",
+  "executable_sha256": "a5432bf4b052796b336f3f19ee0f5a232682aed3dcc7b4771675dc306efe38b8",
+  "script_sha256": "312908f30a337b084a463318627137a685b6f09747c80435e5fd255d4c35e6bf",
+  "cases": [
+    {
+      "case": "bend_return_N40_25ms",
+      "expected_notes": [
+        40
+      ],
+      "emitted_notes": [
+        40,
+        42,
+        40
+      ],
+      "on_samples": [
+        6271,
+        16895,
+        35327
+      ],
+      "off_samples": [
+        16895,
+        35327,
+        46591
+      ],
+      "on_sequence_matches": false
+    },
+    {
+      "case": "bend_return_N40_80ms",
+      "expected_notes": [
+        40
+      ],
+      "emitted_notes": [
+        40
+      ],
+      "on_samples": [
+        6271
+      ],
+      "off_samples": [
+        46591
+      ],
+      "on_sequence_matches": true
+    },
+    {
+      "case": "bend_return_N40_220ms",
+      "expected_notes": [
+        40
+      ],
+      "emitted_notes": [
+        40
+      ],
+      "on_samples": [
+        6271
+      ],
+      "off_samples": [
+        46463
+      ],
+      "on_sequence_matches": true
+    },
+    {
+      "case": "bend_return_N57_25ms",
+      "expected_notes": [
+        57
+      ],
+      "emitted_notes": [
+        57
+      ],
+      "on_samples": [
+        5503
+      ],
+      "off_samples": [
+        46207
+      ],
+      "on_sequence_matches": true
+    },
+    {
+      "case": "bend_return_N57_80ms",
+      "expected_notes": [
+        57
+      ],
+      "emitted_notes": [
+        57
+      ],
+      "on_samples": [
+        5503
+      ],
+      "off_samples": [
+        46079
+      ],
+      "on_sequence_matches": true
+    },
+    {
+      "case": "bend_return_N57_220ms",
+      "expected_notes": [
+        57
+      ],
+      "emitted_notes": [
+        57
+      ],
+      "on_samples": [
+        5503
+      ],
+      "off_samples": [
+        46079
+      ],
+      "on_sequence_matches": true
+    },
+    {
+      "case": "hammer_pull_2semi",
+      "expected_notes": [
+        45,
+        47,
+        45
+      ],
+      "emitted_notes": [
+        45,
+        47,
+        45
+      ],
+      "on_samples": [
+        6015,
+        16639,
+        31231
+      ],
+      "off_samples": [
+        16639,
+        31231,
+        46335
+      ],
+      "on_sequence_matches": true
+    },
+    {
+      "case": "hammer_pull_12semi",
+      "expected_notes": [
+        45,
+        57,
+        45
+      ],
+      "emitted_notes": [
+        45,
+        57,
+        45
+      ],
+      "on_samples": [
+        6015,
+        17151,
+        31999
+      ],
+      "off_samples": [
+        17151,
+        31615,
+        46463
+      ],
+      "on_sequence_matches": true
+    },
+    {
+      "case": "fretted_slide_35ms",
+      "expected_notes": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "emitted_notes": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "on_samples": [
+        6015,
+        15743,
+        17407,
+        18943,
+        20607,
+        22271
+      ],
+      "off_samples": [
+        15743,
+        17407,
+        18943,
+        20607,
+        22271,
+        46207
+      ],
+      "on_sequence_matches": true
+    },
+    {
+      "case": "same_anchor_independent_repick",
+      "expected_notes": [
+        40,
+        40,
+        40
+      ],
+      "emitted_notes": [
+        40
+      ],
+      "on_samples": [
+        6271
+      ],
+      "off_samples": [
+        46463
+      ],
+      "on_sequence_matches": false
+    }
+  ]
+}

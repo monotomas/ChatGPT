@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+#include "Source/Pitch/HarmonicContinuity.cpp"
+#include <iostream>
+#include <random>
+#include <limits>
+namespace {
+bool solve(double a[17][18],int n,double* x){for(int c=0;c<n;++c){int p=c;for(int r=c+1;r<n;++r)if(std::abs(a[r][c])>std::abs(a[p][c]))p=r;if(std::abs(a[p][c])<1e-11)return false;for(int k=c;k<=n;++k)std::swap(a[c][k],a[p][k]);const double v=a[c][c];for(int k=c;k<=n;++k)a[c][k]/=v;for(int r=0;r<n;++r)if(r!=c){const double f=a[r][c];for(int k=c;k<=n;++k)a[r][k]-=f*a[c][k];}}for(int i=0;i<n;++i)x[i]=a[i][n];return true;}
+}
+int main(){using namespace flysnapper::pitch;std::mt19937 rng(172390);std::uniform_real_distribution<double> unit(-1,1);double maximum=0;int failed=0,checked=0;
+for(int trial=0;trial<48;++trial){const int partials=1+trial%8,count=64+32*(trial%15);const double omega=2*3.14159265358979323846*(2.5/count);
+std::array<double,8> phases{};std::array<bool,8> trusted{};std::array<int,8> first{};std::array<bool,17> constrained{};int dimensions=1,known=0;std::array<int,8> positive{};
+for(int h=0;h<partials;++h){phases[size_t(h)]=unit(rng)*3.14;trusted[size_t(h)]=trial%3==0||h%2;first[size_t(h)]=dimensions;if(trusted[size_t(h)]){constrained[size_t(dimensions)]=true;positive[size_t(known++)]=dimensions;++dimensions;}else dimensions+=2;}
+std::array<float,1024> wave{};for(int i=0;i<count;++i){double x=0;for(int h=0;h<partials;++h)x+=.1*std::sin((h+1)*omega*(i-(count-1)*.5)+unit(rng)*.3+h*.11)/std::pow(h+1.,1.1);wave[size_t(i)]=float(x+unit(rng)*.01);}
+double G[17][17]{},b[17]{},squared=0,weightSum=0;
+for(int i=0;i<count;++i){double basis[17]{1};const double w=.5-.5*std::cos(2*3.14159265358979323846*i/(count-1));weightSum+=w;squared+=w*wave[size_t(i)]*wave[size_t(i)];for(int h=0;h<partials;++h){const int k=first[size_t(h)];const double t=(h+1)*omega*(i-(count-1)*.5);if(trusted[size_t(h)])basis[k]=std::cos(t+phases[size_t(h)]);else{basis[k]=std::cos(t);basis[k+1]=std::sin(t);}}for(int r=0;r<dimensions;++r){b[r]+=w*basis[r]*wave[size_t(i)];for(int c=0;c<dimensions;++c)G[r][c]+=w*basis[r]*basis[c];}}
+double exact=1e100;
+for(int polarity:{1,-1})for(int mask=0;mask<(1<<known);++mask){std::array<bool,17> active{};std::array<int,17> map{};for(int i=0;i<dimensions;++i)active[size_t(i)]=!constrained[size_t(i)];for(int k=0;k<known;++k)if(mask&(1<<k))active[size_t(positive[size_t(k)])]=true;int n=0;for(int i=0;i<dimensions;++i)if(active[size_t(i)])map[size_t(n++)]=i;double a[17][18]{},x[17]{},full[17]{},sign[17];for(int i=0;i<dimensions;++i)sign[i]=constrained[size_t(i)]?polarity:1;for(int r=0;r<n;++r){const int j=map[size_t(r)];a[r][n]=b[j]*sign[j];for(int c=0;c<n;++c){const int k=map[size_t(c)];a[r][c]=G[j][k]*sign[j]*sign[k];}}if(!solve(a,n,x))continue;for(int r=0;r<n;++r)full[map[size_t(r)]]=x[r];bool valid=true;for(int k=0;k<known;++k)valid&=full[positive[size_t(k)]]>=-1e-9;if(!valid)continue;for(int k=0;k<known;++k){const int i=positive[size_t(k)];if(active[size_t(i)])continue;double gradient=-b[i]*sign[i];for(int j=0;j<dimensions;++j)gradient+=G[i][j]*sign[i]*sign[j]*full[j];valid&=gradient>=-1e-9;}if(!valid)continue;double objective=squared;for(int i=0;i<dimensions;++i){objective-=2*full[i]*b[i]*sign[i];for(int j=0;j<dimensions;++j)objective+=full[i]*G[i][j]*sign[i]*sign[j]*full[j];}exact=std::min(exact,objective/weightSum);}
+std::array<double,1024> carrierCos{},carrierSin{};for(int i=0;i<count;++i){carrierCos[size_t(i)]=std::cos(omega*(i-(count-1)*.5));carrierSin[size_t(i)]=std::sin(omega*(i-(count-1)*.5));}double observed=0;const bool ok=oldPhaseResidual(wave.data(),count,carrierCos.data(),carrierSin.data(),partials,phases,trusted,observed);if(!ok){++failed;continue;}if(exact==1e100){std::cerr<<"No exhaustive feasible optimum\n";return 1;}maximum=std::max(maximum,std::abs(observed-exact));++checked;
+}
+std::cout<<"NNLS exhaustive-active-set comparison: "<<checked<<" solved /48, "<<failed<<" explicit unresolved; max absolute objective error "<<maximum<<'\n';return maximum<1e-9?0:1;}

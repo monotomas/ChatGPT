@@ -5,6 +5,12 @@ set -euo pipefail
 _flysnapper_project="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 source "${_flysnapper_project}/Tools/cloud_env.sh"
 cd "${_flysnapper_project}"
+# Ninja dependency logs are writable even for some diagnostic invocations.
+# Keep the complete build/test workflow exclusive; manual CMake/Ninja calls
+# must use this same lock. Do not wrap this script in a second lock owner.
+mkdir -p build/native-release
+exec 9>build/native-release/.flysnapper-build.lock
+flock -x 9
 export DISPLAY=:97
 _flysnapper_xvfb_pid=''
 cleanup() {
