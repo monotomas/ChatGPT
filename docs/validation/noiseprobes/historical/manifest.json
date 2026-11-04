@@ -1,0 +1,50 @@
+{
+  "scope": "Prototype mechanism and reused recorded-note mixtures; not musical readiness or recorded handling-noise validation",
+  "baseline_yin_source_commit": "c5b05337641b13ae259836f5346e7c1850b7382c",
+  "recordings_reused": true,
+  "synthetic_added_noise": "50.03Hz mains comb and bounded white noise; two-second automatic idle warmup",
+  "guitar_gains": [
+    0.003,
+    0.01,
+    0.03
+  ],
+  "source_sha256": {
+    "Source/Pitch/NoiseConditioner.cpp": "cfe7f87e7a5054484a1f612a047c8fe20574ba89630747f3b7db244372746aa9",
+    "Source/Pitch/NoiseConditioner.h": "51ad8be4c540f09a8b50582ef0f97db7f742ba936986307bb0a58d0491bf79a1",
+    "Tests/NoiseConditionerTests.cpp": "aac72f8b7c3bc34ee5da36d033c0208484d4bd90674dbee74a86a48845ea609b"
+  },
+  "result_sha256": "b66805fe5c8aa611dfd40c2bcbdbad0d011960b54b340a98e45210fa91edf054",
+  "conditioner_latency_samples": 0,
+  "full_note_latency_not_certified": true,
+  "important_limitation": "Optional cold primeMains experiment is NOT integrated and fails simultaneous quiet guitar+unknown hum; warmup results are conditional. Unadmitted rich/poly guitar requires detector-side pre-admission protection.",
+  "falsifications": {
+    "results-cold.csv": {
+      "cases": 24,
+      "conditioned_correct_frames": 0,
+      "conditioned_valid_frames": 4374,
+      "criterion": "rounded_semitone (cannot distinguish G1 from50Hz mains)",
+      "sha256": "0b9de327a3fddfb62ab64488d71e40403aacee700cfcad547ccb129cc1db64c4"
+    },
+    "results-primed.csv": {
+      "cases": 24,
+      "conditioned_correct_frames": 4741,
+      "conditioned_valid_frames": 4751,
+      "criterion": "rounded_semitone (cannot distinguish G1 from50Hz mains)",
+      "sha256": "49936d1ebdf400027f69ee906fae1b54236c02b771a63a563c297a859e058248"
+    },
+    "results-primed-trim.csv": {
+      "cases": 24,
+      "conditioned_correct_frames": 3207,
+      "conditioned_valid_frames": 3610,
+      "criterion": "rounded_semitone (cannot distinguish G1 from50Hz mains)",
+      "sha256": "20cb35e23daada58f3f9eb5f936c09c3a015a067ca76844814ba59a7ae738200"
+    },
+    "results-primed-same-start-25c.csv": {
+      "cases": 18,
+      "conditioned_correct_frames": 401,
+      "conditioned_valid_frames": 4253,
+      "criterion": "25cents",
+      "sha256": "03b625f61baaa32616d6597cdeeffa0161cb9b8d3f7e335d7fd428edf01c6d95"
+    }
+  }
+}

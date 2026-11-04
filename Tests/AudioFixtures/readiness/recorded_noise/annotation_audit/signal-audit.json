@@ -1,0 +1,564 @@
+{
+  "scope": "Independent annotation/signal audit, not detector validation or relabeling",
+  "sealed_labels_unchanged": true,
+  "detector_executed": false,
+  "source_repository": "https://github.com/sfzinstruments/karoryfer.shinyguitar",
+  "source_commit": "57243cca85277dbcc120ce17c6178032f93c80f3",
+  "mixture_case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_mono",
+  "mixture_pcm_sha256": "808fd6a9759f85b092c1bb93be98cd6586b3d61784e02ffefae716c0c09c6151",
+  "component_source_sha256": {
+    "source/Samples-acoustic-a3_vl1_rr1_1.wav": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+    "source/Samples-acoustic-mute_strings1_rr1_1.wav": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d",
+    "source/Samples-electric-perc_4_rr1_2.wav": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+  },
+  "component_reconstruction_max_abs_error": 1.5258890439861367e-05,
+  "quantization_half_step": 1.5259254737998596e-05,
+  "global_note_interval_snr_db": 12.0,
+  "false_rearticulation_sample": 50175,
+  "false_rearticulation_seconds": 1.0453125,
+  "causal_prefix_windows": [
+    {
+      "trailing_ms": 16,
+      "received_last_sample_inclusive": 50175,
+      "window_start_seconds": 1.0293333333333334,
+      "window_end_exclusive_seconds": 1.0453333333333332,
+      "hann_energy_center_seconds": 1.0373229166666667,
+      "local_time_domain_snr_db": 12.795401688748061,
+      "harmonics": [
+        {
+          "harmonic": 1,
+          "projection_frequency_hz": 220,
+          "target_amplitude": 0.007650966211541207,
+          "interference_amplitude": 0.0005811586701918368,
+          "projected_component_ratio_db": 22.38843125360086,
+          "phase_perturbation_degrees": -3.1611590670828607
+        },
+        {
+          "harmonic": 2,
+          "projection_frequency_hz": 440,
+          "target_amplitude": 0.0138854904255085,
+          "interference_amplitude": 0.0005964123743334644,
+          "projected_component_ratio_db": 27.34029155461853,
+          "phase_perturbation_degrees": -2.268639292838414
+        },
+        {
+          "harmonic": 3,
+          "projection_frequency_hz": 660,
+          "target_amplitude": 0.0004681161215672833,
+          "interference_amplitude": 0.002320821330298058,
+          "projected_component_ratio_db": -13.905762183674174,
+          "phase_perturbation_degrees": -14.603847426747242
+        },
+        {
+          "harmonic": 4,
+          "projection_frequency_hz": 880,
+          "target_amplitude": 0.0009146258361848307,
+          "interference_amplitude": 0.0006264385418561102,
+          "projected_component_ratio_db": 3.287299901879452,
+          "phase_perturbation_degrees": -15.064736785193913
+        },
+        {
+          "harmonic": 5,
+          "projection_frequency_hz": 1100,
+          "target_amplitude": 0.0007423159764296162,
+          "interference_amplitude": 0.00024090501521752188,
+          "projected_component_ratio_db": 9.77485932760137,
+          "phase_perturbation_degrees": -18.699755874347954
+        },
+        {
+          "harmonic": 6,
+          "projection_frequency_hz": 1320,
+          "target_amplitude": 0.00017453405722192802,
+          "interference_amplitude": 0.00012228949334536722,
+          "projected_component_ratio_db": 3.0898207746910176,
+          "phase_perturbation_degrees": -8.018608543220815
+        },
+        {
+          "harmonic": 7,
+          "projection_frequency_hz": 1540,
+          "target_amplitude": 8.140156196603356e-05,
+          "interference_amplitude": 0.00014255349460271476,
+          "projected_component_ratio_db": -4.866902596502085,
+          "phase_perturbation_degrees": -62.449541080641616
+        },
+        {
+          "harmonic": 8,
+          "projection_frequency_hz": 1760,
+          "target_amplitude": 0.00017314281726213255,
+          "interference_amplitude": 0.0004903056742019931,
+          "projected_component_ratio_db": -9.041248789773338,
+          "phase_perturbation_degrees": -44.62662022195105
+        }
+      ]
+    },
+    {
+      "trailing_ms": 24,
+      "received_last_sample_inclusive": 50175,
+      "window_start_seconds": 1.0213333333333334,
+      "window_end_exclusive_seconds": 1.0453333333333332,
+      "hann_energy_center_seconds": 1.0333229166666666,
+      "local_time_domain_snr_db": 11.813225140044175,
+      "harmonics": [
+        {
+          "harmonic": 1,
+          "projection_frequency_hz": 220,
+          "target_amplitude": 0.007771471828067907,
+          "interference_amplitude": 0.0004565046115011426,
+          "projected_component_ratio_db": 24.621162159532343,
+          "phase_perturbation_degrees": -2.9725652937855123
+        },
+        {
+          "harmonic": 2,
+          "projection_frequency_hz": 440,
+          "target_amplitude": 0.013948860928927845,
+          "interference_amplitude": 0.0005162304929408738,
+          "projected_component_ratio_db": 28.633901805543374,
+          "phase_perturbation_degrees": -1.5444331616939668
+        },
+        {
+          "harmonic": 3,
+          "projection_frequency_hz": 660,
+          "target_amplitude": 0.00042060795761685504,
+          "interference_amplitude": 0.002437963300118276,
+          "projected_component_ratio_db": -15.26299357389497,
+          "phase_perturbation_degrees": -23.651230487405975
+        },
+        {
+          "harmonic": 4,
+          "projection_frequency_hz": 880,
+          "target_amplitude": 0.0009123195838314939,
+          "interference_amplitude": 0.00026765616173332493,
+          "projected_component_ratio_db": 10.651395035155202,
+          "phase_perturbation_degrees": 1.1875563234084276
+        },
+        {
+          "harmonic": 5,
+          "projection_frequency_hz": 1100,
+          "target_amplitude": 0.000737386845931115,
+          "interference_amplitude": 0.00020640377255479365,
+          "projected_component_ratio_db": 11.059555103944465,
+          "phase_perturbation_degrees": -16.018545343985533
+        },
+        {
+          "harmonic": 6,
+          "projection_frequency_hz": 1320,
+          "target_amplitude": 0.00016927964718893722,
+          "interference_amplitude": 0.00013553287526207262,
+          "projected_component_ratio_db": 1.9312018687672128,
+          "phase_perturbation_degrees": 2.0611246509015073
+        },
+        {
+          "harmonic": 7,
+          "projection_frequency_hz": 1540,
+          "target_amplitude": 9.02430719542409e-05,
+          "interference_amplitude": 0.00018850081884440716,
+          "projected_component_ratio_db": -6.397987409069483,
+          "phase_perturbation_degrees": -62.15688027150536
+        },
+        {
+          "harmonic": 8,
+          "projection_frequency_hz": 1760,
+          "target_amplitude": 0.00017695439557231723,
+          "interference_amplitude": 0.0004475758982772999,
+          "projected_component_ratio_db": -8.060106738326011,
+          "phase_perturbation_degrees": -21.246286785379656
+        }
+      ]
+    },
+    {
+      "trailing_ms": 32,
+      "received_last_sample_inclusive": 50175,
+      "window_start_seconds": 1.0133333333333334,
+      "window_end_exclusive_seconds": 1.0453333333333332,
+      "hann_energy_center_seconds": 1.0293229166666666,
+      "local_time_domain_snr_db": 10.905046994695216,
+      "harmonics": [
+        {
+          "harmonic": 1,
+          "projection_frequency_hz": 220,
+          "target_amplitude": 0.007812522393334057,
+          "interference_amplitude": 0.00010879273090429783,
+          "projected_component_ratio_db": 37.12382793359715,
+          "phase_perturbation_degrees": -0.7201689748534357
+        },
+        {
+          "harmonic": 2,
+          "projection_frequency_hz": 440,
+          "target_amplitude": 0.01397621516149825,
+          "interference_amplitude": 0.00031760374463568185,
+          "projected_component_ratio_db": 32.87007927360955,
+          "phase_perturbation_degrees": -0.23025272161300409
+        },
+        {
+          "harmonic": 3,
+          "projection_frequency_hz": 660,
+          "target_amplitude": 0.000441957084599608,
+          "interference_amplitude": 0.002305095422133427,
+          "projected_component_ratio_db": -14.346176163393425,
+          "phase_perturbation_degrees": -20.129898016748925
+        },
+        {
+          "harmonic": 4,
+          "projection_frequency_hz": 880,
+          "target_amplitude": 0.0009132821284454989,
+          "interference_amplitude": 0.00036753838400531614,
+          "projected_component_ratio_db": 7.90604515502435,
+          "phase_perturbation_degrees": 11.268881342552175
+        },
+        {
+          "harmonic": 5,
+          "projection_frequency_hz": 1100,
+          "target_amplitude": 0.0007373381968127004,
+          "interference_amplitude": 0.00017927884494355628,
+          "projected_component_ratio_db": 12.28275374120364,
+          "phase_perturbation_degrees": -13.540145284180886
+        },
+        {
+          "harmonic": 6,
+          "projection_frequency_hz": 1320,
+          "target_amplitude": 0.00016602730638017363,
+          "interference_amplitude": 0.0001584003941497474,
+          "projected_component_ratio_db": 0.40846528140362504,
+          "phase_perturbation_degrees": 10.14548967858586
+        },
+        {
+          "harmonic": 7,
+          "projection_frequency_hz": 1540,
+          "target_amplitude": 9.28639538577226e-05,
+          "interference_amplitude": 0.0002778208261322129,
+          "projected_component_ratio_db": -9.518352555495962,
+          "phase_perturbation_degrees": -82.44330476081777
+        },
+        {
+          "harmonic": 8,
+          "projection_frequency_hz": 1760,
+          "target_amplitude": 0.00017579395391177302,
+          "interference_amplitude": 0.00041057794679908105,
+          "projected_component_ratio_db": -7.367833685921003,
+          "phase_perturbation_degrees": -1.195558072019953
+        }
+      ]
+    },
+    {
+      "trailing_ms": 48,
+      "received_last_sample_inclusive": 50175,
+      "window_start_seconds": 0.9973333333333333,
+      "window_end_exclusive_seconds": 1.0453333333333332,
+      "hann_energy_center_seconds": 1.0213229166666666,
+      "local_time_domain_snr_db": 7.097701871126203,
+      "harmonics": [
+        {
+          "harmonic": 1,
+          "projection_frequency_hz": 220,
+          "target_amplitude": 0.00786457261815128,
+          "interference_amplitude": 0.00010759965726863455,
+          "projected_component_ratio_db": 37.27728477764785,
+          "phase_perturbation_degrees": 0.6174163114525661
+        },
+        {
+          "harmonic": 2,
+          "projection_frequency_hz": 440,
+          "target_amplitude": 0.014015545020598385,
+          "interference_amplitude": 0.0006725246949283567,
+          "projected_component_ratio_db": 26.37803509259827,
+          "phase_perturbation_degrees": -0.08804753870553178
+        },
+        {
+          "harmonic": 3,
+          "projection_frequency_hz": 660,
+          "target_amplitude": 0.0004667961266102885,
+          "interference_amplitude": 0.002140364860488214,
+          "projected_component_ratio_db": -13.227211372504184,
+          "phase_perturbation_degrees": -13.944239801976495
+        },
+        {
+          "harmonic": 4,
+          "projection_frequency_hz": 880,
+          "target_amplitude": 0.0009206036214173768,
+          "interference_amplitude": 0.00044708695453278313,
+          "projected_component_ratio_db": 6.273613622180023,
+          "phase_perturbation_degrees": -4.260345239659081
+        },
+        {
+          "harmonic": 5,
+          "projection_frequency_hz": 1100,
+          "target_amplitude": 0.0007413002592504052,
+          "interference_amplitude": 0.0001890547314692803,
+          "projected_component_ratio_db": 11.868132021807188,
+          "phase_perturbation_degrees": -14.774381389676705
+        },
+        {
+          "harmonic": 6,
+          "projection_frequency_hz": 1320,
+          "target_amplitude": 0.0001723931722122583,
+          "interference_amplitude": 0.00017160633375517048,
+          "projected_component_ratio_db": 0.03973496357741312,
+          "phase_perturbation_degrees": 20.199056987096824
+        },
+        {
+          "harmonic": 7,
+          "projection_frequency_hz": 1540,
+          "target_amplitude": 9.337101349268658e-05,
+          "interference_amplitude": 0.0003785287106433933,
+          "projected_component_ratio_db": -12.157735051652605,
+          "phase_perturbation_degrees": -109.42168330492319
+        },
+        {
+          "harmonic": 8,
+          "projection_frequency_hz": 1760,
+          "target_amplitude": 0.00018126577856066836,
+          "interference_amplitude": 0.0005856081780737488,
+          "projected_component_ratio_db": -10.185826246629603,
+          "phase_perturbation_degrees": 48.586260302020676
+        }
+      ]
+    }
+  ],
+  "local_snr_trajectory": [
+    {
+      "window_end_seconds": 0.9,
+      "trailing_ms": 32,
+      "snr_db": 58.145222236369676
+    },
+    {
+      "window_end_seconds": 0.91,
+      "trailing_ms": 32,
+      "snr_db": 59.393741222204206
+    },
+    {
+      "window_end_seconds": 0.92,
+      "trailing_ms": 32,
+      "snr_db": 65.09826468588184
+    },
+    {
+      "window_end_seconds": 0.93,
+      "trailing_ms": 32,
+      "snr_db": 70.97286173526126
+    },
+    {
+      "window_end_seconds": 0.9400000000000001,
+      "trailing_ms": 32,
+      "snr_db": 81.02033696944666
+    },
+    {
+      "window_end_seconds": 0.9500000000000001,
+      "trailing_ms": 32,
+      "snr_db": 116.58501446667432
+    },
+    {
+      "window_end_seconds": 0.9600000000000001,
+      "trailing_ms": 32,
+      "snr_db": 9.128654142030316
+    },
+    {
+      "window_end_seconds": 0.9700000000000001,
+      "trailing_ms": 32,
+      "snr_db": 6.199190964746552
+    },
+    {
+      "window_end_seconds": 0.9800000000000001,
+      "trailing_ms": 32,
+      "snr_db": 2.8796876035712367
+    },
+    {
+      "window_end_seconds": 0.9900000000000001,
+      "trailing_ms": 32,
+      "snr_db": 0.9107871649071964
+    },
+    {
+      "window_end_seconds": 1.0,
+      "trailing_ms": 32,
+      "snr_db": 0.007517439242053113
+    },
+    {
+      "window_end_seconds": 1.0100000000000002,
+      "trailing_ms": 32,
+      "snr_db": 0.24188753622050474
+    },
+    {
+      "window_end_seconds": 1.02,
+      "trailing_ms": 32,
+      "snr_db": 3.0575428971181005
+    },
+    {
+      "window_end_seconds": 1.0300000000000002,
+      "trailing_ms": 32,
+      "snr_db": 5.717681407052652
+    },
+    {
+      "window_end_seconds": 1.04,
+      "trailing_ms": 32,
+      "snr_db": 9.460590319556484
+    },
+    {
+      "window_end_seconds": 1.0500000000000003,
+      "trailing_ms": 32,
+      "snr_db": 11.36927522490079
+    },
+    {
+      "window_end_seconds": 1.06,
+      "trailing_ms": 32,
+      "snr_db": 13.655679955289488
+    },
+    {
+      "window_end_seconds": 1.0700000000000003,
+      "trailing_ms": 32,
+      "snr_db": 16.694927224225026
+    },
+    {
+      "window_end_seconds": 1.08,
+      "trailing_ms": 32,
+      "snr_db": 19.77940629419895
+    },
+    {
+      "window_end_seconds": 1.0900000000000003,
+      "trailing_ms": 32,
+      "snr_db": 21.719653865835745
+    },
+    {
+      "window_end_seconds": 1.1,
+      "trailing_ms": 32,
+      "snr_db": 23.949327302144457
+    },
+    {
+      "window_end_seconds": 1.1100000000000003,
+      "trailing_ms": 32,
+      "snr_db": 26.487326996528328
+    },
+    {
+      "window_end_seconds": 1.12,
+      "trailing_ms": 32,
+      "snr_db": 27.16931058204393
+    },
+    {
+      "window_end_seconds": 1.1300000000000003,
+      "trailing_ms": 32,
+      "snr_db": 28.05581118121861
+    },
+    {
+      "window_end_seconds": 1.1400000000000001,
+      "trailing_ms": 32,
+      "snr_db": 28.776837976078852
+    },
+    {
+      "window_end_seconds": 1.1500000000000004,
+      "trailing_ms": 32,
+      "snr_db": 30.23961224113919
+    }
+  ],
+  "electric_perc4": {
+    "original_rate": 44100,
+    "original_pcm_bits": 24,
+    "original_duration_seconds": 0.4687528344671202,
+    "false_note": 47,
+    "false_on_seconds": 0.9199791666666667,
+    "source_age_at_false_on_seconds": 0.11997916666666664,
+    "author_program": "Programs/electric_noises.sfz",
+    "spectral_windows": [
+      {
+        "start_seconds": 0.02,
+        "end_seconds": 0.11997916666666664,
+        "role": "past-only source prefix available at false On",
+        "hann_energy_center_seconds": 0.06998958333333331,
+        "peaks": [
+          {
+            "frequency_hz": 369.00840546781495,
+            "relative_db": 0.0
+          },
+          {
+            "frequency_hz": 296.4377992265537,
+            "relative_db": -6.679758776626736
+          },
+          {
+            "frequency_hz": 494.2955144662787,
+            "relative_db": -11.549802317020204
+          },
+          {
+            "frequency_hz": 332.6869840425807,
+            "relative_db": -15.49887232075095
+          },
+          {
+            "frequency_hz": 262.36305505662693,
+            "relative_db": -20.56863247432739
+          },
+          {
+            "frequency_hz": 119.45334434375265,
+            "relative_db": -24.519088849027604
+          },
+          {
+            "frequency_hz": 72.69430616449604,
+            "relative_db": -26.502365617469515
+          },
+          {
+            "frequency_hz": 169.73624750939837,
+            "relative_db": -27.895682686675375
+          },
+          {
+            "frequency_hz": 591.0336363060226,
+            "relative_db": -30.01965448792648
+          },
+          {
+            "frequency_hz": 233.43754124997844,
+            "relative_db": -30.878600407130634
+          }
+        ]
+      },
+      {
+        "start_seconds": 0.05,
+        "end_seconds": 0.35,
+        "role": "offline tail characterization, includes future relative to false On",
+        "hann_energy_center_seconds": 0.19999999999999998,
+        "peaks": [
+          {
+            "frequency_hz": 369.1459622256117,
+            "relative_db": 0.0
+          },
+          {
+            "frequency_hz": 72.66819275114284,
+            "relative_db": -18.429825683920356
+          },
+          {
+            "frequency_hz": 494.1191361992904,
+            "relative_db": -19.47181441147068
+          },
+          {
+            "frequency_hz": 295.9199439742652,
+            "relative_db": -22.336561653379604
+          },
+          {
+            "frequency_hz": 119.74578781703833,
+            "relative_db": -22.409018071492252
+          },
+          {
+            "frequency_hz": 290.0984415422699,
+            "relative_db": -30.01575296407193
+          },
+          {
+            "frequency_hz": 279.7221958370584,
+            "relative_db": -31.97276794511323
+          },
+          {
+            "frequency_hz": 261.7412788206707,
+            "relative_db": -34.06122267414204
+          },
+          {
+            "frequency_hz": 93.42964664404572,
+            "relative_db": -34.37611563193758
+          },
+          {
+            "frequency_hz": 269.9076052885679,
+            "relative_db": -35.19125396311839
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "The suppression intent is an authored benchmark label, not proof that a gesture is acoustically non-tonal.",
+    "An approximately harmonic ringing tail does not establish a performer intended the corresponding note.",
+    "Source-separated components are known only from benchmark construction; a real detector receives their sum.",
+    "Historical Hann windows estimate an older weighted signal interval, not instantaneous pitch/phase at their final sample.",
+    "Projected component ratios are exact deterministic component comparisons, not statistical confidence intervals for correlated percussion noise.",
+    "Fractional pitch ground truth and original physical gesture timing are unavailable."
+  ]
+}

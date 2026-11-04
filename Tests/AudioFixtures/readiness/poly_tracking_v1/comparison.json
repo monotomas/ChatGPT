@@ -1,0 +1,271 @@
+{
+  "scope": "Seen frozen-model comparison; original oracle synthetic first-capture results retained",
+  "original_fixture_seal": "226e669e942444bbf789e8c18d3c86fe34ca48bb3b46dacce600746931287eb5",
+  "support_sha256": {
+    "compare.py": "5488a93cc0369c773b73e90ec93988441a3aebc7846d66b28000fe35934ab83b",
+    "make_full512_diagnostic.py": "7fca668b9f56f20ff210cde9d51aea9472d4829dc18c6748ff4fe7cb83cbc75b",
+    "test_scoring.py": "372b01c97699db27b570e46045e1dd32733a6e96cbaddb89eeffda4590c8eff0"
+  },
+  "measurement_manifests_sha256": {
+    "baseline17": "9929ae5123661f4bb2c14caa7e856f0a19aed6b502f0b8b138b8e455c4708b81",
+    "candidate19": "124e9ad2013823c76a85ac579a79a86711941a94e4fa9b99c3a373892990c4cb",
+    "candidate19-full512-diagnostic": "616e953cdcf1cf47b0c5ae417f20a74ce8855fdd4fc67a87f40b7c0e7a42341e"
+  },
+  "passed_cases": {
+    "baseline17": 2,
+    "candidate19": 2,
+    "candidate19-full512-diagnostic": 0
+  },
+  "cases": [
+    {
+      "case": "g_major_static",
+      "variants": {
+        "baseline17": {
+          "passed": true,
+          "error_cents": {
+            "median": 0.0059761700001104145,
+            "p95": 4.909004449999799,
+            "maximum": 10.738883549999656
+          },
+          "worst_voice_p95": 6.22457154999978,
+          "missing": 0,
+          "phase_unobservable": 509
+        },
+        "candidate19": {
+          "passed": true,
+          "error_cents": {
+            "median": 1.043955170000288,
+            "p95": 4.978813449999819,
+            "maximum": 15.246086499999478
+          },
+          "worst_voice_p95": 6.179923500000228,
+          "missing": 0,
+          "phase_unobservable": 18
+        }
+      }
+    },
+    {
+      "case": "c_major7_opposed",
+      "variants": {
+        "baseline17": {
+          "passed": false,
+          "error_cents": {
+            "median": 1.238469710000345,
+            "p95": 15.714764349999655,
+            "maximum": 34.34668821000031
+          },
+          "worst_voice_p95": 26.497561619999743,
+          "missing": 0,
+          "phase_unobservable": 47
+        },
+        "candidate19": {
+          "passed": false,
+          "error_cents": {
+            "median": 1.7173419199998818,
+            "p95": 19.395492089999777,
+            "maximum": 49.73336796000041
+          },
+          "worst_voice_p95": 36.98675137999956,
+          "missing": 0,
+          "phase_unobservable": 74
+        }
+      }
+    },
+    {
+      "case": "d_add9_vibrato",
+      "variants": {
+        "baseline17": {
+          "passed": false,
+          "error_cents": {
+            "median": 2.4483093699998904,
+            "p95": 62.98310466000032,
+            "maximum": 127.40674597000066
+          },
+          "worst_voice_p95": 116.35991022000027,
+          "missing": 0,
+          "phase_unobservable": 1798
+        },
+        "candidate19": {
+          "passed": false,
+          "error_cents": {
+            "median": 2.8785990999999456,
+            "p95": 59.01724510999955,
+            "maximum": 108.26075266000004
+          },
+          "worst_voice_p95": 102.84730416999963,
+          "missing": 0,
+          "phase_unobservable": 1618
+        },
+        "candidate19-full512-diagnostic": {
+          "passed": false,
+          "error_cents": {
+            "median": 3.654471609999632,
+            "p95": 27.88273776999901,
+            "maximum": 112.35892372999956
+          },
+          "worst_voice_p95": 104.1626519700003,
+          "missing": 0,
+          "phase_unobservable": 210
+        }
+      }
+    },
+    {
+      "case": "b7_pickup_nodes",
+      "variants": {
+        "baseline17": {
+          "passed": false,
+          "error_cents": {
+            "median": 1.9281294800002513,
+            "p95": 16.822463350000305,
+            "maximum": 36.4799987800005
+          },
+          "worst_voice_p95": 27.46737221999993,
+          "missing": 0,
+          "phase_unobservable": 620
+        },
+        "candidate19": {
+          "passed": false,
+          "error_cents": {
+            "median": 1.8697663899999384,
+            "p95": 16.234256060000973,
+            "maximum": 45.298920229999595
+          },
+          "worst_voice_p95": 27.49379627999957,
+          "missing": 0,
+          "phase_unobservable": 80
+        }
+      }
+    },
+    {
+      "case": "e7_reversal_windows",
+      "variants": {
+        "baseline17": {
+          "passed": false,
+          "error_cents": {
+            "median": 6.01057535000038,
+            "p95": 58.80817147999977,
+            "maximum": 81.20749866999972
+          },
+          "worst_voice_p95": 78.93332566000026,
+          "missing": 0,
+          "phase_unobservable": 1922
+        },
+        "candidate19": {
+          "passed": false,
+          "error_cents": {
+            "median": 3.453417720000118,
+            "p95": 71.34528313000033,
+            "maximum": 98.08911841000025
+          },
+          "worst_voice_p95": 92.18710908999981,
+          "missing": 0,
+          "phase_unobservable": 1628
+        },
+        "candidate19-full512-diagnostic": {
+          "passed": false,
+          "error_cents": {
+            "median": 3.083940350000347,
+            "p95": 59.746732629999855,
+            "maximum": 99.52377225000006
+          },
+          "worst_voice_p95": 72.92975382999956,
+          "missing": 0,
+          "phase_unobservable": 332
+        }
+      }
+    },
+    {
+      "case": "a_minor6_weak_tail",
+      "variants": {
+        "baseline17": {
+          "passed": false,
+          "error_cents": {
+            "median": 3.9465651500002252,
+            "p95": 73.59279435999966,
+            "maximum": 105.7652564600005
+          },
+          "worst_voice_p95": 104.45799598999983,
+          "missing": 0,
+          "phase_unobservable": 1094
+        },
+        "candidate19": {
+          "passed": true,
+          "error_cents": {
+            "median": 2.344539979999638,
+            "p95": 15.183432410000108,
+            "maximum": 30.998334019999874
+          },
+          "worst_voice_p95": 23.463505930000395,
+          "missing": 0,
+          "phase_unobservable": 290
+        }
+      }
+    },
+    {
+      "case": "d7_neighbour_attack",
+      "variants": {
+        "baseline17": {
+          "passed": true,
+          "error_cents": {
+            "median": 3.2415124599999956,
+            "p95": 12.82427942000055,
+            "maximum": 20.610387480000014
+          },
+          "worst_voice_p95": 16.076339290000163,
+          "missing": 0,
+          "phase_unobservable": 442
+        },
+        "candidate19": {
+          "passed": false,
+          "error_cents": {
+            "median": 4.0638434299999915,
+            "p95": 24.651494150000275,
+            "maximum": 51.68250584999967
+          },
+          "worst_voice_p95": 26.529535849999775,
+          "missing": 0,
+          "phase_unobservable": 380
+        }
+      }
+    },
+    {
+      "case": "g13_stiff_strum",
+      "variants": {
+        "baseline17": {
+          "passed": false,
+          "error_cents": {
+            "median": 3.8099890899999878,
+            "p95": 58.57920961999952,
+            "maximum": 78.87274762000018
+          },
+          "worst_voice_p95": 72.78501496000018,
+          "missing": 0,
+          "phase_unobservable": 2013
+        },
+        "candidate19": {
+          "passed": false,
+          "error_cents": {
+            "median": 1.217144000000303,
+            "p95": 28.15765161999977,
+            "maximum": 52.88510158999955
+          },
+          "worst_voice_p95": 50.521368519999754,
+          "missing": 0,
+          "phase_unobservable": 1606
+        },
+        "candidate19-full512-diagnostic": {
+          "passed": false,
+          "error_cents": {
+            "median": 1.3575981500004275,
+            "p95": 18.694027909999278,
+            "maximum": 49.83563258999979
+          },
+          "worst_voice_p95": 47.471899519999994,
+          "missing": 0,
+          "phase_unobservable": 204
+        }
+      }
+    }
+  ],
+  "musical_readiness_eligible": false
+}

@@ -1,0 +1,92 @@
+--- checkpoint17/PolyphonicTracker.cpp
++++ phase-prior19/PolyphonicTracker.cpp
+@@ -23,12 +23,12 @@
+ }
+ struct Model {
+     double frequency=0,stiffness=0;
+-    int count=0;
++    int count=0;bool priorValid=false;std::array<double,columns> prior{};
+     std::array<float,columns*PolyphonicTracker::maximumSamples> basis{};
+     std::array<double,columns> omega{},mean{},weight{},coefficient{},projection{};
+     std::array<bool,columns> valid{};
+     void prepare(double f,double rate,int samples,double stiff=0) noexcept {
+-        frequency=f;stiffness=stiff;count=samples;
++        frequency=f;stiffness=stiff;count=samples;priorValid=false;
+         for(int c=0;c<columns;++c){
+             const int h=c%harmonics+1;const bool cosine=c>=harmonics;
+             const double partial=f*h*std::sqrt((1+stiff*h*h)/(1+stiff));
+@@ -66,7 +66,7 @@
+ struct PolyphonicTracker::Data {
+     struct Peak {double frequency=0,power=0,phaseFrequency=0;};
+     struct Candidate {double frequency=0,stiffness=0,score=0;int support=0;bool root=false,legacy=false,external=false;};
+-    struct State {Voice view;int absent=0,pending=0;double previousPitch=-1,velocity=0;std::array<double,harmonics> profile{};std::array<double,2*harmonics> phaseEnd{};int phaseCount=0;double phaseFrequency=0;};
++    struct State {Voice view;int absent=0,pending=0;double previousPitch=-1,velocity=0;std::array<double,harmonics> profile{};std::array<double,2*harmonics> phaseEnd{};int phaseCount=0;double phaseFrequency=0;int modelCount=0;double modelFrequency=0;std::array<double,columns> modelCoefficient{};};
+     double rate=12000;
+     std::array<Complex,fftSize> transform{},previous{};
+     std::array<Complex,fftSize/2> twiddle{};
+@@ -172,7 +172,7 @@
+     bool fit(Model* models,int used,const float* input,int count) noexcept {
+         const int dimensions=used*columns;rhs.fill(0);solution.fill(0);
+         for(int j=0;j<used;++j){auto& m=models[j];
+-            for(int c=0;c<columns;++c){double projection=0;if(m.valid[size_t(c)])for(int n=0;n<count;++n)projection+=double(m.basis[size_t(c*maximumSamples+n)])*input[n];rhs[size_t(j*columns+c)]=projection;}
++            for(int c=0;c<columns;++c){double projection=0;if(m.valid[size_t(c)])for(int n=0;n<count;++n)projection+=double(m.basis[size_t(c*maximumSamples+n)])*input[n];rhs[size_t(j*columns+c)]=projection+(m.priorValid?count*.03*m.prior[size_t(c)]:0);}
+         }
+         // Sin/cos columns share each pair of sum/difference frequencies.
+         // Calculate the two Dirichlet sums once for all four cross terms.
+@@ -187,7 +187,7 @@
+                 if(!ma.valid[size_t(ca)]||!mb.valid[size_t(cb)])value=0;
+                 else value=(value-count*ma.mean[size_t(ca)]*mb.mean[size_t(cb)])*ma.weight[size_t(ca)]*mb.weight[size_t(cb)];
+                 if(r<c)std::swap(r,c);
+-                matrix[size_t(r*maxJoint+c)]=value+(r==c?count*.002:0);
++                matrix[size_t(r*maxJoint+c)]=value+(r==c?count*(models[r/columns].priorValid?.032:.002):0);
+             }
+         }
+         if(!solve(matrix,rhs,solution,dimensions))return false;
+@@ -311,7 +311,9 @@
+     // Established sources enter the joint model before any new proposal.
+     for(int slot=0;slot<maximumVoices&&used<polyphony;++slot)if(d.states[size_t(slot)].view.active){
+         auto& state=d.states[size_t(slot)];double frequency=state.view.frequency;
+-        d.models[size_t(used)].prepare(frequency,d.rate,count);previousSlots[size_t(used++)]=slot;
++        auto& model=d.models[size_t(used)];model.prepare(frequency,d.rate,count);
++        if(state.modelCount>0){model.priorValid=true;for(int h=0;h<harmonics;++h){const double omegaPrevious=2*pi*state.modelFrequency*(h+1)/d.rate,omegaCurrent=2*pi*frequency*(h+1)/d.rate;const double angle=omegaPrevious*(state.modelCount-1+hop+state.absent-(count-1)*.5)-omegaCurrent*(count-1)*.5,cs=std::cos(angle),sn=std::sin(angle);const double a=state.modelCoefficient[size_t(h)],b=state.modelCoefficient[size_t(h+harmonics)];model.prior[size_t(h)]=a*cs-b*sn;model.prior[size_t(h+harmonics)]=a*sn+b*cs;}}
++        previousSlots[size_t(used++)]=slot;
+     }
+     double residual=d.energy;
+     for(int c=0;c<d.candidateCount&&used<polyphony;++c){
+@@ -352,7 +354,8 @@
+         // stationary triad; they are deliberately not used as a pitch update.
+         for(int j=0;j<used;++j){
+             auto& model=d.models[size_t(j)];auto& observation=d.observations[size_t(j)];observation={};
+-            const int recent=used<=2?std::min(count,std::max(192,int(std::ceil(d.rate/model.frequency*3.0)))):count;
++            bool nearby=false;for(int k=0;k<used;++k)if(k!=j&&std::abs(d.models[size_t(k)].frequency-model.frequency)<d.rate/count*1.5)nearby=true;
++            const int recent=used<=2&&!nearby?std::min(count,std::max(192,int(std::ceil(d.rate/model.frequency*3.0)))):count;
+             observation.count=recent;observation.frequency=model.frequency;
+             for(int n=0;n<recent;++n){const int sample=count-recent+n;d.isolated[size_t(n)]=d.residual[size_t(sample)]+float(d.modelValue(model,sample));}
+             if(recent==count)d.scratch=model;
+@@ -370,7 +373,7 @@
+                 observation.phase[size_t(2*h)]=re;observation.phase[size_t(2*h+1)]=im;
+                 bool shared=false;for(int k=0;k<used;++k)if(k!=j)for(int g=0;g<harmonics;++g)
+                     if(std::abs(model.omega[size_t(h)]-d.models[size_t(k)].omega[size_t(g)])*count<2*pi*.65)shared=true;
+-                if(!state||state->phaseCount<1||shared||amplitude(d.scratch,h)*amplitude(d.scratch,h)<std::max(partialPower*.0004,(errorPower/recent+noise*noise)*16/recent))continue;
++                if(!state||state->phaseCount<1||amplitude(d.scratch,h)*amplitude(d.scratch,h)<std::max(partialPower*.0004,(errorPower/recent+noise*noise)*16/recent))continue;
+                 const double pr=state->phaseEnd[size_t(2*h)],pii=state->phaseEnd[size_t(2*h+1)];
+                 const double magnitude=std::sqrt((re*re+im*im)*(pr*pr+pii*pii));
+                 const double phaseElapsed=hop+state->absent;
+@@ -383,7 +386,7 @@
+                 const double error=std::remainder(phase-advance,2*pi);
+                 const double frequency=model.frequency+error*d.rate/(2*pi*(h+1)*effectiveHop);
+                 if(frequency>0&&std::abs(pitch(frequency)-pitch(model.frequency))<.75)
+-                    estimates[size_t(estimatesCount++)]={frequency,magnitude/(h+1),error};
++                    estimates[size_t(estimatesCount++)]={frequency,magnitude/(h+1)*(shared?.3:1),error};
+             }
+             if(estimatesCount>=2&&observation.confidence>.65){
+                 for(int e=1;e<estimatesCount;++e){const auto value=estimates[size_t(e)];int where=e;while(where>0&&estimates[size_t(where-1)].frequency>value.frequency){estimates[size_t(where)]=estimates[size_t(where-1)];--where;}estimates[size_t(where)]=value;}
+@@ -416,7 +419,7 @@
+         if(slot<0)continue;
+         occupied[size_t(slot)]=true;auto& state=d.states[size_t(slot)];const bool onset=!state.view.active;
+         const auto& observation=d.observations[size_t(j)];
+-        state.phaseEnd=observation.phase;state.phaseCount=observation.count;state.phaseFrequency=m.frequency;
++        state.phaseEnd=observation.phase;state.phaseCount=observation.count;state.phaseFrequency=m.frequency;state.modelCount=count;state.modelFrequency=m.frequency;state.modelCoefficient=m.coefficient;
+         const float innovation=float(observation.innovation);
+         state.absent=0;state.view={true,onset,std::uint32_t(slot),onset?int(std::lround(p)):state.view.anchorNote,
+             onset?0:state.view.ageSamples+hop,float(observation.frequency),float(pitch(observation.frequency)),float(level),float(observation.confidence*(observation.phaseObservable?1:(onset?.8:.25))),innovation,

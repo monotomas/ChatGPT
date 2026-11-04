@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "scope": "Optimistic synthetic six-source continuous tracking with every true voice seeded once; no note-acquisition, real-guitar or musical-readiness proof",
+  "defined_before_any_model_measurement": true,
+  "sample_rate": 12000,
+  "hop_samples": 32,
+  "oracle_seed_sample": 1023,
+  "scored_sample_interval": [2879, 16511],
+  "seed_contract": "Every true voice receives exact initial identity/pitch before motion; model must learn phase and spectral profiles normally. Public IDs equal tracker slots. Physical strings are independently permuted onto slots and never rematched for scoring.",
+  "mandatory_tracking_checks": {
+    "missing_seeded_voice_frames_max": 0,
+    "extra_voice_frames_max": 0,
+    "duplicate_id_frames_max": 0,
+    "pitch_error_median_cents_max": 15,
+    "pitch_error_p95_cents_max": 25,
+    "pitch_error_max_cents_max": 75,
+    "per_voice_pitch_error_p95_cents_max": 25,
+    "per_voice_pitch_error_max_cents_max": 75
+  },
+  "timing_contract": "Compare every estimate with current true pitch at actual observation end, including motion onsets/reversals and all model delay; no backdating, future interpolation, fitted delay alignment or nearest-voice error rescue.",
+  "missing_data_contract": "A missing true voice is a failure, reported separately and never counted as an accurate pitch sample. Aggregate passing requires complete identity coverage plus all pitch checks.",
+  "challenge_interpretation": "Weak/overlapping/stiff partials can limit identifiability; retain failures and phase-observability reports without making a universal impossibility or readiness claim.",
+  "real_audio_present": false,
+  "note_acquisition_tested": false,
+  "original_physical_latency_goals_verified": false,
+  "musical_readiness_eligible": false
+}

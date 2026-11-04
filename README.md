@@ -1,4 +1,11 @@
-# Flysnapper 0.2.1
+# Flysnapper – musical-readiness research
+
+Denne grenen inneholder uferdig utviklingsarbeid etter tilbakemeldingen
+4. november. Den er ikke en ny, musikalsk godkjent installasjonspakke.
+Status, uløste problemer og leveransesperre står i
+[MUSICAL_READINESS.md](docs/MUSICAL_READINESS.md). Resten av denne siden
+beskriver den tidligere 0.2.1-leveransen; dens validering godkjenner ikke den
+nye lydanalysen.
 
 Flysnapper er en Windows x64 VST3 med to moduler: audio til MIDI med mono-/polyvalg,
 og MIDI-korreksjon til akkordtoner, akkordstyrt skala eller fast skala. Sidechain

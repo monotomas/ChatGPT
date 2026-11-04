@@ -1,0 +1,17 @@
+{
+  "scope": "Independent annotation/signal audit, not detector validation or relabeling",
+  "inputs_sha256": {
+    "source/provenance.json": "4f795ff8eb0d5dd4919e07d39b6a81a3159b5012314ba95afd86fa555b55ed66",
+    "fixtures.json": "c3f4c7d9be5b876e2f0e763fa21481950513f68805af8f99f7a468d53bdb8f88",
+    "SEALED_SHA256.txt": "2d552ec37505b54736f75a6408610f6d4fe96343bcfcbe2c87100151f7e63c3c",
+    "candidate-mono-v19/events.csv": "3dd894b57deba6ff118e2c23c492effa5d82c1423c1d95d7dc5d425ade4d418a",
+    "audit_signal_content.py": "1c44714befacbb11eadbe50a879a594aa18033eef716c2a5689c4241ea828ebc",
+    "source/Samples-acoustic-a3_vl1_rr1_1.wav": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+    "source/Samples-acoustic-mute_strings1_rr1_1.wav": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d",
+    "source/Samples-electric-perc_4_rr1_2.wav": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185",
+    "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav": "808fd6a9759f85b092c1bb93be98cd6586b3d61784e02ffefae716c0c09c6151"
+  },
+  "output_sha256": "c191c1eea0725ab411883c1132e08b129ddc14245e147dc3b56435f158c47c38",
+  "ffmpeg_version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "numpy_version": "2.3.5"
+}

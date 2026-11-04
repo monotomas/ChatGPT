@@ -172,6 +172,8 @@ class AudioQualityGateTests(unittest.TestCase):
         manifest = json.loads((result.output / "report-manifest.json").read_text())
         self.assertEqual(manifest["evaluator_exit_code"], 0)
         self.assertIn("Source/Pitch/PitchDetector.cpp", manifest["source_sha256"])
+        self.assertNotIn("Source/Pitch/MpeOutputRouter.cpp", manifest["source_sha256"])
+        self.assertNotIn("Source/Pitch/MpeOutputRouter.h", manifest["source_sha256"])
         self.assertTrue(all("\\" not in name for name in manifest["source_sha256"]),
                         "Provenance keys must be portable paths on Windows too")
         for name, key in (("summary.json", "summary_sha256"), ("metrics.csv", "metrics_sha256")):

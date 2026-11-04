@@ -23,8 +23,11 @@ def main():
     fixtures=root/'Tests/AudioFixtures'/('confirmation' if args.confirmation else 'holdout' if args.holdout else '')
     verify_command=[sys.executable,str(root/'Tools/audio_validation_confirmation.py'),'--verify'] if args.confirmation else [sys.executable,str(root/'Tools/audio_validation_holdout.py'),'--verify'] if args.holdout else [sys.executable,str(root/'Tools/audio_validation_verify.py')]
     subprocess.run(verify_command,check=True)
-    detector_sources=sorted((root/'Source/Pitch').glob('*.cpp'))
-    sources=[root/'Tools/audio_validation.cpp',*detector_sources,*sorted((root/'Source/Pitch').glob('*.h'))]
+    # The MIDI output router links the separate core engine; it is not part
+    # of the audio detector measured by this standalone executable.
+    detector_sources=[p for p in sorted((root/'Source/Pitch').glob('*.cpp')) if p.name!='MpeOutputRouter.cpp']
+    detector_headers=[p for p in sorted((root/'Source/Pitch').glob('*.h')) if p.name!='MpeOutputRouter.h']
+    sources=[root/'Tools/audio_validation.cpp',*detector_sources,*detector_headers]
     def hashes():return {p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}
     before=hashes()
     if args.executable:

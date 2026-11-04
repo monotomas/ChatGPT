@@ -736,7 +736,8 @@ class FlysnapperSafetyTests(unittest.TestCase):
 
     def test_build_command_contains_current_targets_only(self):
         cmd=b.build_command('cmake',Path('build'),'Ninja',2)
-        for name in ('Flysnapper_VST3','FlysnapperCoreTests','FlysnapperPluginTests','FlysnapperVst3HostTests','FlysnapperGuitarQualityTests','FlysnapperBendProcessorTests'):
+        for name in ('Flysnapper_VST3','FlysnapperCoreTests','FlysnapperPluginTests','FlysnapperVst3HostTests','FlysnapperGuitarQualityTests','FlysnapperBendProcessorTests',
+                     'FlysnapperNoiseTests','FlysnapperMpeOutputTests','FlysnapperMpeProcessorTests','FlysnapperMpeVst3HostTests'):
             self.assertIn(name,cmd)
         self.assertFalse(any('Buffkiller' in s or 'RealtimeTests' in s for s in cmd))
 

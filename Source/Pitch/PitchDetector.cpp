@@ -69,6 +69,7 @@ void PitchDetector::prepare(double sr) {
     // resolution equal across 44.1/48/96kHz hosts. Interpolation below uses
     // only the two filtered samples already received, never future audio.
     analysisRate=std::min(rate,12000.0);analysisStep=analysisRate/rate;
+    cleanEnvelopeCoefficient=float(1-std::exp(-1/(analysisRate*.002)));
     lowpass=float(1.0-std::exp(-2.0*pi*(analysisRate*.42)/rate));
     dcPole=float(std::exp(-2.0*pi*12.0/rate));
     innovationCoefficient=float(1-std::exp(-1.0/(analysisRate*.0015)));
@@ -88,6 +89,11 @@ void PitchDetector::prepare(double sr) {
     for(int i=0;i<512;++i)window[size_t(i)]=float(.5-.5*std::cos(2*pi*i/511));
     for(int n=0;n<noteCount;++n)frequency[size_t(n)]=float(440.0*std::pow(2.0,(lowNote+n-69)/12.0));
     monoEstimator.prepare(analysisRate,lowNote,highNote);
+    monoArticulation.prepare(analysisRate);
+    monoPartialPhase.prepare(analysisRate);
+    noiseConditioner.prepare(analysisRate);
+    polyTracker.prepare(analysisRate,false);
+    for(auto& articulation:polyArticulation)articulation.prepare(analysisRate);
     if(preparedPursuitRate!=analysisRate){pursuit.prepare(analysisRate,512);preparedPursuitRate=analysisRate;}
     Output ignored;reset(ignored);
     configure(config);
@@ -98,35 +104,45 @@ void PitchDetector::configure(const Settings& settings) noexcept {
     next.sensitivity=std::isfinite(settings.sensitivity)?std::clamp(settings.sensitivity,0.0f,1.0f):.65f;
     next.releaseMs=std::isfinite(settings.releaseMs)?std::clamp(settings.releaseMs,5.0f,300.0f):35.0f;
     next.polyphony=std::clamp(settings.polyphony,1,6);
-    next.bendRangeSemitones=std::isfinite(settings.bendRangeSemitones)?std::clamp(settings.bendRangeSemitones,2.0f,12.0f):2.0f;
+    next.bendRangeSemitones=std::isfinite(settings.bendRangeSemitones)?std::clamp(settings.bendRangeSemitones,2.0f,48.0f):2.0f;
     const bool previousBend=config.monoBend&&!config.polyphonic;
     const bool nextBend=next.monoBend&&!next.polyphonic;
-    if(configured&&(next.enabled!=config.enabled||next.polyphonic!=config.polyphonic||next.polyphony!=config.polyphony
-        ||previousBend!=nextBend||(nextBend&&next.bendRangeSemitones!=config.bendRangeSemitones)))needsReset=true;
+    const bool previousPolyBend=config.polyBend&&config.polyphonic;
+    const bool nextPolyBend=next.polyBend&&next.polyphonic;
+    if(configured&&(next.enabled!=config.enabled||next.polyphonic!=config.polyphonic||next.polyphony!=config.polyphony||next.autoInput!=config.autoInput
+        ||previousBend!=nextBend||previousPolyBend!=nextPolyBend
+        ||((nextBend||nextPolyBend)&&next.bendRangeSemitones!=config.bendRangeSemitones)))needsReset=true;
     config=next;configured=true;
-    gate=std::pow(10.0f,config.thresholdDb/20.0f);
+    gate=std::pow(10.0f,(config.autoInput?-90.0f:config.thresholdDb)/20.0f);
     releaseSamples=std::max(hopSize,int(analysisRate*config.releaseMs*.001));
 }
 void PitchDetector::emit(bool on,int note,int velocity,int offset,Output& out) noexcept {
     if(out.size>=out.events.size()){out.overflow=true;needsReset=true;return;}
-    out.events[out.size++]={on,note,std::clamp(velocity,0,127),offset};
+    out.events[out.size++]={on,note,std::clamp(velocity,0,127),offset,false,0,config.polyphonic?-1:0};
     if(!on&&lastPitchAnchor==note){lastPitchAnchor=-1;lastSentPitch=-1;}
 }
 void PitchDetector::emitPitch(int note,float pitch,int offset,Output& out) noexcept {
     if(!std::isfinite(pitch))return;
     if(lastPitchAnchor==note&&std::abs(pitch-lastSentPitch)<.003f)return;
     if(out.size>=out.events.size()){out.overflow=true;needsReset=true;return;}
-    out.events[out.size++]={false,note,0,offset,true,pitch};lastPitchAnchor=note;lastSentPitch=pitch;
+    out.events[out.size++]={false,note,0,offset,true,pitch,0};lastPitchAnchor=note;lastSentPitch=pitch;
 }
 void PitchDetector::reset(Output& out,int offset) noexcept {
-    for(int i=0;i<noteCount;++i)if(voices[size_t(i)].active)emit(false,lowNote+i,0,offset,out);
-    voices={};confirmations={};scores={};strength={};retriggerBaseline={};
+    if(polyShadowMode){
+        for(int i=0;i<PolyphonicTracker::maximumVoices;++i)if(publishedPoly[size_t(i)].anchor>=0)
+            emitPoly(i,false,publishedPoly[size_t(i)].anchor,0,0,false,offset,out);
+    }else for(int i=0;i<noteCount;++i)if(voices[size_t(i)].active)emit(false,lowNote+i,0,offset,out);
+    polyTracker.reset();publishedPoly={};polyShadowMode=false;
+    for(auto& articulation:polyArticulation)articulation.reset();
+    voices={};confirmations={};scores={};strength={};retriggerBaseline={};candidateAdmissible={};
     attackCooldown=attackRemaining=0;previousAttackRatio=0;onsetEnvelope=0;innovationEnvelope=previousInnovationRatio=0;phaseAttack=false;phaseAttackAge=pitchHistoryCount=pitchHistoryWrite=0;pitchHistory={};pitchHistoryRange=0;
     ring={};writeIndex=filled=sinceAnalysis=signalSamples=silentSamples=0;analysisPhase=0;previousFiltered=0;
     dcX=dcY=low1=low2=low3=low4=envelope=fastEnvelope=slowEnvelope=0;
     currentPitch=previousPitch=-1;measuredPeriod=0;measuredPeriodNote=-1;lastSentPitch=-1;lastPitchAnchor=-1;phaseAttackOriginPitch=-1;monoTrackedOnly=monoPhysicalStable=false;spectralBaseline={};polyAdmission=0;polyAnchor=-1;pendingPolyRepick=-1;pendingPolyRepickAge=0;pendingPhasePeriod=0;pendingPhaseCoefficients={};independentNovelty={};
     predictionValid=false;predictionIndex=hopSize;predictionAge=predictionCooldown=0;predictionFast=predictionSlow=predictionObserved=predictionExpected=0;polyPrediction={};
     view={};needsReset=false;
+    analysisClock=0;monoArticulatedNote=-1;monoArticulation.reset();monoPartialPhase.reset();
+    noiseConditioner.reset();cleanEnvelope=0;candidateProtectionRemaining=0;
 }
 void PitchDetector::fft(bool inverse) noexcept {
     for(int i=0;i<fftSize;++i){int j=bitReverse[size_t(i)];if(j>i)std::swap(transform[size_t(i)],transform[size_t(j)]);}
@@ -161,7 +177,12 @@ void PitchDetector::process(const float* mono,int samples,Output& out) noexcept 
         if(analysisPhase<1.0)continue;
         analysisPhase-=1.0;
         const float fraction=float(1.0-analysisPhase/analysisStep);
-        const float analysisSample=priorFiltered+fraction*(low4-priorFiltered);
+        const float rawAnalysisSample=priorFiltered+fraction*(low4-priorFiltered);
+        const float analysisSample=config.autoInput
+            ?noiseConditioner.processSample(rawAnalysisSample,view.activeNotes>0||candidateProtectionRemaining>0,false):rawAnalysisSample;
+        if(candidateProtectionRemaining>0)--candidateProtectionRemaining;
+        cleanEnvelope+=cleanEnvelopeCoefficient*(std::abs(analysisSample)-cleanEnvelope);
+        ++analysisClock;
         if(attackCooldown>0)--attackCooldown;
         if(pendingPolyRepick>=0){
             pendingPolyRepickAge=std::min(pendingPolyRepickAge+1,windowSize*16);
@@ -231,22 +252,90 @@ void PitchDetector::process(const float* mono,int samples,Output& out) noexcept 
         // acquired string has a separate lower continuation gate below; its
         // long quiet decay must not make the next fresh attack inherit a
         // full window containing a gap or a DC-blocker tail.
-        if(envelope>gate){if(signalSamples==0)polyAdmission=int(analysisRate*.140);signalSamples=std::min(signalSamples+1,windowSize*16);silentSamples=0;}else{silentSamples=std::min(silentSamples+1,std::max(windowSize*16,releaseSamples+windowSize));if(silentSamples>releaseSamples)signalSamples=0;}
+        const float acquisitionLevel=config.autoInput?cleanEnvelope:envelope;
+        const float acquisitionGate=config.autoInput?std::max(gate,noiseConditioner.backgroundRms()*2.25f):gate;
+        if(acquisitionLevel>acquisitionGate){if(signalSamples==0)polyAdmission=int(analysisRate*.140);signalSamples=std::min(signalSamples+1,windowSize*16);silentSamples=0;}else{silentSamples=std::min(silentSamples+1,std::max(windowSize*16,releaseSamples+windowSize));if(silentSamples>releaseSamples)signalSamples=0;}
         if(++sinceAnalysis<hopSize)continue;
         sinceAnalysis=0;analyse(i,out);
     }
 }
 void PitchDetector::analyse(int offset,Output& out) noexcept {
     view.levelDb=db(envelope);view.inputPresent=envelope>gate;
-    strength.fill(0);scores.fill(0);currentPitch=-1;polyAnchor=-1;monoTrackedOnly=monoPhysicalStable=false;independentNovelty.fill(false);
+    strength.fill(0);scores.fill(0);candidateAdmissible.fill(false);currentPitch=-1;polyAnchor=-1;monoArticulatedNote=-1;monoTrackedOnly=monoPhysicalStable=false;independentNovelty.fill(false);
     const float trackingGate=view.activeNotes>0?gate*.08f:gate;
-    if(envelope>trackingGate&&(view.activeNotes>0||silentSamples==0)&&filled>=64) {
-        int count=view.activeNotes>0?filled:std::min(filled,std::max(64,signalSamples+32));
+    const float analysisLevel=config.autoInput?cleanEnvelope:envelope;
+    if(analysisLevel>trackingGate&&(view.activeNotes>0||silentSamples==0)&&filled>=64) {
+        // Fresh mono acquisition starts at the actual gated onset. Adding an
+        // older hop mixes silence or the previous oscillator into every
+        // growing observation and delays an otherwise stable period.
+        int count=view.activeNotes>0?filled:std::min(filled,std::max(64,signalSamples+(config.polyphonic?32:0)));
         if(config.polyphonic)analysePoly(std::min(count,512),offset,out);
         else analyseMono(count,offset,out);
     }
-    updateVoices(offset,out);
+    if(config.polyphonic&&config.polyBend)updatePolyExpression(offset,out);
+    else updateVoices(offset,out);
     if(config.polyphonic&&phaseAttack){phaseAttack=false;attackRemaining=0;}
+}
+void PitchDetector::emitPoly(int id,bool on,int note,int velocity,float pitchValue,bool pitchChange,int offset,Output& out) noexcept {
+    if(out.size>=out.events.size()){out.overflow=true;needsReset=true;return;}
+    out.events[out.size++]={on,note,std::clamp(velocity,0,127),offset,pitchChange,pitchValue,id};
+}
+void PitchDetector::updatePolyExpression(int offset,Output& out) noexcept {
+    // Research precision checkpoint: the existing discrete admission path is
+    // retained as a shadow inventory. It cannot send fixed-note Offs to an
+    // independently bent source. This duplicate pipeline still needs timing
+    // and musical validation before it can be considered for a release.
+    polyShadowMode=true;
+    Output admissions;
+    updateVoices(offset,admissions);
+    for(size_t i=0;i<admissions.size;++i){
+        const auto& event=admissions.events[i];
+        if(!event.on||event.pitchChange)continue;
+        bool retrigger=false;
+        for(size_t j=0;j<i;++j)if(!admissions.events[j].on&&!admissions.events[j].pitchChange
+            &&admissions.events[j].note==event.note)retrigger=true;
+        if(!polyTracker.queueAdmission(event.note,retrigger)){out.overflow=true;needsReset=true;}
+    }
+    std::array<float,PolyphonicTracker::maximumSamples> frame{};
+    const int count=std::min(filled,PolyphonicTracker::maximumSamples);
+    for(int i=0;i<count;++i)frame[size_t(i)]=ring[size_t((writeIndex-count+i+windowSize)%windowSize)];
+    PolyphonicTracker::Settings settings;
+    settings.polyphony=config.polyphony;settings.sensitivity=config.sensitivity;
+    settings.newNoteThresholdDb=config.autoInput?-90.f:config.thresholdDb;
+    settings.noiseRms=config.autoInput?noiseConditioner.backgroundRms():0.f;
+    settings.releaseMs=config.releaseMs;settings.externalSeedMode=true;settings.legacySeeds=false;
+    PolyphonicTracker::Frame observed;
+    polyTracker.analyse(frame.data(),count,hopSize,settings,observed);
+    view.activeNotes=0;view.activePitchClasses=0;view.confidence=0;view.strongestNote=-1;view.continuousPitch=-1;
+    float strongest=0;
+    for(int id=0;id<PolyphonicTracker::maximumVoices;++id){
+        const auto& voice=observed.voices[size_t(id)];
+        auto& sent=publishedPoly[size_t(id)];auto& articulation=polyArticulation[size_t(id)];
+        if(!voice.active||!std::isfinite(voice.pitch)){
+            if(sent.anchor>=0)emitPoly(id,false,sent.anchor,0,0,false,offset,out);
+            sent={};articulation.reset();continue;
+        }
+        int nextAnchor=sent.anchor;
+        bool newNote=nextAnchor<0;
+        if(newNote)nextAnchor=voice.anchorNote;
+        else{
+            const auto decision=articulation.observe({voice.pitch,voice.confidence,voice.innovation,analysisClock,voice.observationSamples});
+            if(decision.newNote||voice.retrigger){nextAnchor=decision.newNote?decision.note:int(std::lround(voice.pitch));newNote=true;}
+        }
+        nextAnchor=std::clamp(nextAnchor,lowNote,highNote);
+        if(newNote){
+            if(sent.anchor>=0)emitPoly(id,false,sent.anchor,0,0,false,offset,out);
+            emitPoly(id,false,nextAnchor,0,voice.pitch,true,offset,out);
+            const int velocity=std::clamp(int(std::lround(127.f*std::pow(std::min(voice.level*2.f,1.f),.45f))),1,127);
+            emitPoly(id,true,nextAnchor,velocity,0,false,offset,out);
+            sent={nextAnchor,voice.pitch};articulation.begin(nextAnchor,voice.pitch,analysisClock);
+        }else if(std::abs(voice.pitch-sent.pitch)>=.003f){
+            emitPoly(id,false,sent.anchor,0,voice.pitch,true,offset,out);sent.pitch=voice.pitch;
+        }
+        ++view.activeNotes;view.activePitchClasses=uint16_t(view.activePitchClasses|(1u<<(sent.anchor%12)));
+        view.confidence=std::max(view.confidence,voice.confidence);
+        if(voice.level>strongest){strongest=voice.level;view.strongestNote=sent.anchor;view.continuousPitch=voice.pitch;}
+    }
 }
 void PitchDetector::analyseMono(int count,int,Output&) noexcept {
     count=std::min(count,windowSize);
@@ -256,8 +345,29 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
     std::array<float,windowSize> frame{};
     for(int i=0;i<count;++i)frame[size_t(i)]=ring[size_t((writeIndex-count+i+windowSize)%windowSize)];
     const float threshold=std::clamp(.08f+(config.sensitivity-.65f)*.08f,.035f,.11f);
-    const int primary=std::min(freshCount,512);
+    // Once an oscillator is known, a local three-period observation follows
+    // a new fret much sooner than a permanently full 42.7 ms frame. Global
+    // acquisition keeps its independent harmonic-disambiguation path.
+    const int primary=std::min(freshCount,held>=0&&config.monoBend&&measuredPeriod>0
+        ?std::clamp(int(std::ceil(measuredPeriod*3.0f)),96,512):512);
     auto estimate=monoEstimator.estimate(frame.data()+count-primary,primary,threshold,true);
+    const float independentExcitation=held>=0&&config.monoBend&&measuredPeriod>0
+        ?monoPartialPhase.observe(frame.data(),count,float(analysisRate/measuredPeriod),analysisClock):0;
+    // The strict candidate remains preferred. At modest SNR a real periodic
+    // string may exceed that CMNDF cutoff; a second candidate is admitted only
+    // after independent harmonic/phase/noise evidence below.
+    if(config.autoInput&&!estimate.valid)
+        estimate=monoEstimator.estimate(frame.data()+count-primary,primary,.25f,true);
+    if(estimate.valid&&held<0&&analysisRate/estimate.frequency<16){
+        // A short integer lag has appreciable interpolation error in cents.
+        // Refine only the already acquired YIN hypothesis in a quarter-tone
+        // neighbourhood; this cannot invent another root or octave.
+        const auto refined=monoEstimator.track(frame.data(),count,estimate.pitch,.25f,.95f);
+        if(refined.valid&&refined.note==estimate.note&&std::abs(refined.pitch-estimate.pitch)<.25f){
+            estimate.frequency=refined.frequency;estimate.pitch=refined.pitch;estimate.note=refined.note;
+            estimate.confidence=std::max(estimate.confidence,refined.confidence);
+        }
+    }
     // A body transient can make a long common period pass the strict YIN test
     // before the actual source period. Consider a second, bounded candidate
     // only when the strict result lacks physical root/primitive-series support.
@@ -278,10 +388,28 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
         auto bass=monoEstimator.estimate(frame.data(),count,threshold,true);
         if(bass.valid&&bass.note<36&&bass.confidence>.97f)estimate=bass;
     }
+    if(config.monoBend&&held>=0&&measuredPeriod>0&&estimate.valid){
+        const float prior=float(69+12*std::log2(analysisRate/(440*measuredPeriod)));
+        if(estimate.pitch-prior>10.f&&estimate.pitch-prior<14.f){
+            // During a bend, a strong even series may briefly supply the
+            // half-period while the trusted local prior is falling behind.
+            // Test the corresponding physical root around the fresh candidate
+            // before letting that alias move the prior. A real octave hammer
+            // withdraws the old root/odd series and therefore fails this guard.
+            const auto root=monoEstimator.track(frame.data(),count,estimate.pitch-12.f,.8f,.90f);
+            if(root.valid&&std::abs(root.pitch-prior)<1.6f){
+                const int observation=std::min(count,std::clamp(int(std::ceil(analysisRate/root.frequency*3.25)),128,512));
+                const auto physical=measureMonoSeries(frame.data()+count-observation,observation,root.frequency,analysisRate);
+                if(physical.root||hasPrimitiveLowSeries(physical.mask)){estimate=root;monoTrackedOnly=true;}
+            }
+        }
+    }
+    float narrowTrackingConfidence=0;
     if(held>=0&&measuredPeriod>0&&measuredPeriodNote==held){
         const float expectedPitch=float(69+12*std::log2(analysisRate/(440*measuredPeriod)));
         const auto tracked=monoEstimator.track(frame.data(),count,expectedPitch,.8f,.90f);
         if(tracked.valid){
+            narrowTrackingConfidence=tracked.confidence;
             const bool nearby=estimate.valid&&std::abs(estimate.pitch-tracked.pitch)<.8f;
             bool octaveGlitch=false;
             if(estimate.valid&&std::abs(std::abs(estimate.pitch-tracked.pitch)-12)<.8f){
@@ -295,7 +423,10 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
             // A narrow, gain-normalised observation can retain an established
             // string through decay and timbre changes. It cannot acquire a
             // new note, and genuinely changed periods still use global YIN.
-            if(!estimate.valid||octaveGlitch||(config.monoBend&&nearby)){monoTrackedOnly=!estimate.valid||octaveGlitch;estimate=tracked;}
+            const bool coherentOctaveAlias=config.monoBend&&estimate.valid&&tracked.confidence>.97f
+                &&std::abs(std::abs(estimate.pitch-tracked.pitch)-12)<1.5f&&independentExcitation<.75f;
+            const bool preciseShortPeriod=measuredPeriod<16&&nearby&&tracked.confidence>.98f;
+            if(!estimate.valid||octaveGlitch||coherentOctaveAlias||preciseShortPeriod||(config.monoBend&&nearby)){monoTrackedOnly=!estimate.valid||octaveGlitch||coherentOctaveAlias;estimate=tracked;}
         }
         if(config.monoBend&&estimate.valid&&lastPitchAnchor==held+lowNote&&lastSentPitch>=0){
             const int cycle=std::clamp(int(std::lround(measuredPeriod)),3,count/2);
@@ -311,11 +442,80 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
         }
     }
     if(!estimate.valid){pitchHistoryCount=pitchHistoryWrite=0;return;}
+    bool admissible=true;
+    if(config.autoInput){
+        // Evidence must describe the recent oscillator. A small short-lag
+        // interpolation error integrated over a permanent 42 ms frame can
+        // manufacture poor phase coherence at the top of the MIDI range.
+        const int localEvidence=held>=0||analysisRate/estimate.frequency<16
+            ?std::clamp(int(std::ceil(analysisRate/estimate.frequency*3.25)),96,512):512;
+        const int evidenceCount=std::min({count,estimate.observedSamples,localEvidence});
+        // Continuation belongs to the last acoustic oscillator, not every
+        // pitch representable by its MIDI bend range. A remote hum/alias
+        // candidate after damping must undergo fresh admission checks.
+        const float priorPitch=measuredPeriod>0?float(69+12*std::log2(analysisRate/(440*measuredPeriod))):-1;
+        const bool continuing=held>=0&&priorPitch>=0&&std::abs(estimate.pitch-priorPitch)<=1.25f;
+        const auto evidence=noiseConditioner.assess(frame.data()+count-evidenceCount,evidenceCount,
+            estimate.frequency,estimate.confidence,continuing,false);
+        const float minimumSnr=continuing?2.0f:std::clamp(6.0f+(.65f-config.sensitivity)*10.f,3.f,10.f);
+        const bool harmonic=evidence.harmonicFraction>.60f&&evidence.phaseCoherence>.85f&&evidence.coherentPartials>=2;
+        const bool highlyPeriodic=estimate.confidence>.985f&&evidence.harmonicFraction>.40f&&evidence.phaseCoherence>.95f;
+        const bool heldPeriodic=continuing&&estimate.confidence>.90f
+            &&evidence.harmonicFraction>.35f&&evidence.phaseCoherence>.80f;
+        if(!evidence.mainsExplained&&estimate.confidence>.90f&&evidence.phaseCoherence>.90f&&evidence.harmonicFraction>.40f)
+            candidateProtectionRemaining=int(analysisRate*.100);
+        // Diffuse/high and slightly stiff string partials need not fit the
+        // finite low-harmonic model. Strong phase continuity plus a physically
+        // resolved primitive series can instead compare against the learned
+        // background, without declaring all model residual to be noise.
+        bool richSeries=false;
+        if(estimate.confidence>.90f&&evidence.phaseCoherence>.95f&&evidence.harmonicFraction>.40f){
+            const auto series=measureMonoSeries(frame.data()+count-evidenceCount,evidenceCount,estimate.frequency,analysisRate);
+            richSeries=series.count>=3&&(series.root||hasPrimitiveLowSeries(series.mask));
+        }
+        const float backgroundSnr=evidence.backgroundSnrDb;
+        const float modelSnr=10.f*std::log10(std::max(evidence.harmonicFraction,1e-8f)
+            /std::max(1.f-evidence.harmonicFraction,1e-8f));
+        const bool establishedOscillator=continuing&&narrowTrackingConfidence>.93f
+            &&evidence.harmonicFraction>.60f&&evidence.phaseCoherence>.90f&&modelSnr>2.f;
+        const bool withdrawnToMains=held>=0&&voices[size_t(held)].age>analysisRate*.070
+            &&evidence.mainsExplained&&(onsetEnvelope<slowEnvelope*.65f||voices[size_t(held)].absent>0);
+        admissible=!evidence.mainsOnly&&!evidence.clearlyUnpitched
+            &&!withdrawnToMains
+            &&((evidence.snrDb>=minimumSnr&&(harmonic||highlyPeriodic||heldPeriodic))
+                ||((richSeries||heldPeriodic)&&backgroundSnr>=minimumSnr)||establishedOscillator);
+        if(!admissible){pitchHistoryCount=pitchHistoryWrite=0;return;}
+        // The old single-period predictor also reacts to low-level beating
+        // against interference. It may suggest a repick, but cannot decide
+        // one once the harmonic observation is dominated by residual noise.
+        if(phaseAttack&&(((evidence.snrDb<8.f||evidence.harmonicFraction<.80f)&&!(richSeries&&backgroundSnr>12.f))
+            ||(config.monoBend&&independentExcitation<.75f))){
+            phaseAttack=false;attackRemaining=0;
+        }
+    }
     if(held<0&&primary>=128&&estimate.confidence>.94f){
         const auto physical=measureMonoSeries(frame.data()+count-primary,primary,estimate.frequency,analysisRate);
         monoPhysicalStable=physical.root&&physical.count>=3;
     }
     int note=estimate.note;currentPitch=estimate.pitch;view.continuousPitch=currentPitch;
+    if(config.monoBend&&held>=0&&monoArticulation.active()){
+        ArticulationTracker::Observation observation;
+        observation.pitch=currentPitch;observation.confidence=estimate.confidence;
+        observation.excitation=independentExcitation;
+        observation.sample=analysisClock;observation.observationSamples=estimate.observedSamples;
+        const auto change=monoArticulation.observe(observation);
+        if(change.newNote)monoArticulatedNote=change.note;
+    }
+    if(config.monoBend&&held>=0&&monoArticulatedNote<0&&measuredPeriod>0){
+        const float expected=float(69+12*std::log2(analysisRate/(440*measuredPeriod)));
+        if(std::abs(currentPitch-expected)>1.2f){
+            // A discontinuous candidate is still being classified. Do not
+            // emit an artificial wheel glide or move the oscillator prior
+            // before a new note's causal change point is confirmed.
+            currentPitch=lastSentPitch>=0?lastSentPitch:expected;
+            estimate.frequency=float(440*std::pow(2.,(currentPitch-69.)/12.));
+        }
+    }
     if(config.monoBend&&phaseAttack&&phaseAttackOriginPitch>=0&&std::abs(currentPitch-phaseAttackOriginPitch)>.25f){phaseAttack=false;attackRemaining=0;}
     pitchHistory[size_t(pitchHistoryWrite)]=currentPitch;pitchHistoryWrite=(pitchHistoryWrite+1)%int(pitchHistory.size());
     pitchHistoryCount=std::min(pitchHistoryCount+1,int(pitchHistory.size()));
@@ -325,8 +525,9 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
     // Hold a semitone through moderate vibrato; a confirmed new pitch outside
     // this band still ends the old note before starting the new one.
     for(int n=0;n<noteCount;++n)if(voices[size_t(n)].active&&std::abs(currentPitch-(n+lowNote))<.62f)note=n+lowNote;
-    if(config.monoBend&&held>=0&&std::abs(currentPitch-(held+lowNote))<=config.bendRangeSemitones+.20f
+    if(config.monoBend&&held>=0&&monoArticulatedNote<0&&std::abs(currentPitch-(held+lowNote))<=config.bendRangeSemitones+.20f
         &&!(attackRemaining>0&&!phaseAttack&&voices[size_t(held)].age>analysisRate*.07))note=held+lowNote;
+    if(monoArticulatedNote>=0)note=monoArticulatedNote;
     // Prediction follows continuous observed pitch; quantised MIDI identity
     // is deliberately separate from the acoustic oscillator period.
     // A single unconfirmed octave candidate must not move the tracking prior
@@ -335,6 +536,7 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
     if(held<0||note==held+lowNote){measuredPeriod=float(analysisRate)/estimate.frequency;measuredPeriodNote=note-lowNote;}
     onsetCoefficient=float(1-std::exp(-1.0/(rate*std::clamp(.5/estimate.frequency,.003,.015))));
     strength[size_t(note-lowNote)]=envelope;
+    candidateAdmissible[size_t(note-lowNote)]=admissible;
     scores[size_t(note-lowNote)]=estimate.confidence;
     view.confidence=estimate.confidence;view.strongestNote=note;
 }
@@ -401,6 +603,40 @@ void PitchDetector::analysePoly(int count,int,Output&) noexcept {
         if(!root&&!(fifth&&seventh))evidence.anchorNote=-1;
     }
     evidence.sortedPeaks=true;
+    if(config.autoInput&&view.activeNotes==0){
+        // A chord need not have one global period. Protect a pending physical
+        // series before the slower discrete NoteOn confirmation, so wanted
+        // polyphonic input is not learned as the idle background. Actual FFT
+        // peak frequencies distinguish electrical mains from a MIDI rounding
+        // bin (50 Hz hum must not be tested as quantised G1 at49 Hz).
+        for(int root=0;root<evidence.count;++root){
+            const auto& candidate=evidence.peaks[size_t(root)];
+            if(candidate.frequency<frequency[0]*.97f||candidate.magnitude<evidence.maximumMagnitude*.015f)continue;
+            bool mains=false,lowMains=false;
+            for(int family=0;family<2;++family){
+                const double base=noiseConditioner.mainsFrequency(family),harmonic=std::round(candidate.frequency/base);
+                if(harmonic>=1&&std::abs(candidate.frequency-base*harmonic)<=.35*harmonic){mains=true;if(harmonic<=2)lowMains=true;}
+            }
+            if(lowMains)continue;
+            int partials=0;
+            for(int harmonic=2;harmonic<=6;++harmonic){
+                const float target=candidate.frequency*harmonic;
+                if(target>evidence.maximumHz)break;
+                for(int upper=root+1;upper<evidence.count;++upper){const auto& peak=evidence.peaks[size_t(upper)];
+                    if(peak.frequency>target*1.012f+evidence.resolutionHz*.03f)break;
+                    if(peak.magnitude>evidence.maximumMagnitude*.015f
+                        &&std::abs(peak.frequency-target)<target*.012f+evidence.resolutionHz*.03f){++partials;break;}
+                }
+            }
+            if(partials>=2){
+                // Higher mains multiples also lie close to ordinary guitar
+                // notes. Require the component's actual low-carrier/learned
+                // line evidence rather than rejecting proximity alone.
+                if(mains&&noiseConditioner.assess(frame.data(),512,candidate.frequency).mainsExplained)break;
+                candidateProtectionRemaining=int(analysisRate*.100);break;
+            }
+        }
+    }
     polyAnchor=evidence.anchorNote;
     if(polyAnchor>=0){measuredPeriod=float(analysisRate)/hint.frequency;measuredPeriodNote=polyAnchor;}
     const float flatness=std::exp(logarithms/std::max(bins,1))/(total/std::max(bins,1)+1e-20f);
@@ -420,6 +656,7 @@ void PitchDetector::analysePoly(int count,int,Output&) noexcept {
     for(int n=0;n<noteCount;++n) {
         const float minimum=voices[size_t(n)].active?gate*.08f:gate*.8f;
         if(strength[size_t(n)]<minimum){strength[size_t(n)]=0;scores[size_t(n)]=0;}
+        candidateAdmissible[size_t(n)]=strength[size_t(n)]>0;
         if(strength[size_t(n)]>strongest){strongest=strength[size_t(n)];view.strongestNote=n+lowNote;}
         view.confidence=std::max(view.confidence,scores[size_t(n)]);
     }
@@ -461,22 +698,23 @@ void PitchDetector::updateVoices(int offset,Output& out) noexcept {
     int chosen=-1;
     const bool bendEnabled=config.monoBend&&!config.polyphonic;
     const auto monoStable=[&](int n) noexcept {
+        if(n+lowNote==monoArticulatedNote)return true;
         return signalSamples>=analysisRate/frequency[size_t(n)]*2.25&&pitchHistoryCount>=3
-            &&pitchHistoryRange<=(bendEnabled?.8f:monoPhysicalStable?.25f:.10f);
+            &&pitchHistoryRange<=(bendEnabled?(view.activeNotes>0?.8f:.10f):monoPhysicalStable?.25f:.10f);
     };
     for(int n=0;n<noteCount;++n) {
         if(strength[size_t(n)]>0) {
             if(!config.polyphonic&&previousPitch>=0&&currentPitch>=0&&std::abs(currentPitch-previousPitch)>(bendEnabled?.8f:.22f))confirmations[size_t(n)]=1;
             else confirmations[size_t(n)]=std::min(confirmations[size_t(n)]+1,64);
         }else confirmations[size_t(n)]=0;
-        if(confirmations[size_t(n)]>=(config.polyphonic?(polyAnchor>=0?6:10):3)
+        if((confirmations[size_t(n)]>=(config.polyphonic?(polyAnchor>=0?6:10):3)||n+lowNote==monoArticulatedNote)
             &&(config.polyphonic||monoStable(n))&&(chosen<0||strength[size_t(n)]>strength[size_t(chosen)]))chosen=n;
     }
     // In mono, a confirmed change is legato: old note off precedes new note on.
     if(!config.polyphonic&&chosen>=0)for(int n=0;n<noteCount;++n)if(n!=chosen&&voices[size_t(n)].active){emit(false,n+lowNote,0,offset,out);voices[size_t(n)]={};}
     for(int n=0;n<noteCount;++n) {
         auto& voice=voices[size_t(n)];float detected=strength[size_t(n)];
-        const bool ready=confirmations[size_t(n)]>=(config.polyphonic?(polyAnchor>=0?6:10):3)
+        const bool ready=(confirmations[size_t(n)]>=(config.polyphonic?(polyAnchor>=0?6:10):3)||n+lowNote==monoArticulatedNote)
             &&(config.polyphonic||monoStable(n));
         if(detected>0) {
             voice.absent=0;
@@ -484,7 +722,7 @@ void PitchDetector::updateVoices(int offset,Output& out) noexcept {
                 emit(false,n+lowNote,0,offset,out);voice.active=false;
                 retriggerBaseline[size_t(n)]=std::numeric_limits<float>::infinity();
             }
-            if(!voice.active&&ready&&detected>gate*(config.polyphonic?.8f:1.0f)
+            if(!voice.active&&ready&&candidateAdmissible[size_t(n)]&&detected>gate*(config.polyphonic?.8f:1.0f)
                 &&(!config.polyphonic||polyAdmission>0||independentNovelty[size_t(n)])&&fastEnvelope>slowEnvelope*.35f) {
                 if(config.polyphonic) {
                     int held=0,weakest=-1;
@@ -499,7 +737,8 @@ void PitchDetector::updateVoices(int offset,Output& out) noexcept {
                 int velocity=std::clamp(int(std::lround(127.0f*std::pow(std::min(detected*2.0f,1.0f),.45f))),1,127);
                 if(bendEnabled)emitPitch(n+lowNote,currentPitch,offset,out);
                 emit(true,n+lowNote,velocity,offset,out);voice.active=true;voice.age=0;
-                if(!config.polyphonic){phaseAttack=false;attackRemaining=0;measuredPeriod=float(analysisRate/(440*std::pow(2.,(currentPitch-69.)/12.)));measuredPeriodNote=n;}
+                if(!config.polyphonic){phaseAttack=false;attackRemaining=0;measuredPeriod=float(analysisRate/(440*std::pow(2.,(currentPitch-69.)/12.)));measuredPeriodNote=n;
+                    monoArticulation.begin(n+lowNote,currentPitch,analysisClock);monoPartialPhase.reset();}
             }
             voice.strength=detected;
             if(voice.active&&bendEnabled)emitPitch(n+lowNote,currentPitch,offset,out);

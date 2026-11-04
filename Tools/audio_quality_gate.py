@@ -72,7 +72,11 @@ def main():
     for case in policy['cases']:
         require(case['maximum_detector_response_ms'] == {'negative': None, 'synthetic-mono': 60, 'recorded-mono': 100, 'polyphonic-chord': 120}[case['group']], "Validation failed: case['maximum_detector_response_ms'] == {'negative': None, 'synthetic-mono': 60, 'recorded-mono': 100, 'polyphonic-chord': 120}[case['group']]")
     reference={c['name']:c for c in json.loads((fixtures/'fixtures.json').read_text())['cases']}
-    source_paths=[ROOT/'Tools/audio_validation.cpp',ROOT/'Tools/audio_quality_gate.py',*sorted((ROOT/'Source/Pitch').glob('*.h')),*sorted((ROOT/'Source/Pitch').glob('*.cpp'))]
+    # Match the standalone detector runner's provenance. The output router is
+    # linked separately with the MIDI core and is not in this audio evaluator.
+    detector_paths=[p for suffix in ('*.h','*.cpp') for p in sorted((ROOT/'Source/Pitch').glob(suffix))
+                    if p.name not in ('MpeOutputRouter.h','MpeOutputRouter.cpp')]
+    source_paths=[ROOT/'Tools/audio_validation.cpp',ROOT/'Tools/audio_quality_gate.py',*detector_paths]
     manifest={'recorded_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'evaluator_sha256':sha(args.evaluator),'fixture_manifest_sha256':sha(fixtures/'fixtures.json'),'fixture_inventory_sha256':sha(fixtures/'fixtures.tsv'),'policy_sha256':sha(policy_path),'source_sha256':{p.relative_to(ROOT).as_posix():sha(p) for p in source_paths},'scope':policy['scope'],'sample_rate':48000,'block_size':64}
     # Evaluator output is always fresh. A previous successful CSV cannot mask a
     # current nonzero exit or a run which failed before writing its result files.

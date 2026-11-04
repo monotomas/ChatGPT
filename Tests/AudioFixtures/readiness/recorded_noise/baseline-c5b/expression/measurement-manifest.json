@@ -1,0 +1,42 @@
+{
+  "recorded_at_utc": "2026-11-04T00:59:01.968100+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_snapshot": "/tmp/flysnapper-readiness-baseline-c5b",
+  "source_commit": null,
+  "base_git_head": "c5b05337641b13ae259836f5346e7c1850b7382c",
+  "source_sha256": {
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/PitchDetector.cpp": "e70cc37f1b344c8dac325364a33e545e7393f3b0d305d526f6d8bb6e3b332a34",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d364b3182a2fe298f3836b0a9a636c00b7ea8f2ab305627f5a90ee4027d2a90a",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/PitchDetector.h": "348537d970c7ef15ecefe69400ff39454ef147c19f7d451ae789936d0ca98e55",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "53608218b5cfef4e4bbc7e4c658830adbe2792c97dfc20768f67012bd4cc7b48",
+    "driver/readiness_capture.cpp": "915f728d0df54fbf86a4cb92ef7ff3ad0d6bcf4f2ac5b3e3e4fdc7ecb2ab07e1"
+  },
+  "compiled_sources": [
+    "Source/Pitch/EarlyEstimator.cpp",
+    "Source/Pitch/PitchDetector.cpp",
+    "Source/Pitch/TimeDomainPursuit.cpp",
+    "Source/Pitch/YinEstimator.cpp"
+  ],
+  "fixture_seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d",
+  "configuration": "48000/64",
+  "scope": "Research detector capture before MIDI/MPE routing, not musical readiness or physical latency proof",
+  "compiler_exit_code": 0,
+  "executable_sha256": "a6ec0a1784909db63bb70ff2f1e69ef6e0c94a41638a68497cfce96925e31062",
+  "capture_exit_code": 0,
+  "source_changed_during_measurement": false,
+  "score_exit_code": 1,
+  "files_sha256": {
+    "compile.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scoring-console.txt": "a584ecdc48ba095b583ed47bfef251e515ad99c97ac5367e031d8e101f9f7063",
+    "capture.csv": "5be050205543d7f82a6dbb057d81cdfd612d87384599e7e378ee66d260b2acd7",
+    "capture-console.txt": "8ba260636c5cd007be5fa024526f8b3b9a6b62e33910b1713297d4f254b20922",
+    "events.csv": "6020fa20e8082b1dae40f6e2225fc28d01428d51678216a5f2668eb4996d7e08",
+    "scoring/cases.json": "e88311b46a6f0cdf5d356177422dd3c941d39d9bf2f463de80d6129a2d3e9a53",
+    "scoring/summary.json": "a584ecdc48ba095b583ed47bfef251e515ad99c97ac5367e031d8e101f9f7063"
+  }
+}

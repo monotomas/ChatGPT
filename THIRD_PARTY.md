@@ -82,3 +82,24 @@ Artificial mixtures of isolated recordings are identified as such.
 These samples are test data included in corresponding source. The plugin does
 not play, embed or learn from these recordings at runtime. Synthetic test
 waveforms and project fixture-generation tools use AGPL-3.0-or-later.
+
+## Additional research guitar recordings
+
+The unfinished musical-readiness research also retains recordings from two
+CC0-1.0 Karoryfer libraries:
+
+- **Black and Green Guitars**, Brian Wood / Karoryfer Lecolds; Green Gretsch
+  Anniversary. Repository `sfzinstruments/karoryfer.black-and-green-guitars`,
+  commit `b3b3249d37dc977a1a297bd2dc053e6d9b6b805c`.
+- **Shinyguitar**, performed by D. Smolken. Repository
+  `sfzinstruments/karoryfer.shinyguitar`, commit
+  `57243cca85277dbcc120ce17c6178032f93c80f3`.
+
+Original licenses, author SFZ mappings, file hashes and derivation notes are
+retained under `Tests/AudioFixtures/readiness/recorded_hammers/source` and
+`recorded_noise/source`. Derived controls use documented decoding/resampling,
+gain, crop, damping and mixtures. Author-labelled percussion/muting samples
+are designated suppression controls, not proof that every such waveform is
+non-tonal or unwanted. Isolated hammer samples do not establish continuous
+fretted-transition recognition. These recordings are research data; they are
+not embedded or used as pretrained weights in the plugin.

@@ -1,0 +1,304 @@
+{
+  "scope": "First independently selected recorded-noise edition, now disclosed seen regression data. Intended suppression labels and all original failures unchanged.",
+  "fixture_seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d",
+  "script_sha256": "cfb3c17694e9b5dbbb88ebe93a39d569afcdcb2d8ecc3a5009d0474a66a107f5",
+  "interpretation": "Baseline lacks poly bend capability and therefore fails its explicit capability checks; compare direct metrics as well as complete pass counts. Same-anchor extra On events can be unwanted rearticulations.",
+  "results": {
+    "baseline_c5b": {
+      "capture_sha256": {
+        "capture.csv": "5be050205543d7f82a6dbb057d81cdfd612d87384599e7e378ee66d260b2acd7",
+        "events.csv": "6020fa20e8082b1dae40f6e2225fc28d01428d51678216a5f2668eb4996d7e08"
+      },
+      "scoring_sha256": {
+        "cases.json": "e88311b46a6f0cdf5d356177422dd3c941d39d9bf2f463de80d6129a2d3e9a53",
+        "summary.json": "a584ecdc48ba095b583ed47bfef251e515ad99c97ac5367e031d8e101f9f7063"
+      },
+      "modes": {
+        "mono": {
+          "runs": 64,
+          "passed": 31,
+          "families": {
+            "real-note-plus-recorded-noise": {
+              "runs": 32,
+              "passed": 0,
+              "expected": 32,
+              "matched": 32,
+              "missed": 0,
+              "extra_note_ons": 68,
+              "octave_errors": 2,
+              "wrong_before_correct": 0,
+              "early_offs": 32,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            },
+            "real-quiet-pluck": {
+              "runs": 16,
+              "passed": 16,
+              "expected": 16,
+              "matched": 16,
+              "missed": 0,
+              "extra_note_ons": 0,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 0,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            },
+            "real-recorded-noise-only": {
+              "runs": 16,
+              "passed": 15,
+              "expected": 0,
+              "matched": 0,
+              "missed": 0,
+              "extra_note_ons": 4,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 0,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            }
+          },
+          "extra_mixture_onsets_by_semitone_offset_from_reference": {
+            "-19": 6,
+            "-12": 2,
+            "0": 60
+          },
+          "latency_checkpoint": {
+            "observed_ms": {
+              "median": 45.979166666666664,
+              "p95": 56.645833333333336,
+              "maximum": 56.645833333333336
+            },
+            "passed": false,
+            "status": "failed"
+          }
+        },
+        "poly": {
+          "runs": 64,
+          "passed": 0,
+          "families": {
+            "real-note-plus-recorded-noise": {
+              "runs": 32,
+              "passed": 0,
+              "expected": 32,
+              "matched": 32,
+              "missed": 0,
+              "extra_note_ons": 130,
+              "octave_errors": 28,
+              "wrong_before_correct": 0,
+              "early_offs": 14,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            },
+            "real-quiet-pluck": {
+              "runs": 16,
+              "passed": 0,
+              "expected": 16,
+              "matched": 16,
+              "missed": 0,
+              "extra_note_ons": 6,
+              "octave_errors": 4,
+              "wrong_before_correct": 0,
+              "early_offs": 0,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            },
+            "real-recorded-noise-only": {
+              "runs": 16,
+              "passed": 0,
+              "expected": 0,
+              "matched": 0,
+              "missed": 0,
+              "extra_note_ons": 20,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 0,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            }
+          },
+          "extra_mixture_onsets_by_semitone_offset_from_reference": {
+            "0": 22,
+            "1": 2,
+            "3": 4,
+            "4": 8,
+            "5": 6,
+            "6": 2,
+            "7": 11,
+            "9": 8,
+            "12": 28,
+            "14": 4,
+            "15": 4,
+            "16": 7,
+            "19": 12,
+            "21": 4,
+            "26": 6,
+            "33": 2
+          },
+          "latency_checkpoint": {
+            "observed_ms": {
+              "median": 55.3125,
+              "p95": 69.97916666666667,
+              "maximum": 69.97916666666667
+            },
+            "passed": false,
+            "status": "failed"
+          }
+        }
+      }
+    },
+    "mono_checkpoint_v19_mainpoly17": {
+      "capture_sha256": {
+        "capture.csv": "31cd374371f7abc8f50400500ed27698b2e40d46826c0da2cf4602066dc370c4",
+        "events.csv": "3dd894b57deba6ff118e2c23c492effa5d82c1423c1d95d7dc5d425ade4d418a"
+      },
+      "scoring_sha256": {
+        "cases.json": "e6b571e7ea7ff172ffa4f2aaba25d161d25ddedc641381d3457a35f654ca3e6e",
+        "summary.json": "ec6c83c6614a1771ac498d869c3e11028dc61f093917fe2d4b9a39f5089d8599"
+      },
+      "modes": {
+        "mono": {
+          "runs": 64,
+          "passed": 34,
+          "families": {
+            "real-note-plus-recorded-noise": {
+              "runs": 32,
+              "passed": 4,
+              "expected": 32,
+              "matched": 32,
+              "missed": 0,
+              "extra_note_ons": 48,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 28,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            },
+            "real-quiet-pluck": {
+              "runs": 16,
+              "passed": 16,
+              "expected": 16,
+              "matched": 16,
+              "missed": 0,
+              "extra_note_ons": 0,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 0,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            },
+            "real-recorded-noise-only": {
+              "runs": 16,
+              "passed": 14,
+              "expected": 0,
+              "matched": 0,
+              "missed": 0,
+              "extra_note_ons": 2,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 0,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            }
+          },
+          "extra_mixture_onsets_by_semitone_offset_from_reference": {
+            "-19": 4,
+            "0": 44
+          },
+          "latency_checkpoint": {
+            "observed_ms": {
+              "median": 29.979166666666668,
+              "p95": 45.979166666666664,
+              "maximum": 45.979166666666664
+            },
+            "passed": false,
+            "status": "failed"
+          }
+        },
+        "poly": {
+          "runs": 64,
+          "passed": 3,
+          "families": {
+            "real-note-plus-recorded-noise": {
+              "runs": 32,
+              "passed": 0,
+              "expected": 32,
+              "matched": 32,
+              "missed": 0,
+              "extra_note_ons": 96,
+              "octave_errors": 20,
+              "wrong_before_correct": 0,
+              "early_offs": 16,
+              "late_offs": 12,
+              "hung": 0,
+              "overflow": 0
+            },
+            "real-quiet-pluck": {
+              "runs": 16,
+              "passed": 0,
+              "expected": 16,
+              "matched": 16,
+              "missed": 0,
+              "extra_note_ons": 8,
+              "octave_errors": 4,
+              "wrong_before_correct": 0,
+              "early_offs": 4,
+              "late_offs": 6,
+              "hung": 0,
+              "overflow": 0
+            },
+            "real-recorded-noise-only": {
+              "runs": 16,
+              "passed": 3,
+              "expected": 0,
+              "matched": 0,
+              "missed": 0,
+              "extra_note_ons": 65,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 0,
+              "late_offs": 0,
+              "hung": 0,
+              "overflow": 0
+            }
+          },
+          "extra_mixture_onsets_by_semitone_offset_from_reference": {
+            "0": 20,
+            "1": 2,
+            "3": 2,
+            "4": 4,
+            "5": 4,
+            "7": 8,
+            "9": 4,
+            "12": 20,
+            "14": 8,
+            "15": 6,
+            "16": 4,
+            "19": 8,
+            "21": 2,
+            "26": 4
+          },
+          "latency_checkpoint": {
+            "observed_ms": {
+              "median": 55.3125,
+              "p95": 69.97916666666667,
+              "maximum": 69.97916666666667
+            },
+            "passed": false,
+            "status": "failed"
+          }
+        }
+      }
+    }
+  },
+  "musical_readiness_eligible": false
+}

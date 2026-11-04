@@ -33,6 +33,7 @@ YinEstimator::Result YinEstimator::estimate(const float* wave,int samples,float 
     Result result;
     if(!wave||samples<32)return result;
     const int count=std::min(samples,maxSamples),comparison=count/2;
+    result.observedSamples=count;
     const int minimumLag=std::max(2,int(std::floor(rate/highHz)));
     const int maximumLag=std::min(comparison,int(std::ceil(rate/lowHz)));
     if(maximumLag<minimumLag+2)return result;
@@ -214,6 +215,7 @@ YinEstimator::Result YinEstimator::track(const float* wave,int samples,float exp
     minimumCorrelation=std::isfinite(minimumCorrelation)?std::clamp(minimumCorrelation,.5f,.9999f):.9f;
     const double expectedPeriod=rate/(440.0*std::pow(2.,(expectedPitch-69.)/12.));
     const int count=std::min({samples,maxSamples,std::max(96,int(std::ceil(expectedPeriod*3.25)))});
+    result.observedSamples=count;
     const double minimumPeriod=std::max(2.0,expectedPeriod*std::pow(2.,-searchSemitones/12.));
     const double maximumPeriod=std::min(double(count)-18.,expectedPeriod*std::pow(2.,searchSemitones/12.));
     if(maximumPeriod<=minimumPeriod)return result;
@@ -231,7 +233,9 @@ YinEstimator::Result YinEstimator::track(const float* wave,int samples,float exp
     // several observed polarity reversals and actual recent-cycle energy.
     int crossings=0,polarity=0;
     for(int i=0;i<count;++i){const float value=frame[size_t(i)];const int next=value>result.rms*.03f?1:value<-result.rms*.03f?-1:polarity;
-        if(polarity&&next!=polarity)++crossings;polarity=next;}
+        if(polarity&&next!=polarity)++crossings;
+        polarity=next;
+    }
     if(crossings<4)return result;
     const int cycle=std::clamp(int(std::lround(expectedPeriod)),3,count/2);
     const auto cyclePower=[&](int start) noexcept {double sum=0,squared=0;for(int i=0;i<cycle;++i){const double x=frame[size_t(start+i)];sum+=x;squared+=x*x;}return std::max(0.,squared-sum*sum/cycle);};

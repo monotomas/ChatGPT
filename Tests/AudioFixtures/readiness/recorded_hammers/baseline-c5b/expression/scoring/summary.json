@@ -1,0 +1,63 @@
+{
+  "scope": "Independent causal detector research scoring; not physical latency or musical readiness proof",
+  "policy_sha256": "e35da4a854b2ba8bba1cde9a90c3263d0e9d275b70acfe002d9b0eeedbda68be",
+  "fixture_seal": "059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae",
+  "capture_sha256": {
+    "capture.csv": "315b1192e43664625bdf7a0bdd69a1175470051a2465470074e08f2077be22d9",
+    "events.csv": "b7d68d2952efb7a32b6a03c75ee4e1bfe46e17326107d567d9a54cba66d7c2e3"
+  },
+  "runs": 16,
+  "passed_runs": 2,
+  "failed_runs": 14,
+  "real_articulation_requirement_satisfied": false,
+  "original_physical_latency_goals_verified": false,
+  "musical_readiness_eligible": false,
+  "release_status": "BLOCKED: real-technique and original physical-latency evidence remain required",
+  "families": {
+    "real-isolated-hammer": {
+      "expected": 16,
+      "matched": 10,
+      "missed": 6,
+      "extra_note_ons": 9,
+      "noise_note_ons": 0,
+      "octave_errors": 2,
+      "wrong_before_correct": 0,
+      "early_offs": 0,
+      "late_offs": 0,
+      "discrete_misses": 0,
+      "bend_retriggers": 0,
+      "hung": 0,
+      "overflow": 0,
+      "runs": 16,
+      "passed_runs": 2
+    }
+  },
+  "latency_checkpoints": {
+    "mono": {
+      "observed_ms": {
+        "median": 63.3125,
+        "p95": 63.3125,
+        "maximum": 63.3125
+      },
+      "passed": false
+    },
+    "poly": {
+      "observed_ms": {
+        "median": 65.97916666666667,
+        "p95": 68.64583333333333,
+        "maximum": 68.64583333333333
+      },
+      "passed": false
+    },
+    "discrete_articulation": {
+      "observed_ms": {
+        "median": null,
+        "p95": null,
+        "maximum": null
+      },
+      "passed": false
+    }
+  },
+  "configuration_count": 1,
+  "research_checkpoints_passed": false
+}

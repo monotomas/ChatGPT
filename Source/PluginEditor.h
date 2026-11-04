@@ -57,6 +57,7 @@ private:
     std::array<juce::Label, 12> notes;
     juce::ComboBox mode, root, scale, pitchMode, bendRange;
     juce::ToggleButton correction{"Correction enabled"}, pitchEnabled{"Audio to MIDI"}, monoBend{"Mono pitch bend"};
+    juce::ToggleButton autoInput{"Automatic input"}, mpeOutput{"MPE output / per-note bend"};
     juce::Slider inputGate, sensitivity, release;
     FlysnapperInputMeter inputMeter;
     juce::TextButton flip{"Chord / scale setup"}, panic{"Panic"};
@@ -64,7 +65,7 @@ private:
     juce::TextButton restore{"Reset all 50 to factory"};
     juce::Viewport viewport;
     FlysnapperMappingTable mappingTable;
-    std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> correctionAttachment, pitchEnabledAttachment, monoBendAttachment;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> correctionAttachment, pitchEnabledAttachment, monoBendAttachment, autoInputAttachment, mpeOutputAttachment;
     std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> modeAttachment, rootAttachment, scaleAttachment, pitchModeAttachment, bendRangeAttachment;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> gateAttachment, sensitivityAttachment, releaseAttachment;
     bool backVisible = false;

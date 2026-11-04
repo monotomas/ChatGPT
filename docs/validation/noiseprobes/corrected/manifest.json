@@ -1,0 +1,372 @@
+{
+  "scope": "Previously seen recorded-note component diagnostics with synthetic added noise; not product acceptance",
+  "baseline_commit": "c5b05337641b13ae259836f5346e7c1850b7382c",
+  "product_sources_used": false,
+  "priming_variant": "Archived, unvalidated experiment removed from product",
+  "added_noise": {
+    "mains_fundamental_hz": 50.03,
+    "mains_amplitude": 0.03,
+    "relative_harmonics": [
+      1,
+      0.4,
+      0.2
+    ],
+    "phases_radians": [
+      0,
+      0.3,
+      0.7
+    ],
+    "white_uniform_peak": 2.5e-05,
+    "random_seed": 1234567,
+    "clean_tone_controls_have_added_noise": false
+  },
+  "guitar_gains": [
+    0.003,
+    0.01,
+    0.03
+  ],
+  "scoring": "25cents is primary; rounded semitones are an insufficient diagnostic",
+  "admission_policy": "Archived strict harmonic probe; explicitly named clean_*_rescue modes additionally permit confidence>.985, harmonic fraction>.4 and phase>.95 single-partial rescue",
+  "compiler_command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-I",
+    "/workspace/ChatGPT/docs/validation/noiseprobes/experimental",
+    "-I",
+    "/workspace/ChatGPT/docs/validation/noiseprobes/baseline",
+    "/workspace/ChatGPT/docs/validation/noiseprobes/experimental/Pitch/NoiseConditioner.cpp",
+    "/workspace/ChatGPT/docs/validation/noiseprobes/baseline/Pitch/YinEstimator.cpp",
+    "/workspace/ChatGPT/docs/validation/noiseprobes/component_probe.cpp",
+    "-o",
+    "/tmp/flysnapper-noise-archive-sealed/component_probe"
+  ],
+  "compiler_version": "g++ (Debian 14.2.0-19) 14.2.0",
+  "snapshot_sha256": {
+    "baseline/Pitch/YinEstimator.cpp": "d364b3182a2fe298f3836b0a9a636c00b7ea8f2ab305627f5a90ee4027d2a90a",
+    "baseline/Pitch/YinEstimator.h": "53608218b5cfef4e4bbc7e4c658830adbe2792c97dfc20768f67012bd4cc7b48",
+    "component_probe.cpp": "1729432d387c9cd6d54e208bcec23dc03beb5f170257999be1f3f694fd84302d",
+    "experimental/Pitch/NoiseConditioner.cpp": "3ea0576b7096cd68c1fdd0502fc3aa2b479efc28c5b8f885855e294fb610547e",
+    "experimental/Pitch/NoiseConditioner.h": "51ad8be4c540f09a8b50582ef0f97db7f742ba936986307bb0a58d0491bf79a1",
+    "fixtures.txt": "ce4b76ff42079a519f22ae6ed8880bc75b75fc68a8f178d0aee7c7d01b5d06e2",
+    "run.py": "465cfec0d9ca9fd2e8263deaffb8775f6d6d19956a58b9f50b685e1cc1a09e63"
+  },
+  "fixture_sha256": {
+    "Tests/AudioFixtures/pcm/recorded_E2.wav": "f9ad81e9bec0677a160f3970571882505312b7d7417fad14a7a6e4a8601a37f2",
+    "Tests/AudioFixtures/pcm/recorded_A2.wav": "009fa5005bd517a4a5ace5eb4c910455e161324ebf1deb0fbf26ecd2127610ac",
+    "Tests/AudioFixtures/pcm/recorded_D3.wav": "cdf75fe1a59e4a6af7fc88118082f454b83c3cf1c4775e55013988c07ac8d598",
+    "Tests/AudioFixtures/pcm/recorded_G3.wav": "ef4cb2453525c871d36080adccb67bcd56542f4bdbfecf0db428660973008a4e",
+    "Tests/AudioFixtures/pcm/recorded_B3.wav": "90fd0979b344c1276c56b3b8718d35cddeb35c324ec3cca2a003c45afc32d919",
+    "Tests/AudioFixtures/pcm/recorded_E3.wav": "c4784004f869d9ba78a762b94471b22737552b2f7f9e86cecd71dec9daaa4290",
+    "Tests/AudioFixtures/pcm/recorded_E4.wav": "036850160cf0e5d3a3c3fa333f2268fa58331d2f3f346b2b32b2843c20eedb73",
+    "Tests/AudioFixtures/pcm/recorded_Fs3.wav": "23620f05f26c01193f14630aa388ea48e6e76d7c70ae54a4104522d864645581"
+  },
+  "clean_control_sha256": {
+    "clean_controls/fixtures.txt": "a3652a0545aa0472b365b9ab7f496d912dd20538af52a2b1b935fa210b2605ca",
+    "clean_controls/wanted_49_harmonics.wav": "fbe9c7b0c81989cb4ce41c583535fbdfe9943165544fffff6de91e49f1c7882c",
+    "clean_controls/wanted_49_sine.wav": "a803ca0f78c8d1c8f470d150b0edf51a98b0e7134e663a8e5681c1b5f8a73efd",
+    "clean_controls/wanted_50_harmonics.wav": "b95f1434893faf97c64ec7981acc9e2d16775bc362f75ff5dcc2eaedf00f3105",
+    "clean_controls/wanted_50_sine.wav": "b3987f2f9656292439447f021e540c5812f258b212f8c94b9d430ef084221dc1",
+    "clean_controls/wanted_60_harmonics.wav": "5f20c7931199d9ac0e01b326b7cbe06edecee44d3dade61a2701c1461bf559a7",
+    "clean_controls/wanted_60_sine.wav": "a5f5ec843b6d202ad7558eed40429076969d2a8b97061638041bfa5d8677ed4e"
+  },
+  "results": {
+    "warmup_25cents": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4806,
+      "conditioned_correct_frames": 4746,
+      "conditioned_valid_frames": 4755,
+      "mains_only_frames": 0,
+      "mains_explained_frames": 0,
+      "cases_without_correct_admission": 0,
+      "first_correct_admitted_ms_range": [
+        53.5,
+        80.0
+      ],
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "1f637d86c0829a49b4c523673c11adef8674e205c55e3070cf773ea320607945"
+    },
+    "warmup_rounded": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4806,
+      "conditioned_correct_frames": 4746,
+      "conditioned_valid_frames": 4755,
+      "mains_only_frames": 0,
+      "mains_explained_frames": 0,
+      "cases_without_correct_admission": 0,
+      "first_correct_admitted_ms_range": [
+        53.3333,
+        68.9167
+      ],
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "a0a33e535493e0dd9aea349aea19cf8e77232779bdf06d265f226bad52f7f4b7"
+    },
+    "cold_25cents": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4806,
+      "conditioned_correct_frames": 0,
+      "conditioned_valid_frames": 4374,
+      "mains_only_frames": 2321,
+      "mains_explained_frames": 3122,
+      "cases_without_correct_admission": 24,
+      "first_correct_admitted_ms_range": null,
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "7fa27f68606bc958fece0d10bae0fb9a1770844c369c1410872235c80fe1d29e"
+    },
+    "cold_rounded": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4806,
+      "conditioned_correct_frames": 0,
+      "conditioned_valid_frames": 4374,
+      "mains_only_frames": 2321,
+      "mains_explained_frames": 3122,
+      "cases_without_correct_admission": 24,
+      "first_correct_admitted_ms_range": null,
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "7fa27f68606bc958fece0d10bae0fb9a1770844c369c1410872235c80fe1d29e"
+    },
+    "prime_before_pluck_25cents": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4806,
+      "conditioned_correct_frames": 4740,
+      "conditioned_valid_frames": 4750,
+      "mains_only_frames": 0,
+      "mains_explained_frames": 0,
+      "cases_without_correct_admission": 0,
+      "first_correct_admitted_ms_range": [
+        53.5,
+        80.0
+      ],
+      "primed_cases": 24,
+      "early_admissions": 0,
+      "sha256": "391395f89d70b0cc3cac6cc2359187bd4464f4c1a46bf78978f8c4eac21b2573"
+    },
+    "prime_before_pluck_rounded": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4806,
+      "conditioned_correct_frames": 4740,
+      "conditioned_valid_frames": 4750,
+      "mains_only_frames": 0,
+      "mains_explained_frames": 0,
+      "cases_without_correct_admission": 0,
+      "first_correct_admitted_ms_range": [
+        53.5,
+        76.9167
+      ],
+      "primed_cases": 24,
+      "early_admissions": 0,
+      "sha256": "40930095a9f79c217f569b701fca88d7d06323cc38e63942ec16637a313c9def"
+    },
+    "prime_simultaneous_25cents": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4788,
+      "conditioned_correct_frames": 231,
+      "conditioned_valid_frames": 2674,
+      "mains_only_frames": 100,
+      "mains_explained_frames": 1854,
+      "cases_without_correct_admission": 15,
+      "first_correct_admitted_ms_range": [
+        56.0,
+        128.0
+      ],
+      "primed_cases": 17,
+      "early_admissions": 0,
+      "sha256": "db085e6d9688a3204e3474f519e7173905380f3f339e9662ba4db752927ff012"
+    },
+    "prime_simultaneous_rounded": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4788,
+      "conditioned_correct_frames": 231,
+      "conditioned_valid_frames": 2674,
+      "mains_only_frames": 100,
+      "mains_explained_frames": 1854,
+      "cases_without_correct_admission": 15,
+      "first_correct_admitted_ms_range": [
+        56.0,
+        128.0
+      ],
+      "primed_cases": 17,
+      "early_admissions": 0,
+      "sha256": "db085e6d9688a3204e3474f519e7173905380f3f339e9662ba4db752927ff012"
+    },
+    "cold_simultaneous_25cents": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4806,
+      "conditioned_correct_frames": 0,
+      "conditioned_valid_frames": 4658,
+      "mains_only_frames": 2643,
+      "mains_explained_frames": 3654,
+      "cases_without_correct_admission": 24,
+      "first_correct_admitted_ms_range": null,
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "febffceb719e25f5dfc5a913da68942a97411dc78e8bebd7ca546f1a462b4038"
+    },
+    "cold_simultaneous_rounded": {
+      "cases": 24,
+      "raw_correct_frames": 0,
+      "raw_valid_frames": 4806,
+      "conditioned_correct_frames": 0,
+      "conditioned_valid_frames": 4658,
+      "mains_only_frames": 2643,
+      "mains_explained_frames": 3654,
+      "cases_without_correct_admission": 24,
+      "first_correct_admitted_ms_range": null,
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "febffceb719e25f5dfc5a913da68942a97411dc78e8bebd7ca546f1a462b4038"
+    },
+    "clean_tones_strict_25cents": {
+      "cases": 18,
+      "raw_correct_frames": 5742,
+      "raw_valid_frames": 5742,
+      "conditioned_correct_frames": 5061,
+      "conditioned_valid_frames": 5583,
+      "mains_only_frames": 924,
+      "mains_explained_frames": 2838,
+      "cases_without_correct_admission": 9,
+      "first_correct_admitted_ms_range": [
+        34.6667,
+        42.6667
+      ],
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "33c68200b505d8f55b3e1d9d35e95dff94904ae07dfe5ea82c2b03605195f7dd"
+    },
+    "clean_tones_strict_rounded": {
+      "cases": 18,
+      "raw_correct_frames": 5742,
+      "raw_valid_frames": 5742,
+      "conditioned_correct_frames": 4800,
+      "conditioned_valid_frames": 5583,
+      "mains_only_frames": 924,
+      "mains_explained_frames": 2838,
+      "cases_without_correct_admission": 9,
+      "first_correct_admitted_ms_range": [
+        34.6667,
+        42.6667
+      ],
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "4c3b718807f649838562cbed3a14fe052714f66ef6e8a86697107e7b8d861a04"
+    },
+    "clean_tones_prime_strict_25cents": {
+      "cases": 18,
+      "raw_correct_frames": 5742,
+      "raw_valid_frames": 5742,
+      "conditioned_correct_frames": 5640,
+      "conditioned_valid_frames": 5739,
+      "mains_only_frames": 1386,
+      "mains_explained_frames": 3465,
+      "cases_without_correct_admission": 3,
+      "first_correct_admitted_ms_range": [
+        34.6667,
+        176.0
+      ],
+      "primed_cases": 6,
+      "early_admissions": 0,
+      "sha256": "8a356985af6b180315cec88e2e79ece6c3e1b5b1fb4429e557680ab5900d9dd7"
+    },
+    "clean_tones_prime_strict_rounded": {
+      "cases": 18,
+      "raw_correct_frames": 5742,
+      "raw_valid_frames": 5742,
+      "conditioned_correct_frames": 5388,
+      "conditioned_valid_frames": 5739,
+      "mains_only_frames": 1386,
+      "mains_explained_frames": 3465,
+      "cases_without_correct_admission": 3,
+      "first_correct_admitted_ms_range": [
+        34.6667,
+        176.0
+      ],
+      "primed_cases": 6,
+      "early_admissions": 0,
+      "sha256": "2458fb42e297836f862d1ebd577f13adb0b76d813a2a68f0766e91bae14654de"
+    },
+    "clean_tones_rescue_25cents": {
+      "cases": 18,
+      "raw_correct_frames": 5742,
+      "raw_valid_frames": 5742,
+      "conditioned_correct_frames": 5148,
+      "conditioned_valid_frames": 5583,
+      "mains_only_frames": 414,
+      "mains_explained_frames": 2841,
+      "cases_without_correct_admission": 0,
+      "first_correct_admitted_ms_range": [
+        34.6667,
+        714.667
+      ],
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "c1b0590df0b0df9ffbd6f861bf71e6aeeb8f1b9b3cba54bce538dcf64076fd9e"
+    },
+    "clean_tones_rescue_rounded": {
+      "cases": 18,
+      "raw_correct_frames": 5742,
+      "raw_valid_frames": 5742,
+      "conditioned_correct_frames": 4791,
+      "conditioned_valid_frames": 5583,
+      "mains_only_frames": 414,
+      "mains_explained_frames": 2841,
+      "cases_without_correct_admission": 0,
+      "first_correct_admitted_ms_range": [
+        34.6667,
+        768.0
+      ],
+      "primed_cases": 0,
+      "early_admissions": 0,
+      "sha256": "9f3b68585fb0ef4d90cb906f470dab11fda408d33f2974b635170d6779126c57"
+    },
+    "clean_tones_prime_rescue_25cents": {
+      "cases": 18,
+      "raw_correct_frames": 5742,
+      "raw_valid_frames": 5742,
+      "conditioned_correct_frames": 5739,
+      "conditioned_valid_frames": 5739,
+      "mains_only_frames": 81,
+      "mains_explained_frames": 3741,
+      "cases_without_correct_admission": 0,
+      "first_correct_admitted_ms_range": [
+        34.6667,
+        176.0
+      ],
+      "primed_cases": 6,
+      "early_admissions": 0,
+      "sha256": "10c694626159bc2879c68c8d55b21586b8713e95d4779b17388fb2ba66330870"
+    },
+    "clean_tones_prime_rescue_rounded": {
+      "cases": 18,
+      "raw_correct_frames": 5742,
+      "raw_valid_frames": 5742,
+      "conditioned_correct_frames": 4971,
+      "conditioned_valid_frames": 5739,
+      "mains_only_frames": 81,
+      "mains_explained_frames": 3741,
+      "cases_without_correct_admission": 0,
+      "first_correct_admitted_ms_range": [
+        34.6667,
+        176.0
+      ],
+      "primed_cases": 6,
+      "early_admissions": 0,
+      "sha256": "6fc0961d64d80bd14be8814d0f59d201df6206871c2a91c8127293bec7b37aec"
+    }
+  }
+}

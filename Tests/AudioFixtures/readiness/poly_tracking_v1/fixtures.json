@@ -1,0 +1,2153 @@
+{
+  "schema": 1,
+  "edition": "independent-continuous-poly-oracle-v1",
+  "seed": 202611041337023,
+  "sample_rate": 12000,
+  "hop_samples": 32,
+  "oracle_seed_sample": 1023,
+  "scored_sample_interval": [
+    2879,
+    16511
+  ],
+  "generator_sha256": "cd73cd9e6995aded715fa560226b5adde2575344695ddd5b0ed70313a25cecb5",
+  "policy_sha256": "03976d0824e8c67bc4656c395a49e4976529dce058b9bb65a97af03adacf9728",
+  "detector_used_during_generation": false,
+  "real_audio": false,
+  "note_acquisition_tested": false,
+  "musical_readiness_eligible": false,
+  "cases": [
+    {
+      "name": "g_major_static",
+      "file": "pcm/g_major_static.f32",
+      "frames": 17760,
+      "sha256": "18d318e60622a922874b47ac062564e8e4b65c2d148d0a6da812128ab820844d",
+      "kind": "static",
+      "voices": [
+        {
+          "physical_string": 0,
+          "slot": 4,
+          "voice_id": 4,
+          "anchor": 43,
+          "seed_pitch": 42.952153394964945,
+          "detune_semitones": -0.04784660503505597,
+          "level": 0.06617206571061647,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.06617206571061647,
+            0.029205140336751634,
+            0.018099709802703045,
+            0.012889732441169865,
+            0.009905812133832737,
+            0.007988334037418658,
+            0.006659766540017863,
+            0.005688902723602749
+          ],
+          "pluck_fraction": 0.16779057569156372,
+          "pickup_fraction": 0.07932827615423461,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 1,
+          "slot": 0,
+          "voice_id": 0,
+          "anchor": 47,
+          "seed_pitch": 47.00687156551862,
+          "detune_semitones": 0.006871565518621545,
+          "level": 0.06974720596354891,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.06974720596354891,
+            0.03004521872426934,
+            0.018357962999492293,
+            0.01294267140480092,
+            0.009869116131491624,
+            0.007908116261173945,
+            0.006557415396780944,
+            0.005575354422610386
+          ],
+          "pluck_fraction": 0.19100515923520228,
+          "pickup_fraction": 0.07933409064485455,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 2,
+          "slot": 2,
+          "voice_id": 2,
+          "anchor": 50,
+          "seed_pitch": 49.9716084782862,
+          "detune_semitones": -0.028391521713801035,
+          "level": 0.062436113268964255,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.062436113268964255,
+            0.026251151915123463,
+            0.015813728978381316,
+            0.011037249770854,
+            0.008350709085805917,
+            0.006648854004857318,
+            0.005483568964868924,
+            0.004640591883285506
+          ],
+          "pluck_fraction": 0.33653867169776297,
+          "pickup_fraction": 0.14354229164110754,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 3,
+          "slot": 3,
+          "voice_id": 3,
+          "anchor": 55,
+          "seed_pitch": 54.94869740750143,
+          "detune_semitones": -0.05130259249857608,
+          "level": 0.041139528166241175,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.041139528166241175,
+            0.016882461266432797,
+            0.010026710922755408,
+            0.00692806921024649,
+            0.005200952062147239,
+            0.004114669426910035,
+            0.0033752684896352133,
+            0.002843077334784091
+          ],
+          "pluck_fraction": 0.13841973243984887,
+          "pickup_fraction": 0.095313604852499,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 4,
+          "slot": 1,
+          "voice_id": 1,
+          "anchor": 59,
+          "seed_pitch": 58.985134170151085,
+          "detune_semitones": -0.014865829848918224,
+          "level": 0.0726379813962454,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.0726379813962454,
+            0.029094049432723777,
+            0.017035846193816328,
+            0.011653183308829227,
+            0.008680072666426132,
+            0.006823451612558038,
+            0.005567168341966664,
+            0.004667507063366628
+          ],
+          "pluck_fraction": 0.18546443332809362,
+          "pickup_fraction": 0.17734624186281092,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 5,
+          "slot": 5,
+          "voice_id": 5,
+          "anchor": 67,
+          "seed_pitch": 66.94669661632452,
+          "detune_semitones": -0.05330338367548218,
+          "level": 0.06984269306658397,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.06984269306658397,
+            0.027303940751554956,
+            0.01576237577417286,
+            0.010674061205711268,
+            0.007888903090895235,
+            0.006162061560705662,
+            0.005000496559165255,
+            0.004172862212821117
+          ],
+          "pluck_fraction": 0.19567402284042001,
+          "pickup_fraction": 0.1335106841126736,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        }
+      ],
+      "observation": "full512",
+      "peak": 0.3833001009897402,
+      "rms": 0.10526319941764033
+    },
+    {
+      "name": "c_major7_opposed",
+      "file": "pcm/c_major7_opposed.f32",
+      "frames": 17760,
+      "sha256": "a32872d7e1e076b65a07fc2328a47fb733197926343bc257c16051c65397cd95",
+      "kind": "opposed",
+      "voices": [
+        {
+          "physical_string": 0,
+          "slot": 4,
+          "voice_id": 4,
+          "anchor": 43,
+          "seed_pitch": 42.992015479267785,
+          "detune_semitones": -0.007984520732215339,
+          "level": 0.05394082244904043,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.05394082244904043,
+            0.023806862799075106,
+            0.014754159815961803,
+            0.01050719456251206,
+            0.008074822023258914,
+            0.006511770538650331,
+            0.005428775430075918,
+            0.004637366061469137
+          ],
+          "pluck_fraction": 0.15342820537925922,
+          "pickup_fraction": 0.18339009316226867,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 1,
+          "slot": 0,
+          "voice_id": 0,
+          "anchor": 48,
+          "seed_pitch": 47.957181652930096,
+          "detune_semitones": -0.042818347069904235,
+          "level": 0.05638618011934493,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.05638618011934493,
+            0.02428964847132586,
+            0.01484124552393714,
+            0.010463326680612832,
+            0.007978552719371243,
+            0.0063932090432456045,
+            0.005301253298569299,
+            0.004507319459747137
+          ],
+          "pluck_fraction": 0.16170693901102473,
+          "pickup_fraction": 0.06466228835175214,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 2,
+          "slot": 3,
+          "voice_id": 3,
+          "anchor": 52,
+          "seed_pitch": 52.061536352627854,
+          "detune_semitones": 0.06153635262785419,
+          "level": 0.04304074746030562,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.04304074746030562,
+            0.018096405124605707,
+            0.010901298619152785,
+            0.007608601099129943,
+            0.005756616516603588,
+            0.004583431465227924,
+            0.003780134518966159,
+            0.0031990226946769207
+          ],
+          "pluck_fraction": 0.2356265286844402,
+          "pickup_fraction": 0.06698535881802027,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.31,
+              0.0
+            ],
+            [
+              0.58,
+              1.35
+            ],
+            [
+              0.73,
+              1.35
+            ],
+            [
+              0.99,
+              -0.4725
+            ],
+            [
+              1.22,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 3,
+          "slot": 5,
+          "voice_id": 5,
+          "anchor": 55,
+          "seed_pitch": 54.93502668023386,
+          "detune_semitones": -0.06497331976614082,
+          "level": 0.058864416257397745,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.058864416257397745,
+            0.024156237850393742,
+            0.014346700406107202,
+            0.009913014758070608,
+            0.007441772445320161,
+            0.005887466986215327,
+            0.004829496550167133,
+            0.004068011840350542
+          ],
+          "pluck_fraction": 0.251256604353794,
+          "pickup_fraction": 0.12082084126281856,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 4,
+          "slot": 2,
+          "voice_id": 2,
+          "anchor": 59,
+          "seed_pitch": 58.96152986097557,
+          "detune_semitones": -0.03847013902443554,
+          "level": 0.04214344462438692,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.04214344462438692,
+            0.016879922013231324,
+            0.009883937120749631,
+            0.006760998530430793,
+            0.005036045257888905,
+            0.003958862149711214,
+            0.0032299858314405105,
+            0.002708016132577905
+          ],
+          "pluck_fraction": 0.16078650290001573,
+          "pickup_fraction": 0.10684449128715715,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.025,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 5,
+          "slot": 1,
+          "voice_id": 1,
+          "anchor": 64,
+          "seed_pitch": 63.95470952907976,
+          "detune_semitones": -0.045290470920245206,
+          "level": 0.0365019729985518,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.0365019729985518,
+            0.014269892300933628,
+            0.008237909932158142,
+            0.00557859780040722,
+            0.004122987172581172,
+            0.003220485849390992,
+            0.0026134156970148573,
+            0.002180868135681175
+          ],
+          "pluck_fraction": 0.2557763430683234,
+          "pickup_fraction": 0.07910340282746961,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.31,
+              0.0
+            ],
+            [
+              0.58,
+              -0.85
+            ],
+            [
+              0.73,
+              -0.85
+            ],
+            [
+              0.99,
+              0.2975
+            ],
+            [
+              1.22,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        }
+      ],
+      "observation": "full512",
+      "peak": 0.35852089042671254,
+      "rms": 0.07591624506303903
+    },
+    {
+      "name": "d_add9_vibrato",
+      "file": "pcm/d_add9_vibrato.f32",
+      "frames": 17760,
+      "sha256": "b252e50e307b1827a6ba3adc1371e27f6fd0a0ce2108c5047817dc2c18d8a724",
+      "kind": "vibrato",
+      "voices": [
+        {
+          "physical_string": 0,
+          "slot": 1,
+          "voice_id": 1,
+          "anchor": 42,
+          "seed_pitch": 41.9440157910098,
+          "detune_semitones": -0.055984208990202844,
+          "level": 0.05947601065091468,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.05947601065091468,
+            0.026249826404488648,
+            0.016268171794904696,
+            0.011585400209675838,
+            0.008903427475791688,
+            0.007179981993766749,
+            0.005985854324072566,
+            0.005113233739153622
+          ],
+          "pluck_fraction": 0.21979331146599335,
+          "pickup_fraction": 0.17939518287819514,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 1,
+          "slot": 4,
+          "voice_id": 4,
+          "anchor": 45,
+          "seed_pitch": 44.99718718188611,
+          "detune_semitones": -0.002812818113888768,
+          "level": 0.07382244566140042,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.07382244566140042,
+            0.0318007222800643,
+            0.01943059520824799,
+            0.013698895078228891,
+            0.010445755916356705,
+            0.00837017734129239,
+            0.0069405567595221315,
+            0.005901115223472977
+          ],
+          "pluck_fraction": 0.2855842756244369,
+          "pickup_fraction": 0.17250926472078743,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 2,
+          "slot": 0,
+          "voice_id": 0,
+          "anchor": 50,
+          "seed_pitch": 50.00946844372429,
+          "detune_semitones": 0.009468443724289025,
+          "level": 0.04670605174188863,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.04670605174188863,
+            0.019637475740204333,
+            0.011829641616458901,
+            0.008256541477284803,
+            0.006246843857223031,
+            0.004973751614508225,
+            0.004102046754577414,
+            0.0034714480653211996
+          ],
+          "pluck_fraction": 0.34702674830551117,
+          "pickup_fraction": 0.05529191899310105,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 3,
+          "slot": 2,
+          "voice_id": 2,
+          "anchor": 57,
+          "seed_pitch": 57.02997009667442,
+          "detune_semitones": 0.029970096674420132,
+          "level": 0.05030556110041156,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.05030556110041156,
+            0.020643933574833306,
+            0.012260697714436669,
+            0.008471667627192876,
+            0.00635974264666839,
+            0.005031432383642976,
+            0.004127290292429035,
+            0.0034765250588250484
+          ],
+          "pluck_fraction": 0.24266896886649808,
+          "pickup_fraction": 0.08307589489044678,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.3,
+              0.0
+            ],
+            [
+              0.48,
+              0.85
+            ],
+            [
+              0.69,
+              -0.45
+            ],
+            [
+              0.91,
+              0.7
+            ],
+            [
+              1.2,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.1,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 4,
+          "slot": 5,
+          "voice_id": 5,
+          "anchor": 62,
+          "seed_pitch": 61.95912931577645,
+          "detune_semitones": -0.040870684223547615,
+          "level": 0.059868471888314415,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.059868471888314415,
+            0.02397941472352488,
+            0.014041002507826564,
+            0.00960459340862243,
+            0.00715414548187486,
+            0.005623912080090101,
+            0.004588479125822363,
+            0.003846975233071631
+          ],
+          "pluck_fraction": 0.2558218342115236,
+          "pickup_fraction": 0.07411321513981343,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.025,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 5,
+          "slot": 3,
+          "voice_id": 3,
+          "anchor": 64,
+          "seed_pitch": 64.03707925198434,
+          "detune_semitones": 0.037079251984342865,
+          "level": 0.06823949667844209,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.06823949667844209,
+            0.026677195457624186,
+            0.015400560059455247,
+            0.01042904464606218,
+            0.0077078181357422716,
+            0.006020615198833373,
+            0.004885713212896993,
+            0.004077076707794403
+          ],
+          "pluck_fraction": 0.24404848319660727,
+          "pickup_fraction": 0.075112195564735,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.3,
+              0.0
+            ],
+            [
+              0.48,
+              -0.55
+            ],
+            [
+              0.69,
+              0.65
+            ],
+            [
+              0.91,
+              -0.35
+            ],
+            [
+              1.2,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.1,
+          "phase_reset_seconds": null
+        }
+      ],
+      "observation": "varied",
+      "peak": 0.40189197740037996,
+      "rms": 0.09456226595671098
+    },
+    {
+      "name": "b7_pickup_nodes",
+      "file": "pcm/b7_pickup_nodes.f32",
+      "frames": 17760,
+      "sha256": "933c082483012ca8bd3769d021ba1b59c3ce102d85bf2e5f933c2f85978344fe",
+      "kind": "opposed",
+      "voices": [
+        {
+          "physical_string": 0,
+          "slot": 4,
+          "voice_id": 4,
+          "anchor": 42,
+          "seed_pitch": 41.984430883612234,
+          "detune_semitones": -0.01556911638776938,
+          "level": 0.0732622210980706,
+          "onset_seconds": 0.0,
+          "stiffness": 5.866602049906276e-05,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.02734207650313442,
+            0.008996358613193142,
+            0.004778525848171405,
+            0.0015697915119390017,
+            0.008314796630921344,
+            0.006593157364892058,
+            0.0009241391465528734,
+            0.000692829835570097
+          ],
+          "pluck_fraction": 0.2550184701480612,
+          "pickup_fraction": 0.2051033991096983,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 1,
+          "slot": 0,
+          "voice_id": 0,
+          "anchor": 47,
+          "seed_pitch": 47.0425129852075,
+          "detune_semitones": 0.04251298520749831,
+          "level": 0.06528665355729192,
+          "onset_seconds": 0.0,
+          "stiffness": 8.039294430211183e-05,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.007738868607170032,
+            0.008545071567028491,
+            0.004393830023361975,
+            0.002166524711282217,
+            0.004495090914288542,
+            0.005617268595091867,
+            0.0016835161997766615,
+            0.0007215201894537674
+          ],
+          "pluck_fraction": 0.23235317461788052,
+          "pickup_fraction": 0.20055213545263828,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 2,
+          "slot": 3,
+          "voice_id": 3,
+          "anchor": 51,
+          "seed_pitch": 51.04185752758806,
+          "detune_semitones": 0.041857527588055374,
+          "level": 0.06539500657204583,
+          "onset_seconds": 0.0,
+          "stiffness": 0.00018245078830515899,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.019882442978131132,
+            0.01481407022052847,
+            0.0031049543548802893,
+            0.0025101806649080655,
+            0.0022479356440611017,
+            0.0009967650791456956,
+            0.003705041509069328,
+            0.003953985853235853
+          ],
+          "pluck_fraction": 0.17487046664747816,
+          "pickup_fraction": 0.14659731816850613,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.31,
+              0.0
+            ],
+            [
+              0.58,
+              1.35
+            ],
+            [
+              0.73,
+              1.35
+            ],
+            [
+              0.99,
+              -0.4725
+            ],
+            [
+              1.22,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 3,
+          "slot": 1,
+          "voice_id": 1,
+          "anchor": 57,
+          "seed_pitch": 56.97975179044779,
+          "detune_semitones": -0.020248209552209788,
+          "level": 0.041009109892904606,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0001740449549517177,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.02107813096336699,
+            0.012257263906851138,
+            0.0010994417273759312,
+            0.0012892632788684038,
+            0.0005702910718438452,
+            0.0005450209244307689,
+            0.0013222958963569392,
+            0.002455579090516848
+          ],
+          "pluck_fraction": 0.3146393926358876,
+          "pickup_fraction": 0.1043007497338447,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 4,
+          "slot": 2,
+          "voice_id": 2,
+          "anchor": 59,
+          "seed_pitch": 58.94849819762725,
+          "detune_semitones": -0.05150180237274765,
+          "level": 0.04375938310762996,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0001845437474150067,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.0036219950649116744,
+            0.005479600229540418,
+            0.0018901770814798398,
+            0.004682851340229507,
+            0.0036633992777868806,
+            0.0012392743806458801,
+            0.0003689219226358053,
+            0.00030930368437989827
+          ],
+          "pluck_fraction": 0.1491579192050219,
+          "pickup_fraction": 0.186594334526337,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.025,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 5,
+          "slot": 5,
+          "voice_id": 5,
+          "anchor": 66,
+          "seed_pitch": 65.99188543139758,
+          "detune_semitones": -0.008114568602421865,
+          "level": 0.07147045819680628,
+          "onset_seconds": 0.0,
+          "stiffness": 5.370281130670174e-05,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.03232067249220864,
+            0.010838648522044754,
+            0.0017742709885972335,
+            0.004859018042822785,
+            0.007646373430496007,
+            0.0026093502060642927,
+            0.0016988665398924056,
+            0.0006341914889085696
+          ],
+          "pluck_fraction": 0.3097137458234479,
+          "pickup_fraction": 0.18155400887464945,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.31,
+              0.0
+            ],
+            [
+              0.58,
+              -0.85
+            ],
+            [
+              0.73,
+              -0.85
+            ],
+            [
+              0.99,
+              0.2975
+            ],
+            [
+              1.22,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        }
+      ],
+      "observation": "full512",
+      "peak": 0.13992775812746788,
+      "rms": 0.03327525416374893
+    },
+    {
+      "name": "e7_reversal_windows",
+      "file": "pcm/e7_reversal_windows.f32",
+      "frames": 17760,
+      "sha256": "d94df9d2f41081d360048b955a4ec740fe300ddea828f6b5b8a85450a7e05144",
+      "kind": "reversal",
+      "voices": [
+        {
+          "physical_string": 0,
+          "slot": 2,
+          "voice_id": 2,
+          "anchor": 40,
+          "seed_pitch": 40.04344968276266,
+          "detune_semitones": 0.0434496827626666,
+          "level": 0.06619583349084032,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.06619583349084032,
+            0.02921563028216102,
+            0.018106210883182948,
+            0.012894362194291761,
+            0.00990937011805474,
+            0.007991203299028027,
+            0.006662158604792711,
+            0.00569094607207914
+          ],
+          "pluck_fraction": 0.19155144593179985,
+          "pickup_fraction": 0.20198601014737183,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 1,
+          "slot": 3,
+          "voice_id": 3,
+          "anchor": 47,
+          "seed_pitch": 47.011133815036885,
+          "detune_semitones": 0.011133815036885236,
+          "level": 0.05863254804971427,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.05863254804971427,
+            0.02525732330318083,
+            0.015432505614993956,
+            0.010880174948230141,
+            0.00829641012559422,
+            0.006647907973666093,
+            0.00551244982536834,
+            0.004686886471821287
+          ],
+          "pluck_fraction": 0.24214570425719556,
+          "pickup_fraction": 0.09183605249387264,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.32,
+              0.0
+            ],
+            [
+              0.41,
+              0.95
+            ],
+            [
+              0.52,
+              -0.45
+            ],
+            [
+              0.68,
+              0.75
+            ],
+            [
+              0.88,
+              -0.6
+            ],
+            [
+              1.2,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 2,
+          "slot": 0,
+          "voice_id": 0,
+          "anchor": 50,
+          "seed_pitch": 49.92854829350825,
+          "detune_semitones": -0.07145170649175227,
+          "level": 0.043560677834863046,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.043560677834863046,
+            0.01831500891867914,
+            0.01103298583670043,
+            0.007700512672528548,
+            0.005826156196053196,
+            0.004638799119813199,
+            0.0038257983810572192,
+            0.0032376667509725287
+          ],
+          "pluck_fraction": 0.20557619706639735,
+          "pickup_fraction": 0.09844380359112012,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 3,
+          "slot": 4,
+          "voice_id": 4,
+          "anchor": 56,
+          "seed_pitch": 55.96674143080183,
+          "detune_semitones": -0.03325856919816495,
+          "level": 0.04355616293425941,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.04355616293425941,
+            0.017874177620138133,
+            0.010615704022697731,
+            0.007335040648058388,
+            0.005506468487357361,
+            0.0043563749991225075,
+            0.003573539873557945,
+            0.003010086531088921
+          ],
+          "pluck_fraction": 0.3463369247111327,
+          "pickup_fraction": 0.16196208670412984,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 4,
+          "slot": 1,
+          "voice_id": 1,
+          "anchor": 59,
+          "seed_pitch": 58.92616144626507,
+          "detune_semitones": -0.07383855373492954,
+          "level": 0.06786727373239995,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.06786727373239995,
+            0.027183214330577504,
+            0.015916968157357943,
+            0.010887827088144092,
+            0.008109984010374972,
+            0.0063753018667063194,
+            0.005201528601373446,
+            0.00436095515635828
+          ],
+          "pluck_fraction": 0.14884950356820803,
+          "pickup_fraction": 0.09111345376251825,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.32,
+              0.0
+            ],
+            [
+              0.41,
+              -0.95
+            ],
+            [
+              0.52,
+              0.45
+            ],
+            [
+              0.68,
+              -0.75
+            ],
+            [
+              0.88,
+              0.6
+            ],
+            [
+              1.2,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.025,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 5,
+          "slot": 5,
+          "voice_id": 5,
+          "anchor": 65,
+          "seed_pitch": 64.9772545547821,
+          "detune_semitones": -0.022745445217889244,
+          "level": 0.0725034429988601,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.0725034429988601,
+            0.028344120551556537,
+            0.016362864364062406,
+            0.011080703710219672,
+            0.008189441306751564,
+            0.006396813460445527,
+            0.0051909971011254805,
+            0.004331832927761569
+          ],
+          "pluck_fraction": 0.17791181478145768,
+          "pickup_fraction": 0.14066067635401147,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        }
+      ],
+      "observation": "varied",
+      "peak": 0.31844021976294395,
+      "rms": 0.08948869836326813
+    },
+    {
+      "name": "a_minor6_weak_tail",
+      "file": "pcm/a_minor6_weak_tail.f32",
+      "frames": 17760,
+      "sha256": "40eb9430a94ea5c09acbfc91fdac01bf8e6055350b9972eb8bdb588295a49beb",
+      "kind": "weak-tail",
+      "voices": [
+        {
+          "physical_string": 0,
+          "slot": 5,
+          "voice_id": 5,
+          "anchor": 40,
+          "seed_pitch": 40.04821619254947,
+          "detune_semitones": 0.04821619254947139,
+          "level": 0.03957238840332019,
+          "onset_seconds": 0.0,
+          "stiffness": 6.129987899576185e-05,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.01889543324800377,
+            0.015537720198199557,
+            0.004593942863652868,
+            0.0012848974819550114,
+            0.002245196783723052,
+            0.0008902025360328448,
+            0.00043809597283014034,
+            0.0004410840659508435
+          ],
+          "pluck_fraction": 0.27190543693763575,
+          "pickup_fraction": 0.0724645549241694,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 1,
+          "slot": 3,
+          "voice_id": 3,
+          "anchor": 45,
+          "seed_pitch": 44.935113208456194,
+          "detune_semitones": -0.06488679154380335,
+          "level": 0.07110156163609958,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0001778133083907405,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.007381060561211693,
+            0.019777988806080844,
+            0.008371590576893167,
+            0.0014513392321632047,
+            0.0012799675540445957,
+            0.0008867844221164548,
+            0.003065668304703893,
+            0.004979143209931173
+          ],
+          "pluck_fraction": 0.16884407768458545,
+          "pickup_fraction": 0.11744675751615362,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 2,
+          "slot": 1,
+          "voice_id": 1,
+          "anchor": 52,
+          "seed_pitch": 51.92675661757094,
+          "detune_semitones": -0.07324338242906353,
+          "level": 0.04244648082672768,
+          "onset_seconds": 0.0,
+          "stiffness": 0.00028800380815368037,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.017206823392770312,
+            0.014611033368050046,
+            0.005706777458694299,
+            0.0008253903468273077,
+            0.0006244847957313178,
+            0.0008705401913618184,
+            0.0017672319115010656,
+            0.0012868742353248793
+          ],
+          "pluck_fraction": 0.22621685125795643,
+          "pickup_fraction": 0.09475906415129626,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.35,
+              0.0
+            ],
+            [
+              0.67,
+              1.15
+            ],
+            [
+              1.05,
+              -0.25
+            ],
+            [
+              1.28,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 3,
+          "slot": 0,
+          "voice_id": 0,
+          "anchor": 55,
+          "seed_pitch": 55.0089342383435,
+          "detune_semitones": 0.008934238343496895,
+          "level": 0.03723073913660156,
+          "onset_seconds": 0.0,
+          "stiffness": 5.439431823824846e-05,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.012021040887327928,
+            0.006829764522239951,
+            0.00099814475990151,
+            0.0021552491546213462,
+            0.0005177473537757698,
+            0.0019736841018180885,
+            0.0022814662643581437,
+            0.000982842937133989
+          ],
+          "pluck_fraction": 0.19644026727149094,
+          "pickup_fraction": 0.17147979635047836,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 4,
+          "slot": 2,
+          "voice_id": 2,
+          "anchor": 60,
+          "seed_pitch": 60.045935705360286,
+          "detune_semitones": 0.045935705360283866,
+          "level": 0.046909430115266555,
+          "onset_seconds": 0.0,
+          "stiffness": 5.027964543643906e-05,
+          "partials": 5,
+          "partial_initial_amplitudes": [
+            0.005964248870877315,
+            0.015067260671352643,
+            0.0065342964817183624,
+            0.00152549720385827,
+            0.000616612658757638
+          ],
+          "pluck_fraction": 0.20628967664233255,
+          "pickup_fraction": 0.09326780853424355,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.025,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 5,
+          "slot": 4,
+          "voice_id": 4,
+          "anchor": 66,
+          "seed_pitch": 66.04538407756353,
+          "detune_semitones": 0.04538407756352336,
+          "level": 0.05181246842929971,
+          "onset_seconds": 0.0,
+          "stiffness": 0.00015915764934260236,
+          "partials": 8,
+          "partial_initial_amplitudes": [
+            0.014321221130456703,
+            0.01252940128059101,
+            0.005780589113231178,
+            0.0013212187949833882,
+            0.000717357518569199,
+            0.0007258030500232395,
+            0.00041014342046153903,
+            0.00167581056834666
+          ],
+          "pluck_fraction": 0.14945718409366332,
+          "pickup_fraction": 0.11099743439074361,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.35,
+              0.0
+            ],
+            [
+              0.67,
+              -0.65
+            ],
+            [
+              1.05,
+              0.3
+            ],
+            [
+              1.28,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        }
+      ],
+      "observation": "full512",
+      "peak": 0.09794238092516735,
+      "rms": 0.026313104970379253
+    },
+    {
+      "name": "d7_neighbour_attack",
+      "file": "pcm/d7_neighbour_attack.f32",
+      "frames": 17760,
+      "sha256": "0fd17a46ebd914ca2fd46682c434fd0332e5c6af273a994f3bb71343438a4357",
+      "kind": "neighbour",
+      "voices": [
+        {
+          "physical_string": 0,
+          "slot": 4,
+          "voice_id": 4,
+          "anchor": 42,
+          "seed_pitch": 42.034943521853755,
+          "detune_semitones": 0.034943521853751686,
+          "level": 0.05016002858618144,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.05016002858618144,
+            0.022138203763523632,
+            0.013720018430065649,
+            0.00977072939727768,
+            0.007508845529703263,
+            0.006055350688690978,
+            0.005048264345947355,
+            0.004312326057461097,
+            0.0037527671141160176,
+            0.0033140402238763804,
+            0.0029615182061363187,
+            0.002672538098249103
+          ],
+          "pluck_fraction": 0.22355088779332613,
+          "pickup_fraction": 0.1747390313100473,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 1,
+          "slot": 3,
+          "voice_id": 3,
+          "anchor": 45,
+          "seed_pitch": 45.055081796735216,
+          "detune_semitones": 0.05508179673521536,
+          "level": 0.06780986275290382,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.06780986275290382,
+            0.029210663422681624,
+            0.017848040422852773,
+            0.01258316744722582,
+            0.009594985220177332,
+            0.0076884553423468265,
+            0.006375272413089633,
+            0.005420489795585337,
+            0.004697731775340383,
+            0.004133261334468672,
+            0.003681296118366725,
+            0.003311979587158126
+          ],
+          "pluck_fraction": 0.20247119262126617,
+          "pickup_fraction": 0.14861854657885892,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 2,
+          "slot": 0,
+          "voice_id": 0,
+          "anchor": 50,
+          "seed_pitch": 50.06547710463179,
+          "detune_semitones": 0.06547710463179181,
+          "level": 0.061371816891236594,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.061371816891236594,
+            0.025803670410724112,
+            0.015544165522412248,
+            0.010849106974383124,
+            0.008208361508960538,
+            0.006535516532953423,
+            0.005390095135689508,
+            0.004561487581731421,
+            0.003937003889201318,
+            0.0034511908839957436,
+            0.0030635722299374953,
+            0.0027478462121959583
+          ],
+          "pluck_fraction": 0.29334725203625883,
+          "pickup_fraction": 0.06715511826916935,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.35,
+              0.0
+            ],
+            [
+              0.67,
+              1.15
+            ],
+            [
+              1.05,
+              -0.25
+            ],
+            [
+              1.28,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 3,
+          "slot": 1,
+          "voice_id": 1,
+          "anchor": 57,
+          "seed_pitch": 57.04230341854751,
+          "detune_semitones": 0.042303418547512475,
+          "level": 0.04228515951192739,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.04228515951192739,
+            0.017352594923313917,
+            0.010305929349394269,
+            0.007120998337198777,
+            0.005345785364214535,
+            0.004229252517254592,
+            0.003469261142302682,
+            0.0029222498158047038,
+            0.0025118074752620207,
+            0.002193754240090527,
+            0.0019408786055032051,
+            0.0017355617575386922
+          ],
+          "pluck_fraction": 0.2165850987578922,
+          "pickup_fraction": 0.06083148291931353,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": 0.66
+        },
+        {
+          "physical_string": 4,
+          "slot": 5,
+          "voice_id": 5,
+          "anchor": 60,
+          "seed_pitch": 60.01085130128126,
+          "detune_semitones": 0.010851301281253126,
+          "level": 0.05381461692658457,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.05381461692658457,
+            0.021554634296955755,
+            0.01262118686833204,
+            0.00863338412887571,
+            0.006430723658061133,
+            0.0050552263098252465,
+            0.004124495559071673,
+            0.003457971983651325,
+            0.002960057453956626,
+            0.0025757295067878596,
+            0.0022712341456623793,
+            0.002024794760599774
+          ],
+          "pluck_fraction": 0.19513915717016622,
+          "pickup_fraction": 0.1095337521231494,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.025,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 5,
+          "slot": 2,
+          "voice_id": 2,
+          "anchor": 66,
+          "seed_pitch": 66.06193634793581,
+          "detune_semitones": 0.061936347935810945,
+          "level": 0.03951625569597271,
+          "onset_seconds": 0.0,
+          "stiffness": 0.0,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.03951625569597271,
+            0.01544828036939422,
+            0.008918185197618488,
+            0.0060392707296843574,
+            0.0044634577793753,
+            0.0034864291389083367,
+            0.0028292279687787054,
+            0.0023609612250876347,
+            0.0020126913802495515,
+            0.0017449210705398554,
+            0.001533517366436926,
+            0.0013629665533156955
+          ],
+          "pluck_fraction": 0.16493797427992707,
+          "pickup_fraction": 0.09760362591300584,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.35,
+              0.0
+            ],
+            [
+              0.67,
+              -0.65
+            ],
+            [
+              1.05,
+              0.3
+            ],
+            [
+              1.28,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        }
+      ],
+      "observation": "full512",
+      "peak": 0.367011218819555,
+      "rms": 0.08658180312995281
+    },
+    {
+      "name": "g13_stiff_strum",
+      "file": "pcm/g13_stiff_strum.f32",
+      "frames": 17760,
+      "sha256": "baad134132eaea0b9e8132bc705e82a072a5ffaa1bd0f444d385fc2dcffe9c16",
+      "kind": "strum",
+      "voices": [
+        {
+          "physical_string": 0,
+          "slot": 3,
+          "voice_id": 3,
+          "anchor": 43,
+          "seed_pitch": 43.00524191850013,
+          "detune_semitones": 0.00524191850012988,
+          "level": 0.03995395068382277,
+          "onset_seconds": 0.0,
+          "stiffness": 0.00017130534836353915,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.020635586346675294,
+            0.010763047801949284,
+            0.0012021241827515565,
+            0.0008560943377342707,
+            0.0021677495679651364,
+            0.0005305593090141268,
+            0.0031640515303169286,
+            0.0030705893412323357,
+            0.0003288109358678207,
+            0.001447036365710259,
+            0.0006872370472829726,
+            0.00023416314588833458
+          ],
+          "pluck_fraction": 0.33090255091539433,
+          "pickup_fraction": 0.1268785625876036,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 1,
+          "slot": 4,
+          "voice_id": 4,
+          "anchor": 47,
+          "seed_pitch": 46.9707656998526,
+          "detune_semitones": -0.02923430014740295,
+          "level": 0.045699559673335645,
+          "onset_seconds": 0.006,
+          "stiffness": 0.00025330401222905516,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.008425395633314743,
+            0.012488741615773355,
+            0.0013231295725539165,
+            0.001697886908793161,
+            0.0007113054650402449,
+            0.0006503791682636727,
+            0.003037821251376663,
+            0.002061918633999842,
+            0.001301889775760907,
+            0.0026944861169446695,
+            0.0010364981567790917,
+            0.0007170908398606533
+          ],
+          "pluck_fraction": 0.34838344821116296,
+          "pickup_fraction": 0.10800361892026669,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.37,
+              0.0
+            ],
+            [
+              0.69,
+              1.1
+            ],
+            [
+              1.06,
+              -0.25
+            ],
+            [
+              1.3,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 2,
+          "slot": 2,
+          "voice_id": 2,
+          "anchor": 53,
+          "seed_pitch": 53.005097739121446,
+          "detune_semitones": 0.0050977391214483,
+          "level": 0.052565495412747194,
+          "onset_seconds": 0.012,
+          "stiffness": 5.7631240813904493e-05,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.015845917432759316,
+            0.009647422322933268,
+            0.0014645084391138815,
+            0.0038021728555826884,
+            0.0018264776839491573,
+            0.0015103013865235106,
+            0.002843232441003027,
+            0.0016265776344167036,
+            0.00037092859132554655,
+            0.0009755318942752045,
+            0.0002886373911876699,
+            0.0012146369054635137
+          ],
+          "pluck_fraction": 0.18119265323633008,
+          "pickup_fraction": 0.17018291680864805,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 3,
+          "slot": 1,
+          "voice_id": 1,
+          "anchor": 57,
+          "seed_pitch": 56.98211544004761,
+          "detune_semitones": -0.017884559952393207,
+          "level": 0.0662204162325138,
+          "onset_seconds": 0.018000000000000002,
+          "stiffness": 0.00010941176376019028,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.02499289095120492,
+            0.006826532855247398,
+            0.003931254200876369,
+            0.0014985475483998525,
+            0.006869419702384113,
+            0.004459996101099435,
+            0.0005976316785030574,
+            0.0007299307710808868,
+            0.003333430618335071,
+            0.00304272071304709,
+            0.0006188893671945587,
+            0.00029897624991559945
+          ],
+          "pluck_fraction": 0.26229744401263677,
+          "pickup_fraction": 0.2094626274111918,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 4,
+          "slot": 5,
+          "voice_id": 5,
+          "anchor": 64,
+          "seed_pitch": 63.93837952910887,
+          "detune_semitones": -0.061620470891126565,
+          "level": 0.06208600886402732,
+          "onset_seconds": 0.024,
+          "stiffness": 0.00013009008834534623,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.005701122324675559,
+            0.007653179304009181,
+            0.0035468688190940893,
+            0.006353109295985304,
+            0.00339788857617212,
+            0.0006415444868828379,
+            0.0011983833528005378,
+            0.00047512878000882094,
+            0.002291419737904516,
+            0.002368928173898634,
+            0.0010051359922613275,
+            0.000256960981787766
+          ],
+          "pluck_fraction": 0.16950191530531838,
+          "pickup_fraction": 0.1927840665030145,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.37,
+              0.0
+            ],
+            [
+              0.69,
+              -0.6
+            ],
+            [
+              1.06,
+              0.35
+            ],
+            [
+              1.3,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.025,
+          "phase_reset_seconds": null
+        },
+        {
+          "physical_string": 5,
+          "slot": 0,
+          "voice_id": 0,
+          "anchor": 69,
+          "seed_pitch": 69.00402830735501,
+          "detune_semitones": 0.004028307355016469,
+          "level": 0.07183139770780815,
+          "onset_seconds": 0.03,
+          "stiffness": 0.0001973313382889901,
+          "partials": 12,
+          "partial_initial_amplitudes": [
+            0.032886859295274566,
+            0.024479001317392255,
+            0.007511749210505757,
+            0.0012075794505566548,
+            0.0019178543528753115,
+            0.0006971272480423612,
+            0.0005866778358514577,
+            0.0004720848570280774,
+            0.002094659102427719,
+            0.002508566319482103,
+            0.0011624473443445347,
+            0.0008613078263027517
+          ],
+          "pluck_fraction": 0.2594563078524289,
+          "pickup_fraction": 0.08100179607311658,
+          "control_knots": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.48,
+              0.0
+            ]
+          ],
+          "vibrato_depth": 0.0,
+          "phase_reset_seconds": null
+        }
+      ],
+      "observation": "varied",
+      "peak": 0.13290335547957052,
+      "rms": 0.03482457494776931
+    }
+  ]
+}

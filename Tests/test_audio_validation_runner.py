@@ -24,6 +24,8 @@ class AudioMeasurementProvenanceTests(unittest.TestCase):
         pitch = root / 'Source/Pitch'
         pitch.mkdir(parents=True)
         (pitch / 'Fixture.cpp').write_text('// original source\n', encoding='utf-8')
+        (pitch / 'MpeOutputRouter.cpp').write_text('// separate MIDI core dependency\n', encoding='utf-8')
+        (pitch / 'MpeOutputRouter.h').write_text('// output protocol, not audio detection\n', encoding='utf-8')
         fixtures = root / 'Tests/AudioFixtures'
         fixtures.mkdir(parents=True)
         (fixtures / 'fixtures.json').write_text('{}\n', encoding='utf-8')
@@ -54,6 +56,9 @@ out.mkdir(parents=True, exist_ok=True)
         self.assertFalse(manifest['source_changed_during_measurement'])
         self.assertEqual(manifest['runner_exit_code'], 0)
         self.assertTrue(manifest['measurement_not_acceptance'])
+        self.assertIn('Source/Pitch/Fixture.cpp',manifest['source_sha256'])
+        self.assertNotIn('Source/Pitch/MpeOutputRouter.cpp',manifest['source_sha256'])
+        self.assertNotIn('Source/Pitch/MpeOutputRouter.h',manifest['source_sha256'])
 
     def test_source_change_invalidates_successful_evaluator_and_preserves_proof(self):
         result, manifest = self.run_fixture('mutate')

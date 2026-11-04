@@ -30,7 +30,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from typing import Mapping, Sequence, NamedTuple
 
-BUILDER_REVISION = "2026.11.03-guitar-bend-0.2.1"
+BUILDER_REVISION = "2026.11.04-musical-readiness-research"
 ROOT = Path(__file__).resolve().parent
 JUCE_TAG = "8.0.16-security"
 JUCE_COMMIT = "ea77444750de45e036e0279bb0291144bf8e3688"
@@ -293,7 +293,8 @@ def choose_direct_generator(installation: Path, env: Mapping[str, str],
 def build_command(cmake: str, build: Path, generator: str, jobs: int) -> list[str]:
     command = [cmake, "--build", str(build), "--config", "Release", "--target",
                "Flysnapper_VST3", "FlysnapperCoreTests",
-               "FlysnapperPluginTests", "FlysnapperVst3HostTests", "FlysnapperPitchTests", "FlysnapperProcessorAudioTests", "FlysnapperAudioValidation", "FlysnapperYinTests", "FlysnapperGuitarQualityTests", "FlysnapperBendProcessorTests"]
+               "FlysnapperPluginTests", "FlysnapperVst3HostTests", "FlysnapperPitchTests", "FlysnapperProcessorAudioTests", "FlysnapperAudioValidation", "FlysnapperYinTests", "FlysnapperGuitarQualityTests", "FlysnapperBendProcessorTests",
+               "FlysnapperNoiseTests", "FlysnapperMpeOutputTests", "FlysnapperMpeProcessorTests", "FlysnapperMpeVst3HostTests"]
     if generator != "NMake Makefiles":
         command.extend(["--parallel", str(max(1, jobs))])
     return command
@@ -1172,7 +1173,8 @@ def finish_installation(choose: bool, directory: Path | None) -> bool:
     return elevate_install()
 
 
-REQUIRED_TESTS = {"FlysnapperCore", "FlysnapperPluginSmoke", "FlysnapperActualVst3", "FlysnapperPitch", "FlysnapperProcessorAudio", "FlysnapperAudioQuality", "FlysnapperYin", "FlysnapperGuitarQuality", "FlysnapperBendProcessor"}
+REQUIRED_TESTS = {"FlysnapperCore", "FlysnapperPluginSmoke", "FlysnapperActualVst3", "FlysnapperPitch", "FlysnapperProcessorAudio", "FlysnapperAudioQuality", "FlysnapperYin", "FlysnapperGuitarQuality", "FlysnapperBendProcessor",
+                  "FlysnapperNoise", "FlysnapperMpeOutput", "FlysnapperMpeProcessor", "FlysnapperMpeActualVst3"}
 
 
 def verified_juce(git: str, directory: Path | None) -> Path:
@@ -1241,7 +1243,10 @@ def collect_result(build: Path, native: bool, extra_manifest=None) -> Path:
     if audio_target.exists(): shutil.rmtree(audio_target)
     shutil.copytree(audio_evidence, audio_target)
     manifest = {
-        "version": "0.2.1", "stage": "integrated-audio-midi", "builder_revision": BUILDER_REVISION,
+        # Protocol/unit successes cannot approve this unfinished audio path.
+        # The Windows packager explicitly rejects a prototype stage. Remove
+        # this hold only with a frozen, reviewed musical-readiness result.
+        "version": "0.2.1", "stage": "musical-readiness-research-prototype", "builder_revision": BUILDER_REVISION,
         "platform": platform_name, "juce_commit": JUCE_COMMIT,
         "built_at": dt.datetime.now(dt.timezone.utc).isoformat(), "python": platform.python_version(),
         "source_commit": os.environ.get("GITHUB_SHA"),

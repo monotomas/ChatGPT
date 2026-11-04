@@ -1,0 +1,155 @@
+{
+  "scope": "Research checkpoint; not release or musical acceptance",
+  "recorded_at_utc": "2026-11-04T01:35:35.394776+00:00",
+  "source_sha256": {
+    "CMakeLists.txt": "5c584aa4d774cfac910fb88800f8cfd485e63b196caf383c98216b9e3865601f",
+    "build_plugin.py": "e4a61347f48b41ca77658375997bfbd62130c0715968adaf200edac53491ae26",
+    "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+    "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/PitchDetector.cpp": "fb8fc9df50d5ebadcbc6027e9f94f085a5e52bad47577c8ccf5471a28bebd9b9",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/PluginEditor.cpp": "5cdfb1e447431b20e0ca5622899ef75351664ba73ac5efbc6e59c35642b017bb",
+    "Source/PluginProcessor.cpp": "766e6469c29b0cfc3198ef25e607aab6cd22d057c20ba665ba614752ab6df6dc",
+    "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+    "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+    "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+    "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+    "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.h": "e38fadd1b2e55c1f1fe2f8ab8daa6597802cfe8eba528e269209a1f5126dfa90",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "Source/PluginEditor.h": "0074410cbfb98010d9ee0aa84b6495b940004b0b13a45d0bb4aa3c4c407ef6c5",
+    "Source/PluginProcessor.h": "83363d26997f0090c9d284c5715ab5b44b720c0c0600347e5c7bcf700e0bb8ea",
+    "Tests/BendProcessorTests.cpp": "e0d61c09755cec7ddf412a678a5ad691f014a0a08286896dffcc8ca5de87456b",
+    "Tests/CoreTests.cpp": "88612a7c5cddd98dd13d9b7ab7736a9c994686156e6ec25fe09dde094e5ca147",
+    "Tests/EarlyEstimatorTests.cpp": "1ff9f84274e2ffa163f2bb131c3a4a8649e382aca7611c6042c212233d7c314e",
+    "Tests/GuitarQualityTests.cpp": "099c9fe2816cbcb1b9a34d520e6f2bb3f7b1c585a262cb40aea04a956a6f741c",
+    "Tests/MpeOutputRouterTests.cpp": "6829cfcf520066689177217979492c487e38615d57dae822172a80bc60118de8",
+    "Tests/MpeProcessorTests.cpp": "e5b8bd5fd785a13c608e0c001d8659172807e1806a62749cc5b7a8ddb6f97933",
+    "Tests/MpeVst3HostTests.cpp": "26b9b318e1c1fa95c7c1a9fcda94b53bce8010d4069414fa4e4efb57ac11ec51",
+    "Tests/NoiseConditionerTests.cpp": "7393b973b87fe716b6b20ce83d407075a734dd1e00b7c50212dda77ac5370d6a",
+    "Tests/PitchTests.cpp": "afe83907a92d1b7a27b2fd08781f60096d9d64020b53aac0b9f1be75ea764e2f",
+    "Tests/PluginTests.cpp": "46d2ab34e6cce402489e358f5c58b07dcd59a7f0749cb439e103e07c517ff934",
+    "Tests/ProcessorAudioTests.cpp": "6fca7ab8e74a32d78c9a17887b6f7ab0b0422c295055d38713fc95fa9802c9c1",
+    "Tests/Vst3HostTests.cpp": "c8b36c9a63b79134a71c7987f0d6ed9d7c29f2783cdd3a74e5b0653ffb6fa0da",
+    "Tests/YinEstimatorTests.cpp": "1dcece587814c8a5067109f87cb5056a8f8225ea140e24e5618b52afa1e63e6c"
+  },
+  "completed_at_utc": "2026-11-04T01:37:50.824932+00:00",
+  "test_exit_code": 8,
+  "all_tests_passed": false,
+  "source_changed": false,
+  "source_sha256_after": {
+    "CMakeLists.txt": "5c584aa4d774cfac910fb88800f8cfd485e63b196caf383c98216b9e3865601f",
+    "build_plugin.py": "e4a61347f48b41ca77658375997bfbd62130c0715968adaf200edac53491ae26",
+    "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+    "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/PitchDetector.cpp": "fb8fc9df50d5ebadcbc6027e9f94f085a5e52bad47577c8ccf5471a28bebd9b9",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/PluginEditor.cpp": "5cdfb1e447431b20e0ca5622899ef75351664ba73ac5efbc6e59c35642b017bb",
+    "Source/PluginProcessor.cpp": "766e6469c29b0cfc3198ef25e607aab6cd22d057c20ba665ba614752ab6df6dc",
+    "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+    "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+    "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+    "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+    "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.h": "e38fadd1b2e55c1f1fe2f8ab8daa6597802cfe8eba528e269209a1f5126dfa90",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "Source/PluginEditor.h": "0074410cbfb98010d9ee0aa84b6495b940004b0b13a45d0bb4aa3c4c407ef6c5",
+    "Source/PluginProcessor.h": "83363d26997f0090c9d284c5715ab5b44b720c0c0600347e5c7bcf700e0bb8ea",
+    "Tests/BendProcessorTests.cpp": "e0d61c09755cec7ddf412a678a5ad691f014a0a08286896dffcc8ca5de87456b",
+    "Tests/CoreTests.cpp": "88612a7c5cddd98dd13d9b7ab7736a9c994686156e6ec25fe09dde094e5ca147",
+    "Tests/EarlyEstimatorTests.cpp": "1ff9f84274e2ffa163f2bb131c3a4a8649e382aca7611c6042c212233d7c314e",
+    "Tests/GuitarQualityTests.cpp": "099c9fe2816cbcb1b9a34d520e6f2bb3f7b1c585a262cb40aea04a956a6f741c",
+    "Tests/MpeOutputRouterTests.cpp": "6829cfcf520066689177217979492c487e38615d57dae822172a80bc60118de8",
+    "Tests/MpeProcessorTests.cpp": "e5b8bd5fd785a13c608e0c001d8659172807e1806a62749cc5b7a8ddb6f97933",
+    "Tests/MpeVst3HostTests.cpp": "26b9b318e1c1fa95c7c1a9fcda94b53bce8010d4069414fa4e4efb57ac11ec51",
+    "Tests/NoiseConditionerTests.cpp": "7393b973b87fe716b6b20ce83d407075a734dd1e00b7c50212dda77ac5370d6a",
+    "Tests/PitchTests.cpp": "afe83907a92d1b7a27b2fd08781f60096d9d64020b53aac0b9f1be75ea764e2f",
+    "Tests/PluginTests.cpp": "46d2ab34e6cce402489e358f5c58b07dcd59a7f0749cb439e103e07c517ff934",
+    "Tests/ProcessorAudioTests.cpp": "6fca7ab8e74a32d78c9a17887b6f7ab0b0422c295055d38713fc95fa9802c9c1",
+    "Tests/Vst3HostTests.cpp": "c8b36c9a63b79134a71c7987f0d6ed9d7c29f2783cdd3a74e5b0653ffb6fa0da",
+    "Tests/YinEstimatorTests.cpp": "1dcece587814c8a5067109f87cb5056a8f8225ea140e24e5618b52afa1e63e6c"
+  },
+  "test_report_sha256": "2ff4dd2fb2fc1ad29831e41e8d89760653da0105779b35dbd38fdaa90ed9e5ee",
+  "tests": [
+    {
+      "name": "FlysnapperCore",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperAudioQuality",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperYin",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperPitch",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperGuitarQuality",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperNoise",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperMpeOutput",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperMpeProcessor",
+      "status": "failed"
+    },
+    {
+      "name": "FlysnapperBendProcessor",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperPluginSmoke",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperProcessorAudio",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperActualVst3",
+      "status": "passed"
+    },
+    {
+      "name": "FlysnapperMpeActualVst3",
+      "status": "passed"
+    }
+  ],
+  "musical_readiness_eligible": false,
+  "windows_verified": false,
+  "ableton_verified": false,
+  "linux_vst3_sha256": "bc8d8e7f2457647a2b45f1d8a47384460fe1bfe2d9df7b4758962c2af04bb1aa"
+}

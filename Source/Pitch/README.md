@@ -1,5 +1,10 @@
 # Audio-to-MIDI implementation
 
+This document records the discrete detector baseline. The November 4 work on
+automatic noise handling, articulation and continuous polyphonic expression is
+unfinished; see [musical-readiness status](../../docs/MUSICAL_READINESS.md).
+Descriptions and measurements of the baseline do not certify the new path.
+
 The detector is a separate technical part of Pitch-to-MIDI. Its generated notes
 enter the same correction module as external performance MIDI; it is not a third
 user-facing processing module. `PitchDetector.h` is the integration contract.
@@ -50,7 +55,9 @@ New decisions require three consistent estimates and a short continuous-pitch
 stability interval. Stability is measured across estimates, not by a permanent
 fractional-semitone dead zone: a stable note detuned by 40 cents remains valid.
 Held notes use 62-cent hysteresis against vibrato-triggered note chatter. There
-is no generated pitch bend; meaningful pitch changes create new MIDI notes.
+is no generated pitch bend in this discrete path; meaningful pitch changes
+create new MIDI notes. The optional expression paths have their own continuous
+pitch and articulation decisions.
 
 A same-pitch repick can have little amplitude change. Monophonic repicks are
 therefore also detected from bounded one-period prediction innovation. The

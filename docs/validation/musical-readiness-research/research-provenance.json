@@ -1,0 +1,781 @@
+{
+  "scope": "Development/falsification evidence; contains failed and oracle-seeded probes, not release acceptance",
+  "binaries_included": false,
+  "files": {
+    "README.md": {
+      "sha256": "ba4757d3b4baba0c222eaf8012c9d6e95cff39607fba470cde4549d44aeb864a",
+      "bytes": 2785
+    },
+    "build-cache-audit/README.md": {
+      "sha256": "6ce6ae86975127758d40b15100a2d760f81b1f5ff314e8310ae58a1de8c912ea",
+      "bytes": 3715
+    },
+    "build-cache-audit/check_deps.py": {
+      "sha256": "0c5d32405c96eeae4c46912a95dfd8054f8e0dbbd4860fc9816f775b7b084efb",
+      "bytes": 1737
+    },
+    "build-cache-audit/copied-files-sha256.json": {
+      "sha256": "9369543020509ba8f309f001be89d642e4913de55d4d25146b2a6b0fe1c61118",
+      "bytes": 262
+    },
+    "build-cache-audit/deps-parse.json": {
+      "sha256": "b5600d4b3e662dadd3508fe0da1905e06e576e6f2d90f5bf1032bf41d797b1ac",
+      "bytes": 321025
+    },
+    "host-audit/design-audit.md": {
+      "sha256": "bb7977c0f8f25e786994a6b22abb052667d32b657681a5880949bde5c2d60baa",
+      "bytes": 6117,
+      "copied_from": "/tmp/flysnapper-mpe-host/design-audit.md"
+    },
+    "host-audit/report.md": {
+      "sha256": "24e77b996fd38c61aed75a950ceb18a2afd65d1a38f97f9badc6d1297bf48985",
+      "bytes": 7951,
+      "copied_from": "/tmp/flysnapper-mpe-host/report.md"
+    },
+    "native-checkpoint-v20/Flysnapper-back.png": {
+      "sha256": "29b78eb49dbf682dd824af6ce7978da0c95e8577b63029354fa71a88a0980272",
+      "bytes": 91405
+    },
+    "native-checkpoint-v20/Flysnapper-front.png": {
+      "sha256": "c3780cec26d25080bce9113efff2b1a892f851c2fb8f2ea580290afd99fb96c6",
+      "bytes": 88815
+    },
+    "native-checkpoint-v20/README.md": {
+      "sha256": "45f168539e8909c88bc75100f8296a8480dd477303be5de2de4e2b47995d2b6a",
+      "bytes": 1739
+    },
+    "native-checkpoint-v20/ctest-output.txt": {
+      "sha256": "aeb41fe08ce4324ce4df4f614b257a183a32f74f2b0ab2d0b3ca7b2092253b97",
+      "bytes": 22615
+    },
+    "native-checkpoint-v20/ctest-results.xml": {
+      "sha256": "2ff4dd2fb2fc1ad29831e41e8d89760653da0105779b35dbd38fdaa90ed9e5ee",
+      "bytes": 11149
+    },
+    "native-checkpoint-v20/dependency-cache-check.json": {
+      "sha256": "28ebac046d568f5008392f44e589a8d3d0fc7adb7a098de1ec4e946ed9f7e6db",
+      "bytes": 155
+    },
+    "native-checkpoint-v20/files-sha256.json": {
+      "sha256": "39a9a19091ae702e4d929914802ea31598f409ec008844661968f5ecf724bff6",
+      "bytes": 744
+    },
+    "native-checkpoint-v20/incremental-build.txt": {
+      "sha256": "88bcf53a1d585764a02de65b1851f200e6a3eea1e5cb9b4c1491fd7599716570",
+      "bytes": 268
+    },
+    "native-checkpoint-v20/manifest.json": {
+      "sha256": "21d6fe797de0523620326a65a6149b5d59565fad6a52bbe4dc17443af026001b",
+      "bytes": 10321
+    },
+    "native-checkpoint-v20/python-tests.txt": {
+      "sha256": "5c81517151570995540a517e8a2db6f12cce6ca9466f8f8af8cb0a822c147020",
+      "bytes": 5246
+    },
+    "noise-probes/Pitch/YinEstimator.cpp": {
+      "sha256": "d364b3182a2fe298f3836b0a9a636c00b7ea8f2ab305627f5a90ee4027d2a90a",
+      "bytes": 17987,
+      "copied_from": "/tmp/flysnapper-noise-recorded/Pitch/YinEstimator.cpp"
+    },
+    "noise-probes/Pitch/YinEstimator.h": {
+      "sha256": "53608218b5cfef4e4bbc7e4c658830adbe2792c97dfc20768f67012bd4cc7b48",
+      "bytes": 1926,
+      "copied_from": "/tmp/flysnapper-noise-recorded/Pitch/YinEstimator.h"
+    },
+    "noise-probes/false-wanted.csv": {
+      "sha256": "4c516c7a54574dbc046e8817ec8e23e45c3b04f3813a6ed5ecd3a2b656b37ec7",
+      "bytes": 193,
+      "copied_from": "/tmp/flysnapper-noise-recorded/false-wanted.csv"
+    },
+    "noise-probes/manifest.json": {
+      "sha256": "7e0edf17730178a4fd15ec7a35135588be1bcc82234cbebba1e161a883dd6005",
+      "bytes": 2334,
+      "copied_from": "/tmp/flysnapper-noise-recorded/manifest.json"
+    },
+    "noise-probes/probe-cold.cpp": {
+      "sha256": "64ed30a6189b3c949d8777602922e96e651e6caaba8652fd8fc0e8a4dd5f28f6",
+      "bytes": 3250,
+      "copied_from": "/tmp/flysnapper-noise-recorded/probe-cold.cpp"
+    },
+    "noise-probes/probe-primed-25c.cpp": {
+      "sha256": "ca9b40d9f01ecd3ae4012096673a44bba36debb6064b63f5e9c3c41d683b4b9f",
+      "bytes": 3591,
+      "copied_from": "/tmp/flysnapper-noise-recorded/probe-primed-25c.cpp"
+    },
+    "noise-probes/probe-primed-trim-25c.cpp": {
+      "sha256": "05973cdb35f4605f08d2aa3f6a2ecf5af77cc738a1a27ef193f4cf958705d975",
+      "bytes": 3653,
+      "copied_from": "/tmp/flysnapper-noise-recorded/probe-primed-trim-25c.cpp"
+    },
+    "noise-probes/probe-primed-trim.cpp": {
+      "sha256": "db896803962d43d2ddd9d8cb49b40fbe0124f98265507430d1531679ea0b19e2",
+      "bytes": 3531,
+      "copied_from": "/tmp/flysnapper-noise-recorded/probe-primed-trim.cpp"
+    },
+    "noise-probes/probe-primed.cpp": {
+      "sha256": "ac250148c7cb528d07a51822700e2155c0174db812514bbf898b5a9b06981306",
+      "bytes": 3469,
+      "copied_from": "/tmp/flysnapper-noise-recorded/probe-primed.cpp"
+    },
+    "noise-probes/probe.cpp": {
+      "sha256": "dd10923b9f2032cf445d422c64c9ff6ee9a4423dfc65dcc9e3fa9610ca7ef391",
+      "bytes": 3290,
+      "copied_from": "/tmp/flysnapper-noise-recorded/probe.cpp"
+    },
+    "noise-probes/results-cold.csv": {
+      "sha256": "0b9de327a3fddfb62ab64488d71e40403aacee700cfcad547ccb129cc1db64c4",
+      "bytes": 1946,
+      "copied_from": "/tmp/flysnapper-noise-recorded/results-cold.csv"
+    },
+    "noise-probes/results-final.csv": {
+      "sha256": "b66805fe5c8aa611dfd40c2bcbdbad0d011960b54b340a98e45210fa91edf054",
+      "bytes": 2019,
+      "copied_from": "/tmp/flysnapper-noise-recorded/results-final.csv"
+    },
+    "noise-probes/results-primed-same-start-25c.csv": {
+      "sha256": "03b625f61baaa32616d6597cdeeffa0161cb9b8d3f7e335d7fd428edf01c6d95",
+      "bytes": 1758,
+      "copied_from": "/tmp/flysnapper-noise-recorded/results-primed-same-start-25c.csv"
+    },
+    "noise-probes/results-primed-same-start.csv": {
+      "sha256": "8d3fe4c05e0174b52ac98aa8455a7728178cbda794ce84147ef6126a7373eaa9",
+      "bytes": 1767,
+      "copied_from": "/tmp/flysnapper-noise-recorded/results-primed-same-start.csv"
+    },
+    "noise-probes/results-primed-trim.csv": {
+      "sha256": "20cb35e23daada58f3f9eb5f936c09c3a015a067ca76844814ba59a7ae738200",
+      "bytes": 2013,
+      "copied_from": "/tmp/flysnapper-noise-recorded/results-primed-trim.csv"
+    },
+    "noise-probes/results-primed.csv": {
+      "sha256": "49936d1ebdf400027f69ee906fae1b54236c02b771a63a563c297a859e058248",
+      "bytes": 2019,
+      "copied_from": "/tmp/flysnapper-noise-recorded/results-primed.csv"
+    },
+    "noise-probes/results.csv": {
+      "sha256": "6a4464548bf2313f709d055d975a54eee8cd710a400b10130cfc56a893b1b567",
+      "bytes": 1957,
+      "copied_from": "/tmp/flysnapper-noise-recorded/results.csv"
+    },
+    "poly-audit/AUDIT.md": {
+      "sha256": "a2a6d65128f4bf5b59b1e729d2309c08a7927ffd97f7e755905a7d2cb5fa0f71",
+      "bytes": 11933,
+      "copied_from": "/tmp/flysnapper-poly-audit/AUDIT.md"
+    },
+    "poly-audit/cgroup-cpu.json": {
+      "sha256": "64be4824e1312cafd1a2e56cbe4926539007f489098e8631c5ebb5443d08f35d",
+      "bytes": 227,
+      "copied_from": "/tmp/flysnapper-poly-audit/cgroup-cpu.json"
+    },
+    "poly-audit/checkpoint17/bent-identity-errors.json": {
+      "sha256": "51d9eda6d05a26c43446a0759bc559d903b9ac8739790008ad278177d6288e31",
+      "bytes": 2554,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/bent-identity-errors.json"
+    },
+    "poly-audit/checkpoint17/oracle-adjacent_52_53.csv": {
+      "sha256": "67d689bdaa9e6e79ab4b29736314399d262cab5aae429ec83d75da85e3062a22",
+      "bytes": 72648,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-adjacent_52_53.csv"
+    },
+    "poly-audit/checkpoint17/oracle-bend_two_slow.csv": {
+      "sha256": "742df67394ab9a116c4e2c720cb4d00f3e112e5ca5fbaf991ef28f7d9118b62f",
+      "bytes": 73165,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-bend_two_slow.csv"
+    },
+    "poly-audit/checkpoint17/oracle-low_bend_lengths.csv": {
+      "sha256": "f5d01c08478fdcdcd37a16ec6d5bf647fcc1665661de04d2e74cc23f2bad0723",
+      "bytes": 35475,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-low_bend_lengths.csv"
+    },
+    "poly-audit/checkpoint17/oracle-low_fractional_lengths.csv": {
+      "sha256": "de9accbafe6be4b0249435f189fc128f05139e2d03b457f5ca2465650d73105a",
+      "bytes": 37560,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-low_fractional_lengths.csv"
+    },
+    "poly-audit/checkpoint17/oracle-open_Em_six.csv": {
+      "sha256": "425c7c939d1232da5fa72a5cfa7e3dd764d37088f35b0a6cccad6af8a82f970b",
+      "bytes": 217976,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-open_Em_six.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_B3.csv": {
+      "sha256": "9ef551263e3465b4e7bcc1de1d4406e0bb6ba9b0e49c960711c9442bf7f40cf7",
+      "bytes": 217830,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_B3.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_B3_12partials.csv": {
+      "sha256": "c3171ae2de3c1c4a77685871f75d6b5ab88195d93e802719cffa1a0646ab128a",
+      "bytes": 217341,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_B3_12partials.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_B3_3partials.csv": {
+      "sha256": "737dd90f32fe5cb150d47851611ee5d3c42aa3cc30c30a4707b536bb5a89144f",
+      "bytes": 197137,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_B3_3partials.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_E3.csv": {
+      "sha256": "f2464e08d169859cb770a166cfb40e949a64450e72e651e9ef04b48ad8d9b2a8",
+      "bytes": 216036,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_E3.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_E3_12partials.csv": {
+      "sha256": "98c26896d29d351369e3e81e66bb0708a03ae77c26289e05773f6f260fb5582a",
+      "bytes": 215736,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_E3_12partials.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_E3_3partials.csv": {
+      "sha256": "e85063ec135d584636ecbb831157444918570805b85bdd577d73980e9ca9fcf3",
+      "bytes": 199537,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_E3_3partials.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_E4.csv": {
+      "sha256": "73838c5d0315652487ac35308da6d2db7e0a1e6b51ce5e48aa7f2ff5c6eb24de",
+      "bytes": 217753,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_E4.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_E4_12partials.csv": {
+      "sha256": "b4c9bd491ee8a51d4795243bc188ee74d5ddbacdf04bade5f32341f0b30cb7b9",
+      "bytes": 217204,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_E4_12partials.csv"
+    },
+    "poly-audit/checkpoint17/oracle-six_bend_E4_3partials.csv": {
+      "sha256": "1a82ad253e64b66ce4b3b8da00dad591108d4b489b8b243289c0b0e99b89b98c",
+      "bytes": 197250,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-six_bend_E4_3partials.csv"
+    },
+    "poly-audit/checkpoint17/oracle-stiff_adjacent.csv": {
+      "sha256": "a664b64abd43547bcd2540ec01b0d1f38de9454967ffa2e7997a321e086d8ee8",
+      "bytes": 71869,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-stiff_adjacent.csv"
+    },
+    "poly-audit/checkpoint17/oracle-summary.csv": {
+      "sha256": "b7214f146cecc4aef36a855bfca52a62fcadb16f76740f84d3d948360c2fe6aa",
+      "bytes": 1955,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17/oracle-summary.csv"
+    },
+    "poly-audit/checkpoint17-sha256.json": {
+      "sha256": "e8aa9f6e669f6f68f81bd1688e6538f124d80f7eddc9c26d5c0af0630cca1646",
+      "bytes": 557,
+      "copied_from": "/tmp/flysnapper-poly-audit/checkpoint17-sha256.json"
+    },
+    "poly-audit/environment.json": {
+      "sha256": "ec75e655a6b52cbc856df903e631b1917d749883034baca4eaf2047d7c02b535",
+      "bytes": 216,
+      "copied_from": "/tmp/flysnapper-poly-audit/environment.json"
+    },
+    "poly-audit/gram-equivalence.cpp": {
+      "sha256": "8233d246e0b29eccb0b71d59eae8f074469d5a30daf25e04251eb0c0322e21e6",
+      "bytes": 2467,
+      "copied_from": "/tmp/flysnapper-poly-audit/gram-equivalence.cpp"
+    },
+    "poly-audit/optimized/bent-identity-errors.json": {
+      "sha256": "e15f0a3958a18ba265cf012cf45a924da4189a0211847806ac134f21ac36e847",
+      "bytes": 588,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/bent-identity-errors.json"
+    },
+    "poly-audit/optimized/oracle-adjacent_52_53.csv": {
+      "sha256": "54e16a80521a7ab8d283d2361c28e9576f3b5e3cef686920a8021019918ee9bf",
+      "bytes": 62880,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-adjacent_52_53.csv"
+    },
+    "poly-audit/optimized/oracle-bend_lowE.csv": {
+      "sha256": "a8cd3204875aaca8d3f8b09e19306d88925dc7d6c0dd439460ef18c026798d42",
+      "bytes": 62560,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-bend_lowE.csv"
+    },
+    "poly-audit/optimized/oracle-bend_two_fast.csv": {
+      "sha256": "ad58ab28de7634b000e07695ffadf63939f10a84af87567d7fe2f2c9f9ccfa16",
+      "bytes": 64642,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-bend_two_fast.csv"
+    },
+    "poly-audit/optimized/oracle-bend_two_slow.csv": {
+      "sha256": "8cc38efb8fff1f132096459e632b05aadcf0f4089c9d7156c00234e5dcb3141f",
+      "bytes": 64371,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-bend_two_slow.csv"
+    },
+    "poly-audit/optimized/oracle-low_bend.csv": {
+      "sha256": "552c785837bbbf441077b218f9f6334a3805ef44d95470cfd78d2d3b30d45892",
+      "bytes": 31372,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-low_bend.csv"
+    },
+    "poly-audit/optimized/oracle-low_bend_lengths.csv": {
+      "sha256": "752e455ddcbb51d084add8f9fc6cbee211854d0add755c416d5e2fc5fef511e4",
+      "bytes": 31263,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-low_bend_lengths.csv"
+    },
+    "poly-audit/optimized/oracle-low_fractional.csv": {
+      "sha256": "d9d3ce6cf8b33993e912ea668be14b9c23c6ca767f8648ff879c4fd5edec2834",
+      "bytes": 33071,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-low_fractional.csv"
+    },
+    "poly-audit/optimized/oracle-low_fractional_lengths.csv": {
+      "sha256": "915890581b463f9499f3ee2a5851c6e2b354a2c4812fc3b63a3bdbbcd2e579e9",
+      "bytes": 33160,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-low_fractional_lengths.csv"
+    },
+    "poly-audit/optimized/oracle-major_seventh.csv": {
+      "sha256": "efda37de19ca88c9abf0f05a4c1d4c25c452b18ca6448dd910f4110d486917bb",
+      "bytes": 63718,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-major_seventh.csv"
+    },
+    "poly-audit/optimized/oracle-octave_52_64.csv": {
+      "sha256": "fc5f30893845eeeb963005d1ba390cd5b95872a11e5ac091be7b3e1ba5e44405",
+      "bytes": 53787,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-octave_52_64.csv"
+    },
+    "poly-audit/optimized/oracle-octave_strummed.csv": {
+      "sha256": "eba59332776b2fb60afbd49d8935fbeadd3587ba670c7fc95f934ff960d79c46",
+      "bytes": 52549,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-octave_strummed.csv"
+    },
+    "poly-audit/optimized/oracle-open_Em_six.csv": {
+      "sha256": "ab68a3499d964a3c5e273ca19c421670db68481ddb61b1008071c60945e880bd",
+      "bytes": 175601,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-open_Em_six.csv"
+    },
+    "poly-audit/optimized/oracle-single_fractional.csv": {
+      "sha256": "902d095d1223be617b17f84a53787d407d6c2ccc447581efd4de13e1595e93bc",
+      "bytes": 33537,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-single_fractional.csv"
+    },
+    "poly-audit/optimized/oracle-single_fractional_256.csv": {
+      "sha256": "1724e43db7d424d5db0409e756c8747f42cbc0bd547315758a4ebe3196205173",
+      "bytes": 33266,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-single_fractional_256.csv"
+    },
+    "poly-audit/optimized/oracle-single_fractional_384.csv": {
+      "sha256": "77e6b585d1ac12870b15725305f0ba81a447b87ebc94415a5d0cbe2206f620b5",
+      "bytes": 33199,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-single_fractional_384.csv"
+    },
+    "poly-audit/optimized/oracle-single_fractional_lengths.csv": {
+      "sha256": "7beab8762336bff0c194e65b7f8970333c20c752829cfd8b89f1ca782bd622ab",
+      "bytes": 33333,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-single_fractional_lengths.csv"
+    },
+    "poly-audit/optimized/oracle-six_bend_B3.csv": {
+      "sha256": "cfe0f935daa7ae7e96a73d9e912d0e83bc1f8e9ebccef2d9f068f9d7c212c880",
+      "bytes": 176880,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-six_bend_B3.csv"
+    },
+    "poly-audit/optimized/oracle-six_bend_E3.csv": {
+      "sha256": "074ea03b7324b26fecfeb0657aa84fea9b58da465b711701ce5e4e910058a3c2",
+      "bytes": 177857,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-six_bend_E3.csv"
+    },
+    "poly-audit/optimized/oracle-six_bend_E4.csv": {
+      "sha256": "c8eb9060b77a9301788f1aae6908da0bb400b90d8b0cb49c51e0122c8bca5e3a",
+      "bytes": 177634,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-six_bend_E4.csv"
+    },
+    "poly-audit/optimized/oracle-stiff_adjacent.csv": {
+      "sha256": "de7496d509738db8172f36ae2434892bfe3db3ebf534e51e13e45880ab4e7675",
+      "bytes": 63233,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-stiff_adjacent.csv"
+    },
+    "poly-audit/optimized/oracle-stiff_single.csv": {
+      "sha256": "f9904feb6c992bf0165c5b322f3d7c629b0b6d687bcdd86679fc94de83239db3",
+      "bytes": 32425,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-stiff_single.csv"
+    },
+    "poly-audit/optimized/oracle-strong_even_single.csv": {
+      "sha256": "10f31ded4c4d1bb8657317a95fcf0c0a6c51c1a8d8037fdd647e6abf4d28db6c",
+      "bytes": 27033,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-strong_even_single.csv"
+    },
+    "poly-audit/optimized/oracle-strummed_Em_six.csv": {
+      "sha256": "f4731a85c44912975cb008d9b1113715aa602f98ed4e7bf708f7fcc11011beaa",
+      "bytes": 166502,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-strummed_Em_six.csv"
+    },
+    "poly-audit/optimized/oracle-summary.csv": {
+      "sha256": "d12ab5fbc3591a96815d4255d7556eb6dc373299146ddb66db1ac2c785c024c9",
+      "bytes": 2178,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized/oracle-summary.csv"
+    },
+    "poly-audit/optimized-sha256.json": {
+      "sha256": "6c600b8f546b6f84a228334dd96e623c3b4b28496e6a4b6603146ae07455734f",
+      "bytes": 557,
+      "copied_from": "/tmp/flysnapper-poly-audit/optimized-sha256.json"
+    },
+    "poly-audit/oracle-adjacent_52_53.csv": {
+      "sha256": "892fa6f6535d11434da45457518a8f6e6ab030dadfdcc4a0cee038b2fc2a61de",
+      "bytes": 62945,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-adjacent_52_53.csv"
+    },
+    "poly-audit/oracle-bend_lowE.csv": {
+      "sha256": "7f17300722eb24ef4584333b670560970a8b90aa43a58295bf7d19ae08cd1616",
+      "bytes": 62554,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-bend_lowE.csv"
+    },
+    "poly-audit/oracle-bend_two_fast.csv": {
+      "sha256": "0ad48b4f19d06c9a2bd61ae90837369929a12c0725b56203fef42ab92bfa7155",
+      "bytes": 64631,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-bend_two_fast.csv"
+    },
+    "poly-audit/oracle-bend_two_slow.csv": {
+      "sha256": "475da1dd54c94bc14555ed77619e6bff1c7a4e9b4714641495b038cb7e0298ba",
+      "bytes": 64280,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-bend_two_slow.csv"
+    },
+    "poly-audit/oracle-checkpoint17.cpp": {
+      "sha256": "c9aabcfd6e1ffb4b3b6d83ce5bb708448b7e0b64800c2e5e17252ef45119e14d",
+      "bytes": 8172,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-checkpoint17.cpp"
+    },
+    "poly-audit/oracle-major_seventh.csv": {
+      "sha256": "51eef5608c813a643e89222b9d1e365f92f606326666b58faf846b10483ad17c",
+      "bytes": 63703,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-major_seventh.csv"
+    },
+    "poly-audit/oracle-octave_52_64.csv": {
+      "sha256": "9856924a233f46ce68009efbb01aed4b04e4928cb81f25f68fcda167b36814ce",
+      "bytes": 53762,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-octave_52_64.csv"
+    },
+    "poly-audit/oracle-octave_strummed.csv": {
+      "sha256": "a7afa5c9693bb0bd01e2c6b2ff457aa9365e5efd416de47c412c52dd66dc5025",
+      "bytes": 52530,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-octave_strummed.csv"
+    },
+    "poly-audit/oracle-open_Em_six.csv": {
+      "sha256": "481d620ded056d12b53d01ecea89e544775712d2c4885ace9a421bfcb48e55dc",
+      "bytes": 175723,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-open_Em_six.csv"
+    },
+    "poly-audit/oracle-optimized.cpp": {
+      "sha256": "7e0f76422d3dbff4fa0d019eac65257d5e0284a0a49b337c908b9e038aed8be4",
+      "bytes": 6916,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-optimized.cpp"
+    },
+    "poly-audit/oracle-single_fractional.csv": {
+      "sha256": "88eee6d3ff3d366e0b831194357463f0a465acf6dfad315c63b0ca42533e0057",
+      "bytes": 33962,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-single_fractional.csv"
+    },
+    "poly-audit/oracle-single_fractional_256.csv": {
+      "sha256": "2f19e5813c60c51b84b765e11ca2abe43a12a54bdde6d54687e742feef829b8c",
+      "bytes": 33958,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-single_fractional_256.csv"
+    },
+    "poly-audit/oracle-single_fractional_384.csv": {
+      "sha256": "5c2387f7c236304210a52e8f33ee08b6c43d7f4e7c07bb9934ab8aff98ea976c",
+      "bytes": 33917,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-single_fractional_384.csv"
+    },
+    "poly-audit/oracle-single_fractional_lengths.csv": {
+      "sha256": "4f14f412965e8576bcd5f56eae3fbd369d7648c4c2d655ceebc8c406186d0e06",
+      "bytes": 33978,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-single_fractional_lengths.csv"
+    },
+    "poly-audit/oracle-stiff_adjacent.csv": {
+      "sha256": "f904984d73a84e9882eb79549f6b8390fa475e4c797831098cbd2672c4e75dce",
+      "bytes": 63230,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-stiff_adjacent.csv"
+    },
+    "poly-audit/oracle-stiff_single.csv": {
+      "sha256": "fafa3904ec0dfc9f927015094fdddf829dbfbcd2dc676dd36825c873305dff44",
+      "bytes": 32412,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-stiff_single.csv"
+    },
+    "poly-audit/oracle-strong_even_single.csv": {
+      "sha256": "de5e0f563689937e20672cc37d2e32f659f5dfb93560194c90eca772324511eb",
+      "bytes": 27064,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-strong_even_single.csv"
+    },
+    "poly-audit/oracle-strummed_Em_six.csv": {
+      "sha256": "5166373610593371f0614949a91072ebd5337a9561c432592c456d74c800de85",
+      "bytes": 166401,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-strummed_Em_six.csv"
+    },
+    "poly-audit/oracle-summary.csv": {
+      "sha256": "91e9047f44f657d2e92c6d0c6cece63f99de6d1c5c279f78189d1b867a390694",
+      "bytes": 1597,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-summary.csv"
+    },
+    "poly-audit/oracle-widephase.cpp": {
+      "sha256": "39c66f208f827d1d8c9add5f38a4aee1dd26013a758ad56ad94e3af4637c0640",
+      "bytes": 7130,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle-widephase.cpp"
+    },
+    "poly-audit/oracle.cpp": {
+      "sha256": "61701beb817b58e92ad05e152f94e86af121e0d5e9986b1ecc69a63352043f1a",
+      "bytes": 6276,
+      "copied_from": "/tmp/flysnapper-poly-audit/oracle.cpp"
+    },
+    "poly-audit/probe.cpp": {
+      "sha256": "2db3960589616a03fb96cc8f0346e13788020cfae64d33abda3c4522d5755c98",
+      "bytes": 5787,
+      "copied_from": "/tmp/flysnapper-poly-audit/probe.cpp"
+    },
+    "poly-audit/snapshot/Pitch/PolyphonicTracker.cpp": {
+      "sha256": "5494110f4224368e2e3c7ed73daf3b48552fb88440adb9c6c960d2a4af2f1eed",
+      "bytes": 30320,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot/Pitch/PolyphonicTracker.cpp"
+    },
+    "poly-audit/snapshot/Pitch/PolyphonicTracker.h": {
+      "sha256": "017c49ebf378dceaa3cc688694b132bcda5bf1e2125de6ffe013dcf355801db5",
+      "bytes": 1845,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot/Pitch/PolyphonicTracker.h"
+    },
+    "poly-audit/snapshot/Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "bytes": 26426,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot/Pitch/TimeDomainPursuit.cpp"
+    },
+    "poly-audit/snapshot/Pitch/TimeDomainPursuit.h": {
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "bytes": 2997,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot/Pitch/TimeDomainPursuit.h"
+    },
+    "poly-audit/snapshot/Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot/Pitch/YinEstimator.cpp"
+    },
+    "poly-audit/snapshot/Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot/Pitch/YinEstimator.h"
+    },
+    "poly-audit/snapshot-checkpoint17/Pitch/PolyphonicTracker.cpp": {
+      "sha256": "203ddafea801fe24240de2919a1d0d035e2bdfd84e1de0808ed18b92b3caf9e9",
+      "bytes": 32964,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-checkpoint17/Pitch/PolyphonicTracker.cpp"
+    },
+    "poly-audit/snapshot-checkpoint17/Pitch/PolyphonicTracker.h": {
+      "sha256": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+      "bytes": 2543,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-checkpoint17/Pitch/PolyphonicTracker.h"
+    },
+    "poly-audit/snapshot-checkpoint17/Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "bytes": 26426,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-checkpoint17/Pitch/TimeDomainPursuit.cpp"
+    },
+    "poly-audit/snapshot-checkpoint17/Pitch/TimeDomainPursuit.h": {
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "bytes": 2997,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-checkpoint17/Pitch/TimeDomainPursuit.h"
+    },
+    "poly-audit/snapshot-checkpoint17/Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-checkpoint17/Pitch/YinEstimator.cpp"
+    },
+    "poly-audit/snapshot-checkpoint17/Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-checkpoint17/Pitch/YinEstimator.h"
+    },
+    "poly-audit/snapshot-optimized/Pitch/PolyphonicTracker.cpp": {
+      "sha256": "610999c886da215aaf99b02c8ca9f8fa85b0dc948a72a9ca7db71cbcb50dd6d9",
+      "bytes": 31297,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-optimized/Pitch/PolyphonicTracker.cpp"
+    },
+    "poly-audit/snapshot-optimized/Pitch/PolyphonicTracker.h": {
+      "sha256": "1bd64730e826e87c713eb4ed031ba4d4f15a78752321308bb3e473d12653087b",
+      "bytes": 2348,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-optimized/Pitch/PolyphonicTracker.h"
+    },
+    "poly-audit/snapshot-optimized/Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "bytes": 26426,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-optimized/Pitch/TimeDomainPursuit.cpp"
+    },
+    "poly-audit/snapshot-optimized/Pitch/TimeDomainPursuit.h": {
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "bytes": 2997,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-optimized/Pitch/TimeDomainPursuit.h"
+    },
+    "poly-audit/snapshot-optimized/Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-optimized/Pitch/YinEstimator.cpp"
+    },
+    "poly-audit/snapshot-optimized/Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-optimized/Pitch/YinEstimator.h"
+    },
+    "poly-audit/snapshot-sha256.json": {
+      "sha256": "75f55b7323b44ebbb10474ca2dbd41853a9fea2ad79271591f8b986368d5ee0c",
+      "bytes": 557,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-sha256.json"
+    },
+    "poly-audit/snapshot-widephase/Pitch/PolyphonicTracker.cpp": {
+      "sha256": "049f9e031d0df13ab302eedbe54c76784d062ee4ed748a63eaa1f4183d611a42",
+      "bytes": 31279,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-widephase/Pitch/PolyphonicTracker.cpp"
+    },
+    "poly-audit/snapshot-widephase/Pitch/PolyphonicTracker.h": {
+      "sha256": "1bd64730e826e87c713eb4ed031ba4d4f15a78752321308bb3e473d12653087b",
+      "bytes": 2348,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-widephase/Pitch/PolyphonicTracker.h"
+    },
+    "poly-audit/snapshot-widephase/Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "bytes": 26426,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-widephase/Pitch/TimeDomainPursuit.cpp"
+    },
+    "poly-audit/snapshot-widephase/Pitch/TimeDomainPursuit.h": {
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "bytes": 2997,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-widephase/Pitch/TimeDomainPursuit.h"
+    },
+    "poly-audit/snapshot-widephase/Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-widephase/Pitch/YinEstimator.cpp"
+    },
+    "poly-audit/snapshot-widephase/Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957,
+      "copied_from": "/tmp/flysnapper-poly-audit/snapshot-widephase/Pitch/YinEstimator.h"
+    },
+    "poly-audit/widephase/bent-identity-errors.json": {
+      "sha256": "646fc2dd917440b50e5ce9a73c39d446eecff8762f058e01cb3e9aa4b355bf00",
+      "bytes": 1298,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/bent-identity-errors.json"
+    },
+    "poly-audit/widephase/oracle-adjacent_52_53.csv": {
+      "sha256": "73b3c177e0da318d1137e53f6929181c62672d0974050ccd24ead21dfa3517bd",
+      "bytes": 63654,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-adjacent_52_53.csv"
+    },
+    "poly-audit/widephase/oracle-bend_lowE.csv": {
+      "sha256": "5a2ab38a4ec2c34723199e5d3b0c86f83024a49102257806dbdb719928ff13cf",
+      "bytes": 62773,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-bend_lowE.csv"
+    },
+    "poly-audit/widephase/oracle-bend_two_fast.csv": {
+      "sha256": "748b97450213daab3eef2ecb13630611dd145031c08bf0cf20dc8bd41e88cd39",
+      "bytes": 64534,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-bend_two_fast.csv"
+    },
+    "poly-audit/widephase/oracle-bend_two_slow.csv": {
+      "sha256": "c7d747466b02306b8cccc05cffd221818c8f23847d21076236615fd9431ebaae",
+      "bytes": 64520,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-bend_two_slow.csv"
+    },
+    "poly-audit/widephase/oracle-low_bend.csv": {
+      "sha256": "74e7ba0b2b07040fb6a67d74261c794f090a23505d224be58f968b67fd18abec",
+      "bytes": 31366,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-low_bend.csv"
+    },
+    "poly-audit/widephase/oracle-low_bend_lengths.csv": {
+      "sha256": "7077c6a0b162d5d90b4a3c76d6f7acbce8231e6053074f42f8dde56dc1881df8",
+      "bytes": 31245,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-low_bend_lengths.csv"
+    },
+    "poly-audit/widephase/oracle-low_fractional.csv": {
+      "sha256": "1fce2f34926f55475702b146281ec850ff25f55eaaa6c3da8f2bbe73c36dda30",
+      "bytes": 33442,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-low_fractional.csv"
+    },
+    "poly-audit/widephase/oracle-low_fractional_lengths.csv": {
+      "sha256": "649ce01011c022fdc9af0b50cf9789a9715e3222cbb7bae069822fee7a95214c",
+      "bytes": 33252,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-low_fractional_lengths.csv"
+    },
+    "poly-audit/widephase/oracle-major_seventh.csv": {
+      "sha256": "2029be1c6f06ed10ba8e0b9ed38657190ef1527437675f59cdf02ab4aef6f99f",
+      "bytes": 64152,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-major_seventh.csv"
+    },
+    "poly-audit/widephase/oracle-octave_52_64.csv": {
+      "sha256": "da90b3ec0edf95f69d00d35fb7f5d1eac53ca732d75cb24219df3b8fb127c689",
+      "bytes": 53757,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-octave_52_64.csv"
+    },
+    "poly-audit/widephase/oracle-octave_strummed.csv": {
+      "sha256": "65518dba86d976ce3444c156ac17c7a5a759e4cf3aa9944f02645cebbedf7ab5",
+      "bytes": 52514,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-octave_strummed.csv"
+    },
+    "poly-audit/widephase/oracle-open_Em_six.csv": {
+      "sha256": "1c086ed3a19888a031dd6a675fb06c6bda8380773a979854daa1ad967fb98ea4",
+      "bytes": 191992,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-open_Em_six.csv"
+    },
+    "poly-audit/widephase/oracle-single_fractional.csv": {
+      "sha256": "17774aacec6510c965c21967bde64e066d710c887c1415993e5fa2fbd1b5a0e6",
+      "bytes": 33084,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-single_fractional.csv"
+    },
+    "poly-audit/widephase/oracle-single_fractional_256.csv": {
+      "sha256": "5c82c129cd8adcf7ada44ab38e328d42f229cf0f1d92f0d84a7136d903bf2b3c",
+      "bytes": 33044,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-single_fractional_256.csv"
+    },
+    "poly-audit/widephase/oracle-single_fractional_384.csv": {
+      "sha256": "4fe52f31eaf4bd97c6d1e1471d2cffbb6197563c35b3be6e4f83781f260a030d",
+      "bytes": 33058,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-single_fractional_384.csv"
+    },
+    "poly-audit/widephase/oracle-single_fractional_lengths.csv": {
+      "sha256": "4d52a9c9b077800a47267d6e7289e0462a29d906ef89e3618785b34d69ee9fad",
+      "bytes": 33033,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-single_fractional_lengths.csv"
+    },
+    "poly-audit/widephase/oracle-six_bend_B3.csv": {
+      "sha256": "f35194dc39f7500c8bc736b9498dcb1b377997e12aa05a42f262c7d53ee5b3be",
+      "bytes": 191789,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-six_bend_B3.csv"
+    },
+    "poly-audit/widephase/oracle-six_bend_B3_3partials.csv": {
+      "sha256": "ec99f93abd1c313881befcb280404c863bfb7e875ea0c18d3bc87ad776afa007",
+      "bytes": 170632,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-six_bend_B3_3partials.csv"
+    },
+    "poly-audit/widephase/oracle-six_bend_E3.csv": {
+      "sha256": "b1e169f5f9c0deda4ef54c987db32d827a1e626b139ebaeb0d8947f92420b959",
+      "bytes": 190249,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-six_bend_E3.csv"
+    },
+    "poly-audit/widephase/oracle-six_bend_E3_3partials.csv": {
+      "sha256": "d8e405feefc6659c987aa541c0087987731278207418496433517fd2ff4cf037",
+      "bytes": 173803,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-six_bend_E3_3partials.csv"
+    },
+    "poly-audit/widephase/oracle-six_bend_E4.csv": {
+      "sha256": "c420220d5d3a0d7d78dbb656bc5cb263627de4c59d3c8ab7afc7e01936786b8c",
+      "bytes": 192001,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-six_bend_E4.csv"
+    },
+    "poly-audit/widephase/oracle-six_bend_E4_3partials.csv": {
+      "sha256": "9160944a4b6c69de1d7c5e04560e55dc4c632587b7a4a6e8c941dd785fd31acb",
+      "bytes": 172147,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-six_bend_E4_3partials.csv"
+    },
+    "poly-audit/widephase/oracle-stiff_adjacent.csv": {
+      "sha256": "36d06ebccad732439f44c05209632dadbe665bc281471a1cd3a6b9905cd6ed60",
+      "bytes": 62922,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-stiff_adjacent.csv"
+    },
+    "poly-audit/widephase/oracle-stiff_single.csv": {
+      "sha256": "3fef47c4893b38b1c63d5d9735d9c3fb8611b15272c9e2cb7f8e6db7980cc4d2",
+      "bytes": 32318,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-stiff_single.csv"
+    },
+    "poly-audit/widephase/oracle-strong_even_single.csv": {
+      "sha256": "2628aa4d2b2a6e6acefad5237a09b7d1cae33d83fe4f55b6bfa241629efac5fd",
+      "bytes": 27053,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-strong_even_single.csv"
+    },
+    "poly-audit/widephase/oracle-strummed_Em_six.csv": {
+      "sha256": "d559a86fba69072e5837941c4f9408782eaa253e6fcc596c469a2215245082aa",
+      "bytes": 181092,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-strummed_Em_six.csv"
+    },
+    "poly-audit/widephase/oracle-summary.csv": {
+      "sha256": "a549c824cf49263dbd8ff36e830334b52c823684d50298ba4cd4cebe1fe04328",
+      "bytes": 2454,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase/oracle-summary.csv"
+    },
+    "poly-audit/widephase-sha256.json": {
+      "sha256": "8bf7f3ca82551d53be80d522a7759b5c25a7ea9646ae1173bc5fc1b13e2ec913",
+      "bytes": 557,
+      "copied_from": "/tmp/flysnapper-poly-audit/widephase-sha256.json"
+    }
+  }
+}

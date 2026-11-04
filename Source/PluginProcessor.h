@@ -3,6 +3,7 @@
 #include <juce_audio_processors/juce_audio_processors.h>
 #include "Core/MidiEngine.h"
 #include "Pitch/PitchDetector.h"
+#include "Pitch/MpeOutputRouter.h"
 #include <atomic>
 
 class FlysnapperProcessor final : public juce::AudioProcessor, public juce::VST3ClientExtensions {
@@ -47,18 +48,21 @@ private:
     void process(juce::AudioBuffer<float>&,juce::MidiBuffer&,bool bypassed);
     static constexpr size_t inputCapacity=2048;
     struct Input {int offset=0; unsigned sequence=0; flysnapper::Source source=flysnapper::Source::External;
-        std::array<juce::uint8,3> data{}; int length=0;};
+        std::array<juce::uint8,3> data{}; int length=0;
+        int voiceId=-1;bool pitchChange=false;float pitch=0;};
     std::array<Input,inputCapacity> inputs{};
     flysnapper::pitch::PitchDetector detector;
     flysnapper::pitch::Output detectedEvents;
     std::array<float,256> audioScratch{};
     flysnapper::Engine engine;
     flysnapper::Output output;
+    flysnapper::midi::MpeOutputRouter mpeRouter;
+    flysnapper::midi::Packets mpePackets;
     juce::MidiBuffer result;
     std::array<std::atomic<float>*,50> mapValues{};
     std::atomic<float> *correction=nullptr,*mode=nullptr,*root=nullptr,*scale=nullptr,*routingTest=nullptr;
     std::atomic<float> *pitchEnabled=nullptr,*pitchMode=nullptr,*inputGate=nullptr,*sensitivity=nullptr,*releaseMs=nullptr;
-    std::atomic<float> *monoBend=nullptr,*bendRange=nullptr;
+    std::atomic<float> *monoBend=nullptr,*bendRange=nullptr,*mpeOutput=nullptr,*autoInput=nullptr;
     std::atomic<float> inputLevel{-120.0f};
     std::atomic<uint16_t> detectedMask{0};
     std::atomic<uint64_t> display{0};
@@ -72,6 +76,8 @@ private:
     // Mono bend reserves output channel 2. Ordinary playing MIDI remains on
     // its original channels; in particular, channel-1 expression is separate.
     bool previousMonoBend=false,bendSession=false;
+    bool previousMpeOutput=false;
+    std::array<uint8_t,16> legacyHolds{};
     int previousBendRange=2,bendConfiguredRange=0;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FlysnapperProcessor)
 };

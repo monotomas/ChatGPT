@@ -1,6 +1,6 @@
 # Flysnapper – gjeldende produktoppdrag
 
-Brukerens presiseringer 3. november 2026 går foran begrensningene i den
+Brukerens presiseringer 3.–4. november 2026 går foran begrensningene i den
 opprinnelige handoveren. Utvikle hele løsningen autonomt, og gjennomfør egne
 bygginger, lydprøver, regresjonstester og installasjonskontroller. Ikke krev
 brukertesting av delprototyper eller en bekreftet Ableton-prøve før DSP-utvikling.
@@ -11,8 +11,9 @@ alternativ hvis den gir en konkret fordel; den skal ikke bli en ny brukeroppgave
 
 ## To funksjonsmoduler
 
-Pitch-to-MIDI mottar audio og leverer ordinære Note On/Off, velocity og MIDI-note
-på kanal 1. Mono/poly velges av brukeren. Modulen kan slås av uten å skade
+Pitch-to-MIDI mottar audio og leverer Note On/Off, velocity og tonehøyde.
+Vanlig utgang bruker kanal 1. Uttrykksmodus kan reservere separate kanaler for
+uavhengig bending. Mono/poly velges av brukeren. Modulen kan slås av uten å skade
 samtidig eksternt MIDI. Ingen intern synthesizer eller dry-monitorering behøves.
 
 MIDI-to-MIDI mottar generert og eksternt spille-MIDI samtidig. Kanal 16 er
@@ -51,21 +52,21 @@ mål, ikke en egenskap som kan erklæres fra kompileringssuksess. Dokumenter
 målte avvik i den endelige leveransen; ikke skjul lengre analysevinduer eller
 fjern polyfoni som en umerket produktendring.
 
-## Presisering etter første installasjon
+## Bekreftet ruting og tidligere leveranse
 
 Brukeren har bekreftet at sidechain-audio, MIDI-utgangen og all ruting fungerer
 i Ableton. Behold den samlede instrument-pluginen og vertens eksisterende
 ruting. Dette er brukerens observasjon; det er ikke en automatisert Live-test
 utført i skymiljøet.
 
-Arbeidet med 0.2.1 retter seg mot gitarens dynamikk og klangendringer: raskere
+Leveransen 0.2.1 rettet seg mot gitarens dynamikk og klangendringer: raskere
 ansats der observasjonen er entydig, videre tonefølging gjennom avklinging,
 færre falske oktavskifter i begge retninger og ekte monofonisk pitch-bend.
 Genuint nye toner, virkelige oktavskifter, demping, stillhet og støy må fortsatt
 behandles korrekt. En lengre vilkårlig holdetid er ikke en løsning på for
 tidlige Note Off-er. De opprinnelige kvalitetssjekkene beholdes.
 
-Valgfri Mono Bend følger kontinuerlig tonehøyde og vibrato rundt den korrigerte
+I 0.2.1 følger valgfri Mono Bend kontinuerlig tonehøyde og vibrato rundt den korrigerte
 ankernoten. Den bruker vanlig MIDI pitch wheel på en reservert kanal 2, slik at
 eksternt spille-MIDI på kanal 1 beholder sine noter og uttrykk. MPE er ikke et
 krav. Valgbart bendområde er +/-2 eller +/-12 halvtoner, med standard MIDI RPN
@@ -79,3 +80,42 @@ sammen, og et mottakerinstrument kan bruke pitch wheel globalt for én lyd.
 Uavhengig uttrykk for samtidig keyboard og bøyd audio kan derfor ikke loves
 for en slik mottaker. Dokumenter et eget mottakerspor når denne adskillelsen
 trengs; ikke krev MPE for vanlig monofonisk audio-bend.
+
+## Gjeldende krav etter tilbakemelding 4. november
+
+0.2.1 er ikke akseptert som musikalsk ferdig. Brukeren ønsker ikke flere
+mellomversjoner, manuell feilsøking eller prøving av kjente utilstrekkelige
+installasjonspakker. Utvikling og undersøkelser skal fortsette autonomt.
+Hvis nødvendige egenskaper fremdeles mangler, skal de stå som uløste; en
+kompilering eller gode utvalgte syntetiske prøver er ikke en ferdig leveranse.
+
+Normal tonegjenkjenning må fungere på et moderat gitarsignal. Den skal ikke
+forutsette at brukeren forsterker både signal og støygulv kraftig. Innebygd
+behandling må avvise brum og ikke-tonale kontakt-, dempe- og knirkelyder,
+samtidig som svake anslag og ekte avklingende strenger beholdes. Målinger må
+skille støy fra svake ønskede toner; en absolutt volumgrense eller lang
+vilkårlig holdetid oppfyller ikke dette kravet. Akustisk identiske signaler kan
+ikke avsløre utøverens hensikt, og denne begrensningen skal ikke skjules.
+
+Med bending aktivert skal ekte jevne bends og vibrato gi kontinuerlig
+tonehøyde. Fingerslides over bånd, hammer-ons og pull-offs skal fortsatt gi
+nye noter når strengen faktisk etablerer nye diskrete toner. Manglende tydelig
+volumanslag er ikke tilstrekkelig grunn til å velge bend. Raske jevne bends
+som lander på en eksakt halvtone skal heller ikke gi falske nye anslag.
+Klassifiseringen må undersøke tidsforløp og uavhengige akustiske tegn, og
+testene må inneholde begge forklaringene til tilsynelatende like pitchskift.
+
+Polyfonisk modus skal støtte flere samtidige ringende strenger og uavhengig
+bending per stemme. Én global pitch wheel kan ikke oppfylle det siste kravet.
+Standard MIDI MPE med separate medlemskanaler er et tillatt uttrykksformat;
+vanlig MIDI og den eksisterende monofoniske utgangen beholdes. Kanal 16
+forblir akkordkontroll og skal ikke brukes til utgående spilletoner.
+MPE-vert og mottaker må tolke formatet riktig. At en egen mottakertest gjør
+det, er ikke i seg selv dokumentasjon av Abletons atferd.
+
+Forsinkelse, feilanslag, falske oktaver, manglende toner, tidlige Note Off-er,
+bendkurver og CPU-frister skal vurderes samlet. Lavere forsinkelse oppnådd
+ved å slippe gjennom ekstra eller feil toner teller ikke som forbedret
+musikalsk brukbarhet. Se [målepolicyen](../Tests/AudioFixtures/readiness/policy.json)
+og [arbeidsstatusen](MUSICAL_READINESS.md). Policyens forskningsgrenser er
+mellomliggende målepunkter; de erstatter ikke de opprinnelige latency-målene.

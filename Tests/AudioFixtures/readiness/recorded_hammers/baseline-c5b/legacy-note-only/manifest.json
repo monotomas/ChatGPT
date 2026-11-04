@@ -1,0 +1,27 @@
+{
+  "source_commit": "c5b05337641b13ae259836f5346e7c1850b7382c",
+  "fixture_seal": "059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae",
+  "source_sha256": {
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+    "Source/Pitch/PitchDetector.cpp": "e70cc37f1b344c8dac325364a33e545e7393f3b0d305d526f6d8bb6e3b332a34",
+    "Source/Pitch/PitchDetector.h": "348537d970c7ef15ecefe69400ff39454ef147c19f7d451ae789936d0ca98e55",
+    "Source/Pitch/README.md": "e43d7367071cfd0ed55d84f4a85f9e04764d7e7a52c72ecad2c84960d5382c82",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+    "Source/Pitch/YinEstimator.cpp": "d364b3182a2fe298f3836b0a9a636c00b7ea8f2ab305627f5a90ee4027d2a90a",
+    "Source/Pitch/YinEstimator.h": "53608218b5cfef4e4bbc7e4c658830adbe2792c97dfc20768f67012bd4cc7b48",
+    "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+    "Tools/audio_validation.cpp": "b753df06650a9c19f325ef52da60ecde486ea31dbb1f034d76cc778018eed9c6"
+  },
+  "executable_sha256": "a157704f4e7aee105caafadb4450c6b36f9c3b3152e707fcd63de1781eced275",
+  "evaluation_role": "first-real-hammer-baseline-before-disclosure",
+  "physical_onsets_not_available": true,
+  "files_sha256": {
+    "audio-events.csv": "25fe249395d7489fa98ffa593bb7e908cb4085ccfaef351dc3ea2e18ba8f59fe",
+    "audio-cases.csv": "52b1b4e881458309d5d5f4df1f15c4dc45b62e7c6d118f22272e622f2f2eab73",
+    "audio-summary.txt": "332a995fff732e44d17c680754b599223ec81a3e6ee65955aac4a3463cae2167"
+  }
+}

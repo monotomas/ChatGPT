@@ -18,8 +18,10 @@ juce::AudioProcessorValueTreeState::ParameterLayout FlysnapperProcessor::paramet
     p.add(std::make_unique<juce::AudioParameterBool>(juce::ParameterID{"pitchEnabled",1},"Pitch Enabled",true));
     p.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID{"pitchMode",1},"Pitch Mode",juce::StringArray{"Mono","Poly"},0));
     p.add(std::make_unique<juce::AudioParameterBool>(juce::ParameterID{"monoBend",1},"Mono Bend",false));
+    p.add(std::make_unique<juce::AudioParameterBool>(juce::ParameterID{"mpeOutput",1},"MPE Output",false));
     p.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID{"bendRange",1},"Bend Range",juce::StringArray{"2 semitones","12 semitones"},0));
     p.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"inputGate",1},"Input Threshold",juce::NormalisableRange<float>(-80.0f,-20.0f,1.0f),-55.0f));
+    p.add(std::make_unique<juce::AudioParameterBool>(juce::ParameterID{"autoInput",1},"Automatic Input",true));
     p.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"sensitivity",1},"Sensitivity",juce::NormalisableRange<float>(.35f,.95f,.01f),.65f));
     p.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"releaseMs",1},"Release",juce::NormalisableRange<float>(10.0f,150.0f,1.0f),35.0f));
     for(int i=0;i<50;++i) {
@@ -39,6 +41,7 @@ FlysnapperProcessor::FlysnapperProcessor()
     inputGate=parameters.getRawParameterValue("inputGate");sensitivity=parameters.getRawParameterValue("sensitivity");
     releaseMs=parameters.getRawParameterValue("releaseMs");
     monoBend=parameters.getRawParameterValue("monoBend");bendRange=parameters.getRawParameterValue("bendRange");
+    mpeOutput=parameters.getRawParameterValue("mpeOutput");autoInput=parameters.getRawParameterValue("autoInput");
     for(int i=0;i<50;++i)mapValues[size_t(i)]=parameters.getRawParameterValue(mappingParameterId(i));
     result.ensureSize(131072);display.store(flysnapper::packSnapshot(engine.snapshot()));
     setLatencySamples(0);
@@ -62,6 +65,26 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     juce::ScopedNoDenormals noDenormals;
     const int samples=audio.getNumSamples();
     result.clear();output.clear();
+    mpeRouter.beginBlock(mpePackets);
+    unsigned noteCount=0;
+    bool emittingMpe=previousMpeOutput;
+    auto drain=[&] {
+        if(emittingMpe){mpeRouter.consumeCore(output,mpePackets);return;}
+        for(size_t k=0;k<output.size;++k) {
+            const auto& e=output.events[k];
+            const int command=e.type==flysnapper::EventType::NoteOn?0x90:e.type==flysnapper::EventType::NoteOff?0x80:0xb0;
+            const juce::uint8 raw[]{juce::uint8(command|(e.channel-1)),juce::uint8(e.note),juce::uint8(e.value)};
+            result.addEvent(raw,3,e.offset);if(e.type==flysnapper::EventType::NoteOn)++noteCount;
+        }
+        output.size=0;
+    };
+    const auto flushMpe=[&] {
+        for(size_t i=0;i<mpePackets.size;++i) {
+            const auto& e=mpePackets.events[i];result.addEvent(e.bytes.data(),e.length,e.offset);
+            if((e.bytes[0]&0xf0)==0x90&&e.bytes[2]>0)++noteCount;
+        }
+        mpePackets.clear();
+    };
     bool resetNow=needsReset.exchange(false);
     bool resetBendNow=false;
     if(auto* head=getPlayHead())if(auto pos=head->getPosition()) {
@@ -73,11 +96,36 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
         } else havePosition=false;
         wasPlaying=playing;
     }
+    const bool currentMpe=mpeOutput->load()>=.5f;
+    const bool outputModeChanged=currentMpe!=previousMpeOutput;
     if(resetNow) {
         engine.panic(0,output);engine.clearChord();testRemaining=-1;
         detectedEvents.clear();detector.reset(detectedEvents,0);detectedEvents.clear();
         resetBendNow=true;
     }
+    if(outputModeChanged) {
+        // Member allocation changes the core channels as well as the wire
+        // format. Release in the previous format before accepting new notes;
+        // the held chord input remains valid across this output-only change.
+        for(auto source:{flysnapper::Source::External,flysnapper::Source::Generated,flysnapper::Source::Diagnostic})
+            engine.stopSource(source,0,output);
+        if(!previousMpeOutput)for(int ch=1;ch<=16;++ch) {
+            if(legacyHolds[size_t(ch-1)]&1)engine.controller(flysnapper::Source::External,ch,66,0,0,output);
+            if(legacyHolds[size_t(ch-1)]&2)engine.controller(flysnapper::Source::External,ch,69,0,0,output);
+        }
+        detectedEvents.clear();detector.reset(detectedEvents,0);detectedEvents.clear();
+        testRemaining=-1;resetBendNow=true;
+    }
+    if(resetNow||outputModeChanged) {
+        drain();
+        if(previousMpeOutput){mpeRouter.clear(mpePackets);flushMpe();}
+        else if(bendSession) {
+            const juce::uint8 centre[]{0xe1,0,64};result.addEvent(centre,3,0);
+        }
+        bendSession=false;bendConfiguredRange=0;legacyHolds={};
+    }
+    emittingMpe=currentMpe;previousMpeOutput=currentMpe;
+    mpeRouter.beginBlock(mpePackets,int(flysnapper::midi::Packets::capacity)-result.getNumEvents());
     flysnapper::Settings settings;
     settings.correctionEnabled=correction->load()>=.5f&&!bypassed;
     settings.mode=static_cast<flysnapper::Mode>(int(mode->load()));settings.root=int(root->load());settings.scale=int(scale->load());
@@ -86,8 +134,8 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     bool bus=getBus(true,0)->isEnabled();sidechain.store(bus,std::memory_order_relaxed);
     const bool pitchActive=bus&&!bypassed&&pitchEnabled->load()>=.5f;
     const int currentPitchMode=int(pitchMode->load());
-    const bool currentMonoBend=currentPitchMode==0&&monoBend->load()>=.5f;
-    const int currentBendRange=bendRange->load()>=.5f?12:2;
+    const bool currentMonoBend=currentPitchMode==0&&(currentMpe||monoBend->load()>=.5f);
+    const int currentBendRange=currentMpe?flysnapper::midi::MpeOutputRouter::memberRange:(bendRange->load()>=.5f?12:2);
     if((wasPitchEnabled&&!pitchActive)||(previousPitchMode>=0&&previousPitchMode!=currentPitchMode)
         ||previousMonoBend!=currentMonoBend||(currentMonoBend&&previousBendRange!=currentBendRange)) {
         engine.stopSource(flysnapper::Source::Generated,0,output);
@@ -100,17 +148,20 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     flysnapper::pitch::Settings pitchSettings;
     pitchSettings.enabled=pitchActive;pitchSettings.polyphonic=currentPitchMode==1;
     pitchSettings.thresholdDb=inputGate->load();pitchSettings.sensitivity=sensitivity->load();
+    pitchSettings.autoInput=autoInput->load()>=.5f;
     pitchSettings.releaseMs=releaseMs->load();
     pitchSettings.monoBend=currentMonoBend;
+    pitchSettings.polyBend=currentMpe&&currentPitchMode==1;
     pitchSettings.bendRangeSemitones=float(currentBendRange);detector.configure(pitchSettings);
     // Bus activation is the host's only reliable connectivity signal. Digital
     // silence is processed normally and releases notes; it is not No Input.
     size_t count=0;bool inputOverflow=false;
-    auto append=[&](int offset,const juce::uint8* data,int length,flysnapper::Source source) {
-        if(count==inputCapacity){inputOverflow=true;return;}
+    auto append=[&](int offset,const juce::uint8* data,int length,flysnapper::Source source)->Input* {
+        if(count==inputCapacity){inputOverflow=true;return nullptr;}
         auto& item=inputs[count];item.offset=std::clamp(offset,0,std::max(0,samples-1));
         item.sequence=unsigned(count);item.source=source;item.length=length;
-        std::copy_n(data,length,item.data.begin());++count;
+        item.voiceId=-1;item.pitchChange=false;item.pitch=0;
+        std::copy_n(data,length,item.data.begin());++count;return &item;
     };
     for(const auto meta:midi) {
         // VST3 is not a raw SysEx cable. Explicitly count unsupported payloads.
@@ -160,7 +211,14 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
             detectedEvents.clear();detector.process(audioScratch.data(),n,detectedEvents);
             for(size_t i=0;i<detectedEvents.size;++i) {
                 const auto& event=detectedEvents.events[i];
-                if(event.pitchChange) {
+                if(currentMpe) {
+                    if(event.voiceId<0||event.voiceId>=flysnapper::midi::MpeOutputRouter::generatedVoices
+                        ||(event.pitchChange&&!std::isfinite(event.pitch))){inputOverflow=true;break;}
+                    const juce::uint8 raw[]{juce::uint8(event.pitchChange?0xe0:(event.on?0x90:0x80)),juce::uint8(event.note),juce::uint8(event.velocity)};
+                    if(auto* item=append(start+event.offset,raw,3,flysnapper::Source::Generated)) {
+                        item->voiceId=event.voiceId;item->pitchChange=event.pitchChange;item->pitch=event.pitch;
+                    }
+                } else if(event.pitchChange) {
                     if(!currentMonoBend||!std::isfinite(event.pitch))continue;
                     // The detector's acoustic anchor is corrected only at
                     // Note On. Expression remains relative to that anchor,
@@ -189,13 +247,6 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     std::sort(inputs.begin(),inputs.begin()+std::ptrdiff_t(count),[](const auto& a,const auto& b){
         return a.offset<b.offset||(a.offset==b.offset&&a.sequence<b.sequence);
     });
-    unsigned noteCount=0;
-    auto drain=[&] { for(size_t k=0;k<output.size;++k) {
-        const auto& e=output.events[k];
-        const int command=e.type==flysnapper::EventType::NoteOn?0x90:e.type==flysnapper::EventType::NoteOff?0x80:0xb0;
-        const juce::uint8 raw[]{juce::uint8(command|(e.channel-1)),juce::uint8(e.note),juce::uint8(e.value)};
-        result.addEvent(raw,3,e.offset);if(e.type==flysnapper::EventType::NoteOn)++noteCount;
-    } output.size=0; };
     const auto wheel=[&](int value,int offset) {
         const juce::uint8 bytes[]{0xe1,juce::uint8(value&127),juce::uint8((value>>7)&127)};
         result.addEvent(bytes,3,offset);
@@ -221,7 +272,14 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     drain();
     // All generated Note Offs queued by panic/configuration changes precede
     // the centre message; external channel-1 notes and wheel are untouched.
-    if(resetBendNow){centreBend(0);bendConfiguredRange=0;}
+    if(resetBendNow) {
+        if(currentMpe) {
+            if(inputOverflow)mpeRouter.clear(mpePackets);
+            else mpeRouter.clearGenerated(mpePackets);
+        }
+        else centreBend(0);
+        bendConfiguredRange=0;
+    }
     for(size_t i=0;i<count;) {
         size_t end=i+1;while(end<count&&inputs[end].offset==inputs[i].offset)++end;
         int ons=0;
@@ -238,6 +296,23 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
         for(size_t j=i;j<end;++j) {
             const auto& e=inputs[j];const int status=e.data[0]&0xf0,ch=(e.data[0]&15)+1;
             if(e.source==flysnapper::Source::External&&ch==16)continue;
+            if(currentMpe) {
+                if(e.source==flysnapper::Source::Generated) {
+                    if(e.pitchChange)mpeRouter.generatedPitch(e.voiceId,e.data[1],e.pitch,e.offset,mpePackets);
+                    else if(status==0x90&&e.length==3&&e.data[2]>0)mpeRouter.generatedOn(engine,output,e.voiceId,e.data[1],e.data[2],e.offset,mpePackets);
+                    else if((status==0x80||status==0x90)&&e.length==3)mpeRouter.generatedOff(engine,output,e.voiceId,e.data[1],e.data[2],e.offset,mpePackets);
+                } else mpeRouter.external(engine,output,e.source,ch,e.data.data(),e.length,e.offset,mpePackets);
+                continue;
+            }
+            mpeRouter.observeExternal(e.source,ch,e.data.data(),e.length);
+            if(e.source!=flysnapper::Source::Generated&&status==0xb0&&e.length==3) {
+                auto& holds=legacyHolds[size_t(ch-1)];
+                if(e.data[1]==121)holds=0;
+                else if(e.data[1]==66||e.data[1]==69) {
+                    const auto bit=uint8_t(e.data[1]==66?1:2);
+                    holds=e.data[2]>=64?uint8_t(holds|bit):uint8_t(holds&~bit);
+                }
+            }
             const bool generatedBend=e.source==flysnapper::Source::Generated&&currentMonoBend;
             if(generatedBend&&engine.overloaded())continue;
             if(generatedBend&&(status==0xe0||(status==0x90&&e.length==3&&e.data[2]>0))) {
@@ -259,8 +334,12 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
         drain();i=end;
     }
     if(output.overflow)dropped.fetch_add(1);
-    if(engine.overloaded()){centreBend(std::max(0,samples-1));bendConfiguredRange=0;}
-    faulted.store(engine.overloaded(),std::memory_order_relaxed);
+    if(currentMpe) {
+        mpeRouter.endBlock(engine,output,mpePackets,std::max(0,samples-1));
+        if(mpePackets.overflow)dropped.fetch_add(1);
+        flushMpe();
+    } else if(engine.overloaded()){centreBend(std::max(0,samples-1));bendConfiguredRange=0;}
+    faulted.store(engine.overloaded()||(currentMpe&&mpeRouter.faulted()),std::memory_order_relaxed);
     emitted.fetch_add(noteCount,std::memory_order_relaxed);
     emittedEvents.fetch_add(unsigned(result.getNumEvents()),std::memory_order_relaxed);
     display.store(flysnapper::packSnapshot(engine.snapshot()),std::memory_order_release);
@@ -294,9 +373,9 @@ void FlysnapperProcessor::setStateInformation(const void* data,int bytes) {
     set("routingTest",0);
     // Old schema-1 presets predate expression. Loading one into an instance
     // already using bend must restore the legacy note-only/channel-1 mode.
-    for(const char* id:{"monoBend","bendRange"}) {
+    for(const char* id:{"monoBend","bendRange","mpeOutput","autoInput"}) {
         bool present=false;for(auto child:values)if(child.getProperty("id").toString()==id){present=true;break;}
-        if(!present)set(id,0);
+        if(!present)set(id,juce::String(id)=="autoInput"?1:0);
     }
     // Stable string IDs are authoritative. Unknown/new types retain defaults.
     const auto defaults=flysnapper::factoryDefaults();for(int i=0;i<50;++i)set(mappingParameterId(i),defaults[size_t(i)]);

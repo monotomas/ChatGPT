@@ -1,0 +1,189 @@
+{
+  "repository": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars",
+  "commit": "b3b3249d37dc977a1a297bd2dc053e6d9b6b805c",
+  "license": "CC0-1.0; README independently permits commercial/noncommercial royalty-free use",
+  "artist": "Brian Wood / Karoryfer Lecolds",
+  "instrument": "Green Gretsch Anniversary",
+  "recording_mode": "Not specified in README; raw sample WAVs, not SFZ rendered output",
+  "articulation_groundtruth": "Author hammer-on program/sample naming and SFZ mappings. Four isolated hammer positives; two release-trigger sounds. No continuous fretted-slide/hammer transition recording claimed.",
+  "pitch_naming_note": "File labels E3/G3/A3/E4 map explicitly to numeric MIDI40/43/45/52; do not infer scientific octave from filenames.",
+  "annotation_limits": "File start/end are not yet annotated physical onset/damping times. Do not set note-off at file EOF without independent acoustic annotation.",
+  "support_sha256": {
+    "LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "readme.txt": "c5de1216ecef300f0bf3337c04b40f1b7e11e5d0ee172269a1ac344b7819b595",
+    "Programs/modules/maps_green/rel_tp.sfz": "bf4c80451ad7066e4a1c507ac1fa6fcf0442ea411ec2ee207bd4ab33c081f452",
+    "Programs/modules/maps_green/hammer.sfz": "8ae0f4d6eb06a765f67b7402302d30edf3cbba11c37858c03572165a2820d028",
+    "Programs/06-green_hammer-on.sfz": "dbe1e6d3d5d81a28cce6baf4e288695ecd33102fce43bb713192f553ea815b1c"
+  },
+  "recordings": [
+    {
+      "file": "Samples/green/hammer/hammer_a3_rr1.wav",
+      "sha256": "6198e55c66de40bc74ce8e329c5964a3a0771ccf23f525fc465d6822f9281b75",
+      "bytes": 520194,
+      "midi_pitch_from_author_sfz": 45,
+      "role": "hammer-on positive",
+      "author_sfz_region": "sample=../Samples/green/hammer/hammer_a3_rr1.wav\nlokey=45\nhikey=45\nseq_length=2\npitch_keycenter=45\nlfo02_pitch_oncc113=69",
+      "audio_metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "sample_rate": "44100",
+            "channels": 1,
+            "bits_per_sample": 24
+          }
+        ],
+        "format": {
+          "duration": "3.931315"
+        }
+      },
+      "source_url": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars/blob/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/hammer/hammer_a3_rr1.wav",
+      "independent_reference_audit": {
+        "method": "Long-window FFT peak near author SFZ fundamental, before Flysnapper evaluation; no label adjustment",
+        "expected_hz": 110.0,
+        "observed_bin_hz": 111.03057861328125,
+        "cents_from_nominal": 16.144243264081748
+      },
+      "original_relative_path": "source/Samples/green/hammer/hammer_a3_rr1.wav"
+    },
+    {
+      "file": "Samples/green/hammer/hammer_e3_rr1.wav",
+      "sha256": "93debe8eb6276f9733da1b956e06a61a4064a65d2c9c20d868fd365f2813de42",
+      "bytes": 820412,
+      "midi_pitch_from_author_sfz": 40,
+      "role": "hammer-on positive",
+      "author_sfz_region": "sample=../Samples/green/hammer/hammer_e3_rr1.wav\nlokey=40\nhikey=40\nseq_length=2\npitch_keycenter=40\nlfo02_pitch_oncc113=104",
+      "audio_metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "sample_rate": "44100",
+            "channels": 1,
+            "bits_per_sample": 24
+          }
+        ],
+        "format": {
+          "duration": "6.200544"
+        }
+      },
+      "source_url": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars/blob/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/hammer/hammer_e3_rr1.wav",
+      "independent_reference_audit": {
+        "method": "Long-window FFT peak near author SFZ fundamental, before Flysnapper evaluation; no label adjustment",
+        "expected_hz": 82.4068892282175,
+        "observed_bin_hz": 82.76824951171875,
+        "cents_from_nominal": 7.574992576190286
+      },
+      "original_relative_path": "source/Samples/green/hammer/hammer_e3_rr1.wav"
+    },
+    {
+      "file": "Samples/green/hammer/hammer_e4_rr2.wav",
+      "sha256": "9a39abd85cacab5b6924e9d83e271e3d09bd482de32e6d49c575e79b14592b43",
+      "bytes": 498746,
+      "midi_pitch_from_author_sfz": 52,
+      "role": "hammer-on positive",
+      "author_sfz_region": "sample=../Samples/green/hammer/hammer_e4_rr2.wav\nlokey=52\nhikey=52\nseq_length=2\nseq_position=2\npitch_keycenter=52\nlfo02_pitch_oncc113=81",
+      "audio_metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "sample_rate": "44100",
+            "channels": 1,
+            "bits_per_sample": 24
+          }
+        ],
+        "format": {
+          "duration": "3.769206"
+        }
+      },
+      "source_url": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars/blob/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/hammer/hammer_e4_rr2.wav",
+      "independent_reference_audit": {
+        "method": "Long-window FFT peak near author SFZ fundamental, before Flysnapper evaluation; no label adjustment",
+        "expected_hz": 164.81377845643496,
+        "observed_bin_hz": 165.5364990234375,
+        "cents_from_nominal": 7.574992576190668
+      },
+      "original_relative_path": "source/Samples/green/hammer/hammer_e4_rr2.wav"
+    },
+    {
+      "file": "Samples/green/hammer/hammer_g3_rr1.wav",
+      "sha256": "4dd4ddd7b690855365cf4bc13cb96bc0f0b2e81d29ae8b02f53f094db8682def",
+      "bytes": 570936,
+      "midi_pitch_from_author_sfz": 43,
+      "role": "hammer-on positive",
+      "author_sfz_region": "sample=../Samples/green/hammer/hammer_g3_rr1.wav\nlokey=43\nhikey=43\nseq_length=2\npitch_keycenter=43\nlfo02_pitch_oncc113=104",
+      "audio_metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "sample_rate": "44100",
+            "channels": 1,
+            "bits_per_sample": 24
+          }
+        ],
+        "format": {
+          "duration": "4.314853"
+        }
+      },
+      "source_url": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars/blob/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/hammer/hammer_g3_rr1.wav",
+      "independent_reference_audit": {
+        "method": "Long-window FFT peak near author SFZ fundamental, before Flysnapper evaluation; no label adjustment",
+        "expected_hz": 97.99885899543733,
+        "observed_bin_hz": 98.91815185546875,
+        "cents_from_nominal": 16.16439997274005
+      },
+      "original_relative_path": "source/Samples/green/hammer/hammer_g3_rr1.wav"
+    },
+    {
+      "file": "Samples/green/rel/release_e3_rr1.wav",
+      "sha256": "1b1613c710a763ddaa5250e4b045c3a065606d4d7f647b404df4c50e335ad542",
+      "bytes": 117498,
+      "midi_pitch_from_author_sfz": 40,
+      "role": "release-trigger acoustic event; not a new played note",
+      "author_sfz_region": "sample=../Samples/green/rel/release_e3_rr1.wav\nlokey=40\nhikey=40\nseq_length=4\npitch_keycenter=40\nbend_up=234\nbend_down=-234\nrt_decay=5",
+      "audio_metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "sample_rate": "44100",
+            "channels": 1,
+            "bits_per_sample": 24
+          }
+        ],
+        "format": {
+          "duration": "0.887506"
+        }
+      },
+      "source_url": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars/blob/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/rel/release_e3_rr1.wav",
+      "original_relative_path": "source/Samples/green/rel/release_e3_rr1.wav"
+    },
+    {
+      "file": "Samples/green/rel/release_g3_rr1.wav",
+      "sha256": "89528baa948fe9124d65828817ab08047ecfac2da687487f13142214d79efaf3",
+      "bytes": 96366,
+      "midi_pitch_from_author_sfz": 43,
+      "role": "release-trigger acoustic event; not a new played note",
+      "author_sfz_region": "sample=../Samples/green/rel/release_g3_rr1.wav\nlokey=43\nhikey=43\nseq_length=4\npitch_keycenter=43\nbend_up=234\nbend_down=-234\nrt_decay=6",
+      "audio_metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "sample_rate": "44100",
+            "channels": 1,
+            "bits_per_sample": 24
+          }
+        ],
+        "format": {
+          "duration": "0.727778"
+        }
+      },
+      "source_url": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars/blob/b3b3249d37dc977a1a297bd2dc053e6d9b6b805c/Samples/green/rel/release_g3_rr1.wav",
+      "original_relative_path": "source/Samples/green/rel/release_g3_rr1.wav"
+    }
+  ],
+  "not_evaluated_on_flysnapper_at_selection": true
+}

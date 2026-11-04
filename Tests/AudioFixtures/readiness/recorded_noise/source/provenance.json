@@ -1,0 +1,119 @@
+{
+  "repository": "https://github.com/sfzinstruments/karoryfer.shinyguitar",
+  "commit": "57243cca85277dbcc120ce17c6178032f93c80f3",
+  "license": "CC0-1.0",
+  "performer": "D. Smolken",
+  "library": "Karoryfer Shinyguitar",
+  "instrument": "archtop guitar",
+  "paired_capture_warning": "Acoustic and electric samples are microphone and magnetic pickup views of the same named gestures, not independent performances.",
+  "author_annotation": "Programs/acoustic_noises.sfz and electric_noises.sfz label muted/percussive samples as noises and assign low key switch numbers; these are not pitched MIDI truth.",
+  "selection_before_any_flysnapper_measurement": true,
+  "intent_limit": "Chosen percussive/muted author-labelled sounds are suppression controls in this edition. They do not prove that every quiet pitched string is unwanted and do not constitute real fret squeak or hum evidence.",
+  "recordings": [
+    {
+      "original_relative_path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "original_repository_path": "Samples/acoustic/a3_vl1_rr1_1.wav",
+      "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "role": "quiet plucked note",
+      "midi_pitch_from_author_sfz": 57,
+      "source_capture": "microphone"
+    },
+    {
+      "original_relative_path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "original_repository_path": "Samples/acoustic/e2_vl1_rr1_1.wav",
+      "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "role": "quiet plucked note",
+      "midi_pitch_from_author_sfz": 40,
+      "source_capture": "microphone"
+    },
+    {
+      "original_relative_path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+      "original_repository_path": "Samples/acoustic/mute_strings1_rr1_1.wav",
+      "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d",
+      "role": "author-labelled noise",
+      "midi_pitch_from_author_sfz": null,
+      "source_capture": "microphone"
+    },
+    {
+      "original_relative_path": "source/Samples-acoustic-mute_strings3_rr1_1.wav",
+      "original_repository_path": "Samples/acoustic/mute_strings3_rr1_1.wav",
+      "sha256": "3a892d8b76088321221eaf90481f03afed35320e40b20ff0df222619af386219",
+      "role": "author-labelled noise",
+      "midi_pitch_from_author_sfz": null,
+      "source_capture": "microphone"
+    },
+    {
+      "original_relative_path": "source/Samples-acoustic-perc_1_rr1_1.wav",
+      "original_repository_path": "Samples/acoustic/perc_1_rr1_1.wav",
+      "sha256": "ae9b366921ce1aa2cadaffb24db967cc906723c28e770f26ba81dfe070254967",
+      "role": "author-labelled noise",
+      "midi_pitch_from_author_sfz": null,
+      "source_capture": "microphone"
+    },
+    {
+      "original_relative_path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+      "original_repository_path": "Samples/acoustic/perc_4_rr1_1.wav",
+      "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a",
+      "role": "author-labelled noise",
+      "midi_pitch_from_author_sfz": null,
+      "source_capture": "microphone"
+    },
+    {
+      "original_relative_path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "original_repository_path": "Samples/electric/a3_vl1_rr1_2.wav",
+      "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "role": "quiet plucked note",
+      "midi_pitch_from_author_sfz": 57,
+      "source_capture": "magnetic pickup"
+    },
+    {
+      "original_relative_path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "original_repository_path": "Samples/electric/e2_vl1_rr1_2.wav",
+      "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "role": "quiet plucked note",
+      "midi_pitch_from_author_sfz": 40,
+      "source_capture": "magnetic pickup"
+    },
+    {
+      "original_relative_path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+      "original_repository_path": "Samples/electric/mute_strings1_rr1_2.wav",
+      "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862",
+      "role": "author-labelled noise",
+      "midi_pitch_from_author_sfz": null,
+      "source_capture": "magnetic pickup"
+    },
+    {
+      "original_relative_path": "source/Samples-electric-mute_strings3_rr1_2.wav",
+      "original_repository_path": "Samples/electric/mute_strings3_rr1_2.wav",
+      "sha256": "6c0946d6cc6b6c5327234c78263bf5f2f06622242756245dc2bd3360e14d0c4d",
+      "role": "author-labelled noise",
+      "midi_pitch_from_author_sfz": null,
+      "source_capture": "magnetic pickup"
+    },
+    {
+      "original_relative_path": "source/Samples-electric-perc_1_rr1_2.wav",
+      "original_repository_path": "Samples/electric/perc_1_rr1_2.wav",
+      "sha256": "9da966729553e76814ac318a5e75997e600ed0f7e2d22813900ebe1508e095ed",
+      "role": "author-labelled noise",
+      "midi_pitch_from_author_sfz": null,
+      "source_capture": "magnetic pickup"
+    },
+    {
+      "original_relative_path": "source/Samples-electric-perc_4_rr1_2.wav",
+      "original_repository_path": "Samples/electric/perc_4_rr1_2.wav",
+      "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185",
+      "role": "author-labelled noise",
+      "midi_pitch_from_author_sfz": null,
+      "source_capture": "magnetic pickup"
+    }
+  ],
+  "support_sha256": {
+    "Programs-electric_one.sfz": "09b6b85e0428d1a78a6f199ec9ee0561758a37df364eaa6bc18c118a1fce05da",
+    "Programs-acoustic_one.sfz": "31ca13b9f33c6cdbf2c561e30fd4af58e31b73176d1a02f50bf680ad18b24e91",
+    "Programs-electric_noises.sfz": "41816d029369ad7ee07870e1cd332e4e10fe9bd91c4e0adefa23479f01815670",
+    "Programs-acoustic_noises.sfz": "d0f175588c3c813015eb2f1d0b6c46d0dc32cd4d2e131d111eb4c0d1900b8254",
+    "Programs-main.sfz": "e78ba4363619ac242ab43adf646c558b33379c3c0199d77a72dec4752c062d1f",
+    "readme.txt": "f2e004084b606051b3bd3aeb7a60fb3655110ad2d975844f0bdeb30b0d83c4a9",
+    "LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+  }
+}

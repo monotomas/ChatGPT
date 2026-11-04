@@ -5,6 +5,9 @@
 #include <cstdint>
 #include "TimeDomainPursuit.h"
 #include "YinEstimator.h"
+#include "ArticulationTracker.h"
+#include "NoiseConditioner.h"
+#include "PolyphonicTracker.h"
 
 namespace flysnapper::pitch {
 struct Settings {
@@ -16,8 +19,10 @@ struct Settings {
     int polyphony=6;
     bool monoBend=false;
     float bendRangeSemitones=2.0f;
+    bool polyBend=false;
+    bool autoInput=true;
 };
-struct Event {bool on=false;int note=0,velocity=0,offset=0;bool pitchChange=false;float pitch=0;};
+struct Event {bool on=false;int note=0,velocity=0,offset=0;bool pitchChange=false;float pitch=0;int voiceId=-1;};
 struct Output {
     static constexpr size_t capacity=512;
     std::array<Event,capacity> events{};
@@ -66,13 +71,26 @@ private:
     std::array<float,fftSize/2+1> spectrum{};
     TimeDomainPursuit pursuit;
     YinEstimator monoEstimator;
+    ArticulationTracker monoArticulation;
+    PartialPhaseTracker monoPartialPhase;
+    NoiseConditioner noiseConditioner;
+    PolyphonicTracker polyTracker;
+    struct PublishedPolyVoice {int anchor=-1;float pitch=-1;};
+    std::array<PublishedPolyVoice,PolyphonicTracker::maximumVoices> publishedPoly{};
+    std::array<ArticulationTracker,PolyphonicTracker::maximumVoices> polyArticulation{};
+    bool polyShadowMode=false;
+    int64_t analysisClock=0;
+    int monoArticulatedNote=-1;
+    int candidateProtectionRemaining=0;
     double preparedPursuitRate=0;
     std::array<float,noteCount> frequency{},scores{},strength{},retriggerBaseline{};
     std::array<int,noteCount> confirmations{};
+    std::array<bool,noteCount> candidateAdmissible{};
     std::array<Voice,noteCount> voices{};
     int writeIndex=0,filled=0,sinceAnalysis=0,signalSamples=0,silentSamples=0;
     float dcX=0,dcY=0,low1=0,low2=0,low3=0,low4=0,envelope=0,fastEnvelope=0,slowEnvelope=0;
     float gate=0.001778f,lowpass=0,releaseCoefficient=0,attackCoefficient=0,fastCoefficient=0,slowCoefficient=0;
+    float cleanEnvelope=0,cleanEnvelopeCoefficient=0;
     int releaseSamples=420;
     float currentPitch=-1,previousPitch=-1,dcPole=.998f,previousAttackRatio=0,measuredPeriod=0;
     int measuredPeriodNote=-1;
@@ -105,6 +123,8 @@ private:
     void analyseMono(int count,int offset,Output&) noexcept;
     void analysePoly(int count,int offset,Output&) noexcept;
     void updateVoices(int offset,Output&) noexcept;
+    void updatePolyExpression(int offset,Output&) noexcept;
+    void emitPoly(int voice,bool on,int note,int velocity,float pitch,bool pitchChange,int offset,Output&) noexcept;
     void emit(bool on,int note,int velocity,int offset,Output&) noexcept;
     void emitPitch(int note,float pitch,int offset,Output&) noexcept;
 };

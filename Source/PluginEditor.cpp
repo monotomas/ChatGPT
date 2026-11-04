@@ -126,7 +126,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p)
     setLookAndFeel(&look);
     setOpaque(true);
     setResizable(true,true);
-    setResizeLimits(900,760,1500,1100);
+    setResizeLimits(900,820,1500,1100);
     label(title,"FLYSNAPPER",31.0f,text,true);
     label(byline,juce::String::fromUTF8("by Olav L\xc3\xa6greid"),13.0f,muted);
 #ifdef JucePlugin_VersionString
@@ -154,7 +154,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p)
     label(midiRouting,"Playing MIDI: channel 1\nChord control: channel 16",13.0f,muted);
     label(activity,"MIDI output: idle",13.0f,muted);
     label(eventStatus,"",12.0f,muted);
-    label(warning,"External playing: 1   /   Chord control: 16   /   MPE off",13.0f,muted);
+    label(warning,"External playing: 1   /   Chord control: 16",13.0f,muted);
     label(footer,"AGPL-3.0-or-later  /  No warranty  /  See LICENSE.txt",11.0f,muted);
     label(backTitle,"CHORD / SCALE SETUP",23.0f,text,true);
     label(backDescription,"50 chord types. Your chosen scale applies in every root and is saved with this instance.",14.0f,muted);
@@ -177,6 +177,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p)
     correction.setComponentID("correctionEnabled");flip.setComponentID("flip");panic.setComponentID("panic");
     pitchEnabled.setComponentID("pitchEnabled");pitchMode.setComponentID("pitchMode");
     monoBend.setComponentID("monoBend");bendRange.setComponentID("bendRange");routingHelp.setComponentID("routingHelp");
+    autoInput.setComponentID("autoInput");mpeOutput.setComponentID("mpeOutput");
     bendRange.setName("Mono pitch bend range");
     inputGate.setComponentID("inputGate");sensitivity.setComponentID("sensitivity");release.setComponentID("releaseMs");
     inputMeter.setComponentID("inputMeter");sidechain.setComponentID("audioStatus");detectedNotes.setComponentID("detectedNotes");
@@ -188,9 +189,11 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p)
     pitchEnabled.setTooltip("Convert sidechain audio to MIDI. Keyboard MIDI continues independently when this is off.");
     pitchMode.setTooltip("Monophonic: one detected note at a time.\nPolyphonic: recognise several simultaneously sounding notes.");
     monoBend.setTooltip("Follow guitar bends and vibrato in Monophonic mode. Audio notes and pitch wheel leave Flysnapper on channel 2; external channel-1 MIDI is preserved at this output. The host or instrument may combine channels or share pitch wheel. Use a dedicated audio receiver if keyboard notes bend with it. Match the receiver's bend range; MPE is not needed for ordinary mono bend.");
+    autoInput.setTooltip("Use level-relative tonal/noise analysis and stationary mains reduction. The manual new-note threshold applies when Automatic input is off. Sensitivity and Release remain available in both modes.");
+    mpeOutput.setTooltip("Give each detected voice its own pitch bend in Mono or Poly. Enable MPE for Flysnapper in the host and use an MPE-capable receiver. Lower zone: master 1, members 2-15, member bend +/-48 semitones. Channel 16 remains chord control. The Mono pitch bend and Range controls apply only when MPE output is off.");
     bendRange.setTooltip("Receiver pitch-bend sensitivity: +/-2 or +/-12 semitones. Flysnapper sends the standard RPN range setting; if the instrument ignores it, set the same range in the instrument.");
     tuning.setTooltip("Audio-generated notes leave Flysnapper on channel 2 only while Mono pitch bend is active; otherwise they use channel 1. Match the receiver's bend range. Host channel merging or a shared instrument pitch wheel can also bend keyboard voices.");
-    inputGate.setTooltip("Minimum level for a new detected note. Held notes may decay below this level while a reliable periodic signal remains. Raise it to exclude background noise; lower it for quiet new notes. Double-click to reset.");
+    inputGate.setTooltip("Manual minimum level for a new detected note, used when Automatic input is off. Held notes may decay below this level while a reliable periodic signal remains. Double-click to reset.");
     sensitivity.setTooltip("Detection sensitivity. Adjust for the input instrument and background noise. Double-click to reset.");
     release.setTooltip("Time used to confirm a detected note has ended. Shorter release gives faster stops; longer release can preserve quiet decays. Double-click to reset.");
     flip.setTooltip("Edit all 50 chord-to-scale choices. Flipping only changes this view; notes continue.");
@@ -198,12 +201,12 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p)
     restore.setTooltip("Restore all 50 chord-to-scale choices to factory settings. Other settings are unchanged.");
     sidechain.setTooltip("Choose the audio source in the host's device sidechain panel, outside this plugin window. Use Audio / MIDI routing for instructions. An enabled bus alone cannot identify the source; silence does not mean disconnection.");
     routingHelp.setTooltip("Show where to choose the audio source and receive Flysnapper's MIDI output in the host.");
-    warning.setTooltip("Use ordinary playing MIDI on channel 1 and direct chord MIDI on channel 16. MPE is not supported.");
+    warning.setTooltip("Use ordinary playing MIDI on channel 1 and direct chord MIDI on channel 16. MPE output requires the host and receiving instrument to preserve per-note expression.");
     for(auto* item:{&title,&byline,&version,&warning,&footer})addAndMakeVisible(*item);
     addAndMakeVisible(flip);addAndMakeVisible(panic);addAndMakeVisible(routingHelp);addAndMakeVisible(front);
     front.setInterceptsMouseClicks(false,true);
     for(auto* item:{&chord,&activeScale,&chordStatus,&allowedTitle,&pitchTitle,&sidechain,&detectedNotes,&tuning,&gateTitle,&sensitivityTitle,&releaseTitle,&midiTitle,&modeTitle,&rootTitle,&scaleTitle,&midiRouting,&activity,&eventStatus})front.addAndMakeVisible(*item);
-    for(auto* item:std::array<juce::Component*,12>{&mode,&root,&scale,&correction,&pitchEnabled,&pitchMode,&monoBend,&bendRange,&inputGate,&sensitivity,&release,&inputMeter})
+    for(auto* item:std::array<juce::Component*,14>{&mode,&root,&scale,&correction,&pitchEnabled,&pitchMode,&monoBend,&bendRange,&autoInput,&mpeOutput,&inputGate,&sensitivity,&release,&inputMeter})
         front.addAndMakeVisible(*item);
     for(size_t i=0;i<notes.size();++i){
         label(notes[i],noteNames[i],15.0f,muted,true);
@@ -219,6 +222,8 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p)
     correctionAttachment=std::make_unique<ButtonAttachment>(processor.parameters,"correction",correction);
     pitchEnabledAttachment=std::make_unique<ButtonAttachment>(processor.parameters,"pitchEnabled",pitchEnabled);
     monoBendAttachment=std::make_unique<ButtonAttachment>(processor.parameters,"monoBend",monoBend);
+    autoInputAttachment=std::make_unique<ButtonAttachment>(processor.parameters,"autoInput",autoInput);
+    mpeOutputAttachment=std::make_unique<ButtonAttachment>(processor.parameters,"mpeOutput",mpeOutput);
     modeAttachment=std::make_unique<ChoiceAttachment>(processor.parameters,"mode",mode);
     rootAttachment=std::make_unique<ChoiceAttachment>(processor.parameters,"root",root);
     scaleAttachment=std::make_unique<ChoiceAttachment>(processor.parameters,"scale",scale);
@@ -231,7 +236,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p)
     flip.onClick=[this]{setBackVisible(!backVisible);};
     panic.onClick=[this]{processor.requestPanic();};restore.onClick=[this]{resetMappings();};
     routingHelp.onClick=[this]{showRoutingHelp();};
-    setSize(1040,760);timerCallback();startTimerHz(20);
+    setSize(1040,820);timerCallback();startTimerHz(20);
 }
 FlysnapperEditor::~FlysnapperEditor(){stopTimer();setLookAndFeel(nullptr);}
 float FlysnapperEditor::parameter(const char* id) const {
@@ -294,13 +299,18 @@ void FlysnapperEditor::timerCallback(){
     sidechain.setColour(juce::Label::textColourId,pitchOn&&connected?muted:blue);
     inputMeter.setLevel(connected&&finite?db:-120.0f);
     const bool adjustable=pitchOn;
-    pitchMode.setEnabled(adjustable);inputGate.setEnabled(adjustable);sensitivity.setEnabled(adjustable);release.setEnabled(adjustable);
+    const bool automatic=parameter("autoInput")>=0.5f;
+    const bool mpe=parameter("mpeOutput")>=0.5f;
+    pitchMode.setEnabled(adjustable);autoInput.setEnabled(adjustable);
+    inputGate.setEnabled(adjustable&&!automatic);sensitivity.setEnabled(adjustable);release.setEnabled(adjustable);
     const bool monoMode=int(parameter("pitchMode"))==0;
     const bool bends=parameter("monoBend")>=0.5f&&monoMode;
-    monoBend.setEnabled(adjustable&&monoMode);bendRange.setEnabled(adjustable&&bends);
+    monoBend.setEnabled(adjustable&&monoMode&&!mpe);bendRange.setEnabled(adjustable&&bends&&!mpe);
     const int range=int(parameter("bendRange"))==0?2:12;
-    tuning.setText(bends?"Audio MIDI out: channel 2  /  receiver bend: +/-"+juce::String(range)+" st"
+    tuning.setText(mpe?"MPE: per-note bend  /  receiver: +/-48 st":bends?"Audio MIDI out: channel 2  /  receiver bend: +/-"+juce::String(range)+" st"
         :"A4 = 440 Hz  /  audio MIDI out: channel 1",juce::dontSendNotification);
+    warning.setText(mpe?"MPE output  /  enable MPE in host and receiver  /  chord control: 16"
+        :"External playing: 1   /   Chord control: 16",juce::dontSendNotification);
     midiRouting.setText("External playing: channel 1  /  chord control: 16\nReceive plugin MIDI via the host's MIDI From",juce::dontSendNotification);
     juce::String detected;
     const auto detectedMask=processor.getDetectedMask();
@@ -340,14 +350,15 @@ void FlysnapperEditor::resized(){
     sidechain.setBounds(px,py+87,pw,21);inputMeter.setBounds(px,py+113,pw,12);detectedNotes.setBounds(px,py+130,pw,24);
     const int rangeWidth=std::min(174,pw/2-8);
     monoBend.setBounds(px,py+161,pw-rangeWidth-12,29);bendRange.setBounds(px+pw-rangeWidth,py+161,rangeWidth,29);
+    autoInput.setBounds(px,py+198,pw,29);
     const int knobWidth=(pw-16)/3;
     for(int i=0;i<3;++i){
         const int x=px+i*(knobWidth+8);
         auto* caption=i==0?&gateTitle:i==1?&sensitivityTitle:&releaseTitle;
         auto* control=i==0?&inputGate:i==1?&sensitivity:&release;
         caption->setJustificationType(juce::Justification::centred);
-        caption->setBounds(x,py+199,knobWidth,18);
-        control->setBounds(x,py+221,knobWidth,86);
+        caption->setBounds(x,py+237,knobWidth,18);
+        control->setBounds(x,py+259,knobWidth,86);
     }
     tuning.setBounds(px,py+pitchPanel.getHeight()-29,pw,19);
     const int mx=midiPanel.getX()+26,my=midiPanel.getY(),mw=midiPanel.getWidth()-52;
@@ -356,6 +367,7 @@ void FlysnapperEditor::resized(){
     rootTitle.setBounds(mx,my+147,90,20);scaleTitle.setBounds(mx+108,my+147,mw-108,20);
     root.setBounds(mx,my+173,90,31);scale.setBounds(mx+108,my+173,mw-108,31);
     midiRouting.setBounds(mx,my+228,mw,47);
+    mpeOutput.setBounds(mx,my+285,mw,29);
     activity.setBounds(mx,my+midiPanel.getHeight()-58,mw,22);eventStatus.setBounds(mx,my+midiPanel.getHeight()-33,mw,20);
     backTitle.setBounds(24,110,w-290,34);restore.setBounds(w-254,111,230,31);backDescription.setBounds(24,153,w-48,25);
     viewport.setBounds(24,193,w-48,h-280);mappingTable.setSize(viewport.getWidth()-viewport.getScrollBarThickness(),50*48);

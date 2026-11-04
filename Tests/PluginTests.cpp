@@ -83,7 +83,7 @@ public:
 };
 void parametersAndState(){
     FlysnapperProcessor a,b;
-    check(a.getParameters().size()==62,"expected twelve controls plus 50 mappings");
+    check(a.getParameters().size()==64,"expected fourteen controls plus 50 mappings");
     check(get(a,"monoBend")==0&&get(a,"bendRange")==0,"mono bend must default off with two-semitone range");
     check(a.acceptsMidi()&&a.producesMidi()&&!a.isMidiEffect()&&!a.supportsMPE(),"plugin role declarations");
     check(a.getLatencySamples()==0,"MIDI correction unexpectedly reports delay");
@@ -242,6 +242,27 @@ void gui(){
     auto* bendStatus=dynamic_cast<juce::Label*>(find(*editor,"bendStatus"));
     auto* routingHelp=dynamic_cast<juce::TextButton*>(find(*editor,"routingHelp"));
     check(monoBend&&bendRange&&bendStatus&&routingHelp,"bend/routing controls missing from editor");
+    auto* automatic=dynamic_cast<juce::ToggleButton*>(find(*editor,"autoInput"));
+    auto* manual=dynamic_cast<juce::Slider*>(find(*editor,"inputGate"));
+    auto* mpe=dynamic_cast<juce::ToggleButton*>(find(*editor,"mpeOutput"));
+    check(automatic&&manual&&mpe,"automatic input and MPE controls missing from editor");
+    check(automatic->getToggleState()&&!manual->isEnabled(),"manual threshold active while automatic input is selected");
+    automatic->setToggleState(false,juce::sendNotificationSync);
+    mpe->setToggleState(true,juce::sendNotificationSync);
+    check(get(p,"autoInput")==0&&get(p,"mpeOutput")==1,"new controls did not update processor settings");
+    editor.reset();editor.reset(p.createEditor());
+    manual=dynamic_cast<juce::Slider*>(find(*editor,"inputGate"));
+    monoBend=dynamic_cast<juce::ToggleButton*>(find(*editor,"monoBend"));
+    bendRange=dynamic_cast<juce::ComboBox*>(find(*editor,"bendRange"));
+    bendStatus=dynamic_cast<juce::Label*>(find(*editor,"bendStatus"));
+    check(manual&&manual->isEnabled(),"manual threshold unavailable after automatic input is disabled");
+    check(monoBend&&bendRange&&!monoBend->isEnabled()&&!bendRange->isEnabled(),"legacy bend controls active during MPE output");
+    check(bendStatus&&bendStatus->getText().contains("48"),"MPE receiver range not visible");
+    set(p,"mpeOutput",0);set(p,"autoInput",1);
+    editor.reset();editor.reset(p.createEditor());
+    monoBend=dynamic_cast<juce::ToggleButton*>(find(*editor,"monoBend"));
+    bendRange=dynamic_cast<juce::ComboBox*>(find(*editor,"bendRange"));
+    check(monoBend&&bendRange,"legacy controls missing after MPE mode exit");
     check(bendRange->getNumItems()==2,"bend range must expose two and twelve semitones");
     monoBend->setToggleState(true,juce::sendNotificationSync);
     bendRange->setSelectedItemIndex(1,juce::sendNotificationSync);

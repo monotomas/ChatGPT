@@ -1,0 +1,295 @@
+{
+  "scope": "Optimistic synthetic six-source continuous tracking with every true voice seeded once; no note-acquisition, real-guitar or musical-readiness proof",
+  "fixture_seal": "fcffe1407bc186179e46e3abaaad44cddca02f8383555fbbaf75aa4666fe33f5",
+  "policy_sha256": "03976d0824e8c67bc4656c395a49e4976529dce058b9bb65a97af03adacf9728",
+  "capture_sha256": {
+    "frames.csv": "2a05d43f10aba6d0e127ee132feca592be073d46501b79fb5c088e7c4edb81ce",
+    "voices.csv": "6c6135dff9ce3d819f35554c7eac049dc4b20cc5c032e27caa1fae7a13a7f1b7"
+  },
+  "cases": 3,
+  "passed_cases": 0,
+  "failed_cases": 3,
+  "causal_error_not_delay_aligned": true,
+  "identity_matching": "Original seeded physical-string-to-ID mapping, never nearest-reference reassignment",
+  "oracle_seeded_all_true_voices": true,
+  "note_acquisition_tested": false,
+  "real_audio": false,
+  "musical_readiness_eligible": false,
+  "results": [
+    {
+      "case": "d_add9_vibrato",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 210,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 58,
+      "error_cents": {
+        "median": 3.654471609999632,
+        "p95": 27.88273776999901,
+        "maximum": 112.35892372999956
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.8562683700004357,
+            "p95": 7.500039629999833,
+            "maximum": 19.58469237000031
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 4.270201099999582,
+            "p95": 16.09767009999956,
+            "maximum": 27.489442899999972
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 13.00596240000047,
+            "p95": 104.1626519700003,
+            "maximum": 112.35892372999956
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 7.884491159999385,
+            "p95": 23.777543459999606,
+            "maximum": 34.44173791999958
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 3.3147288099996786,
+            "p95": 12.18286019000061,
+            "maximum": 21.382279809999716
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.9872047699998063,
+            "p95": 8.580430279999973,
+            "maximum": 13.997033120000424
+          }
+        }
+      },
+      "wall_us": {
+        "median": 594.103,
+        "p95": 780.356,
+        "maximum": 1074.558
+      },
+      "thread_cpu_us": {
+        "median": 593.35,
+        "p95": 778.945,
+        "maximum": 1073.533
+      },
+      "failures": [
+        "pitch-p95",
+        "pitch-maximum",
+        "voice-2-p95",
+        "voice-2-max"
+      ],
+      "passed": false
+    },
+    {
+      "case": "e7_reversal_windows",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 332,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 38,
+      "error_cents": {
+        "median": 3.083940350000347,
+        "p95": 59.746732629999855,
+        "maximum": 99.52377225000006
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 3.5616436499999793,
+            "p95": 25.488801350000045,
+            "maximum": 40.3722243499999
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 7.95270202999987,
+            "p95": 72.92975382999956,
+            "maximum": 79.06876432000018
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.3441592800004685,
+            "p95": 67.25123328000038,
+            "maximum": 85.25126428000007
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 7.779438019999674,
+            "p95": 72.54307338000032,
+            "maximum": 99.52377225000006
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 2.0044459200001086,
+            "p95": 13.700307919999943,
+            "maximum": 25.395406919999886
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.8466404800003602,
+            "p95": 6.5103845199999455,
+            "maximum": 13.194815479999988
+          }
+        }
+      },
+      "wall_us": {
+        "median": 552.111,
+        "p95": 715.4,
+        "maximum": 1053.998
+      },
+      "thread_cpu_us": {
+        "median": 551.689,
+        "p95": 714.63,
+        "maximum": 1052.732
+      },
+      "failures": [
+        "pitch-p95",
+        "pitch-maximum",
+        "voice-0-p95",
+        "voice-1-p95",
+        "voice-1-max",
+        "voice-2-p95",
+        "voice-2-max",
+        "voice-3-p95",
+        "voice-3-max"
+      ],
+      "passed": false
+    },
+    {
+      "case": "g13_stiff_strum",
+      "assessed_observations": 427,
+      "expected_source_frames": 2562,
+      "estimated_source_frames": 2562,
+      "missing_source_frames": 0,
+      "extra_source_frames": 0,
+      "duplicate_source_frames": 0,
+      "possible_identity_swap_frames": 0,
+      "octave_error_frames": 0,
+      "phase_unobservable_source_frames": 204,
+      "observations_with_missing_duplicate_extra_or_error_over_75c": 0,
+      "error_cents": {
+        "median": 1.3575981500004275,
+        "p95": 18.694027909999278,
+        "maximum": 49.83563258999979
+      },
+      "per_voice": {
+        "0": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.3952042599991046,
+            "p95": 1.7013562599998977,
+            "maximum": 3.6003122599993276
+          }
+        },
+        "1": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 0.7272069999999076,
+            "p95": 4.093426000000022,
+            "maximum": 8.832294999999846
+          }
+        },
+        "2": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.3624790899996242,
+            "p95": 7.140480910000235,
+            "maximum": 11.259330089999509
+          }
+        },
+        "3": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 1.238961150000506,
+            "p95": 4.574637849999874,
+            "maximum": 11.1626198499998
+          }
+        },
+        "4": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 5.694644709999608,
+            "p95": 15.92747109999948,
+            "maximum": 21.90409113000058
+          }
+        },
+        "5": {
+          "estimated_frames": 427,
+          "expected_frames": 427,
+          "error_cents": {
+            "median": 9.10950568000004,
+            "p95": 47.471899519999994,
+            "maximum": 49.83563258999979
+          }
+        }
+      },
+      "wall_us": {
+        "median": 534.014,
+        "p95": 792.294,
+        "maximum": 3147.672
+      },
+      "thread_cpu_us": {
+        "median": 533.081,
+        "p95": 791.724,
+        "maximum": 3146.948
+      },
+      "failures": [
+        "voice-5-p95"
+      ],
+      "passed": false
+    }
+  ]
+}

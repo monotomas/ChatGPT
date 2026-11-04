@@ -1,0 +1,3051 @@
+{
+  "scope": "Post hoc acoustic annotation audit of already-seen real isolated hammers; sealed labels/policy/results remain unchanged",
+  "script_sha256": "c7b4b76646f19e2fea79a7dc4e6e6d75af16355eeb67fa513d43892dbf31e942",
+  "fixture_seal_before": "059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae",
+  "fixture_seal_after": "059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae",
+  "source_repository": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars",
+  "source_commit": "b3b3249d37dc977a1a297bd2dc053e6d9b6b805c",
+  "method": {
+    "original_pcm": "Direct signed PCM24 decode, original44.1kHz, no filtering/resampling/gain or DSP imports",
+    "spectral": "Hann-window FFT, local maxima only, log-quadratic interpolation; zero padding improves peak interpolation, not actual time/frequency resolution",
+    "frequency_search_prior": "Author nominal anchor \u00b11.7semitones per harmonic; candidate harmonic identity is assumed and must be treated as a limitation",
+    "phase": "16-source-sample shifted complex projection at each spectral peak; independent phase-advance diagnostic within same audio window",
+    "aggregation": "Median/range of partials2..5 no lower than25dB beneath window peak; not a certified F0 oracle"
+  },
+  "capture_sha256": {
+    "events.csv": "25ae4c2d2693666eace93b651be99c85f337bff938d426c72e5ef8551084bf20",
+    "capture.csv": "1d85a97342c2aecfda3220454ffd48d0d52ba74360bf586d2d86af453df6e517",
+    "measurement-manifest.json": "a8d4d3d6fc48b35b9da14004ce438d2ef09312577118bdad4da8180b857ad6c5"
+  },
+  "recordings": [
+    {
+      "source": "source/Samples/green/hammer/hammer_a3_rr1.wav",
+      "sha256": "6198e55c66de40bc74ce8e329c5964a3a0771ccf23f525fc465d6822f9281b75",
+      "nominal_author_sfz_anchor": 45,
+      "original_rate": 44100,
+      "fixed_windows": [
+        {
+          "start_ms": 0,
+          "end_ms": 20,
+          "energy_window_center_ms": 10.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 107.4297651796185,
+              "derived_midi": 44.59068296757048,
+              "power_db_below_window_peak": -7.556349330922826,
+              "phase_advance_derived_midi": 43.99696434426852
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 211.15684188077964,
+              "derived_midi": 44.28973764231308,
+              "power_db_below_window_peak": -2.427702894213371,
+              "phase_advance_derived_midi": 44.191981703307405
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 315.7005193357197,
+              "derived_midi": 44.23308731343995,
+              "power_db_below_window_peak": -0.2613518333154603,
+              "phase_advance_derived_midi": 44.30417246902523
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 418.0829372947048,
+              "derived_midi": 44.11542770271888,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 44.09906011686866
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 524.8052969618028,
+              "derived_midi": 44.188207953521626,
+              "power_db_below_window_peak": -4.289806567093027,
+              "phase_advance_derived_midi": 44.265808127426375
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 44.21064763348079,
+          "partial_range_midi": [
+            44.11542770271888,
+            44.28973764231308
+          ],
+          "phase_median_midi": 44.228894915366894,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 0,
+          "end_ms": 28,
+          "energy_window_center_ms": 14.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 28.00453514739229,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 107.65519727886608,
+              "derived_midi": 44.62697335853216,
+              "power_db_below_window_peak": -6.32606194258854,
+              "phase_advance_derived_midi": 44.5173436369071
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 218.2904670165217,
+              "derived_midi": 44.86494724660663,
+              "power_db_below_window_peak": -1.0932554863888564,
+              "phase_advance_derived_midi": 44.7338441803964
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 328.87103744733747,
+              "derived_midi": 44.940671232668585,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 44.822914172552856
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 430.959573667344,
+              "derived_midi": 44.640588232015254,
+              "power_db_below_window_peak": -0.9348967016557135,
+              "phase_advance_derived_midi": 44.56102871275317
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 540.666296559434,
+              "derived_midi": 44.70368169003881,
+              "power_db_below_window_peak": -6.129614664056482,
+              "phase_advance_derived_midi": 44.63677290498806
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 44.78431446832272,
+          "partial_range_midi": [
+            44.640588232015254,
+            44.940671232668585
+          ],
+          "phase_median_midi": 44.685308542692226,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 5,
+          "end_ms": 35,
+          "energy_window_center_ms": 20.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.02267573696145,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 109.16593274274918,
+              "derived_midi": 44.86823019545973,
+              "power_db_below_window_peak": -5.000822762604597,
+              "phase_advance_derived_midi": 45.115669076798305
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 220.67301950733165,
+              "derived_midi": 45.052880713867694,
+              "power_db_below_window_peak": -0.022551336098937502,
+              "phase_advance_derived_midi": 45.092686066423255
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 331.79700872036926,
+              "derived_midi": 45.09401826506419,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.103601920871164
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 438.24377251190873,
+              "derived_midi": 44.93076079846658,
+              "power_db_below_window_peak": -2.0723806831520135,
+              "phase_advance_derived_midi": 44.9231421650573
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 549.7205227646385,
+              "derived_midi": 44.99120066405605,
+              "power_db_below_window_peak": -9.786014937785161,
+              "phase_advance_derived_midi": 44.9083845504301
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 694.4957204552866,
+              "derived_midi": 45.88199735696588,
+              "power_db_below_window_peak": -15.656635105997562,
+              "phase_advance_derived_midi": 45.863558594917976
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.02204068896187,
+          "partial_range_midi": [
+            44.93076079846658,
+            45.09401826506419
+          ],
+          "phase_median_midi": 45.00791411574028,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 15,
+          "end_ms": 45,
+          "energy_window_center_ms": 30.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 29.97732426303855,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 110.29920004896314,
+              "derived_midi": 45.047025647902586,
+              "power_db_below_window_peak": -4.386690143220243,
+              "phase_advance_derived_midi": 45.26034246636749
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 222.11791541813525,
+              "derived_midi": 45.16586685154754,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.183395564255044
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 333.2184298247777,
+              "derived_midi": 45.168026061541454,
+              "power_db_below_window_peak": -0.8243685496796128,
+              "phase_advance_derived_midi": 45.15644226763102
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 444.2569045281154,
+              "derived_midi": 45.16668809614339,
+              "power_db_below_window_peak": -3.130943918363431,
+              "phase_advance_derived_midi": 45.12828087893443
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 554.634869637326,
+              "derived_midi": 45.14528042592367,
+              "power_db_below_window_peak": -15.428345490180856,
+              "phase_advance_derived_midi": 45.05339184342342
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 670.5313760455406,
+              "derived_midi": 45.27406580387212,
+              "power_db_below_window_peak": -11.611594704545439,
+              "phase_advance_derived_midi": 45.273472263910726
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.16627747384547,
+          "partial_range_midi": [
+            45.14528042592367,
+            45.168026061541454
+          ],
+          "phase_median_midi": 45.14236157328273,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 30,
+          "end_ms": 60,
+          "energy_window_center_ms": 45.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 110.89267280116349,
+              "derived_midi": 45.13992623127734,
+              "power_db_below_window_peak": -4.333385465781021,
+              "phase_advance_derived_midi": 45.13507298704122
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 221.49635756576944,
+              "derived_midi": 45.1173534070004,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.13246584444999
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 333.03247326175364,
+              "derived_midi": 45.158362004339494,
+              "power_db_below_window_peak": -0.9440365578765006,
+              "phase_advance_derived_midi": 45.1259397018325
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 444.04693929741546,
+              "derived_midi": 45.15850398288521,
+              "power_db_below_window_peak": -3.2555524803136753,
+              "phase_advance_derived_midi": 45.19398590758299
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 555.2338011225374,
+              "derived_midi": 45.16396535159507,
+              "power_db_below_window_peak": -16.508880416114298,
+              "phase_advance_derived_midi": 45.06521044210884
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 668.9168612891204,
+              "derived_midi": 45.23233064465081,
+              "power_db_below_window_peak": -10.561114730739503,
+              "phase_advance_derived_midi": 45.26875285968319
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.15843299361235,
+          "partial_range_midi": [
+            45.1173534070004,
+            45.16396535159507
+          ],
+          "phase_median_midi": 45.129202773141245,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 50,
+          "end_ms": 100,
+          "energy_window_center_ms": 75.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 50.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 110.83564577044369,
+              "derived_midi": 45.13102099624808,
+              "power_db_below_window_peak": -3.9321965272751793,
+              "phase_advance_derived_midi": 45.17227475435078
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 221.9811932962204,
+              "derived_midi": 45.15520715889997,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.15655037512691
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 333.3263644834322,
+              "derived_midi": 45.173632891250904,
+              "power_db_below_window_peak": -0.724179420928087,
+              "phase_advance_derived_midi": 45.17166049473126
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 444.6726357015851,
+              "derived_midi": 45.182881235929386,
+              "power_db_below_window_peak": -2.998618077870814,
+              "phase_advance_derived_midi": 45.17540658761287
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 555.1892673840337,
+              "derived_midi": 45.16257672186181,
+              "power_db_below_window_peak": -17.756177120081638,
+              "phase_advance_derived_midi": 45.14043583459331
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 669.3410963127875,
+              "derived_midi": 45.2433068564971,
+              "power_db_below_window_peak": -9.658714094547843,
+              "phase_advance_derived_midi": 45.242223707106504
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.16810480655636,
+          "partial_range_midi": [
+            45.15520715889997,
+            45.182881235929386
+          ],
+          "phase_median_midi": 45.164105434929084,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 100,
+          "end_ms": 200,
+          "energy_window_center_ms": 150.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 100.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 111.21079880657734,
+              "derived_midi": 45.18952031867413,
+              "power_db_below_window_peak": -3.2790612396657015,
+              "phase_advance_derived_midi": 45.186317070420586
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 222.76114076913555,
+              "derived_midi": 45.215928745419575,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.214858615940166
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 334.5374669462497,
+              "derived_midi": 45.23642126277646,
+              "power_db_below_window_peak": -0.7608778384755454,
+              "phase_advance_derived_midi": 45.2365501862831
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 446.3502350515023,
+              "derived_midi": 45.248071942978655,
+              "power_db_below_window_peak": -3.337584203178588,
+              "phase_advance_derived_midi": 45.24741736097595
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 556.1188655550443,
+              "derived_midi": 45.191539928973604,
+              "power_db_below_window_peak": -25.227652993918745,
+              "phase_advance_derived_midi": 45.18940950759434
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 671.7688065150006,
+              "derived_midi": 45.30598537591402,
+              "power_db_below_window_peak": -10.830186655799443,
+              "phase_advance_derived_midi": 45.30579197054582
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4
+          ],
+          "partial_median_midi": 45.23642126277646,
+          "partial_range_midi": [
+            45.215928745419575,
+            45.248071942978655
+          ],
+          "phase_median_midi": 45.2365501862831,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 300,
+          "end_ms": 500,
+          "energy_window_center_ms": 400.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 200.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 110.98138938758831,
+              "derived_midi": 45.1537709485738,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.15400116569569
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 222.33039546758118,
+              "derived_midi": 45.18242008013964,
+              "power_db_below_window_peak": -0.38282530945122234,
+              "phase_advance_derived_midi": 45.18290842109248
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 333.93218227191045,
+              "derived_midi": 45.20506936145364,
+              "power_db_below_window_peak": -1.8911040247485766,
+              "phase_advance_derived_midi": 45.205406256347594
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 445.81950759670474,
+              "derived_midi": 45.2274746618789,
+              "power_db_below_window_peak": -8.373098705904711,
+              "phase_advance_derived_midi": 45.226803836490944
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 557.4626347089857,
+              "derived_midi": 45.23332187384287,
+              "power_db_below_window_peak": -18.24817993009093,
+              "phase_advance_derived_midi": 45.2326854504251
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 670.7879805997806,
+              "derived_midi": 45.28068976772778,
+              "power_db_below_window_peak": -13.541624105519173,
+              "phase_advance_derived_midi": 45.282300438341075
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.21627201166627,
+          "partial_range_midi": [
+            45.18242008013964,
+            45.23332187384287
+          ],
+          "phase_median_midi": 45.21610504641927,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        }
+      ],
+      "capture_comparison": {
+        "case": "hammer_a3_rr1_peak25_mono",
+        "emitted_note": 45,
+        "emitted_pitch": 45.094574,
+        "event_sample": 19327,
+        "sample_playback_relative_ms": 52.645833333333336,
+        "historical_window": {
+          "start_ms": 0,
+          "end_ms": 52.645833333333336,
+          "energy_window_center_ms": 26.322916666666668,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 52.6530612244898,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 110.00472285632975,
+              "derived_midi": 45.00074329037868,
+              "power_db_below_window_peak": -4.672541303731127,
+              "phase_advance_derived_midi": 44.964838817089785
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 221.42441905055034,
+              "derived_midi": 45.11172971921438,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.07962316925454
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 332.2464147845393,
+              "derived_midi": 45.11745128680322,
+              "power_db_below_window_peak": -0.3384164529283465,
+              "phase_advance_derived_midi": 45.085216382046866
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 440.81214609693336,
+              "derived_midi": 45.03192543110367,
+              "power_db_below_window_peak": -2.458485084744539,
+              "phase_advance_derived_midi": 45.00033985808413
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 551.2014315433979,
+              "derived_midi": 45.03777619536714,
+              "power_db_below_window_peak": -11.771857725706285,
+              "phase_advance_derived_midi": 44.981674156336034
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 675.3273694154364,
+              "derived_midi": 45.397452038794015,
+              "power_db_below_window_peak": -13.98692111653677,
+              "phase_advance_derived_midi": 45.3916902339499
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.074752957290755,
+          "partial_range_midi": [
+            45.03192543110367,
+            45.11745128680322
+          ],
+          "phase_median_midi": 45.03998151366933,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "centered_20ms": {
+          "start_ms": 42.645833333333336,
+          "end_ms": 62.645833333333336,
+          "energy_window_center_ms": 52.645833333333336,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 108.52692003858381,
+              "derived_midi": 44.76659307558742,
+              "power_db_below_window_peak": -4.153151154826701,
+              "phase_advance_derived_midi": 45.557411185186325
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 221.25693776666756,
+              "derived_midi": 45.0986300342781,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.13345024900957
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 333.3015099758921,
+              "derived_midi": 45.17234194704066,
+              "power_db_below_window_peak": -0.7380042447825179,
+              "phase_advance_derived_midi": 45.147230695942554
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 445.70327463847593,
+              "derived_midi": 45.22296044283572,
+              "power_db_below_window_peak": -3.090763056433633,
+              "phase_advance_derived_midi": 45.06718401895715
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 558.6307636207013,
+              "derived_midi": 45.26956087117253,
+              "power_db_below_window_peak": -16.212956016407738,
+              "phase_advance_derived_midi": 44.99535465950208
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 669.7555399529579,
+              "derived_midi": 45.25402302058503,
+              "power_db_below_window_peak": -10.53844268848062,
+              "phase_advance_derived_midi": 45.21793880990461
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.19765119493819,
+          "partial_range_midi": [
+            45.0986300342781,
+            45.26956087117253
+          ],
+          "phase_median_midi": 45.10031713398336,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "centered_30ms": {
+          "start_ms": 37.645833333333336,
+          "end_ms": 67.64583333333334,
+          "energy_window_center_ms": 52.64583333333334,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 110.83978320499409,
+              "derived_midi": 45.13166724446814,
+              "power_db_below_window_peak": -4.182535069412573,
+              "phase_advance_derived_midi": 44.8617991097817
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 221.47925880060515,
+              "derived_midi": 45.116016901632136,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.10216021354874
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 332.97177684728933,
+              "derived_midi": 45.155206477940055,
+              "power_db_below_window_peak": -0.8230302952496942,
+              "phase_advance_derived_midi": 45.16701281469059
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 444.2025057936177,
+              "derived_midi": 45.16456809065046,
+              "power_db_below_window_peak": -3.0913257510404173,
+              "phase_advance_derived_midi": 45.21966257036833
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 554.8386177666581,
+              "derived_midi": 45.15163904029171,
+              "power_db_below_window_peak": -16.82328163083758,
+              "phase_advance_derived_midi": 45.28452761542161
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 669.2396814063542,
+              "derived_midi": 45.2406835865031,
+              "power_db_below_window_peak": -10.055812666896385,
+              "phase_advance_derived_midi": 45.245955473692206
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.153422759115884,
+          "partial_range_midi": [
+            45.116016901632136,
+            45.16456809065046
+          ],
+          "phase_median_midi": 45.193337692529454,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "causal_last_20ms": {
+          "start_ms": 32.645833333333336,
+          "end_ms": 52.645833333333336,
+          "energy_window_center_ms": 42.645833333333336,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 108.25889680923198,
+              "derived_midi": 44.723784815917575,
+              "power_db_below_window_peak": -4.399448977533653,
+              "phase_advance_derived_midi": 45.590047062079044
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 221.1554193122405,
+              "derived_midi": 45.09068485801052,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 45.15544096749095
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 333.8974896292382,
+              "derived_midi": 45.20327066676164,
+              "power_db_below_window_peak": -0.9306899388350492,
+              "phase_advance_derived_midi": 45.09443033106301
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 445.06075297883416,
+              "derived_midi": 45.19798512877127,
+              "power_db_below_window_peak": -3.3258813684541484,
+              "phase_advance_derived_midi": 45.129487208193595
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 561.3561063469691,
+              "derived_midi": 45.35381570597937,
+              "power_db_below_window_peak": -16.108506720247085,
+              "phase_advance_derived_midi": 44.73412332260655
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 667.7808635576955,
+              "derived_midi": 45.202904718516166,
+              "power_db_below_window_peak": -11.007597496841875,
+              "phase_advance_derived_midi": 45.242334828638896
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 45.20062789776645,
+          "partial_range_midi": [
+            45.09068485801052,
+            45.35381570597937
+          ],
+          "phase_median_midi": 45.1119587696283,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "timing_warning": "Historical-window energy center precedes event time. Centered windows use future source samples only for offline annotation, never as detector latency evidence."
+      }
+    },
+    {
+      "source": "source/Samples/green/hammer/hammer_e3_rr1.wav",
+      "sha256": "93debe8eb6276f9733da1b956e06a61a4064a65d2c9c20d868fd365f2813de42",
+      "nominal_author_sfz_anchor": 40,
+      "original_rate": 44100,
+      "fixed_windows": [
+        {
+          "start_ms": 0,
+          "end_ms": 20,
+          "energy_window_center_ms": 10.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 78.70475662487007,
+              "derived_midi": 39.20423053069669,
+              "power_db_below_window_peak": -4.1483707264941625,
+              "phase_advance_derived_midi": 41.26780043741124
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 174.30191538486832,
+              "derived_midi": 40.96901879304368,
+              "power_db_below_window_peak": -0.5883274948668192,
+              "phase_advance_derived_midi": 41.40791043292363
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 267.1853547273938,
+              "derived_midi": 41.344498882071846,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 41.26146360744529
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 357.95614542515136,
+              "derived_midi": 41.42735189381999,
+              "power_db_below_window_peak": -1.4438988347337356,
+              "phase_advance_derived_midi": 41.215518558777845
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 447.1620359678207,
+              "derived_midi": 41.41639308016345,
+              "power_db_below_window_peak": -6.182336865963631,
+              "phase_advance_derived_midi": 41.14672257930316
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 535.3308253038589,
+              "derived_midi": 41.37557644233151,
+              "power_db_below_window_peak": -7.720940011042855,
+              "phase_advance_derived_midi": 41.2780232114039
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 41.380445981117646,
+          "partial_range_midi": [
+            40.96901879304368,
+            41.42735189381999
+          ],
+          "phase_median_midi": 41.23849108311157,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 0,
+          "end_ms": 28,
+          "energy_window_center_ms": 14.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 28.00453514739229,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 88.56048488889527,
+              "derived_midi": 41.246778031066434,
+              "power_db_below_window_peak": -4.189607302464694,
+              "phase_advance_derived_midi": 41.070908549955575
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 175.99635701215743,
+              "derived_midi": 41.13650451306378,
+              "power_db_below_window_peak": -0.572240899869284,
+              "phase_advance_derived_midi": 41.032236672197584
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 266.9476391770695,
+              "derived_midi": 41.329089188733974,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 41.344573434628444
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 354.4697791888692,
+              "derived_midi": 41.25790931996802,
+              "power_db_below_window_peak": -1.5391547893036228,
+              "phase_advance_derived_midi": 41.24770973548055
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 442.89952897853647,
+              "derived_midi": 41.25057413145229,
+              "power_db_below_window_peak": -5.969916757833796,
+              "phase_advance_derived_midi": 41.22844001732937
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 532.0973776054173,
+              "derived_midi": 41.270691226477844,
+              "power_db_below_window_peak": -7.53558351289313,
+              "phase_advance_derived_midi": 41.26088664624459
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 41.25424172571016,
+          "partial_range_midi": [
+            41.13650451306378,
+            41.329089188733974
+          ],
+          "phase_median_midi": 41.23807487640496,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 5,
+          "end_ms": 35,
+          "energy_window_center_ms": 20.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.02267573696145,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 86.25278712777377,
+              "derived_midi": 40.78967348870973,
+              "power_db_below_window_peak": -3.6445782652186436,
+              "phase_advance_derived_midi": 40.92660282680994
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 173.29286455901754,
+              "derived_midi": 40.868504737315675,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 40.877952479079156
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 260.98445622373754,
+              "derived_midi": 40.93797432597103,
+              "power_db_below_window_peak": -0.19849842542365323,
+              "phase_advance_derived_midi": 40.908820510983496
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 347.119469852455,
+              "derived_midi": 40.89514516949091,
+              "power_db_below_window_peak": -2.2710651179842385,
+              "phase_advance_derived_midi": 40.89598431936728
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 431.5286889257247,
+              "derived_midi": 40.80029828790582,
+              "power_db_below_window_peak": -6.816231487273323,
+              "phase_advance_derived_midi": 40.799827856490666
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 526.6443838473759,
+              "derived_midi": 41.092357051254154,
+              "power_db_below_window_peak": -7.936811102718804,
+              "phase_advance_derived_midi": 41.11711463070999
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 40.881824953403296,
+          "partial_range_midi": [
+            40.80029828790582,
+            40.93797432597103
+          ],
+          "phase_median_midi": 40.88696839922322,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 15,
+          "end_ms": 45,
+          "energy_window_center_ms": 30.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 29.97732426303855,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 82.25125906655333,
+              "derived_midi": 39.96727373434508,
+              "power_db_below_window_peak": -3.4552319648116643,
+              "phase_advance_derived_midi": 39.739863783585534
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 168.51765926493715,
+              "derived_midi": 40.384755097869814,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 40.361268062484456
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 251.57836330964693,
+              "derived_midi": 40.30250191024369,
+              "power_db_below_window_peak": -2.7751509219233803,
+              "phase_advance_derived_midi": 40.29912611275549
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 337.4645171493432,
+              "derived_midi": 40.406787523226185,
+              "power_db_below_window_peak": -5.510481615607825,
+              "phase_advance_derived_midi": 40.533815231066086
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 520.5672218866431,
+              "derived_midi": 40.89142139015503,
+              "power_db_below_window_peak": -12.138620913695055,
+              "phase_advance_derived_midi": 41.01970881610741
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4
+          ],
+          "partial_median_midi": 40.384755097869814,
+          "partial_range_midi": [
+            40.30250191024369,
+            40.406787523226185
+          ],
+          "phase_median_midi": 40.361268062484456,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 30,
+          "end_ms": 60,
+          "energy_window_center_ms": 45.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 83.40303245896091,
+              "derived_midi": 40.208018652905324,
+              "power_db_below_window_peak": -2.81425180352328,
+              "phase_advance_derived_midi": 40.591415060122685
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 165.4774510499057,
+              "derived_midi": 40.06957339674443,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 40.05820903575866
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 247.90440364928472,
+              "derived_midi": 40.047814493893085,
+              "power_db_below_window_peak": -5.096322370167093,
+              "phase_advance_derived_midi": 39.91198566921179
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 331.6424900578007,
+              "derived_midi": 40.10550399731654,
+              "power_db_below_window_peak": -7.948455961873442,
+              "phase_advance_derived_midi": 40.060516905695856
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 413.2521135700171,
+              "derived_midi": 40.051086954423674,
+              "power_db_below_window_peak": -14.055297771946485,
+              "phase_advance_derived_midi": 40.02572227440254
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 495.8192714882796,
+              "derived_midi": 40.048179872040606,
+              "power_db_below_window_peak": -15.113434578065679,
+              "phase_advance_derived_midi": 40.06337894831869
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 40.060330175584056,
+          "partial_range_midi": [
+            40.047814493893085,
+            40.10550399731654
+          ],
+          "phase_median_midi": 40.0419656550806,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 50,
+          "end_ms": 100,
+          "energy_window_center_ms": 75.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 50.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 83.01008023040924,
+              "derived_midi": 40.126259045009206,
+              "power_db_below_window_peak": -2.816037080422319,
+              "phase_advance_derived_midi": 40.04480375600759
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 165.41309161210802,
+              "derived_midi": 40.0628387677881,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 40.06164804328051
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 247.7822150562778,
+              "derived_midi": 40.03927938122621,
+              "power_db_below_window_peak": -5.88495301701469,
+              "phase_advance_derived_midi": 40.078368646014994
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 331.1649059459522,
+              "derived_midi": 40.080555270920286,
+              "power_db_below_window_peak": -8.374864913558662,
+              "phase_advance_derived_midi": 40.11383008746582
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 412.4269411733179,
+              "derived_midi": 40.01648350852266,
+              "power_db_below_window_peak": -14.54319172924887,
+              "phase_advance_derived_midi": 40.068623556883544
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 498.2933475518537,
+              "derived_midi": 40.13435146834259,
+              "power_db_below_window_peak": -16.213145216494798,
+              "phase_advance_derived_midi": 40.16119613792533
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 40.05105907450715,
+          "partial_range_midi": [
+            40.01648350852266,
+            40.080555270920286
+          ],
+          "phase_median_midi": 40.073496101449265,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 100,
+          "end_ms": 200,
+          "energy_window_center_ms": 150.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 100.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 82.73427625991904,
+              "derived_midi": 40.068642402680304,
+              "power_db_below_window_peak": -2.685060549619156,
+              "phase_advance_derived_midi": 40.057216839962464
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 165.30721411504032,
+              "derived_midi": 40.05175394892204,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 40.0538986122589
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 248.1406029664279,
+              "derived_midi": 40.064301559609135,
+              "power_db_below_window_peak": -6.837930975377089,
+              "phase_advance_derived_midi": 40.06234272961866
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 331.3216247300745,
+              "derived_midi": 40.08874613632506,
+              "power_db_below_window_peak": -8.754849529194141,
+              "phase_advance_derived_midi": 40.08674300425061
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 414.7600310273708,
+              "derived_midi": 40.11414305688244,
+              "power_db_below_window_peak": -15.184481579069494,
+              "phase_advance_derived_midi": 40.11879893651745
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 498.74025975441333,
+              "derived_midi": 40.14987170092378,
+              "power_db_below_window_peak": -17.358688499512226,
+              "phase_advance_derived_midi": 40.14699320905501
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 40.076523847967096,
+          "partial_range_midi": [
+            40.05175394892204,
+            40.11414305688244
+          ],
+          "phase_median_midi": 40.074542866934635,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 300,
+          "end_ms": 500,
+          "energy_window_center_ms": 400.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 200.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 82.72370998541014,
+              "derived_midi": 40.06643124386693,
+              "power_db_below_window_peak": -2.261513196719781,
+              "phase_advance_derived_midi": 40.06637963464983
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 165.31910265451762,
+              "derived_midi": 40.0529989704646,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 40.052835160539445
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 248.2803676211468,
+              "derived_midi": 40.07404995259956,
+              "power_db_below_window_peak": -9.784683003896633,
+              "phase_advance_derived_midi": 40.07486520141254
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 331.51147442847565,
+              "derived_midi": 40.09866339216161,
+              "power_db_below_window_peak": -9.988493757588913,
+              "phase_advance_derived_midi": 40.09859842033286
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 414.79669621083843,
+              "derived_midi": 40.11567341669972,
+              "power_db_below_window_peak": -18.130805870065203,
+              "phase_advance_derived_midi": 40.11698592076805
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 498.04444680196656,
+              "derived_midi": 40.12570168180536,
+              "power_db_below_window_peak": -15.374731273893724,
+              "phase_advance_derived_midi": 40.125748675878974
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 40.08635667238059,
+          "partial_range_midi": [
+            40.0529989704646,
+            40.11567341669972
+          ],
+          "phase_median_midi": 40.086731810872706,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        }
+      ],
+      "capture_comparison": {
+        "case": "hammer_e3_rr1_peak25_mono",
+        "emitted_note": 41,
+        "emitted_pitch": 41.3091011,
+        "event_sample": 18175,
+        "sample_playback_relative_ms": 28.645833333333332,
+        "historical_window": {
+          "start_ms": 0,
+          "end_ms": 28.645833333333332,
+          "energy_window_center_ms": 14.322916666666666,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 28.639455782312925,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 87.99478535216295,
+              "derived_midi": 41.13583694733108,
+              "power_db_below_window_peak": -4.203182897619749,
+              "phase_advance_derived_midi": 40.86486116402204
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 175.5375722050867,
+              "derived_midi": 41.09131602545958,
+              "power_db_below_window_peak": -0.5521940792029854,
+              "phase_advance_derived_midi": 41.00911163608739
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 266.9243307147524,
+              "derived_midi": 41.32757750031817,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 41.31625821677583
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 354.4433314333107,
+              "derived_midi": 41.25661756067398,
+              "power_db_below_window_peak": -1.5677911035666918,
+              "phase_advance_derived_midi": 41.2373106321807
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 442.7997128212196,
+              "derived_midi": 41.246672013831095,
+              "power_db_below_window_peak": -6.01191847797798,
+              "phase_advance_derived_midi": 41.21669497916271
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 532.0089929491028,
+              "derived_midi": 41.26781530108143,
+              "power_db_below_window_peak": -7.519634276444819,
+              "phase_advance_derived_midi": 41.251946755927115
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 41.25164478725254,
+          "partial_range_midi": [
+            41.09131602545958,
+            41.32757750031817
+          ],
+          "phase_median_midi": 41.2270028056717,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "centered_20ms": {
+          "start_ms": 18.645833333333332,
+          "end_ms": 38.64583333333333,
+          "energy_window_center_ms": 28.64583333333333,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 2,
+              "peak_hz": 160.49696767776365,
+              "derived_midi": 39.54051019849292,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 39.73264542030546
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 512.4425173682652,
+              "derived_midi": 40.61908987941037,
+              "power_db_below_window_peak": -11.76581115074882,
+              "phase_advance_derived_midi": 40.72870406807314
+            }
+          ],
+          "selected_harmonics": [
+            2
+          ],
+          "partial_median_midi": 39.54051019849292,
+          "partial_range_midi": [
+            39.54051019849292,
+            39.54051019849292
+          ],
+          "phase_median_midi": 39.73264542030546,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "centered_30ms": {
+          "start_ms": 13.645833333333332,
+          "end_ms": 43.64583333333333,
+          "energy_window_center_ms": 28.64583333333333,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 82.02944057582226,
+              "derived_midi": 39.92052205163644,
+              "power_db_below_window_peak": -3.4199234903864397,
+              "phase_advance_derived_midi": 39.877568850279644
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 168.9755992002393,
+              "derived_midi": 40.43173687751076,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 40.44038314942437
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 254.0132780660219,
+              "derived_midi": 40.4692546639847,
+              "power_db_below_window_peak": -2.4580208448865473,
+              "phase_advance_derived_midi": 40.53111194832051
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 342.66789608949875,
+              "derived_midi": 40.67169013265057,
+              "power_db_below_window_peak": -5.164536537791515,
+              "phase_advance_derived_midi": 40.74667466474162
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 425.82125547596536,
+              "derived_midi": 40.56979616559836,
+              "power_db_below_window_peak": -12.38461699564013,
+              "phase_advance_derived_midi": 40.757855132012246
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 524.0283193698637,
+              "derived_midi": 41.00614506071658,
+              "power_db_below_window_peak": -11.44134494921625,
+              "phase_advance_derived_midi": 41.02291237050618
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 40.51952541479153,
+          "partial_range_midi": [
+            40.43173687751076,
+            40.67169013265057
+          ],
+          "phase_median_midi": 40.63889330653106,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "causal_last_20ms": {
+          "start_ms": 8.645833333333332,
+          "end_ms": 28.645833333333332,
+          "energy_window_center_ms": 18.645833333333332,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 2,
+              "peak_hz": 166.16213270159724,
+              "derived_midi": 40.14105737696629,
+              "power_db_below_window_peak": -0.45666955207605453,
+              "phase_advance_derived_midi": 40.49721450835314
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 508.89962159819,
+              "derived_midi": 40.4989811292192,
+              "power_db_below_window_peak": -6.959661595330981,
+              "phase_advance_derived_midi": 40.72701544818275
+            }
+          ],
+          "selected_harmonics": [
+            2
+          ],
+          "partial_median_midi": 40.14105737696629,
+          "partial_range_midi": [
+            40.14105737696629,
+            40.14105737696629
+          ],
+          "phase_median_midi": 40.49721450835314,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "timing_warning": "Historical-window energy center precedes event time. Centered windows use future source samples only for offline annotation, never as detector latency evidence."
+      }
+    },
+    {
+      "source": "source/Samples/green/hammer/hammer_e4_rr2.wav",
+      "sha256": "9a39abd85cacab5b6924e9d83e271e3d09bd482de32e6d49c575e79b14592b43",
+      "nominal_author_sfz_anchor": 52,
+      "original_rate": 44100,
+      "fixed_windows": [
+        {
+          "start_ms": 0,
+          "end_ms": 20,
+          "energy_window_center_ms": 10.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 152.4274720836277,
+              "derived_midi": 50.64743304243892,
+              "power_db_below_window_peak": -12.127848226622255,
+              "phase_advance_derived_midi": 51.07568241481914
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 312.5152335533632,
+              "derived_midi": 51.0770759028091,
+              "power_db_below_window_peak": -2.8365029129754555,
+              "phase_advance_derived_midi": 51.14875498347185
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 469.5844847368122,
+              "derived_midi": 51.10702461037054,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 51.11024032507035
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 626.68908747693,
+              "derived_midi": 51.122956175741606,
+              "power_db_below_window_peak": -0.771770759933731,
+              "phase_advance_derived_midi": 51.11856748357236
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 784.0623378352359,
+              "derived_midi": 51.13844092196605,
+              "power_db_below_window_peak": -0.23762436212000262,
+              "phase_advance_derived_midi": 51.12884721851745
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 943.2393156547693,
+              "derived_midi": 51.18189394598153,
+              "power_db_below_window_peak": -4.708293557674209,
+              "phase_advance_derived_midi": 51.1532768868821
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 51.114990393056075,
+          "partial_range_midi": [
+            51.0770759028091,
+            51.13844092196605
+          ],
+          "phase_median_midi": 51.12370735104491,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 0,
+          "end_ms": 28,
+          "energy_window_center_ms": 14.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 28.00453514739229,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 156.01534407707098,
+              "derived_midi": 51.050212812919185,
+              "power_db_below_window_peak": -11.27418192158566,
+              "phase_advance_derived_midi": 51.108254686380135
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 316.7197645714716,
+              "derived_midi": 51.308440515924275,
+              "power_db_below_window_peak": -2.6511824470766037,
+              "phase_advance_derived_midi": 51.331214157203476
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 476.36258744064725,
+              "derived_midi": 51.35512904176543,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 51.36244454183483
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 635.6605508584673,
+              "derived_midi": 51.369036404361864,
+              "power_db_below_window_peak": -1.810978283956821,
+              "phase_advance_derived_midi": 51.34909332873127
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 788.1472308065685,
+              "derived_midi": 51.22840248756156,
+              "power_db_below_window_peak": -1.5360694144892793,
+              "phase_advance_derived_midi": 51.228896518563204
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 945.2282377817199,
+              "derived_midi": 51.218360455283985,
+              "power_db_below_window_peak": -5.923718526729789,
+              "phase_advance_derived_midi": 51.21153356583616
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 51.33178477884485,
+          "partial_range_midi": [
+            51.22840248756156,
+            51.369036404361864
+          ],
+          "phase_median_midi": 51.340153742967374,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 5,
+          "end_ms": 35,
+          "energy_window_center_ms": 20.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.02267573696145,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 160.46425253843225,
+              "derived_midi": 51.53698095198217,
+              "power_db_below_window_peak": -9.75691850845174,
+              "phase_advance_derived_midi": 51.52896391507417
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 324.21570792264646,
+              "derived_midi": 51.71340559094643,
+              "power_db_below_window_peak": -2.13516657331327,
+              "phase_advance_derived_midi": 51.71582983872044
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 487.43332130582144,
+              "derived_midi": 51.75286624405918,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 51.73886799608251
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 648.6029927709849,
+              "derived_midi": 51.71798588296569,
+              "power_db_below_window_peak": -3.691408665397831,
+              "phase_advance_derived_midi": 51.68493657921425
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 801.8036746946647,
+              "derived_midi": 51.52580892946863,
+              "power_db_below_window_peak": -3.744476009497663,
+              "phase_advance_derived_midi": 51.52158100683084
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 963.0399861438228,
+              "derived_midi": 51.54155611948026,
+              "power_db_below_window_peak": -8.710211308569946,
+              "phase_advance_derived_midi": 51.52687828853479
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 51.715695736956064,
+          "partial_range_midi": [
+            51.52580892946863,
+            51.75286624405918
+          ],
+          "phase_median_midi": 51.700383208967345,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 15,
+          "end_ms": 45,
+          "energy_window_center_ms": 30.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 29.97732426303855,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 165.4454898919566,
+              "derived_midi": 52.06622928014111,
+              "power_db_below_window_peak": -7.007147637280275,
+              "phase_advance_derived_midi": 52.030143987712655
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 330.8881506263657,
+              "derived_midi": 52.066081256921535,
+              "power_db_below_window_peak": -0.6372943720573454,
+              "phase_advance_derived_midi": 52.04630686736247
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 494.299529539461,
+              "derived_midi": 51.99503410668299,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 51.988860399633026
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 653.15271423294,
+              "derived_midi": 51.839001903696044,
+              "power_db_below_window_peak": -6.6924214582564545,
+              "phase_advance_derived_midi": 51.85574041847134
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 826.3690559583972,
+              "derived_midi": 52.048255364670034,
+              "power_db_below_window_peak": -3.6273086751846524,
+              "phase_advance_derived_midi": 52.02723592987314
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 996.7671719753685,
+              "derived_midi": 52.137486362866866,
+              "power_db_below_window_peak": -9.253675159407011,
+              "phase_advance_derived_midi": 52.10771384580526
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 52.02164473567652,
+          "partial_range_midi": [
+            51.839001903696044,
+            52.066081256921535
+          ],
+          "phase_median_midi": 52.008048164753085,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 30,
+          "end_ms": 60,
+          "energy_window_center_ms": 45.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 165.2707213909782,
+              "derived_midi": 52.04793170672674,
+              "power_db_below_window_peak": -5.820485762059173,
+              "phase_advance_derived_midi": 52.060291677828076
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 330.7796109021362,
+              "derived_midi": 52.06040143756586,
+              "power_db_below_window_peak": -0.051028127679559526,
+              "phase_advance_derived_midi": 52.06017720390824
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 496.12338290330626,
+              "derived_midi": 52.05879516417606,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 52.058742741298595
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 661.8918453405215,
+              "derived_midi": 52.06910367398239,
+              "power_db_below_window_peak": -5.603547567192068,
+              "phase_advance_derived_midi": 52.07093348090996
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 827.1319992011299,
+              "derived_midi": 52.06423156751475,
+              "power_db_below_window_peak": -2.1507084143565036,
+              "phase_advance_derived_midi": 52.07243987189918
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 993.4729428295276,
+              "derived_midi": 52.0801758220084,
+              "power_db_below_window_peak": -12.000399346693769,
+              "phase_advance_derived_midi": 52.0755706269806
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 52.062316502540305,
+          "partial_range_midi": [
+            52.05879516417606,
+            52.06910367398239
+          ],
+          "phase_median_midi": 52.0655553424091,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 50,
+          "end_ms": 100,
+          "energy_window_center_ms": 75.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 50.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 165.51140486443825,
+              "derived_midi": 52.07312529880821,
+              "power_db_below_window_peak": -5.507482912292261,
+              "phase_advance_derived_midi": 52.074920744364135
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 330.9853342360409,
+              "derived_midi": 52.0711652368403,
+              "power_db_below_window_peak": -0.025779436367939085,
+              "phase_advance_derived_midi": 52.07221491785353
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 496.57812213116404,
+              "derived_midi": 52.07465612712993,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 52.074757263084834
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 662.5494273026517,
+              "derived_midi": 52.08629474768193,
+              "power_db_below_window_peak": -5.654249552376114,
+              "phase_advance_derived_midi": 52.084767001469736
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 828.431082757922,
+              "derived_midi": 52.09140079075,
+              "power_db_below_window_peak": -2.4494260540457513,
+              "phase_advance_derived_midi": 52.089686416089734
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 994.4276214133101,
+              "derived_midi": 52.09680414061699,
+              "power_db_below_window_peak": -12.55623652211397,
+              "phase_advance_derived_midi": 52.097956754002766
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 52.08047543740593,
+          "partial_range_midi": [
+            52.0711652368403,
+            52.09140079075
+          ],
+          "phase_median_midi": 52.07976213227728,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 100,
+          "end_ms": 200,
+          "energy_window_center_ms": 150.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 100.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 165.63843165443285,
+              "derived_midi": 52.08640708792702,
+              "power_db_below_window_peak": -5.010711049251651,
+              "phase_advance_derived_midi": 52.085446090276314
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 331.2474066196548,
+              "derived_midi": 52.08486762965559,
+              "power_db_below_window_peak": -0.15698452415463418,
+              "phase_advance_derived_midi": 52.084643239353525
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 497.0359686604186,
+              "derived_midi": 52.09061080337974,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 52.09074000074534
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 663.1650656828153,
+              "derived_midi": 52.102373838736696,
+              "power_db_below_window_peak": -5.928068472337271,
+              "phase_advance_derived_midi": 52.10251458125726
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 829.135008160029,
+              "derived_midi": 52.10610499716529,
+              "power_db_below_window_peak": -3.372982183944325,
+              "phase_advance_derived_midi": 52.106370818632975
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 995.0072360641675,
+              "derived_midi": 52.10689191648482,
+              "power_db_below_window_peak": -14.856456575186696,
+              "phase_advance_derived_midi": 52.10695253307962
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 52.09649232105822,
+          "partial_range_midi": [
+            52.08486762965559,
+            52.10610499716529
+          ],
+          "phase_median_midi": 52.0966272910013,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 300,
+          "end_ms": 500,
+          "energy_window_center_ms": 400.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 200.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 165.64393269338126,
+              "derived_midi": 52.08698204071404,
+              "power_db_below_window_peak": -4.479773821885988,
+              "phase_advance_derived_midi": 52.08676836462396
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 331.18683797285684,
+              "derived_midi": 52.08170177569225,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 52.08169560988969
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 497.03024036354765,
+              "derived_midi": 52.09041127899201,
+              "power_db_below_window_peak": -1.3977359673483178,
+              "phase_advance_derived_midi": 52.090415854783274
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 663.4552431102265,
+              "derived_midi": 52.10994744585377,
+              "power_db_below_window_peak": -10.79351689347223,
+              "phase_advance_derived_midi": 52.109837896952584
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 828.7676042987255,
+              "derived_midi": 52.098431903702746,
+              "power_db_below_window_peak": -11.6292980866209,
+              "phase_advance_derived_midi": 52.098451660042656
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 994.3587044834774,
+              "derived_midi": 52.09560429995057,
+              "power_db_below_window_peak": -17.41212581978911,
+              "phase_advance_derived_midi": 52.09509713419698
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 52.09442159134738,
+          "partial_range_midi": [
+            52.08170177569225,
+            52.10994744585377
+          ],
+          "phase_median_midi": 52.094433757412965,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        }
+      ],
+      "capture_comparison": {
+        "case": "hammer_e4_rr2_peak25_mono",
+        "emitted_note": 51,
+        "emitted_pitch": 51.1247673,
+        "event_sample": 17791,
+        "sample_playback_relative_ms": 20.645833333333332,
+        "historical_window": {
+          "start_ms": 0,
+          "end_ms": 20.645833333333332,
+          "energy_window_center_ms": 10.322916666666666,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.634920634920636,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 153.18420556809565,
+              "derived_midi": 50.733168342995455,
+              "power_db_below_window_peak": -12.066982723863966,
+              "phase_advance_derived_midi": 51.11489395854779
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 312.8656739283951,
+              "derived_midi": 51.09647829791476,
+              "power_db_below_window_peak": -2.8360308196110156,
+              "phase_advance_derived_midi": 51.156101287395806
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 469.70567359972137,
+              "derived_midi": 51.11149194743647,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 51.11338702293318
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 626.752059196088,
+              "derived_midi": 51.12469568756018,
+              "power_db_below_window_peak": -0.7896179060268156,
+              "phase_advance_derived_midi": 51.119840730285574
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 784.1400473696708,
+              "derived_midi": 51.140156687652045,
+              "power_db_below_window_peak": -0.2720568364170729,
+              "phase_advance_derived_midi": 51.12774521555968
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 943.3061486786434,
+              "derived_midi": 51.18312056478048,
+              "power_db_below_window_peak": -4.7664523226016495,
+              "phase_advance_derived_midi": 51.155699555368884
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 51.11809381749832,
+          "partial_range_midi": [
+            51.09647829791476,
+            51.140156687652045
+          ],
+          "phase_median_midi": 51.12379297292263,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "centered_20ms": {
+          "start_ms": 10.645833333333332,
+          "end_ms": 30.645833333333332,
+          "energy_window_center_ms": 20.645833333333332,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 161.49908717097318,
+              "derived_midi": 51.6482698410802,
+              "power_db_below_window_peak": -9.826991140214984,
+              "phase_advance_derived_midi": 51.907368901025706
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 327.10577277997766,
+              "derived_midi": 51.86704435984568,
+              "power_db_below_window_peak": -2.3159440762665215,
+              "phase_advance_derived_midi": 51.90741027990465
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 492.6577695094347,
+              "derived_midi": 51.937437420611076,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 51.944591735168956
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 659.9706796494958,
+              "derived_midi": 52.01878089476499,
+              "power_db_below_window_peak": -3.991294994631815,
+              "phase_advance_derived_midi": 51.977181886105214
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 805.0937299001608,
+              "derived_midi": 51.59670161419098,
+              "power_db_below_window_peak": -5.135072972107146,
+              "phase_advance_derived_midi": 51.606357567499686
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 965.7074094924985,
+              "derived_midi": 51.589441468065594,
+              "power_db_below_window_peak": -9.920661009871383,
+              "phase_advance_derived_midi": 51.655648478470766
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 51.90224089022838,
+          "partial_range_midi": [
+            51.59670161419098,
+            52.01878089476499
+          ],
+          "phase_median_midi": 51.926001007536804,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "centered_30ms": {
+          "start_ms": 5.645833333333332,
+          "end_ms": 35.64583333333333,
+          "energy_window_center_ms": 20.64583333333333,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 160.57705160834666,
+              "derived_midi": 51.5491464643977,
+              "power_db_below_window_peak": -9.582764581832151,
+              "phase_advance_derived_midi": 51.56668052817038
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 324.86029922914395,
+              "derived_midi": 51.74779104880044,
+              "power_db_below_window_peak": -2.065621078775542,
+              "phase_advance_derived_midi": 51.74842168432545
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 488.4665676889904,
+              "derived_midi": 51.789525577832826,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 51.769675530724115
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 649.6051826070878,
+              "derived_midi": 51.74471542519876,
+              "power_db_below_window_peak": -3.9424185582028404,
+              "phase_advance_derived_midi": 51.70468649734824
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 803.2358576866327,
+              "derived_midi": 51.55670467462901,
+              "power_db_below_window_peak": -3.94756494473733,
+              "phase_advance_derived_midi": 51.55349364967924
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 965.1182716454057,
+              "derived_midi": 51.578876707692906,
+              "power_db_below_window_peak": -8.974589485675505,
+              "phase_advance_derived_midi": 51.563593659851676
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 51.7462532369996,
+          "partial_range_midi": [
+            51.55670467462901,
+            51.789525577832826
+          ],
+          "phase_median_midi": 51.72655409083684,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "causal_last_20ms": {
+          "start_ms": 0.6458333333333321,
+          "end_ms": 20.645833333333332,
+          "energy_window_center_ms": 10.645833333333332,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 152.56155282996005,
+              "derived_midi": 50.66265491269441,
+              "power_db_below_window_peak": -12.060591579018398,
+              "phase_advance_derived_midi": 51.04965680883066
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 312.77602239660877,
+              "derived_midi": 51.091516742879236,
+              "power_db_below_window_peak": -2.837521414331177,
+              "phase_advance_derived_midi": 51.140443211402925
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 469.83625211581074,
+              "derived_midi": 51.11630412171839,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 51.116826576699154
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 626.9341240726426,
+              "derived_midi": 51.129724009956206,
+              "power_db_below_window_peak": -0.8126143555058317,
+              "phase_advance_derived_midi": 51.121314546647724
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 784.4765765766386,
+              "derived_midi": 51.147585027013655,
+              "power_db_below_window_peak": -0.2844024977506106,
+              "phase_advance_derived_midi": 51.13264624274724
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 944.1692753625385,
+              "derived_midi": 51.19895414214995,
+              "power_db_below_window_peak": -4.803922586927571,
+              "phase_advance_derived_midi": 51.167499261879655
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 51.123014065837296,
+          "partial_range_midi": [
+            51.091516742879236,
+            51.147585027013655
+          ],
+          "phase_median_midi": 51.12698039469748,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "timing_warning": "Historical-window energy center precedes event time. Centered windows use future source samples only for offline annotation, never as detector latency evidence."
+      }
+    },
+    {
+      "source": "source/Samples/green/hammer/hammer_g3_rr1.wav",
+      "sha256": "4dd4ddd7b690855365cf4bc13cb96bc0f0b2e81d29ae8b02f53f094db8682def",
+      "nominal_author_sfz_anchor": 43,
+      "original_rate": 44100,
+      "fixed_windows": [
+        {
+          "start_ms": 0,
+          "end_ms": 20,
+          "energy_window_center_ms": 10.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 92.08774658062978,
+              "derived_midi": 41.922930983299324,
+              "power_db_below_window_peak": -7.952460388634252,
+              "phase_advance_derived_midi": 41.540802533569206
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 280.00704770774655,
+              "derived_midi": 42.15596538517789,
+              "power_db_below_window_peak": -1.1204220455832576,
+              "phase_advance_derived_midi": 42.17322524889333
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 375.4062322592547,
+              "derived_midi": 42.25138892805083,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 42.22856132597494
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 461.6222351641794,
+              "derived_midi": 41.96737317546629,
+              "power_db_below_window_peak": -0.9362357652914568,
+              "phase_advance_derived_midi": 42.0936604327643
+            }
+          ],
+          "selected_harmonics": [
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 42.15596538517789,
+          "partial_range_midi": [
+            41.96737317546629,
+            42.25138892805083
+          ],
+          "phase_median_midi": 42.17322524889333,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 0,
+          "end_ms": 28,
+          "energy_window_center_ms": 14.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 28.00453514739229,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 92.1148596808368,
+              "derived_midi": 41.9280274500156,
+              "power_db_below_window_peak": -7.753122568663201,
+              "phase_advance_derived_midi": 41.65766902366851
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 187.85853783009284,
+              "derived_midi": 42.26571793913774,
+              "power_db_below_window_peak": -5.430879544320387,
+              "phase_advance_derived_midi": 42.27330530916723
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 279.86363139085057,
+              "derived_midi": 42.14709593636759,
+              "power_db_below_window_peak": -1.0507389170393862,
+              "phase_advance_derived_midi": 42.12095745105264
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 374.49824376524924,
+              "derived_midi": 42.20946515201209,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 42.21863773517093
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 468.53502190974723,
+              "derived_midi": 42.22470325676199,
+              "power_db_below_window_peak": -0.9354661574179424,
+              "phase_advance_derived_midi": 42.231651857916546
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 562.8488972538893,
+              "derived_midi": 42.24337971664704,
+              "power_db_below_window_peak": -8.285816837711431,
+              "phase_advance_derived_midi": 42.26497518839894
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 42.21708420438704,
+          "partial_range_midi": [
+            42.14709593636759,
+            42.26571793913774
+          ],
+          "phase_median_midi": 42.22514479654374,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 5,
+          "end_ms": 35,
+          "energy_window_center_ms": 20.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.02267573696145,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 92.77487763775582,
+              "derived_midi": 42.05163089392315,
+              "power_db_below_window_peak": -7.478399269151982,
+              "phase_advance_derived_midi": 42.10692067821326
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 188.58216600910882,
+              "derived_midi": 42.332276697140315,
+              "power_db_below_window_peak": -4.752277028658526,
+              "phase_advance_derived_midi": 42.53471384810129
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 284.0390225033927,
+              "derived_midi": 42.403477470349316,
+              "power_db_below_window_peak": -0.8959249764887157,
+              "phase_advance_derived_midi": 42.52763423317943
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 377.7203395048584,
+              "derived_midi": 42.35777938126644,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 42.457886739840944
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 468.25968203059824,
+              "derived_midi": 42.214526474472976,
+              "power_db_below_window_peak": -1.2459072286563662,
+              "phase_advance_derived_midi": 42.267866767593794
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 556.476863035072,
+              "derived_midi": 42.04626816678231,
+              "power_db_below_window_peak": -8.211598772651431,
+              "phase_advance_derived_midi": 42.07724727076513
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 42.34502803920338,
+          "partial_range_midi": [
+            42.214526474472976,
+            42.403477470349316
+          ],
+          "phase_median_midi": 42.492760486510186,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 15,
+          "end_ms": 45,
+          "energy_window_center_ms": 30.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 29.97732426303855,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 97.04011546353851,
+              "derived_midi": 42.829795781017815,
+              "power_db_below_window_peak": -6.426270673454909,
+              "phase_advance_derived_midi": 42.75681567942617
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 195.10287099140538,
+              "derived_midi": 42.92077780800143,
+              "power_db_below_window_peak": -3.0748817494843825,
+              "phase_advance_derived_midi": 43.061054891979886
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 296.9759012979235,
+              "derived_midi": 43.17455809124277,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 43.163168461345016
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 395.0355847742805,
+              "derived_midi": 43.13374911898569,
+              "power_db_below_window_peak": -0.34587073551367753,
+              "phase_advance_derived_midi": 43.148865466239805
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 487.1750946356135,
+              "derived_midi": 42.90010515646306,
+              "power_db_below_window_peak": -3.954922836393177,
+              "phase_advance_derived_midi": 42.91105806321874
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 574.397269742131,
+              "derived_midi": 42.59499440646965,
+              "power_db_below_window_peak": -9.455578680457583,
+              "phase_advance_derived_midi": 42.624846912417276
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 43.02726346349356,
+          "partial_range_midi": [
+            42.90010515646306,
+            43.17455809124277
+          ],
+          "phase_median_midi": 43.104960179109845,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 30,
+          "end_ms": 60,
+          "energy_window_center_ms": 45.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 97.33304588629767,
+              "derived_midi": 42.88197700833334,
+              "power_db_below_window_peak": -5.6032832843122895,
+              "phase_advance_derived_midi": 43.0535116259791
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 198.25308568501364,
+              "derived_midi": 43.198077563977165,
+              "power_db_below_window_peak": -2.913025545944396,
+              "phase_advance_derived_midi": 43.12036885425105
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 296.08598598231333,
+              "derived_midi": 43.12260220317977,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 43.15544265304834
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 395.68505192867264,
+              "derived_midi": 43.162188490670005,
+              "power_db_below_window_peak": -1.3148440565653419,
+              "phase_advance_derived_midi": 43.1649503185831
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 495.41434053254824,
+              "derived_midi": 43.19044813902666,
+              "power_db_below_window_peak": -5.237613735173529,
+              "phase_advance_derived_midi": 43.171921844621934
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 596.3863314594257,
+              "derived_midi": 43.245374021914316,
+              "power_db_below_window_peak": -7.498891159007714,
+              "phase_advance_derived_midi": 43.19921823693172
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 43.17631831484833,
+          "partial_range_midi": [
+            43.12260220317977,
+            43.198077563977165
+          ],
+          "phase_median_midi": 43.16019648581572,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 50,
+          "end_ms": 100,
+          "energy_window_center_ms": 75.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 50.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 98.59062046365473,
+              "derived_midi": 43.10422538375702,
+              "power_db_below_window_peak": -5.439200887047272,
+              "phase_advance_derived_midi": 43.115743982959856
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 197.65605588019943,
+              "derived_midi": 43.14586360873464,
+              "power_db_below_window_peak": -3.3164028916067707,
+              "phase_advance_derived_midi": 43.13663643682127
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 296.76189049124537,
+              "derived_midi": 43.16207773993085,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 43.1653064402786
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 396.15200939873955,
+              "derived_midi": 43.18260715518673,
+              "power_db_below_window_peak": -1.321172790975205,
+              "phase_advance_derived_midi": 43.18287337761682
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 495.55817513848365,
+              "derived_midi": 43.19547373489416,
+              "power_db_below_window_peak": -5.311502740378637,
+              "phase_advance_derived_midi": 43.19393394074082
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 595.7724916967578,
+              "derived_midi": 43.22754585387035,
+              "power_db_below_window_peak": -7.809298705695596,
+              "phase_advance_derived_midi": 43.221223983353795
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 43.17234244755879,
+          "partial_range_midi": [
+            43.14586360873464,
+            43.19547373489416
+          ],
+          "phase_median_midi": 43.17408990894771,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 100,
+          "end_ms": 200,
+          "energy_window_center_ms": 150.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 100.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 98.79595367477361,
+              "derived_midi": 43.14024404168968,
+              "power_db_below_window_peak": -4.707876279096779,
+              "phase_advance_derived_midi": 43.13920662226735
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 197.56977737028453,
+              "derived_midi": 43.1383049785099,
+              "power_db_below_window_peak": -3.887081633577564,
+              "phase_advance_derived_midi": 43.13812243795453
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 297.09977560353025,
+              "derived_midi": 43.18177789259528,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 43.18180608666247
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 396.4094197269608,
+              "derived_midi": 43.193852656774126,
+              "power_db_below_window_peak": -1.060346339505596,
+              "phase_advance_derived_midi": 43.19382102914036
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 495.88238911634244,
+              "derived_midi": 43.20679645695934,
+              "power_db_below_window_peak": -5.435762290785991,
+              "phase_advance_derived_midi": 43.206688839802446
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 595.9663919620197,
+              "derived_midi": 43.23317941586802,
+              "power_db_below_window_peak": -8.518290296132431,
+              "phase_advance_derived_midi": 43.23271232552139
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 43.1878152746847,
+          "partial_range_midi": [
+            43.1383049785099,
+            43.20679645695934
+          ],
+          "phase_median_midi": 43.187813557901414,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        {
+          "start_ms": 300,
+          "end_ms": 500,
+          "energy_window_center_ms": 400.0,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 200.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 98.92701432315378,
+              "derived_midi": 43.1631950111695,
+              "power_db_below_window_peak": -2.209302102780861,
+              "phase_advance_derived_midi": 43.16247378913999
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 197.43911083537648,
+              "derived_midi": 43.12685134446207,
+              "power_db_below_window_peak": -6.7160820918597,
+              "phase_advance_derived_midi": 43.125960356102546
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 297.46507696730947,
+              "derived_midi": 43.20305134110095,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 43.20215058998099
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 396.8670828102238,
+              "derived_midi": 43.213828591977524,
+              "power_db_below_window_peak": -0.6275312060145686,
+              "phase_advance_derived_midi": 43.212998262256406
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 496.5692152311138,
+              "derived_midi": 43.23075847062928,
+              "power_db_below_window_peak": -6.409241562495413,
+              "phase_advance_derived_midi": 43.22985908844443
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 597.0066935599165,
+              "derived_midi": 43.26337298898289,
+              "power_db_below_window_peak": -13.936733417061252,
+              "phase_advance_derived_midi": 43.262863618782866
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 43.20843996653924,
+          "partial_range_midi": [
+            43.12685134446207,
+            43.23075847062928
+          ],
+          "phase_median_midi": 43.2075744261187,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        }
+      ],
+      "capture_comparison": {
+        "case": "hammer_g3_rr1_peak25_mono",
+        "emitted_note": 42,
+        "emitted_pitch": 42.2140541,
+        "event_sample": 18175,
+        "sample_playback_relative_ms": 28.645833333333332,
+        "historical_window": {
+          "start_ms": 0,
+          "end_ms": 28.645833333333332,
+          "energy_window_center_ms": 14.322916666666666,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 28.639455782312925,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 92.3044002710479,
+              "derived_midi": 41.96361367230912,
+              "power_db_below_window_peak": -7.772583578908316,
+              "phase_advance_derived_midi": 41.743255374519
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 188.1355404081337,
+              "derived_midi": 42.291226659051176,
+              "power_db_below_window_peak": -5.419595821125286,
+              "phase_advance_derived_midi": 42.27521513138657
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 279.91381211366524,
+              "derived_midi": 42.150199833360375,
+              "power_db_below_window_peak": -1.0642318580233052,
+              "phase_advance_derived_midi": 42.135215589936536
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 374.54800530659617,
+              "derived_midi": 42.211765380467874,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 42.216332423864195
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 468.3684577106063,
+              "derived_midi": 42.21854762553169,
+              "power_db_below_window_peak": -0.9453990326970275,
+              "phase_advance_derived_midi": 42.227881405962755
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 562.3938098508125,
+              "derived_midi": 42.229376287067105,
+              "power_db_below_window_peak": -8.288498744573333,
+              "phase_advance_derived_midi": 42.24340708665215
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 42.21515650299978,
+          "partial_range_midi": [
+            42.150199833360375,
+            42.291226659051176
+          ],
+          "phase_median_midi": 42.222106914913475,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "centered_20ms": {
+          "start_ms": 18.645833333333332,
+          "end_ms": 38.64583333333333,
+          "energy_window_center_ms": 28.64583333333333,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 91.0347076043109,
+              "derived_midi": 41.723820826747954,
+              "power_db_below_window_peak": -6.483330764180016,
+              "phase_advance_derived_midi": 43.13919199899068
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 195.4995603731815,
+              "derived_midi": 42.95594207455994,
+              "power_db_below_window_peak": -3.1860467669921406,
+              "phase_advance_derived_midi": 42.95946077205611
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 293.1733049126899,
+              "derived_midi": 42.951452633269575,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 43.15907659347357
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 394.7504740652009,
+              "derived_midi": 43.12124969883945,
+              "power_db_below_window_peak": -0.5177738677969084,
+              "phase_advance_derived_midi": 43.07935906471105
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 491.39852350875805,
+              "derived_midi": 43.04954285093181,
+              "power_db_below_window_peak": -4.5363287025797385,
+              "phase_advance_derived_midi": 42.83020529966395
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 582.2473085781852,
+              "derived_midi": 42.82999249395836,
+              "power_db_below_window_peak": -10.577499728042012,
+              "phase_advance_derived_midi": 42.45769237167093
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 43.00274246274587,
+          "partial_range_midi": [
+            42.951452633269575,
+            43.12124969883945
+          ],
+          "phase_median_midi": 43.01940991838358,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "centered_30ms": {
+          "start_ms": 13.645833333333332,
+          "end_ms": 43.64583333333333,
+          "energy_window_center_ms": 28.64583333333333,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 30.0,
+          "partials": [
+            {
+              "harmonic": 1,
+              "peak_hz": 97.80444369359259,
+              "derived_midi": 42.965620753460364,
+              "power_db_below_window_peak": -6.6075695359524715,
+              "phase_advance_derived_midi": 42.69018717644138
+            },
+            {
+              "harmonic": 2,
+              "peak_hz": 196.1063896187814,
+              "derived_midi": 43.00959622832638,
+              "power_db_below_window_peak": -3.176425189339383,
+              "phase_advance_derived_midi": 43.05671988651947
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 297.17428618491033,
+              "derived_midi": 43.18611916422301,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 43.17924412514998
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 394.91727901500064,
+              "derived_midi": 43.128563620721536,
+              "power_db_below_window_peak": -0.14872572127883402,
+              "phase_advance_derived_midi": 43.15314271610472
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 485.73626611428637,
+              "derived_midi": 42.84889903752189,
+              "power_db_below_window_peak": -3.489658323242088,
+              "phase_advance_derived_midi": 42.84965989348778
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 571.5774435535545,
+              "derived_midi": 42.50979551148314,
+              "power_db_below_window_peak": -9.424496019025312,
+              "phase_advance_derived_midi": 42.487228775064395
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 43.06907992452396,
+          "partial_range_midi": [
+            42.84889903752189,
+            43.18611916422301
+          ],
+          "phase_median_midi": 43.10493130131209,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "causal_last_20ms": {
+          "start_ms": 8.645833333333332,
+          "end_ms": 28.645833333333332,
+          "energy_window_center_ms": 18.645833333333332,
+          "fft_bin_spacing_hz": 0.1682281494140625,
+          "actual_window_ms": 20.0,
+          "partials": [
+            {
+              "harmonic": 2,
+              "peak_hz": 190.25720340638057,
+              "derived_midi": 42.48537064181294,
+              "power_db_below_window_peak": -5.368821614004036,
+              "phase_advance_derived_midi": 42.18387244303371
+            },
+            {
+              "harmonic": 3,
+              "peak_hz": 275.47584482110244,
+              "derived_midi": 41.87351756088637,
+              "power_db_below_window_peak": -0.9043964225164982,
+              "phase_advance_derived_midi": 42.14821575515216
+            },
+            {
+              "harmonic": 4,
+              "peak_hz": 374.9667782958933,
+              "derived_midi": 42.231111073153414,
+              "power_db_below_window_peak": 0.0,
+              "phase_advance_derived_midi": 42.21829767956213
+            },
+            {
+              "harmonic": 5,
+              "peak_hz": 470.92345474354505,
+              "derived_midi": 42.31273152533069,
+              "power_db_below_window_peak": -0.8773894715295615,
+              "phase_advance_derived_midi": 42.20942176890546
+            },
+            {
+              "harmonic": 6,
+              "peak_hz": 568.0939313581869,
+              "derived_midi": 42.40396160467115,
+              "power_db_below_window_peak": -8.511506293701155,
+              "phase_advance_derived_midi": 42.143813490505096
+            }
+          ],
+          "selected_harmonics": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "partial_median_midi": 42.27192129924205,
+          "partial_range_midi": [
+            41.87351756088637,
+            42.48537064181294
+          ],
+          "phase_median_midi": 42.19664710596958,
+          "warning": "Windowed local spectral/phase evidence, not instantaneous acoustic pitch ground truth. Sparse/wide partial consensus is especially uncertain."
+        },
+        "timing_warning": "Historical-window energy center precedes event time. Centered windows use future source samples only for offline annotation, never as detector latency evidence."
+      }
+    }
+  ]
+}

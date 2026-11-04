@@ -13,6 +13,7 @@ public:
         bool valid=false;
         int note=-1,harmonicDivisor=1;
         float frequency=0,pitch=0,confidence=0,periodicity=0,harmonicPurity=1,rms=0;
+        int observedSamples=0;
     };
     void prepare(double analysisRate,int lowestNote=28,int highestNote=100);
     // Uses the latest available samples, capped at1024. The difference

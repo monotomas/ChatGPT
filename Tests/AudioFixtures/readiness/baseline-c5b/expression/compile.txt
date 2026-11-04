@@ -1,0 +1,14 @@
+/workspace/ChatGPT/Tools/readiness_capture.cpp: In function ‘{anonymous}::Wave {anonymous}::wave(const std::filesystem::__cxx11::path&)’:
+/workspace/ChatGPT/Tools/readiness_capture.cpp:42:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+   42 |     for(size_t n=0;n<out.audio.size();++n)out.audio[n]=float(int16_t(u16(b,data+2*n)))/32768.f;return out;
+      |     ^~~
+/workspace/ChatGPT/Tools/readiness_capture.cpp:42:96: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+   42 |     for(size_t n=0;n<out.audio.size();++n)out.audio[n]=float(int16_t(u16(b,data+2*n)))/32768.f;return out;
+      |                                                                                                ^~~~~~
+/tmp/flysnapper-readiness-baseline-c5b/Source/Pitch/YinEstimator.cpp: In member function ‘flysnapper::pitch::YinEstimator::Result flysnapper::pitch::YinEstimator::track(const float*, int, float, float, float)’:
+/tmp/flysnapper-readiness-baseline-c5b/Source/Pitch/YinEstimator.cpp:234:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  234 |         if(polarity&&next!=polarity)++crossings;polarity=next;}
+      |         ^~
+/tmp/flysnapper-readiness-baseline-c5b/Source/Pitch/YinEstimator.cpp:234:49: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  234 |         if(polarity&&next!=polarity)++crossings;polarity=next;}
+      |                                                 ^~~~~~~~

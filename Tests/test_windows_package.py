@@ -31,7 +31,7 @@ class WindowsPackageTests(unittest.TestCase):
         p=self.bundle/shipping.BINARY;p.parent.mkdir(parents=True)
         pe=bytearray(512);pe[:2]=b'MZ';pe[60:64]=(128).to_bytes(4,'little');pe[128:134]=b'PE\0\0\x64\x86';p.write_bytes(pe)
         (self.bundle/'Contents/Resources').mkdir();(self.bundle/'Contents/Resources/moduleinfo.json').write_text('{}')
-        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperYin','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperAudioQuality']
+        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperYin','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3','FlysnapperAudioQuality']
         self.manifest={'version':'1.0.0','stage':'complete','platform':'Windows-x64','tests':'passed','windows_verified':True,
                        'toolchain_probe':'passed','juceaide_unicode_probe':'passed','pitch_detection_implemented':True,
                        'required_test_names':self.required,'bundle_sha256':{n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(self.bundle).items()},
@@ -112,7 +112,7 @@ class WindowsPackageTests(unittest.TestCase):
             for n,h in release['files'].items():self.assertEqual(hashlib.sha256(z.read(p+n)).hexdigest(),h)
     def test_linux_failed_or_incomplete_proof_is_rejected(self):
         for key,value in [('platform','Linux-x86_64'),('tests','failed'),('version','0.1.0'),('windows_verified',False),
-                          ('toolchain_probe','missing'),('juceaide_unicode_probe','missing'),('pitch_detection_implemented',False),('stage','routing-midi-prototype')]:
+                          ('toolchain_probe','missing'),('juceaide_unicode_probe','missing'),('pitch_detection_implemented',False),('stage','routing-midi-prototype'),('stage','musical-readiness-research-prototype')]:
             with self.subTest(key=key):
                 old=self.manifest[key];self.manifest[key]=value;self.save_manifest()
                 with self.assertRaises(ValueError):self.package()
@@ -124,10 +124,12 @@ class WindowsPackageTests(unittest.TestCase):
                         '<testcase name="FlysnapperAudioQuality" status="disabled"/>'):
             self.report=''.join(f'<testcase name="{n}"/>' for n in self.required[:-1])+content;self.save_report()
             with self.assertRaises(ValueError):self.package()
-    def test_old_seven_group_proof_cannot_ship_the_guitar_bend_update(self):
-        self.manifest['required_test_names']=[name for name in self.required if name not in ('FlysnapperGuitarQuality','FlysnapperBendProcessor')]
-        self.save_manifest()
-        with self.assertRaisesRegex(ValueError,'required validation'):self.package()
+    def test_guitar_noise_and_mpe_groups_are_required_for_shipping(self):
+        for missing in ('FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3'):
+            with self.subTest(missing=missing):
+                self.manifest['required_test_names']=[name for name in self.required if name!=missing]
+                self.save_manifest()
+                with self.assertRaisesRegex(ValueError,'required validation'):self.package()
     def test_tampered_or_extra_binary_bundle_file_blocks_package(self):
         (self.bundle/shipping.BINARY).write_bytes(b'tampered')
         with self.assertRaises(ValueError):self.package()

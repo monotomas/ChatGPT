@@ -1,0 +1,344 @@
+UpdateCTestConfiguration  from :/workspace/ChatGPT/build/native-release/DartConfiguration.tcl
+Test project /workspace/ChatGPT/build/native-release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+      Start  1: FlysnapperCore
+
+1: Test command: /workspace/ChatGPT/build/native-release/FlysnapperCoreTests
+1: Working Directory: /workspace/ChatGPT/build/native-release
+1: Test timeout computed to be: 120
+1: Flysnapper core: 6 suites passed, 2104154 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+ 1/13 Test  #1: FlysnapperCore ...................   Passed    0.05 sec
+test 2
+      Start  2: FlysnapperAudioQuality
+
+2: Test command: /workspace/.flysnapper-tools/bin/python3.12 "/workspace/ChatGPT/Tools/audio_quality_gate.py" "--evaluator" "/workspace/ChatGPT/build/native-release/FlysnapperAudioValidation" "--fixtures" "/workspace/ChatGPT/Tests/AudioFixtures" "--output" "/workspace/ChatGPT/build/native-release/audio-quality"
+2: Working Directory: /workspace/ChatGPT/build/native-release
+2: Test timeout computed to be: 300
+2: Verified 11 pinned source files, 46 PCM waveforms and 81 case annotations
+2: Independent audio measurements written to /workspace/ChatGPT/build/native-release/audio-quality/audio-quality-fmqfgjrh (81 case/rate/block runs).
+2: FlysnapperAudioQuality: 30/30 basic accuracy cases passed; live5/10ms compliance is not certified
+ 2/13 Test  #2: FlysnapperAudioQuality ...........   Passed    8.29 sec
+test 3
+      Start  3: FlysnapperYin
+
+3: Test command: /workspace/ChatGPT/build/native-release/FlysnapperYinTests "/workspace/ChatGPT/Tests/AudioFixtures"
+3: Working Directory: /workspace/ChatGPT/build/native-release
+3: Test timeout computed to be: 120
+3: YIN recorded E2: first=40 observed_ms=58.7917 wrong_confirmations=0
+3: YIN recorded A2: first=45 observed_ms=61.2292 wrong_confirmations=0
+3: YIN recorded D3: first=50 observed_ms=74.2917 wrong_confirmations=0
+3: YIN recorded G3: first=55 observed_ms=58.6042 wrong_confirmations=0
+3: YIN recorded B3: first=59 observed_ms=60.5208 wrong_confirmations=0
+3: YIN recorded E3: first=52 observed_ms=59.5 wrong_confirmations=0
+3: YIN recorded E4: first=64 observed_ms=64.6667 wrong_confirmations=0
+3: YIN recorded Fs3: first=54 observed_ms=63.4167 wrong_confirmations=0
+3: YinEstimator checks passed: 4327. Candidate/confirmation controls, not complete audio lifecycle or physical latency.
+ 3/13 Test  #3: FlysnapperYin ....................   Passed    0.86 sec
+test 4
+      Start  4: FlysnapperPitch
+
+4: Test command: /workspace/ChatGPT/build/native-release/FlysnapperPitchTests "/workspace/ChatGPT/Tests/AudioFixtures"
+4: Working Directory: /workspace/ChatGPT/build/native-release
+4: Test timeout computed to be: 120
+4: PASS declared MIDI28..100 at44.1/48/96kHz, stable+/-40cent notes and prepared C++ allocation check (malloc/host wrapper excluded)
+4: PASS acquired recorded octave continuity and independently damped upper under a bright lower string
+4: PASS stiff held string, upper-withdrawal stability and three genuine continuous repicks
+4: FlysnapperPitch: PASS (111165 checks; functional audio controls, not physical latency acceptance)
+ 4/13 Test  #4: FlysnapperPitch ..................   Passed   11.58 sec
+test 5
+      Start  5: FlysnapperGuitarQuality
+
+5: Test command: /workspace/ChatGPT/build/native-release/FlysnapperGuitarQualityTests "/workspace/ChatGPT/Tests/AudioFixtures/guitar_controls"
+5: Working Directory: /workspace/ChatGPT/build/native-release
+5: Test timeout computed to be: 180
+5: case,note,first_correct_ms,release_after_source_ms
+5: decay_40_normal_mono,40,29.979,41.312
+5: decay_40_normal_poly,40,53.979,59.979
+5: decay_40_quiet_mono,40,29.979,41.312
+5: decay_40_quiet_poly,40,53.979,59.979
+5: decay_52_normal_mono,52,19.312,35.979
+5: decay_52_quiet_mono,52,19.312,35.979
+5: decay_57_normal_mono,57,16.646,38.646
+5: decay_57_quiet_mono,57,16.646,38.646
+5: decay_64_normal_mono,64,13.979,35.979
+5: decay_64_normal_poly,64,53.979,46.646
+5: decay_64_quiet_mono,64,13.979,35.979
+5: decay_64_quiet_poly,64,53.979,43.979
+5: decay_76_normal_mono,76,11.312,35.979
+5: decay_76_quiet_mono,76,11.312,35.979
+5: timbre_40_mono,40,32.646,38.646
+5: timbre_40_poly,40,53.979,35.979
+5: timbre_52_mono,52,19.312,38.646
+5: timbre_52_poly,52,53.979,41.312
+5: timbre_64_mono,64,13.979,35.979
+5: timbre_64_poly,64,53.979,70.646
+5: timbre_76_mono,76,11.312,35.979
+5: timbre_76_poly,76,53.979,65.312
+5: stiff_40_mono,40,29.979,38.646
+5: stiff_40_poly,40,53.979,70.646
+5: stiff_52_mono,52,19.312,35.979
+5: stiff_52_poly,52,53.979,43.979
+5: stiff_64_mono,64,13.979,35.979
+5: stiff_64_poly,64,53.979,57.312
+5: level_40_03_mono,40,29.979,39.979
+5: level_40_09_mono,40,29.979,39.979
+5: level_40_27_mono,40,29.979,39.979
+5: level_52_03_mono,52,19.312,37.312
+5: level_52_09_mono,52,19.312,37.312
+5: level_52_27_mono,52,19.312,37.312
+5: level_64_03_mono,64,13.979,37.312
+5: level_64_09_mono,64,13.979,37.312
+5: level_64_27_mono,64,13.979,37.312
+5: true_octave_down_mono,52,19.312,29.979
+5: true_octave_down_mono,40,29.979,40.646
+5: true_octave_up_mono,52,19.312,16.646
+5: true_octave_up_mono,64,16.646,35.312
+5: damp_then_noise_mono,52,19.312,38.646
+5: damp_then_noise_poly,52,53.979,62.646
+5: bend_whole_step_mono,57,16.646,39.979
+5: BEND bend_whole_step_mono range=2 observations=1000 absCents[median/p95/max]=0.140/6.397/6.845
+5: BEND settledMaxCents bend_whole_step_mono 0.697
+5: BEND movingMaxCents bend_whole_step_mono 6.845
+5: BEND releaseTailMaxCents bend_whole_step_mono 0.000
+5: bend_whole_step_mono,57,16.646,39.979
+5: BEND bend_whole_step_mono range=12 observations=1000 absCents[median/p95/max]=0.140/6.397/6.845
+5: BEND settledMaxCents bend_whole_step_mono 0.697
+5: BEND movingMaxCents bend_whole_step_mono 6.845
+5: BEND releaseTailMaxCents bend_whole_step_mono 0.000
+5: bend_semitone_mono,57,16.646,39.979
+5: BEND bend_semitone_mono range=2 observations=1000 absCents[median/p95/max]=0.111/4.026/5.228
+5: BEND settledMaxCents bend_semitone_mono 5.228
+5: BEND movingMaxCents bend_semitone_mono 4.304
+5: BEND releaseTailMaxCents bend_semitone_mono 0.000
+5: bend_semitone_mono,57,16.646,39.979
+5: BEND bend_semitone_mono range=12 observations=1000 absCents[median/p95/max]=0.111/4.026/5.228
+5: BEND settledMaxCents bend_semitone_mono 5.228
+5: BEND movingMaxCents bend_semitone_mono 4.304
+5: BEND releaseTailMaxCents bend_semitone_mono 0.000
+5: bend_vibrato_mono,57,16.646,39.979
+5: BEND bend_vibrato_mono range=2 observations=1000 absCents[median/p95/max]=5.272/9.709/10.150
+5: BEND settledMaxCents bend_vibrato_mono 0.292
+5: BEND movingMaxCents bend_vibrato_mono 10.150
+5: BEND releaseTailMaxCents bend_vibrato_mono 0.000
+5: bend_vibrato_mono,57,16.646,39.979
+5: BEND bend_vibrato_mono range=12 observations=1000 absCents[median/p95/max]=5.272/9.709/10.150
+5: BEND settledMaxCents bend_vibrato_mono 0.292
+5: BEND movingMaxCents bend_vibrato_mono 10.150
+5: BEND releaseTailMaxCents bend_vibrato_mono 0.000
+5: bend_fast_bend_mono,57,16.646,39.979
+5: BEND bend_fast_bend_mono range=2 observations=1000 absCents[median/p95/max]=0.029/18.496/25.791
+5: BEND settledMaxCents bend_fast_bend_mono 0.609
+5: BEND movingMaxCents bend_fast_bend_mono 25.791
+5: BEND releaseTailMaxCents bend_fast_bend_mono 0.000
+5: bend_fast_bend_mono,57,16.646,39.979
+5: BEND bend_fast_bend_mono range=12 observations=1000 absCents[median/p95/max]=0.029/18.496/25.791
+5: BEND settledMaxCents bend_fast_bend_mono 0.609
+5: BEND movingMaxCents bend_fast_bend_mono 25.791
+5: BEND releaseTailMaxCents bend_fast_bend_mono 0.000
+5: recorded_acoustic_E2_minus00_mono,40,56.729,42.646
+5: recorded_acoustic_E2_minus12_mono,40,56.729,42.646
+5: recorded_acoustic_G3_minus00_mono,55,56.250,37.312
+5: recorded_acoustic_G3_minus12_mono,55,56.250,37.312
+5: recorded_electric_Fs3_minus00_mono,54,21.958,37.312
+5: recorded_electric_Fs3_minus12_mono,54,21.958,37.312
+5: recorded_nylon_Cs3_minus00_mono,49,51.312,37.312
+5: recorded_nylon_Cs3_minus12_mono,49,51.312,37.312
+5: FlysnapperGuitarQuality:PASS (93967 checks,51 fixed-note cases x2 block sizes plus4 bend cases x2 ranges x2 block sizes;0 failures).
+5: Observed functional detector timing only; not physical5/10ms live latency certification. MIDI bend delivery uses a separate mandatory processor test.
+ 5/13 Test  #5: FlysnapperGuitarQuality ..........   Passed   18.38 sec
+test 6
+      Start  6: FlysnapperNoise
+
+6: Test command: /workspace/ChatGPT/build/native-release/FlysnapperNoiseTests
+6: Working Directory: /workspace/ChatGPT/build/native-release
+6: Test timeout computed to be: 120
+6: hum,8000,49.95,attenuation_db,-57.1171
+6: hum,8000,50,attenuation_db,-68.8849
+6: hum,8000,50.05,attenuation_db,-60.1951
+6: hum,8000,59.95,attenuation_db,-59.2518
+6: hum,8000,60,attenuation_db,-75.3156
+6: hum,8000,60.05,attenuation_db,-57.9671
+6: hum,12000,49.95,attenuation_db,-56.9656
+6: hum,12000,50,attenuation_db,-68.7667
+6: hum,12000,50.05,attenuation_db,-59.9676
+6: hum,12000,59.95,attenuation_db,-59.039
+6: hum,12000,60,attenuation_db,-75.1771
+6: hum,12000,60.05,attenuation_db,-57.7959
+6: hum,24000,49.95,attenuation_db,-56.8183
+6: hum,24000,50,attenuation_db,-68.6597
+6: hum,24000,50.05,attenuation_db,-59.8538
+6: hum,24000,59.95,attenuation_db,-58.8318
+6: hum,24000,60,attenuation_db,-75.0471
+6: hum,24000,60.05,attenuation_db,-57.6266
+6: mixed,-63.3325,freq,50.03,59.97
+6: quiet_guitar,49,noise_improvement_db,56.4446
+6: quiet_guitar,50,noise_improvement_db,56.4446
+6: quiet_guitar,61.7354,noise_improvement_db,56.4446
+6: quiet_guitar,82.4069,noise_improvement_db,56.4446
+6: quiet_guitar,100,noise_improvement_db,56.4446
+6: quiet_guitar,110,noise_improvement_db,56.4446
+6: quiet_guitar,196,noise_improvement_db,56.4446
+6: gain_evidence,0,snr,31.5561,harmonic,0.999302,phase,0.999972,floor,3.25815e-06,residual,5.88406e-06
+6: gain_evidence,1,snr,31.5561,harmonic,0.999302,phase,0.999972,floor,3.25814e-05,residual,5.88405e-05
+6: gain_evidence,2,snr,31.5561,harmonic,0.999302,phase,0.999972,floor,0.000325814,residual,0.000588405
+6: NoiseConditioner: PASS (214 mechanism checks; not recorded guitar/noise acceptance).
+ 6/13 Test  #6: FlysnapperNoise ..................   Passed    1.68 sec
+test 7
+      Start  7: FlysnapperMpeOutput
+
+7: Test command: /workspace/ChatGPT/build/native-release/FlysnapperMpeOutputTests_artefacts/Release/FlysnapperMpeOutputTests
+7: Working Directory: /workspace/ChatGPT/build/native-release
+7: Test timeout computed to be: 120
+7: FlysnapperMpeOutput: PASS (98905 checks; actual JUCE MPE receiver; not Live/physical-latency proof).
+ 7/13 Test  #7: FlysnapperMpeOutput ..............   Passed    0.01 sec
+test 8
+      Start  8: FlysnapperMpeProcessor
+
+8: Test command: /workspace/ChatGPT/build/native-release/FlysnapperMpeProcessorTests_artefacts/Release/FlysnapperMpeProcessorTests
+8: Working Directory: /workspace/ChatGPT/build/native-release
+8: Test timeout computed to be: 180
+8: PASS chord isolation and output-mode lifecycle
+8: PASS held input controls and bypass
+8: MEASURE processor MPE mono first decision 15.9792ms; settled max error 0.170922 cents; not end-to-end latency
+8: PASS actual mono audio and source shutdown
+8: FAIL actual poly hammer and held string: Poly source did not acquire both independent strings
+8: PASS state compatibility and bounded output
+8: FlysnapperMpeProcessor: FAIL (15332 checks, 1 failed groups; actual JUCE MPE receiver; not Live/driver proof).
+ 8/13 Test  #8: FlysnapperMpeProcessor ...........***Failed    0.53 sec
+PASS chord isolation and output-mode lifecycle
+PASS held input controls and bypass
+MEASURE processor MPE mono first decision 15.9792ms; settled max error 0.170922 cents; not end-to-end latency
+PASS actual mono audio and source shutdown
+FAIL actual poly hammer and held string: Poly source did not acquire both independent strings
+PASS state compatibility and bounded output
+FlysnapperMpeProcessor: FAIL (15332 checks, 1 failed groups; actual JUCE MPE receiver; not Live/driver proof).
+
+test 9
+      Start  9: FlysnapperBendProcessor
+
+9: Test command: /workspace/ChatGPT/build/native-release/FlysnapperBendProcessorTests_artefacts/Release/FlysnapperBendProcessorTests "/workspace/ChatGPT/Tests/AudioFixtures/guitar_controls"
+9: Working Directory: /workspace/ChatGPT/build/native-release
+9: Test timeout computed to be: 180
+9: MEASURE mono bend 2 semitone range, 44100 Hz: 200 wheel events, maximum 16383; fixed note57/ch2
+9: MEASURE mono bend 12 semitone range, 44100 Hz: 197 wheel events, maximum 11636; fixed note57/ch2
+9: MEASURE mono bend 2 semitone range, 48000 Hz: 200 wheel events, maximum 16383; fixed note57/ch2
+9: MEASURE mono bend 12 semitone range, 48000 Hz: 197 wheel events, maximum 11636; fixed note57/ch2
+9: MEASURE mono bend 2 semitone range, 96000 Hz: 199 wheel events, maximum 16383; fixed note57/ch2
+9: MEASURE mono bend 12 semitone range, 96000 Hz: 197 wheel events, maximum 11636; fixed note57/ch2
+9: MEASURE known PCM bend_whole_step, range2: actual MIDI pitch P95=6.41341c, max=6.83583c, settled max=0.146484c, n=920
+9: MEASURE known PCM bend_whole_step, range12: actual MIDI pitch P95=6.41862c, max=6.85156c, settled max=0.146484c, n=920
+9: MEASURE known PCM bend_whole_step_derived_decay48dB, range2: actual MIDI pitch P95=6.43685c, max=6.88466c, settled max=0.0244141c, n=920
+9: MEASURE known PCM bend_whole_step_derived_decay48dB, range12: actual MIDI pitch P95=6.43859c, max=6.85156c, settled max=0.0488281c, n=920
+9: MEASURE known PCM bend_semitone, range2: actual MIDI pitch P95=4.02995c, max=4.31207c, settled max=0.219727c, n=920
+9: MEASURE known PCM bend_semitone, range12: actual MIDI pitch P95=4.04514c, max=4.32292c, settled max=0.244141c, n=920
+9: MEASURE known PCM bend_vibrato, range2: actual MIDI pitch P95=9.72094c, max=10.1519c, settled max=0.292969c, n=920
+9: MEASURE known PCM bend_vibrato, range12: actual MIDI pitch P95=9.70961c, max=10.1924c, settled max=0.292969c, n=920
+9: MEASURE known PCM bend_fast_bend, range2: actual MIDI pitch P95=18.8883c, max=25.7845c, settled max=0.0244141c, n=920
+9: MEASURE known PCM bend_fast_bend, range12: actual MIDI pitch P95=18.8965c, max=25.7357c, settled max=0.0976562c, n=920
+9: FlysnapperBendProcessor: PASS (477661 checks; audio-derived expression, not physical/Live latency).
+ 9/13 Test  #9: FlysnapperBendProcessor ..........   Passed    4.50 sec
+test 10
+      Start 10: FlysnapperPluginSmoke
+
+10: Test command: /workspace/ChatGPT/build/native-release/FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests
+10: Working Directory: /workspace/ChatGPT/build/native-release
+10: Test timeout computed to be: 120
+10: PASS 50 x 19 choices, stable IDs, mixed table, instances, malformed state, transient test reset
+10: PASS block-internal chord timing, routing role isolation, note binding, bypass, generated/external, sustain, panic, expression
+10: PASS generated sample schedule at 3 rates x 5 blocks, seek/stop, zero-frame reset, bounded overload, sidechain bus layouts
+10: PASS warmed processor C++ new allocation check (malloc/realloc and host wrapper excluded)
+10: PASS actual JUCE editor: large chord, 50x19 menus, flip/close continuity; front/back PNG snapshots written
+10: FlysnapperPluginSmoke: PASS (225644 assertions)
+10/13 Test #10: FlysnapperPluginSmoke ............   Passed    1.59 sec
+test 11
+      Start 11: FlysnapperProcessorAudio
+
+11: Test command: /workspace/ChatGPT/build/native-release/FlysnapperProcessorAudioTests_artefacts/Release/FlysnapperProcessorAudioTests
+11: Working Directory: /workspace/ChatGPT/build/native-release
+11: Test timeout computed to be: 180
+11: PASS connected silence, disabled sidechain and disabled audio module; external MIDI preserved
+11: MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 17 samples (not driver/end-to-end latency)
+11: MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 64 samples (not driver/end-to-end latency)
+11: MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 257 samples (not driver/end-to-end latency)
+11: MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 17 samples (not driver/end-to-end latency)
+11: MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 64 samples (not driver/end-to-end latency)
+11: MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 257 samples (not driver/end-to-end latency)
+11: MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 17 samples (not driver/end-to-end latency)
+11: MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 64 samples (not driver/end-to-end latency)
+11: MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 257 samples (not driver/end-to-end latency)
+11: PASS actual audio decisions use same-sample chord first and never a future chord; original Note Off remains bound
+11: PASS real detected and external MIDI coexist, share correction and release only their own note ownership
+11: PASS actual polyphonic sidechain triad and mono/poly transitions without external note interruption
+11: PASS audio settings state and identical audio-to-MIDI with editor closed/open
+11: PASS twelve audio attack/silence/source-disconnect/panic cycles without stale output notes
+11: PASS finite stereo side survives NaN/Inf on either channel; anti-phase gain crossings retain fixed polarity and identical MIDI
+11: PASS missing legacy pitch parameters restore factory defaults instead of warm-instance values
+11: FlysnapperProcessorAudio: PASS (96333 checks). Functional integration budget is 150 ms; actual first-note timings are printed, not substituted for the requested live latency goals.
+11/13 Test #11: FlysnapperProcessorAudio .........   Passed    2.65 sec
+test 12
+      Start 12: FlysnapperActualVst3
+
+12: Test command: /workspace/ChatGPT/build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3"
+12: Working Directory: /workspace/ChatGPT/build/native-release
+12: Test timeout computed to be: 120
+12: PASS actual VST3 discovery and instrument classification
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 32 samples
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 128 samples
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 257 samples
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 32 samples
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 128 samples
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 257 samples
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 32 samples
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 128 samples
+12: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 257 samples
+12: PASS actual VST3 named sidechain activation, audio, digital silence and deactivation
+12: PASS actual VST3 generated/external simultaneous events, 4800-sample test gate, source-only shutdown
+12: PASS actual VST3 all settings/table state roundtrip, instance isolation, no revived notes
+12: PASS actual VST3 stop/restart/seek flush, no stale chord or repeated note offs
+12: MEASURE actual VST3 Controller Modulation Wheel (coarse): 73 Channel 2 offset in=17 out=17
+12: MEASURE actual VST3 Pitch wheel 12345 Channel 2 offset in=17 out=17
+12: MEASURE actual VST3 Channel pressure 41 Channel 2 offset in=17 out=17
+12: MEASURE actual VST3 Program change 17 Channel 2 offset in=17 out=17
+12: PASS actual VST3 CC1, pitch bend, channel pressure and program-change values
+12: PASS actual VST3 forwarded CC66/CC69 released at transport stop without active core voices
+12: MEASURE actual VST3 audio first useful note 15.9792 ms (functional sample observation, excludes driver/Live/synth latency)
+12: PASS actual compiled VST3 mono/poly sidechain -> MIDI -> correction, simultaneous external/control MIDI and source-only shutdown
+12: MEASURE actual VST3 mono bend 44100 Hz, +/-2 semitones: 152 pitch updates, P95 error 4.30367 cents
+12: MEASURE actual VST3 mono bend 44100 Hz, +/-12 semitones: 152 pitch updates, P95 error 4.30367 cents
+12: MEASURE actual VST3 mono bend 48000 Hz, +/-2 semitones: 152 pitch updates, P95 error 4.30476 cents
+12: MEASURE actual VST3 mono bend 48000 Hz, +/-12 semitones: 152 pitch updates, P95 error 4.30476 cents
+12: MEASURE actual VST3 mono bend 96000 Hz, +/-2 semitones: 150 pitch updates, P95 error 4.31094 cents
+12: MEASURE actual VST3 mono bend 96000 Hz, +/-12 semitones: 150 pitch updates, P95 error 4.31094 cents
+12: PASS actual VST3 acoustic bend/vibrato, RPN range, generated channel isolation and wheel reset
+12: RESULT actual VST3 host tests passed (952458 assertions).
+12: PLATFORM VERIFIED: native Linux VST3; Windows build is a separate required result.
+12: NOT VERIFIED BY THIS TEST: Ableton Live, audio-driver/end-to-end latency or general musical accuracy.
+12/13 Test #12: FlysnapperActualVst3 .............   Passed    3.09 sec
+test 13
+      Start 13: FlysnapperMpeActualVst3
+
+13: Test command: /workspace/ChatGPT/build/native-release/FlysnapperMpeVst3HostTests_artefacts/Release/FlysnapperMpeVst3HostTests "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3"
+13: Working Directory: /workspace/ChatGPT/build/native-release
+13: Test timeout computed to be: 180
+13: PASS actual VST3 MPE protocol serialization/master/member input
+13: MEASURE actual VST3 MPE mono first decision 15.9792ms; settled P95 0.0183105 cents; not driver latency
+13: PASS actual VST3 mono audio and independent keyboard expression
+13: MEASURE actual VST3 two-string MPE bend settled maxerror 0.170922 cents, heldstring 0 cents
+13: PASS actual VST3 poly audio independently bent and held voices
+13: FlysnapperMpeVst3Host: PASS (3548 checks, 0 failed groups).
+13: Not verified: Ableton runtime, Windows unless run natively there, audio-driver latency, general musical readiness.
+13/13 Test #13: FlysnapperMpeActualVst3 ..........   Passed    0.58 sec
+
+92% tests passed, 1 tests failed out of 13
+
+Total Test time (real) =  53.79 sec
+
+The following tests FAILED:
+	  8 - FlysnapperMpeProcessor (Failed)
+Errors while running CTest

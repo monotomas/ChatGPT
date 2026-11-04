@@ -1,0 +1,7 @@
+/workspace/ChatGPT/docs/validation/noiseprobes/baseline/Pitch/YinEstimator.cpp: In member function ‘flysnapper::pitch::YinEstimator::Result flysnapper::pitch::YinEstimator::track(const float*, int, float, float, float)’:
+/workspace/ChatGPT/docs/validation/noiseprobes/baseline/Pitch/YinEstimator.cpp:234:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  234 |         if(polarity&&next!=polarity)++crossings;polarity=next;}
+      |         ^~
+/workspace/ChatGPT/docs/validation/noiseprobes/baseline/Pitch/YinEstimator.cpp:234:49: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  234 |         if(polarity&&next!=polarity)++crossings;polarity=next;}
+      |                                                 ^~~~~~~~

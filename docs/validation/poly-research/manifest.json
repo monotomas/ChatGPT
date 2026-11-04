@@ -1,0 +1,58 @@
+{
+  "scope": "Unfinished polyphonic research. Oracle seeds test conditional tracking, not transcription. No release or physical latency claim.",
+  "baseline_git_head": "c5b05337641b13ae259836f5346e7c1850b7382c",
+  "snapshot17_files": {
+    "Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Pitch/MpeOutputRouter.cpp": "e576db1cad7a75d6acf9395de9e07894af9bc08e32e4ca9d06d81e813f34a9bd",
+    "Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+    "Pitch/NoiseConditioner.cpp": "cfe7f87e7a5054484a1f612a047c8fe20574ba89630747f3b7db244372746aa9",
+    "Pitch/NoiseConditioner.h": "51ad8be4c540f09a8b50582ef0f97db7f742ba936986307bb0a58d0491bf79a1",
+    "Pitch/PitchDetector.cpp": "e85559749fb3ed8ea755b4c219f229b1fa4e18475b9a1eceba19a1e1b09905aa",
+    "Pitch/PitchDetector.h": "e38fadd1b2e55c1f1fe2f8ab8daa6597802cfe8eba528e269209a1f5126dfa90",
+    "Pitch/PolyphonicTracker.cpp": "203ddafea801fe24240de2919a1d0d035e2bdfd84e1de0808ed18b92b3caf9e9",
+    "Pitch/PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361",
+    "Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1"
+  },
+  "drivers": {
+    "legacy.cpp": "627fce527303cc8a330af0a4db325cb86e4c7db5adcb32db2f132b7847721c6a",
+    "expression.cpp": "89e9adab69982e9748b433a1b368e45214a380d203ae479c8c99f700ec024a3f"
+  },
+  "configuration": {
+    "rate": 48000,
+    "block": 64,
+    "autoInput": false,
+    "legacy_polyBend": false,
+    "expression_polyBend": true,
+    "pitch_events_ignored_by_discrete_interval_scorer": true
+  },
+  "timing_limitations": "Shared runner and overlapping quality runs; CPU figures are diagnostic, not real-time certification. Independent oracle CPU-clock measurements retained by audit owner.",
+  "fixture_inventories": {
+    "Tests/AudioFixtures/fixtures.tsv": "bed2eca207c577a8fb1e54c289c778a8e943fe55536dab35a38c570cbf670e13",
+    "Tests/AudioFixtures/holdout/fixtures.tsv": "13abbe3727f6693001fff3ec0df0207592dfe6a0f33e95ab6a89ca332c56f162",
+    "Tests/AudioFixtures/confirmation/fixtures.tsv": "72573d677bea8b2fbf8564a8e20e8cb26d6cf6b0ec13d2427e9b031067ad892a"
+  },
+  "oracle19_source": {
+    "oracle.cpp": "18fa40dfef5f83eb4bdbe7500e1abadd8f73762f8aa052fe611112e682ea9ed9",
+    "Pitch/PolyphonicTracker.cpp": "4bbc34d883cee96253383b87181350e746d0d73110ad2cf0ffe65d6e5d9231f7",
+    "Pitch/PolyphonicTracker.h": "17e4c73b456c46dadf5559815800526d4c7228067382dba9129678a8e882f361"
+  },
+  "checkpoint21": {
+    "scope": "Unconditioned actual legacy-seeded transcription; same frozen admission/mono/driver as checkpoint17. Temporal coefficient priors plus bandwidth selection plus conservative octave admission/retarget changes. Not merged or musically ready.",
+    "known_case_count": 196,
+    "poly_expected": 180,
+    "poly_matched": 163,
+    "poly_extra_note_ons": 17,
+    "legacy_poly_matched": 163,
+    "legacy_poly_extra_note_ons": 20,
+    "mono_expected": 107,
+    "mono_matched": 107,
+    "mono_extra_note_ons": 0,
+    "critical_unresolved": "Actual simultaneous three-partial45/64 dyad cannot acquire64 via old admission; all-lower-latency, actual noise, real audio and fresh continuous-poly requirements remain failed."
+  }
+}

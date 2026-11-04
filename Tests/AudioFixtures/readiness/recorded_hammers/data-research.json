@@ -1,0 +1,39 @@
+{
+  "usable_selected_real_data": "/tmp/readiness-real-data/blackgreen-selected/provenance.json",
+  "zenodo_needed": [
+    {
+      "dataset": "Guitar-TECHS",
+      "url": "https://zenodo.org/records/14963133",
+      "license": "CC BY4.0 per pinned primary GitHub website19a2954f789bfd192b2b4732788ceb000c1dd687",
+      "value": "Real multiple-hardware electric guitar techniques/excerpts/chords/scales with DI and MIDI; no raw audio in GitHub site/code repo."
+    },
+    {
+      "dataset": "GuitarSet",
+      "url": "https://zenodo.org/record/3371780",
+      "license": "mirdata loader claims MIT; confirm original download license before redistribution",
+      "value": "Real acoustic-guitar excerpts, per-string F0/notes; repository only helper metadata."
+    },
+    {
+      "dataset": "EG-IPT",
+      "url": "https://zenodo.org/records/15205644",
+      "license": "Actual GitHubLICENSE CC BY-NC4.0 contradicts README GPL3",
+      "value": "Real electric-guitar playing technique labels; needs origin/license resolution."
+    }
+  ],
+  "rejected_misleading_fixtures": [
+    {
+      "repository": "mir-dataset-loaders/mirdata",
+      "commit": "96d298b5ec4b7c5dadcd498a3b50a0204b8c3a85",
+      "reason": "GuitarSet test WAVs are dummy quantized noise: only-1/0/1 PCM16 values, mic/mix identical; annotations deliberately manipulated MIDI120. Not real recorded performance."
+    },
+    {
+      "repository": "bryanyu1997/EG-Solo_demo",
+      "reason": "WAV assets are ground-truth/predicted transcription renderings; original recordings linked externally. No original real-guitar WAV or license verified."
+    },
+    {
+      "repository": "spotify/basic-pitch",
+      "reason": "GuitarSet JAMS annotations present but no corresponding guitar recording in test resources; only vocadito voice WAVs."
+    }
+  ],
+  "network_constraint": "Current allowed domains include GitHub/raw/codeload, not zenodo.org; no policy bypass attempted."
+}
