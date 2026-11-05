@@ -3,44 +3,44 @@
   "status": "passed",
   "execution_platform": "Windows",
   "execution_architecture": "AMD64",
-  "source_commit": "c5b05337641b13ae259836f5346e7c1850b7382c",
-  "artifact_sha256": "f9386e5ca9096f4f2bab6e4e53e4dd4065d1bbb0955b18892a715b02550b2766",
-  "artifact_bytes": 15721422,
-  "recorded_at_utc": "2026-11-03T23:43:21.298729+00:00",
+  "source_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "artifact_sha256": "3d33f6341193cddbd5f9cac49419e9797a6e047c889080a7d48a919154149f5d",
+  "artifact_bytes": 65700496,
+  "recorded_at_utc": "2026-11-05T04:12:47.177358+00:00",
   "installer_exit_code": 0,
   "installed_host_exit_code": 0,
-  "host_assertions": 952458,
-  "host_binary_sha256": "6b1934643155a9623efb86edaed75992f77b0904a31727a6a79b6c6a6cdd096c",
+  "host_assertions": 952498,
+  "host_binary_sha256": "bc630565f786da1964dae587984de4d87ece34b60dca65ead4b12ac99474987c",
   "ableton_verified": false,
   "bat_launcher_verified": true,
   "bat_launcher_exit_code": 0,
   "scope": "Actual packaged Windows installer and installed compiled VST3; no system install or DAW/driver validation",
   "installed_files_sha256": {
-    "Contents/Resources/moduleinfo.json": "b9521e42c53fea75c16981da5273b3bb2afb051adcc62bfa54bef94d114079b1",
-    "Contents/x86_64-win/Flysnapper.vst3": "bf573dba4a9a69ecb0b830c40904842e4350dd81fe46e15e3ed54371a679bdf2"
+    "Contents/Resources/moduleinfo.json": "1631c1225e22ef6afbb2ac1b7efa259987b4e73fa4e0a4bd8bd5dee6c9826a6b",
+    "Contents/x86_64-win/Flysnapper.vst3": "8f6963e803a32fa020d4496d6f76cfaac5b881f11a1dc9a093079fdaca575087"
   },
   "recovery_files_sha256": {
-    "Contents/Resources/moduleinfo.json": "b9521e42c53fea75c16981da5273b3bb2afb051adcc62bfa54bef94d114079b1",
-    "Contents/x86_64-win/Flysnapper.vst3": "bf573dba4a9a69ecb0b830c40904842e4350dd81fe46e15e3ed54371a679bdf2"
+    "Contents/Resources/moduleinfo.json": "1631c1225e22ef6afbb2ac1b7efa259987b4e73fa4e0a4bd8bd5dee6c9826a6b",
+    "Contents/x86_64-win/Flysnapper.vst3": "8f6963e803a32fa020d4496d6f76cfaac5b881f11a1dc9a093079fdaca575087"
   },
   "unrelated_plugin_preserved": true,
-  "extraction_path": "D:\\a\\_temp\\flysnapper-install-r1ts9gqb\\Olav Lægreid (test) & routing\\Utpakket\\Flysnapper-0.2.1-Windows-x64",
-  "installed_bundle_path": "D:\\a\\_temp\\flysnapper-install-r1ts9gqb\\Olav Lægreid (test) & routing\\Separate VST3\\Flysnapper.vst3",
-  "recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-r1ts9gqb\\Olav Lægreid (test) & routing\\Recovery outside scan\\20261103-234322-0334455-7b2cef3297884b9dbe15683a1c4502de\\Flysnapper.vst3",
+  "extraction_path": "D:\\a\\_temp\\flysnapper-install-cvrmp_xq\\Olav Lægreid (test) & routing\\Utpakket\\Flysnapper-0.3.0-Windows-x64",
+  "installed_bundle_path": "D:\\a\\_temp\\flysnapper-install-cvrmp_xq\\Olav Lægreid (test) & routing\\Separate VST3\\Flysnapper.vst3",
+  "recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-cvrmp_xq\\Olav Lægreid (test) & routing\\Recovery outside scan\\20261105-041248-0999011-238013df6e314b16be970107860ec887\\Flysnapper.vst3",
   "unicode_paths_verified": true,
-  "bat_launcher_command": "\"C:\\Windows\\System32\\cmd.exe\" /d /s /c \"\"D:\\a\\_temp\\flysnapper-install-r1ts9gqb\\Olav Lægreid (test) & routing\\Utpakket\\Flysnapper-0.2.1-Windows-x64\\INSTALL_FLYSNAPPER.bat\" -NoUI -Destination \"D:\\a\\_temp\\flysnapper-install-r1ts9gqb\\Olav Lægreid (test) & routing\\Separate VST3\" -BackupDirectory \"D:\\a\\_temp\\flysnapper-install-r1ts9gqb\\Olav Lægreid (test) & routing\\Recovery outside scan\"\"",
+  "bat_launcher_command": "\"C:\\Windows\\System32\\cmd.exe\" /d /s /c \"\"D:\\a\\_temp\\flysnapper-install-cvrmp_xq\\Olav Lægreid (test) & routing\\Utpakket\\Flysnapper-0.3.0-Windows-x64\\INSTALL_FLYSNAPPER.bat\" -NoUI -Destination \"D:\\a\\_temp\\flysnapper-install-cvrmp_xq\\Olav Lægreid (test) & routing\\Separate VST3\" -BackupDirectory \"D:\\a\\_temp\\flysnapper-install-cvrmp_xq\\Olav Lægreid (test) & routing\\Recovery outside scan\"\"",
   "bat_launcher_sha256": "48ffcfb31c0713e26bdb45780586c7b7f9776c9714ec61712f9102c44ff2895a",
-  "bat_launcher_marker": "Installed Flysnapper 0.2.1:",
+  "bat_launcher_marker": "Installed Flysnapper 0.3.0:",
   "launcher_recovery_files_sha256": {
-    "Contents/Resources/moduleinfo.json": "b9521e42c53fea75c16981da5273b3bb2afb051adcc62bfa54bef94d114079b1",
-    "Contents/x86_64-win/Flysnapper.vst3": "bf573dba4a9a69ecb0b830c40904842e4350dd81fe46e15e3ed54371a679bdf2"
+    "Contents/Resources/moduleinfo.json": "1631c1225e22ef6afbb2ac1b7efa259987b4e73fa4e0a4bd8bd5dee6c9826a6b",
+    "Contents/x86_64-win/Flysnapper.vst3": "8f6963e803a32fa020d4496d6f76cfaac5b881f11a1dc9a093079fdaca575087"
   },
-  "launcher_recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-r1ts9gqb\\Olav Lægreid (test) & routing\\Recovery outside scan\\20261103-234322-7679578-30c18beb1eae4ae2a7d95ecf32ee10b7\\Flysnapper.vst3",
+  "launcher_recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-cvrmp_xq\\Olav Lægreid (test) & routing\\Recovery outside scan\\20261105-041248-8823061-ab10341f8411437397e2901a856ed05b\\Flysnapper.vst3",
   "installed_host_command": [
     "D:\\a\\_temp\\Olav Lægreid\\Flysnapper\\build\\w-a40571ed5356\\FlysnapperVst3HostTests_artefacts\\Release\\FlysnapperVst3HostTests.exe",
-    "D:\\a\\_temp\\flysnapper-install-r1ts9gqb\\Olav Lægreid (test) & routing\\Separate VST3\\Flysnapper.vst3"
+    "D:\\a\\_temp\\flysnapper-install-cvrmp_xq\\Olav Lægreid (test) & routing\\Separate VST3\\Flysnapper.vst3"
   ],
   "powershell_log_sha256": "2ea8dd40e8c9b9b6bee2e215f993c0b18e9b34d97612656ee56d36ca72646f37",
-  "host_log_sha256": "d7e3fede043fe21a1eb8586eb0162ab77c042c6c5f41938e700e514cea8e59ad",
-  "launcher_log_sha256": "40c06b890a5bc643d5334cafb8fdeccc3ac9e84591bc36af2e3cc0c2caae4a98"
+  "host_log_sha256": "48751d6cc62339087f6d8049428603c6f9c74a6f6b6a109cacb4b5edd28f66eb",
+  "launcher_log_sha256": "c9a7c8dde49530f40049308182740130625a171125254e49ab69f15cabe6e86e"
 }

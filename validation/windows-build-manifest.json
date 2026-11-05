@@ -1,16 +1,26 @@
 {
-  "version": "0.2.1",
-  "stage": "integrated-audio-midi",
-  "builder_revision": "2026.11.03-guitar-bend-0.2.1",
+  "version": "0.3.0",
+  "stage": "calibrated-input-guitar-evaluation",
+  "evaluation_scope": {
+    "revision_date": "2026-11-05",
+    "purpose": "real-guitar-evaluation",
+    "monophonic_bending": "optional",
+    "polyphonic_bending": false,
+    "polyphonic_output": "discrete-semitone-notes",
+    "latency": "optimized-and-reported-per-pitch",
+    "real_guitar_test_pending": true,
+    "physical_interface_latency_verified": false
+  },
+  "builder_revision": "2026.11.05-calibrated-input-guitar-evaluation",
   "platform": "Windows-x64",
   "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
-  "built_at": "2026-11-03T23:41:04.944145+00:00",
+  "built_at": "2026-11-05T04:10:10.122694+00:00",
   "python": "3.12.10",
-  "source_commit": "c5b05337641b13ae259836f5346e7c1850b7382c",
-  "vst3_sha256": "bf573dba4a9a69ecb0b830c40904842e4350dd81fe46e15e3ed54371a679bdf2",
+  "source_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "vst3_sha256": "8f6963e803a32fa020d4496d6f76cfaac5b881f11a1dc9a093079fdaca575087",
   "bundle_sha256": {
-    "Contents/Resources/moduleinfo.json": "b9521e42c53fea75c16981da5273b3bb2afb051adcc62bfa54bef94d114079b1",
-    "Contents/x86_64-win/Flysnapper.vst3": "bf573dba4a9a69ecb0b830c40904842e4350dd81fe46e15e3ed54371a679bdf2"
+    "Contents/Resources/moduleinfo.json": "1631c1225e22ef6afbb2ac1b7efa259987b4e73fa4e0a4bd8bd5dee6c9826a6b",
+    "Contents/x86_64-win/Flysnapper.vst3": "8f6963e803a32fa020d4496d6f76cfaac5b881f11a1dc9a093079fdaca575087"
   },
   "tests": "passed",
   "required_test_names": [
@@ -18,7 +28,13 @@
     "FlysnapperAudioQuality",
     "FlysnapperBendProcessor",
     "FlysnapperCore",
+    "FlysnapperDynamicsProcessor",
     "FlysnapperGuitarQuality",
+    "FlysnapperInputDynamics",
+    "FlysnapperMpeActualVst3",
+    "FlysnapperMpeOutput",
+    "FlysnapperMpeProcessor",
+    "FlysnapperNoise",
     "FlysnapperPitch",
     "FlysnapperPluginSmoke",
     "FlysnapperProcessorAudio",
@@ -26,10 +42,14 @@
   ],
   "ableton_verified": false,
   "pitch_detection_implemented": true,
-  "visual_studio_build_version": "17.14.37824.6",
+  "visual_studio_build_version": "17.14.37827.9",
   "windows_sdk_version": "10.0.26100.0",
   "toolchain_probe": "passed",
   "juceaide_unicode_probe": "passed",
   "juce_unicode_patch": "windows-wide-argv-v1",
-  "windows_verified": true
+  "windows_verified": true,
+  "input_dynamics_evidence": {
+    "path": "input-dynamics/report-manifest.json",
+    "sha256": "f333b0e62fc97418c9e677d2002eb409cc612805b4163425f4aa76c9602c4d4d"
+  }
 }

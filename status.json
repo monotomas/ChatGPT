@@ -1,10 +1,30 @@
 {
   "schema": 1,
   "source_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
-  "status": "running",
+  "status": "completed",
   "run_id": "41964557018",
   "run_attempt": "1",
   "repository": "monotomas/ChatGPT",
-  "updated_at": "2026-11-05T03:55:26.552839+00:00",
-  "artifact": null
+  "updated_at": "2026-11-05T04:12:51.945611+00:00",
+  "artifact": {
+    "path": "downloads/Flysnapper-Windows-x64.zip",
+    "sha256": "3d33f6341193cddbd5f9cac49419e9797a6e047c889080a7d48a919154149f5d",
+    "bytes": 65700496
+  },
+  "log": "logs/windows-e235c8a098dadce6e0a4b8bd6ca9de789a5d174d.txt",
+  "stage": "calibrated-input-guitar-evaluation",
+  "evaluation_scope": {
+    "revision_date": "2026-11-05",
+    "purpose": "real-guitar-evaluation",
+    "monophonic_bending": "optional",
+    "polyphonic_bending": false,
+    "polyphonic_output": "discrete-semitone-notes",
+    "latency": "optimized-and-reported-per-pitch",
+    "real_guitar_test_pending": true,
+    "physical_interface_latency_verified": false
+  },
+  "installation_validation": {
+    "path": "validation/windows-installation.json",
+    "sha256": "f1d09f2c1c4108ad3c53239186b521c2fcc71cc43c2dc03eab952ed9a6cfe7e2"
+  }
 }
