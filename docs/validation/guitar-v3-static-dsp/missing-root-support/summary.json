@@ -1,0 +1,267 @@
+{
+  "public": {
+    "baseline": {
+      "mono": {
+        "expected": 50,
+        "matched": 50,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 67,
+        "matched": 64,
+        "missed": 3,
+        "false_note_ons": 2,
+        "octave_errors": 1,
+        "wrong_before_correct": 7,
+        "early_offs": 1,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "candidate": {
+      "mono": {
+        "expected": 50,
+        "matched": 50,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 67,
+        "matched": 64,
+        "missed": 3,
+        "false_note_ons": 2,
+        "octave_errors": 1,
+        "wrong_before_correct": 7,
+        "early_offs": 1,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "raw_events_identical": true,
+    "raw_baseline_sha256": "8a68ae3a40a063668641d7e733996c50d1567cd2fbb24c12c3ddf0c0ae677922",
+    "raw_candidate_sha256": "8a68ae3a40a063668641d7e733996c50d1567cd2fbb24c12c3ddf0c0ae677922"
+  },
+  "holdout": {
+    "baseline": {
+      "mono": {
+        "expected": 30,
+        "matched": 30,
+        "missed": 0,
+        "false_note_ons": 2,
+        "octave_errors": 0,
+        "wrong_before_correct": 1,
+        "early_offs": 1,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 69,
+        "matched": 58,
+        "missed": 11,
+        "false_note_ons": 10,
+        "octave_errors": 3,
+        "wrong_before_correct": 4,
+        "early_offs": 2,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "candidate": {
+      "mono": {
+        "expected": 30,
+        "matched": 30,
+        "missed": 0,
+        "false_note_ons": 2,
+        "octave_errors": 0,
+        "wrong_before_correct": 1,
+        "early_offs": 1,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 69,
+        "matched": 58,
+        "missed": 11,
+        "false_note_ons": 10,
+        "octave_errors": 3,
+        "wrong_before_correct": 4,
+        "early_offs": 2,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "raw_events_identical": true,
+    "raw_baseline_sha256": "b0207fe2ab61de62ab93e2cfd36466205a706fbc53fa7fae049b097866aa51f3",
+    "raw_candidate_sha256": "b0207fe2ab61de62ab93e2cfd36466205a706fbc53fa7fae049b097866aa51f3"
+  },
+  "confirmation": {
+    "baseline": {
+      "mono": {
+        "expected": 27,
+        "matched": 27,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 44,
+        "matched": 41,
+        "missed": 3,
+        "false_note_ons": 10,
+        "octave_errors": 7,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "candidate": {
+      "mono": {
+        "expected": 27,
+        "matched": 27,
+        "missed": 0,
+        "false_note_ons": 0,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 44,
+        "matched": 41,
+        "missed": 3,
+        "false_note_ons": 10,
+        "octave_errors": 7,
+        "wrong_before_correct": 0,
+        "early_offs": 0,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "raw_events_identical": true,
+    "raw_baseline_sha256": "52ace1cdd383aaedac065f607c495f8a5a7f3a8a54f3480cf9da3b62787da1dc",
+    "raw_candidate_sha256": "52ace1cdd383aaedac065f607c495f8a5a7f3a8a54f3480cf9da3b62787da1dc"
+  },
+  "controls": {
+    "baseline": {
+      "mono": {
+        "expected": 77,
+        "matched": 55,
+        "missed": 22,
+        "false_note_ons": 62,
+        "octave_errors": 29,
+        "wrong_before_correct": 3,
+        "early_offs": 9,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 90,
+        "matched": 67,
+        "missed": 23,
+        "false_note_ons": 130,
+        "octave_errors": 18,
+        "wrong_before_correct": 28,
+        "early_offs": 15,
+        "hung": 19,
+        "overflow": 0
+      }
+    },
+    "candidate": {
+      "mono": {
+        "expected": 77,
+        "matched": 55,
+        "missed": 22,
+        "false_note_ons": 62,
+        "octave_errors": 29,
+        "wrong_before_correct": 3,
+        "early_offs": 9,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 90,
+        "matched": 67,
+        "missed": 23,
+        "false_note_ons": 130,
+        "octave_errors": 18,
+        "wrong_before_correct": 28,
+        "early_offs": 15,
+        "hung": 19,
+        "overflow": 0
+      }
+    },
+    "raw_events_identical": true,
+    "raw_baseline_sha256": "bd1b78f0cbabad5a724faba171c0bdc13bb22f4e9466a8561316d63b7b8cf084",
+    "raw_candidate_sha256": "bd1b78f0cbabad5a724faba171c0bdc13bb22f4e9466a8561316d63b7b8cf084"
+  },
+  "recorded_noise": {
+    "baseline": {
+      "mono": {
+        "expected": 48,
+        "matched": 48,
+        "missed": 0,
+        "false_note_ons": 76,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 32,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 48,
+        "matched": 48,
+        "missed": 0,
+        "false_note_ons": 224,
+        "octave_errors": 32,
+        "wrong_before_correct": 0,
+        "early_offs": 18,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "candidate": {
+      "mono": {
+        "expected": 48,
+        "matched": 48,
+        "missed": 0,
+        "false_note_ons": 76,
+        "octave_errors": 0,
+        "wrong_before_correct": 0,
+        "early_offs": 32,
+        "hung": 0,
+        "overflow": 0
+      },
+      "poly": {
+        "expected": 48,
+        "matched": 48,
+        "missed": 0,
+        "false_note_ons": 224,
+        "octave_errors": 32,
+        "wrong_before_correct": 0,
+        "early_offs": 18,
+        "hung": 0,
+        "overflow": 0
+      }
+    },
+    "raw_events_identical": true,
+    "raw_baseline_sha256": "9ff2d1080854197fa3d308b6c29ef468e88fa45e64c2dbde7d4cc6a2389d2279",
+    "raw_candidate_sha256": "9ff2d1080854197fa3d308b6c29ef468e88fa45e64c2dbde7d4cc6a2389d2279"
+  }
+}

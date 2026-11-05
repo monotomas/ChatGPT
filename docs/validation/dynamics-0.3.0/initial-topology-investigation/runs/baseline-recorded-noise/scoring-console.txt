@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+  "policy_sha256": "8c11e70535e1cbee4a856069f1f687910cb0d339fb9746abb13c94fcdd5eb964",
+  "runs": 128,
+  "passed_runs": 45,
+  "failed_runs": 83,
+  "out_of_scope_runs": 0,
+  "out_of_scope": [],
+  "absolute_latency_gate": false,
+  "latency_alignment_or_backdating": false,
+  "physical_latency_verified": false,
+  "counts": {
+    "expected": 96,
+    "matched": 96,
+    "missed": 0,
+    "extra_note_ons": 274,
+    "noise_note_ons": 72,
+    "octave_errors": 32,
+    "wrong_before_correct": 0,
+    "early_offs": 46,
+    "late_offs": 4,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "deadline_misses": 101
+  },
+  "latency_by_pitch": [
+    {
+      "mode": "mono",
+      "anchor": 40,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 42.645833333333336,
+        "p95": 45.979166666666664,
+        "maximum": 45.979166666666664
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 57,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 16.645833333333332,
+        "p95": 16.645833333333332,
+        "maximum": 16.645833333333332
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 40,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 68.64583333333333,
+        "p95": 69.97916666666667,
+        "maximum": 69.97916666666667
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 57,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 53.979166666666664,
+        "p95": 55.979166666666664,
+        "maximum": 55.979166666666664
+      }
+    }
+  ],
+  "fixture_seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d",
+  "capture_sha256": {
+    "capture.csv": "7f0e2b7d97162d8b665060bd83a8eadc0bea249880d3a69178f13bd095bdb9b4",
+    "events.csv": "aa48f5a5ec8e8e01686468709a99b0da991ed8a2cd73534dd74d71fe9c332347"
+  }
+}

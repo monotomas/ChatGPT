@@ -1,0 +1,497 @@
+{
+  "public": [
+    {
+      "case": "soft_attack_52_poly",
+      "changes": {
+        "release_median_ms": [
+          "66.645833",
+          "71.979167"
+        ],
+        "release_p95_ms": [
+          "66.645833",
+          "71.979167"
+        ]
+      }
+    },
+    {
+      "case": "recorded_D3_poly",
+      "changes": {
+        "release_median_ms": [
+          "63.312500",
+          "65.979167"
+        ],
+        "release_p95_ms": [
+          "63.312500",
+          "65.979167"
+        ]
+      }
+    }
+  ],
+  "holdout": [
+    {
+      "case": "hidden_modal_01_poly",
+      "changes": {
+        "release_median_ms": [
+          "56.645833",
+          "59.312500"
+        ],
+        "release_p95_ms": [
+          "56.645833",
+          "59.312500"
+        ]
+      }
+    },
+    {
+      "case": "hidden_modal_11_poly",
+      "changes": {
+        "release_median_ms": [
+          "72.645833",
+          "75.312500"
+        ],
+        "release_p95_ms": [
+          "72.645833",
+          "75.312500"
+        ]
+      }
+    },
+    {
+      "case": "hidden_modal_13_poly",
+      "changes": {
+        "release_median_ms": [
+          "72.645833",
+          "75.312500"
+        ],
+        "release_p95_ms": [
+          "72.645833",
+          "75.312500"
+        ]
+      }
+    }
+  ],
+  "confirmation": [
+    {
+      "case": "confirm_sustain_02_poly",
+      "changes": {
+        "release_median_ms": [
+          "59.979167",
+          "65.312500"
+        ],
+        "release_p95_ms": [
+          "59.979167",
+          "65.312500"
+        ]
+      }
+    },
+    {
+      "case": "confirm_sustain_05_poly",
+      "changes": {
+        "release_median_ms": [
+          "73.312500",
+          "75.979167"
+        ],
+        "release_p95_ms": [
+          "73.312500",
+          "75.979167"
+        ]
+      }
+    },
+    {
+      "case": "confirm_articulation_03_poly",
+      "changes": {
+        "release_p95_ms": [
+          "71.312500",
+          "73.979167"
+        ]
+      }
+    },
+    {
+      "case": "confirm_voicing_01_poly",
+      "changes": {
+        "false_note_ons": [
+          "0",
+          "1"
+        ],
+        "early_offs": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "case": "confirm_recorded_04_poly",
+      "changes": {
+        "release_median_ms": [
+          "65.312500",
+          "67.979167"
+        ],
+        "release_p95_ms": [
+          "65.312500",
+          "67.979167"
+        ]
+      }
+    }
+  ],
+  "controls": [
+    {
+      "case": "handling_squeak_hum_poly",
+      "changes": {
+        "false_note_ons": [
+          "8",
+          "9"
+        ]
+      }
+    },
+    {
+      "case": "quiet_hum_64_gain1_poly",
+      "changes": {
+        "false_note_ons": [
+          "4",
+          "3"
+        ],
+        "early_offs": [
+          "0",
+          "1"
+        ],
+        "release_median_ms": [
+          "73.979167",
+          ""
+        ],
+        "release_p95_ms": [
+          "73.979167",
+          ""
+        ]
+      }
+    },
+    {
+      "case": "quiet_hum_64_gain8_poly",
+      "changes": {
+        "false_note_ons": [
+          "4",
+          "3"
+        ],
+        "early_offs": [
+          "0",
+          "1"
+        ],
+        "release_median_ms": [
+          "73.979167",
+          ""
+        ],
+        "release_p95_ms": [
+          "73.979167",
+          ""
+        ]
+      }
+    },
+    {
+      "case": "music_handling_snr6_gain1_poly",
+      "changes": {
+        "false_note_ons": [
+          "4",
+          "3"
+        ],
+        "octave_errors": [
+          "1",
+          "0"
+        ],
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "53.979167"
+        ],
+        "release_p95_ms": [
+          "",
+          "53.979167"
+        ]
+      }
+    },
+    {
+      "case": "music_handling_snr6_gain4_poly",
+      "changes": {
+        "false_note_ons": [
+          "4",
+          "3"
+        ],
+        "octave_errors": [
+          "1",
+          "0"
+        ],
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "53.979167"
+        ],
+        "release_p95_ms": [
+          "",
+          "53.979167"
+        ]
+      }
+    },
+    {
+      "case": "music_handling_snr12_gain1_poly",
+      "changes": {
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "64.645833"
+        ],
+        "release_p95_ms": [
+          "",
+          "64.645833"
+        ]
+      }
+    },
+    {
+      "case": "music_handling_snr12_gain4_poly",
+      "changes": {
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "64.645833"
+        ],
+        "release_p95_ms": [
+          "",
+          "64.645833"
+        ]
+      }
+    },
+    {
+      "case": "poly_independent_bends_2voices_0_poly",
+      "changes": {
+        "false_note_ons": [
+          "4",
+          "3"
+        ]
+      }
+    },
+    {
+      "case": "poly_independent_bends_4voices_3_poly",
+      "changes": {
+        "false_note_ons": [
+          "2",
+          "1"
+        ],
+        "release_median_ms": [
+          "71.979167",
+          "256.645833"
+        ],
+        "release_p95_ms": [
+          "71.979167",
+          "256.645833"
+        ]
+      }
+    }
+  ],
+  "recorded_noise": [
+    {
+      "case": "Samples-acoustic-perc_4_rr1_1_noise_peak150_poly",
+      "changes": {
+        "false_note_ons": [
+          "8",
+          "6"
+        ]
+      }
+    },
+    {
+      "case": "Samples-electric-perc_1_rr1_2_noise_peak150_poly",
+      "changes": {
+        "false_note_ons": [
+          "7",
+          "6"
+        ]
+      }
+    },
+    {
+      "case": "Samples-electric-perc_4_rr1_2_noise_peak25_poly",
+      "changes": {
+        "false_note_ons": [
+          "6",
+          "4"
+        ]
+      }
+    },
+    {
+      "case": "Samples-electric-perc_4_rr1_2_noise_peak150_poly",
+      "changes": {
+        "false_note_ons": [
+          "7",
+          "5"
+        ]
+      }
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_poly",
+      "changes": {
+        "false_note_ons": [
+          "6",
+          "4"
+        ]
+      }
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_poly",
+      "changes": {
+        "false_note_ons": [
+          "6",
+          "4"
+        ]
+      }
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_poly",
+      "changes": {
+        "false_note_ons": [
+          "6",
+          "4"
+        ],
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "47.312500"
+        ],
+        "release_p95_ms": [
+          "",
+          "47.312500"
+        ]
+      }
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_poly",
+      "changes": {
+        "false_note_ons": [
+          "6",
+          "4"
+        ],
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "47.312500"
+        ],
+        "release_p95_ms": [
+          "",
+          "47.312500"
+        ]
+      }
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_poly",
+      "changes": {
+        "false_note_ons": [
+          "9",
+          "7"
+        ]
+      }
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_poly",
+      "changes": {
+        "false_note_ons": [
+          "9",
+          "7"
+        ]
+      }
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_poly",
+      "changes": {
+        "false_note_ons": [
+          "5",
+          "3"
+        ],
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "47.312500"
+        ],
+        "release_p95_ms": [
+          "",
+          "47.312500"
+        ]
+      }
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_poly",
+      "changes": {
+        "false_note_ons": [
+          "5",
+          "3"
+        ],
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "73.979167"
+        ],
+        "release_p95_ms": [
+          "",
+          "73.979167"
+        ]
+      }
+    },
+    {
+      "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_poly",
+      "changes": {
+        "false_note_ons": [
+          "3",
+          "2"
+        ],
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "57.979167"
+        ],
+        "release_p95_ms": [
+          "",
+          "57.979167"
+        ]
+      }
+    },
+    {
+      "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_poly",
+      "changes": {
+        "false_note_ons": [
+          "3",
+          "2"
+        ],
+        "early_offs": [
+          "1",
+          "0"
+        ],
+        "release_median_ms": [
+          "",
+          "57.979167"
+        ],
+        "release_p95_ms": [
+          "",
+          "57.979167"
+        ]
+      }
+    }
+  ]
+}

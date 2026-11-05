@@ -185,9 +185,76 @@ void repickPhaseEvidence(const std::filesystem::path& fixtures){
     for(size_t i=0;i<starts.size();++i){const int onset=2400+int(i)*9600;check(starts[i]>=onset&&starts[i]<=onset+5760,"Repick exceeded120ms functional observation bound");}
     std::cout<<"PASS stiff held string, upper-withdrawal stability and three genuine continuous repicks\n";
 }
+void dynamicsAdmissionLifecycle(){
+    auto detector=std::make_unique<PitchDetector>();detector->prepare(48000);
+    Settings settings;settings.autoInput=false;settings.thresholdDb=-70;settings.allowNewNotes=false;detector->configure(settings);
+    auto first=tone(48000,57,48000);auto next=tone(48000,64,28800);std::vector<float> silence(12000,0);
+    auto seen=run(*detector,std::vector<float>(first.begin(),first.begin()+12000),64);
+    check(std::none_of(seen.begin(),seen.end(),[](auto e){return e.on;}),"Closed dynamics admission allowed a new note");
+    settings.allowNewNotes=true;detector->configure(settings);
+    seen=run(*detector,std::vector<float>(first.begin()+12000,first.begin()+24000),64);
+    check(std::count_if(seen.begin(),seen.end(),[](auto e){return e.on&&e.note==57;})==1,"Opening dynamics admission did not acquire the audible note");
+    settings.allowNewNotes=false;detector->configure(settings);
+    seen=run(*detector,std::vector<float>(first.begin()+24000,first.end()),64);
+    check(seen.empty(),"Closing admission reset or rearticulated a held note");
+    check(detector->status().activeNotes==1,"Closed admission suppressed an already held note");
+    seen=run(*detector,silence,64);
+    check(std::count_if(seen.begin(),seen.end(),[](auto e){return !e.on&&e.note==57;})==1&&detector->status().activeNotes==0,"Closed admission prevented release after actual source withdrawal");
+    seen=run(*detector,std::vector<float>(next.begin(),next.begin()+14400),64);
+    check(std::none_of(seen.begin(),seen.end(),[](auto e){return e.on;}),"Admission stayed closed but a later source was acquired");
+    settings.allowNewNotes=true;detector->configure(settings);
+    seen=run(*detector,std::vector<float>(next.begin()+14400,next.end()),64);
+    check(std::count_if(seen.begin(),seen.end(),[](auto e){return e.on&&e.note==64;})==1,"Reopening admission did not acquire a fresh source");
+    run(*detector,silence,64);check(detector->status().activeNotes==0,"Reopened source hung after silence");
+    std::cout<<"PASS separate new-note admission, held-note continuation and actual withdrawal release\n";
+}
+void staticPolyVoiceIdentity(){
+    auto detector=std::make_unique<PitchDetector>();detector->prepare(48000);
+    Settings settings;settings.polyphonic=true;settings.polyBend=false;detector->configure(settings);
+    auto audio=tone(48000,57,36000);const auto upper=tone(48000,64,36000);
+    for(size_t i=0;i<audio.size();++i)audio[i]=.6f*(audio[i]+upper[i]);
+    std::array<int,6> active;active.fill(-1);std::array<int,128> ids;ids.fill(-1);Output out;int ons=0;
+    const auto observe=[&](const Output& events){for(size_t i=0;i<events.size;++i){const auto& e=events.events[i];
+        check(!e.pitchChange,"Fixed-semitone poly mode emitted continuous pitch");
+        check(e.voiceId>=0&&e.voiceId<6,"Static poly event lacks a bounded independent voice ID");
+        if(e.on){check(active[size_t(e.voiceId)]<0,"Static poly reused an ID while another note was held");active[size_t(e.voiceId)]=e.note;ids[size_t(e.note)]=e.voiceId;++ons;}
+        else {check(active[size_t(e.voiceId)]==e.note,"Static poly Note Off changed the source identity");active[size_t(e.voiceId)]=-1;}
+    }};
+    for(int at=0;at<int(audio.size());at+=64){out.clear();detector->process(audio.data()+at,std::min(64,int(audio.size())-at),out);observe(out);}
+    check(ons>=2&&ids[57]>=0&&ids[64]>=0&&ids[57]!=ids[64],"Static two-source control did not acquire independent voices");
+    check(active[size_t(ids[57])]==57&&active[size_t(ids[64])]==64,"Static voices released while both sources were still ringing");
+    // configure() has already selected mono when the pending reset runs.
+    // Old static-poly Off events still need their original identities.
+    settings.polyphonic=false;detector->configure(settings);std::array<float,64> zero{};out.clear();detector->process(zero.data(),64,out);observe(out);
+    check(std::all_of(active.begin(),active.end(),[](int note){return note<0;}),"Mode reset left a static-poly source held");
+    std::cout<<"PASS fixed-semitone poly IDs, simultaneous voices and mode-change release identity\n";
+}
+void staticStepMissingRootGuard(){
+    std::ofstream raw("Flysnapper-static-poly-step-events.csv");check(bool(raw),"Cannot retain static-poly step regression events");
+    raw<<"partials,sample,type,note,voice_id\n";
+    for(int partials:{3,4,5,6,8,12}){
+        auto detector=std::make_unique<PitchDetector>();detector->prepare(48000);Settings settings;settings.polyphonic=true;settings.polyBend=false;detector->configure(settings);
+        std::vector<float> audio(55200,0.f);double moving=0,held=0;
+        for(int n=0;n<43200;++n){const double t=n/48000.;const int note=t<.4?59:61;moving+=2*3.14159265358979323846*440*std::pow(2.,(note-69.)/12.)/48000;held+=2*3.14159265358979323846*440*std::pow(2.,(64.-69.)/12.)/48000;
+            double a=0,b=0;for(int h=1;h<=partials;++h){a+=std::sin(h*moving+.17*h)/std::pow(double(h),1.25);b+=std::sin(h*held+.11*h)/std::pow(double(h),1.25);}audio[size_t(n)]=float(std::min(1.,t/.002)*std::exp(-.18*t)*(.15*a+.11*b));}
+        Output out;int on59=-1,on61=-1,on64=-1,off59=-1,off61=-1,off64=-1,otherOns=0;
+        for(int at=0;at<int(audio.size());at+=64){out.clear();detector->process(audio.data()+at,std::min(64,int(audio.size())-at),out);for(size_t i=0;i<out.size;++i){const auto& e=out.events[i];check(!e.pitchChange,"Static step emitted continuous pitch");const int sample=at+e.offset;raw<<partials<<','<<sample<<','<<(e.on?'N':'F')<<','<<e.note<<','<<e.voiceId<<'\n';
+                check(!e.on||e.note!=33,"Unsupported5th/7th-partial subharmonic33 stole genuine static sources");
+                if(e.note==59){if(e.on)on59=sample;else off59=sample;}
+                else if(e.note==61){if(e.on)on61=sample;else{check(sample>=42720,"Stepped note61 was cut before physical damping");off61=sample;}}
+                else if(e.note==64){if(e.on)on64=sample;else{check(sample>=42720,"Held note64 was cut by an unsupported subharmonic");off64=sample;}}
+                else if(e.on)++otherOns;
+        }}
+        check(on59>=0&&on59<19200&&on64>=0&&on64<19200,"Static step did not acquire both initial source notes");
+        check(on61>=19200&&on61<43200,"Static semitone step did not acquire the replacement note");
+        check(off59>=19200&&off59<=24000,"Former static note did not release within100ms of the source step");
+        check(off61>=42720&&off61<=48000&&off64>=42720&&off64<=48000&&detector->status().activeNotes==0,"Static step failed balanced damping release");
+        std::cout<<"MEASURE static59->61+held64 partials="<<partials<<" decision61="<<on61<<" latencyMs="<<(on61-19200)/48.<<" off61="<<off61<<" off64="<<off64<<" otherOnDiagnostics="<<otherOns<<" (unrelated overtone extras remain reported, not a zero-error claim)\n";
+    }
+}
 int runTests(const std::vector<std::filesystem::path>& args){try{
     if(args.size()!=2)throw std::runtime_error("FlysnapperPitchTests <AudioFixtures directory>");
-    silenceAndInvalid();monoAndBlocks();polyphony();causalPrediction();transitions();declaredRangeAndRealtime();acquiredOctaveContinuity(args[1]);repickPhaseEvidence(args[1]);
+    silenceAndInvalid();monoAndBlocks();polyphony();causalPrediction();transitions();declaredRangeAndRealtime();acquiredOctaveContinuity(args[1]);repickPhaseEvidence(args[1]);dynamicsAdmissionLifecycle();staticPolyVoiceIdentity();staticStepMissingRootGuard();
     std::cout<<"FlysnapperPitch: PASS ("<<checks<<" checks; functional audio controls, not physical latency acceptance)\n";return 0;
 }catch(const std::exception& e){std::cerr<<"FlysnapperPitch: FAIL: "<<e.what()<<'\n';return 1;}}
 #ifdef _WIN32

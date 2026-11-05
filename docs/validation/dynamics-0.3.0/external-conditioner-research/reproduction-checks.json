@@ -1,0 +1,62 @@
+{
+  "positive": {
+    "file_count": 7,
+    "all_byte_identical": true,
+    "sha256": {
+      "truth.json": "a97fb7c97e6e118a388381943be2bad6ca9a49fd80fd0cd7f963160b8d470d3e",
+      "fixtures.tsv": "6454d1e07ca09d4eae5ce0d65f602be2c73c7ca9fa3ec0548f1b00bc713ec71d",
+      "pcm/quiet_E2_afterhum.wav": "340e283709db4c67e5989bf642865f52a4b09f51fa45c56661d552d89bdbfca1",
+      "pcm/E5_near660_afterhum.wav": "4ebef67e09f03998cc904222c473e1ca70e8df3f33b37e7143a5e7bef54011b6",
+      "pcm/F4_near350_afterhum.wav": "66f7f56ecc61f4652268cba29b6577907732a29639b34d51531afa653848bf5c",
+      "pcm/G1_bend50_afterhum.wav": "660ebe5b4fdaa826cee8bee48ffb10762df752d220867272c057f1dd6351585d",
+      "pcm/G1_bend50.wav": "8af625c8a306ba5978c725474ef2e9a84f286ba7cebb33783d9d787521299e1a"
+    }
+  },
+  "trained": {
+    "file_count": 14,
+    "all_byte_identical": true,
+    "sha256": {
+      "truth.json": "c69f3536cd8056e28de14d22a88701f4c3597c8b30b3f70ed5fe167317f2b5c9",
+      "fixtures.tsv": "b91d68eadf9e3628c6b722820ddbe634605b47b0e1a0ecd97e406fd511d828a8",
+      "pcm/handling_gain8.wav": "d1c261b43a0eaf87198a6c9853833e85df9a4cd726df01e34bf28157f026cc4e",
+      "pcm/handling_gain1.wav": "424113a72d6b6ef6907321dcf92ed150aa626fd809f4527656d2b1145b0ede05",
+      "pcm/nearE5_gain8.wav": "ff4398865fd40481cb3a2c2552ee689c5dab2a457485f990ac2b9767bac444ca",
+      "pcm/nearE5_gain1.wav": "e53f5df0c22446ec4f83acb98e24f6bcebea97f48b07f1bd0cebb4ec8f352793",
+      "pcm/nearF4_gain8.wav": "caf9a446c7c1d376e6ebe80d142928586b1d0a9fad4c1fd68eeefc1c44b54591",
+      "pcm/nearF4_gain1.wav": "24ee14a1cf4a994ac37a0e78265458a8e04f8c92e670523e80c524129f4b949f",
+      "pcm/quiet52_gain8.wav": "93cf8accec3d671255f3b0f25010cd778d6cd0b50f20252918c7f1322f5d9902",
+      "pcm/quiet52_gain1.wav": "695d1c895b75788c3de96f38edde359e9a6d314aacfa2bdc8d4d69da760dfbf1",
+      "pcm/quiet40_gain8.wav": "fea201bbece2f4382d9f0b6a31a5faae83477007c3a410f538dc5b48c8097f6e",
+      "pcm/quiet40_gain1.wav": "21e0388161e57b1aacc48fb5179e1f9a488950a3a0742c7235582dcda0dae69e",
+      "pcm/quiet31_gain8.wav": "ffc51774d6f3ebde13d1fb0e68eeeac83f58766871201cf6fb35f6222ff967a9",
+      "pcm/quiet31_gain1.wav": "eefa723f3e631ff9fa688d575022a715ff84557590ba751f80a6ce1e109ed1b4"
+    }
+  },
+  "default-gate": {
+    "scorer_exit_code": 1,
+    "byte_identical_original_reports": true
+  },
+  "double-conditioner": {
+    "scorer_exit_code": 1,
+    "byte_identical_original_reports": true
+  },
+  "discard-inner": {
+    "scorer_exit_code": 1,
+    "byte_identical_original_reports": true
+  },
+  "skip-inner": {
+    "scorer_exit_code": 1,
+    "byte_identical_original_reports": true
+  },
+  "gate-pulse": {
+    "scorer_exit_code": 1,
+    "byte_identical_original_reports": true
+  },
+  "trained_full_source_rebuild": {
+    "compile_exit_code": 0,
+    "capture_exit_code": 0,
+    "raw_events_byte_identical": true,
+    "events_sha256": "2be9074b1a3ff98b2047f66924c550d080b8cbfc0644d10a1f917e016e9cc169",
+    "timing_metrics_expected_to_differ": true
+  }
+}

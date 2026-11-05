@@ -1,0 +1,61 @@
+{
+  "recorded_at_utc": "2026-11-05T01:40:12.432597+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_snapshot": "/tmp/flysnapper-nov5-candidate-dynamics-v1",
+  "source_commit": null,
+  "base_git_head": "9a83fff3c737cabeb9e6b1e92ef00ad18fff1fa7",
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/PitchDetector.cpp": "66cd0226c4ed47651638efd3a776ab34954e100af0a3a61b31dbab0e620e90a9",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/InputDynamics.h": "8fe39927d92772e35278719c98c69659e2dab7c8b423ba4348ab704a6a1f77b5",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.h": "0907ca7a0603fb4c4af7c63003ef2fe1a7235bfb1d34efb72369c259f851c318",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "driver/guitar_evaluation_capture.cpp": "bc805d800afb85eef1ad88f317152bf735149029ae675083787b069292ed9c8f"
+  },
+  "compiled_sources": [
+    "Source/Pitch/ArticulationTracker.cpp",
+    "Source/Pitch/EarlyEstimator.cpp",
+    "Source/Pitch/InputDynamics.cpp",
+    "Source/Pitch/NoiseConditioner.cpp",
+    "Source/Pitch/PitchDetector.cpp",
+    "Source/Pitch/PolyphonicTracker.cpp",
+    "Source/Pitch/TimeDomainPursuit.cpp",
+    "Source/Pitch/YinEstimator.cpp"
+  ],
+  "fixture_seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d",
+  "configuration": "48000/64",
+  "scope": "Nov5 static-poly/mono-bend capture with default dynamics before MIDI routing; descriptive latency, not physical latency proof",
+  "compiler_exit_code": 0,
+  "scoring_sha256": {
+    "Tools/guitar_evaluation_score.py": "cb140fc5866131b41e04dddfe370abe6f9dc537f09127ebeaff7635221fb9417",
+    "Tests/AudioFixtures/readiness/score.py": "2b6364479e3a5256b566e0352898194ca02a3615565c968689e435a1fe27c12d",
+    "Tests/AudioFixtures/evaluation_2026_11_05/policy.json": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a"
+  },
+  "frontend": "default",
+  "executable_sha256": "992bc1070350cd5a3b64eb48e084d8d18688a35d3103e4af31c7e5efff3ce1a1",
+  "capture_exit_code": 0,
+  "source_changed_during_measurement": false,
+  "score_exit_code": 1,
+  "scoring_changed_during_measurement": false,
+  "files_sha256": {
+    "scoring-console.txt": "909b3bdf7f7856f5b83510a6f3e36d8d0d7e3102d1b93333ec0e08a31532250c",
+    "capture.csv": "eef5c2ce072768e27354d8207ef3e4df926aaa4c41f4dd570f1af1a1ca4c6d8f",
+    "events.csv": "8e6bfad060e1f7f5139067563640733211b10ba29bc0c78e380358787226cf5e",
+    "capture-console.txt": "02792b49d100d89c7417b5a609822788e773f00b0db8f9b095e0ae4ddf6c5c32",
+    "compile.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scoring/summary.json": "909b3bdf7f7856f5b83510a6f3e36d8d0d7e3102d1b93333ec0e08a31532250c",
+    "scoring/cases.json": "fa72d3d860ac6efcbc61bc38351697f203e60dbb66f9c102913b96e5f09a4b3e"
+  }
+}

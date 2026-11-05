@@ -98,22 +98,96 @@ void compiledMonoAudio(juce::AudioPluginFormatManager& formats,const juce::Plugi
     check(s.receiver.getNumPlayingNotes()==0,"Compiled MPE mono/source test left receiver held");
     std::cout<<"MEASURE actual VST3 MPE mono first decision "<<1000*genOn[0].sample/rate<<"ms; settled P95 "<<100*p95<<" cents; not driver latency\n";
 }
-void compiledPolyAudio(juce::AudioPluginFormatManager& formats,const juce::PluginDescription& description){
-    Session s(formats,description,true);set(*s.plugin,"Pitch Mode",1);std::vector<float> wave(43200);double moving=0,fixed=0;
-    for(size_t n=0;n<wave.size();++n){const double t=n/rate,pitch=57+2*std::clamp((t-.18)/.35,0.,1.);moving+=twoPi*440*std::pow(2.,(pitch-69)/12.)/rate;fixed+=twoPi*440*std::pow(2.,(64.-69)/12.)/rate;
-        const auto string=[](double p){return std::sin(p)+.20*std::sin(2*p+.2)+.08*std::sin(3*p+.4);};
-        wave[n]=float(std::min(1.,t/.002)*std::exp(-.18*t)*(.15*string(moving)+.11*string(fixed)));
+void compiledPolyStaticAudio(juce::AudioPluginFormatManager& formats,const juce::PluginDescription& description){
+    // November5 scope: polyphony emits discrete semitone notes, with no
+    // continuous poly bend requirement. The obsolete November4 curve captures
+    // remain under docs/validation/musical-readiness-research/native-checkpoint-v20.
+    // This observable, harmonically rich two-source fixture tests the compiled
+    // routing contract; it does not replace the retained sparse45+64 diagnostic
+    // or establish general guitar transcription quality.
+    Session s(formats,description,true);set(*s.plugin,"Pitch Mode",1);
+    set(*s.plugin,"Mode",0);set(*s.plugin,"Correction",1);
+    constexpr int64_t step=19200,lowerEnd=43200,upperEnd=55200,chordChange=31200,externalStart=36000,externalEnd=58560;
+    std::vector<float> wave(size_t(upperEnd),0.f);double changingPhase=0,heldPhase=0;
+    for(size_t n=0;n<wave.size();++n){
+        const double t=n/rate,pitch=int64_t(n)<step?48.:60.;
+        changingPhase+=twoPi*440*std::pow(2.,(pitch-69)/12.)/rate;
+        heldPhase+=twoPi*440*std::pow(2.,(64.-69)/12.)/rate;
+        double changing=0,held=0;
+        for(int harmonic=1;harmonic<=12;++harmonic){
+            const double amplitude=1/std::pow(double(harmonic),1.25);
+            changing+=amplitude*std::sin(harmonic*changingPhase+.17*harmonic);
+            held+=amplitude*std::sin(harmonic*heldPhase+.11*harmonic);
+        }
+        const double envelope=std::min(1.,t/.002)*std::exp(-.18*t);
+        wave[n]=float(envelope*((int64_t(n)<lowerEnd?.15*changing:0)+.11*held));
     }
     s.signal=[&](int64_t n){return n>=0&&size_t(n)<wave.size()?wave[size_t(n)]:0.f;};
-    int changing=-1,held=-1,observations=0;double maxChangingError=0,maxHeldError=0;
-    while(s.position<55000){const int64_t at=s.position;juce::MidiBuffer midi;s.process(midi);
-        for(const auto e:midi){const auto m=e.getMessage();if(m.isNoteOn()&&at+e.samplePosition<8640){if(m.getNoteNumber()==57)changing=m.getChannel();if(m.getNoteNumber()==64)held=m.getChannel();}}
-        if(at>=28800&&at<38400){check(changing>=2&&changing<=7&&held>=2&&held<=7&&changing!=held,"Compiled poly tracker did not acquire independent source members");maxChangingError=std::max(maxChangingError,std::abs(s.pitch(changing,57)-59));maxHeldError=std::max(maxHeldError,std::abs(s.pitch(held,64)-64));++observations;}
+    int original=-1,held=-1,replacement=-1;int observations=0;
+    while(s.position<74400){
+        const int64_t at=s.position;juce::MidiBuffer midi;
+        const auto add=[&](int64_t sample,const juce::MidiMessage& message){if(sample>=at&&sample<at+128)midi.addEvent(message,int(sample-at));};
+        // Dminor chord tones correct source48->50,64->65 and60->62.
+        for(int note:{50,53,57})add(0,on(16,note));
+        // Eminor becomes the new context, but already sounding corrected
+        // audio notes must retain their original output bindings.
+        for(int note:{50,53,57})add(chordChange,off(16,note));
+        for(int note:{52,55,59})add(chordChange,on(16,note));
+        add(externalStart,on(1,74));add(externalEnd,off(1,74));
+        for(int note:{52,55,59})add(upperEnd+256,off(16,note));
+        s.process(midi);
+        for(const auto event:midi){const auto m=event.getMessage();if(m.isNoteOn()&&m.getChannel()<=7){
+            if(m.getNoteNumber()==50)original=m.getChannel();
+            if(m.getNoteNumber()==65)held=m.getChannel();
+            if(m.getNoteNumber()==62)replacement=m.getChannel();
+        }}
+        if(at>=34560&&at<40560){
+            check(held>=2&&held<=7&&replacement>=2&&replacement<=7&&held!=replacement,"Compiled static poly sources did not occupy independent generated members");
+            s.expect(held,65,65);s.expect(replacement,62,62);++observations;
+        }
+        if(at>=lowerEnd+4800&&at<upperEnd-128){
+            s.expect(held,65,65);
+            check(!s.receiver.getNote(replacement,62).isValid(),"Damped lower source remained sounding while upper source was held");
+        }
+        if(at>=externalStart+128&&at<externalEnd-128)s.expect(8,76,76);
     }
-    check(observations>=15&&maxChangingError<.18&&maxHeldError<.18,"Compiled independently bent/held poly voices failed18cent settled receiver tolerance");
-    for(const auto& e:s.events)if(e.midi.isNoteOn()&&e.midi.getChannel()==changing)check(e.midi.getNoteNumber()==57&&e.sample<8640,"Smooth poly bend was replaced with new anchor");
-    check(s.receiver.getNumPlayingNotes()==0,"Compiled poly MPE test left receiver held");
-    std::cout<<"MEASURE actual VST3 two-string MPE bend settled maxerror "<<100*maxChangingError<<" cents, heldstring "<<100*maxHeldError<<" cents\n";
+    std::vector<Raw> generatedOns,generatedOffs,externalOns,externalOffs;
+    for(const auto& e:s.events){const int channel=e.midi.getChannel();
+        if(channel>=2&&channel<=7){
+            if(e.midi.isNoteOn())generatedOns.push_back(e);
+            if(e.midi.isNoteOff())generatedOffs.push_back(e);
+            if(e.midi.isPitchWheel())check(e.midi.getPitchWheelValue()==8192,"Static poly output generated a non-neutral pitch bend");
+        }else if(channel>=8&&channel<=15){
+            if(e.midi.isNoteOn())externalOns.push_back(e);
+            if(e.midi.isNoteOff())externalOffs.push_back(e);
+        }
+    }
+    check(original>=2&&original<=7&&held>=2&&held<=7&&original!=held,"Compiled static poly failed to acquire both original semitone notes");
+    check(observations>=15,"Compiled static poly receiver produced too few independent held observations");
+    check(generatedOns.size()==3&&generatedOffs.size()==3,"Static poly produced extra/missing generated note lifecycles");
+    int64_t firstOriginal=-1,firstHeld=-1,firstReplacement=-1,offOriginal=-1,offHeld=-1,offReplacement=-1;
+    for(const auto& e:generatedOns){
+        const int note=e.midi.getNoteNumber();
+        check(e.sample>0,"Channel16 chord control leaked as an immediate playing note");
+        if(note==50&&firstOriginal<0)firstOriginal=e.sample;
+        else if(note==65&&firstHeld<0)firstHeld=e.sample;
+        else if(note==62&&firstReplacement<0)firstReplacement=e.sample;
+        else check(false,"Static poly emitted a duplicate or incorrectly corrected semitone");
+    }
+    for(const auto& e:generatedOffs){
+        const int note=e.midi.getNoteNumber();
+        if(note==50)offOriginal=e.sample;else if(note==65)offHeld=e.sample;else if(note==62)offReplacement=e.sample;
+        else check(false,"Static poly released an unexpected corrected note");
+    }
+    check(firstOriginal>0&&firstOriginal<step&&firstHeld>0&&firstHeld<step,"Initial source notes were not acquired before the fret step");
+    check(firstReplacement>=step&&firstReplacement<lowerEnd,"Discrete fret step did not produce a new corrected semitone");
+    check(offOriginal>=step&&offOriginal<=step+4800,"Fret step released old corrected note prematurely or retained it beyond100ms");
+    check(offReplacement>=lowerEnd&&offHeld>=upperEnd,"A source ended prematurely or damping one source cut the held other source");
+    check(externalOns.size()==1&&externalOffs.size()==1&&externalOns[0].midi.getNoteNumber()==76&&externalOffs[0].midi.getNoteNumber()==76,"Updated chord control did not correct the independent external playing lifecycle");
+    check(externalOns[0].sample==externalStart&&externalOffs[0].sample==externalEnd,"Static audio processing changed external MIDI event timestamps");
+    check(s.receiver.getNumPlayingNotes()==0,"Compiled static poly test left receiver notes hanging");
+    std::cout<<"MEASURE actual VST3 static poly first decisions "<<1000*firstOriginal/rate<<" / "<<1000*firstHeld/rate
+        <<"ms; new semitone "<<1000*(firstReplacement-step)/rate<<"ms after fret step; old note release "<<1000*(offOriginal-step)/rate<<"ms; not driver latency\n";
 }
 int run(int argc,const juce::String& path){try{
     juce::ScopedJuceInitialiser_GUI gui;check(argc==2,"Expected complete Flysnapper.vst3 bundle path");juce::File bundle(path);check(bundle.isDirectory(),"Compiled VST3 bundle missing");
@@ -124,7 +198,7 @@ int run(int argc,const juce::String& path){try{
     };
     group("actual VST3 MPE protocol serialization/master/member input",compiledProtocol);
     group("actual VST3 mono audio and independent keyboard expression",compiledMonoAudio);
-    group("actual VST3 poly audio independently bent and held voices",compiledPolyAudio);
+    group("actual VST3 static poly semitones, chord correction and independent releases",compiledPolyStaticAudio);
     std::cout<<"FlysnapperMpeVst3Host: "<<(failures?"FAIL":"PASS")<<" ("<<checks<<" checks, "<<failures<<" failed groups).\n";
     std::cout<<"Not verified: Ableton runtime, Windows unless run natively there, audio-driver latency, general musical readiness.\n";return failures?1:0;
 }catch(const std::exception& e){std::cerr<<"FlysnapperMpeVst3Host: FAIL: "<<e.what()<<'\n';return 1;}}

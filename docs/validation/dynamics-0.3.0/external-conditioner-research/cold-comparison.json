@@ -1,0 +1,391 @@
+{
+  "default-gate": {
+    "included_runs": 65,
+    "excluded_poly_bend_runs": 7,
+    "passed_runs": 35,
+    "counts": {
+      "expected": 151,
+      "matched": 130,
+      "missed": 21,
+      "extra_note_ons": 84,
+      "noise_note_ons": 24,
+      "octave_errors": 10,
+      "wrong_before_correct": 10,
+      "early_offs": 9,
+      "late_offs": 4,
+      "discrete_misses": 16,
+      "bend_retriggers": 0,
+      "hung": 0,
+      "overflow": 0,
+      "deadline_misses": 36
+    },
+    "mono_passed": 25,
+    "mono_total": 34,
+    "poly_passed": 10,
+    "poly_total": 31,
+    "changed_pass_outcomes": []
+  },
+  "double-conditioner": {
+    "included_runs": 65,
+    "excluded_poly_bend_runs": 7,
+    "passed_runs": 34,
+    "counts": {
+      "expected": 151,
+      "matched": 130,
+      "missed": 21,
+      "extra_note_ons": 90,
+      "noise_note_ons": 24,
+      "octave_errors": 10,
+      "wrong_before_correct": 10,
+      "early_offs": 13,
+      "late_offs": 2,
+      "discrete_misses": 16,
+      "bend_retriggers": 0,
+      "hung": 0,
+      "overflow": 0,
+      "deadline_misses": 21
+    },
+    "mono_passed": 24,
+    "mono_total": 34,
+    "poly_passed": 10,
+    "poly_total": 31,
+    "changed_pass_outcomes": [
+      {
+        "case": "quiet_hum_31_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_31_gain8_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "late-release"
+        ]
+      },
+      {
+        "case": "quiet_hum_40_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_40_gain1_poly",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_52_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_52_gain8_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "note-precision"
+        ]
+      },
+      {
+        "case": "music_handling_snr24_gain1_poly",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "music_handling_snr24_gain4_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "steady-pitch:s0-n0"
+        ]
+      },
+      {
+        "case": "fretted_slide_up_105ms_poly",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "note-precision",
+          "premature-release"
+        ]
+      },
+      {
+        "case": "fretted_slide_down_105ms_poly",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "note-precision"
+        ]
+      },
+      {
+        "case": "quiet_new_note_after_decay_noise_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "steady-pitch:s0-n1"
+        ]
+      }
+    ]
+  },
+  "discard-inner": {
+    "included_runs": 65,
+    "excluded_poly_bend_runs": 7,
+    "passed_runs": 37,
+    "counts": {
+      "expected": 151,
+      "matched": 130,
+      "missed": 21,
+      "extra_note_ons": 92,
+      "noise_note_ons": 24,
+      "octave_errors": 9,
+      "wrong_before_correct": 10,
+      "early_offs": 9,
+      "late_offs": 4,
+      "discrete_misses": 16,
+      "bend_retriggers": 0,
+      "hung": 0,
+      "overflow": 0,
+      "deadline_misses": 144
+    },
+    "mono_passed": 26,
+    "mono_total": 34,
+    "poly_passed": 11,
+    "poly_total": 31,
+    "changed_pass_outcomes": [
+      {
+        "case": "quiet_hum_31_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_31_gain8_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "false-octave",
+          "note-precision",
+          "premature-release"
+        ]
+      },
+      {
+        "case": "quiet_hum_40_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_40_gain1_poly",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_52_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "music_handling_snr24_gain1_poly",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "music_handling_snr24_gain4_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "steady-pitch:s0-n0"
+        ]
+      },
+      {
+        "case": "fretted_slide_up_105ms_poly",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "late-release"
+        ]
+      }
+    ]
+  },
+  "skip-inner": {
+    "included_runs": 65,
+    "excluded_poly_bend_runs": 7,
+    "passed_runs": 37,
+    "counts": {
+      "expected": 151,
+      "matched": 132,
+      "missed": 19,
+      "extra_note_ons": 112,
+      "noise_note_ons": 24,
+      "octave_errors": 14,
+      "wrong_before_correct": 11,
+      "early_offs": 12,
+      "late_offs": 3,
+      "discrete_misses": 16,
+      "bend_retriggers": 0,
+      "hung": 0,
+      "overflow": 0,
+      "deadline_misses": 34
+    },
+    "mono_passed": 26,
+    "mono_total": 34,
+    "poly_passed": 11,
+    "poly_total": 31,
+    "changed_pass_outcomes": [
+      {
+        "case": "quiet_hum_31_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_31_gain8_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "false-octave",
+          "note-precision",
+          "premature-release"
+        ]
+      },
+      {
+        "case": "quiet_hum_40_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_40_gain1_poly",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_52_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "music_handling_snr24_gain1_poly",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "music_handling_snr24_gain4_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "note-precision",
+          "premature-release"
+        ]
+      },
+      {
+        "case": "fretted_slide_up_105ms_poly",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "late-release"
+        ]
+      }
+    ]
+  },
+  "gate-pulse": {
+    "included_runs": 65,
+    "excluded_poly_bend_runs": 7,
+    "passed_runs": 38,
+    "counts": {
+      "expected": 151,
+      "matched": 132,
+      "missed": 19,
+      "extra_note_ons": 106,
+      "noise_note_ons": 24,
+      "octave_errors": 11,
+      "wrong_before_correct": 11,
+      "early_offs": 10,
+      "late_offs": 3,
+      "discrete_misses": 16,
+      "bend_retriggers": 0,
+      "hung": 0,
+      "overflow": 0,
+      "deadline_misses": 95
+    },
+    "mono_passed": 27,
+    "mono_total": 34,
+    "poly_passed": 11,
+    "poly_total": 31,
+    "changed_pass_outcomes": [
+      {
+        "case": "quiet_hum_31_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_31_gain8_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "false-octave",
+          "note-precision",
+          "premature-release"
+        ]
+      },
+      {
+        "case": "quiet_hum_40_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_40_gain1_poly",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "quiet_hum_52_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      },
+      {
+        "case": "music_handling_snr24_gain4_mono",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "note-precision",
+          "premature-release"
+        ]
+      },
+      {
+        "case": "fretted_slide_up_105ms_poly",
+        "before": true,
+        "after": false,
+        "after_failures": [
+          "late-release"
+        ]
+      },
+      {
+        "case": "quiet_new_note_after_decay_noise_poly",
+        "before": false,
+        "after": true,
+        "after_failures": []
+      }
+    ]
+  }
+}

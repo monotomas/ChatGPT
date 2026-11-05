@@ -1,0 +1,85 @@
+{
+  "public": [],
+  "holdout": [
+    {
+      "case": "hidden_modal_16_poly",
+      "changes": {
+        "false_note_ons": [
+          "1",
+          "0"
+        ],
+        "octave_errors": [
+          "1",
+          "0"
+        ]
+      }
+    },
+    {
+      "case": "hidden_poly_01_poly",
+      "changes": {
+        "matched": [
+          "5",
+          "4"
+        ],
+        "missed": [
+          "1",
+          "2"
+        ],
+        "early_offs": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "case": "hidden_poly_03_poly",
+      "changes": {
+        "false_note_ons": [
+          "3",
+          "1"
+        ]
+      }
+    }
+  ],
+  "confirmation": [
+    {
+      "case": "confirm_sustain_06_poly",
+      "changes": {
+        "false_note_ons": [
+          "1",
+          "0"
+        ],
+        "octave_errors": [
+          "1",
+          "0"
+        ]
+      }
+    },
+    {
+      "case": "confirm_recorded_08_poly",
+      "changes": {
+        "false_note_ons": [
+          "2",
+          "1"
+        ],
+        "octave_errors": [
+          "2",
+          "1"
+        ]
+      }
+    },
+    {
+      "case": "confirm_recorded_09_poly",
+      "changes": {
+        "false_note_ons": [
+          "4",
+          "3"
+        ],
+        "octave_errors": [
+          "3",
+          "2"
+        ]
+      }
+    }
+  ]
+}

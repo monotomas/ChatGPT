@@ -1,0 +1,578 @@
+FLYSNAPPER 0.3.0 AUDIO + MIDI | 2026.11.05-calibrated-input-research
+Logg: /workspace/ChatGPT/logs/build-20261105-032734-490062.log
+
+> /workspace/.flysnapper-tools/bin/python -m unittest discover -s /workspace/ChatGPT/Tests -p test_builder*.py -v
+test_cache_changes_with_sdk_and_toolchain (test_builder.EnvironmentFixTests.test_cache_changes_with_sdk_and_toolchain) ... ok
+test_checked_project_never_uses_vs_instance_generator (test_builder.EnvironmentFixTests.test_checked_project_never_uses_vs_instance_generator) ... ok
+test_correct_child_environment_does_not_modify_parent (test_builder.EnvironmentFixTests.test_correct_child_environment_does_not_modify_parent) ... ok
+test_explicit_rc_and_mt_forwarded_to_cmake (test_builder.EnvironmentFixTests.test_explicit_rc_and_mt_forwarded_to_cmake) ... ok
+test_installed_ninja_preferred (test_builder.EnvironmentFixTests.test_installed_ninja_preferred) ... MSVC x64: /workspace/ChatGPT/build/temp/tmpmhplilnp/BuildTools/VC/Tools/MSVC/14.51.36231
+Windows SDK: 10.0.26100.0 | /workspace/ChatGPT/build/temp/tmpmhplilnp/sdk
+Ressurskompilator: /workspace/ChatGPT/build/temp/tmpmhplilnp/sdk/bin/10.0.26100.0/x64/rc.exe
+Manifestverktoy: /workspace/ChatGPT/build/temp/tmpmhplilnp/sdk/bin/10.0.26100.0/x64/mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+ok
+test_setup_recovers_after_exact_reported_rc_error (test_builder.EnvironmentFixTests.test_setup_recovers_after_exact_reported_rc_error) ... Microsofts automatiske miljooppsett var ufullstendig. Kontrollerer verktøy og SDK-filer direkte.
+VsDevCmd.bat: Windows SDK-verktøyet rc.exe er ikke tilgjengelig i byggemiljoet.
+MSVC x64: /workspace/ChatGPT/build/temp/tmpu8thd1s6/BuildTools/VC/Tools/MSVC/14.51.36231
+Windows SDK: 10.0.26100.0 | /workspace/ChatGPT/build/temp/tmpu8thd1s6/Windows Kits/10
+Ressurskompilator: /workspace/ChatGPT/build/temp/tmpu8thd1s6/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe
+Manifestverktoy: /workspace/ChatGPT/build/temp/tmpu8thd1s6/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe
+Byggemetode: NMake Makefiles (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+ok
+test_build_command_contains_current_targets_only (test_builder.FlysnapperSafetyTests.test_build_command_contains_current_targets_only) ... ok
+test_changed_resource_or_binary_blocks_install (test_builder.FlysnapperSafetyTests.test_changed_resource_or_binary_blocks_install) ... ok
+test_copy_failure_restores_old_installation (test_builder.FlysnapperSafetyTests.test_copy_failure_restores_old_installation) ... ok
+test_ctest_failure_exit_propagates (test_builder.FlysnapperSafetyTests.test_ctest_failure_exit_propagates) ... ok
+test_current_complete_result_passes (test_builder.FlysnapperSafetyTests.test_current_complete_result_passes) ... ok
+test_default_does_not_install (test_builder.FlysnapperSafetyTests.test_default_does_not_install) ... ok
+test_failed_tests_or_native_manifest_blocks_install (test_builder.FlysnapperSafetyTests.test_failed_tests_or_native_manifest_blocks_install) ... ok
+test_install_fixture_in_actual_builder_temporary_context (test_builder.FlysnapperSafetyTests.test_install_fixture_in_actual_builder_temporary_context) ... INSTALLERT: /workspace/ChatGPT/build/temp/tmp5ycgln9_/Plugins/Flysnapper.vst3
+ok
+test_invalid_destination_does_not_implicitly_install (test_builder.FlysnapperSafetyTests.test_invalid_destination_does_not_implicitly_install) ... usage: python -m unittest [-h] [--native] [--juce-dir JUCE_DIR] [--jobs JOBS]
+                          [--install-sdk] [--install | --install-only]
+                          [--choose-install-dir | --install-dir INSTALL_DIR]
+python -m unittest: error: installation destination requires --install or --install-only
+ok
+test_missing_current_results_cannot_reuse_old_file (test_builder.FlysnapperSafetyTests.test_missing_current_results_cannot_reuse_old_file) ... ok
+test_native_cannot_install_windows_bundle (test_builder.FlysnapperSafetyTests.test_native_cannot_install_windows_bundle) ... usage: python -m unittest [-h] [--native] [--juce-dir JUCE_DIR] [--jobs JOBS]
+                          [--install-sdk] [--install | --install-only]
+                          [--choose-install-dir | --install-dir INSTALL_DIR]
+python -m unittest: error: --native is Linux validation only and cannot install
+ok
+test_replaces_only_flysnapper_and_keeps_recovery_outside_scan (test_builder.FlysnapperSafetyTests.test_replaces_only_flysnapper_and_keeps_recovery_outside_scan) ... INSTALLERT: /workspace/ChatGPT/build/temp/tmp_sjdlmaf/Plugins/Flysnapper.vst3
+Forrige versjon for gjenoppretting: /workspace/ChatGPT/build/temp/tmp_sjdlmaf/dist/previous-installations/20261105-032734-692301/Flysnapper.vst3
+ok
+test_skipped_required_test_fails_readiness (test_builder.FlysnapperSafetyTests.test_skipped_required_test_fails_readiness) ... ok
+test_stale_staging_is_preserved (test_builder.FlysnapperSafetyTests.test_stale_staging_is_preserved) ... ok
+test_test_inventory_must_contain_required_tests (test_builder.FlysnapperSafetyTests.test_test_inventory_must_contain_required_tests) ... ok
+test_installer_exit_failure_or_restart_never_reported_as_ready (test_builder.InstallSafetyTests.test_installer_exit_failure_or_restart_never_reported_as_ready) ... Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /workspace/ChatGPT/build/temp/tmp2qd_pd3e/sdk-install-20261105-032734.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /workspace/ChatGPT/build/temp/tmpk119yuby/sdk-install-20261105-032734.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /workspace/ChatGPT/build/temp/tmptrovnd6v/sdk-install-20261105-032734.log
+ok
+test_installer_only_selects_x64_and_never_reboots (test_builder.InstallSafetyTests.test_installer_only_selects_x64_and_never_reboots) ... Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /workspace/ChatGPT/build/temp/tmpmvtz2jjt/sdk-install-20261105-032734.log
+Microsofts SDK-installasjon er ferdig. Kontrollerer filene pa nytt.
+ok
+test_never_installs_when_sdk_exists_even_with_permission_flag (test_builder.InstallSafetyTests.test_never_installs_when_sdk_exists_even_with_permission_flag) ... ok
+test_no_download_or_install_without_explicit_flag (test_builder.InstallSafetyTests.test_no_download_or_install_without_explicit_flag) ... ok
+test_only_https_microsoft_download_host_allowed (test_builder.InstallSafetyTests.test_only_https_microsoft_download_host_allowed) ... ok
+test_rechecks_files_after_installer_and_calls_only_once (test_builder.InstallSafetyTests.test_rechecks_files_after_installer_and_calls_only_once) ... missing
+ok
+test_redirect_to_other_host_rejected_before_following (test_builder.InstallSafetyTests.test_redirect_to_other_host_rejected_before_following) ... ok
+test_signature_check_requires_success_marker (test_builder.InstallSafetyTests.test_signature_check_requires_success_marker) ... ok
+test_signature_command_requires_valid_microsoft_publisher (test_builder.InstallSafetyTests.test_signature_command_requires_valid_microsoft_publisher) ... ok
+test_success_exit_does_not_hide_still_missing_sdk (test_builder.InstallSafetyTests.test_success_exit_does_not_hide_still_missing_sdk) ... missing
+ok
+test_crlf_input_is_supported (test_builder.PatchTests.test_crlf_input_is_supported) ... ok
+test_non_windows_keeps_utf8_entry (test_builder.PatchTests.test_non_windows_keeps_utf8_entry) ... ok
+test_preserves_descriptive_juce_file_failures (test_builder.PatchTests.test_preserves_descriptive_juce_file_failures) ... ok
+test_refuses_double_patching (test_builder.PatchTests.test_refuses_double_patching) ... ok
+test_rejects_unknown_missing_or_duplicate_patterns (test_builder.PatchTests.test_rejects_unknown_missing_or_duplicate_patterns) ... ok
+test_source_payload_is_not_silently_reinterpreted (test_builder.PatchTests.test_source_payload_is_not_silently_reinterpreted) ... ok
+test_wide_entry_and_direct_wide_string_on_windows (test_builder.PatchTests.test_wide_entry_and_direct_wide_string_on_windows) ... ok
+test_compile_failure_does_not_run_the_test_executable (test_builder.PreflightTests.test_compile_failure_does_not_run_the_test_executable) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_no_false_positive_if_build_created_no_executable (test_builder.PreflightTests.test_no_false_positive_if_build_created_no_executable) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_no_false_positive_if_executable_returns_wrong_output (test_builder.PreflightTests.test_no_false_positive_if_executable_returns_wrong_output) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_requires_actual_executable_and_success_output (test_builder.PreflightTests.test_requires_actual_executable_and_success_output) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+FLYSNAPPER_TOOLCHAIN_OK
+ok
+test_actual_output_required_and_unicode_arguments_kept (test_builder.ResourceProbeTests.test_actual_output_required_and_unicode_arguments_kept) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+ok
+test_empty_or_invalid_resource_rejected (test_builder.ResourceProbeTests.test_empty_or_invalid_resource_rejected) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_helper_failure_stops_before_rc (test_builder.ResourceProbeTests.test_helper_failure_stops_before_rc) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_missing_helper_rejected (test_builder.ResourceProbeTests.test_missing_helper_rejected) ... ok
+test_missing_info_rejected (test_builder.ResourceProbeTests.test_missing_info_rejected) ... ok
+test_new_cmake_cache_leaves_old_cache_unchanged (test_builder.ResourceProbeTests.test_new_cmake_cache_leaves_old_cache_unchanged) ... ok
+test_old_resource_does_not_mask_new_failure (test_builder.ResourceProbeTests.test_old_resource_does_not_mask_new_failure) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_resource_compiler_failure_is_propagated (test_builder.ResourceProbeTests.test_resource_compiler_failure_is_propagated) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_resource_compiler_must_create_nonempty_output (test_builder.ResourceProbeTests.test_resource_compiler_must_create_nonempty_output) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_absent_sdk_reports_all_checked_locations_and_install_option (test_builder.SdkDiscoveryTests.test_absent_sdk_reports_all_checked_locations_and_install_option) ... ok
+test_compiler_exe_alone_is_rejected (test_builder.SdkDiscoveryTests.test_compiler_exe_alone_is_rejected) ... ok
+test_complete_older_sdk_beats_partial_newer_one (test_builder.SdkDiscoveryTests.test_complete_older_sdk_beats_partial_newer_one) ... ok
+test_environment_registry_default_and_path_roots_are_considered (test_builder.SdkDiscoveryTests.test_environment_registry_default_and_path_roots_are_considered) ... ok
+test_latest_complete_msvc_selected (test_builder.SdkDiscoveryTests.test_latest_complete_msvc_selected) ... ok
+test_missing_rc_or_mt_is_rejected (test_builder.SdkDiscoveryTests.test_missing_rc_or_mt_is_rejected) ... ok
+test_never_combines_incomplete_sdk_versions (test_builder.SdkDiscoveryTests.test_never_combines_incomplete_sdk_versions) ... ok
+test_no_recursive_scan_of_entire_drive (test_builder.SdkDiscoveryTests.test_no_recursive_scan_of_entire_drive) ... ok
+test_numeric_version_order (test_builder.SdkDiscoveryTests.test_numeric_version_order) ... ok
+test_sdk_found_when_rc_not_on_path (test_builder.SdkDiscoveryTests.test_sdk_found_when_rc_not_on_path) ... ok
+test_tools_without_headers_are_not_a_complete_sdk (test_builder.SdkDiscoveryTests.test_tools_without_headers_are_not_a_complete_sdk) ... ok
+test_ucrt_static_library_is_required (test_builder.SdkDiscoveryTests.test_ucrt_static_library_is_required) ... ok
+test_x86_resource_tools_are_supported_with_x64_libraries (test_builder.SdkDiscoveryTests.test_x86_resource_tools_are_supported_with_x64_libraries) ... ok
+test_copy_changes_only_juceaide_and_keeps_original_clean (test_builder.SnapshotTests.test_copy_changes_only_juceaide_and_keeps_original_clean) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_different_source_gets_separate_copy (test_builder.SnapshotTests.test_different_source_gets_separate_copy) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_external_symlinks_rejected (test_builder.SnapshotTests.test_external_symlinks_rejected) ... ok
+test_incomplete_source_is_rejected (test_builder.SnapshotTests.test_incomplete_source_is_rejected) ... ok
+test_missing_manifest_is_not_trusted (test_builder.SnapshotTests.test_missing_manifest_is_not_trusted) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_modified_build_copy_is_not_trusted_or_overwritten (test_builder.SnapshotTests.test_modified_build_copy_is_not_trusted_or_overwritten) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_partial_copy_failure_is_not_published (test_builder.SnapshotTests.test_partial_copy_failure_is_not_published) ... ok
+test_repeat_uses_verified_copy_without_rewriting (test_builder.SnapshotTests.test_repeat_uses_verified_copy_without_rewriting) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+Kontrollert JUCE-byggekopi med Windows Unicode-rettelse brukes pa nytt.
+ok
+test_cp1252_console_keeps_full_unicode_in_log (test_builder_encoding.BuilderEncodingTests.test_cp1252_console_keeps_full_unicode_in_log) ... ok
+test_nonzero_child_preserves_exit_status_under_cp1252 (test_builder_encoding.BuilderEncodingTests.test_nonzero_child_preserves_exit_status_under_cp1252) ... ok
+test_python_child_utf8_response_and_caller_environment_preserved (test_builder_encoding.BuilderEncodingTests.test_python_child_utf8_response_and_caller_environment_preserved) ... ok
+test_actual_cmake_generation_hashes_the_long_object_path (test_builder_paths.ObjectPathTests.test_actual_cmake_generation_hashes_the_long_object_path) ... ok
+test_configure_compacts_only_generated_paths_and_preserves_unicode_source (test_builder_paths.ObjectPathTests.test_configure_compacts_only_generated_paths_and_preserves_unicode_source) ... ok
+test_exact_reported_ci_object_crosses_max_path_and_new_namespace_fits (test_builder_paths.ObjectPathTests.test_exact_reported_ci_object_crosses_max_path_and_new_namespace_fits) ... ok
+test_impossibly_deep_developer_checkout_stops_before_compiler (test_builder_paths.ObjectPathTests.test_impossibly_deep_developer_checkout_stops_before_compiler) ... ok
+
+----------------------------------------------------------------------
+Ran 79 tests in 0.377s
+
+OK
+
+> /workspace/.flysnapper-tools/bin/cmake --version
+cmake version 4.4.4
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+> /usr/local/bin/git --version
+git version 2.52.0
+
+> /usr/local/bin/git -C /workspace/ChatGPT/deps/JUCE config core.longpaths true
+
+> /usr/local/bin/git -C /workspace/ChatGPT/deps/JUCE rev-parse HEAD
+
+> /usr/local/bin/git -C /workspace/ChatGPT/deps/JUCE status --porcelain
+
+> /usr/local/bin/git -C /workspace/ChatGPT/deps/JUCE rev-parse HEAD
+JUCE 8.0.16-security kontrollert: ea77444750de45e036e0279bb0291144bf8e3688
+
+> /workspace/.flysnapper-tools/bin/cmake -S /workspace/ChatGPT -B /workspace/ChatGPT/build/native-release -DCMAKE_BUILD_TYPE=Release -DJUCE_DIR=/workspace/ChatGPT/deps/JUCE -DFLYSNAPPER_CORE_ONLY=OFF -DFLYSNAPPER_BUILD_TESTS=ON
+-- Checking for modules 'webkit2gtk-4.0;gtk+-x11-3.0'
+--   Package 'webkit2gtk-4.0', required by 'virtual:world', not found
+--   Package 'gtk+-x11-3.0', required by 'virtual:world', not found
+-- Configuring juceaide
+-- Building juceaide
+-- Exporting juceaide
+-- Testing juceaide
+-- Finished setting up juceaide
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ChatGPT/build/native-release
+
+> /workspace/.flysnapper-tools/bin/cmake --build /workspace/ChatGPT/build/native-release --config Release --target Flysnapper_VST3 FlysnapperCoreTests FlysnapperPluginTests FlysnapperVst3HostTests FlysnapperPitchTests FlysnapperProcessorAudioTests FlysnapperAudioValidation FlysnapperYinTests FlysnapperGuitarQualityTests FlysnapperBendProcessorTests FlysnapperNoiseTests FlysnapperInputDynamicsTests FlysnapperDynamicsProcessorTests FlysnapperMpeOutputTests FlysnapperMpeProcessorTests FlysnapperMpeVst3HostTests --parallel 2
+[0/2] Re-checking globbed directories...
+[1/17] Building VST3 manifest helper for Flysnapper
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ChatGPT/build/native-release/vst3_helpers/Flysnapper
+ninja: no work to do.
+[2/17] Building CXX object CMakeFiles/FlysnapperPitch.dir/Source/Pitch/PitchDetector.cpp.o
+[3/17] Linking CXX static library libFlysnapperPitch.a
+[4/17] Linking CXX shared module Flysnapper_artefacts/Release/VST3/Flysnapper.vst3/Contents/x86_64-linux/Flysnapper.so
+removing moduleinfo.json
+creating /workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3/Contents/Resources/moduleinfo.json
+[5/17] Linking CXX executable FlysnapperAudioValidation
+[6/17] Linking CXX executable FlysnapperYinTests
+[7/17] Linking CXX executable FlysnapperPitchTests
+[8/17] Linking CXX executable FlysnapperGuitarQualityTests
+[9/17] Linking CXX executable FlysnapperNoiseTests
+[10/17] Linking CXX executable FlysnapperInputDynamicsTests
+[11/17] Linking CXX executable FlysnapperMpeProcessorTests_artefacts/Release/FlysnapperMpeProcessorTests
+[12/17] Linking CXX executable FlysnapperBendProcessorTests_artefacts/Release/FlysnapperBendProcessorTests
+[13/17] Linking CXX executable FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests
+[14/17] Linking CXX executable FlysnapperProcessorAudioTests_artefacts/Release/FlysnapperProcessorAudioTests
+[15/17] Building CXX object CMakeFiles/FlysnapperDynamicsProcessorTests.dir/Tests/DynamicsProcessorTests.cpp.o
+<command-line>: warning: "JUCE_STANDALONE_APPLICATION" redefined
+<command-line>: note: this is the location of the previous definition
+[16/17] Linking CXX executable FlysnapperDynamicsProcessorTests_artefacts/Release/FlysnapperDynamicsProcessorTests
+
+> /workspace/.flysnapper-tools/bin/python /workspace/ChatGPT/Tests/AudioFixtures/readiness/verify.py
+Verified 38 PCM records, 72 mode cases, seal d5af9fb3fefb4d41918e62810d59290c1dd741d95337d58ec34efcdcf14f9fba.
+Verified 8 PCM records, 16 mode cases, seal 059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae.
+Verified 64 PCM records, 128 mode cases, seal 0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d.
+
+> /workspace/.flysnapper-tools/bin/ctest --test-dir /workspace/ChatGPT/build/native-release -C Release --show-only=json-v1
+
+> /workspace/.flysnapper-tools/bin/ctest --test-dir /workspace/ChatGPT/build/native-release -C Release --no-tests=error --verbose --output-on-failure --output-junit /workspace/ChatGPT/build/native-release/flysnapper-ctest.xml
+UpdateCTestConfiguration  from :/workspace/ChatGPT/build/native-release/DartConfiguration.tcl
+Test project /workspace/ChatGPT/build/native-release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+      Start  1: FlysnapperCore
+
+1: Test command: /workspace/ChatGPT/build/native-release/FlysnapperCoreTests
+1: Working Directory: /workspace/ChatGPT/build/native-release
+1: Test timeout computed to be: 120
+1: Flysnapper core: 6 suites passed, 2104154 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+ 1/15 Test  #1: FlysnapperCore ...................   Passed    0.06 sec
+test 2
+      Start  2: FlysnapperAudioQuality
+
+2: Test command: /workspace/.flysnapper-tools/bin/python3.12 "/workspace/ChatGPT/Tools/audio_quality_gate.py" "--evaluator" "/workspace/ChatGPT/build/native-release/FlysnapperAudioValidation" "--fixtures" "/workspace/ChatGPT/Tests/AudioFixtures" "--output" "/workspace/ChatGPT/build/native-release/audio-quality"
+2: Working Directory: /workspace/ChatGPT/build/native-release
+2: Test timeout computed to be: 300
+2: Verified 11 pinned source files, 46 PCM waveforms and 81 case annotations
+2: Independent audio measurements written to /workspace/ChatGPT/build/native-release/audio-quality/audio-quality-f6nz_blj (81 case/rate/block runs).
+2: FlysnapperAudioQuality: 30/30 basic accuracy cases passed; live5/10ms compliance is not certified
+ 2/15 Test  #2: FlysnapperAudioQuality ...........   Passed    9.02 sec
+test 3
+      Start  3: FlysnapperYin
+
+3: Test command: /workspace/ChatGPT/build/native-release/FlysnapperYinTests "/workspace/ChatGPT/Tests/AudioFixtures"
+3: Working Directory: /workspace/ChatGPT/build/native-release
+3: Test timeout computed to be: 120
+3: YIN recorded E2: first=40 observed_ms=58.7917 wrong_confirmations=0
+3: YIN recorded A2: first=45 observed_ms=61.2292 wrong_confirmations=0
+3: YIN recorded D3: first=50 observed_ms=74.2917 wrong_confirmations=0
+3: YIN recorded G3: first=55 observed_ms=58.6042 wrong_confirmations=0
+3: YIN recorded B3: first=59 observed_ms=60.5208 wrong_confirmations=0
+3: YIN recorded E3: first=52 observed_ms=59.5 wrong_confirmations=0
+3: YIN recorded E4: first=64 observed_ms=64.6667 wrong_confirmations=0
+3: YIN recorded Fs3: first=54 observed_ms=63.4167 wrong_confirmations=0
+3: YinEstimator checks passed: 4327. Candidate/confirmation controls, not complete audio lifecycle or physical latency.
+ 3/15 Test  #3: FlysnapperYin ....................   Passed    0.84 sec
+test 4
+      Start  4: FlysnapperPitch
+
+4: Test command: /workspace/ChatGPT/build/native-release/FlysnapperPitchTests "/workspace/ChatGPT/Tests/AudioFixtures"
+4: Working Directory: /workspace/ChatGPT/build/native-release
+4: Test timeout computed to be: 120
+4: PASS declared MIDI28..100 at44.1/48/96kHz, stable+/-40cent notes and prepared C++ allocation check (malloc/host wrapper excluded)
+4: PASS acquired recorded octave continuity and independently damped upper under a bright lower string
+4: PASS stiff held string, upper-withdrawal stability and three genuine continuous repicks
+4: PASS separate new-note admission, held-note continuation and actual withdrawal release
+4: PASS fixed-semitone poly IDs, simultaneous voices and mode-change release identity
+4: MEASURE static59->61+held64 partials=3 decision61=20991 latencyMs=37.3125 off61=46719 off64=46719 otherOnDiagnostics=0 (unrelated overtone extras remain reported, not a zero-error claim)
+4: MEASURE static59->61+held64 partials=4 decision61=20991 latencyMs=37.3125 off61=46719 off64=46719 otherOnDiagnostics=0 (unrelated overtone extras remain reported, not a zero-error claim)
+4: MEASURE static59->61+held64 partials=5 decision61=20991 latencyMs=37.3125 off61=46719 off64=46719 otherOnDiagnostics=0 (unrelated overtone extras remain reported, not a zero-error claim)
+4: MEASURE static59->61+held64 partials=6 decision61=20991 latencyMs=37.3125 off61=46719 off64=46719 otherOnDiagnostics=2 (unrelated overtone extras remain reported, not a zero-error claim)
+4: MEASURE static59->61+held64 partials=8 decision61=20991 latencyMs=37.3125 off61=46719 off64=46719 otherOnDiagnostics=0 (unrelated overtone extras remain reported, not a zero-error claim)
+4: MEASURE static59->61+held64 partials=12 decision61=20991 latencyMs=37.3125 off61=46719 off64=46719 otherOnDiagnostics=0 (unrelated overtone extras remain reported, not a zero-error claim)
+4: FlysnapperPitch: PASS (112894 checks; functional audio controls, not physical latency acceptance)
+ 4/15 Test  #4: FlysnapperPitch ..................   Passed   13.21 sec
+test 5
+      Start  5: FlysnapperGuitarQuality
+
+5: Test command: /workspace/ChatGPT/build/native-release/FlysnapperGuitarQualityTests "/workspace/ChatGPT/Tests/AudioFixtures/guitar_controls"
+5: Working Directory: /workspace/ChatGPT/build/native-release
+5: Test timeout computed to be: 180
+5: case,note,first_correct_ms,release_after_source_ms
+5: decay_40_normal_mono,40,29.979,41.312
+5: decay_40_normal_poly,40,53.979,59.979
+5: decay_40_quiet_mono,40,29.979,41.312
+5: decay_40_quiet_poly,40,53.979,59.979
+5: decay_52_normal_mono,52,19.312,35.979
+5: decay_52_quiet_mono,52,19.312,35.979
+5: decay_57_normal_mono,57,16.646,38.646
+5: decay_57_quiet_mono,57,16.646,38.646
+5: decay_64_normal_mono,64,13.979,35.979
+5: decay_64_normal_poly,64,53.979,46.646
+5: decay_64_quiet_mono,64,13.979,35.979
+5: decay_64_quiet_poly,64,53.979,43.979
+5: decay_76_normal_mono,76,11.312,35.979
+5: decay_76_quiet_mono,76,11.312,35.979
+5: timbre_40_mono,40,32.646,38.646
+5: timbre_40_poly,40,53.979,35.979
+5: timbre_52_mono,52,19.312,38.646
+5: timbre_52_poly,52,53.979,41.312
+5: timbre_64_mono,64,13.979,35.979
+5: timbre_64_poly,64,53.979,70.646
+5: timbre_76_mono,76,11.312,35.979
+5: timbre_76_poly,76,53.979,65.312
+5: stiff_40_mono,40,29.979,38.646
+5: stiff_40_poly,40,53.979,70.646
+5: stiff_52_mono,52,19.312,35.979
+5: stiff_52_poly,52,53.979,43.979
+5: stiff_64_mono,64,13.979,35.979
+5: stiff_64_poly,64,53.979,57.312
+5: level_40_03_mono,40,29.979,39.979
+5: level_40_09_mono,40,29.979,39.979
+5: level_40_27_mono,40,29.979,39.979
+5: level_52_03_mono,52,19.312,37.312
+5: level_52_09_mono,52,19.312,37.312
+5: level_52_27_mono,52,19.312,37.312
+5: level_64_03_mono,64,13.979,37.312
+5: level_64_09_mono,64,13.979,37.312
+5: level_64_27_mono,64,13.979,37.312
+5: true_octave_down_mono,52,19.312,29.979
+5: true_octave_down_mono,40,29.979,40.646
+5: true_octave_up_mono,52,19.312,16.646
+5: true_octave_up_mono,64,16.646,35.312
+5: damp_then_noise_mono,52,19.312,38.646
+5: damp_then_noise_poly,52,53.979,62.646
+5: bend_whole_step_mono,57,16.646,39.979
+5: BEND bend_whole_step_mono range=2 observations=1000 absCents[median/p95/max]=0.140/6.397/6.845
+5: BEND settledMaxCents bend_whole_step_mono 0.697
+5: BEND movingMaxCents bend_whole_step_mono 6.845
+5: BEND releaseTailMaxCents bend_whole_step_mono 0.000
+5: bend_whole_step_mono,57,16.646,39.979
+5: BEND bend_whole_step_mono range=12 observations=1000 absCents[median/p95/max]=0.140/6.397/6.845
+5: BEND settledMaxCents bend_whole_step_mono 0.697
+5: BEND movingMaxCents bend_whole_step_mono 6.845
+5: BEND releaseTailMaxCents bend_whole_step_mono 0.000
+5: bend_semitone_mono,57,16.646,39.979
+5: BEND bend_semitone_mono range=2 observations=1000 absCents[median/p95/max]=0.111/4.026/5.228
+5: BEND settledMaxCents bend_semitone_mono 5.228
+5: BEND movingMaxCents bend_semitone_mono 4.304
+5: BEND releaseTailMaxCents bend_semitone_mono 0.000
+5: bend_semitone_mono,57,16.646,39.979
+5: BEND bend_semitone_mono range=12 observations=1000 absCents[median/p95/max]=0.111/4.026/5.228
+5: BEND settledMaxCents bend_semitone_mono 5.228
+5: BEND movingMaxCents bend_semitone_mono 4.304
+5: BEND releaseTailMaxCents bend_semitone_mono 0.000
+5: bend_vibrato_mono,57,16.646,39.979
+5: BEND bend_vibrato_mono range=2 observations=1000 absCents[median/p95/max]=5.272/9.709/10.150
+5: BEND settledMaxCents bend_vibrato_mono 0.292
+5: BEND movingMaxCents bend_vibrato_mono 10.150
+5: BEND releaseTailMaxCents bend_vibrato_mono 0.000
+5: bend_vibrato_mono,57,16.646,39.979
+5: BEND bend_vibrato_mono range=12 observations=1000 absCents[median/p95/max]=5.272/9.709/10.150
+5: BEND settledMaxCents bend_vibrato_mono 0.292
+5: BEND movingMaxCents bend_vibrato_mono 10.150
+5: BEND releaseTailMaxCents bend_vibrato_mono 0.000
+5: bend_fast_bend_mono,57,16.646,39.979
+5: BEND bend_fast_bend_mono range=2 observations=1000 absCents[median/p95/max]=0.029/18.496/25.791
+5: BEND settledMaxCents bend_fast_bend_mono 0.609
+5: BEND movingMaxCents bend_fast_bend_mono 25.791
+5: BEND releaseTailMaxCents bend_fast_bend_mono 0.000
+5: bend_fast_bend_mono,57,16.646,39.979
+5: BEND bend_fast_bend_mono range=12 observations=1000 absCents[median/p95/max]=0.029/18.496/25.791
+5: BEND settledMaxCents bend_fast_bend_mono 0.609
+5: BEND movingMaxCents bend_fast_bend_mono 25.791
+5: BEND releaseTailMaxCents bend_fast_bend_mono 0.000
+5: recorded_acoustic_E2_minus00_mono,40,56.729,42.646
+5: recorded_acoustic_E2_minus12_mono,40,56.729,42.646
+5: recorded_acoustic_G3_minus00_mono,55,56.250,37.312
+5: recorded_acoustic_G3_minus12_mono,55,56.250,37.312
+5: recorded_electric_Fs3_minus00_mono,54,21.958,37.312
+5: recorded_electric_Fs3_minus12_mono,54,21.958,37.312
+5: recorded_nylon_Cs3_minus00_mono,49,51.312,37.312
+5: recorded_nylon_Cs3_minus12_mono,49,51.312,37.312
+5: FlysnapperGuitarQuality:PASS (93967 checks,51 fixed-note cases x2 block sizes plus4 bend cases x2 ranges x2 block sizes;0 failures).
+5: Observed functional detector timing only; not physical5/10ms live latency certification. MIDI bend delivery uses a separate mandatory processor test.
+ 5/15 Test  #5: FlysnapperGuitarQuality ..........   Passed   18.38 sec
+test 6
+      Start  6: FlysnapperNoise
+
+6: Test command: /workspace/ChatGPT/build/native-release/FlysnapperNoiseTests
+6: Working Directory: /workspace/ChatGPT/build/native-release
+6: Test timeout computed to be: 120
+6: hum,8000,49.95,attenuation_db,-57.1171
+6: hum,8000,50,attenuation_db,-68.8849
+6: hum,8000,50.05,attenuation_db,-60.1951
+6: hum,8000,59.95,attenuation_db,-59.2518
+6: hum,8000,60,attenuation_db,-75.3156
+6: hum,8000,60.05,attenuation_db,-57.9671
+6: hum,12000,49.95,attenuation_db,-56.9656
+6: hum,12000,50,attenuation_db,-68.7667
+6: hum,12000,50.05,attenuation_db,-59.9676
+6: hum,12000,59.95,attenuation_db,-59.039
+6: hum,12000,60,attenuation_db,-75.1771
+6: hum,12000,60.05,attenuation_db,-57.7959
+6: hum,24000,49.95,attenuation_db,-56.8183
+6: hum,24000,50,attenuation_db,-68.6597
+6: hum,24000,50.05,attenuation_db,-59.8538
+6: hum,24000,59.95,attenuation_db,-58.8318
+6: hum,24000,60,attenuation_db,-75.0471
+6: hum,24000,60.05,attenuation_db,-57.6266
+6: mixed,-63.3325,freq,50.03,59.97
+6: quiet_guitar,49,noise_improvement_db,56.4446
+6: quiet_guitar,50,noise_improvement_db,56.4446
+6: quiet_guitar,61.7354,noise_improvement_db,56.4446
+6: quiet_guitar,82.4069,noise_improvement_db,56.4446
+6: quiet_guitar,100,noise_improvement_db,56.4446
+6: quiet_guitar,110,noise_improvement_db,56.4446
+6: quiet_guitar,196,noise_improvement_db,56.4446
+6: gain_evidence,0,snr,31.5561,harmonic,0.999302,phase,0.999972,floor,3.25815e-06,residual,5.88406e-06
+6: gain_evidence,1,snr,31.5561,harmonic,0.999302,phase,0.999972,floor,3.25814e-05,residual,5.88405e-05
+6: gain_evidence,2,snr,31.5561,harmonic,0.999302,phase,0.999972,floor,0.000325814,residual,0.000588405
+6: NoiseConditioner: PASS (214 mechanism checks; not recorded guitar/noise acceptance).
+ 6/15 Test  #6: FlysnapperNoise ..................   Passed    1.61 sec
+test 7
+      Start  7: FlysnapperInputDynamics
+
+7: Test command: /workspace/ChatGPT/build/native-release/FlysnapperInputDynamicsTests
+7: Working Directory: /workspace/ChatGPT/build/native-release
+7: Test timeout computed to be: 120
+7: gate_onset_ms,12000,0.25
+7: gate_onset_ms,44100,0.204082
+7: gate_onset_ms,48000,0.208333
+7: gate_onset_ms,96000,0.197917
+7: calibration,0.1,noise,-86.5,gate,-74.5,release,350,tonal_seconds,16.9
+7: calibration,1,noise,-66.5,gate,-54.5,release,350,tonal_seconds,16.9
+7: calibration,4,noise,-54.5,gate,-42.5,release,350,tonal_seconds,16.9
+7: Input dynamics checks passed: 32330
+ 7/15 Test  #7: FlysnapperInputDynamics ..........   Passed    0.59 sec
+test 8
+      Start  8: FlysnapperMpeOutput
+
+8: Test command: /workspace/ChatGPT/build/native-release/FlysnapperMpeOutputTests_artefacts/Release/FlysnapperMpeOutputTests
+8: Working Directory: /workspace/ChatGPT/build/native-release
+8: Test timeout computed to be: 120
+8: FlysnapperMpeOutput: PASS (98905 checks; actual JUCE MPE receiver; not Live/physical-latency proof).
+ 8/15 Test  #8: FlysnapperMpeOutput ..............   Passed    0.01 sec
+test 9
+      Start  9: FlysnapperMpeProcessor
+
+9: Test command: /workspace/ChatGPT/build/native-release/FlysnapperMpeProcessorTests_artefacts/Release/FlysnapperMpeProcessorTests
+9: Working Directory: /workspace/ChatGPT/build/native-release
+9: Test timeout computed to be: 180
+9: PASS chord isolation and output-mode lifecycle
+9: PASS held input controls and bypass
+9: MEASURE processor MPE mono first decision 15.9792ms; settled max error 0.170922 cents; not end-to-end latency
+9: PASS actual mono audio and source shutdown
+9: MEASURE static poly C3->C4 plus heldE4; new note decision 50.6458ms; fixed semitones, no physical-string identity claim
+9: PASS actual fixed-semitone poly transition and held note
+9: DIAGNOSTIC retained A2/E4 three-partial harmonic coincidence: initial expected2, matched1; missingE4=1; raw acquisition limitation, not an accuracy pass
+9: PASS retained harmonic-coincidence diagnostic safety only
+9: PASS state compatibility and bounded output
+9: FlysnapperMpeProcessor: PASS (20944 checks, 0 failed groups; actual JUCE MPE receiver; not Live/driver proof).
+ 9/15 Test  #9: FlysnapperMpeProcessor ...........   Passed    0.72 sec
+test 10
+      Start 10: FlysnapperBendProcessor
+
+10: Test command: /workspace/ChatGPT/build/native-release/FlysnapperBendProcessorTests_artefacts/Release/FlysnapperBendProcessorTests "/workspace/ChatGPT/Tests/AudioFixtures/guitar_controls"
+10: Working Directory: /workspace/ChatGPT/build/native-release
+10: Test timeout computed to be: 180
+10: MEASURE mono bend 2 semitone range, 44100 Hz: 203 wheel events, maximum 16383; fixed note57/ch2
+10: MEASURE mono bend 12 semitone range, 44100 Hz: 201 wheel events, maximum 11636; fixed note57/ch2
+10: MEASURE mono bend 2 semitone range, 48000 Hz: 203 wheel events, maximum 16383; fixed note57/ch2
+10: MEASURE mono bend 12 semitone range, 48000 Hz: 201 wheel events, maximum 11636; fixed note57/ch2
+10: MEASURE mono bend 2 semitone range, 96000 Hz: 202 wheel events, maximum 16383; fixed note57/ch2
+10: MEASURE mono bend 12 semitone range, 96000 Hz: 201 wheel events, maximum 11636; fixed note57/ch2
+10: MEASURE known PCM bend_whole_step, range2: actual MIDI pitch P95=6.41341c, max=6.83583c, settled max=0.146484c, n=920
+10: MEASURE known PCM bend_whole_step, range12: actual MIDI pitch P95=6.41927c, max=6.85156c, settled max=0.146484c, n=920
+10: MEASURE known PCM bend_whole_step_derived_decay48dB, range2: actual MIDI pitch P95=6.43587c, max=6.86024c, settled max=0.0244141c, n=920
+10: MEASURE known PCM bend_whole_step_derived_decay48dB, range12: actual MIDI pitch P95=6.44575c, max=6.85156c, settled max=0.0488281c, n=920
+10: MEASURE known PCM bend_semitone, range2: actual MIDI pitch P95=4.02995c, max=4.24967c, settled max=0.219727c, n=920
+10: MEASURE known PCM bend_semitone, range12: actual MIDI pitch P95=4.03971c, max=4.19488c, settled max=0.244141c, n=920
+10: MEASURE known PCM bend_vibrato, range2: actual MIDI pitch P95=9.72094c, max=10.1519c, settled max=0.0244141c, n=920
+10: MEASURE known PCM bend_vibrato, range12: actual MIDI pitch P95=9.70961c, max=10.1924c, settled max=0c, n=920
+10: MEASURE known PCM bend_fast_bend, range2: actual MIDI pitch P95=18.8965c, max=25.8577c, settled max=0.195312c, n=920
+10: MEASURE known PCM bend_fast_bend, range12: actual MIDI pitch P95=18.8965c, max=25.8822c, settled max=0.146484c, n=920
+10: FlysnapperBendProcessor: PASS (477880 checks; audio-derived expression, not physical/Live latency).
+10/15 Test #10: FlysnapperBendProcessor ..........   Passed    4.50 sec
+test 11
+      Start 11: FlysnapperPluginSmoke
+
+11: Test command: /workspace/ChatGPT/build/native-release/FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests
+11: Working Directory: /workspace/ChatGPT/build/native-release
+11: Test timeout computed to be: 120
+11: PASS 50 x 19 choices, stable IDs, mixed table, instances, malformed state, transient test reset
+11: PASS block-internal chord timing, routing role isolation, note binding, bypass, generated/external, sustain, panic, expression
+11: PASS generated sample schedule at 3 rates x 5 blocks, seek/stop, zero-frame reset, bounded overload, sidechain bus layouts
+11: PASS warmed processor C++ new allocation check (malloc/realloc and host wrapper excluded)
+11: PASS actual JUCE editor: large chord, 50x19 menus, flip/close continuity; front/back PNG snapshots written
+11: FlysnapperPluginSmoke: PASS (225962 assertions)
+11/15 Test #11: FlysnapperPluginSmoke ............   Passed    2.07 sec
+test 12
+      Start 12: FlysnapperProcessorAudio
+
+12: Test command: /workspace/ChatGPT/build/native-release/FlysnapperProcessorAudioTests_artefacts/Release/FlysnapperProcessorAudioTests
+12: Working Directory: /workspace/ChatGPT/build/native-release
+12: Test timeout computed to be: 180
+12: PASS connected silence, disabled sidechain and disabled audio module; external MIDI preserved
+12: MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 17 samples (not driver/end-to-end latency)
+12: MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 64 samples (not driver/end-to-end latency)
+12: MEASURE integrated mono first useful note 18.6621 ms, 44100 Hz / 257 samples (not driver/end-to-end latency)
+12: MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 17 samples (not driver/end-to-end latency)
+12: MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 64 samples (not driver/end-to-end latency)
+12: MEASURE integrated mono first useful note 18.6458 ms, 48000 Hz / 257 samples (not driver/end-to-end latency)
+12: MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 17 samples (not driver/end-to-end latency)
+12: MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 64 samples (not driver/end-to-end latency)
+12: MEASURE integrated mono first useful note 18.6562 ms, 96000 Hz / 257 samples (not driver/end-to-end latency)
+12: PASS actual audio decisions use same-sample chord first and never a future chord; original Note Off remains bound
+12: PASS real detected and external MIDI coexist, share correction and release only their own note ownership
+12: PASS actual polyphonic sidechain triad and mono/poly transitions without external note interruption
+12: PASS audio settings state and identical audio-to-MIDI with editor closed/open
+12: PASS twelve audio attack/silence/source-disconnect/panic cycles without stale output notes
+12: PASS finite stereo side survives NaN/Inf on either channel; anti-phase gain crossings retain fixed polarity and identical MIDI
+12: PASS missing legacy pitch parameters restore factory defaults instead of warm-instance values
+12: FlysnapperProcessorAudio: PASS (96333 checks). Functional integration budget is 150 ms; actual first-note timings are printed, not substituted for the requested live latency goals.
+12/15 Test #12: FlysnapperProcessorAudio .........   Passed    3.08 sec
+test 13
+      Start 13: FlysnapperDynamicsProcessor
+
+13: Test command: /workspace/ChatGPT/build/native-release/FlysnapperDynamicsProcessorTests_artefacts/Release/FlysnapperDynamicsProcessorTests "/workspace/ChatGPT/Tests/AudioFixtures"
+13: Working Directory: /workspace/ChatGPT/build/native-release
+13: Test timeout computed to be: 240
+13: FlysnapperDynamicsProcessor: PASS (600933 checks, 86 bounded cases; not physical latency or universal guitar acceptance).
+13/15 Test #13: FlysnapperDynamicsProcessor ......   Passed   12.22 sec
+test 14
+      Start 14: FlysnapperActualVst3
+
+14: Test command: /workspace/ChatGPT/build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3"
+14: Working Directory: /workspace/ChatGPT/build/native-release
+14: Test timeout computed to be: 120
+14: PASS actual VST3 discovery and instrument classification
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 32 samples
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 128 samples
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 257 samples
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 32 samples
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 128 samples
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 257 samples
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 32 samples
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 128 samples
+14: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 257 samples
+14: PASS actual VST3 named sidechain activation, audio, digital silence and deactivation
+14: PASS actual VST3 generated/external simultaneous events, 4800-sample test gate, source-only shutdown
+14: PASS actual VST3 all settings/table state roundtrip, instance isolation, no revived notes
+14: PASS actual VST3 stop/restart/seek flush, no stale chord or repeated note offs
+14: MEASURE actual VST3 Controller Modulation Wheel (coarse): 73 Channel 2 offset in=17 out=17
+14: MEASURE actual VST3 Pitch wheel 12345 Channel 2 offset in=17 out=17
+14: MEASURE actual VST3 Channel pressure 41 Channel 2 offset in=17 out=17
+14: MEASURE actual VST3 Program change 17 Channel 2 offset in=17 out=17
+14: PASS actual VST3 CC1, pitch bend, channel pressure and program-change values
+14: PASS actual VST3 forwarded CC66/CC69 released at transport stop without active core voices
+14: MEASURE actual VST3 audio first useful note 15.9792 ms (functional sample observation, excludes driver/Live/synth latency)
+14: PASS actual compiled VST3 mono/poly sidechain -> MIDI -> correction, simultaneous external/control MIDI and source-only shutdown
+14: MEASURE actual VST3 mono bend 44100 Hz, +/-2 semitones: 152 pitch updates, P95 error 4.30367 cents
+14: MEASURE actual VST3 mono bend 44100 Hz, +/-12 semitones: 152 pitch updates, P95 error 4.30367 cents
+14: MEASURE actual VST3 mono bend 48000 Hz, +/-2 semitones: 152 pitch updates, P95 error 4.30476 cents
+14: MEASURE actual VST3 mono bend 48000 Hz, +/-12 semitones: 152 pitch updates, P95 error 4.30476 cents
+14: MEASURE actual VST3 mono bend 96000 Hz, +/-2 semitones: 151 pitch updates, P95 error 4.31094 cents
+14: MEASURE actual VST3 mono bend 96000 Hz, +/-12 semitones: 151 pitch updates, P95 error 4.31094 cents
+14: PASS actual VST3 acoustic bend/vibrato, RPN range, generated channel isolation and wheel reset
+14: RESULT actual VST3 host tests passed (952498 assertions).
+14: PLATFORM VERIFIED: native Linux VST3; Windows build is a separate required result.
+14: NOT VERIFIED BY THIS TEST: Ableton Live, audio-driver/end-to-end latency or general musical accuracy.
+14/15 Test #14: FlysnapperActualVst3 .............   Passed    3.39 sec
+test 15
+      Start 15: FlysnapperMpeActualVst3
+
+15: Test command: /workspace/ChatGPT/build/native-release/FlysnapperMpeVst3HostTests_artefacts/Release/FlysnapperMpeVst3HostTests "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3"
+15: Working Directory: /workspace/ChatGPT/build/native-release
+15: Test timeout computed to be: 180
+15: PASS actual VST3 MPE protocol serialization/master/member input
+15: MEASURE actual VST3 MPE mono first decision 15.9792ms; settled P95 0.0183105 cents; not driver latency
+15: PASS actual VST3 mono audio and independent keyboard expression
+15: MEASURE actual VST3 static poly first decisions 58.6458 / 101.312ms; new semitone 50.6458ms after fret step; old note release 69.3125ms; not driver latency
+15: PASS actual VST3 static poly semitones, chord correction and independent releases
+15: FlysnapperMpeVst3Host: PASS (4383 checks, 0 failed groups).
+15: Not verified: Ableton runtime, Windows unless run natively there, audio-driver latency, general musical readiness.
+15/15 Test #15: FlysnapperMpeActualVst3 ..........   Passed    0.48 sec
+
+100% tests passed out of 15
+
+Total Test time (real) =  70.17 sec
+BYGG OG AUTOMATISKE TESTER BESTATT: /workspace/ChatGPT/dist/linux-validation/Flysnapper.vst3
+Ableton Live og fysisk end-to-end-latency er ikke verifisert av byggeskriptet.
+Ingen installasjon utført. Windows: bruk --install eller --install-only naar du onsker installasjon.

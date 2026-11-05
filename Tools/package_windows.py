@@ -10,6 +10,11 @@ import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 BINARY='Contents/x86_64-win/Flysnapper.vst3'
 
+def dynamics_evidence_module():
+    spec=importlib.util.spec_from_file_location('flysnapper_input_dynamics_evidence',Path(__file__).with_name('input_dynamics_evidence.py'))
+    result=importlib.util.module_from_spec(spec);spec.loader.exec_module(result)
+    return result
+
 def safe_relative(name: str) -> str:
     path=PurePosixPath(name)
     reserved={'CON','PRN','AUX','NUL'}|{f'{p}{i}' for p in ('COM','LPT') for i in range(1,10)}
@@ -48,8 +53,13 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
         raise ValueError('Native Windows toolchain and Unicode probes must pass')
     if manifest.get('pitch_detection_implemented') is not True or 'prototype' in str(manifest.get('stage','')).lower():
         raise ValueError('An unfinished prototype cannot be shipped as the complete product')
+    dynamics=dynamics_evidence_module()
+    if version=='0.3.0' and manifest.get('stage')!=dynamics.EVALUATION_STAGE:
+        raise ValueError('Flysnapper 0.3.0 requires the qualified real-guitar evaluation stage')
+    if manifest.get('stage')==dynamics.EVALUATION_STAGE and manifest.get('evaluation_scope')!=dynamics.EVALUATION_SCOPE:
+        raise ValueError('The dated real-guitar evaluation scope is missing or different')
     required=manifest.get('required_test_names')
-    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperYin','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3'}<=set(required):
+    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperYin','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperInputDynamics','FlysnapperDynamicsProcessor','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3'}<=set(required):
         raise ValueError('Missing required validation target names')
     report=dist/'test-results.xml'
     if report.is_symlink():raise ValueError('Symlink test report is not accepted')
@@ -107,6 +117,8 @@ def build_package(root: Path,dist: Path,output: Path) -> Path:
     if not re.fullmatch(r'\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?',version):raise ValueError('Invalid project version')
     bundle,build=verified_payload(dist,version)
     audio_evidence=verified_audio_evidence(root,dist)
+    dynamics=dynamics_evidence_module()
+    dynamics_evidence=dynamics.verify(root,dist,build)
     diagnostic_spec=importlib.util.spec_from_file_location('flysnapper_windows_diagnostics',Path(__file__).with_name('windows_audio_diagnostics.py'))
     diagnostics=importlib.util.module_from_spec(diagnostic_spec);diagnostic_spec.loader.exec_module(diagnostics)
     diagnostic_evidence=diagnostics.verify_saved(root,dist,build)
@@ -117,17 +129,21 @@ def build_package(root: Path,dist: Path,output: Path) -> Path:
     members['INSTALL_FLYSNAPPER.bat']=(root/'INSTALL_FLYSNAPPER.bat').read_bytes()
     for n in ('LICENSE.txt','THIRD_PARTY.md'):members[n]=(root/n).read_bytes()
     members['BRUKERVEILEDNING.md']=(root/'docs/BRUKERVEILEDNING.md').read_bytes()
+    members['INPUT_DYNAMICS.md']=(root/'docs/INPUT_DYNAMICS.md').read_bytes()
     members['Validation/build-manifest.json']=json.dumps(build,indent=2,ensure_ascii=False).encode('utf-8')+b'\n'
     members['Validation/test-results.xml']=(dist/'test-results.xml').read_bytes()
     members['Validation/automated-tests.txt']=(dist/'automated-tests.txt').read_bytes()
     members.update({'Validation/audio-validation/'+name:data for name,data in audio_evidence.items()})
+    members.update({'Validation/input-dynamics/'+name:data for name,data in dynamics_evidence.items()})
     members.update({'Validation/windows-audio-diagnostics/'+name:data for name,data in diagnostic_evidence.items()})
     members['LES_MEG.txt']=(f'''Flysnapper {version} - Windows x64 VST3\r\n\r\nPakk ut HELE ZIP-filen til en egen mappe, for eksempel pa D:.\r\nLukk Ableton og andre pluginverter. Dobbeltklikk INSTALL_FLYSNAPPER.bat.\r\nVelg VST3-mappen som Ableton bruker. Installeren kopierer bare Flysnapper.vst3.\r\nIngen Python, CMake eller Visual Studio kreves.\r\nVed erstatning beholdes en kontrollert sikkerhetskopi utenfor VST3-mappen.\r\nBuffkiller og andre plugins blir ikke endret.\r\n\r\nKanal 1 er spille-MIDI, kanal 16 er akkordkontroll. Velg sidechain-audio\r\ni vertens eget panel. Mono/poly velges i Flysnapper.\r\nSe BRUKERVEILEDNING.md for ruting, betjening og maalte grenser.\r\nKildekoden finnes i Source/Flysnapper-Source.zip.\r\nWindows-bygg og automatiske tester finnes under Validation. Dette er ikke\r\ni seg selv dokumentasjon av fysisk lydkortlatency eller en Ableton-test.\r\n''').encode('utf-8-sig')
+    members['LES_MEG.txt'] += ('''\r\nFør første gitarprøve: Åpne Input dynamics og trykk Learn / 20 seconds.\r\nDemp strengene i 3 sekunder med vanlig håndkontakt. Spill deretter normalt\r\ni 17 sekunder, med svake/sterke anslag, akkorder og en lang utklang.\r\nEn vellykket prøve stiller de synlige kontrollene. Du kan justere dem etterpå.\r\nGenerert MIDI er dempet under prøven; eksternt spille-MIDI fortsetter.\r\nSe INPUT_DYNAMICS.md for kalibrering, gate, kompressor, limiter og hjelpetekster.\r\nMono har valgfri bending. Poly sender definerte halvtoner uten polyfonisk bend.\r\nForsinkelsen optimaliseres og rapporteres per tone og måleoppsett. Lydkort,\r\nvertens buffere/ruting og mottakerinstrument bidrar til totalforsinkelsen.\r\n''').encode('utf-8')
     spec=importlib.util.spec_from_file_location('flysnapper_source_shipping',root/'Tools/package_source.py')
     source=importlib.util.module_from_spec(spec);spec.loader.exec_module(source)
     with tempfile.TemporaryDirectory(prefix='flysnapper-corresponding-source-') as temp:
         p=Path(temp)/'Flysnapper-Source.zip';source.build_package(root,p);members['Source/Flysnapper-Source.zip']=p.read_bytes()
     shipping={'schema':1,'product':'Flysnapper','version':version,'platform':'Windows-x64','tests':'passed',
+              'stage':build.get('stage'),'evaluation_scope':build.get('evaluation_scope'),
               'source_commit':build.get('source_commit'),'files':{n:hashlib.sha256(b).hexdigest() for n,b in sorted(members.items())}}
     members['release-manifest.json']=json.dumps(shipping,indent=2,ensure_ascii=False).encode('utf-8')+b'\n'
     output=output.absolute()

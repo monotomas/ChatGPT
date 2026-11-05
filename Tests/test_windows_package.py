@@ -15,6 +15,7 @@ shipping=module('windows_shipping_test',ROOT/'Tools/package_windows.py')
 source=module('source_shipping_test',ROOT/'Tools/package_source.py')
 publisher=module('publisher_shipping_test',ROOT/'Tools/publish_windows_delivery.py')
 diagnostics=module('diagnostics_shipping_test',ROOT/'Tools/windows_audio_diagnostics.py')
+dynamics=module('dynamics_shipping_test',ROOT/'Tools/input_dynamics_evidence.py')
 with mock.patch.dict(sys.modules,{'package_windows':shipping}):
     installed_verifier=module('installed_verifier_shipping_test',ROOT/'Tools/verify_windows_install.py')
 
@@ -31,7 +32,7 @@ class WindowsPackageTests(unittest.TestCase):
         p=self.bundle/shipping.BINARY;p.parent.mkdir(parents=True)
         pe=bytearray(512);pe[:2]=b'MZ';pe[60:64]=(128).to_bytes(4,'little');pe[128:134]=b'PE\0\0\x64\x86';p.write_bytes(pe)
         (self.bundle/'Contents/Resources').mkdir();(self.bundle/'Contents/Resources/moduleinfo.json').write_text('{}')
-        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperYin','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3','FlysnapperAudioQuality']
+        self.required=['FlysnapperCore','FlysnapperPluginSmoke','FlysnapperActualVst3','FlysnapperProcessorAudio','FlysnapperPitch','FlysnapperYin','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperInputDynamics','FlysnapperDynamicsProcessor','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3','FlysnapperAudioQuality']
         self.manifest={'version':'1.0.0','stage':'complete','platform':'Windows-x64','tests':'passed','windows_verified':True,
                        'toolchain_probe':'passed','juceaide_unicode_probe':'passed','pitch_detection_implemented':True,
                        'required_test_names':self.required,'bundle_sha256':{n:hashlib.sha256(b).hexdigest() for n,b in shipping.files_below(self.bundle).items()},
@@ -57,11 +58,46 @@ class WindowsPackageTests(unittest.TestCase):
                          'fixture_inventory_sha256':h(self.root/'Tests/AudioFixtures/fixtures.tsv')}
         (evidence/'report-manifest.json').write_text(json.dumps(self.audio_proof))
         self.make_diagnostic_fixture()
+        self.make_dynamics_fixture()
     def save_manifest(self):
+        dynamics_path=self.dist/dynamics.DIRECTORY/dynamics.MANIFEST
+        if dynamics_path.is_file():
+            document=json.loads(dynamics_path.read_text());document['source_commit']=self.manifest['source_commit']
+            dynamics_path.write_text(json.dumps(document))
+            self.manifest['input_dynamics_evidence']={'path':dynamics.DIRECTORY+'/'+dynamics.MANIFEST,'sha256':hashlib.sha256(dynamics_path.read_bytes()).hexdigest()}
         (self.dist/'build-manifest.json').write_text(json.dumps(self.manifest))
         path=self.dist/'windows-audio-diagnostics'/diagnostics.MANIFEST
         if path.is_file():
             document=json.loads(path.read_text());document['source_commit']=self.manifest['source_commit'];path.write_text(json.dumps(document))
+    def make_dynamics_fixture(self):
+        # Protocol fixture only: actual compiled frontend execution is mandatory
+        # in CTest/Windows CI and is never established by these synthetic bytes.
+        build=self.root/'build/w-fixture';build.mkdir(parents=True,exist_ok=True)
+        executable=build/'FlysnapperDynamicsProcessorTests_artefacts/Release/FlysnapperDynamicsProcessorTests.exe'
+        executable.parent.mkdir(parents=True,exist_ok=True);executable.write_bytes((self.bundle/shipping.BINARY).read_bytes())
+        for name in (*dynamics.READINESS_METADATA,*dynamics.READINESS_PCM):
+            target=self.root/dynamics.READINESS/name;target.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copyfile(ROOT/dynamics.READINESS/name,target)
+        report={'schema':1,'kind':dynamics.TEST,'status':'passed','checks':123,'physical_latency_measured':False,
+                'cases':[{'name':'fixture','status':'passed'}],
+                'fixture_inputs':{'fixture_root':dynamics.READINESS,'seal_sha256':dynamics.READINESS_SEAL,
+                                  'files_sha256':dict(dynamics.READINESS_PCM),'hash_role':'Protocol fixture; no native execution'},
+                'events_file':dynamics.EVENTS,'events_rows':2}
+        events='case,rate,block,sample,type,note\nfixture,48000,64,2400,N,60\nfixture,48000,64,4800,F,60\n'
+        for filename,digest in dynamics.READINESS_PCM.items():
+            note=int(Path(filename).stem.split('_')[2])
+            for bend,suffix in ((False,'mono_notes'),(True,'mono_bend')):
+                name='sealed_'+Path(filename).stem+'_'+suffix
+                report['cases'].append({'name':name,'status':'passed','fixture_file':filename,'expected_fixture_sha256':digest,
+                                        'mono_bend':bend,'pitch':note,'reference_on_sample':24000,'reference_off_sample':74400,
+                                        'decision_sample':25000,'actual_off_sample':76000,'latency_ms':1000/48})
+                events+=f'{name},48000,64,25000,N,{note}\n{name},48000,64,76000,F,{note}\n'
+        report['events_rows']=len(events.splitlines())-1
+        (build/dynamics.REPORT).write_text(json.dumps(report))
+        (build/dynamics.EVENTS).write_text(events)
+        (build/dynamics.COMPILED_INPUTS).write_text(json.dumps(dynamics.source_hashes(self.root)))
+        self.manifest['input_dynamics_evidence']=dynamics.collect(self.root,build,self.dist,self.manifest)
+        self.save_manifest()
     def make_diagnostic_fixture(self):
         base=self.dist/'windows-audio-diagnostics';base.mkdir()
         fields=['case','family','mode','rate','block',*diagnostics.INTS,*diagnostics.LATENCY,*diagnostics.RELEASE,*diagnostics.CPU]
@@ -101,8 +137,10 @@ class WindowsPackageTests(unittest.TestCase):
         self.package();shipping.verify_package(self.output)
         with ZipFile(self.output) as z:
             p='Flysnapper-1.0.0-Windows-x64/'
-            for n in ('INSTALL_FLYSNAPPER.bat','Install-Flysnapper.ps1','BRUKERVEILEDNING.md','Flysnapper.vst3/'+shipping.BINARY,
+            for n in ('INSTALL_FLYSNAPPER.bat','Install-Flysnapper.ps1','BRUKERVEILEDNING.md','INPUT_DYNAMICS.md','Flysnapper.vst3/'+shipping.BINARY,
                       'Source/Flysnapper-Source.zip','Validation/test-results.xml','Validation/build-manifest.json','Validation/audio-validation/summary.json',
+                      'Validation/input-dynamics/report-manifest.json','Validation/input-dynamics/Flysnapper-dynamics-evaluation.json',
+                      'Validation/input-dynamics/Flysnapper-dynamics-events.csv',
                       'Validation/windows-audio-diagnostics/diagnostics-manifest.json',
                       'Validation/windows-audio-diagnostics/public/audio-cases.csv',
                       'Validation/windows-audio-diagnostics/holdout/audio-events.csv',
@@ -110,6 +148,9 @@ class WindowsPackageTests(unittest.TestCase):
                 self.assertIn(p+n,z.namelist())
             release=json.loads(z.read(p+'release-manifest.json'))
             for n,h in release['files'].items():self.assertEqual(hashlib.sha256(z.read(p+n)).hexdigest(),h)
+            readme=z.read(p+'LES_MEG.txt').decode('utf-8-sig')
+            self.assertIn('Learn / 20 seconds',readme);self.assertIn('i 17 sekunder',readme)
+            self.assertIn('definerte halvtoner uten polyfonisk bend',readme)
     def test_linux_failed_or_incomplete_proof_is_rejected(self):
         for key,value in [('platform','Linux-x86_64'),('tests','failed'),('version','0.1.0'),('windows_verified',False),
                           ('toolchain_probe','missing'),('juceaide_unicode_probe','missing'),('pitch_detection_implemented',False),('stage','routing-midi-prototype'),('stage','musical-readiness-research-prototype')]:
@@ -118,14 +159,24 @@ class WindowsPackageTests(unittest.TestCase):
                 with self.assertRaises(ValueError):self.package()
                 self.assertFalse(self.output.exists());self.manifest[key]=old
         self.save_manifest()
+    def test_030_requires_explicit_dated_guitar_evaluation_scope(self):
+        self.manifest['version']='0.3.0';self.save_manifest()
+        with self.assertRaisesRegex(ValueError,'evaluation stage'):shipping.verified_payload(self.dist,'0.3.0')
+        self.manifest['stage']=dynamics.EVALUATION_STAGE;self.manifest['evaluation_scope']=dict(dynamics.EVALUATION_SCOPE)
+        self.save_manifest();shipping.verified_payload(self.dist,'0.3.0')
+        for key,value in (('revision_date','2026-11-04'),('polyphonic_bending',True),('real_guitar_test_pending',False),('latency','fixed-5ms')):
+            with self.subTest(key=key):
+                self.manifest['evaluation_scope'][key]=value;self.save_manifest()
+                with self.assertRaisesRegex(ValueError,'evaluation scope'):shipping.verified_payload(self.dist,'0.3.0')
+                self.manifest['evaluation_scope']=dict(dynamics.EVALUATION_SCOPE)
     def test_required_test_must_exist_and_run_without_skip_or_failure(self):
         for content in ('','<testcase name="FlysnapperAudioQuality"><skipped/></testcase>',
                         '<testcase name="FlysnapperAudioQuality"><failure/></testcase>',
                         '<testcase name="FlysnapperAudioQuality" status="disabled"/>'):
             self.report=''.join(f'<testcase name="{n}"/>' for n in self.required[:-1])+content;self.save_report()
             with self.assertRaises(ValueError):self.package()
-    def test_guitar_noise_and_mpe_groups_are_required_for_shipping(self):
-        for missing in ('FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3'):
+    def test_guitar_noise_dynamics_and_mpe_groups_are_required_for_shipping(self):
+        for missing in ('FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperInputDynamics','FlysnapperDynamicsProcessor','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3'):
             with self.subTest(missing=missing):
                 self.manifest['required_test_names']=[name for name in self.required if name!=missing]
                 self.save_manifest()
@@ -133,6 +184,15 @@ class WindowsPackageTests(unittest.TestCase):
     def test_tampered_or_extra_binary_bundle_file_blocks_package(self):
         (self.bundle/shipping.BINARY).write_bytes(b'tampered')
         with self.assertRaises(ValueError):self.package()
+    def test_missing_or_changed_full_processor_dynamics_evidence_blocks_shipping(self):
+        path=self.dist/dynamics.DIRECTORY/dynamics.EVENTS;data=path.read_bytes()
+        path.unlink()
+        with self.assertRaisesRegex(ValueError,'dynamics evidence'):self.package()
+        path.write_bytes(data+b'changed')
+        with self.assertRaises(ValueError):self.package()
+        path.write_bytes(data)
+        (self.root/'Source/Pitch/InputDynamics.h').write_text('changed after the measured build')
+        with self.assertRaisesRegex(ValueError,'source differs'):self.package()
     def test_extra_resource_cannot_escape_bundle_manifest(self):
         (self.bundle/'Contents/Resources/unexpected.txt').write_text('extra')
         with self.assertRaises(ValueError):self.package()
@@ -178,7 +238,7 @@ class WindowsPackageTests(unittest.TestCase):
         base=self.dist/'windows-audio-diagnostics'
         saved={name:{n:(base/name/n).read_bytes() for n in diagnostics.FILES if n!='runner-output.txt'} for name in diagnostics.SPECS}
         shutil.rmtree(base)
-        evaluator=self.root/'build/w-fixture/FlysnapperAudioValidation.exe';evaluator.parent.mkdir(parents=True);shutil.copyfile(self.bundle/shipping.BINARY,evaluator)
+        evaluator=self.root/'build/w-fixture/FlysnapperAudioValidation.exe';evaluator.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(self.bundle/shipping.BINARY,evaluator)
         self.audio_proof['evaluator_sha256']=hashlib.sha256(evaluator.read_bytes()).hexdigest()
         (self.dist/'audio-validation/report-manifest.json').write_text(json.dumps(self.audio_proof))
         calls=[]
@@ -319,14 +379,24 @@ class WindowsPackageTests(unittest.TestCase):
         (self.root/'source.txt').write_text('source fixture');git('add','source.txt');git('commit','--quiet','-m','fixture source');git('remote','add','origin',remote)
         return git,git('rev-parse','HEAD').decode().strip()
     def test_complete_publication_and_failed_next_build_preserve_verified_artifact(self):
+        (self.root/'dependencies.lock.json').write_text(json.dumps({'project_version':'0.3.0'}))
+        self.manifest.update(version='0.3.0',stage=dynamics.EVALUATION_STAGE,evaluation_scope=dict(dynamics.EVALUATION_SCOPE))
+        self.make_dynamics_fixture()
         git,commit=self.make_git_source();self.manifest['source_commit']=commit;self.save_manifest();self.package()
         with mock.patch.dict(os.environ,{'GITHUB_SHA':commit}),mock.patch.dict(sys.modules,{'package_windows':shipping}):
             publisher.publish(self.root,'completed',self.output,None,self.dist/'build-manifest.json',self.dist/'test-results.xml',installation_proof=self.installation_proof(commit))
         git('fetch','--quiet','origin',publisher.BRANCH)
         state=json.loads(git('show','FETCH_HEAD:status.json'))
         self.assertEqual(state['status'],'completed');self.assertEqual(state['source_commit'],commit)
+        self.assertEqual(state['stage'],dynamics.EVALUATION_STAGE);self.assertEqual(state['evaluation_scope'],dynamics.EVALUATION_SCOPE)
+        self.assertIn('for gitarprøve',git('show','FETCH_HEAD:README.md').decode('utf-8'))
         self.assertEqual(state['artifact']['sha256'],hashlib.sha256(self.output.read_bytes()).hexdigest())
         delivered=git('show','FETCH_HEAD:downloads/Flysnapper-Windows-x64.zip');self.assertEqual(delivered,self.output.read_bytes())
+        invalid=dict(self.manifest);invalid['evaluation_scope']=dict(dynamics.EVALUATION_SCOPE,real_guitar_test_pending=False)
+        (self.dist/'build-manifest.json').write_text(json.dumps(invalid))
+        with mock.patch.dict(os.environ,{'GITHUB_SHA':commit}),mock.patch.dict(sys.modules,{'package_windows':shipping}),self.assertRaisesRegex(ValueError,'evaluation scope'):
+            publisher.publish(self.root,'completed',self.output,None,self.dist/'build-manifest.json',self.dist/'test-results.xml',installation_proof=self.installation_proof(commit))
+        self.save_manifest()
         (self.root/'source.txt').write_text('next source');git('add','source.txt');git('commit','--quiet','-m','next fixture source')
         next_commit=git('rev-parse','HEAD').decode().strip()
         with mock.patch.dict(os.environ,{'GITHUB_SHA':next_commit}):publisher.publish(self.root,'failed',None,None,None,None)

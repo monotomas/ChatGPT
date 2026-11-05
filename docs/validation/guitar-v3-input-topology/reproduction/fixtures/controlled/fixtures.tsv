@@ -1,0 +1,73 @@
+case	family	mode	file	truth	bend_enabled
+hum50_450_mono	stationary-mains	mono	pcm/hum50_450.wav		1
+hum50_450_poly	stationary-mains	poly	pcm/hum50_450.wav		1
+hum50_3600_mono	stationary-mains	mono	pcm/hum50_3600.wav		1
+hum50_3600_poly	stationary-mains	poly	pcm/hum50_3600.wav		1
+hum60_450_mono	stationary-mains	mono	pcm/hum60_450.wav		1
+hum60_450_poly	stationary-mains	poly	pcm/hum60_450.wav		1
+hum60_3600_mono	stationary-mains	mono	pcm/hum60_3600.wav		1
+hum60_3600_poly	stationary-mains	poly	pcm/hum60_3600.wav		1
+handling_damped_contacts_mono	non-tonal-handling	mono	pcm/handling_damped_contacts.wav		1
+handling_damped_contacts_poly	non-tonal-handling	poly	pcm/handling_damped_contacts.wav		1
+fret_squeaks_mono	non-tonal-squeak	mono	pcm/fret_squeaks.wav		1
+fret_squeaks_poly	non-tonal-squeak	poly	pcm/fret_squeaks.wav		1
+broadband_noise_mono	broadband-noise	mono	pcm/broadband_noise.wav		1
+broadband_noise_poly	broadband-noise	poly	pcm/broadband_noise.wav		1
+handling_squeak_hum_mono	mixed-unwanted	mono	pcm/handling_squeak_hum.wav		1
+handling_squeak_hum_poly	mixed-unwanted	poly	pcm/handling_squeak_hum.wav		1
+quiet_hum_31_gain1_mono	quiet-guitar-mains	mono	pcm/quiet_hum_31_gain1.wav	31:24000:74400	1
+quiet_hum_31_gain1_poly	quiet-guitar-mains	poly	pcm/quiet_hum_31_gain1.wav	31:24000:74400	1
+quiet_hum_31_gain8_mono	quiet-guitar-mains	mono	pcm/quiet_hum_31_gain8.wav	31:24000:74400	1
+quiet_hum_31_gain8_poly	quiet-guitar-mains	poly	pcm/quiet_hum_31_gain8.wav	31:24000:74400	1
+quiet_hum_40_gain1_mono	quiet-guitar-mains	mono	pcm/quiet_hum_40_gain1.wav	40:24000:74400	1
+quiet_hum_40_gain1_poly	quiet-guitar-mains	poly	pcm/quiet_hum_40_gain1.wav	40:24000:74400	1
+quiet_hum_40_gain8_mono	quiet-guitar-mains	mono	pcm/quiet_hum_40_gain8.wav	40:24000:74400	1
+quiet_hum_40_gain8_poly	quiet-guitar-mains	poly	pcm/quiet_hum_40_gain8.wav	40:24000:74400	1
+quiet_hum_52_gain1_mono	quiet-guitar-mains	mono	pcm/quiet_hum_52_gain1.wav	52:24000:74400	1
+quiet_hum_52_gain1_poly	quiet-guitar-mains	poly	pcm/quiet_hum_52_gain1.wav	52:24000:74400	1
+quiet_hum_52_gain8_mono	quiet-guitar-mains	mono	pcm/quiet_hum_52_gain8.wav	52:24000:74400	1
+quiet_hum_52_gain8_poly	quiet-guitar-mains	poly	pcm/quiet_hum_52_gain8.wav	52:24000:74400	1
+quiet_hum_64_gain1_mono	quiet-guitar-mains	mono	pcm/quiet_hum_64_gain1.wav	64:24000:74400	1
+quiet_hum_64_gain1_poly	quiet-guitar-mains	poly	pcm/quiet_hum_64_gain1.wav	64:24000:74400	1
+quiet_hum_64_gain8_mono	quiet-guitar-mains	mono	pcm/quiet_hum_64_gain8.wav	64:24000:74400	1
+quiet_hum_64_gain8_poly	quiet-guitar-mains	poly	pcm/quiet_hum_64_gain8.wav	64:24000:74400	1
+music_handling_snr6_gain1_mono	music-plus-handling	mono	pcm/music_handling_snr6_gain1.wav	57:21600:73440	1
+music_handling_snr6_gain1_poly	music-plus-handling	poly	pcm/music_handling_snr6_gain1.wav	57:21600:73440	1
+music_handling_snr6_gain4_mono	music-plus-handling	mono	pcm/music_handling_snr6_gain4.wav	57:21600:73440	1
+music_handling_snr6_gain4_poly	music-plus-handling	poly	pcm/music_handling_snr6_gain4.wav	57:21600:73440	1
+music_handling_snr12_gain1_mono	music-plus-handling	mono	pcm/music_handling_snr12_gain1.wav	57:21600:73440	1
+music_handling_snr12_gain1_poly	music-plus-handling	poly	pcm/music_handling_snr12_gain1.wav	57:21600:73440	1
+music_handling_snr12_gain4_mono	music-plus-handling	mono	pcm/music_handling_snr12_gain4.wav	57:21600:73440	1
+music_handling_snr12_gain4_poly	music-plus-handling	poly	pcm/music_handling_snr12_gain4.wav	57:21600:73440	1
+music_handling_snr24_gain1_mono	music-plus-handling	mono	pcm/music_handling_snr24_gain1.wav	57:21600:73440	1
+music_handling_snr24_gain1_poly	music-plus-handling	poly	pcm/music_handling_snr24_gain1.wav	57:21600:73440	1
+music_handling_snr24_gain4_mono	music-plus-handling	mono	pcm/music_handling_snr24_gain4.wav	57:21600:73440	1
+music_handling_snr24_gain4_poly	music-plus-handling	poly	pcm/music_handling_snr24_gain4.wav	57:21600:73440	1
+fretted_slide_up_35ms_mono	fretted-slide	mono	pcm/fretted_slide_up_35ms.wav	57:12000:13680,58:13680:15360,59:15360:17040,60:17040:18720,61:18720:20400,62:20400:22080,63:22080:23760,64:23760:37440	1
+fretted_slide_up_35ms_poly	fretted-slide	poly	pcm/fretted_slide_up_35ms.wav	57:12000:13680,58:13680:15360,59:15360:17040,60:17040:18720,61:18720:20400,62:20400:22080,63:22080:23760,64:23760:37440	1
+fretted_slide_down_35ms_mono	fretted-slide	mono	pcm/fretted_slide_down_35ms.wav	64:12000:13680,63:13680:15360,62:15360:17040,61:17040:18720,60:18720:20400,59:20400:22080,58:22080:23760,57:23760:37440	1
+fretted_slide_down_35ms_poly	fretted-slide	poly	pcm/fretted_slide_down_35ms.wav	64:12000:13680,63:13680:15360,62:15360:17040,61:17040:18720,60:18720:20400,59:20400:22080,58:22080:23760,57:23760:37440	1
+fretted_slide_up_65ms_mono	fretted-slide	mono	pcm/fretted_slide_up_65ms.wav	57:12000:15120,58:15120:18240,59:18240:21360,60:21360:24480,61:24480:27600,62:27600:30720,63:30720:33840,64:33840:48960	1
+fretted_slide_up_65ms_poly	fretted-slide	poly	pcm/fretted_slide_up_65ms.wav	57:12000:15120,58:15120:18240,59:18240:21360,60:21360:24480,61:24480:27600,62:27600:30720,63:30720:33840,64:33840:48960	1
+fretted_slide_down_65ms_mono	fretted-slide	mono	pcm/fretted_slide_down_65ms.wav	64:12000:15120,63:15120:18240,62:18240:21360,61:21360:24480,60:24480:27600,59:27600:30720,58:30720:33840,57:33840:48960	1
+fretted_slide_down_65ms_poly	fretted-slide	poly	pcm/fretted_slide_down_65ms.wav	64:12000:15120,63:15120:18240,62:18240:21360,61:21360:24480,60:24480:27600,59:27600:30720,58:30720:33840,57:33840:48960	1
+fretted_slide_up_105ms_mono	fretted-slide	mono	pcm/fretted_slide_up_105ms.wav	57:12000:17040,58:17040:22080,59:22080:27120,60:27120:32160,61:32160:37200,62:37200:42240,63:42240:47280,64:47280:64320	1
+fretted_slide_up_105ms_poly	fretted-slide	poly	pcm/fretted_slide_up_105ms.wav	57:12000:17040,58:17040:22080,59:22080:27120,60:27120:32160,61:32160:37200,62:37200:42240,63:42240:47280,64:47280:64320	1
+fretted_slide_down_105ms_mono	fretted-slide	mono	pcm/fretted_slide_down_105ms.wav	64:12000:17040,63:17040:22080,62:22080:27120,61:27120:32160,60:32160:37200,59:37200:42240,58:42240:47280,57:47280:64320	1
+fretted_slide_down_105ms_poly	fretted-slide	poly	pcm/fretted_slide_down_105ms.wav	64:12000:17040,63:17040:22080,62:22080:27120,61:27120:32160,60:32160:37200,59:37200:42240,58:42240:47280,57:47280:64320	1
+hammer_pull_no_amplitude_attack_mono	hammer-pull	mono	pcm/hammer_pull_no_amplitude_attack.wav	52:12000:27360,55:27360:42240,59:42240:56160,55:56160:71040,52:71040:84960	1
+hammer_pull_no_amplitude_attack_poly	hammer-pull	poly	pcm/hammer_pull_no_amplitude_attack.wav	52:12000:27360,55:27360:42240,59:42240:56160,55:56160:71040,52:71040:84960	1
+hammer_pull_tiny_contact_mono	hammer-pull	mono	pcm/hammer_pull_tiny_contact.wav	52:12000:27360,55:27360:42240,59:42240:56160,55:56160:71040,52:71040:84960	1
+hammer_pull_tiny_contact_poly	hammer-pull	poly	pcm/hammer_pull_tiny_contact.wav	52:12000:27360,55:27360:42240,59:42240:56160,55:56160:71040,52:71040:84960	1
+smooth_bend_80ms_mono	continuous-bend	mono	pcm/smooth_bend_80ms.wav	57:12000:79200	1
+smooth_bend_80ms_poly	continuous-bend	poly	pcm/smooth_bend_80ms.wav	57:12000:79200	1
+smooth_bend_220ms_mono	continuous-bend	mono	pcm/smooth_bend_220ms.wav	57:12000:79200	1
+smooth_bend_220ms_poly	continuous-bend	poly	pcm/smooth_bend_220ms.wav	57:12000:79200	1
+smooth_bend_420ms_mono	continuous-bend	mono	pcm/smooth_bend_420ms.wav	57:12000:79200	1
+smooth_bend_420ms_poly	continuous-bend	poly	pcm/smooth_bend_420ms.wav	57:12000:79200	1
+poly_independent_bends_2voices_0_poly	poly-independent-bend	poly	pcm/poly_independent_bends_2voices_0.wav	52:16800:81600,59:17664:78240	1
+poly_independent_bends_3voices_1_poly	poly-independent-bend	poly	pcm/poly_independent_bends_3voices_1.wav	45:16800:81600,52:17664:78240,57:18528:74880	1
+poly_independent_bends_4voices_2_poly	poly-independent-bend	poly	pcm/poly_independent_bends_4voices_2.wav	40:16800:81600,47:17664:78240,52:18528:74880,56:19392:71520	1
+poly_independent_bends_4voices_3_poly	poly-independent-bend	poly	pcm/poly_independent_bends_4voices_3.wav	52:16800:81600,55:17664:78240,59:18528:74880,62:19392:71520	1
+quiet_new_note_after_decay_noise_mono	quiet-rearticulation	mono	pcm/quiet_new_note_after_decay_noise.wav	45:14400:37440,57:48960:74880	1
+quiet_new_note_after_decay_noise_poly	quiet-rearticulation	poly	pcm/quiet_new_note_after_decay_noise.wav	45:14400:37440,57:48960:74880	1

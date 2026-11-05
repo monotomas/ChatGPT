@@ -235,6 +235,7 @@ void detunedRepicksRestoreWheelBeforeEveryOn() {
             wave[n]=float(value);
         }
         h.run(int64_t(wave.size()),wave,{}, {64,257,17,128});
+        try {
         int wheel=8192,ons=0;
         const std::vector<std::array<int,2>> expectedRpn{{101,0},{100,0},{6,range},{38,0},{101,127},{100,127}};
         std::vector<std::array<int,2>> pendingRpn;
@@ -251,6 +252,16 @@ void detunedRepicksRestoreWheelBeforeEveryOn() {
         }
         check(ons==3&&h.notes(2,false).size()==3,"Continuous ringing-string repicks were lost or duplicated in bend mode");
         requireRangeBeforeOn(h,range);requireCentreAfterOff(h);h.allReleased();
+        } catch(...) {
+            const std::string filename="Flysnapper-detuned-repick-failure-"+std::to_string(int(rate))+"-"+std::to_string(range)+".csv";
+            std::ofstream dump(filename);dump<<"rate,range,sample,type,channel,data0,data1,data2\n";
+            std::cerr<<"DIAGNOSTIC unchanged detuned repick rate="<<rate<<" range="<<range<<"; full MIDI decisions in "<<filename<<'\n';
+            for(const auto& e:h.events){const auto& m=e.midi;const auto* b=m.getRawData();const int count=m.getRawDataSize();const char type=m.isNoteOn()?'N':m.isNoteOff()?'F':m.isPitchWheel()?'P':'C';
+                dump<<int(rate)<<','<<range<<','<<e.sample<<','<<type<<','<<m.getChannel()<<','<<int(b[0])<<','<<(count>1?int(b[1]):0)<<','<<(count>2?int(b[2]):0)<<'\n';
+                if(m.isNoteOnOrOff())std::cerr<<"  "<<e.sample<<' '<<type<<" note="<<m.getNoteNumber()<<" channel="<<m.getChannel()<<'\n';
+            }
+            throw;
+        }
     }
 }
 

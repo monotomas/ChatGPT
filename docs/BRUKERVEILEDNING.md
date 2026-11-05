@@ -1,4 +1,4 @@
-# Flysnapper 0.2.1 – brukerveiledning
+# Flysnapper 0.3.0 – brukerveiledning
 
 Flysnapper gjør audio om til MIDI og korrigerer spille-MIDI etter en valgt
 skala eller et akkordspor. De to modulene kan brukes sammen eller hver for seg.
@@ -48,7 +48,9 @@ fra pluginmappen. Ingen andre plugins eller Windows-innstillinger skal fjernes.
    direkte til Flysnapper-pluginen og velg **kanal 16**. Denne rutingen settes
    manuelt på akkordsporet. Hele spille-inngangen skal fortsatt bruke kanal 1.
 
-MPE må være av. Kanal 16 er reservert for akkordkontroll, og disse notene
+La `MPE output` være av for den vanlige rutingen beskrevet her. MPE er et
+valgfritt format for en mottaker som støtter det; det er ikke nødvendig for
+vanlig mono/poly. Kanal 16 er reservert for akkordkontroll, og disse notene
 sendes ikke videre til mottakerinstrumentet.
 
 Knappen `Audio / MIDI routing` åpner denne rutingsforklaringen i Flysnapper.
@@ -59,9 +61,13 @@ sidechain-buss er ikke i seg selv bevis på at et bestemt kildespor er valgt.
 
 Slå på `Audio to MIDI`. Velg `Monophonic` for én tone om gangen eller `Polyphonic` for
 inntil seks samtidige toner. Detektoren bruker A4 = 440 Hz og MIDI-noteområdet
-28–100. Den leverer vanlige MIDI-noter med velocity beregnet fra signalstyrken.
+28–100. Den leverer vanlige MIDI-noter med anslagsstyrke i mono og estimert
+styrke per stemme i poly. Dynamikkontrollene er ingen egen velocity-kompressor.
+Poly bruker definerte halvtoner og ingen polyfoniske bendkurver.
 
-- `New note threshold` setter minste nivå for en ny detektert note. En høyere
+- `Automatic input` bruker nivårelativ tone-/støyvurdering og brumreduksjon.
+  Den er separat fra gaten på Input dynamics-siden og engangskalibreringen.
+- `New note threshold` gjelder når Automatic input er av. En høyere
   terskel avviser mer av bakgrunnsstøyen, men kan miste svake anslag. En allerede
   holdt tone kan ringe svakere ut under terskelen mens pålitelig periodisk
   toneinformasjon består.
@@ -76,6 +82,44 @@ inngangen; en aktiv inngang kan fortsatt motta digital stillhet.
 
 Slå av `Audio to MIDI` for å bruke Flysnapper bare med eksternt MIDI.
 Eksterne holdte noter beholdes når audio-modulen slås av.
+
+### Inngangsbehandling og 20-sekunders spilleprøve
+
+Åpne **Input dynamics** og trykk **Learn / 20 seconds**. Demp strengene de
+første **3 sekundene**, med vanlig håndkontakt og spillestilling; det hindrer
+at endret jordingsbrum fra en urørt elgitar blir feil utgangspunkt. Spill
+deretter i **17 sekunder** med svake/sterke anslag, vanlige akkorder og en
+lang utklang. Følg fase og nedtelling. Verten må behandle audio for at prøven
+skal gå framover. Genererte MIDI-toner er dempet under prøven; lytt til
+gitarens lydspor. Eksternt MIDI og akkordkontroll fortsetter.
+
+Et vellykket resultat stiller de synlige kontrollene og aktiverer behandlingen.
+Du kan overstyre etterpå. Avbrudd eller ubrukelig prøve endrer ikke kontrollene;
+en manuell justering under prøven avbryter den. Kalibrer på nytt etter en stor
+endring i gitarvolum, pickup, lydkortgain eller støy. Eldre prosjekt/presets
+beholder behandling av for kompatibilitet; bruk Learn eller aktiver den selv.
+
+| Kontroll | Justering |
+| --- | --- |
+| Gate threshold | Høyere avviser mer støy og kan samtidig miste svake anslag. |
+| Gate hysteresis | Lukkegrensen ligger dette antallet dB under åpnegrensen. Mer avstand bevarer mer utklang. |
+| Gate attack | Kort tid åpner raskt og bevarer anslaget. |
+| Gate hold | Holder gaten åpen gjennom korte nivåfall; for lang tid slipper inn mer støy mellom noter. |
+| Gate release | Former dempingen etter hold. Lengre bevarer mer hale; kortere stopper støy tidligere. |
+| Input gain | Trim før gaten; flytter både gitar og støy relativt til terskelen og forbedrer ikke signal/støy-forholdet. |
+| Compressor | Terskel for reduksjon av sterke signaler, etter gaten. |
+| Ratio | Styrken på kompresjonen over terskelen. |
+| Limiter ceiling | Øvre nivå til gjenkjenningen; reparerer ikke klipping som allerede finnes i kilden. |
+
+`Release` på Tracking-siden bestemmer MIDI Note Off etter mistet toneinformasjon;
+`Gate release` former audio. Det er to forskjellige kontroller. Behandlingen
+har ingen lookahead-buffer og øker ikke inngangsgain automatisk. En nivågate
+kan ikke generelt skille en tone fra støy som klinger samtidig på lignende
+nivå. Slik støy kan fortsatt nå detektoren når gaten står åpen.
+
+**Help** gir forklaringer ved musepekeren på kontroller og etiketter.
+**Guide** åpner en veiledning inne i pluginen, også med hoverhjelp avslått.
+Innstillingene lagres sammen med prosjektet/presetet.
 
 ### Bend og vibrato i monofonisk modus
 
@@ -151,14 +195,17 @@ note, feilnoter, manglende toner, slipp og CPU-tid i de automatiske lydprøvene.
 `summary.json` beskriver de grunnleggende kvalitetssjekkene. Testene inkluderer
 gitaropptak, men dekker ikke alle instrumenter, spilleteknikker eller lydmiljøer.
 
-Denne versjonen oppfyller **ikke** målene E2 under 10 ms og E3 under 5 ms.
-Audio-til-MIDI bruker typisk omtrent 45–60 ms før første riktige brukbare note
-i målingene. Noen gitaranslag trenger nærmere 100 ms; enkelte krevende polyfone
-stemmer bruker over et halvt sekund eller blir ikke gjenkjent. Poly kan også
-legge til feiltoner. Svake grunntoner, overlappende oktaver og sterkt inharmoniske
-lyder er kjente vanskelige tilfeller. Bruk Mono når inngangen skal tolkes som én
-tone om gangen. MIDI-korreksjon av allerede innkommende MIDI venter ikke på
-et slikt analysevindu.
+De tidligere absolutte E2/E3-grensene er erstattet av optimalisering og åpen
+rapportering per tonehøyde. Fullkjedeprøver for inngangsbehandlingen ligger i
+`Validation/input-dynamics/`, med faktiske MIDI-tidspunkter, anvendt oppsett,
+kalibreringskontroller og feilutfall. De eldre detektorrapportene måler ikke
+den nye dynamikkprosessoren. Ingen av prøvene måler den fysiske kjeden i
+brukerens gitar, lydkort og Ableton-oppsett.
+
+Svake grunntoner, nesten sammenfallende harmoniske kilder og sterkt
+inharmoniske lyder er vanskelige tilfeller. Poly kan miste akkordtoner eller
+legge til feiltoner. Bruk Mono for én tone om gangen. MIDI-korreksjon av
+allerede innkommende MIDI venter ikke på et analysevindu.
 
 Fullstendige Windows-målinger for alle tre lydsamlingene ligger under
 `Validation/windows-audio-diagnostics/`: 729 + 621 + 414 kombinasjoner av lyd,
@@ -172,3 +219,12 @@ de minste bufferne. Windows-prøvene fant CPU-fristbrudd ved blant annet
 32 samples / 96 kHz. Dette velges i vertens lydinnstillinger; mottakerinstrument
 og resten av settet bruker også CPU-tid. Større buffer fjerner ikke tiden
 detektoren trenger for å observere toneinformasjon.
+
+Bruk lydkortets ASIO-driver på Windows. Prøv 64 eller 32 samples hvis hele
+settet spiller stabilt; øk ved knepp/overbelastning. Ved 48 kHz varer én
+64-samples buffer omtrent 1,33 ms, men flere ledd inngår i samlet responstid.
+Unngå effekter med lookahead eller lange filtre foran sidechain-kilden.
+Abletons `Reduced Latency When Monitoring` kan redusere kompensasjonsventing
+på monitorerte spor; funksjonen fjerner ikke lydkortbufferen eller analysen.
+96 kHz reduserer bufferens varighet ved samme antall samples og øker CPU-bruken;
+det halverer ikke automatisk Flysnappers interne observasjonstid.

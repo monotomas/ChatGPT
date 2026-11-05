@@ -1,0 +1,111 @@
+{
+  "recorded_at_utc": "2026-11-05T02:57:47.664736+00:00",
+  "scope": "Exact frozen prototype source and raw measurements, including rejected iterations; no binaries or PCM. Final product adds separate calibration lifecycle code and requires native/integration validation.",
+  "original_directory": "/tmp/flysnapper-postnc-dynamics-probe",
+  "retained_variant_directories": [
+    "host-before-nc",
+    "analysis-after-nc",
+    "analysis-after-nc-raw-acquisition",
+    "analysis-after-nc-raw-reference",
+    "analysis-after-nc-early-protect",
+    "analysis-after-nc-shared-protection",
+    "analysis-after-nc-precise-reference",
+    "debug-music",
+    "debug-early",
+    "debug-early-fallback",
+    "independent-audit-20261105"
+  ],
+  "excluded_compiled_artifacts": [
+    {
+      "path": "host-before-nc/Capture",
+      "sha256": "5b3c7dd7a4d7018f6e03280964f564cc4fbdd1d0f0e0fd32462b06c946dc4eb1",
+      "bytes": 205688
+    },
+    {
+      "path": "host-before-nc/RepickProbe",
+      "sha256": "75f085973eacdc498d949dd99b426ffc46f2bd389d385e8302ac29dc2ca1429a",
+      "bytes": 164400
+    },
+    {
+      "path": "analysis-after-nc/Capture",
+      "sha256": "8e278ef8a3f11a627b294d94ac8cafda946f1e9bb5ed61f9a582043b4472238b",
+      "bytes": 205688
+    },
+    {
+      "path": "analysis-after-nc/RepickProbe",
+      "sha256": "bf679e16391dced39d0fa6405386731894654cfac0f193a17c432797d72c589e",
+      "bytes": 164400
+    },
+    {
+      "path": "analysis-after-nc-raw-acquisition/Capture",
+      "sha256": "2d2cf1a0ef1d820d3c0cebe1b4ed02cf77ff68f1c499bb4e83a18b2f6c360e83",
+      "bytes": 205688
+    },
+    {
+      "path": "analysis-after-nc-raw-acquisition/RepickProbe",
+      "sha256": "cbb325efad8a0319dff505eacdffc2377a5a25844e2b4e5c632a13c27e3dd11e",
+      "bytes": 164400
+    },
+    {
+      "path": "analysis-after-nc-raw-reference/Capture",
+      "sha256": "45770a6fb35b5af4cddb8b9c0f461f762bdee8148f731dd21851d4df65a88b34",
+      "bytes": 205688
+    },
+    {
+      "path": "analysis-after-nc-raw-reference/DetuningProbe",
+      "sha256": "f18ddeccaee4a78ec9b3d31c0abb5630c01eaec19a4c4f5544ca44f5a64d3ed2",
+      "bytes": 164400
+    },
+    {
+      "path": "analysis-after-nc-raw-reference/RepickProbe",
+      "sha256": "d5b3317eaacf9ecab0103c6bae596e01acab8e6832d97fbc9ad464c9518ff71e",
+      "bytes": 164400
+    },
+    {
+      "path": "analysis-after-nc-early-protect/Capture",
+      "sha256": "a58c3b5577ba831c5e2e2f9fd94baabc7f6d9f62de3b64616442e7374f9c599f",
+      "bytes": 205688
+    },
+    {
+      "path": "analysis-after-nc-shared-protection/Capture",
+      "sha256": "492d055b1296059fb77f6a21d9256ea0fdc7e6a32f66e3bc477be7c2d38574a5",
+      "bytes": 205688
+    },
+    {
+      "path": "analysis-after-nc-precise-reference/Capture",
+      "sha256": "28c3a1bdf71e5ab89ee8a843baa85fe3bc5d678c2a82ac87e1295ecc4e757b1e",
+      "bytes": 205784
+    },
+    {
+      "path": "analysis-after-nc-precise-reference/detuningProbe",
+      "sha256": "66fc6f1b87d5e700b8ca55f649b8707177cce8eea7ad5de61c1db1553cf0c432",
+      "bytes": 164504
+    },
+    {
+      "path": "analysis-after-nc-precise-reference/repickProbe",
+      "sha256": "d030498dfeb54a7314c87a5b882bcda406c22cc64ec2908b8255a4d5a23b7c8b",
+      "bytes": 164504
+    },
+    {
+      "path": "debug-music/Capture",
+      "sha256": "cfc85461f96c99ec208fa4d273e541948d4593c7261f8e2366b6a3fed59871ec",
+      "bytes": 205712
+    },
+    {
+      "path": "debug-early/Capture",
+      "sha256": "aaf9e1b661f33287d421edd1b8dc48fd9a299a11fdca1fd73be08b98444e36b6",
+      "bytes": 205712
+    },
+    {
+      "path": "debug-early-fallback/Capture",
+      "sha256": "7ff5e30f737ae31876cd1d9b545577940748d80a547fd152d1ed9e2e328c2458",
+      "bytes": 205712
+    },
+    {
+      "path": "independent-audit-20261105/DetuningDisabled",
+      "sha256": "8ceafa55f2af3b22b2da31e6f6b6c0843a0f57099420799be0c12e933669f183",
+      "bytes": 164392
+    }
+  ],
+  "reproduction_files_note": "Scorer/policy/input inventories copied for reproducing retained raw scoring; these snapshots are post-run retention, not a contemporaneous scorer-capture manifest."
+}

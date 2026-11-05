@@ -1,0 +1,27 @@
+{
+  "scope": "Predeclared sparse physical-harmonic falsification, no ratio tuning",
+  "roots": [
+    28,
+    40,
+    52,
+    64
+  ],
+  "low_partial_ratios": [
+    0,
+    0.002,
+    0.01,
+    0.05
+  ],
+  "amplitudes": {
+    "h5": 0.16,
+    "h7": 0.11,
+    "h2_h3": ".16*ratio"
+  },
+  "phase": "0.17*harmonic radians",
+  "attack_ms": 2,
+  "ring_ms": 750,
+  "supplied_silence_ms": 250,
+  "sample_rate": 48000,
+  "block": 64,
+  "driver_sha256": "641c64101400701f0286c7d6fb6a1d9bb1130fa1427c3d3efac9eb6c3fda97c8"
+}

@@ -1,0 +1,53 @@
+{
+  "scope": "Isolated parameter ablations using exact archived old processor ABI and stable shared objects; assertions/wave unchanged",
+  "linked_files_sha256": {
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_audio_processors/juce_audio_processors.cpp.o": "eb143a55d76f27650384e453cd7834167ecb677829493e5ff2ffc2427214d52b",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_gui_extra/juce_gui_extra.cpp.o": "a0ff44a69aac08252d688fec840474e24eb3b3575348544536abbb59041af4f1",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_gui_basics/juce_gui_basics.cpp.o": "9baa3e2d61a52890cd904fd49779cb8464d764849561d2ba9718ddbe36866848",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_gui_basics/juce_gui_basics_2.cpp.o": "70698732cbdca2a54b785720c7baf910bc567e6a898cf7d2b90bb9e1afb3ff67",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_gui_basics/juce_gui_basics_3.cpp.o": "0bca48bcd50d74ede20ea79c420f5907965fa44e4e33977879e1803027df8128",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_gui_basics/juce_gui_basics_4.cpp.o": "ddbc2175c43c01a39df446f4fb2e83018f9d916d3af141eb9fd01f097a50e6c5",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_gui_basics/juce_gui_basics_5.cpp.o": "2dd3b8dde170feb7a07d60f273a204333c7a64be437b0c8e4ece39f85a13b936",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_graphics/juce_graphics.cpp.o": "eb243b760882c78d9e09f7b2e31df398b92dc9a7e8775682f5aa34087379d124",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o": "cde345d0cb2d5683c4f2800f1b3df13606437a5e167e07938b7bcf0afd4f1654",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o": "b276d4eb6a46836e83e1a15026b1ba48e67a54af7dce7434c00d2c56186add9f",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_events/juce_events.cpp.o": "75ef77226b77d5023dfbc19d249c065f2a659846ff67e497e06be2bd15bf16e1",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_core/juce_core.cpp.o": "d7f86e7e70690e40acd1a728b340824a981a004ef30396fd23793144bd337b7f",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o": "f95c010c09c2e9af5128a4c01d8facf295ff4ae59c369a7553f73d550108aef6",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_data_structures/juce_data_structures.cpp.o": "97c94b234146d064e6c4a27ea2fb6fb2cd0284e0a41d1460445aee8667f21f1d",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_audio_processors_headless/juce_audio_processors_headless.cpp.o": "2c1ae8909575d804a6a5f2d6cc140885ab57716fbaac7a8dd8170c00033a4c50",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_audio_processors_headless/juce_audio_processors_headless_ara.cpp.o": "0869b7b3457420a891bb64a60881fa09a0a85884d265126fbd4b444c4aa0b5db",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_audio_processors_headless/juce_audio_processors_headless_lv2_libs.cpp.o": "11980fc6a20776b971c2c7f4e7c76830c79c9bb6dc2829fbc4e3a64d5ca54617",
+    "/workspace/ChatGPT/build/native-release/CMakeFiles/FlysnapperBendProcessorTests.dir/deps/JUCE/modules/juce_audio_basics/juce_audio_basics.cpp.o": "3ea8fbae5887b857a25db792ac73ed96cea58b273daae439df312740be23e153",
+    "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/libFlysnapper_SharedCode.a": "5ff9aa6b3ddad9843b7ad10545ab8f9f71bed114718d0566d4e01eaa82ea2fcc",
+    "/workspace/ChatGPT/build/native-release/libFlysnapperCore.a": "86ac0c3c8649091fe3de98fcd2793c2e5c717791a14ac6d830c996fe001f440f",
+    "/workspace/ChatGPT/build/native-release/libFlysnapperPitch.a": "708e91ba928f62fcfe9aef00c39c4c3c2d88af44185a3abbea393e4d2e2c6a89",
+    "/workspace/sysroot/usr/lib/x86_64-linux-gnu/libfontconfig.so": "d6344f71a0cfd5fcb154278f0be706021f75f79d1fcc973fc4ddb1dff40ab0ee",
+    "/workspace/sysroot/usr/lib/x86_64-linux-gnu/libfreetype.so": "9e376992a91e92d86809893a3b9eea22a4e27849db1686f6ca58032f79cdafb5",
+    "/workspace/ChatGPT/build/native-release/libFlysnapperMpeOutput.a": "0f9a6d8a63f9a2691f9bd2cbad50164628b411f4cf3fb17019b1b8dde0f90279"
+  },
+  "linked_files_stable": true,
+  "variants": [
+    {
+      "variant": "dynamics-disabled",
+      "parameter_delta": "set(*processor,\"dynamicsEnabled\",0);",
+      "test_exit_code": 0,
+      "source_sha256": "9b9869b2528deff9cb5da928493360141b4267e38aea4b20deb7a1cd3d09eb2c",
+      "executable_sha256": "531218685d76d153080eb1689a0310173575ddf4986d405598ed4d7b190ee630"
+    },
+    {
+      "variant": "gate-only",
+      "parameter_delta": "set(*processor,\"compressorThresholdDb\",0);set(*processor,\"compressorRatio\",1);set(*processor,\"limiterCeilingDb\",0);",
+      "test_exit_code": 0,
+      "source_sha256": "651791bdd5c915642228c21769ef22f11c05d6a9ade29142c89877480913709b",
+      "executable_sha256": "a84398ec4e9c4a497b2987fb3d7ad7aa2aa5b01e1aeb065982088e01389b6619"
+    },
+    {
+      "variant": "compression-only",
+      "parameter_delta": "set(*processor,\"gateThresholdDb\",-96);set(*processor,\"gateHysteresisDb\",0);",
+      "test_exit_code": 1,
+      "source_sha256": "69724186f993335cae93d6a67eba8e7f4415f82b85112fa4683e928264d9922e",
+      "executable_sha256": "aa6523627f545d0fb2f70b66bcc85222e65d9435b43b58ef63d8b2d84fbe3cf4"
+    }
+  ]
+}

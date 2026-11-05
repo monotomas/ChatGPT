@@ -1,0 +1,170 @@
+{
+  "scope": "Hashes identify omitted bytes, not retained contents; executables/environments are not part of this source archive.",
+  "items": {
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/handling_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "424113a72d6b6ef6907321dcf92ed150aa626fd809f4527656d2b1145b0ede05",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/handling_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "d1c261b43a0eaf87198a6c9853833e85df9a4cd726df01e34bf28157f026cc4e",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/nearE5_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "e53f5df0c22446ec4f83acb98e24f6bcebea97f48b07f1bd0cebb4ec8f352793",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/nearE5_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "ff4398865fd40481cb3a2c2552ee689c5dab2a457485f990ac2b9767bac444ca",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/nearF4_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "24ee14a1cf4a994ac37a0e78265458a8e04f8c92e670523e80c524129f4b949f",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/nearF4_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "caf9a446c7c1d376e6ebe80d142928586b1d0a9fad4c1fd68eeefc1c44b54591",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/quiet31_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "eefa723f3e631ff9fa688d575022a715ff84557590ba751f80a6ce1e109ed1b4",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/quiet31_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "ffc51774d6f3ebde13d1fb0e68eeeac83f58766871201cf6fb35f6222ff967a9",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/quiet40_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "21e0388161e57b1aacc48fb5179e1f9a488950a3a0742c7235582dcda0dae69e",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/quiet40_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "fea201bbece2f4382d9f0b6a31a5faae83477007c3a410f538dc5b48c8097f6e",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/quiet52_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "695d1c895b75788c3de96f38edde359e9a6d314aacfa2bdc8d4d69da760dfbf1",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/fixtures/pcm/quiet52_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "93cf8accec3d671255f3b0f25010cd778d6cd0b50f20252918c7f1322f5d9902",
+      "reason": "Generated PCM omitted to avoid duplicating26MB; generator reproduced all14 fixture files byte-identically.",
+      "reproduce": "fixtures/trained/generate.py"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter/positive-controls/pcm/E5_near660_afterhum.wav": {
+      "bytes": 384044,
+      "sha256": "4ebef67e09f03998cc904222c473e1ca70e8df3f33b37e7143a5e7bef54011b6",
+      "reason": "Generated positive-control PCM omitted; deterministic generator supplied.",
+      "reproduce": "fixtures/positive/generate.py"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter/positive-controls/pcm/F4_near350_afterhum.wav": {
+      "bytes": 384044,
+      "sha256": "66f7f56ecc61f4652268cba29b6577907732a29639b34d51531afa653848bf5c",
+      "reason": "Generated positive-control PCM omitted; deterministic generator supplied.",
+      "reproduce": "fixtures/positive/generate.py"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter/positive-controls/pcm/G1_bend50.wav": {
+      "bytes": 384044,
+      "sha256": "8af625c8a306ba5978c725474ef2e9a84f286ba7cebb33783d9d787521299e1a",
+      "reason": "Generated positive-control PCM omitted; deterministic generator supplied.",
+      "reproduce": "fixtures/positive/generate.py"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter/positive-controls/pcm/G1_bend50_afterhum.wav": {
+      "bytes": 384044,
+      "sha256": "660ebe5b4fdaa826cee8bee48ffb10762df752d220867272c057f1dd6351585d",
+      "reason": "Generated positive-control PCM omitted; deterministic generator supplied.",
+      "reproduce": "fixtures/positive/generate.py"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter/positive-controls/pcm/quiet_E2_afterhum.wav": {
+      "bytes": 384044,
+      "sha256": "340e283709db4c67e5989bf642865f52a4b09f51fa45c56661d552d89bdbfca1",
+      "reason": "Generated positive-control PCM omitted; deterministic generator supplied.",
+      "reproduce": "fixtures/positive/generate.py"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter-skipinner/quiet-subset/pcm/quiet_hum_31_gain1.wav": {
+      "bytes": 201644,
+      "sha256": "79dd00d38242e96290405ef27d762b86f785ba7b6aa27db21c1e489d59428e72",
+      "reason": "Unmodified duplicate of existing repository readiness PCM.",
+      "reproduce": "Tests/AudioFixtures/readiness/pcm/quiet_hum_31_gain1.wav"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter-skipinner/quiet-subset/pcm/quiet_hum_31_gain8.wav": {
+      "bytes": 201644,
+      "sha256": "fe89c188d7b9e027cb844e2fa550529852790e3217a9f528947f01b10353bc55",
+      "reason": "Unmodified duplicate of existing repository readiness PCM.",
+      "reproduce": "Tests/AudioFixtures/readiness/pcm/quiet_hum_31_gain8.wav"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter-skipinner/quiet-subset/pcm/quiet_hum_52_gain8.wav": {
+      "bytes": 201644,
+      "sha256": "81ad7463ad58838f24ef9db4d48a4f6ed75df9ee0de0290cf9d2eb1333b04320",
+      "reason": "Unmodified duplicate of existing repository readiness PCM.",
+      "reproduce": "Tests/AudioFixtures/readiness/pcm/quiet_hum_52_gain8.wav"
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter/GuitarEvaluationCapture": {
+      "bytes": 205608,
+      "sha256": "eb26486728ec265072c5290094959cefc7595e1d0bf103f883c08fc75334c24d",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter/GuitarEvaluationCapture-v2": {
+      "bytes": 205704,
+      "sha256": "29f407479367081b402652ccc53806185ce8f3997dfeef550432e07d08bf7179",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter-skipinner/GuitarEvaluationCapture": {
+      "bytes": 205704,
+      "sha256": "2018ceba8e1022fc2cd13cab165d2e3250ee17d3aba98a594f665e82c3714c0c",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter-skipinner/GuitarEvaluationTrace": {
+      "bytes": 205704,
+      "sha256": "5ef01ef708d6fd26ffebc71fb2e2807f82758e26c66d194cbb61f4a1a10582b2",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    },
+    "/tmp/flysnapper-nov5-raw-prefilter-pulse/GuitarEvaluationCapture": {
+      "bytes": 205704,
+      "sha256": "9e01b11351c811755cf23b6e4c73299a2e67bfdfee79e30307dd54a0198ee28a",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    },
+    "/tmp/flysnapper-nov5-trained-prefilter/GuitarEvaluationCapture": {
+      "bytes": 206088,
+      "sha256": "1107d9edd90100382678a9c244baa112a619c290c0412d4d3c312731f09c4ddd",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    },
+    "/tmp/flysnapper-poly-calibration-probe": {
+      "bytes": 30992,
+      "sha256": "f9686c30ebeb5c4abfc2a42e68f04510b0951378c8ccfa23222cde68fc337601",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    },
+    "/tmp/flysnapper-poly-calibration-probe-v2": {
+      "bytes": 31000,
+      "sha256": "bb96c575caf5bc7e124a37916f68b8940f978d219da6bdeca7ac779515fad7ec",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    },
+    "/tmp/flysnapper-host-observer-withdrawal": {
+      "bytes": 30120,
+      "sha256": "6fad309fadf613e44736039795272ec4c8b410abe0b45f6e86e021d4fd7c1001",
+      "reason": "Compiled executable deliberately omitted; exact source/compiler command retained where applicable."
+    }
+  }
+}

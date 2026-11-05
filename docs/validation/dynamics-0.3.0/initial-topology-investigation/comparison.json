@@ -1,0 +1,244 @@
+{
+  "scope": "Retained negative investigation of the initial gate-before-internal-conditioning topology; not final implementation acceptance",
+  "runs": [
+    {
+      "run": "baseline-controlled",
+      "source_snapshot": "baseline",
+      "driver_edition": "baseline-off-v1",
+      "capture_exit_code": 0,
+      "score_exit_code": 1,
+      "scoring_changed": false,
+      "source_changed": false,
+      "runs": 65,
+      "passed": 35,
+      "failed": 30,
+      "outside_scope": 7,
+      "counts": {
+        "expected": 151,
+        "matched": 131,
+        "missed": 20,
+        "extra_note_ons": 109,
+        "noise_note_ons": 26,
+        "octave_errors": 13,
+        "wrong_before_correct": 15,
+        "early_offs": 8,
+        "late_offs": 2,
+        "discrete_misses": 16,
+        "bend_retriggers": 0,
+        "hung": 0,
+        "overflow": 0,
+        "deadline_misses": 70
+      },
+      "modes": {
+        "mono": {
+          "runs": 34,
+          "passed": 29
+        },
+        "poly": {
+          "runs": 31,
+          "passed": 6
+        }
+      }
+    },
+    {
+      "run": "baseline-recorded-noise",
+      "source_snapshot": "baseline",
+      "driver_edition": "baseline-off-v1",
+      "capture_exit_code": 0,
+      "score_exit_code": 1,
+      "scoring_changed": false,
+      "source_changed": false,
+      "runs": 128,
+      "passed": 45,
+      "failed": 83,
+      "outside_scope": 0,
+      "counts": {
+        "expected": 96,
+        "matched": 96,
+        "missed": 0,
+        "extra_note_ons": 274,
+        "noise_note_ons": 72,
+        "octave_errors": 32,
+        "wrong_before_correct": 0,
+        "early_offs": 46,
+        "late_offs": 4,
+        "discrete_misses": 0,
+        "bend_retriggers": 0,
+        "hung": 0,
+        "overflow": 0,
+        "deadline_misses": 101
+      },
+      "modes": {
+        "mono": {
+          "runs": 64,
+          "passed": 34
+        },
+        "poly": {
+          "runs": 64,
+          "passed": 11
+        }
+      }
+    },
+    {
+      "run": "default-controlled",
+      "source_snapshot": "initial-candidate",
+      "driver_edition": "default-gate-v1",
+      "capture_exit_code": 0,
+      "score_exit_code": 1,
+      "scoring_changed": false,
+      "source_changed": false,
+      "runs": 65,
+      "passed": 35,
+      "failed": 30,
+      "outside_scope": 7,
+      "counts": {
+        "expected": 151,
+        "matched": 130,
+        "missed": 21,
+        "extra_note_ons": 84,
+        "noise_note_ons": 24,
+        "octave_errors": 10,
+        "wrong_before_correct": 10,
+        "early_offs": 9,
+        "late_offs": 4,
+        "discrete_misses": 16,
+        "bend_retriggers": 0,
+        "hung": 0,
+        "overflow": 0,
+        "deadline_misses": 130
+      },
+      "modes": {
+        "mono": {
+          "runs": 34,
+          "passed": 25
+        },
+        "poly": {
+          "runs": 31,
+          "passed": 10
+        }
+      }
+    },
+    {
+      "run": "default-recorded-noise",
+      "source_snapshot": "initial-candidate",
+      "driver_edition": "default-gate-v1",
+      "capture_exit_code": 0,
+      "score_exit_code": 1,
+      "scoring_changed": false,
+      "source_changed": false,
+      "runs": 128,
+      "passed": 47,
+      "failed": 81,
+      "outside_scope": 0,
+      "counts": {
+        "expected": 96,
+        "matched": 96,
+        "missed": 0,
+        "extra_note_ons": 245,
+        "noise_note_ons": 43,
+        "octave_errors": 32,
+        "wrong_before_correct": 0,
+        "early_offs": 45,
+        "late_offs": 3,
+        "discrete_misses": 0,
+        "bend_retriggers": 0,
+        "hung": 0,
+        "overflow": 0,
+        "deadline_misses": 176
+      },
+      "modes": {
+        "mono": {
+          "runs": 64,
+          "passed": 34
+        },
+        "poly": {
+          "runs": 64,
+          "passed": 13
+        }
+      }
+    },
+    {
+      "run": "gate-only-controlled",
+      "source_snapshot": "initial-candidate",
+      "driver_edition": "ablations-v1",
+      "capture_exit_code": 0,
+      "score_exit_code": 1,
+      "scoring_changed": false,
+      "source_changed": false,
+      "runs": 65,
+      "passed": 35,
+      "failed": 30,
+      "outside_scope": 7,
+      "counts": {
+        "expected": 151,
+        "matched": 130,
+        "missed": 21,
+        "extra_note_ons": 84,
+        "noise_note_ons": 24,
+        "octave_errors": 10,
+        "wrong_before_correct": 10,
+        "early_offs": 9,
+        "late_offs": 3,
+        "discrete_misses": 16,
+        "bend_retriggers": 0,
+        "hung": 0,
+        "overflow": 0,
+        "deadline_misses": 37
+      },
+      "modes": {
+        "mono": {
+          "runs": 34,
+          "passed": 25
+        },
+        "poly": {
+          "runs": 31,
+          "passed": 10
+        }
+      }
+    },
+    {
+      "run": "compression-only-controlled",
+      "source_snapshot": "initial-candidate",
+      "driver_edition": "ablations-v1",
+      "capture_exit_code": 0,
+      "score_exit_code": 1,
+      "scoring_changed": false,
+      "source_changed": false,
+      "runs": 65,
+      "passed": 35,
+      "failed": 30,
+      "outside_scope": 7,
+      "counts": {
+        "expected": 151,
+        "matched": 131,
+        "missed": 20,
+        "extra_note_ons": 109,
+        "noise_note_ons": 26,
+        "octave_errors": 13,
+        "wrong_before_correct": 15,
+        "early_offs": 8,
+        "late_offs": 3,
+        "discrete_misses": 16,
+        "bend_retriggers": 0,
+        "hung": 0,
+        "overflow": 0,
+        "deadline_misses": 71
+      },
+      "modes": {
+        "mono": {
+          "runs": 34,
+          "passed": 29
+        },
+        "poly": {
+          "runs": 31,
+          "passed": 6
+        }
+      }
+    }
+  ],
+  "policy_editions": {
+    "before-role-clarification": "8c11e70535e1cbee4a856069f1f687910cb0d339fb9746abb13c94fcdd5eb964",
+    "after-role-clarification": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a"
+  },
+  "policy_numerical_rules_changed": false
+}

@@ -1,0 +1,5666 @@
+{
+  "baseline": {
+    "public": {
+      "totals": {
+        "expected": 67,
+        "matched": 64,
+        "early": 1,
+        "late": 5,
+        "noise_voice_ms": 0,
+        "noise_union_ms": 0.0,
+        "noise_ons": 0
+      },
+      "cases": [
+        {
+          "case": "modal_40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_41_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            58.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_45_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_48_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_57_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_60_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_64_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_69_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            74.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_76_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            55.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_84_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            66.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "karplus_40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            47.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "karplus_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            58.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "karplus_64_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "karplus_76_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            74.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "missing_fundamental_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            74.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "detuned_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "vibrato_64_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "soft_attack_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            66.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "weak_fundamental_40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            74.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "repeated_52_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 2,
+          "release_ms": [
+            85.97916666666667,
+            91.97916666666667,
+            68.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "continuous_repick_52_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            51.3125,
+            35.3125,
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "major_triad_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.97916666666667,
+            70.64583333333333,
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "open_e_minor_poly",
+          "expected": 6,
+          "matched": 6,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125,
+            75.97916666666667,
+            75.97916666666667,
+            41.3125,
+            38.645833333333336,
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "strummed_a_minor_poly",
+          "expected": 5,
+          "matched": 5,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            75.97916666666667,
+            86.97916666666667,
+            56.979166666666664,
+            68.64583333333333,
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "adjacent_semitone_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336,
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "octaves_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125,
+            65.3125,
+            65.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "weak_upper_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336,
+            43.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "staggered_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.3125,
+            67.3125,
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "digital_silence_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "unpitched_click_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "noise_floor_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "broadband_noise_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "colored_noise_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_E2_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            68.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_A2_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_D3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_G3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            68.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_B3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_E3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_E4_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_Fs3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            76.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_E_octaves_poly",
+          "expected": 3,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125,
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_strings_poly",
+          "expected": 6,
+          "matched": 4,
+          "early": 1,
+          "late": 2,
+          "release_ms": [
+            -190.02083333333334,
+            99.97916666666667,
+            84.97916666666667,
+            45.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    },
+    "holdout": {
+      "totals": {
+        "expected": 69,
+        "matched": 58,
+        "early": 2,
+        "late": 2,
+        "noise_voice_ms": 0,
+        "noise_union_ms": 0.0,
+        "noise_ons": 0
+      },
+      "cases": [
+        {
+          "case": "hidden_modal_01_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            56.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_02_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            64.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_03_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_04_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_05_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_06_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_07_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_08_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_09_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_10_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_11_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_12_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_13_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_14_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            56.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_15_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_16_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            56.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_17_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_18_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_01_poly",
+          "expected": 6,
+          "matched": 5,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.3125,
+            68.64583333333333,
+            55.3125,
+            44.645833333333336,
+            44.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_02_poly",
+          "expected": 4,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            64.64583333333333,
+            63.3125,
+            48.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_03_poly",
+          "expected": 6,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.979166666666664,
+            71.3125,
+            41.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_04_poly",
+          "expected": 6,
+          "matched": 4,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            52.645833333333336,
+            67.3125,
+            -76.6875,
+            49.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_05_poly",
+          "expected": 5,
+          "matched": 4,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            79.3125,
+            49.979166666666664,
+            63.3125,
+            -190.02083333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_06_poly",
+          "expected": 5,
+          "matched": 4,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            68.64583333333333,
+            83.3125,
+            76.64583333333333,
+            57.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_07_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125,
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_08_poly",
+          "expected": 3,
+          "matched": 2,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            71.3125,
+            80.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_09_poly",
+          "expected": 2,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            79.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_01_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_02_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_03_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_04_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_05_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_06_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_07_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_08_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            78.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_09_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_10_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_11_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_12_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    },
+    "confirmation": {
+      "totals": {
+        "expected": 44,
+        "matched": 41,
+        "early": 0,
+        "late": 3,
+        "noise_voice_ms": 0,
+        "noise_union_ms": 0.0,
+        "noise_ons": 0
+      },
+      "cases": [
+        {
+          "case": "confirm_sustain_01_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            59.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_02_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            59.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_03_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_04_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_05_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_06_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_articulation_01_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 2,
+          "release_ms": [
+            94.97916666666667,
+            93.64583333333333,
+            65.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_articulation_02_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            52.645833333333336,
+            51.3125,
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_articulation_03_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            49.979166666666664,
+            51.3125,
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_articulation_04_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.3125,
+            67.3125,
+            68.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_voicing_01_poly",
+          "expected": 6,
+          "matched": 4,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            68.64583333333333,
+            42.3125,
+            42.979166666666664,
+            77.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_voicing_02_poly",
+          "expected": 4,
+          "matched": 4,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            68.64583333333333,
+            79.64583333333333,
+            55.979166666666664,
+            72.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_voicing_03_poly",
+          "expected": 5,
+          "matched": 4,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            79.3125,
+            90.3125,
+            63.979166666666664,
+            72.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_voicing_04_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.979166666666664,
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_unpitched_01_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_unpitched_02_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_01_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_02_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_03_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_04_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_05_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_06_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_07_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_08_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            49.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_09_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            54.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    },
+    "controls": {
+      "totals": {
+        "expected": 90,
+        "matched": 67,
+        "early": 15,
+        "late": 2,
+        "noise_voice_ms": 11444.104166666666,
+        "noise_union_ms": 10614.770833333334,
+        "noise_ons": 26
+      },
+      "cases": [
+        {
+          "case": "hum50_450_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2044.0208333333333,
+          "noise_union_ms": 2044.0208333333333,
+          "noise_ons": 1
+        },
+        {
+          "case": "hum50_3600_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2044.0208333333333,
+          "noise_union_ms": 2044.0208333333333,
+          "noise_ons": 1
+        },
+        {
+          "case": "hum60_450_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2033.3541666666667,
+          "noise_union_ms": 2033.3541666666667,
+          "noise_ons": 1
+        },
+        {
+          "case": "hum60_3600_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2033.3541666666667,
+          "noise_union_ms": 2033.3541666666667,
+          "noise_ons": 1
+        },
+        {
+          "case": "handling_damped_contacts_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fret_squeaks_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 906.6666666666666,
+          "noise_union_ms": 418.6666666666667,
+          "noise_ons": 14
+        },
+        {
+          "case": "broadband_noise_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "handling_squeak_hum_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2382.6875,
+          "noise_union_ms": 2041.3541666666667,
+          "noise_ons": 8
+        },
+        {
+          "case": "quiet_hum_31_gain1_poly",
+          "expected": 1,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_31_gain8_poly",
+          "expected": 1,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_40_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_40_gain8_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_52_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_52_gain8_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_64_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_64_gain8_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr6_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -450.0208333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr6_gain4_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -450.0208333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr12_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -612.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr12_gain4_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -612.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr24_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr24_gain4_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_up_35ms_poly",
+          "expected": 8,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            78.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_down_35ms_poly",
+          "expected": 8,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_up_65ms_poly",
+          "expected": 8,
+          "matched": 5,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            65.3125,
+            64.3125,
+            64.97916666666667,
+            66.64583333333333,
+            81.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_down_65ms_poly",
+          "expected": 8,
+          "matched": 5,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            65.3125,
+            66.97916666666667,
+            64.97916666666667,
+            63.979166666666664,
+            81.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_up_105ms_poly",
+          "expected": 8,
+          "matched": 8,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            66.3125,
+            65.3125,
+            64.3125,
+            65.97916666666667,
+            64.97916666666667,
+            66.64583333333333,
+            65.64583333333333,
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_down_105ms_poly",
+          "expected": 8,
+          "matched": 8,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            66.3125,
+            67.97916666666667,
+            66.97916666666667,
+            65.97916666666667,
+            64.97916666666667,
+            63.979166666666664,
+            65.64583333333333,
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hammer_pull_no_amplitude_attack_poly",
+          "expected": 5,
+          "matched": 5,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125,
+            74.64583333333333,
+            75.3125,
+            66.64583333333333,
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hammer_pull_tiny_contact_poly",
+          "expected": 5,
+          "matched": 5,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125,
+            74.64583333333333,
+            75.3125,
+            63.979166666666664,
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "smooth_bend_80ms_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -1111.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "smooth_bend_220ms_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -1063.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "smooth_bend_420ms_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -999.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "poly_independent_bends_2voices_0_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 2,
+          "late": 0,
+          "release_ms": [
+            -908.0208333333334,
+            -440.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "poly_independent_bends_3voices_1_poly",
+          "expected": 3,
+          "matched": 2,
+          "early": 2,
+          "late": 0,
+          "release_ms": [
+            -92.02083333333333,
+            -1171.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "poly_independent_bends_4voices_2_poly",
+          "expected": 4,
+          "matched": 4,
+          "early": 2,
+          "late": 0,
+          "release_ms": [
+            -70.6875,
+            -435.3541666666667,
+            69.3125,
+            56.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "poly_independent_bends_4voices_3_poly",
+          "expected": 4,
+          "matched": 4,
+          "early": 2,
+          "late": 0,
+          "release_ms": [
+            -902.6875,
+            -475.3541666666667,
+            71.97916666666667,
+            61.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_new_note_after_decay_noise_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333,
+            71.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    },
+    "recorded_noise": {
+      "totals": {
+        "expected": 48,
+        "matched": 48,
+        "early": 18,
+        "late": 4,
+        "noise_voice_ms": 10584.0,
+        "noise_union_ms": 7344.0,
+        "noise_ons": 70
+      },
+      "cases": [
+        {
+          "case": "Samples-acoustic-mute_strings1_rr1_1_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1280.0,
+          "noise_union_ms": 725.3333333333334,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-acoustic-mute_strings1_rr1_1_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1058.6666666666667,
+          "noise_union_ms": 762.6666666666666,
+          "noise_ons": 5
+        },
+        {
+          "case": "Samples-acoustic-mute_strings3_rr1_1_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 458.66666666666663,
+          "noise_union_ms": 448.0,
+          "noise_ons": 4
+        },
+        {
+          "case": "Samples-acoustic-mute_strings3_rr1_1_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 549.3333333333334,
+          "noise_union_ms": 538.6666666666666,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-acoustic-perc_1_rr1_1_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 530.6666666666666,
+          "noise_union_ms": 306.6666666666667,
+          "noise_ons": 4
+        },
+        {
+          "case": "Samples-acoustic-perc_1_rr1_1_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 549.3333333333333,
+          "noise_union_ms": 306.6666666666667,
+          "noise_ons": 4
+        },
+        {
+          "case": "Samples-acoustic-perc_4_rr1_1_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 693.3333333333333,
+          "noise_union_ms": 370.6666666666667,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-acoustic-perc_4_rr1_1_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1184.0,
+          "noise_union_ms": 768.0,
+          "noise_ons": 8
+        },
+        {
+          "case": "Samples-electric-mute_strings1_rr1_2_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-mute_strings1_rr1_2_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 168.0,
+          "noise_union_ms": 168.0,
+          "noise_ons": 1
+        },
+        {
+          "case": "Samples-electric-mute_strings3_rr1_2_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-mute_strings3_rr1_2_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-perc_1_rr1_2_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 762.6666666666667,
+          "noise_union_ms": 461.3333333333333,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-electric-perc_1_rr1_2_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1069.3333333333333,
+          "noise_union_ms": 770.6666666666666,
+          "noise_ons": 7
+        },
+        {
+          "case": "Samples-electric-perc_4_rr1_2_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1090.6666666666667,
+          "noise_union_ms": 829.3333333333334,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-electric-perc_4_rr1_2_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1189.3333333333333,
+          "noise_union_ms": 888.0,
+          "noise_ons": 7
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            51.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            51.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -395.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -395.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            81.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            95.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            52.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            52.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            46.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            46.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            45.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -846.0208333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -846.0208333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -827.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -827.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -854.0208333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -854.0208333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -848.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -848.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            54.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            53.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -363.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -363.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            79.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            97.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            79.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            59.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            59.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -328.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -328.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            95.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -675.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -675.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -723.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -723.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "public": {
+      "totals": {
+        "expected": 67,
+        "matched": 64,
+        "early": 1,
+        "late": 5,
+        "noise_voice_ms": 0,
+        "noise_union_ms": 0.0,
+        "noise_ons": 0
+      },
+      "cases": [
+        {
+          "case": "modal_40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_41_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            58.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_45_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_48_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_57_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_60_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_64_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_69_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            74.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_76_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            55.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "modal_84_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            66.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "karplus_40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            47.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "karplus_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            58.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "karplus_64_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "karplus_76_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            74.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "missing_fundamental_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            74.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "detuned_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "vibrato_64_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "soft_attack_52_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            66.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "weak_fundamental_40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            74.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "repeated_52_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 2,
+          "release_ms": [
+            85.97916666666667,
+            91.97916666666667,
+            68.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "continuous_repick_52_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            51.3125,
+            35.3125,
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "major_triad_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.97916666666667,
+            70.64583333333333,
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "open_e_minor_poly",
+          "expected": 6,
+          "matched": 6,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125,
+            75.97916666666667,
+            75.97916666666667,
+            41.3125,
+            38.645833333333336,
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "strummed_a_minor_poly",
+          "expected": 5,
+          "matched": 5,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            75.97916666666667,
+            86.97916666666667,
+            56.979166666666664,
+            68.64583333333333,
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "adjacent_semitone_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336,
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "octaves_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125,
+            65.3125,
+            65.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "weak_upper_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336,
+            43.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "staggered_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.3125,
+            67.3125,
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "digital_silence_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "unpitched_click_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "noise_floor_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "broadband_noise_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "colored_noise_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_E2_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            68.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_A2_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_D3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_G3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            68.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_B3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_E3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_E4_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_Fs3_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            76.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_E_octaves_poly",
+          "expected": 3,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125,
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "recorded_strings_poly",
+          "expected": 6,
+          "matched": 4,
+          "early": 1,
+          "late": 2,
+          "release_ms": [
+            -190.02083333333334,
+            99.97916666666667,
+            84.97916666666667,
+            45.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    },
+    "holdout": {
+      "totals": {
+        "expected": 69,
+        "matched": 58,
+        "early": 2,
+        "late": 2,
+        "noise_voice_ms": 0,
+        "noise_union_ms": 0.0,
+        "noise_ons": 0
+      },
+      "cases": [
+        {
+          "case": "hidden_modal_01_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            56.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_02_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            64.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_03_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_04_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_05_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_06_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_07_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_08_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            69.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_09_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_10_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_11_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_12_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_13_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_14_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            56.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_15_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_16_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            56.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_17_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_modal_18_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_01_poly",
+          "expected": 6,
+          "matched": 5,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.3125,
+            68.64583333333333,
+            55.3125,
+            44.645833333333336,
+            44.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_02_poly",
+          "expected": 4,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            64.64583333333333,
+            63.3125,
+            48.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_03_poly",
+          "expected": 6,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.979166666666664,
+            71.3125,
+            41.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_04_poly",
+          "expected": 6,
+          "matched": 4,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            52.645833333333336,
+            67.3125,
+            -76.6875,
+            49.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_05_poly",
+          "expected": 5,
+          "matched": 4,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            79.3125,
+            49.979166666666664,
+            63.3125,
+            -190.02083333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_06_poly",
+          "expected": 5,
+          "matched": 4,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            68.64583333333333,
+            83.3125,
+            76.64583333333333,
+            57.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_07_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125,
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_08_poly",
+          "expected": 3,
+          "matched": 2,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            71.3125,
+            80.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_poly_09_poly",
+          "expected": 2,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            79.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_01_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_02_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_03_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_04_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_05_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_06_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_07_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_08_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            78.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_09_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_10_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_11_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hidden_recorded_12_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    },
+    "confirmation": {
+      "totals": {
+        "expected": 44,
+        "matched": 41,
+        "early": 0,
+        "late": 3,
+        "noise_voice_ms": 0,
+        "noise_union_ms": 0.0,
+        "noise_ons": 0
+      },
+      "cases": [
+        {
+          "case": "confirm_sustain_01_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            59.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_02_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            59.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_03_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_04_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_05_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_sustain_06_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_articulation_01_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 2,
+          "release_ms": [
+            94.97916666666667,
+            93.64583333333333,
+            65.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_articulation_02_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            52.645833333333336,
+            51.3125,
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_articulation_03_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            49.979166666666664,
+            51.3125,
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_articulation_04_poly",
+          "expected": 3,
+          "matched": 3,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            63.3125,
+            67.3125,
+            68.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_voicing_01_poly",
+          "expected": 6,
+          "matched": 4,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            68.64583333333333,
+            42.3125,
+            42.979166666666664,
+            77.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_voicing_02_poly",
+          "expected": 4,
+          "matched": 4,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            68.64583333333333,
+            79.64583333333333,
+            55.979166666666664,
+            72.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_voicing_03_poly",
+          "expected": 5,
+          "matched": 4,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            79.3125,
+            90.3125,
+            63.979166666666664,
+            72.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_voicing_04_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.979166666666664,
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_unpitched_01_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_unpitched_02_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_01_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_02_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_03_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_04_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            65.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_05_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            62.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_06_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_07_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_08_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            49.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "confirm_recorded_09_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            54.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    },
+    "controls": {
+      "totals": {
+        "expected": 90,
+        "matched": 67,
+        "early": 15,
+        "late": 2,
+        "noise_voice_ms": 11444.104166666666,
+        "noise_union_ms": 10614.770833333334,
+        "noise_ons": 26
+      },
+      "cases": [
+        {
+          "case": "hum50_450_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2044.0208333333333,
+          "noise_union_ms": 2044.0208333333333,
+          "noise_ons": 1
+        },
+        {
+          "case": "hum50_3600_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2044.0208333333333,
+          "noise_union_ms": 2044.0208333333333,
+          "noise_ons": 1
+        },
+        {
+          "case": "hum60_450_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2033.3541666666667,
+          "noise_union_ms": 2033.3541666666667,
+          "noise_ons": 1
+        },
+        {
+          "case": "hum60_3600_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2033.3541666666667,
+          "noise_union_ms": 2033.3541666666667,
+          "noise_ons": 1
+        },
+        {
+          "case": "handling_damped_contacts_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fret_squeaks_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 906.6666666666666,
+          "noise_union_ms": 418.6666666666667,
+          "noise_ons": 14
+        },
+        {
+          "case": "broadband_noise_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "handling_squeak_hum_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 2382.6875,
+          "noise_union_ms": 2041.3541666666667,
+          "noise_ons": 8
+        },
+        {
+          "case": "quiet_hum_31_gain1_poly",
+          "expected": 1,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_31_gain8_poly",
+          "expected": 1,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_40_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_40_gain8_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_52_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_52_gain8_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_64_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_hum_64_gain8_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr6_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -450.0208333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr6_gain4_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -450.0208333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr12_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -612.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr12_gain4_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -612.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr24_gain1_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "music_handling_snr24_gain4_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_up_35ms_poly",
+          "expected": 8,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            78.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_down_35ms_poly",
+          "expected": 8,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_up_65ms_poly",
+          "expected": 8,
+          "matched": 5,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            65.3125,
+            64.3125,
+            64.97916666666667,
+            66.64583333333333,
+            81.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_down_65ms_poly",
+          "expected": 8,
+          "matched": 5,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            65.3125,
+            66.97916666666667,
+            64.97916666666667,
+            63.979166666666664,
+            81.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_up_105ms_poly",
+          "expected": 8,
+          "matched": 8,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            66.3125,
+            65.3125,
+            64.3125,
+            65.97916666666667,
+            64.97916666666667,
+            66.64583333333333,
+            65.64583333333333,
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "fretted_slide_down_105ms_poly",
+          "expected": 8,
+          "matched": 8,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            66.3125,
+            67.97916666666667,
+            66.97916666666667,
+            65.97916666666667,
+            64.97916666666667,
+            63.979166666666664,
+            65.64583333333333,
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hammer_pull_no_amplitude_attack_poly",
+          "expected": 5,
+          "matched": 5,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125,
+            74.64583333333333,
+            75.3125,
+            66.64583333333333,
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "hammer_pull_tiny_contact_poly",
+          "expected": 5,
+          "matched": 5,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125,
+            74.64583333333333,
+            75.3125,
+            63.979166666666664,
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "smooth_bend_80ms_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -1111.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "smooth_bend_220ms_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -1063.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "smooth_bend_420ms_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -999.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "poly_independent_bends_2voices_0_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 2,
+          "late": 0,
+          "release_ms": [
+            -908.0208333333334,
+            -440.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "poly_independent_bends_3voices_1_poly",
+          "expected": 3,
+          "matched": 2,
+          "early": 2,
+          "late": 0,
+          "release_ms": [
+            -92.02083333333333,
+            -1171.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "poly_independent_bends_4voices_2_poly",
+          "expected": 4,
+          "matched": 4,
+          "early": 2,
+          "late": 0,
+          "release_ms": [
+            -70.6875,
+            -435.3541666666667,
+            69.3125,
+            56.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "poly_independent_bends_4voices_3_poly",
+          "expected": 4,
+          "matched": 4,
+          "early": 2,
+          "late": 0,
+          "release_ms": [
+            -902.6875,
+            -475.3541666666667,
+            71.97916666666667,
+            61.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "quiet_new_note_after_decay_noise_poly",
+          "expected": 2,
+          "matched": 2,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            70.64583333333333,
+            71.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    },
+    "recorded_noise": {
+      "totals": {
+        "expected": 48,
+        "matched": 48,
+        "early": 18,
+        "late": 4,
+        "noise_voice_ms": 10584.0,
+        "noise_union_ms": 7344.0,
+        "noise_ons": 70
+      },
+      "cases": [
+        {
+          "case": "Samples-acoustic-mute_strings1_rr1_1_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1280.0,
+          "noise_union_ms": 725.3333333333334,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-acoustic-mute_strings1_rr1_1_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1058.6666666666667,
+          "noise_union_ms": 762.6666666666666,
+          "noise_ons": 5
+        },
+        {
+          "case": "Samples-acoustic-mute_strings3_rr1_1_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 458.66666666666663,
+          "noise_union_ms": 448.0,
+          "noise_ons": 4
+        },
+        {
+          "case": "Samples-acoustic-mute_strings3_rr1_1_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 549.3333333333334,
+          "noise_union_ms": 538.6666666666666,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-acoustic-perc_1_rr1_1_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 530.6666666666666,
+          "noise_union_ms": 306.6666666666667,
+          "noise_ons": 4
+        },
+        {
+          "case": "Samples-acoustic-perc_1_rr1_1_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 549.3333333333333,
+          "noise_union_ms": 306.6666666666667,
+          "noise_ons": 4
+        },
+        {
+          "case": "Samples-acoustic-perc_4_rr1_1_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 693.3333333333333,
+          "noise_union_ms": 370.6666666666667,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-acoustic-perc_4_rr1_1_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1184.0,
+          "noise_union_ms": 768.0,
+          "noise_ons": 8
+        },
+        {
+          "case": "Samples-electric-mute_strings1_rr1_2_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-mute_strings1_rr1_2_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 168.0,
+          "noise_union_ms": 168.0,
+          "noise_ons": 1
+        },
+        {
+          "case": "Samples-electric-mute_strings3_rr1_2_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-mute_strings3_rr1_2_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-perc_1_rr1_2_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 762.6666666666667,
+          "noise_union_ms": 461.3333333333333,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-electric-perc_1_rr1_2_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1069.3333333333333,
+          "noise_union_ms": 770.6666666666666,
+          "noise_ons": 7
+        },
+        {
+          "case": "Samples-electric-perc_4_rr1_2_noise_peak25_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1090.6666666666667,
+          "noise_union_ms": 829.3333333333334,
+          "noise_ons": 6
+        },
+        {
+          "case": "Samples-electric-perc_4_rr1_2_noise_peak150_poly",
+          "expected": 0,
+          "matched": 0,
+          "early": 0,
+          "late": 0,
+          "release_ms": [],
+          "noise_voice_ms": 1189.3333333333333,
+          "noise_union_ms": 888.0,
+          "noise_ons": 7
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            51.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            51.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            67.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -395.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -395.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            81.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            95.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            52.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            52.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            46.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            46.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            45.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            75.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -846.0208333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -846.0208333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -827.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -827.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -854.0208333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -854.0208333333334
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -848.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -848.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            54.645833333333336
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            73.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            53.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            72.64583333333333
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -363.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -363.3541666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            79.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            97.97916666666667
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            71.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            79.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            59.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            59.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -328.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -328.6875
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 0,
+          "release_ms": [
+            57.979166666666664
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 0,
+          "late": 1,
+          "release_ms": [
+            95.3125
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -675.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -675.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -723.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        },
+        {
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160_poly",
+          "expected": 1,
+          "matched": 1,
+          "early": 1,
+          "late": 0,
+          "release_ms": [
+            -723.3541666666666
+          ],
+          "noise_voice_ms": 0,
+          "noise_union_ms": 0.0,
+          "noise_ons": 0
+        }
+      ]
+    }
+  }
+}

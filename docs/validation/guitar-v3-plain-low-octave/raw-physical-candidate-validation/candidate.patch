@@ -1,0 +1,17 @@
+--- a/Source/Pitch/PitchDetector.cpp
++++ b/Source/Pitch/PitchDetector.cpp
+@@ -461,10 +461,12 @@
+             const bool nearby=estimate.valid&&std::abs(estimate.pitch-tracked.pitch)<.8f;
+             bool octaveGlitch=false;
+             if(estimate.valid&&std::abs(std::abs(estimate.pitch-tracked.pitch)-12)<.8f){
+-                const auto evidence=measureMonoSeries(frame.data()+count-std::min(count,512),std::min(count,512),estimate.frequency,analysisRate);
++                const int observed=std::min(count,std::max(512,int(std::ceil(analysisRate/estimate.frequency*3.25))));
++                const auto evidence=measureMonoSeries(rawReference.data()+count-observed,observed,estimate.frequency,analysisRate);
+                 if(estimate.pitch<tracked.pitch)octaveGlitch=tracked.confidence>.94f&&!(evidence.root&&hasPrimitiveLowSeries(evidence.mask));
+                 else {
+-                    const auto heldEvidence=measureMonoSeries(frame.data()+count-std::min(count,512),std::min(count,512),tracked.frequency,analysisRate);
++                    const int observed=std::min(count,std::max(512,tracked.observedSamples));
++                    const auto heldEvidence=measureMonoSeries(rawReference.data()+count-observed,observed,tracked.frequency,analysisRate);
+                     octaveGlitch=tracked.confidence>.94f&&(heldEvidence.root||hasPrimitiveLowSeries(heldEvidence.mask));
+                 }
+             }

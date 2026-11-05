@@ -1,0 +1,2708 @@
+{
+  "schema": 1,
+  "edition": "controlled-readiness-v1",
+  "sample_rate": 48000,
+  "baseline_source_commit": "c5b05337641b13ae259836f5346e7c1850b7382c",
+  "detector_used_during_generation": false,
+  "recorded_real_articulations_included": false,
+  "synthetic_controls_do_not_establish_musical_readiness": true,
+  "generator_sha256": "f6dae0c9e1b3b0a852184ccf9ac115503e5a1d273148906bea5c3f0ce387d547",
+  "policy_sha256": "e35da4a854b2ba8bba1cde9a90c3263d0e9d275b70acfe002d9b0eeedbda68be",
+  "records": [
+    {
+      "name": "hum50_450",
+      "file": "pcm/hum50_450.wav",
+      "frames": 100800,
+      "sha256": "4ad060f193980ac05fbe82ef8a4f1b0a4dc45cbece97ab719fb1fdbf908b1c12",
+      "origin": "controlled-synthesis",
+      "family": "stationary-mains",
+      "description": "Electrical mains comb, present from input start; no played string."
+    },
+    {
+      "name": "hum50_3600",
+      "file": "pcm/hum50_3600.wav",
+      "frames": 100800,
+      "sha256": "f8492106ac50f51124fe155576b8df30ccac7abd73806b9a0aeb37e70a213fb8",
+      "origin": "controlled-synthesis",
+      "family": "stationary-mains",
+      "description": "Electrical mains comb, present from input start; no played string."
+    },
+    {
+      "name": "hum60_450",
+      "file": "pcm/hum60_450.wav",
+      "frames": 100800,
+      "sha256": "13f2afaa5d091b78cb9265fe8a01b613462662c9c415660f6c627c7bdd04b81c",
+      "origin": "controlled-synthesis",
+      "family": "stationary-mains",
+      "description": "Electrical mains comb, present from input start; no played string."
+    },
+    {
+      "name": "hum60_3600",
+      "file": "pcm/hum60_3600.wav",
+      "frames": 100800,
+      "sha256": "780497a3fbeb089e89507ac711f99ed97116aa9c6c63130376a69181e1926184",
+      "origin": "controlled-synthesis",
+      "family": "stationary-mains",
+      "description": "Electrical mains comb, present from input start; no played string."
+    },
+    {
+      "name": "handling_damped_contacts",
+      "file": "pcm/handling_damped_contacts.wav",
+      "frames": 100800,
+      "sha256": "a0ba27946f31508686cfa91c24ae0a73659388f2122c1bef5061a6e1153454bf",
+      "origin": "controlled-synthesis",
+      "family": "non-tonal-handling",
+      "description": "Synthesized damped inharmonic half-muted string/contact resonances; not a recording."
+    },
+    {
+      "name": "fret_squeaks",
+      "file": "pcm/fret_squeaks.wav",
+      "frames": 100800,
+      "sha256": "3c260e0f3fb6841e6bb6b3f92e83c170691165084f3ad4cfea699423f59bd596",
+      "origin": "controlled-synthesis",
+      "family": "non-tonal-squeak",
+      "description": "Synthesized sliding friction ridges with no harmonic fundamental; not recorded fret noise."
+    },
+    {
+      "name": "broadband_noise",
+      "file": "pcm/broadband_noise.wav",
+      "frames": 100800,
+      "sha256": "1d0abfceab8ee078330ab70581ff4f1899a75d50a5b3d3277d206e836df157d4",
+      "origin": "controlled-synthesis",
+      "family": "broadband-noise",
+      "description": "Stationary Gaussian noise, no pitched source."
+    },
+    {
+      "name": "handling_squeak_hum",
+      "file": "pcm/handling_squeak_hum.wav",
+      "frames": 100800,
+      "sha256": "e7823c87075802bbbc6db35d10f1870eada085756370b4ac6e2587d80dbf44af",
+      "origin": "controlled-synthesis",
+      "family": "mixed-unwanted",
+      "description": "Known electrical and non-tonal interference, no intended tonal voice."
+    },
+    {
+      "name": "quiet_hum_31_gain1",
+      "file": "pcm/quiet_hum_31_gain1.wav",
+      "frames": 100800,
+      "sha256": "79dd00d38242e96290405ef27d762b86f785ba7b6aa27db21c1e489d59428e72",
+      "origin": "controlled-synthesis",
+      "family": "quiet-guitar-mains",
+      "description": "A desired weak pluck near/beside mains after500ms interference; exact common-gain pair, no compression."
+    },
+    {
+      "name": "quiet_hum_31_gain8",
+      "file": "pcm/quiet_hum_31_gain8.wav",
+      "frames": 100800,
+      "sha256": "fe89c188d7b9e027cb844e2fa550529852790e3217a9f528947f01b10353bc55",
+      "origin": "controlled-synthesis",
+      "family": "quiet-guitar-mains",
+      "description": "A desired weak pluck near/beside mains after500ms interference; exact common-gain pair, no compression."
+    },
+    {
+      "name": "quiet_hum_40_gain1",
+      "file": "pcm/quiet_hum_40_gain1.wav",
+      "frames": 100800,
+      "sha256": "8c62198f2bae6a37ac37e99473b73ee79fbb9d89b889e15a42c138342a3e0800",
+      "origin": "controlled-synthesis",
+      "family": "quiet-guitar-mains",
+      "description": "A desired weak pluck near/beside mains after500ms interference; exact common-gain pair, no compression."
+    },
+    {
+      "name": "quiet_hum_40_gain8",
+      "file": "pcm/quiet_hum_40_gain8.wav",
+      "frames": 100800,
+      "sha256": "5cfbd9ca0f073c54ffce72512d9963fd2139b1b48623d8346471919ca97227eb",
+      "origin": "controlled-synthesis",
+      "family": "quiet-guitar-mains",
+      "description": "A desired weak pluck near/beside mains after500ms interference; exact common-gain pair, no compression."
+    },
+    {
+      "name": "quiet_hum_52_gain1",
+      "file": "pcm/quiet_hum_52_gain1.wav",
+      "frames": 100800,
+      "sha256": "06abeaf4e157f5e6db0320f4cc163219b67fa1d8d2a8eb5c20f8f260d9c116e2",
+      "origin": "controlled-synthesis",
+      "family": "quiet-guitar-mains",
+      "description": "A desired weak pluck near/beside mains after500ms interference; exact common-gain pair, no compression."
+    },
+    {
+      "name": "quiet_hum_52_gain8",
+      "file": "pcm/quiet_hum_52_gain8.wav",
+      "frames": 100800,
+      "sha256": "81ad7463ad58838f24ef9db4d48a4f6ed75df9ee0de0290cf9d2eb1333b04320",
+      "origin": "controlled-synthesis",
+      "family": "quiet-guitar-mains",
+      "description": "A desired weak pluck near/beside mains after500ms interference; exact common-gain pair, no compression."
+    },
+    {
+      "name": "quiet_hum_64_gain1",
+      "file": "pcm/quiet_hum_64_gain1.wav",
+      "frames": 100800,
+      "sha256": "9e1608ed3e689e9f301b99dc7eb700fe8d497e9a12e8fb3d689518ce04ebbdbf",
+      "origin": "controlled-synthesis",
+      "family": "quiet-guitar-mains",
+      "description": "A desired weak pluck near/beside mains after500ms interference; exact common-gain pair, no compression."
+    },
+    {
+      "name": "quiet_hum_64_gain8",
+      "file": "pcm/quiet_hum_64_gain8.wav",
+      "frames": 100800,
+      "sha256": "f8938d93a87063dbff9237a946c3d05a824a70be62193ac315dab2fd36fb57a8",
+      "origin": "controlled-synthesis",
+      "family": "quiet-guitar-mains",
+      "description": "A desired weak pluck near/beside mains after500ms interference; exact common-gain pair, no compression."
+    },
+    {
+      "name": "music_handling_snr6_gain1",
+      "file": "pcm/music_handling_snr6_gain1.wav",
+      "frames": 100800,
+      "sha256": "3140a86d0e555268f06c3d5d85e457857dc08b224e556ae38d79f204d7d507d7",
+      "origin": "controlled-synthesis",
+      "family": "music-plus-handling",
+      "description": "Pitched desired string plus independent non-tonal handling/squeak/mains; common-gain/SNR pair."
+    },
+    {
+      "name": "music_handling_snr6_gain4",
+      "file": "pcm/music_handling_snr6_gain4.wav",
+      "frames": 100800,
+      "sha256": "93fa2463e332c448582696d23be2b000809d2ed8864711de63a18d1e6163852c",
+      "origin": "controlled-synthesis",
+      "family": "music-plus-handling",
+      "description": "Pitched desired string plus independent non-tonal handling/squeak/mains; common-gain/SNR pair."
+    },
+    {
+      "name": "music_handling_snr12_gain1",
+      "file": "pcm/music_handling_snr12_gain1.wav",
+      "frames": 100800,
+      "sha256": "23cbb8ebab12cf52c5a68e193611d8e9c61636858eb2d25c16186313492c3e54",
+      "origin": "controlled-synthesis",
+      "family": "music-plus-handling",
+      "description": "Pitched desired string plus independent non-tonal handling/squeak/mains; common-gain/SNR pair."
+    },
+    {
+      "name": "music_handling_snr12_gain4",
+      "file": "pcm/music_handling_snr12_gain4.wav",
+      "frames": 100800,
+      "sha256": "30868ff489557db2953f1201a863541e2e31d5829e8e5030552c57bcb0307874",
+      "origin": "controlled-synthesis",
+      "family": "music-plus-handling",
+      "description": "Pitched desired string plus independent non-tonal handling/squeak/mains; common-gain/SNR pair."
+    },
+    {
+      "name": "music_handling_snr24_gain1",
+      "file": "pcm/music_handling_snr24_gain1.wav",
+      "frames": 100800,
+      "sha256": "e438eecd76b84d32203a3ed779d94fd8a4e9b79eb0746eda90a1f8e7a697de2a",
+      "origin": "controlled-synthesis",
+      "family": "music-plus-handling",
+      "description": "Pitched desired string plus independent non-tonal handling/squeak/mains; common-gain/SNR pair."
+    },
+    {
+      "name": "music_handling_snr24_gain4",
+      "file": "pcm/music_handling_snr24_gain4.wav",
+      "frames": 100800,
+      "sha256": "0cce0a8073033ec2807a4ab1046672a2bd1b7fde865a02ea52e0ff2f6c1fa5bd",
+      "origin": "controlled-synthesis",
+      "family": "music-plus-handling",
+      "description": "Pitched desired string plus independent non-tonal handling/squeak/mains; common-gain/SNR pair."
+    },
+    {
+      "name": "fretted_slide_up_35ms",
+      "file": "pcm/fretted_slide_up_35ms.wav",
+      "frames": 100800,
+      "sha256": "8761f1bf636cecde2e5abdb96cc2cb0be4d2969ec60265bc1b230e8704b64c5a",
+      "origin": "controlled-synthesis",
+      "family": "fretted-slide",
+      "description": "One physical string; stepwise semitone plateaus, phase continuous, no per-fret amplitude attack."
+    },
+    {
+      "name": "fretted_slide_down_35ms",
+      "file": "pcm/fretted_slide_down_35ms.wav",
+      "frames": 100800,
+      "sha256": "c5225b8eaf5a79f1834ef1f0acd55dddf1014414e08531c262f7ebc242b7f636",
+      "origin": "controlled-synthesis",
+      "family": "fretted-slide",
+      "description": "Descending discrete frets; no bottleneck/continuous pitch interpolation."
+    },
+    {
+      "name": "fretted_slide_up_65ms",
+      "file": "pcm/fretted_slide_up_65ms.wav",
+      "frames": 100800,
+      "sha256": "06d7b67ff59e1e54c5dd67e35a1531dadd1f37c4aebba8bc2749fa8212827d0b",
+      "origin": "controlled-synthesis",
+      "family": "fretted-slide",
+      "description": "One physical string; stepwise semitone plateaus, phase continuous, no per-fret amplitude attack."
+    },
+    {
+      "name": "fretted_slide_down_65ms",
+      "file": "pcm/fretted_slide_down_65ms.wav",
+      "frames": 100800,
+      "sha256": "4f561e007511634e7e9eb633a25db5c6ce9fcd93cf9fad1fc4e63097fad4c87d",
+      "origin": "controlled-synthesis",
+      "family": "fretted-slide",
+      "description": "Descending discrete frets; no bottleneck/continuous pitch interpolation."
+    },
+    {
+      "name": "fretted_slide_up_105ms",
+      "file": "pcm/fretted_slide_up_105ms.wav",
+      "frames": 100800,
+      "sha256": "6e2c0982ca67f123ef019934dc85094226a478d7c628ecb56b9e5561ced47ce2",
+      "origin": "controlled-synthesis",
+      "family": "fretted-slide",
+      "description": "One physical string; stepwise semitone plateaus, phase continuous, no per-fret amplitude attack."
+    },
+    {
+      "name": "fretted_slide_down_105ms",
+      "file": "pcm/fretted_slide_down_105ms.wav",
+      "frames": 100800,
+      "sha256": "9e0359e8422358c62f51e03c0345c2b707c3200951582c98b02210f863dffcf6",
+      "origin": "controlled-synthesis",
+      "family": "fretted-slide",
+      "description": "Descending discrete frets; no bottleneck/continuous pitch interpolation."
+    },
+    {
+      "name": "hammer_pull_no_amplitude_attack",
+      "file": "pcm/hammer_pull_no_amplitude_attack.wav",
+      "frames": 100800,
+      "sha256": "f66d44318a9eb6a83b39d25c3a6e2c6fa379317673fb0568867d7abdf7b5c55c",
+      "origin": "controlled-synthesis",
+      "family": "hammer-pull",
+      "description": "Legato pitch steps, decreasing amplitude; new intended notes without picking attack."
+    },
+    {
+      "name": "hammer_pull_tiny_contact",
+      "file": "pcm/hammer_pull_tiny_contact.wav",
+      "frames": 100800,
+      "sha256": "454f281692f33fd3d42400f14974d376922a333b6b59f75c163bf789e7937a35",
+      "origin": "controlled-synthesis",
+      "family": "hammer-pull",
+      "description": "Legato pitch steps, decreasing amplitude; new intended notes without picking attack."
+    },
+    {
+      "name": "smooth_bend_80ms",
+      "file": "pcm/smooth_bend_80ms.wav",
+      "frames": 100800,
+      "sha256": "8098df6d744eb7e1c427eceb9b0481f76879f4a64b680a99f9a791d853a5e494",
+      "origin": "controlled-synthesis",
+      "family": "continuous-bend",
+      "description": "A phase-continuous bent string; smooth rise/return through all intermediate pitches and later vibrato."
+    },
+    {
+      "name": "smooth_bend_220ms",
+      "file": "pcm/smooth_bend_220ms.wav",
+      "frames": 100800,
+      "sha256": "c7fbe03995d5981e141fd502628348030b1316b696e359a2264b78e0fabddac8",
+      "origin": "controlled-synthesis",
+      "family": "continuous-bend",
+      "description": "A phase-continuous bent string; smooth rise/return through all intermediate pitches and later vibrato."
+    },
+    {
+      "name": "smooth_bend_420ms",
+      "file": "pcm/smooth_bend_420ms.wav",
+      "frames": 100800,
+      "sha256": "7a724eeb2e64f822513b55a6c53f6d7e8a4d0f105bd6c07571d64ccfb4f31503",
+      "origin": "controlled-synthesis",
+      "family": "continuous-bend",
+      "description": "A phase-continuous bent string; smooth rise/return through all intermediate pitches and later vibrato."
+    },
+    {
+      "name": "poly_independent_bends_2voices_0",
+      "file": "pcm/poly_independent_bends_2voices_0.wav",
+      "frames": 100800,
+      "sha256": "d90836c2e44add09566ed5e802beca64c090f80313e7394854c1ce4a6343d8fe",
+      "origin": "controlled-synthesis",
+      "family": "poly-independent-bend",
+      "description": "Independently curved/steady physical strings; strummed starts and separate damping; no shared global bend truth."
+    },
+    {
+      "name": "poly_independent_bends_3voices_1",
+      "file": "pcm/poly_independent_bends_3voices_1.wav",
+      "frames": 100800,
+      "sha256": "8bba45217585ada03537e1bf6e0683f66f16308be9d11d2d1b8b7315c7760461",
+      "origin": "controlled-synthesis",
+      "family": "poly-independent-bend",
+      "description": "Independently curved/steady physical strings; strummed starts and separate damping; no shared global bend truth."
+    },
+    {
+      "name": "poly_independent_bends_4voices_2",
+      "file": "pcm/poly_independent_bends_4voices_2.wav",
+      "frames": 100800,
+      "sha256": "0d7a76490d4f995128375437665c629a03ab36e19a9f902386e86d9ec10d9e3c",
+      "origin": "controlled-synthesis",
+      "family": "poly-independent-bend",
+      "description": "Independently curved/steady physical strings; strummed starts and separate damping; no shared global bend truth."
+    },
+    {
+      "name": "poly_independent_bends_4voices_3",
+      "file": "pcm/poly_independent_bends_4voices_3.wav",
+      "frames": 100800,
+      "sha256": "714d5d230a86363fb9c2f56b30d9070464b4e76ea26229d2aa634677a28c722d",
+      "origin": "controlled-synthesis",
+      "family": "poly-independent-bend",
+      "description": "Independently curved/steady physical strings; strummed starts and separate damping; no shared global bend truth."
+    },
+    {
+      "name": "quiet_new_note_after_decay_noise",
+      "file": "pcm/quiet_new_note_after_decay_noise.wav",
+      "frames": 100800,
+      "sha256": "e37ec13d227092752dc92b69543fa69cd7a42c12238a08582267c0846dd0609d",
+      "origin": "controlled-synthesis",
+      "family": "quiet-rearticulation",
+      "description": "A quieter intended new pluck after a damped old string and interference; no long fixed gate lockout is allowed."
+    }
+  ],
+  "cases": [
+    {
+      "name": "hum50_450_mono",
+      "record": "hum50_450",
+      "file": "pcm/hum50_450.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "stationary-mains",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "hum50_450_poly",
+      "record": "hum50_450",
+      "file": "pcm/hum50_450.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "stationary-mains",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "hum50_3600_mono",
+      "record": "hum50_3600",
+      "file": "pcm/hum50_3600.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "stationary-mains",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "hum50_3600_poly",
+      "record": "hum50_3600",
+      "file": "pcm/hum50_3600.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "stationary-mains",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "hum60_450_mono",
+      "record": "hum60_450",
+      "file": "pcm/hum60_450.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "stationary-mains",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "hum60_450_poly",
+      "record": "hum60_450",
+      "file": "pcm/hum60_450.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "stationary-mains",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "hum60_3600_mono",
+      "record": "hum60_3600",
+      "file": "pcm/hum60_3600.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "stationary-mains",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "hum60_3600_poly",
+      "record": "hum60_3600",
+      "file": "pcm/hum60_3600.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "stationary-mains",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "handling_damped_contacts_mono",
+      "record": "handling_damped_contacts",
+      "file": "pcm/handling_damped_contacts.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "non-tonal-handling",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "handling_damped_contacts_poly",
+      "record": "handling_damped_contacts",
+      "file": "pcm/handling_damped_contacts.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "non-tonal-handling",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "fret_squeaks_mono",
+      "record": "fret_squeaks",
+      "file": "pcm/fret_squeaks.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "non-tonal-squeak",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "fret_squeaks_poly",
+      "record": "fret_squeaks",
+      "file": "pcm/fret_squeaks.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "non-tonal-squeak",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "broadband_noise_mono",
+      "record": "broadband_noise",
+      "file": "pcm/broadband_noise.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "broadband-noise",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "broadband_noise_poly",
+      "record": "broadband_noise",
+      "file": "pcm/broadband_noise.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "broadband-noise",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "handling_squeak_hum_mono",
+      "record": "handling_squeak_hum",
+      "file": "pcm/handling_squeak_hum.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "mixed-unwanted",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "handling_squeak_hum_poly",
+      "record": "handling_squeak_hum",
+      "file": "pcm/handling_squeak_hum.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "mixed-unwanted",
+      "snr_db": null,
+      "reference_notes": [],
+      "gain_pair": null
+    },
+    {
+      "name": "quiet_hum_31_gain1_mono",
+      "record": "quiet_hum_31_gain1",
+      "file": "pcm/quiet_hum_31_gain1.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 18.776,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 31,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 31.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_31"
+    },
+    {
+      "name": "quiet_hum_31_gain1_poly",
+      "record": "quiet_hum_31_gain1",
+      "file": "pcm/quiet_hum_31_gain1.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 18.776,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 31,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 31.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_31"
+    },
+    {
+      "name": "quiet_hum_31_gain8_mono",
+      "record": "quiet_hum_31_gain8",
+      "file": "pcm/quiet_hum_31_gain8.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 18.776,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 31,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 31.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_31"
+    },
+    {
+      "name": "quiet_hum_31_gain8_poly",
+      "record": "quiet_hum_31_gain8",
+      "file": "pcm/quiet_hum_31_gain8.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 18.776,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 31,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 31.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_31"
+    },
+    {
+      "name": "quiet_hum_40_gain1_mono",
+      "record": "quiet_hum_40_gain1",
+      "file": "pcm/quiet_hum_40_gain1.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 19.867,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 40.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_40"
+    },
+    {
+      "name": "quiet_hum_40_gain1_poly",
+      "record": "quiet_hum_40_gain1",
+      "file": "pcm/quiet_hum_40_gain1.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 19.867,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 40.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_40"
+    },
+    {
+      "name": "quiet_hum_40_gain8_mono",
+      "record": "quiet_hum_40_gain8",
+      "file": "pcm/quiet_hum_40_gain8.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 19.867,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 40.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_40"
+    },
+    {
+      "name": "quiet_hum_40_gain8_poly",
+      "record": "quiet_hum_40_gain8",
+      "file": "pcm/quiet_hum_40_gain8.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 19.867,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 40.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_40"
+    },
+    {
+      "name": "quiet_hum_52_gain1_mono",
+      "record": "quiet_hum_52_gain1",
+      "file": "pcm/quiet_hum_52_gain1.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 18.664,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 52.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_52"
+    },
+    {
+      "name": "quiet_hum_52_gain1_poly",
+      "record": "quiet_hum_52_gain1",
+      "file": "pcm/quiet_hum_52_gain1.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 18.664,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 52.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_52"
+    },
+    {
+      "name": "quiet_hum_52_gain8_mono",
+      "record": "quiet_hum_52_gain8",
+      "file": "pcm/quiet_hum_52_gain8.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 18.664,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 52.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_52"
+    },
+    {
+      "name": "quiet_hum_52_gain8_poly",
+      "record": "quiet_hum_52_gain8",
+      "file": "pcm/quiet_hum_52_gain8.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 18.664,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 52.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_52"
+    },
+    {
+      "name": "quiet_hum_64_gain1_mono",
+      "record": "quiet_hum_64_gain1",
+      "file": "pcm/quiet_hum_64_gain1.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 17.773,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 64.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_64"
+    },
+    {
+      "name": "quiet_hum_64_gain1_poly",
+      "record": "quiet_hum_64_gain1",
+      "file": "pcm/quiet_hum_64_gain1.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 17.773,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 64.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_64"
+    },
+    {
+      "name": "quiet_hum_64_gain8_mono",
+      "record": "quiet_hum_64_gain8",
+      "file": "pcm/quiet_hum_64_gain8.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 17.773,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 64.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_64"
+    },
+    {
+      "name": "quiet_hum_64_gain8_poly",
+      "record": "quiet_hum_64_gain8",
+      "file": "pcm/quiet_hum_64_gain8.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-guitar-mains",
+      "snr_db": 17.773,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 24000,
+          "off_sample": 74400,
+          "pitch": 64.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "quiet_hum_64"
+    },
+    {
+      "name": "music_handling_snr6_gain1_mono",
+      "record": "music_handling_snr6_gain1",
+      "file": "pcm/music_handling_snr6_gain1.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr6"
+    },
+    {
+      "name": "music_handling_snr6_gain1_poly",
+      "record": "music_handling_snr6_gain1",
+      "file": "pcm/music_handling_snr6_gain1.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr6"
+    },
+    {
+      "name": "music_handling_snr6_gain4_mono",
+      "record": "music_handling_snr6_gain4",
+      "file": "pcm/music_handling_snr6_gain4.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr6"
+    },
+    {
+      "name": "music_handling_snr6_gain4_poly",
+      "record": "music_handling_snr6_gain4",
+      "file": "pcm/music_handling_snr6_gain4.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr6"
+    },
+    {
+      "name": "music_handling_snr12_gain1_mono",
+      "record": "music_handling_snr12_gain1",
+      "file": "pcm/music_handling_snr12_gain1.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr12"
+    },
+    {
+      "name": "music_handling_snr12_gain1_poly",
+      "record": "music_handling_snr12_gain1",
+      "file": "pcm/music_handling_snr12_gain1.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr12"
+    },
+    {
+      "name": "music_handling_snr12_gain4_mono",
+      "record": "music_handling_snr12_gain4",
+      "file": "pcm/music_handling_snr12_gain4.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr12"
+    },
+    {
+      "name": "music_handling_snr12_gain4_poly",
+      "record": "music_handling_snr12_gain4",
+      "file": "pcm/music_handling_snr12_gain4.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr12"
+    },
+    {
+      "name": "music_handling_snr24_gain1_mono",
+      "record": "music_handling_snr24_gain1",
+      "file": "pcm/music_handling_snr24_gain1.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 24,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr24"
+    },
+    {
+      "name": "music_handling_snr24_gain1_poly",
+      "record": "music_handling_snr24_gain1",
+      "file": "pcm/music_handling_snr24_gain1.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 24,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr24"
+    },
+    {
+      "name": "music_handling_snr24_gain4_mono",
+      "record": "music_handling_snr24_gain4",
+      "file": "pcm/music_handling_snr24_gain4.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 24,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr24"
+    },
+    {
+      "name": "music_handling_snr24_gain4_poly",
+      "record": "music_handling_snr24_gain4",
+      "file": "pcm/music_handling_snr24_gain4.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "music-plus-handling",
+      "snr_db": 24,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 21600,
+          "off_sample": 73440,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": "music_handling_snr24"
+    },
+    {
+      "name": "fretted_slide_up_35ms_mono",
+      "record": "fretted_slide_up_35ms",
+      "file": "pcm/fretted_slide_up_35ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 13680,
+          "pitch": 57.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 13680,
+          "off_sample": 15360,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 15360,
+          "off_sample": 17040,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 17040,
+          "off_sample": 18720,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 18720,
+          "off_sample": 20400,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 20400,
+          "off_sample": 22080,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 22080,
+          "off_sample": 23760,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 23760,
+          "off_sample": 37440,
+          "pitch": 64.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_up_35ms_poly",
+      "record": "fretted_slide_up_35ms",
+      "file": "pcm/fretted_slide_up_35ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 13680,
+          "pitch": 57.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 13680,
+          "off_sample": 15360,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 15360,
+          "off_sample": 17040,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 17040,
+          "off_sample": 18720,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 18720,
+          "off_sample": 20400,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 20400,
+          "off_sample": 22080,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 22080,
+          "off_sample": 23760,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 23760,
+          "off_sample": 37440,
+          "pitch": 64.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_down_35ms_mono",
+      "record": "fretted_slide_down_35ms",
+      "file": "pcm/fretted_slide_down_35ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 12000,
+          "off_sample": 13680,
+          "pitch": 64.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 13680,
+          "off_sample": 15360,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 15360,
+          "off_sample": 17040,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 17040,
+          "off_sample": 18720,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 18720,
+          "off_sample": 20400,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 20400,
+          "off_sample": 22080,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 22080,
+          "off_sample": 23760,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 23760,
+          "off_sample": 37440,
+          "pitch": 57.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_down_35ms_poly",
+      "record": "fretted_slide_down_35ms",
+      "file": "pcm/fretted_slide_down_35ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 12000,
+          "off_sample": 13680,
+          "pitch": 64.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 13680,
+          "off_sample": 15360,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 15360,
+          "off_sample": 17040,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 17040,
+          "off_sample": 18720,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 18720,
+          "off_sample": 20400,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 20400,
+          "off_sample": 22080,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 22080,
+          "off_sample": 23760,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 23760,
+          "off_sample": 37440,
+          "pitch": 57.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_up_65ms_mono",
+      "record": "fretted_slide_up_65ms",
+      "file": "pcm/fretted_slide_up_65ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 15120,
+          "pitch": 57.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 15120,
+          "off_sample": 18240,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 18240,
+          "off_sample": 21360,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 21360,
+          "off_sample": 24480,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 24480,
+          "off_sample": 27600,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 27600,
+          "off_sample": 30720,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 30720,
+          "off_sample": 33840,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 33840,
+          "off_sample": 48960,
+          "pitch": 64.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_up_65ms_poly",
+      "record": "fretted_slide_up_65ms",
+      "file": "pcm/fretted_slide_up_65ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 15120,
+          "pitch": 57.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 15120,
+          "off_sample": 18240,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 18240,
+          "off_sample": 21360,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 21360,
+          "off_sample": 24480,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 24480,
+          "off_sample": 27600,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 27600,
+          "off_sample": 30720,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 30720,
+          "off_sample": 33840,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 33840,
+          "off_sample": 48960,
+          "pitch": 64.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_down_65ms_mono",
+      "record": "fretted_slide_down_65ms",
+      "file": "pcm/fretted_slide_down_65ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 12000,
+          "off_sample": 15120,
+          "pitch": 64.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 15120,
+          "off_sample": 18240,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 18240,
+          "off_sample": 21360,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 21360,
+          "off_sample": 24480,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 24480,
+          "off_sample": 27600,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 27600,
+          "off_sample": 30720,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 30720,
+          "off_sample": 33840,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 33840,
+          "off_sample": 48960,
+          "pitch": 57.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_down_65ms_poly",
+      "record": "fretted_slide_down_65ms",
+      "file": "pcm/fretted_slide_down_65ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 12000,
+          "off_sample": 15120,
+          "pitch": 64.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 15120,
+          "off_sample": 18240,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 18240,
+          "off_sample": 21360,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 21360,
+          "off_sample": 24480,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 24480,
+          "off_sample": 27600,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 27600,
+          "off_sample": 30720,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 30720,
+          "off_sample": 33840,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 33840,
+          "off_sample": 48960,
+          "pitch": 57.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_up_105ms_mono",
+      "record": "fretted_slide_up_105ms",
+      "file": "pcm/fretted_slide_up_105ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 17040,
+          "pitch": 57.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 17040,
+          "off_sample": 22080,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 22080,
+          "off_sample": 27120,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 27120,
+          "off_sample": 32160,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 32160,
+          "off_sample": 37200,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 37200,
+          "off_sample": 42240,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 42240,
+          "off_sample": 47280,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 47280,
+          "off_sample": 64320,
+          "pitch": 64.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_up_105ms_poly",
+      "record": "fretted_slide_up_105ms",
+      "file": "pcm/fretted_slide_up_105ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 17040,
+          "pitch": 57.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 17040,
+          "off_sample": 22080,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 22080,
+          "off_sample": 27120,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 27120,
+          "off_sample": 32160,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 32160,
+          "off_sample": 37200,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 37200,
+          "off_sample": 42240,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 42240,
+          "off_sample": 47280,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 47280,
+          "off_sample": 64320,
+          "pitch": 64.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_down_105ms_mono",
+      "record": "fretted_slide_down_105ms",
+      "file": "pcm/fretted_slide_down_105ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 12000,
+          "off_sample": 17040,
+          "pitch": 64.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 17040,
+          "off_sample": 22080,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 22080,
+          "off_sample": 27120,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 27120,
+          "off_sample": 32160,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 32160,
+          "off_sample": 37200,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 37200,
+          "off_sample": 42240,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 42240,
+          "off_sample": 47280,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 47280,
+          "off_sample": 64320,
+          "pitch": 57.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "fretted_slide_down_105ms_poly",
+      "record": "fretted_slide_down_105ms",
+      "file": "pcm/fretted_slide_down_105ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "fretted-slide",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 64,
+          "on_sample": 12000,
+          "off_sample": 17040,
+          "pitch": 64.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 63,
+          "on_sample": 17040,
+          "off_sample": 22080,
+          "pitch": 63.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 62,
+          "on_sample": 22080,
+          "off_sample": 27120,
+          "pitch": 62.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 61,
+          "on_sample": 27120,
+          "off_sample": 32160,
+          "pitch": 61.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 60,
+          "on_sample": 32160,
+          "off_sample": 37200,
+          "pitch": 60.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n5",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 37200,
+          "off_sample": 42240,
+          "pitch": 59.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n6",
+          "string": 0,
+          "anchor": 58,
+          "on_sample": 42240,
+          "off_sample": 47280,
+          "pitch": 58.0,
+          "technique": "fretted_slide"
+        },
+        {
+          "id": "s0-n7",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 47280,
+          "off_sample": 64320,
+          "pitch": 57.0,
+          "technique": "fretted_slide"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "hammer_pull_no_amplitude_attack_mono",
+      "record": "hammer_pull_no_amplitude_attack",
+      "file": "pcm/hammer_pull_no_amplitude_attack.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "hammer-pull",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 12000,
+          "off_sample": 27360,
+          "pitch": 52.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 55,
+          "on_sample": 27360,
+          "off_sample": 42240,
+          "pitch": 55.0,
+          "technique": "hammer_on"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 42240,
+          "off_sample": 56160,
+          "pitch": 59.0,
+          "technique": "hammer_on"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 55,
+          "on_sample": 56160,
+          "off_sample": 71040,
+          "pitch": 55.0,
+          "technique": "pull_off"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 71040,
+          "off_sample": 84960,
+          "pitch": 52.0,
+          "technique": "pull_off"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "hammer_pull_no_amplitude_attack_poly",
+      "record": "hammer_pull_no_amplitude_attack",
+      "file": "pcm/hammer_pull_no_amplitude_attack.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "hammer-pull",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 12000,
+          "off_sample": 27360,
+          "pitch": 52.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 55,
+          "on_sample": 27360,
+          "off_sample": 42240,
+          "pitch": 55.0,
+          "technique": "hammer_on"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 42240,
+          "off_sample": 56160,
+          "pitch": 59.0,
+          "technique": "hammer_on"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 55,
+          "on_sample": 56160,
+          "off_sample": 71040,
+          "pitch": 55.0,
+          "technique": "pull_off"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 71040,
+          "off_sample": 84960,
+          "pitch": 52.0,
+          "technique": "pull_off"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "hammer_pull_tiny_contact_mono",
+      "record": "hammer_pull_tiny_contact",
+      "file": "pcm/hammer_pull_tiny_contact.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "hammer-pull",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 12000,
+          "off_sample": 27360,
+          "pitch": 52.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 55,
+          "on_sample": 27360,
+          "off_sample": 42240,
+          "pitch": 55.0,
+          "technique": "hammer_on"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 42240,
+          "off_sample": 56160,
+          "pitch": 59.0,
+          "technique": "hammer_on"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 55,
+          "on_sample": 56160,
+          "off_sample": 71040,
+          "pitch": 55.0,
+          "technique": "pull_off"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 71040,
+          "off_sample": 84960,
+          "pitch": 52.0,
+          "technique": "pull_off"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "hammer_pull_tiny_contact_poly",
+      "record": "hammer_pull_tiny_contact",
+      "file": "pcm/hammer_pull_tiny_contact.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "hammer-pull",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 12000,
+          "off_sample": 27360,
+          "pitch": 52.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 55,
+          "on_sample": 27360,
+          "off_sample": 42240,
+          "pitch": 55.0,
+          "technique": "hammer_on"
+        },
+        {
+          "id": "s0-n2",
+          "string": 0,
+          "anchor": 59,
+          "on_sample": 42240,
+          "off_sample": 56160,
+          "pitch": 59.0,
+          "technique": "hammer_on"
+        },
+        {
+          "id": "s0-n3",
+          "string": 0,
+          "anchor": 55,
+          "on_sample": 56160,
+          "off_sample": 71040,
+          "pitch": 55.0,
+          "technique": "pull_off"
+        },
+        {
+          "id": "s0-n4",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 71040,
+          "off_sample": 84960,
+          "pitch": 52.0,
+          "technique": "pull_off"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "smooth_bend_80ms_mono",
+      "record": "smooth_bend_80ms",
+      "file": "pcm/smooth_bend_80ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "continuous-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 79200,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "smooth_bend_80ms_poly",
+      "record": "smooth_bend_80ms",
+      "file": "pcm/smooth_bend_80ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "continuous-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 79200,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "smooth_bend_220ms_mono",
+      "record": "smooth_bend_220ms",
+      "file": "pcm/smooth_bend_220ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "continuous-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 79200,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "smooth_bend_220ms_poly",
+      "record": "smooth_bend_220ms",
+      "file": "pcm/smooth_bend_220ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "continuous-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 79200,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "smooth_bend_420ms_mono",
+      "record": "smooth_bend_420ms",
+      "file": "pcm/smooth_bend_420ms.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "continuous-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 79200,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "smooth_bend_420ms_poly",
+      "record": "smooth_bend_420ms",
+      "file": "pcm/smooth_bend_420ms.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "continuous-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 12000,
+          "off_sample": 79200,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "poly_independent_bends_2voices_0_poly",
+      "record": "poly_independent_bends_2voices_0",
+      "file": "pcm/poly_independent_bends_2voices_0.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "poly-independent-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 16800,
+          "off_sample": 81600,
+          "pitch": 52.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s1-n0",
+          "string": 1,
+          "anchor": 59,
+          "on_sample": 17664,
+          "off_sample": 78240,
+          "pitch": 59.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "poly_independent_bends_3voices_1_poly",
+      "record": "poly_independent_bends_3voices_1",
+      "file": "pcm/poly_independent_bends_3voices_1.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "poly-independent-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 45,
+          "on_sample": 16800,
+          "off_sample": 81600,
+          "pitch": 45.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s1-n0",
+          "string": 1,
+          "anchor": 52,
+          "on_sample": 17664,
+          "off_sample": 78240,
+          "pitch": 52.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s2-n0",
+          "string": 2,
+          "anchor": 57,
+          "on_sample": 18528,
+          "off_sample": 74880,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "poly_independent_bends_4voices_2_poly",
+      "record": "poly_independent_bends_4voices_2",
+      "file": "pcm/poly_independent_bends_4voices_2.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "poly-independent-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "on_sample": 16800,
+          "off_sample": 81600,
+          "pitch": 40.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s1-n0",
+          "string": 1,
+          "anchor": 47,
+          "on_sample": 17664,
+          "off_sample": 78240,
+          "pitch": 47.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s2-n0",
+          "string": 2,
+          "anchor": 52,
+          "on_sample": 18528,
+          "off_sample": 74880,
+          "pitch": 52.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s3-n0",
+          "string": 3,
+          "anchor": 56,
+          "on_sample": 19392,
+          "off_sample": 71520,
+          "pitch": 56.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "poly_independent_bends_4voices_3_poly",
+      "record": "poly_independent_bends_4voices_3",
+      "file": "pcm/poly_independent_bends_4voices_3.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "poly-independent-bend",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "on_sample": 16800,
+          "off_sample": 81600,
+          "pitch": 52.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s1-n0",
+          "string": 1,
+          "anchor": 55,
+          "on_sample": 17664,
+          "off_sample": 78240,
+          "pitch": 55.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s2-n0",
+          "string": 2,
+          "anchor": 59,
+          "on_sample": 18528,
+          "off_sample": 74880,
+          "pitch": 59.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s3-n0",
+          "string": 3,
+          "anchor": 62,
+          "on_sample": 19392,
+          "off_sample": 71520,
+          "pitch": 62.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "quiet_new_note_after_decay_noise_mono",
+      "record": "quiet_new_note_after_decay_noise",
+      "file": "pcm/quiet_new_note_after_decay_noise.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "quiet-rearticulation",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 45,
+          "on_sample": 14400,
+          "off_sample": 37440,
+          "pitch": 45.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 48960,
+          "off_sample": 74880,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    },
+    {
+      "name": "quiet_new_note_after_decay_noise_poly",
+      "record": "quiet_new_note_after_decay_noise",
+      "file": "pcm/quiet_new_note_after_decay_noise.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "quiet-rearticulation",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 45,
+          "on_sample": 14400,
+          "off_sample": 37440,
+          "pitch": 45.0,
+          "technique": "pluck"
+        },
+        {
+          "id": "s0-n1",
+          "string": 0,
+          "anchor": 57,
+          "on_sample": 48960,
+          "off_sample": 74880,
+          "pitch": 57.0,
+          "technique": "pluck"
+        }
+      ],
+      "gain_pair": null
+    }
+  ]
+}

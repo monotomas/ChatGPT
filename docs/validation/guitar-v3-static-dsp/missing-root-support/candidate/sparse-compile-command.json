@@ -1,0 +1,18 @@
+[
+  "g++",
+  "-std=c++17",
+  "-O2",
+  "-DNDEBUG",
+  "-I",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/Source",
+  "/tmp/flysnapper-missing-root-support-audit/sparse_missing_root.cpp",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/objects/ArticulationTracker.o",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/objects/EarlyEstimator.o",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/objects/NoiseConditioner.o",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/objects/PitchDetector.o",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/objects/PolyphonicTracker.o",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/objects/TimeDomainPursuit.o",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/objects/YinEstimator.o",
+  "-o",
+  "/tmp/flysnapper-missing-root-support-audit/candidate/SparseMissingRoot"
+]

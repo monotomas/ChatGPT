@@ -1,0 +1,57 @@
+--- a/Source/Pitch/PitchDetector.h
++++ b/Source/Pitch/PitchDetector.h
+@@ -111,7 +111,7 @@
+     std::array<double,16> pendingPhaseCoefficients{};
+     std::array<float,fftSize/2+1> spectralBaseline{};
+     float spectralUpdate=0;
+-    std::array<bool,noteCount> independentNovelty{};
++    std::array<bool,noteCount> independentNovelty{},physicalContinuation{};
+     std::array<float,hopSize> polyPrediction{};
+     bool predictionValid=false;
+     int predictionIndex=hopSize,predictionAge=0,predictionCooldown=0;
+--- a/Source/Pitch/PitchDetector.cpp
++++ b/Source/Pitch/PitchDetector.cpp
+@@ -541,6 +541,7 @@
+     view.confidence=estimate.confidence;view.strongestNote=note;
+ }
+ void PitchDetector::analysePoly(int count,int,Output&) noexcept {
++    physicalContinuation.fill(false);
+     if(count<512){predictionValid=false;predictionAge=0;return;}
+     std::array<float,512> frame{};
+     for(int i=0;i<512;++i)frame[size_t(i)]=ring[size_t((writeIndex-512+i+windowSize)%windowSize)];
+@@ -647,6 +648,26 @@
+     bool anyActive=false;for(const auto& voice:voices)anyActive|=voice.active;
+     if(!anyActive)polyAdmission=std::max(polyAdmission,int(analysisRate*.120));
+     pursuit.analyse(frame.data(),512,strength,scores,config.polyphony,config.sensitivity,&evidence);
++    // Held-only independent physical support; no new-source admission.
++    for(int n=0;n<noteCount;++n)if(voices[size_t(n)].active&&strength[size_t(n)]<=0
++        &&TimeDomainPursuit::hasIndependentPeaks(n,evidence,evidence.active,false)){
++        uint16_t mask=0;int supported=0;float rootMagnitude=0;
++        for(int h=1;h<=8;++h){
++            const float target=frequency[size_t(n)]*h;
++            if(target>evidence.maximumHz)break;
++            for(int i=0;i<evidence.count;++i){const auto& p=evidence.peaks[size_t(i)];
++                if(p.magnitude>=evidence.maximumMagnitude*(h==1?.015f:.008f)
++                    &&std::abs(p.frequency-target)<target*.022f+evidence.resolutionHz*.05f){
++                    mask=uint16_t(mask|(1u<<(h-1)));++supported;if(h==1)rootMagnitude=std::max(rootMagnitude,p.magnitude);break;
++                }
++            }
++        }
++        if(supported>=3&&hasPrimitiveLowSeries(mask)){
++            const float observed=float(rootMagnitude*2.0/255.5/std::sqrt(2.0));
++            strength[size_t(n)]=std::min(voices[size_t(n)].strength,observed);
++            scores[size_t(n)]=0;physicalContinuation[size_t(n)]=true;
++        }
++    }
+     predictionValid=pursuit.copyPrediction(polyPrediction);predictionIndex=0;
+     if(!predictionValid){predictionAge=0;predictionFast=predictionSlow=predictionObserved=predictionExpected=0;}
+     for(int n=0;n<noteCount;++n)if(strength[size_t(n)]>0&&!voices[size_t(n)].active)
+@@ -718,7 +739,7 @@
+             &&(config.polyphonic||monoStable(n));
+         if(detected>0) {
+             voice.absent=0;
+-            if(voice.active&&ready&&(config.polyphonic||!monoTrackedOnly)&&(!config.polyphonic||polyAdmission>0||independentNovelty[size_t(n)])&&attackRemaining>0&&voice.age>analysisRate*.07&&((phaseAttack&&fastEnvelope>slowEnvelope*.8f)||(!phaseAttack&&detected>retriggerBaseline[size_t(n)]*1.35f))) {
++            if(voice.active&&ready&&(!config.polyphonic||!physicalContinuation[size_t(n)])&&(config.polyphonic||!monoTrackedOnly)&&(!config.polyphonic||polyAdmission>0||independentNovelty[size_t(n)])&&attackRemaining>0&&voice.age>analysisRate*.07&&((phaseAttack&&fastEnvelope>slowEnvelope*.8f)||(!phaseAttack&&detected>retriggerBaseline[size_t(n)]*1.35f))) {
+                 emit(false,n+lowNote,0,offset,out);voice.active=false;
+                 retriggerBaseline[size_t(n)]=std::numeric_limits<float>::infinity();
+             }

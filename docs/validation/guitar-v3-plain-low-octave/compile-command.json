@@ -1,0 +1,19 @@
+[
+  "g++",
+  "-std=c++17",
+  "-O2",
+  "-DNDEBUG",
+  "-I",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source",
+  "/tmp/flysnapper-native3-quiet-alias-audit/capture.cpp",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source/Pitch/ArticulationTracker.cpp",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source/Pitch/EarlyEstimator.cpp",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source/Pitch/InputDynamics.cpp",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source/Pitch/NoiseConditioner.cpp",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source/Pitch/PitchDetector.cpp",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source/Pitch/PolyphonicTracker.cpp",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source/Pitch/TimeDomainPursuit.cpp",
+  "/tmp/flysnapper-native3-quiet-alias-audit/Source/Pitch/YinEstimator.cpp",
+  "-o",
+  "/tmp/flysnapper-native3-quiet-alias-audit/QuietAliasCapture"
+]

@@ -1,0 +1,13 @@
+{
+  "juce": {
+    "repository": "https://github.com/juce-framework/JUCE.git",
+    "tag": "8.0.16-security",
+    "commit": "ea77444750de45e036e0279bb0291144bf8e3688",
+    "license_option": "AGPLv3",
+    "build_tool_patch": "windows-wide-argv-v1 (verified private Windows build copy only)"
+  },
+  "python_runtime_dependencies": [],
+  "target": "Windows x86_64 VST3",
+  "validation_platform": "Linux x86_64 (separate native binary)",
+  "project_version": "0.3.0"
+}

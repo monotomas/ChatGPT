@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+  "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+  "runs": 128,
+  "passed_runs": 48,
+  "failed_runs": 80,
+  "out_of_scope_runs": 0,
+  "out_of_scope": [],
+  "absolute_latency_gate": false,
+  "latency_alignment_or_backdating": false,
+  "physical_latency_verified": false,
+  "counts": {
+    "expected": 96,
+    "matched": 96,
+    "missed": 0,
+    "extra_note_ons": 240,
+    "noise_note_ons": 42,
+    "octave_errors": 32,
+    "wrong_before_correct": 0,
+    "early_offs": 43,
+    "late_offs": 3,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "deadline_misses": 85
+  },
+  "latency_by_pitch": [
+    {
+      "mode": "mono",
+      "anchor": 40,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 42.645833333333336,
+        "p95": 44.645833333333336,
+        "maximum": 45.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 57,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 16.645833333333332,
+        "p95": 16.645833333333332,
+        "maximum": 16.645833333333332
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 40,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 67.3125,
+        "p95": 69.97916666666667,
+        "maximum": 69.97916666666667
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 57,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 53.979166666666664,
+        "p95": 55.979166666666664,
+        "maximum": 55.979166666666664
+      }
+    }
+  ],
+  "fixture_seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d",
+  "capture_sha256": {
+    "capture.csv": "c9d8fbbd8144131256ed4a45dfebcae34303cb6c414d63bf5b3f729a574e8872",
+    "events.csv": "f14c4e1e00a66f8aa2f07869560f77ea4a7d6855006d44116bee4d23271a8be8"
+  }
+}

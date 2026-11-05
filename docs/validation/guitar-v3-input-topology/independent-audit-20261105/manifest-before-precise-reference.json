@@ -1,0 +1,25 @@
+{
+  "scope": "Independent durations and dynamics-off detuning audit; no source integration",
+  "main_files_modified_by_this_agent": false,
+  "original_capture_files_overwritten": false,
+  "new_detuning_source_root": "/tmp/flysnapper-postnc-dynamics-probe/analysis-after-nc-raw-reference/Source",
+  "new_detuning_executable_sha256": "8ceafa55f2af3b22b2da31e6f6b6c0843a0f57099420799be0c12e933669f183",
+  "files_sha256": {
+    "REPORT.md": "d7dae91b1074d33fb9acd4bfc3e41fad555fd4e5d74b61dc762469ffc6762b86",
+    "detuning-baseline-plan.json": "f2dce8ea03c51a9de96052d483d4403b71bb9a5609d95f0c56bb4ae7b00fbc1d",
+    "detuning-baseline-result.json": "1e80a0fbcd7191ca5053fb0c3de4be8b231ecbb733aeab9eb56acae1fbbdb067",
+    "detuning-comparison.json": "33b228c1f5e384aff5c6a665e5be30fc17fd70731955c168bc3a2648736472a8",
+    "detuning-disabled-compile.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "detuning-disabled-console.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "detuning-disabled-driver.cpp": "e8ced4050a68e61454400ee0bfe7942e23542d3ce00410ccf112bcdc58409372",
+    "detuning-disabled.csv": "250e84daaf2ea40bd3ff378c68b0c0d937e772e1a8d60ecbdd9af590cd90f2e5",
+    "detuning-enabled-driver.cpp": "2fe0214163885e2da26ede8639b0c4f83a342af2e8e318ffae12cf34d465ca43",
+    "input-bindings.json": "3b9aebabe63b17a273071387aa72b3b05f11757c60108f9d5ed9865b9ea77376",
+    "topology-duration-audit.json": "ac6ab50a3c757b9965c43c382efe6d99b76cbada529f5ef16bded53f3acc85dc",
+    "topology-duration-console.txt": "4dd324effd52598c8b560a71761acefd83981dcd5d75710a12b35f0cdfc1ea9c",
+    "topology_duration_audit.py": "b1cd4e366961d733df10f170deb413e2258931f4ac079734c0b41265aa30c79f"
+  },
+  "total_bound_topology_inputs": 80,
+  "all51source_driver_bindings_verified": true,
+  "score_reconstruction_mismatches": 0
+}

@@ -1,13 +1,15 @@
-# MPE routing architecture under development
+# Optional MPE output in 0.3.0
 
-This describes the `research/musical-readiness` implementation. It is not a
-new release or evidence that the audio tracker has reached musical readiness.
+This describes the optional wire format in the 5 November guitar-evaluation
+scope. Ordinary routing remains the default. Protocol success is separate
+from acoustic accuracy and actual execution in Ableton.
 
 `MPE Output` is an explicit, saved choice, initially off. Ordinary projects
-keep the existing note/channel behavior. Enabling it makes mono and poly audio
-tracking request continuous expression, independent of the legacy `Mono Bend`
-switch. The audio tracker must still distinguish a new fretted note from a
-continuous bend; the MIDI router does not guess articulation from loudness.
+keep the existing note/channel behavior. Enabling it makes mono audio request
+continuous expression, independent of the legacy `Mono Bend` switch. Poly
+remains fixed semitone Note On/Off, with neutral member pitch; MPE does not
+enable polyphonic bending. Mono must still distinguish a new fretted note from
+a continuous bend; the MIDI router does not guess articulation from loudness.
 
 ## Output and receiving instrument
 
@@ -17,7 +19,7 @@ The output uses a lower zone with master channel 1 and fourteen members:
 | Channels | Ownership |
 | --- | --- |
 | 1 | Zone configuration and centred global pitch; no performance notes |
-| 2–7 | Six stable audio voice identities |
+| 2–7 | Six generated note identities, stable while each note sounds |
 | 8–15 | Eight re-encoded external/diagnostic voices |
 | 16 | Reserved for chord input; no output notes |
 
@@ -79,8 +81,10 @@ explicit sensitivity or legacy mode.
 Scale/chord correction chooses the output anchor at Note On. Fractional pitch
 then remains relative to the acoustic/input anchor, preserving expression
 around the corrected note. Note Off retains the original corrected binding
-through chord changes. A discrete articulation releases the old anchor before
-initial pitch and Note On for the new anchor, keeping its stable audio voice.
+through chord changes. Mono articulation releases the old anchor before
+initial pitch and Note On for the new anchor. Static poly notes have independent
+lifetimes; a new note need not inherit a previous note's member or physical
+string identity, and observation windows can produce a short legato overlap.
 
 Changing output format releases voices in their previous format before
 accepting new notes. It preserves the held chord input. Generated-source
@@ -94,5 +98,7 @@ pedals, overlapping corrected notes, stealing, reset, zone/range changes,
 receiver replacement and randomized lifecycles. `FlysnapperMpeProcessor` adds
 real sidechain samples through the processor. `FlysnapperMpeVst3Host` loads the
 compiled plug-in and tests the VST3 event adapter before that receiver. Signal
-groups remain strict even while the audio backend is unfinished. These checks
-do not establish Live routing, audio-driver latency or general guitar quality.
+groups test the dated mono-expression/static-poly contract. The older ambiguous
+45+64 three-partial source remains a reported acquisition diagnostic rather
+than a false claim of recovered independent strings. These checks do not
+establish Live routing, audio-driver latency or general guitar quality.

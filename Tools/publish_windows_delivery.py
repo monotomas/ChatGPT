@@ -82,13 +82,18 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
                 contents=redact(diagnostic.read_text(encoding='utf-8',errors='replace'))
                 members[f'logs/{source}-{filename}']=contents[-2_000_000:].encode('utf-8')
     if result=='completed':
-        from package_windows import verify_package
+        from package_windows import verify_package,dynamics_evidence_module
         verify_package(artifact)
         if build_manifest is None or report is None or not build_manifest.is_file() or not report.is_file():
             raise ValueError('Windows validation proof is missing')
         build=json.loads(build_manifest.read_text(encoding='utf-8'))
         if build.get('source_commit')!=source:
             raise ValueError('Windows artifact proof belongs to a different source commit')
+        if build.get('version')=='0.3.0':
+            dynamics=dynamics_evidence_module()
+            if build.get('stage')!=dynamics.EVALUATION_STAGE or build.get('evaluation_scope')!=dynamics.EVALUATION_SCOPE:
+                raise ValueError('Flysnapper 0.3.0 is missing its qualified real-guitar evaluation scope')
+        status['stage']=build.get('stage');status['evaluation_scope']=build.get('evaluation_scope')
         with ZipFile(artifact) as archive:
             prefix=archive.namelist()[0].split('/',1)[0]+'/'
             embedded=json.loads(archive.read(prefix+'Validation/build-manifest.json'))
@@ -105,6 +110,11 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
             if path is None or not path.is_file():raise ValueError('Windows validation proof is missing')
             members[name]=path.read_bytes()
         members['README.md']=('''# Flysnapper Windows x64\n\n[Last ned ferdig installasjonspakke](downloads/Flysnapper-Windows-x64.zip?raw=1)\n\nPakk ut hele ZIP-filen og dobbeltklikk INSTALL_FLYSNAPPER.bat. Ingen Python, CMake eller Visual Studio kreves.\n\nstatus.json identifiserer kildecommit og den faktiske Windows-byggingen. Native automatiske tester og SHA256 er vedlagt. Målte audioegenskaper og eventuelle gjenværende begrensninger står i pakken; Windows-bygg er ikke i seg selv en Ableton-/lydkortmåling.\n''').encode()
+        if build.get('version')=='0.3.0':
+            text=members['README.md'].decode('utf-8').replace('[Last ned ferdig installasjonspakke]',
+                '[Last ned Flysnapper 0.3.0 for gitarprøve]')
+            text+='\nDenne leveransen er klargjort for praktisk gitarprøve etter de automatiske kontrollene for kravene av 5. november. Poly sender definerte halvtoner uten polyfonisk bending; mono har fortsatt valgfri bending. Begynn med den veiledede 20-sekunders spilleprøven i Input dynamics og juster kontrollene ved behov. De målte begrensningene følger pakken.\n'
+            members['README.md']=text.encode('utf-8')
     members['status.json']=(json.dumps(status,indent=2,ensure_ascii=False)+'\n').encode()
     for attempt in range(3):
         remote=git('ls-remote','origin',BRANCH).stdout.decode().strip()

@@ -18,6 +18,12 @@ class ObjectPathTests(unittest.TestCase):
         self.assertEqual(len(str(old)),264)
         self.assertLess(len(str(new)),240)
         self.assertLessEqual(len(str(new)),220)
+        dynamics=PureWindowsPath(str(new).replace('FlysnapperProcessorAudioTests','FlysnapperDynamicsProcessorTests'))
+        # The new full-processor target is three characters longer and now
+        # needs the real CMake directory hashing exercised below.
+        self.assertGreater(len(str(dynamics)),220)
+        hashed=root/'build/w-0123456789ab/CMakeFiles/FlysnapperDynamicsProcessorTests.dir'/('0'*32)/'juce_audio_processors_headless_lv2_libs.cpp.obj'
+        self.assertLessEqual(len(str(hashed)),220)
         self.assertIn('Olav Lægreid',str(new))
     def test_configure_compacts_only_generated_paths_and_preserves_unicode_source(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -47,7 +53,8 @@ class ObjectPathTests(unittest.TestCase):
             source.parent.mkdir(parents=True);source.write_text('int object_path_probe(){return 1;}\n',encoding='utf-8')
             # A forced compiler descriptor avoids invoking any compiler. This
             # probe measures CMake's actual generated filenames, not codegen.
-            (root/'CMakeLists.txt').write_text('cmake_minimum_required(VERSION 3.22)\nproject(ObjectPathProbe LANGUAGES CXX)\nadd_library(FlysnapperProcessorAudioTests STATIC "'+source.relative_to(root).as_posix()+'")\n',encoding='utf-8')
+            targets=('FlysnapperProcessorAudioTests','FlysnapperDynamicsProcessorTests')
+            (root/'CMakeLists.txt').write_text('cmake_minimum_required(VERSION 3.22)\nproject(ObjectPathProbe LANGUAGES CXX)\n'+''.join('add_library('+name+' STATIC "'+source.relative_to(root).as_posix()+'")\n' for name in targets),encoding='utf-8')
             build=root/'b'
             command=[cmake,'-S',str(root),'-B',str(build),'-G','Ninja','-DCMAKE_MAKE_PROGRAM='+ninja,
                      '-DCMAKE_OBJECT_PATH_MAX=220','-DCMAKE_CXX_COMPILER='+sys.executable,
@@ -57,7 +64,7 @@ class ObjectPathTests(unittest.TestCase):
             self.assertEqual(result.returncode,0,result.stdout)
             text=(build/'build.ninja').read_text(encoding='utf-8')
             objects=re.findall(r'^build (.+?\.(?:o|obj)): CXX_COMPILER',text,re.MULTILINE)
-            self.assertEqual(len(objects),1,text)
+            self.assertEqual(len(objects),len(targets),text)
             paths=[build/obj.replace('$ ',' ').replace('$:',':') for obj in objects]
             self.assertTrue(all(len(str(p))<=220 for p in paths),[(str(p),len(str(p))) for p in paths])
             self.assertTrue(any(re.search(r'(?:^|[/\\])[0-9a-f]{32}(?:[/\\]|$)',str(p)) for p in paths),objects)

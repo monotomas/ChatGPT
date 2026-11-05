@@ -1,0 +1,417 @@
+{
+  "schema": 1,
+  "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+  "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+  "runs": 65,
+  "passed_runs": 37,
+  "failed_runs": 28,
+  "out_of_scope_runs": 7,
+  "out_of_scope": [
+    {
+      "case": "smooth_bend_80ms_poly",
+      "rate": 48000,
+      "block": 64,
+      "reason": "The user explicitly removed polyphonic bending. These historical recordings remain intact and are listed as outside this evaluation, never counted as passes."
+    },
+    {
+      "case": "smooth_bend_220ms_poly",
+      "rate": 48000,
+      "block": 64,
+      "reason": "The user explicitly removed polyphonic bending. These historical recordings remain intact and are listed as outside this evaluation, never counted as passes."
+    },
+    {
+      "case": "smooth_bend_420ms_poly",
+      "rate": 48000,
+      "block": 64,
+      "reason": "The user explicitly removed polyphonic bending. These historical recordings remain intact and are listed as outside this evaluation, never counted as passes."
+    },
+    {
+      "case": "poly_independent_bends_2voices_0_poly",
+      "rate": 48000,
+      "block": 64,
+      "reason": "The user explicitly removed polyphonic bending. These historical recordings remain intact and are listed as outside this evaluation, never counted as passes."
+    },
+    {
+      "case": "poly_independent_bends_3voices_1_poly",
+      "rate": 48000,
+      "block": 64,
+      "reason": "The user explicitly removed polyphonic bending. These historical recordings remain intact and are listed as outside this evaluation, never counted as passes."
+    },
+    {
+      "case": "poly_independent_bends_4voices_2_poly",
+      "rate": 48000,
+      "block": 64,
+      "reason": "The user explicitly removed polyphonic bending. These historical recordings remain intact and are listed as outside this evaluation, never counted as passes."
+    },
+    {
+      "case": "poly_independent_bends_4voices_3_poly",
+      "rate": 48000,
+      "block": 64,
+      "reason": "The user explicitly removed polyphonic bending. These historical recordings remain intact and are listed as outside this evaluation, never counted as passes."
+    }
+  ],
+  "absolute_latency_gate": false,
+  "latency_alignment_or_backdating": false,
+  "physical_latency_verified": false,
+  "counts": {
+    "expected": 151,
+    "matched": 130,
+    "missed": 21,
+    "extra_note_ons": 92,
+    "noise_note_ons": 24,
+    "octave_errors": 9,
+    "wrong_before_correct": 10,
+    "early_offs": 9,
+    "late_offs": 4,
+    "discrete_misses": 16,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "deadline_misses": 144
+  },
+  "latency_by_pitch": [
+    {
+      "mode": "mono",
+      "anchor": 31,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 49.3125,
+        "p95": 49.3125,
+        "maximum": 49.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 40,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 30.645833333333332,
+        "p95": 30.645833333333332,
+        "maximum": 30.645833333333332
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 45,
+      "expected": 1,
+      "matched": 1,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 25.3125,
+        "p95": 25.3125,
+        "maximum": 25.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 52,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 19.3125,
+        "p95": 19.979166666666668,
+        "maximum": 19.979166666666668
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 55,
+      "expected": 4,
+      "matched": 4,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 24.645833333333332,
+        "p95": 24.645833333333332,
+        "maximum": 24.645833333333332
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 57,
+      "expected": 16,
+      "matched": 16,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 16.645833333333332,
+        "p95": 19.979166666666668,
+        "maximum": 19.979166666666668
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 58,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 15.979166666666666,
+        "p95": 17.3125,
+        "maximum": 17.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 59,
+      "expected": 8,
+      "matched": 8,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 15.979166666666666,
+        "p95": 21.3125,
+        "maximum": 21.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 60,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 15.3125,
+        "p95": 15.645833333333334,
+        "maximum": 15.645833333333334
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 61,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 15.3125,
+        "p95": 15.3125,
+        "maximum": 15.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 62,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 14.645833333333334,
+        "p95": 14.979166666666666,
+        "maximum": 14.979166666666666
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 63,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 13.3125,
+        "p95": 14.645833333333334,
+        "maximum": 14.645833333333334
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 64,
+      "expected": 8,
+      "matched": 8,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 12.3125,
+        "p95": 13.979166666666666,
+        "maximum": 13.979166666666666
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 31,
+      "expected": 2,
+      "matched": 1,
+      "missed": 1,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 54.645833333333336,
+        "p95": 54.645833333333336,
+        "maximum": 54.645833333333336
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 40,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 54.645833333333336,
+        "p95": 54.645833333333336,
+        "maximum": 54.645833333333336
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 45,
+      "expected": 1,
+      "matched": 0,
+      "missed": 1,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": null,
+        "p95": null,
+        "maximum": null
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 52,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 53.979166666666664,
+        "p95": 54.645833333333336,
+        "maximum": 54.645833333333336
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 55,
+      "expected": 4,
+      "matched": 4,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 45.979166666666664,
+        "p95": 48.645833333333336,
+        "maximum": 48.645833333333336
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 57,
+      "expected": 13,
+      "matched": 11,
+      "missed": 2,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 43.3125,
+        "p95": 56.645833333333336,
+        "maximum": 56.645833333333336
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 58,
+      "expected": 6,
+      "matched": 3,
+      "missed": 3,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 42.3125,
+        "p95": 66.64583333333333,
+        "maximum": 66.64583333333333
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 59,
+      "expected": 8,
+      "matched": 6,
+      "missed": 2,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 40.979166666666664,
+        "p95": 41.3125,
+        "maximum": 41.3125
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 60,
+      "expected": 6,
+      "matched": 3,
+      "missed": 3,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 41.979166666666664,
+        "p95": 68.64583333333333,
+        "maximum": 68.64583333333333
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 61,
+      "expected": 6,
+      "matched": 3,
+      "missed": 3,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 40.3125,
+        "p95": 68.64583333333333,
+        "maximum": 68.64583333333333
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 62,
+      "expected": 6,
+      "matched": 4,
+      "missed": 2,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 38.645833333333336,
+        "p95": 40.979166666666664,
+        "maximum": 40.979166666666664
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 63,
+      "expected": 6,
+      "matched": 3,
+      "missed": 3,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 39.645833333333336,
+        "p95": 69.3125,
+        "maximum": 69.3125
+      }
+    },
+    {
+      "mode": "poly",
+      "anchor": 64,
+      "expected": 8,
+      "matched": 7,
+      "missed": 1,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 38.979166666666664,
+        "p95": 54.645833333333336,
+        "maximum": 54.645833333333336
+      }
+    }
+  ],
+  "fixture_seal": "d5af9fb3fefb4d41918e62810d59290c1dd741d95337d58ec34efcdcf14f9fba",
+  "capture_sha256": {
+    "capture.csv": "33a5ccd7059b1ca4edf648f846435969a99ad970c7f890fae420aa4fb05f8411",
+    "events.csv": "bc071ef15f002996fcc6e34c95a5587c55130033b9cb1f9134b1e26bdea41250"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "scope": "Supplementary reproduction and host-observer withdrawal; no changed original capture or input manifests. Generator reconstructs original12PCM; no rerun or acceptance retuning.",
+  "numpy": "2.3.5",
+  "files": {
+    "/tmp/flysnapper-nov5-trained-prefilter/generate.py": {
+      "bytes": 2354,
+      "sha256": "7e67b519568f1e0cc6968363747b29e3934d70ac3883ce6579173483fc797f79"
+    },
+    "/workspace/ChatGPT/Tests/AudioFixtures/readiness/generate.py": {
+      "bytes": 15480,
+      "sha256": "f6dae0c9e1b3b0a852184ccf9ac115503e5a1d273148906bea5c3f0ce387d547"
+    },
+    "/tmp/flysnapper-host-observer-withdrawal.cpp": {
+      "bytes": 804,
+      "sha256": "8cbbfb5c6ae45868efca62ffbde798f839ad4346bddd5ea48412f7a2dd4b3dab"
+    },
+    "/tmp/flysnapper-host-observer-withdrawal.txt": {
+      "bytes": 360,
+      "sha256": "1dab28f505104b4ddc44b2faa0264d5501374a40c4130ef55bfd9b68550b31e6"
+    }
+  },
+  "fixture_reproduction": {
+    "files": 14,
+    "all_byte_identical": true,
+    "reproduction_path": "/tmp/flysnapper-nov5-trained-prefilter-reproduction"
+  }
+}

@@ -1,0 +1,14 @@
+MEASURE mono bend 2 semitone range, 44100 Hz: 201 wheel events, maximum 16383; fixed note57/ch2
+MEASURE mono bend 12 semitone range, 44100 Hz: 199 wheel events, maximum 11636; fixed note57/ch2
+MEASURE mono bend 2 semitone range, 48000 Hz: 201 wheel events, maximum 16383; fixed note57/ch2
+MEASURE mono bend 12 semitone range, 48000 Hz: 199 wheel events, maximum 11636; fixed note57/ch2
+MEASURE mono bend 2 semitone range, 96000 Hz: 200 wheel events, maximum 16383; fixed note57/ch2
+MEASURE mono bend 12 semitone range, 96000 Hz: 199 wheel events, maximum 11636; fixed note57/ch2
+DIAGNOSTIC unchanged detuned repick rate=44100 range=2; full MIDI decisions in Flysnapper-detuned-repick-failure-44100-2.csv
+  705 N note=58 channel=2
+  14935 F note=58 channel=2
+  14935 N note=58 channel=2
+  29047 F note=58 channel=2
+  29047 N note=58 channel=2
+  47980 F note=58 channel=2
+FlysnapperBendProcessor: FAIL: Detuned repick changed its MIDI anchor

@@ -1,0 +1,3877 @@
+{
+  "baseline": {
+    "cases": [
+      {
+        "case": "true_octave_up_31_plain",
+        "root": 31,
+        "family": "true_octave_up",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 33663,
+            "latency_ms": 53.3125,
+            "release_ms": 51.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 43,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33663,
+            "note_off_sample": 55039,
+            "latency_ms": 51.3125,
+            "release_ms": 46.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 33663,
+            "used": true
+          },
+          {
+            "note": 43,
+            "voice": 0,
+            "on": 33663,
+            "off": 55039,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_31_plain",
+        "root": 31,
+        "family": "true_octave_down",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 43,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10879,
+            "note_off_sample": 33407,
+            "latency_ms": 26.645833333333332,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 31,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33791,
+            "note_off_sample": 55423,
+            "latency_ms": 53.979166666666664,
+            "release_ms": 54.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 43,
+            "voice": 0,
+            "on": 10879,
+            "off": 33407,
+            "used": true
+          },
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 33791,
+            "off": 55423,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_31_plain",
+        "root": 31,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 28927,
+            "latency_ms": 53.3125,
+            "release_ms": 52.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 33,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 29439,
+            "note_off_sample": 45183,
+            "latency_ms": 63.3125,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 31,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 46079,
+            "note_off_sample": 62207,
+            "latency_ms": 59.979166666666664,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 28927,
+            "used": true
+          },
+          {
+            "note": 33,
+            "voice": 0,
+            "on": 29439,
+            "off": 45183,
+            "used": true
+          },
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 46079,
+            "off": 62207,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_31_plain",
+        "root": 31,
+        "family": "physical_damping",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 38527,
+            "latency_ms": 53.3125,
+            "release_ms": 52.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 38527,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_31_bend",
+        "root": 31,
+        "family": "true_octave_up",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 33407,
+            "latency_ms": 53.3125,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 43,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33407,
+            "note_off_sample": 55167,
+            "latency_ms": 45.979166666666664,
+            "release_ms": 49.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 33407,
+            "used": true
+          },
+          {
+            "note": 43,
+            "voice": 0,
+            "on": 33407,
+            "off": 55167,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_31_bend",
+        "root": 31,
+        "family": "true_octave_down",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 43,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10879,
+            "note_off_sample": 33407,
+            "latency_ms": 26.645833333333332,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 31,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33791,
+            "note_off_sample": 55423,
+            "latency_ms": 53.979166666666664,
+            "release_ms": 54.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 43,
+            "voice": 0,
+            "on": 10879,
+            "off": 33407,
+            "used": true
+          },
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 33791,
+            "off": 55423,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_31_bend",
+        "root": 31,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 28927,
+            "latency_ms": 53.3125,
+            "release_ms": 52.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 33,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 29439,
+            "note_off_sample": 45055,
+            "latency_ms": 63.3125,
+            "release_ms": 38.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 31,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 45055,
+            "note_off_sample": 62207,
+            "latency_ms": 38.645833333333336,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 28927,
+            "used": true
+          },
+          {
+            "note": 33,
+            "voice": 0,
+            "on": 29439,
+            "off": 45055,
+            "used": true
+          },
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 45055,
+            "off": 62207,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_31_bend",
+        "root": 31,
+        "family": "physical_damping",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 38911,
+            "latency_ms": 53.3125,
+            "release_ms": 60.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 38911,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_35_plain",
+        "root": 35,
+        "family": "true_octave_up",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 32383,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 24.645833333333332,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 47,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32383,
+            "note_off_sample": 54783,
+            "latency_ms": 24.645833333333332,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 32383,
+            "used": true
+          },
+          {
+            "note": 47,
+            "voice": 0,
+            "on": 32383,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_35_plain",
+        "root": 35,
+        "family": "true_octave_down",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 47,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10879,
+            "note_off_sample": 33151,
+            "latency_ms": 26.645833333333332,
+            "release_ms": 40.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 35,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33279,
+            "note_off_sample": 55167,
+            "latency_ms": 43.3125,
+            "release_ms": 49.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 47,
+            "voice": 0,
+            "on": 10879,
+            "off": 33151,
+            "used": true
+          },
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 33279,
+            "off": 55167,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_35_plain",
+        "root": 35,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 28927,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 52.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 37,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 29183,
+            "note_off_sample": 45823,
+            "latency_ms": 57.979166666666664,
+            "release_ms": 54.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 35,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 45951,
+            "note_off_sample": 62207,
+            "latency_ms": 57.3125,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 28927,
+            "used": true
+          },
+          {
+            "note": 37,
+            "voice": 0,
+            "on": 29183,
+            "off": 45823,
+            "used": true
+          },
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 45951,
+            "off": 62207,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_35_plain",
+        "root": 35,
+        "family": "physical_damping",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 38399,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 49.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 38399,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_35_bend",
+        "root": 35,
+        "family": "true_octave_up",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 33279,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 43.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 47,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33279,
+            "note_off_sample": 55039,
+            "latency_ms": 43.3125,
+            "release_ms": 46.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 33279,
+            "used": true
+          },
+          {
+            "note": 47,
+            "voice": 0,
+            "on": 33279,
+            "off": 55039,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_35_bend",
+        "root": 35,
+        "family": "true_octave_down",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 47,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10879,
+            "note_off_sample": 33151,
+            "latency_ms": 26.645833333333332,
+            "release_ms": 40.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 35,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33535,
+            "note_off_sample": 55295,
+            "latency_ms": 48.645833333333336,
+            "release_ms": 51.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 47,
+            "voice": 0,
+            "on": 10879,
+            "off": 33151,
+            "used": true
+          },
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 33535,
+            "off": 55295,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_35_bend",
+        "root": 35,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 28415,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 41.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 37,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 28671,
+            "note_off_sample": 44799,
+            "latency_ms": 47.3125,
+            "release_ms": 33.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 35,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 44799,
+            "note_off_sample": 62463,
+            "latency_ms": 33.3125,
+            "release_ms": 51.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 28415,
+            "used": true
+          },
+          {
+            "note": 37,
+            "voice": 0,
+            "on": 28671,
+            "off": 44799,
+            "used": true
+          },
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 44799,
+            "off": 62463,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_35_bend",
+        "root": 35,
+        "family": "physical_damping",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 38783,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 57.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 38783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_40_plain",
+        "root": 40,
+        "family": "true_octave_up",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 32383,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 24.645833333333332,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32383,
+            "note_off_sample": 54783,
+            "latency_ms": 24.645833333333332,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 32383,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 32383,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_40_plain",
+        "root": 40,
+        "family": "true_octave_down",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 32895,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 35.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 40,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32895,
+            "note_off_sample": 55039,
+            "latency_ms": 35.3125,
+            "release_ms": 46.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 32895,
+            "used": true
+          },
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 32895,
+            "off": 55039,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_40_plain",
+        "root": 40,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 28415,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 41.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 42,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 28415,
+            "note_off_sample": 45567,
+            "latency_ms": 41.979166666666664,
+            "release_ms": 49.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 40,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 45567,
+            "note_off_sample": 62335,
+            "latency_ms": 49.3125,
+            "release_ms": 48.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 28415,
+            "used": true
+          },
+          {
+            "note": 42,
+            "voice": 0,
+            "on": 28415,
+            "off": 45567,
+            "used": true
+          },
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 45567,
+            "off": 62335,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_40_plain",
+        "root": 40,
+        "family": "physical_damping",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 38143,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 44.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 38143,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_40_bend",
+        "root": 40,
+        "family": "true_octave_up",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 32255,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 21.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32255,
+            "note_off_sample": 54911,
+            "latency_ms": 21.979166666666668,
+            "release_ms": 43.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 32255,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 32255,
+            "off": 54911,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_40_bend",
+        "root": 40,
+        "family": "true_octave_down",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 33279,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 43.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 40,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33663,
+            "note_off_sample": 55295,
+            "latency_ms": 51.3125,
+            "release_ms": 51.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 33279,
+            "used": true
+          },
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 33663,
+            "off": 55295,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_40_bend",
+        "root": 40,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 28287,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 39.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 42,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 28671,
+            "note_off_sample": 45183,
+            "latency_ms": 47.3125,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 40,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 45183,
+            "note_off_sample": 62591,
+            "latency_ms": 41.3125,
+            "release_ms": 53.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 28287,
+            "used": true
+          },
+          {
+            "note": 42,
+            "voice": 0,
+            "on": 28671,
+            "off": 45183,
+            "used": true
+          },
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 45183,
+            "off": 62591,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_40_bend",
+        "root": 40,
+        "family": "physical_damping",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 38399,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 49.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 38399,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_52_plain",
+        "root": 52,
+        "family": "true_octave_up",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 33663,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 51.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 64,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33663,
+            "note_off_sample": 54783,
+            "latency_ms": 51.3125,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 33663,
+            "used": true
+          },
+          {
+            "note": 64,
+            "voice": 0,
+            "on": 33663,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_52_plain",
+        "root": 52,
+        "family": "true_octave_down",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 64,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10239,
+            "note_off_sample": 32255,
+            "latency_ms": 13.3125,
+            "release_ms": 21.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32255,
+            "note_off_sample": 54783,
+            "latency_ms": 21.979166666666668,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 64,
+            "voice": 0,
+            "on": 10239,
+            "off": 32255,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 32255,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_52_plain",
+        "root": 52,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 28543,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 44.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 54,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 28671,
+            "note_off_sample": 44543,
+            "latency_ms": 47.3125,
+            "release_ms": 27.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 44543,
+            "note_off_sample": 61951,
+            "latency_ms": 27.979166666666668,
+            "release_ms": 40.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 28543,
+            "used": true
+          },
+          {
+            "note": 54,
+            "voice": 0,
+            "on": 28671,
+            "off": 44543,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 44543,
+            "off": 61951,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_52_plain",
+        "root": 52,
+        "family": "physical_damping",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 38015,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 41.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 38015,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_52_bend",
+        "root": 52,
+        "family": "true_octave_up",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 32383,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 24.645833333333332,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 64,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32383,
+            "note_off_sample": 54783,
+            "latency_ms": 24.645833333333332,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 32383,
+            "used": true
+          },
+          {
+            "note": 64,
+            "voice": 0,
+            "on": 32383,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_52_bend",
+        "root": 52,
+        "family": "true_octave_down",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 64,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10239,
+            "note_off_sample": 33023,
+            "latency_ms": 13.3125,
+            "release_ms": 37.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33407,
+            "note_off_sample": 55039,
+            "latency_ms": 45.979166666666664,
+            "release_ms": 46.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 64,
+            "voice": 0,
+            "on": 10239,
+            "off": 33023,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 33407,
+            "off": 55039,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_52_bend",
+        "root": 52,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 27263,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 17.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 54,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 27263,
+            "note_off_sample": 44159,
+            "latency_ms": 17.979166666666668,
+            "release_ms": 19.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 44159,
+            "note_off_sample": 61951,
+            "latency_ms": 19.979166666666668,
+            "release_ms": 40.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 27263,
+            "used": true
+          },
+          {
+            "note": 54,
+            "voice": 0,
+            "on": 27263,
+            "off": 44159,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 44159,
+            "off": 61951,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_52_bend",
+        "root": 52,
+        "family": "physical_damping",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 38143,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 44.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 38143,
+            "used": true
+          }
+        ]
+      }
+    ],
+    "totals": {
+      "expected": 64,
+      "matched": 64,
+      "missed": 0,
+      "extra_ons": 0,
+      "early": 0,
+      "late": 0,
+      "orphan_offs": 0,
+      "duplicates": 0,
+      "unclosed": 0,
+      "overflow": 0,
+      "active_at_end": 0
+    }
+  },
+  "candidate": {
+    "cases": [
+      {
+        "case": "true_octave_up_31_plain",
+        "root": 31,
+        "family": "true_octave_up",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 33663,
+            "latency_ms": 53.3125,
+            "release_ms": 51.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 43,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33663,
+            "note_off_sample": 55039,
+            "latency_ms": 51.3125,
+            "release_ms": 46.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 33663,
+            "used": true
+          },
+          {
+            "note": 43,
+            "voice": 0,
+            "on": 33663,
+            "off": 55039,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_31_plain",
+        "root": 31,
+        "family": "true_octave_down",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 43,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10879,
+            "note_off_sample": 33407,
+            "latency_ms": 26.645833333333332,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 31,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33791,
+            "note_off_sample": 55423,
+            "latency_ms": 53.979166666666664,
+            "release_ms": 54.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 43,
+            "voice": 0,
+            "on": 10879,
+            "off": 33407,
+            "used": true
+          },
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 33791,
+            "off": 55423,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_31_plain",
+        "root": 31,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 28927,
+            "latency_ms": 53.3125,
+            "release_ms": 52.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 33,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 29439,
+            "note_off_sample": 45183,
+            "latency_ms": 63.3125,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 31,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 46079,
+            "note_off_sample": 62207,
+            "latency_ms": 59.979166666666664,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 28927,
+            "used": true
+          },
+          {
+            "note": 33,
+            "voice": 0,
+            "on": 29439,
+            "off": 45183,
+            "used": true
+          },
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 46079,
+            "off": 62207,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_31_plain",
+        "root": 31,
+        "family": "physical_damping",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 38527,
+            "latency_ms": 53.3125,
+            "release_ms": 52.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 38527,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_31_bend",
+        "root": 31,
+        "family": "true_octave_up",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 33407,
+            "latency_ms": 53.3125,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 43,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33407,
+            "note_off_sample": 55167,
+            "latency_ms": 45.979166666666664,
+            "release_ms": 49.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 33407,
+            "used": true
+          },
+          {
+            "note": 43,
+            "voice": 0,
+            "on": 33407,
+            "off": 55167,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_31_bend",
+        "root": 31,
+        "family": "true_octave_down",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 43,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10879,
+            "note_off_sample": 33407,
+            "latency_ms": 26.645833333333332,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 31,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33791,
+            "note_off_sample": 55423,
+            "latency_ms": 53.979166666666664,
+            "release_ms": 54.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 43,
+            "voice": 0,
+            "on": 10879,
+            "off": 33407,
+            "used": true
+          },
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 33791,
+            "off": 55423,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_31_bend",
+        "root": 31,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 28927,
+            "latency_ms": 53.3125,
+            "release_ms": 52.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 33,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 29439,
+            "note_off_sample": 45055,
+            "latency_ms": 63.3125,
+            "release_ms": 38.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 31,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 45055,
+            "note_off_sample": 62207,
+            "latency_ms": 38.645833333333336,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 28927,
+            "used": true
+          },
+          {
+            "note": 33,
+            "voice": 0,
+            "on": 29439,
+            "off": 45055,
+            "used": true
+          },
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 45055,
+            "off": 62207,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_31_bend",
+        "root": 31,
+        "family": "physical_damping",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 31,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 12159,
+            "note_off_sample": 38911,
+            "latency_ms": 53.3125,
+            "release_ms": 60.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 31,
+            "voice": 0,
+            "on": 12159,
+            "off": 38911,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_35_plain",
+        "root": 35,
+        "family": "true_octave_up",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 32383,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 24.645833333333332,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 47,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32383,
+            "note_off_sample": 54783,
+            "latency_ms": 24.645833333333332,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 32383,
+            "used": true
+          },
+          {
+            "note": 47,
+            "voice": 0,
+            "on": 32383,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_35_plain",
+        "root": 35,
+        "family": "true_octave_down",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 47,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10879,
+            "note_off_sample": 33151,
+            "latency_ms": 26.645833333333332,
+            "release_ms": 40.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 35,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33279,
+            "note_off_sample": 55167,
+            "latency_ms": 43.3125,
+            "release_ms": 49.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 47,
+            "voice": 0,
+            "on": 10879,
+            "off": 33151,
+            "used": true
+          },
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 33279,
+            "off": 55167,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_35_plain",
+        "root": 35,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 28927,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 52.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 37,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 29183,
+            "note_off_sample": 45823,
+            "latency_ms": 57.979166666666664,
+            "release_ms": 54.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 35,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 45951,
+            "note_off_sample": 62207,
+            "latency_ms": 57.3125,
+            "release_ms": 45.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 28927,
+            "used": true
+          },
+          {
+            "note": 37,
+            "voice": 0,
+            "on": 29183,
+            "off": 45823,
+            "used": true
+          },
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 45951,
+            "off": 62207,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_35_plain",
+        "root": 35,
+        "family": "physical_damping",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 38399,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 49.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 38399,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_35_bend",
+        "root": 35,
+        "family": "true_octave_up",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 33279,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 43.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 47,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33279,
+            "note_off_sample": 55039,
+            "latency_ms": 43.3125,
+            "release_ms": 46.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 33279,
+            "used": true
+          },
+          {
+            "note": 47,
+            "voice": 0,
+            "on": 33279,
+            "off": 55039,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_35_bend",
+        "root": 35,
+        "family": "true_octave_down",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 47,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10879,
+            "note_off_sample": 33151,
+            "latency_ms": 26.645833333333332,
+            "release_ms": 40.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 35,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33535,
+            "note_off_sample": 55295,
+            "latency_ms": 48.645833333333336,
+            "release_ms": 51.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 47,
+            "voice": 0,
+            "on": 10879,
+            "off": 33151,
+            "used": true
+          },
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 33535,
+            "off": 55295,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_35_bend",
+        "root": 35,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 28415,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 41.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 37,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 28671,
+            "note_off_sample": 44799,
+            "latency_ms": 47.3125,
+            "release_ms": 33.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 35,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 44799,
+            "note_off_sample": 62463,
+            "latency_ms": 33.3125,
+            "release_ms": 51.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 28415,
+            "used": true
+          },
+          {
+            "note": 37,
+            "voice": 0,
+            "on": 28671,
+            "off": 44799,
+            "used": true
+          },
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 44799,
+            "off": 62463,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_35_bend",
+        "root": 35,
+        "family": "physical_damping",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 35,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 11647,
+            "note_off_sample": 38783,
+            "latency_ms": 42.645833333333336,
+            "release_ms": 57.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 35,
+            "voice": 0,
+            "on": 11647,
+            "off": 38783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_40_plain",
+        "root": 40,
+        "family": "true_octave_up",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 32383,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 24.645833333333332,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32383,
+            "note_off_sample": 54783,
+            "latency_ms": 24.645833333333332,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 32383,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 32383,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_40_plain",
+        "root": 40,
+        "family": "true_octave_down",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 32895,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 35.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 40,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32895,
+            "note_off_sample": 55039,
+            "latency_ms": 35.3125,
+            "release_ms": 46.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 32895,
+            "used": true
+          },
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 32895,
+            "off": 55039,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_40_plain",
+        "root": 40,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 28415,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 41.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 42,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 28415,
+            "note_off_sample": 45567,
+            "latency_ms": 41.979166666666664,
+            "release_ms": 49.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 40,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 45567,
+            "note_off_sample": 62335,
+            "latency_ms": 49.3125,
+            "release_ms": 48.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 28415,
+            "used": true
+          },
+          {
+            "note": 42,
+            "voice": 0,
+            "on": 28415,
+            "off": 45567,
+            "used": true
+          },
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 45567,
+            "off": 62335,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_40_plain",
+        "root": 40,
+        "family": "physical_damping",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 38143,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 44.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 38143,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_40_bend",
+        "root": 40,
+        "family": "true_octave_up",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 32255,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 21.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32255,
+            "note_off_sample": 54911,
+            "latency_ms": 21.979166666666668,
+            "release_ms": 43.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 32255,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 32255,
+            "off": 54911,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_40_bend",
+        "root": 40,
+        "family": "true_octave_down",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 33279,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 43.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 40,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33663,
+            "note_off_sample": 55295,
+            "latency_ms": 51.3125,
+            "release_ms": 51.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 33279,
+            "used": true
+          },
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 33663,
+            "off": 55295,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_40_bend",
+        "root": 40,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 28287,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 39.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 42,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 28671,
+            "note_off_sample": 45183,
+            "latency_ms": 47.3125,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 40,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 45183,
+            "note_off_sample": 62591,
+            "latency_ms": 41.3125,
+            "release_ms": 53.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 28287,
+            "used": true
+          },
+          {
+            "note": 42,
+            "voice": 0,
+            "on": 28671,
+            "off": 45183,
+            "used": true
+          },
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 45183,
+            "off": 62591,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_40_bend",
+        "root": 40,
+        "family": "physical_damping",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 40,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 11263,
+            "note_off_sample": 38399,
+            "latency_ms": 34.645833333333336,
+            "release_ms": 49.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 40,
+            "voice": 0,
+            "on": 11263,
+            "off": 38399,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_52_plain",
+        "root": 52,
+        "family": "true_octave_up",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 33663,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 51.3125,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 64,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33663,
+            "note_off_sample": 54783,
+            "latency_ms": 51.3125,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 33663,
+            "used": true
+          },
+          {
+            "note": 64,
+            "voice": 0,
+            "on": 33663,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_52_plain",
+        "root": 52,
+        "family": "true_octave_down",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 64,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10239,
+            "note_off_sample": 32255,
+            "latency_ms": 13.3125,
+            "release_ms": 21.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32255,
+            "note_off_sample": 54783,
+            "latency_ms": 21.979166666666668,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 64,
+            "voice": 0,
+            "on": 10239,
+            "off": 32255,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 32255,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_52_plain",
+        "root": 52,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 28543,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 44.645833333333336,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 54,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 28671,
+            "note_off_sample": 44543,
+            "latency_ms": 47.3125,
+            "release_ms": 27.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 44543,
+            "note_off_sample": 61951,
+            "latency_ms": 27.979166666666668,
+            "release_ms": 40.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 28543,
+            "used": true
+          },
+          {
+            "note": 54,
+            "voice": 0,
+            "on": 28671,
+            "off": 44543,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 44543,
+            "off": 61951,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_52_plain",
+        "root": 52,
+        "family": "physical_damping",
+        "mono_bend": 0,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 38015,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 41.979166666666664,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 38015,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_up_52_bend",
+        "root": 52,
+        "family": "true_octave_up",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 32383,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 24.645833333333332,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 64,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 32383,
+            "note_off_sample": 54783,
+            "latency_ms": 24.645833333333332,
+            "release_ms": 41.3125,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 32383,
+            "used": true
+          },
+          {
+            "note": 64,
+            "voice": 0,
+            "on": 32383,
+            "off": 54783,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "true_octave_down_52_bend",
+        "root": 52,
+        "family": "true_octave_down",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 2,
+        "matched": 2,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 64,
+            "reference_on": 9600,
+            "reference_off": 31200,
+            "matched": true,
+            "decision_sample": 10239,
+            "note_off_sample": 33023,
+            "latency_ms": 13.3125,
+            "release_ms": 37.979166666666664,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 31200,
+            "reference_off": 52800,
+            "matched": true,
+            "decision_sample": 33407,
+            "note_off_sample": 55039,
+            "latency_ms": 45.979166666666664,
+            "release_ms": 46.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 64,
+            "voice": 0,
+            "on": 10239,
+            "off": 33023,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 33407,
+            "off": 55039,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "fretted_two_semitone_up_return_52_bend",
+        "root": 52,
+        "family": "fretted_two_semitone_up_return",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 3,
+        "matched": 3,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 26400,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 27263,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 17.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 54,
+            "reference_on": 26400,
+            "reference_off": 43200,
+            "matched": true,
+            "decision_sample": 27263,
+            "note_off_sample": 44159,
+            "latency_ms": 17.979166666666668,
+            "release_ms": 19.979166666666668,
+            "early": false,
+            "late": false
+          },
+          {
+            "note": 52,
+            "reference_on": 43200,
+            "reference_off": 60000,
+            "matched": true,
+            "decision_sample": 44159,
+            "note_off_sample": 61951,
+            "latency_ms": 19.979166666666668,
+            "release_ms": 40.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 27263,
+            "used": true
+          },
+          {
+            "note": 54,
+            "voice": 0,
+            "on": 27263,
+            "off": 44159,
+            "used": true
+          },
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 44159,
+            "off": 61951,
+            "used": true
+          }
+        ]
+      },
+      {
+        "case": "physical_damping_52_bend",
+        "root": 52,
+        "family": "physical_damping",
+        "mono_bend": 1,
+        "overflow": 0,
+        "active_at_end": 0,
+        "expected": 1,
+        "matched": 1,
+        "missed": 0,
+        "extra_ons": 0,
+        "early": 0,
+        "late": 0,
+        "orphan_offs": 0,
+        "duplicates": 0,
+        "unclosed": 0,
+        "references": [
+          {
+            "note": 52,
+            "reference_on": 9600,
+            "reference_off": 36000,
+            "matched": true,
+            "decision_sample": 10495,
+            "note_off_sample": 38143,
+            "latency_ms": 18.645833333333332,
+            "release_ms": 44.645833333333336,
+            "early": false,
+            "late": false
+          }
+        ],
+        "extras": [],
+        "all_intervals": [
+          {
+            "note": 52,
+            "voice": 0,
+            "on": 10495,
+            "off": 38143,
+            "used": true
+          }
+        ]
+      }
+    ],
+    "totals": {
+      "expected": 64,
+      "matched": 64,
+      "missed": 0,
+      "extra_ons": 0,
+      "early": 0,
+      "late": 0,
+      "orphan_offs": 0,
+      "duplicates": 0,
+      "unclosed": 0,
+      "overflow": 0,
+      "active_at_end": 0
+    }
+  },
+  "changes": []
+}

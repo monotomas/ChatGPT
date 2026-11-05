@@ -1,0 +1,17 @@
+g++
+-std=c++17
+-O2
+-DNDEBUG
+-I
+/tmp/flysnapper-nov5-raw-prefilter/Source
+/tmp/flysnapper-nov5-raw-prefilter/guitar_evaluation_capture.cpp
+/tmp/flysnapper-nov5-raw-prefilter/Source/Pitch/ArticulationTracker.cpp
+/tmp/flysnapper-nov5-raw-prefilter/Source/Pitch/EarlyEstimator.cpp
+/tmp/flysnapper-nov5-raw-prefilter/Source/Pitch/InputDynamics.cpp
+/tmp/flysnapper-nov5-raw-prefilter/Source/Pitch/NoiseConditioner.cpp
+/tmp/flysnapper-nov5-raw-prefilter/Source/Pitch/PitchDetector.cpp
+/tmp/flysnapper-nov5-raw-prefilter/Source/Pitch/PolyphonicTracker.cpp
+/tmp/flysnapper-nov5-raw-prefilter/Source/Pitch/TimeDomainPursuit.cpp
+/tmp/flysnapper-nov5-raw-prefilter/Source/Pitch/YinEstimator.cpp
+-o
+/tmp/flysnapper-nov5-raw-prefilter/GuitarEvaluationCapture

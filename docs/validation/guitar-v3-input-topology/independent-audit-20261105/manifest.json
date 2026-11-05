@@ -1,0 +1,43 @@
+{
+  "scope": "Original independent topology/dynamics-off audit plus separately identified precise-reference addendum; lifecycle/main proof excluded",
+  "main_files_modified_by_this_agent": false,
+  "original_capture_files_overwritten": false,
+  "new_detuning_source_root": "/tmp/flysnapper-postnc-dynamics-probe/analysis-after-nc-raw-reference/Source",
+  "new_detuning_executable_sha256": "8ceafa55f2af3b22b2da31e6f6b6c0843a0f57099420799be0c12e933669f183",
+  "files_sha256": {
+    "PRECISE_REFERENCE_ADDENDUM.md": "0c7f1caa48d05bb49bdda81a318d102d70f39556fa760cc371204fb7c81707a4",
+    "REPORT.md": "d7dae91b1074d33fb9acd4bfc3e41fad555fd4e5d74b61dc762469ffc6762b86",
+    "detuning-baseline-plan.json": "f2dce8ea03c51a9de96052d483d4403b71bb9a5609d95f0c56bb4ae7b00fbc1d",
+    "detuning-baseline-result.json": "1e80a0fbcd7191ca5053fb0c3de4be8b231ecbb733aeab9eb56acae1fbbdb067",
+    "detuning-comparison.json": "33b228c1f5e384aff5c6a665e5be30fc17fd70731955c168bc3a2648736472a8",
+    "detuning-disabled-compile.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "detuning-disabled-console.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "detuning-disabled-driver.cpp": "e8ced4050a68e61454400ee0bfe7942e23542d3ce00410ccf112bcdc58409372",
+    "detuning-disabled.csv": "250e84daaf2ea40bd3ff378c68b0c0d937e772e1a8d60ecbdd9af590cd90f2e5",
+    "detuning-enabled-driver.cpp": "2fe0214163885e2da26ede8639b0c4f83a342af2e8e318ffae12cf34d465ca43",
+    "input-bindings.json": "3b9aebabe63b17a273071387aa72b3b05f11757c60108f9d5ed9865b9ea77376",
+    "manifest-before-precise-reference.json": "a9b55c6c37f9ae173bcd87f9240e0c04650dee4f093ab9abff62a45616a4fea7",
+    "precise-reference-addendum.json": "82ad3036c731e0ba64639115dc93f2c8d9672f164f3a98dd9ebb95f1e3c062ed",
+    "precise-reference-detuning.csv": "c41727da93172033a4b88bcb15fd0709a99f9eb6d2396a3e505110dcd1ef9197",
+    "precise-reference-repick-driver.cpp": "33ee91f0bee6469eadbea224fcac7776541acff7ad40fc37fd11cd00f82e2551",
+    "precise-reference-repick.csv": "ed8aee7a8ffc35bd44064a4530bb76460fff76469da194907cc0c19b9f0c3f6b",
+    "precise-reference-source-manifest.json": "05bcdef7e7ced70aef5b7abe0fdb87975c542d58720cb8eb7ffe94894390e377",
+    "topology-duration-audit.json": "ac6ab50a3c757b9965c43c382efe6d99b76cbada529f5ef16bded53f3acc85dc",
+    "topology-duration-console.txt": "4dd324effd52598c8b560a71761acefd83981dcd5d75710a12b35f0cdfc1ea9c",
+    "topology_duration_audit.py": "b1cd4e366961d733df10f170deb413e2258931f4ac079734c0b41265aa30c79f"
+  },
+  "total_bound_topology_inputs": 80,
+  "all51source_driver_bindings_verified": true,
+  "score_reconstruction_mismatches": 0,
+  "prior_manifest_sha256": "a9b55c6c37f9ae173bcd87f9240e0c04650dee4f093ab9abff62a45616a4fea7",
+  "precise_reference_addendum": {
+    "source_manifest_sha256": "05bcdef7e7ced70aef5b7abe0fdb87975c542d58720cb8eb7ffe94894390e377",
+    "verified_source_driver_files": 17,
+    "detuning_cases": 876,
+    "strict_passes": 861,
+    "same_preexisting_misses": 15,
+    "new_misses": 0,
+    "repick_configurations": 6,
+    "main_lifecycle_approval": false
+  }
+}

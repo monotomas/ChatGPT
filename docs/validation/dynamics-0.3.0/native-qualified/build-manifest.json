@@ -1,0 +1,50 @@
+{
+  "version": "0.3.0",
+  "stage": "calibrated-input-guitar-evaluation",
+  "evaluation_scope": {
+    "revision_date": "2026-11-05",
+    "purpose": "real-guitar-evaluation",
+    "monophonic_bending": "optional",
+    "polyphonic_bending": false,
+    "polyphonic_output": "discrete-semitone-notes",
+    "latency": "optimized-and-reported-per-pitch",
+    "real_guitar_test_pending": true,
+    "physical_interface_latency_verified": false
+  },
+  "builder_revision": "2026.11.05-calibrated-input-guitar-evaluation",
+  "platform": "Linux-x86_64",
+  "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
+  "built_at": "2026-11-05T03:42:35.300092+00:00",
+  "python": "3.12.14",
+  "source_commit": null,
+  "vst3_sha256": "ab8247caab6c3b8da82155ebea0e458b806afa4d3336a5983090d4b5483b9e7f",
+  "bundle_sha256": {
+    "Contents/Resources/moduleinfo.json": "0a607929b8b8f7d7cd0c1a6de8f573a6af8a0e99b5d0c3867e85f12e71fe7181",
+    "Contents/x86_64-linux/Flysnapper.so": "ab8247caab6c3b8da82155ebea0e458b806afa4d3336a5983090d4b5483b9e7f"
+  },
+  "tests": "passed",
+  "required_test_names": [
+    "FlysnapperActualVst3",
+    "FlysnapperAudioQuality",
+    "FlysnapperBendProcessor",
+    "FlysnapperCore",
+    "FlysnapperDynamicsProcessor",
+    "FlysnapperGuitarQuality",
+    "FlysnapperInputDynamics",
+    "FlysnapperMpeActualVst3",
+    "FlysnapperMpeOutput",
+    "FlysnapperMpeProcessor",
+    "FlysnapperNoise",
+    "FlysnapperPitch",
+    "FlysnapperPluginSmoke",
+    "FlysnapperProcessorAudio",
+    "FlysnapperYin"
+  ],
+  "ableton_verified": false,
+  "pitch_detection_implemented": true,
+  "windows_verified": false,
+  "input_dynamics_evidence": {
+    "path": "input-dynamics/report-manifest.json",
+    "sha256": "66e5ba93c246b952e82c10e3bd9cd7827013a9a8bd921f38cfdb81c4fc09a770"
+  }
+}

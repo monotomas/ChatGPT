@@ -1,4 +1,37 @@
+# Flysnapper 0.3.0 – gjeldende evalueringsstatus
+
+Brukerens bestilling 5. november gjelder en kontrollert versjon for prøve med
+egen gitar. Polyfonisk bending og absolutte latency-grenser er trukket tilbake;
+monofonisk bending, statiske polytoner, støy/utklang, kalibrering og hjelpetekster
+beholdes. Se [gjeldende oppdrag](PRODUCT_SPEC.md) og
+[0.3.0-notatet](RELEASE_0.3.0.md).
+
+Det ferske [Native4-kontrollpunktet](validation/dynamics-0.3.0/native-attempt-4/README.md)
+består **15/15 grupper**, inkludert **86 processorprøver** med kausale
+MIDI-tidspunkter, faktiske vertsparametre, svake toner ved brum, slipp, bends,
+ekte oktavskift og kalibrering. Kilde- og filhashes er bundet til byggingen.
+Dette kvalifiserer kildekandidaten for Windows-bygg og den bestilte gitarprøven,
+uten å hevde generell musikalsk feilfrihet eller allerede utført Live-prøve.
+
+[De brede diagnostiske prøvene](validation/dynamics-0.3.0/README.md) beholder
+alle feil: **98/209** består, og polyfonisk støy-/slippadferd har fortsatt
+begrensninger. De er separate fra de obligatoriske, avgrensede programtestene.
+Windows-installasjon krever sine egne native bevis i leveransens Validation-mappe.
+Den historiske forskningssperren nedenfor gjelder 4. november-oppdraget og
+dets kildepunkt, ikke den reviderte 5. november-evalueringen. Ingen gammel
+målepolicy eller feil er endret for å lage et nytt beståttresultat.
+
+---
+
 # Musical readiness work after 0.2.1
+
+> **5 November scope update:** The user has removed polyphonic bending and
+> absolute latency limits, and now requests a validated version for a real
+> guitar trial. The current work is 0.3.0: quantised poly notes, mono bending,
+> input dynamics with guided calibration/manual controls, and contextual help.
+> See the current [product scope](PRODUCT_SPEC.md). The results and release
+> decisions below describe the **4 November research checkpoint**. They remain
+> intact and do not constitute an evaluation of the new dynamics frontend.
 
 This work is on `research/musical-readiness`. It is unfinished research, not a
 new installer or a claim of musical acceptance. The previous 0.2.1 installer

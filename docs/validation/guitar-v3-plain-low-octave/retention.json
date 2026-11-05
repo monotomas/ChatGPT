@@ -1,0 +1,107 @@
+{
+  "scope": "Exact Native3 baseline and raw-domain period-matched octave candidate proof; no binaries or duplicated PCM",
+  "original_root": "/tmp/flysnapper-native3-quiet-alias-audit",
+  "excluded_compiled_artifacts": [
+    {
+      "path": "QuietAliasCapture",
+      "bytes": 189616,
+      "sha256": "17a4b8b4aad6f0e91795c3f3d767eefcb0a9218f89ce2414362d1e257181d22c"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/CounterCapture",
+      "bytes": 175712,
+      "sha256": "bd30e18631a9a0b7d4e2fb99e6b8b5c32f31ce607adff53fd91d138b95a0c999"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/objects/ArticulationTracker.o",
+      "bytes": 12544,
+      "sha256": "5a475ce781c100f7512f37a84c4ef91849cc0f94b0c4991750f0d92d71050bc9"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/objects/EarlyEstimator.o",
+      "bytes": 10832,
+      "sha256": "96ebfbed3674ee0e1db2b161d911e6d9102cce2b0bedbcf4c42e9857ea8a408d"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/objects/InputDynamics.o",
+      "bytes": 25640,
+      "sha256": "dbeac28a8d5e7e34fdf7da6a12d3bbcb36435d7203b19a7388ea797914d38894"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/objects/NoiseConditioner.o",
+      "bytes": 22200,
+      "sha256": "7f99d518daebc5f0d6414c605d910ef8f03d647bf3ab454b03496bf1c732a688"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/objects/PitchDetector.o",
+      "bytes": 64640,
+      "sha256": "9950a1f2d3914d251dfe61ccea3693ae8d1079b749d2e9d7903fbaac2201c5fd"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/objects/PolyphonicTracker.o",
+      "bytes": 48360,
+      "sha256": "5fdb97d1dba812298f6848024550cd4070e1c6f365c41f9302334de7e5439823"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/objects/TimeDomainPursuit.o",
+      "bytes": 27264,
+      "sha256": "a942c40e44c4bae15ee5446f6796f5b14750bb08ccf5a4cdb8e55aaea5dd99e2"
+    },
+    {
+      "path": "raw-physical-candidate-validation/baseline/objects/YinEstimator.o",
+      "bytes": 24904,
+      "sha256": "42f1d9e8d6e57304f730eee1d0236ba92e36d3200bd39cdd7193bc856594f5e8"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/CounterCapture",
+      "bytes": 175712,
+      "sha256": "19ff66ac362a5706b4e20a2c8acdea3778df6e2c9978f49d28b9031961e7dca5"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/QuietCapture",
+      "bytes": 189624,
+      "sha256": "ad0d49539f049795aeae87d8a969e47ba7f13b9270ad9c45923173f2841c8046"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/objects/ArticulationTracker.o",
+      "bytes": 12544,
+      "sha256": "5a475ce781c100f7512f37a84c4ef91849cc0f94b0c4991750f0d92d71050bc9"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/objects/EarlyEstimator.o",
+      "bytes": 10832,
+      "sha256": "96ebfbed3674ee0e1db2b161d911e6d9102cce2b0bedbcf4c42e9857ea8a408d"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/objects/InputDynamics.o",
+      "bytes": 25640,
+      "sha256": "dbeac28a8d5e7e34fdf7da6a12d3bbcb36435d7203b19a7388ea797914d38894"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/objects/NoiseConditioner.o",
+      "bytes": 22200,
+      "sha256": "7f99d518daebc5f0d6414c605d910ef8f03d647bf3ab454b03496bf1c732a688"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/objects/PitchDetector.o",
+      "bytes": 64888,
+      "sha256": "cb823d713107a13bb2bc483e74a7d781b7b196d6efa382c49380e02c2709ac39"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/objects/PolyphonicTracker.o",
+      "bytes": 48360,
+      "sha256": "5fdb97d1dba812298f6848024550cd4070e1c6f365c41f9302334de7e5439823"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/objects/TimeDomainPursuit.o",
+      "bytes": 27264,
+      "sha256": "a942c40e44c4bae15ee5446f6796f5b14750bb08ccf5a4cdb8e55aaea5dd99e2"
+    },
+    {
+      "path": "raw-physical-candidate-validation/candidate/objects/YinEstimator.o",
+      "bytes": 24904,
+      "sha256": "42f1d9e8d6e57304f730eee1d0236ba92e36d3200bd39cdd7193bc856594f5e8"
+    }
+  ],
+  "main_source_difference": "The adopted main implementation also avoids computing the unused lower-candidate physical projection on the upward branch and adds explanatory comments; final native processor build separately binds that source."
+}

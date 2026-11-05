@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "name": "Flysnapper 0.3.0 real-guitar evaluation scope",
+  "defined_for_user_revision": "2026-11-05",
+  "purpose": "Prepare an honestly measured build for the user's own guitar; not a claim of flawless transcription or universal musical readiness",
+  "latency": {"mode": "measure_and_report_by_reference_pitch", "absolute_ms_acceptance_limit": null, "decision_timestamps_are_causal": true, "backdating_allowed": false, "curve_delay_alignment_allowed": false},
+  "polyphonic_output": "Fixed semitone Note On/Off, with mono continuous bend retained separately",
+  "out_of_scope": {"poly_families": ["continuous-bend", "poly-independent-bend"], "reason": "The user explicitly removed polyphonic bending. These historical recordings remain intact and are listed as outside this evaluation, never counted as passes."},
+  "accuracy_source": "Retain the November 4 policy's note, release, mono expression and output safety criteria; do not retain its absolute latency checkpoint requirements",
+  "mandatory_clean_and_12dB_SNR_controls": {"note_precision_min": 1.0, "note_recall_min": 1.0, "noise_only_note_ons_max": 0, "false_octave_note_ons_max": 0, "wrong_before_correct_max": 0, "bend_retriggers_max": 0, "missed_discrete_articulations_max": 0, "hanging_voices_max": 0, "output_overflow_max": 0, "early_release_tolerance_ms": 10, "release_after_physical_damping_ms_max": 80, "pitch_error_p95_cents_max": 25, "pitch_error_max_cents_max": 75, "steady_pitch_error_cents_max": 15},
+  "6dB_SNR_challenge_controls": {"note_precision_min": 0.99, "note_recall_min": 0.95, "false_octave_note_ons_max": 0, "noise_only_note_ons_max": 0, "release_after_physical_damping_ms_max": 100, "failures_remain_reported": true},
+  "scoring": {"minimum_useful_ms_long_note": 20, "minimum_useful_ms_short_note": 10, "short_note_duration_ms_max": 80, "one_to_one_note_matching": true, "static_poly_interval_identity": "MIDI note number, since no physical string identity or continuous per-voice curve is required", "physical_interface_latency_measured": false},
+  "existing_frozen_30_case_packaging_gate_unchanged": true,
+  "real_recording_limits": "Existing CC0 isolated samples and recorded interference mixtures do not establish complete continuous human slide/hammer/pull/bend coverage. The delivered build is intended for real-guitar evaluation under the revised request, not a substitute for that observation."
+}

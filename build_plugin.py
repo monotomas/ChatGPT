@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build/test Flysnapper 0.2.1. Standard library only.
+"""Build/test Flysnapper 0.3.0. Standard library only.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 Windows tool discovery and Unicode patch adapted from Buffkiller 1.0.0.
@@ -29,8 +29,9 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from typing import Mapping, Sequence, NamedTuple
+from Tools import input_dynamics_evidence
 
-BUILDER_REVISION = "2026.11.04-musical-readiness-research"
+BUILDER_REVISION = "2026.11.05-calibrated-input-guitar-evaluation"
 ROOT = Path(__file__).resolve().parent
 JUCE_TAG = "8.0.16-security"
 JUCE_COMMIT = "ea77444750de45e036e0279bb0291144bf8e3688"
@@ -294,7 +295,7 @@ def build_command(cmake: str, build: Path, generator: str, jobs: int) -> list[st
     command = [cmake, "--build", str(build), "--config", "Release", "--target",
                "Flysnapper_VST3", "FlysnapperCoreTests",
                "FlysnapperPluginTests", "FlysnapperVst3HostTests", "FlysnapperPitchTests", "FlysnapperProcessorAudioTests", "FlysnapperAudioValidation", "FlysnapperYinTests", "FlysnapperGuitarQualityTests", "FlysnapperBendProcessorTests",
-               "FlysnapperNoiseTests", "FlysnapperMpeOutputTests", "FlysnapperMpeProcessorTests", "FlysnapperMpeVst3HostTests"]
+               "FlysnapperNoiseTests", "FlysnapperInputDynamicsTests", "FlysnapperDynamicsProcessorTests", "FlysnapperMpeOutputTests", "FlysnapperMpeProcessorTests", "FlysnapperMpeVst3HostTests"]
     if generator != "NMake Makefiles":
         command.extend(["--parallel", str(max(1, jobs))])
     return command
@@ -874,7 +875,7 @@ def configure_checked_project(cmake: str, juce: Path, tools: CheckedTools) -> Pa
     build = ROOT / "build" / ("w-" + token)
     # Even a directory-hashed object needs this fixed target/hash/basename tail.
     # Fail before expensive compilation if the checkout is too deep for it.
-    minimum_tail = "CMakeFiles/FlysnapperProcessorAudioTests.dir/" + "0" * 32 + "/juce_audio_processors_headless_lv2_libs.cpp.obj"
+    minimum_tail = "CMakeFiles/FlysnapperDynamicsProcessorTests.dir/" + "0" * 32 + "/juce_audio_processors_headless_lv2_libs.cpp.obj"
     if len(str(build)) + 1 + len(minimum_tail) > 220:
         raise RuntimeError("Windows-kildebanen er for dyp for sikre MSVC-objektfiler. Bruk den ferdigbygde Windows-pakken; utviklerbygg krever en kortere utsjekkingsbane. Ingen kildefiler er flyttet eller endret.")
     run([cmake, "-S", ROOT, "-B", build, "-G", tools.generator,
@@ -1174,7 +1175,7 @@ def finish_installation(choose: bool, directory: Path | None) -> bool:
 
 
 REQUIRED_TESTS = {"FlysnapperCore", "FlysnapperPluginSmoke", "FlysnapperActualVst3", "FlysnapperPitch", "FlysnapperProcessorAudio", "FlysnapperAudioQuality", "FlysnapperYin", "FlysnapperGuitarQuality", "FlysnapperBendProcessor",
-                  "FlysnapperNoise", "FlysnapperMpeOutput", "FlysnapperMpeProcessor", "FlysnapperMpeActualVst3"}
+                  "FlysnapperNoise", "FlysnapperInputDynamics", "FlysnapperDynamicsProcessor", "FlysnapperMpeOutput", "FlysnapperMpeProcessor", "FlysnapperMpeActualVst3"}
 
 
 def verified_juce(git: str, directory: Path | None) -> Path:
@@ -1196,6 +1197,9 @@ def run_required_tests(ctest: str | Path, build: Path, build_env=None) -> None:
         raise RuntimeError("Testoppsettet mangler obligatoriske tester: " + ", ".join(sorted(REQUIRED_TESTS - names)))
     result_file = build / "flysnapper-ctest.xml"
     result_file.unlink(missing_ok=True)
+    # A passing test inventory must not reuse an earlier frontend capture.
+    for name in (input_dynamics_evidence.REPORT, input_dynamics_evidence.EVENTS):
+        (build / name).unlink(missing_ok=True)
     run([ctest, "--test-dir", build, "-C", "Release", "--no-tests=error", "--verbose", "--output-on-failure",
          "--output-junit", result_file],
         env=build_env)
@@ -1243,10 +1247,11 @@ def collect_result(build: Path, native: bool, extra_manifest=None) -> Path:
     if audio_target.exists(): shutil.rmtree(audio_target)
     shutil.copytree(audio_evidence, audio_target)
     manifest = {
-        # Protocol/unit successes cannot approve this unfinished audio path.
-        # The Windows packager explicitly rejects a prototype stage. Remove
-        # this hold only with a frozen, reviewed musical-readiness result.
-        "version": "0.2.1", "stage": "musical-readiness-research-prototype", "builder_revision": BUILDER_REVISION,
+        # Qualified against the revised 5 November automated controls for a
+        # real-guitar evaluation. The explicit scope preserves the pending
+        # guitar/host/physical-latency work and all reported acoustic limits.
+        "version": "0.3.0", "stage": input_dynamics_evidence.EVALUATION_STAGE,
+        "evaluation_scope": dict(input_dynamics_evidence.EVALUATION_SCOPE), "builder_revision": BUILDER_REVISION,
         "platform": platform_name, "juce_commit": JUCE_COMMIT,
         "built_at": dt.datetime.now(dt.timezone.utc).isoformat(), "python": platform.python_version(),
         "source_commit": os.environ.get("GITHUB_SHA"),
@@ -1256,6 +1261,8 @@ def collect_result(build: Path, native: bool, extra_manifest=None) -> Path:
         "pitch_detection_implemented": True,
     }
     manifest.update(extra_manifest or {})
+    manifest["input_dynamics_evidence"] = input_dynamics_evidence.collect(ROOT, build, output, manifest)
+    input_dynamics_evidence.verify(ROOT, output, manifest)
     (output / "build-manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return target
 
@@ -1300,7 +1307,7 @@ def main(argv=None) -> int:
     _log = log.open("w", encoding="utf-8")
     try:
         with local_temporary_directory():
-            say("FLYSNAPPER 0.2.1 AUDIO + MIDI | " + BUILDER_REVISION + "\nLogg: " + str(log))
+            say("FLYSNAPPER 0.3.0 AUDIO + MIDI | " + BUILDER_REVISION + "\nLogg: " + str(log))
             if args.install_only:
                 return 0 if finish_installation(args.choose_install_dir, args.install_dir) else 1
             run([sys.executable, "-m", "unittest", "discover", "-s", ROOT / "Tests", "-p", "test_builder*.py", "-v"])
@@ -1332,7 +1339,15 @@ def main(argv=None) -> int:
                 extra.update({"visual_studio_build_version": full_version, "windows_sdk_version": tools.sdk.version,
                               "toolchain_probe": "passed", "juceaide_unicode_probe": "passed",
                               "juce_unicode_patch": JUCEAIDE_PATCH_REVISION, "windows_verified": True})
+            compiled_inputs = input_dynamics_evidence.source_hashes(ROOT)
+            (build / input_dynamics_evidence.COMPILED_INPUTS).write_text(
+                json.dumps(compiled_inputs, indent=2) + "\n", encoding="utf-8")
             run(build_command(cmake, build, generator, args.jobs), env=build_env)
+            if input_dynamics_evidence.source_hashes(ROOT) != compiled_inputs:
+                raise RuntimeError("Kildekoden ble endret under byggingen. Ingen resultatpakke opprettes.")
+            # The processor suite also consumes the original readiness PCM.
+            # Its immutable seals are separate from the older 30-case gate.
+            run([sys.executable, ROOT / "Tests/AudioFixtures/readiness/verify.py"])
             run_required_tests(ctest, build, build_env)
             target = collect_result(build, args.native, extra)
             say("BYGG OG AUTOMATISKE TESTER BESTATT: " + str(target))

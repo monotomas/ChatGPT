@@ -1,7 +1,7 @@
 name: Flysnapper complete Windows x64 package
 on:
   push:
-    branches: [release/full-flysnapper]
+    branches: [release/full-flysnapper, research/musical-readiness]
   workflow_dispatch:
 permissions:
   contents: write

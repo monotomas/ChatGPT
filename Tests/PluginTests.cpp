@@ -83,8 +83,9 @@ public:
 };
 void parametersAndState(){
     FlysnapperProcessor a,b;
-    check(a.getParameters().size()==64,"expected fourteen controls plus 50 mappings");
+    check(a.getParameters().size()==75,"expected twenty-five controls plus 50 mappings");
     check(get(a,"monoBend")==0&&get(a,"bendRange")==0,"mono bend must default off with two-semitone range");
+    check(get(a,"dynamicsEnabled")==1&&get(a,"help")==1,"new instances must enable input dynamics and context help");
     check(a.acceptsMidi()&&a.producesMidi()&&!a.isMidiEffect()&&!a.supportsMPE(),"plugin role declarations");
     check(a.getLatencySamples()==0,"MIDI correction unexpectedly reports delay");
     const auto defaults=flysnapper::factoryDefaults();
@@ -119,17 +120,23 @@ void parametersAndState(){
     const auto previous=get(b,"root");
     set(a,"monoBend",1);set(a,"bendRange",1);saveLoad(a,b);
     check(get(b,"monoBend")==1&&get(b,"bendRange")==1,"mono bend settings lost across state restore");
+    set(a,"gateThresholdDb",-48.5f);set(a,"gateHysteresisDb",11.5f);set(a,"gateReleaseMs",242);
+    set(a,"compressorThresholdDb",-28);set(a,"compressorRatio",4.5f);set(a,"help",0);saveLoad(a,b);
+    check(std::abs(get(b,"gateThresholdDb")+48.5f)<.05f&&std::abs(get(b,"gateHysteresisDb")-11.5f)<.05f&&get(b,"gateReleaseMs")==242,"input gate settings lost across state restore");
+    check(get(b,"compressorThresholdDb")==-28&&std::abs(get(b,"compressorRatio")-4.5f)<.05f&&get(b,"help")==0,"compressor/help state lost across restore");
     auto legacy=stateXml(a);
     auto* legacyValues=legacy->getChildByName("FLYSNAPPER_PARAMETERS");
     check(legacyValues!=nullptr,"legacy compatibility state missing");
     for(auto* child=legacyValues->getFirstChildElement();child!=nullptr;){
         auto* next=child->getNextElement();
         const auto id=child->getStringAttribute("id");
-        if(id=="monoBend"||id=="bendRange")legacyValues->removeChildElement(child,true);
+        if(id=="monoBend"||id=="bendRange"||id=="dynamicsEnabled"||id=="help"||id=="inputGainDb"||id=="gateThresholdDb"||id=="gateHysteresisDb"||id=="gateAttackMs"||id=="gateHoldMs"||id=="gateReleaseMs"||id=="compressorThresholdDb"||id=="compressorRatio"||id=="limiterCeilingDb")legacyValues->removeChildElement(child,true);
         child=next;
     }
     loadXml(b,*legacy);
     check(get(b,"monoBend")==0&&get(b,"bendRange")==0,"legacy preset retained previous instance bend settings");
+    check(get(b,"dynamicsEnabled")==0&&get(b,"help")==1,"legacy preset must preserve its old signal path with dynamics bypassed and help available");
+    check(get(b,"gateThresholdDb")==-60&&get(b,"gateHysteresisDb")==8&&get(b,"compressorRatio")==3,"legacy preset retained unrelated previous-instance dynamics knob values");
     xml->setAttribute("schema",999);loadXml(b,*xml);check(get(b,"root")==previous,"unknown schema changed state");
     juce::XmlElement foreign("BUFFKILLER_STATE");loadXml(b,foreign);check(get(b,"root")==previous,"foreign product state accepted");
     const char invalid[]{'b','a','d','\0'};b.setStateInformation(invalid,4);check(get(b,"root")==previous,"invalid binary state changed parameters");
@@ -291,6 +298,41 @@ void gui(){
     }
     const auto before=p.getSnapshot();const auto note=process(p,128,{{0,on(61)}});
     check(!note.empty()&&note.front().second.isNoteOn(),"GUI test note missing");
+    auto* dynamicsTab=dynamic_cast<juce::TextButton*>(find(*editor,"dynamicsTab"));
+    auto* trackingTab=dynamic_cast<juce::TextButton*>(find(*editor,"trackingTab"));
+    auto* help=dynamic_cast<juce::ToggleButton*>(find(*editor,"help"));
+    auto* guide=dynamic_cast<juce::TextButton*>(find(*editor,"guide"));
+    auto* guideClose=dynamic_cast<juce::TextButton*>(find(*editor,"guideClose"));
+    auto* guidePanel=find(*editor,"guidePanel");auto* guideText=dynamic_cast<juce::TextEditor*>(find(*editor,"guideText"));
+    check(dynamicsTab&&trackingTab&&help&&guide&&guideClose&&guidePanel&&guideText,"dynamics tabs and built-in help missing");
+    auto* learn=dynamic_cast<juce::TextButton*>(find(*editor,"inputCalibration"));
+    check(learn&&find(*editor,"calibrationStatus")&&find(*editor,"calibrationProgress"),"guided calibration controls missing");
+    dynamicsTab->onClick();check(dynamicsTab->getToggleState(),"dynamics tab did not open");
+    for(const char* id:{"inputGainDb","gateThresholdDb","gateHysteresisDb","gateAttackMs","gateHoldMs","gateReleaseMs","compressorThresholdDb","compressorRatio","limiterCeilingDb"}){
+        auto* knob=dynamic_cast<juce::Slider*>(find(*editor,id));check(knob&&knob->getWidth()>=75&&knob->getHeight()>=60,"dynamics knob absent or clipped");
+        check(knob->getParentComponent()->isVisible(),"dynamics controls stayed hidden after selecting tab");
+    }
+    auto* gate=dynamic_cast<juce::Slider*>(find(*editor,"gateThresholdDb"));check(gate!=nullptr,"gate threshold knob missing");
+    gate->setValue(-46.5,juce::sendNotificationSync);check(std::abs(get(p,"gateThresholdDb")+46.5f)<.05f,"manual dynamics knob did not change actual processor parameter");
+    check(gate->getTooltip().isNotEmpty(),"dynamics knob has no contextual explanation");
+    help->setToggleState(false,juce::sendNotificationSync);help->onClick();
+    check(get(p,"help")==0&&gate->getTooltip().isEmpty(),"help off failed to clear contextual tooltips");
+    help->setToggleState(true,juce::sendNotificationSync);help->onClick();
+    check(get(p,"help")==1&&gate->getTooltip().isNotEmpty(),"help on failed to restore contextual tooltips");
+    {
+        const auto image=editor->createComponentSnapshot(editor->getLocalBounds());
+        juce::FileOutputStream file(juce::File::getCurrentWorkingDirectory().getChildFile("Flysnapper-dynamics.png"));
+        check(file.openedOk(),"dynamics screenshot file failed");file.setPosition(0);file.truncate();check(juce::PNGImageFormat().writeImageToStream(image,file),"dynamics screenshot failed");
+    }
+    guide->onClick();check(guidePanel->isVisible()&&guideText->isReadOnly(),"built-in guide failed to open read-only");
+    check(guideText->getText().containsIgnoreCase("latency")&&guideText->getText().containsIgnoreCase("hysteresis"),"guide lacks latency or gate-tail explanation");
+    check(process(p,128).empty()&&p.getSnapshot().allowedMask==before.allowedMask,"opening help interrupted held MIDI or changed correction");
+    {
+        const auto image=editor->createComponentSnapshot(editor->getLocalBounds());
+        juce::FileOutputStream file(juce::File::getCurrentWorkingDirectory().getChildFile("Flysnapper-guide.png"));
+        check(file.openedOk(),"guide screenshot file failed");file.setPosition(0);file.truncate();check(juce::PNGImageFormat().writeImageToStream(image,file),"guide screenshot failed");
+    }
+    guideClose->onClick();check(!guidePanel->isVisible(),"built-in guide did not close");trackingTab->onClick();
     flip->onClick();check(viewport->isVisible(),"flip failed to reveal mapping table");
     check(process(p,128).empty(),"flip interrupted held note");
     check(p.getSnapshot().allowedMask==before.allowedMask,"flip changed allowed notes");

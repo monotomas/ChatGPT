@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "scope": "Fresh qualified-stage native Linux execution; not Windows/Ableton/physical latency proof",
+  "stage": "calibrated-input-guitar-evaluation",
+  "builder_revision": "2026.11.05-calibrated-input-guitar-evaluation",
+  "native_groups_passed": 15,
+  "bounded_processor_cases_passed": 86,
+  "runtime_cpp_inputs_match_native4": true,
+  "module_hash_matches_native4": true,
+  "vst3_sha256": "ab8247caab6c3b8da82155ebea0e458b806afa4d3336a5983090d4b5483b9e7f",
+  "metadata_inputs_changed_from_native4": [
+    "Tools/input_dynamics_evidence.py",
+    "Tools/package_windows.py",
+    "build_plugin.py"
+  ],
+  "linked_runtime_source_snapshot": "../native-attempt-4/source",
+  "select_fixture_copy_policy": "No WAV copied here; six exact selected inputs already retained in native4/source and canonical sealed fixtures",
+  "report_manifest": "input-dynamics/report-manifest.json",
+  "windows_verified": false,
+  "ableton_verified": false,
+  "physical_latency_measured": false
+}

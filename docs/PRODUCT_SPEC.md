@@ -1,9 +1,15 @@
 # Flysnapper – gjeldende produktoppdrag
 
-Brukerens presiseringer 3.–4. november 2026 går foran begrensningene i den
+Brukerens presiseringer 3.–5. november 2026 går foran begrensningene i den
 opprinnelige handoveren. Utvikle hele løsningen autonomt, og gjennomfør egne
 bygginger, lydprøver, regresjonstester og installasjonskontroller. Ikke krev
 brukertesting av delprototyper eller en bekreftet Ableton-prøve før DSP-utvikling.
+
+**Gjeldende avgrensning er presiseringen 5. november nederst i dokumentet.**
+Polyfonisk bending og absolutte latency-grenser er trukket tilbake. Historiske
+krav og målinger nedenfor beholdes som sporbarhet, ikke som gjeldende
+leveransevilkår. Brukeren ønsker nå en gjennomarbeidet versjon til utprøving
+i eget gitarmiljø etter våre automatiserte tester.
 
 Én Windows x64 VST3 på et MIDI-/instrumentspor er hovedløsningen. Audio mottas
 på ekstern sidechain. En valgfri oppdeling i to plugins er bare et teknisk
@@ -117,5 +123,47 @@ Forsinkelse, feilanslag, falske oktaver, manglende toner, tidlige Note Off-er,
 bendkurver og CPU-frister skal vurderes samlet. Lavere forsinkelse oppnådd
 ved å slippe gjennom ekstra eller feil toner teller ikke som forbedret
 musikalsk brukbarhet. Se [målepolicyen](../Tests/AudioFixtures/readiness/policy.json)
-og [arbeidsstatusen](MUSICAL_READINESS.md). Policyens forskningsgrenser er
-mellomliggende målepunkter; de erstatter ikke de opprinnelige latency-målene.
+og [arbeidsstatusen](MUSICAL_READINESS.md). Policyens forskningsgrenser var
+mellomliggende målepunkter under bestillingen 4. november.
+
+## Gjeldende krav etter presisering 5. november
+
+Denne delen erstatter motstridende krav om polyfonisk bending, de absolutte
+E2/E3-latency-grensene og kravet om å bevise full musikalsk ferdigstillelse før
+en første prøve på brukerens gitar. Ingen gammel målepolicy eller måleresultat
+skal skrives om som følge av den endrede bestillingen.
+
+* Poly skal gjenkjenne flere samtidige, definerte halvtoner og sende vanlige
+  Note On/Off til MIDI-to-MIDI-delen. Uavhengig polyfonisk bending er ikke et
+  krav og skal ikke aktiveres av MPE-valget. Monofonisk bending og skillet
+  mellom bends, fingerslides, hammer-ons og pull-offs beholdes.
+* En kausal dynamikkprosessor foran pitchmotoren kombinerer gate/expander,
+  kompressor og limiter. Åpne-/lukkegrense, attack, hold/release, kompresjon,
+  inngangstrim og limitergrense har synlige, lagrede brukerinnstillinger.
+  Den tilfører ingen lookahead-blokk. Støy som overlapper en ønsket tone,
+  eller er sterkere enn den, kan ikke generelt skilles ut av en nivågate.
+* En veiledet prøve varer omtrent 20 sekunder: først 3 sekunder stille med
+  tilkoblet gitar, deretter 17 sekunder representativt spill, inkludert svake
+  anslag og utklang. Analyse skjer på det faktiske sidechain-signalet.
+  Vellykket fullført prøve stiller de synlige kontrollene som utgangspunkt;
+  brukeren kan overstyre etterpå. Avbrutt eller ubrukelig prøve endrer ikke
+  innstillingene. Manuell endring under prøven avbryter den. Genererte toner
+  dempes under prøven; eksternt spille-MIDI og akkordkontroll fortsetter.
+* Hjelpetekster forklarer kontrollene, støy/utklang-avveiningen, kalibreringen,
+  mono/poly, ruting og praktiske tiltak for lavere forsinkelse i verten.
+  Gjeldende akkord-/skalafunksjoner og brukerbekreftet Ableton-ruting bevares.
+* Latency optimaliseres og rapporteres per tonehøyde med første korrekte
+  beslutning, manglende/ekstra toner, tidlig/sen Note Off og CPU-frister.
+  Ingen absolutt millisekundgrense brukes som nytt godkjenningskrav.
+  Pluginens rapporterte 0 latency er ikke fysisk audio-til-MIDI-responstid.
+* Målet for 0.3.0 er en ferdig bygget, kontrollert Windows-installasjonspakke
+  som kan prøves med brukerens gitar. Kalibrering, faktisk processor-/VST3-
+  kjede og installasjon må testes, og kjente begrensninger rapporteres.
+  Det er ikke en påstand om feilfri polyfonisk transkripsjon av alle signaler.
+
+Den opprinnelige 30-tilfellers regresjonsporten beholdes. Ny evaluering merker
+tydelig hvilke tidligere poly-bend-/stemmeidentitetskrav som er utenfor scope,
+mens faktiske manglende akkordtoner, falske overtonestemmer og tidlige Note Off
+fortsatt måles. Nesten harmonisk sammenfallende, kunstige kilder beholdes som
+diagnostikk dersom de ikke kan skilles sikkert innen et kort kausalt vindu;
+de skal ikke skjules i en aggregert beståttprosent eller kalles løst.

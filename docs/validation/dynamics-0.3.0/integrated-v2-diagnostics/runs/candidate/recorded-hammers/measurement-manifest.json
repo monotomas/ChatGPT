@@ -1,0 +1,63 @@
+{
+  "recorded_at_utc": "2026-11-05T02:56:11.287577+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_snapshot": "/tmp/flysnapper-nov5-candidate-integrated-v2",
+  "source_commit": null,
+  "base_git_head": "9a83fff3c737cabeb9e6b1e92ef00ad18fff1fa7",
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/PitchDetector.cpp": "fc322bce1082cdc5e3dc591f9b659d7289744acabb6922d53991619cad88082c",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.h": "6d2e28fde4a2eacb8037ee6e2eb92c134d2ee76743b15ea241b91fb732cb89df",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "driver/guitar_evaluation_capture.cpp": "07f59840362d9a6c7a347f7d1a0212ea574cfaa77ec9f043cd81b4d259baf75b"
+  },
+  "compiled_sources": [
+    "Source/Pitch/ArticulationTracker.cpp",
+    "Source/Pitch/EarlyEstimator.cpp",
+    "Source/Pitch/InputDynamics.cpp",
+    "Source/Pitch/NoiseConditioner.cpp",
+    "Source/Pitch/PitchDetector.cpp",
+    "Source/Pitch/PolyphonicTracker.cpp",
+    "Source/Pitch/TimeDomainPursuit.cpp",
+    "Source/Pitch/YinEstimator.cpp"
+  ],
+  "fixture_seal": "059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae",
+  "configuration": "48000/64",
+  "scope": "Nov5 raw-input capture with default integrated post-conditioning dynamics before MIDI routing; descriptive latency, not physical latency proof",
+  "capture_topology": "Raw input -> original DC/lowpass/resampling/stationary conditioning -> integrated dynamics -> detector; calibration flags inactive",
+  "compiler_exit_code": 0,
+  "scoring_sha256": {
+    "Tools/guitar_evaluation_score.py": "cb140fc5866131b41e04dddfe370abe6f9dc537f09127ebeaff7635221fb9417",
+    "Tests/AudioFixtures/readiness/score.py": "2b6364479e3a5256b566e0352898194ca02a3615565c968689e435a1fe27c12d",
+    "Tests/AudioFixtures/evaluation_2026_11_05/policy.json": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a"
+  },
+  "frontend": "default",
+  "executable_sha256": "9961ec127786a5190d765625090df2d85ea41601c12006c861719cb269473014",
+  "capture_exit_code": 0,
+  "source_changed_during_measurement": false,
+  "score_exit_code": 1,
+  "scoring_changed_during_measurement": false,
+  "files_sha256": {
+    "scoring-console.txt": "8ffead9721078c493abacbf8e90e726c414aef1ea56c2ada36f003b90487bc73",
+    "dynamics-quiet-hum.csv": "ad1189410681a313545d6e29e3b5795045067af2a1dddb06e1e113f7d2796701",
+    "capture.csv": "26d3119fc8ebe8545940eed507c9ce519db3f0a0f9c98199364231e41be93bc4",
+    "events.csv": "a3e0365066971db72258d0b7d062512795ea4c4c5dd863b34f39a6cc4ddad49c",
+    "capture-console.txt": "e2ff2d60db9f0b37efaa363b38c1289ed6b3d0f97af0e32e3c7457e04dc6e5c9",
+    "compile.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scoring/summary.json": "8ffead9721078c493abacbf8e90e726c414aef1ea56c2ada36f003b90487bc73",
+    "scoring/cases.json": "da74310f5a8fbe5b39cb5f0aceac68576ac9b7a16ab97ed55fddf0d6741c36b5"
+  }
+}

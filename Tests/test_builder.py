@@ -705,10 +705,12 @@ class FlysnapperSafetyTests(unittest.TestCase):
     def test_missing_current_results_cannot_reuse_old_file(self):
         with tempfile.TemporaryDirectory() as temp:
             build=Path(temp);result=write(build/'flysnapper-ctest.xml',b'<testsuite/>')
+            stale_frontend=[write(build/name,b'old frontend proof') for name in (b.input_dynamics_evidence.REPORT,b.input_dynamics_evidence.EVENTS)]
             inventory=json.dumps({'tests':[{'name':n} for n in b.REQUIRED_TESTS]})
             with mock.patch.object(b,'run',side_effect=[inventory,'']),self.assertRaises(RuntimeError):
                 b.run_required_tests('ctest',build)
             self.assertFalse(result.exists())
+            self.assertTrue(all(not path.exists() for path in stale_frontend))
 
     def test_skipped_required_test_fails_readiness(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -737,7 +739,7 @@ class FlysnapperSafetyTests(unittest.TestCase):
     def test_build_command_contains_current_targets_only(self):
         cmd=b.build_command('cmake',Path('build'),'Ninja',2)
         for name in ('Flysnapper_VST3','FlysnapperCoreTests','FlysnapperPluginTests','FlysnapperVst3HostTests','FlysnapperGuitarQualityTests','FlysnapperBendProcessorTests',
-                     'FlysnapperNoiseTests','FlysnapperMpeOutputTests','FlysnapperMpeProcessorTests','FlysnapperMpeVst3HostTests'):
+                     'FlysnapperNoiseTests','FlysnapperInputDynamicsTests','FlysnapperDynamicsProcessorTests','FlysnapperMpeOutputTests','FlysnapperMpeProcessorTests','FlysnapperMpeVst3HostTests'):
             self.assertIn(name,cmd)
         self.assertFalse(any('Buffkiller' in s or 'RealtimeTests' in s for s in cmd))
 

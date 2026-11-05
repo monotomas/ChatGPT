@@ -1,0 +1,88 @@
+{
+  "scope": "Native3 direct detector baseline diagnostic; no main edits or new DSP variants",
+  "snapshot_at_utc": "2026-11-05T03:09:43.265165+00:00",
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.cpp": "fc322bce1082cdc5e3dc591f9b659d7289744acabb6922d53991619cad88082c",
+    "Source/Pitch/PitchDetector.h": "6d2e28fde4a2eacb8037ee6e2eb92c134d2ee76743b15ea241b91fb732cb89df",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+    "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b"
+  },
+  "source_stable_during_copy": true,
+  "configuration": "48000Hz/64samples;250msprovidedflush;24captures",
+  "defaults": "Native detector factory defaults; bendRange2,autoInputtrue,sensitivity.65,release35; onlymonoBend/inputDynamics.enabledvary",
+  "cases": [
+    {
+      "case": "quiet_hum_31_gain1",
+      "note": 31,
+      "gain": 1,
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/pcm/quiet_hum_31_gain1.wav",
+      "sha256": "79dd00d38242e96290405ef27d762b86f785ba7b6aa27db21c1e489d59428e72",
+      "on_sample": 24000,
+      "off_sample": 74400
+    },
+    {
+      "case": "quiet_hum_31_gain8",
+      "note": 31,
+      "gain": 8,
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/pcm/quiet_hum_31_gain8.wav",
+      "sha256": "fe89c188d7b9e027cb844e2fa550529852790e3217a9f528947f01b10353bc55",
+      "on_sample": 24000,
+      "off_sample": 74400
+    },
+    {
+      "case": "quiet_hum_40_gain1",
+      "note": 40,
+      "gain": 1,
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/pcm/quiet_hum_40_gain1.wav",
+      "sha256": "8c62198f2bae6a37ac37e99473b73ee79fbb9d89b889e15a42c138342a3e0800",
+      "on_sample": 24000,
+      "off_sample": 74400
+    },
+    {
+      "case": "quiet_hum_40_gain8",
+      "note": 40,
+      "gain": 8,
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/pcm/quiet_hum_40_gain8.wav",
+      "sha256": "5cfbd9ca0f073c54ffce72512d9963fd2139b1b48623d8346471919ca97227eb",
+      "on_sample": 24000,
+      "off_sample": 74400
+    },
+    {
+      "case": "quiet_hum_52_gain1",
+      "note": 52,
+      "gain": 1,
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/pcm/quiet_hum_52_gain1.wav",
+      "sha256": "06abeaf4e157f5e6db0320f4cc163219b67fa1d8d2a8eb5c20f8f260d9c116e2",
+      "on_sample": 24000,
+      "off_sample": 74400
+    },
+    {
+      "case": "quiet_hum_52_gain8",
+      "note": 52,
+      "gain": 8,
+      "file": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/pcm/quiet_hum_52_gain8.wav",
+      "sha256": "81ad7463ad58838f24ef9db4d48a4f6ed75df9ee0de0290cf9d2eb1333b04320",
+      "on_sample": 24000,
+      "off_sample": 74400
+    }
+  ],
+  "fixture_manifest_sha256": "faa79bd35617c0bb9b1c44e0d458b791741e977be29181e58a42486eaa4fc036",
+  "fixture_seal": "d5af9fb3fefb4d41918e62810d59290c1dd741d95337d58ec34efcdcf14f9fba",
+  "driver_sha256": "9bd726fa52e29126be170a4f5c7aefaaa65eeb67a20a7cd1772b40d1b00b0e7a",
+  "executable_sha256": "17a4b8b4aad6f0e91795c3f3d767eefcb0a9218f89ce2414362d1e257181d22c",
+  "compile_exit_code": 0,
+  "capture_exit_code": 0,
+  "source_stable_during_compile_and_capture": true
+}

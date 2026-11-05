@@ -1,0 +1,300 @@
+{
+  "scope": "Constructed3squiet+17splay calibrationworkflow before freshnote after500msquiet; notrecorded/liveguitar; partialmonophonicmechanismsuccess, retainedpolyphonyfailures.",
+  "compiler_exit_code": 0,
+  "capture_exit_code": 0,
+  "source_changed": false,
+  "inputs_preserved": true,
+  "no_midi_during_training": true,
+  "configuration": "48000Hz/64samples",
+  "raw_fixture_count": 12,
+  "configurations": 24,
+  "calibrations_succeeded": 24,
+  "tonal_targets_matched": 20,
+  "tonal_targets_expected": 20,
+  "mono_tonal_extra_ons": 0,
+  "mono_handling_ons": 0,
+  "poly_tonal_extra_ons": 12,
+  "poly_handling_ons": 14,
+  "files": {
+    "result-summary.json": {
+      "bytes": 11003,
+      "sha256": "fcebda193c66c07ab0ad6f628b59ce24f9585be5af9c3e10988d15af237a3851"
+    },
+    "GuitarEvaluationCapture": {
+      "bytes": 206088,
+      "sha256": "1107d9edd90100382678a9c244baa112a619c290c0412d4d3c312731f09c4ddd"
+    },
+    "compile.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-command.txt": {
+      "bytes": 789,
+      "sha256": "5765aee86540c6756fd2a2dc09e516f319f389deebbf47cf9b26e451834f9353"
+    },
+    "source-manifest.json": {
+      "bytes": 4201,
+      "sha256": "41a0e06163b9607c5284b7f52a0d6f8a2bbb203e5bdaf6a9c44eb7c679f45422"
+    },
+    "guitar_evaluation_capture.cpp": {
+      "bytes": 11183,
+      "sha256": "ffcad25d2f452afe0d578229f18b352c5ca7b1e2e19bbb51d474ae56386607cd"
+    },
+    "capture/handling_gain8_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/handling_gain8_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/handling_gain1_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/handling_gain1_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/nearE5_gain8_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/nearE5_gain8_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/nearE5_gain1_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/nearE5_gain1_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/nearF4_gain8_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/nearF4_gain8_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/nearF4_gain1_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/nearF4_gain1_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/quiet52_gain8_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/quiet52_gain8_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/quiet52_gain1_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/quiet52_gain1_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/quiet40_gain8_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/quiet40_gain8_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/quiet40_gain1_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/quiet40_gain1_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/quiet31_gain8_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/quiet31_gain8_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "8ee2a02d96da25b11b4c9734e6434a401a23adaab22122e7d525e038c325181f"
+    },
+    "capture/quiet31_gain1_poly-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/quiet31_gain1_mono-calibration.txt": {
+      "bytes": 25,
+      "sha256": "306ee2acb723281c462fd236df6fa49ff6a86f74d3fb5d9bf272fceba603ec4e"
+    },
+    "capture/dynamics-quiet-hum.csv": {
+      "bytes": 80,
+      "sha256": "97e7d5bce91f665c612b6abae32db5c07c6baf4fe4971095f7ca07ce1857fcdd"
+    },
+    "capture/capture.csv": {
+      "bytes": 2005,
+      "sha256": "cc68c9667f18f7a2553080d1bc37436b3a1ee6127d6c2fc99caab2e185854f2c"
+    },
+    "capture/events.csv": {
+      "bytes": 59477,
+      "sha256": "2be9074b1a3ff98b2047f66924c550d080b8cbfc0644d10a1f917e016e9cc169"
+    },
+    "capture/capture-console.txt": {
+      "bytes": 112,
+      "sha256": "d3da2c61bd7b5e3455129a6b8741d6ac5b9831633ed55bd02002df13528fce8b"
+    },
+    "fixtures/truth.json": {
+      "bytes": 5643,
+      "sha256": "c69f3536cd8056e28de14d22a88701f4c3597c8b30b3f70ed5fe167317f2b5c9"
+    },
+    "fixtures/fixtures.tsv": {
+      "bytes": 1641,
+      "sha256": "b91d68eadf9e3628c6b722820ddbe634605b47b0e1a0ecd97e406fd511d828a8"
+    },
+    "Source/Pitch/ArticulationTracker.cpp": {
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a"
+    },
+    "Source/Pitch/ArticulationTracker.h": {
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34"
+    },
+    "Source/Pitch/EarlyEstimator.cpp": {
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317"
+    },
+    "Source/Pitch/EarlyEstimator.h": {
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8"
+    },
+    "Source/Pitch/EarlyEstimator.md": {
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d"
+    },
+    "Source/Pitch/InputDynamics.cpp": {
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1"
+    },
+    "Source/Pitch/InputDynamics.h": {
+      "bytes": 5236,
+      "sha256": "8fe39927d92772e35278719c98c69659e2dab7c8b423ba4348ab704a6a1f77b5"
+    },
+    "Source/Pitch/MpeOutputRouter.cpp": {
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2"
+    },
+    "Source/Pitch/MpeOutputRouter.h": {
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee"
+    },
+    "Source/Pitch/NoiseConditioner.cpp": {
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1"
+    },
+    "Source/Pitch/NoiseConditioner.h": {
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852"
+    },
+    "Source/Pitch/PitchDetector.cpp": {
+      "bytes": 54643,
+      "sha256": "3acbdc832e96822eb71b7cd035aa6e7c41912a567d7496367a51acd744531656"
+    },
+    "Source/Pitch/PitchDetector.h": {
+      "bytes": 6148,
+      "sha256": "005a78f13cd8efb1773c096dc3c1ed630ba328cb48d80c4a1247b798cce4682a"
+    },
+    "Source/Pitch/PolyphonicTracker.cpp": {
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983"
+    },
+    "Source/Pitch/PolyphonicTracker.h": {
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7"
+    },
+    "Source/Pitch/README.md": {
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f"
+    },
+    "Source/Pitch/TimeDomainPursuit.cpp": {
+      "bytes": 26426,
+      "sha256": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599"
+    },
+    "Source/Pitch/TimeDomainPursuit.h": {
+      "bytes": 2997,
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737"
+    },
+    "Source/Pitch/TimeDomainPursuit.md": {
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707"
+    },
+    "Source/Pitch/YinEstimator.cpp": {
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa"
+    },
+    "Source/Pitch/YinEstimator.h": {
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1"
+    },
+    "Source/Pitch/YinEstimator.md": {
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569"
+    },
+    "fixtures/pcm/handling_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "d1c261b43a0eaf87198a6c9853833e85df9a4cd726df01e34bf28157f026cc4e"
+    },
+    "fixtures/pcm/handling_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "424113a72d6b6ef6907321dcf92ed150aa626fd809f4527656d2b1145b0ede05"
+    },
+    "fixtures/pcm/nearE5_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "ff4398865fd40481cb3a2c2552ee689c5dab2a457485f990ac2b9767bac444ca"
+    },
+    "fixtures/pcm/nearE5_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "e53f5df0c22446ec4f83acb98e24f6bcebea97f48b07f1bd0cebb4ec8f352793"
+    },
+    "fixtures/pcm/nearF4_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "caf9a446c7c1d376e6ebe80d142928586b1d0a9fad4c1fd68eeefc1c44b54591"
+    },
+    "fixtures/pcm/nearF4_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "24ee14a1cf4a994ac37a0e78265458a8e04f8c92e670523e80c524129f4b949f"
+    },
+    "fixtures/pcm/quiet52_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "93cf8accec3d671255f3b0f25010cd778d6cd0b50f20252918c7f1322f5d9902"
+    },
+    "fixtures/pcm/quiet52_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "695d1c895b75788c3de96f38edde359e9a6d314aacfa2bdc8d4d69da760dfbf1"
+    },
+    "fixtures/pcm/quiet40_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "fea201bbece2f4382d9f0b6a31a5faae83477007c3a410f538dc5b48c8097f6e"
+    },
+    "fixtures/pcm/quiet40_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "21e0388161e57b1aacc48fb5179e1f9a488950a3a0742c7235582dcda0dae69e"
+    },
+    "fixtures/pcm/quiet31_gain8.wav": {
+      "bytes": 2208044,
+      "sha256": "ffc51774d6f3ebde13d1fb0e68eeeac83f58766871201cf6fb35f6222ff967a9"
+    },
+    "fixtures/pcm/quiet31_gain1.wav": {
+      "bytes": 2208044,
+      "sha256": "eefa723f3e631ff9fa688d575022a715ff84557590ba751f80a6ce1e109ed1b4"
+    }
+  }
+}

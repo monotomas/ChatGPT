@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a deterministic, complete Flysnapper 0.2.1 source delivery ZIP.
+"""Create a deterministic, complete Flysnapper 0.3.0 source delivery ZIP.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 JUCE is deliberately acquired by the checked builder using dependencies.lock.json;
@@ -14,7 +14,7 @@ import stat
 import tempfile
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
-VERSION = "0.2.1"
+VERSION = "0.3.0"
 PACKAGE_ROOT = f"Flysnapper-{VERSION}"
 FIXED_TIMESTAMP = (2026, 11, 3, 0, 0, 0)
 ROOT_FILES = frozenset({
@@ -32,12 +32,13 @@ REQUIRED_FILES = frozenset({
     "Source/Pitch/TimeDomainPursuit.h", "Source/Pitch/TimeDomainPursuit.cpp",
     "Source/Pitch/YinEstimator.h", "Source/Pitch/YinEstimator.cpp",
     "Source/Pitch/NoiseConditioner.h", "Source/Pitch/NoiseConditioner.cpp",
+    "Source/Pitch/InputDynamics.h", "Source/Pitch/InputDynamics.cpp",
     "Source/Pitch/ArticulationTracker.h", "Source/Pitch/ArticulationTracker.cpp",
     "Source/Pitch/PolyphonicTracker.h", "Source/Pitch/PolyphonicTracker.cpp",
     "Source/Pitch/MpeOutputRouter.h", "Source/Pitch/MpeOutputRouter.cpp",
     "Tests/PitchTests.cpp", "Tests/YinEstimatorTests.cpp", "Tests/ProcessorAudioTests.cpp",
     "Tests/GuitarQualityTests.cpp", "Tests/BendProcessorTests.cpp",
-    "Tests/NoiseConditionerTests.cpp", "Tests/MpeOutputRouterTests.cpp", "Tests/MpeProcessorTests.cpp", "Tests/MpeVst3HostTests.cpp",
+    "Tests/NoiseConditionerTests.cpp", "Tests/InputDynamicsTests.cpp", "Tests/DynamicsProcessorTests.cpp", "Tests/MpeOutputRouterTests.cpp", "Tests/MpeProcessorTests.cpp", "Tests/MpeVst3HostTests.cpp",
     "Source/Core/MidiEngine.h", "Source/Core/MidiEngine.cpp",
     "Source/Core/MusicData.h", "Source/Core/MusicData.cpp",
     "Source/Core/README.md", "Source/Core/Reference/ChordDictionary.h",
@@ -46,10 +47,11 @@ REQUIRED_FILES = frozenset({
     "Tests/test_builder.py", "Tests/test_packaging.py", "Tools/package_source.py",
     "Tools/audio_validation.cpp", "Tools/audio_quality_gate.py", "Tools/audio_validation_run.py",
     "Tools/audio_validation_verify.py", "Tools/audio_validation_holdout.py", "Tools/audio_validation_confirmation.py",
-    "Tools/windows_audio_diagnostics.py",
+    "Tools/windows_audio_diagnostics.py", "Tools/package_windows.py",
+    "Tools/input_dynamics_evidence.py", "Tests/test_input_dynamics_evidence.py",
     "Tools/readiness_capture.cpp", "Tools/run_readiness.py", "Tests/AudioFixtures/readiness/policy.json",
     "docs/MUSICAL_READINESS.md", "docs/MPE_OUTPUT.md",
-    "docs/PROTOTYPE_POLICIES.md", "docs/HOST_TEST_PLAN.md", "docs/BRUKERVEILEDNING.md",
+    "docs/PROTOTYPE_POLICIES.md", "docs/HOST_TEST_PLAN.md", "docs/BRUKERVEILEDNING.md", "docs/INPUT_DYNAMICS.md",
     ".github/workflows/windows.yml",
 })
 
@@ -180,7 +182,7 @@ def verify_package(path: Path) -> None:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, help="Delivery ZIP path; default dist/Flysnapper-0.2.1-Source.zip")
+    parser.add_argument("--output", type=Path, help="Delivery ZIP path; default dist/Flysnapper-0.3.0-Source.zip")
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parent.parent
     output = args.output or root / "dist" / f"Flysnapper-{VERSION}-Source.zip"

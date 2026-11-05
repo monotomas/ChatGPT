@@ -1,0 +1,23 @@
+--- a/Source/Pitch/PitchDetector.cpp
++++ b/Source/Pitch/PitchDetector.cpp
+@@ -596,16 +596,18 @@
+     // partials5 and7. The latter preserves real weak/missing fundamentals.
+     if(evidence.anchorNote>=0&&!voices[size_t(evidence.anchorNote)].active){
+         const float target=frequency[size_t(evidence.anchorNote)];
+-        bool root=false,fifth=false,seventh=false;
++        bool root=false,second=false,third=false,fifth=false,seventh=false;
+         for(int i=0;i<evidence.count;++i){
+             const auto& peak=evidence.peaks[size_t(i)];
+             if(peak.magnitude>evidence.maximumMagnitude*.015f
+                 &&std::abs(peak.frequency-target)<target*.022f+evidence.resolutionHz*.05f)root=true;
+             if(peak.magnitude<evidence.maximumMagnitude*.008f)continue;
++            if(std::abs(peak.frequency-target*2)<target*2*.015f)second=true;
++            if(std::abs(peak.frequency-target*3)<target*3*.015f)third=true;
+             if(std::abs(peak.frequency-target*5)<target*5*.015f)fifth=true;
+             if(std::abs(peak.frequency-target*7)<target*7*.015f)seventh=true;
+         }
+-        if(!root&&!(fifth&&seventh))evidence.anchorNote=-1;
++        if(!root&&!(fifth&&seventh&&(second||third)))evidence.anchorNote=-1;
+     }
+     evidence.sortedPeaks=true;
+     if(config.autoInput&&view.activeNotes==0){

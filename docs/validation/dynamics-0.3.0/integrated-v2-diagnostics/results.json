@@ -1,0 +1,937 @@
+{
+  "schema": 1,
+  "scope": "Exact integrated post-NC DSP diagnostic before the plain-mono quiet-G1 held-octave fix; not final installer acceptance",
+  "evaluation_role": "seen-regression",
+  "physical_latency_measured": false,
+  "release_approval": false,
+  "roles": {
+    "baseline": {
+      "suites": {
+        "controlled": {
+          "runs": 65,
+          "passed": 35,
+          "failed": 30,
+          "outside_scope": 7,
+          "counts": {
+            "expected": 151,
+            "matched": 131,
+            "missed": 20,
+            "extra_note_ons": 109,
+            "noise_note_ons": 26,
+            "octave_errors": 13,
+            "wrong_before_correct": 15,
+            "early_offs": 8,
+            "late_offs": 2,
+            "discrete_misses": 16,
+            "bend_retriggers": 0,
+            "hung": 0,
+            "overflow": 0,
+            "deadline_misses": 75
+          },
+          "capture_exit_code": 0,
+          "score_exit_code": 1,
+          "fixture_seal": "d5af9fb3fefb4d41918e62810d59290c1dd741d95337d58ec34efcdcf14f9fba"
+        },
+        "recorded-hammers": {
+          "runs": 16,
+          "passed": 8,
+          "failed": 8,
+          "outside_scope": 0,
+          "counts": {
+            "expected": 16,
+            "matched": 16,
+            "missed": 0,
+            "extra_note_ons": 10,
+            "noise_note_ons": 0,
+            "octave_errors": 2,
+            "wrong_before_correct": 6,
+            "early_offs": 0,
+            "late_offs": 0,
+            "discrete_misses": 0,
+            "bend_retriggers": 0,
+            "hung": 0,
+            "overflow": 0,
+            "deadline_misses": 3
+          },
+          "capture_exit_code": 0,
+          "score_exit_code": 1,
+          "fixture_seal": "059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae"
+        },
+        "recorded-noise": {
+          "runs": 128,
+          "passed": 45,
+          "failed": 83,
+          "outside_scope": 0,
+          "counts": {
+            "expected": 96,
+            "matched": 96,
+            "missed": 0,
+            "extra_note_ons": 274,
+            "noise_note_ons": 72,
+            "octave_errors": 32,
+            "wrong_before_correct": 0,
+            "early_offs": 46,
+            "late_offs": 4,
+            "discrete_misses": 0,
+            "bend_retriggers": 0,
+            "hung": 0,
+            "overflow": 0,
+            "deadline_misses": 29
+          },
+          "capture_exit_code": 0,
+          "score_exit_code": 1,
+          "fixture_seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d"
+        }
+      },
+      "total": {
+        "runs": 209,
+        "passed": 88,
+        "failed": 121,
+        "expected": 263,
+        "matched": 243,
+        "missed": 20,
+        "extra_note_ons": 393,
+        "noise_note_ons": 98,
+        "octave_errors": 47,
+        "wrong_before_correct": 21,
+        "early_offs": 54,
+        "late_offs": 6,
+        "discrete_misses": 16,
+        "bend_retriggers": 0,
+        "hung": 0,
+        "overflow": 0,
+        "deadline_misses": 107
+      },
+      "latency_by_pitch": [
+        {
+          "mode": "mono",
+          "pitch": 31,
+          "expected": 2,
+          "matched": 2,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 46.645833333333336,
+            "p95": 46.645833333333336,
+            "max": 46.645833333333336
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 40,
+          "expected": 28,
+          "matched": 28,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 42.645833333333336,
+            "p95": 63.3125,
+            "max": 63.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 43,
+          "expected": 2,
+          "matched": 2,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 60.645833333333336,
+            "p95": 60.645833333333336,
+            "max": 60.645833333333336
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 45,
+          "expected": 3,
+          "matched": 3,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 52.645833333333336,
+            "p95": 52.645833333333336,
+            "max": 52.645833333333336
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 52,
+          "expected": 8,
+          "matched": 8,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 19.979166666666668,
+            "p95": 39.3125,
+            "max": 39.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 55,
+          "expected": 4,
+          "matched": 4,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 24.645833333333332,
+            "p95": 24.645833333333332,
+            "max": 24.645833333333332
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 57,
+          "expected": 40,
+          "matched": 40,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 16.645833333333332,
+            "p95": 51.3125,
+            "max": 51.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 58,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 15.979166666666666,
+            "p95": 17.3125,
+            "max": 17.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 59,
+          "expected": 8,
+          "matched": 8,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 15.979166666666666,
+            "p95": 21.3125,
+            "max": 21.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 60,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 15.3125,
+            "p95": 15.645833333333334,
+            "max": 15.645833333333334
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 61,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 15.3125,
+            "p95": 15.3125,
+            "max": 15.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 62,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 14.645833333333334,
+            "p95": 14.979166666666666,
+            "max": 14.979166666666666
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 63,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 13.3125,
+            "p95": 14.645833333333334,
+            "max": 14.645833333333334
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 64,
+          "expected": 8,
+          "matched": 8,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 12.3125,
+            "p95": 13.979166666666666,
+            "max": 13.979166666666666
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 31,
+          "expected": 2,
+          "matched": 0,
+          "missed": 2,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": null,
+            "p95": null,
+            "max": null
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 40,
+          "expected": 28,
+          "matched": 28,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 65.97916666666667,
+            "p95": 69.97916666666667,
+            "max": 69.97916666666667
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 43,
+          "expected": 2,
+          "matched": 2,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 63.3125,
+            "p95": 63.3125,
+            "max": 63.3125
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 45,
+          "expected": 3,
+          "matched": 3,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 63.3125,
+            "p95": 63.3125,
+            "max": 63.3125
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 52,
+          "expected": 8,
+          "matched": 8,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 53.979166666666664,
+            "p95": 65.97916666666667,
+            "max": 65.97916666666667
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 55,
+          "expected": 4,
+          "matched": 4,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 45.979166666666664,
+            "p95": 48.645833333333336,
+            "max": 48.645833333333336
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 57,
+          "expected": 37,
+          "matched": 36,
+          "missed": 1,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 53.979166666666664,
+            "p95": 55.979166666666664,
+            "max": 68.3125
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 58,
+          "expected": 6,
+          "matched": 3,
+          "missed": 3,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 42.3125,
+            "p95": 47.979166666666664,
+            "max": 47.979166666666664
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 59,
+          "expected": 8,
+          "matched": 6,
+          "missed": 2,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 40.979166666666664,
+            "p95": 67.64583333333333,
+            "max": 67.64583333333333
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 60,
+          "expected": 6,
+          "matched": 3,
+          "missed": 3,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 41.979166666666664,
+            "p95": 41.979166666666664,
+            "max": 41.979166666666664
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 61,
+          "expected": 6,
+          "matched": 3,
+          "missed": 3,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 68.64583333333333,
+            "p95": 69.64583333333333,
+            "max": 69.64583333333333
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 62,
+          "expected": 6,
+          "matched": 4,
+          "missed": 2,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 38.645833333333336,
+            "p95": 40.979166666666664,
+            "max": 40.979166666666664
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 63,
+          "expected": 6,
+          "matched": 3,
+          "missed": 3,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 39.645833333333336,
+            "p95": 69.3125,
+            "max": 69.3125
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 64,
+          "expected": 8,
+          "matched": 7,
+          "missed": 1,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 38.979166666666664,
+            "p95": 53.979166666666664,
+            "max": 53.979166666666664
+          }
+        }
+      ]
+    },
+    "candidate": {
+      "suites": {
+        "controlled": {
+          "runs": 65,
+          "passed": 42,
+          "failed": 23,
+          "outside_scope": 7,
+          "counts": {
+            "expected": 151,
+            "matched": 133,
+            "missed": 18,
+            "extra_note_ons": 74,
+            "noise_note_ons": 32,
+            "octave_errors": 10,
+            "wrong_before_correct": 7,
+            "early_offs": 8,
+            "late_offs": 6,
+            "discrete_misses": 16,
+            "bend_retriggers": 0,
+            "hung": 0,
+            "overflow": 0,
+            "deadline_misses": 36
+          },
+          "capture_exit_code": 0,
+          "score_exit_code": 1,
+          "fixture_seal": "d5af9fb3fefb4d41918e62810d59290c1dd741d95337d58ec34efcdcf14f9fba"
+        },
+        "recorded-hammers": {
+          "runs": 16,
+          "passed": 8,
+          "failed": 8,
+          "outside_scope": 0,
+          "counts": {
+            "expected": 16,
+            "matched": 16,
+            "missed": 0,
+            "extra_note_ons": 10,
+            "noise_note_ons": 0,
+            "octave_errors": 2,
+            "wrong_before_correct": 6,
+            "early_offs": 0,
+            "late_offs": 0,
+            "discrete_misses": 0,
+            "bend_retriggers": 0,
+            "hung": 0,
+            "overflow": 0,
+            "deadline_misses": 2
+          },
+          "capture_exit_code": 0,
+          "score_exit_code": 1,
+          "fixture_seal": "059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae"
+        },
+        "recorded-noise": {
+          "runs": 128,
+          "passed": 48,
+          "failed": 80,
+          "outside_scope": 0,
+          "counts": {
+            "expected": 96,
+            "matched": 96,
+            "missed": 0,
+            "extra_note_ons": 240,
+            "noise_note_ons": 42,
+            "octave_errors": 32,
+            "wrong_before_correct": 0,
+            "early_offs": 43,
+            "late_offs": 3,
+            "discrete_misses": 0,
+            "bend_retriggers": 0,
+            "hung": 0,
+            "overflow": 0,
+            "deadline_misses": 85
+          },
+          "capture_exit_code": 0,
+          "score_exit_code": 1,
+          "fixture_seal": "0d850ff509fffc2aca710a51301db2984f0350b0e573847dfb3ca20e6498766d"
+        }
+      },
+      "total": {
+        "runs": 209,
+        "passed": 98,
+        "failed": 111,
+        "expected": 263,
+        "matched": 245,
+        "missed": 18,
+        "extra_note_ons": 324,
+        "noise_note_ons": 74,
+        "octave_errors": 44,
+        "wrong_before_correct": 13,
+        "early_offs": 51,
+        "late_offs": 9,
+        "discrete_misses": 16,
+        "bend_retriggers": 0,
+        "hung": 0,
+        "overflow": 0,
+        "deadline_misses": 123
+      },
+      "latency_by_pitch": [
+        {
+          "mode": "mono",
+          "pitch": 31,
+          "expected": 2,
+          "matched": 2,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 49.3125,
+            "p95": 49.3125,
+            "max": 49.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 40,
+          "expected": 28,
+          "matched": 28,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 42.645833333333336,
+            "p95": 63.3125,
+            "max": 63.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 43,
+          "expected": 2,
+          "matched": 2,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 60.645833333333336,
+            "p95": 60.645833333333336,
+            "max": 60.645833333333336
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 45,
+          "expected": 3,
+          "matched": 3,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 52.645833333333336,
+            "p95": 52.645833333333336,
+            "max": 52.645833333333336
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 52,
+          "expected": 8,
+          "matched": 8,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 19.979166666666668,
+            "p95": 39.3125,
+            "max": 39.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 55,
+          "expected": 4,
+          "matched": 4,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 24.645833333333332,
+            "p95": 24.645833333333332,
+            "max": 24.645833333333332
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 57,
+          "expected": 40,
+          "matched": 40,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 16.645833333333332,
+            "p95": 17.645833333333332,
+            "max": 17.645833333333332
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 58,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 15.979166666666666,
+            "p95": 17.3125,
+            "max": 17.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 59,
+          "expected": 8,
+          "matched": 8,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 15.979166666666666,
+            "p95": 21.3125,
+            "max": 21.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 60,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 15.3125,
+            "p95": 15.645833333333334,
+            "max": 15.645833333333334
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 61,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 15.3125,
+            "p95": 15.3125,
+            "max": 15.3125
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 62,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 14.3125,
+            "p95": 14.979166666666666,
+            "max": 14.979166666666666
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 63,
+          "expected": 6,
+          "matched": 6,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 13.3125,
+            "p95": 14.645833333333334,
+            "max": 14.645833333333334
+          }
+        },
+        {
+          "mode": "mono",
+          "pitch": 64,
+          "expected": 8,
+          "matched": 8,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 12.3125,
+            "p95": 13.979166666666666,
+            "max": 13.979166666666666
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 31,
+          "expected": 2,
+          "matched": 2,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 54.645833333333336,
+            "p95": 54.645833333333336,
+            "max": 54.645833333333336
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 40,
+          "expected": 28,
+          "matched": 28,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 65.97916666666667,
+            "p95": 69.97916666666667,
+            "max": 69.97916666666667
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 43,
+          "expected": 2,
+          "matched": 2,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 63.3125,
+            "p95": 63.3125,
+            "max": 63.3125
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 45,
+          "expected": 3,
+          "matched": 3,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 63.3125,
+            "p95": 63.3125,
+            "max": 63.3125
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 52,
+          "expected": 8,
+          "matched": 8,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 54.645833333333336,
+            "p95": 65.97916666666667,
+            "max": 65.97916666666667
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 55,
+          "expected": 4,
+          "matched": 4,
+          "missed": 0,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 45.979166666666664,
+            "p95": 48.645833333333336,
+            "max": 48.645833333333336
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 57,
+          "expected": 37,
+          "matched": 36,
+          "missed": 1,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 53.979166666666664,
+            "p95": 55.979166666666664,
+            "max": 56.645833333333336
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 58,
+          "expected": 6,
+          "matched": 3,
+          "missed": 3,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 42.3125,
+            "p95": 66.64583333333333,
+            "max": 66.64583333333333
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 59,
+          "expected": 8,
+          "matched": 6,
+          "missed": 2,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 40.979166666666664,
+            "p95": 41.3125,
+            "max": 41.3125
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 60,
+          "expected": 6,
+          "matched": 3,
+          "missed": 3,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 41.979166666666664,
+            "p95": 68.64583333333333,
+            "max": 68.64583333333333
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 61,
+          "expected": 6,
+          "matched": 3,
+          "missed": 3,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 40.3125,
+            "p95": 68.64583333333333,
+            "max": 68.64583333333333
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 62,
+          "expected": 6,
+          "matched": 4,
+          "missed": 2,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 38.645833333333336,
+            "p95": 40.979166666666664,
+            "max": 40.979166666666664
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 63,
+          "expected": 6,
+          "matched": 3,
+          "missed": 3,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 39.645833333333336,
+            "p95": 69.3125,
+            "max": 69.3125
+          }
+        },
+        {
+          "mode": "poly",
+          "pitch": 64,
+          "expected": 8,
+          "matched": 7,
+          "missed": 1,
+          "conditional_on_matched": true,
+          "latency_ms": {
+            "median": 53.979166666666664,
+            "p95": 54.645833333333336,
+            "max": 54.645833333333336
+          }
+        }
+      ]
+    }
+  }
+}

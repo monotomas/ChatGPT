@@ -1,0 +1,87 @@
+{
+  "scope": "Constructed six-string calibration mechanism only; no recorded guitar, MIDI capture, DAW or physical latency proof. Source unchanged betweenv1/v2.",
+  "source_head": "9a83fff3c737cabeb9e6b1e92ef00ad18fff1fa7",
+  "sample_rate": 48000,
+  "samples_per_case": 960000,
+  "duration_seconds": 20,
+  "cases_per_probe": 36,
+  "rendering": "Six independent sources,eight positive-stiffness harmonics,per-string detune/phase/decay,12ms strum staggering; three strum intervals x four nominal SNRs x three common gains. Noise continues through initial3squiet phase and17splaying phase. SNR uses fixed nominal chord RMS, not time-varying truth.",
+  "v1_note": "Constructed chord spectra; two voicings are not ordinary six-string fingerings; retained as first hypothesis.",
+  "v2_chords": {
+    "Em": [
+      40,
+      47,
+      52,
+      55,
+      59,
+      64
+    ],
+    "G": [
+      43,
+      47,
+      50,
+      55,
+      59,
+      67
+    ],
+    "Am": [
+      45,
+      52,
+      57,
+      60,
+      64,
+      69
+    ],
+    "D/F#": [
+      42,
+      45,
+      50,
+      57,
+      62,
+      66
+    ],
+    "F": [
+      41,
+      48,
+      53,
+      57,
+      60,
+      65
+    ],
+    "C/E": [
+      40,
+      48,
+      52,
+      55,
+      60,
+      64
+    ]
+  },
+  "v2_result": "27of27at12/24/36dBnominalSNRsucceed;9of9at6dBfailNoPlayingwith0tonalSeconds; no product changes needed.",
+  "files": {
+    "/tmp/flysnapper-poly-calibration-probe.cpp": {
+      "bytes": 2177,
+      "sha256": "4b928230f036e799bd9877bc5d9446bfc369151f734493e08a5b4f61068abe4c"
+    },
+    "/tmp/flysnapper-poly-calibration-probe.csv": {
+      "bytes": 3142,
+      "sha256": "43c86eaab74cfb3a9e467c2c20074ca2d120dfefe6416bf55ca865d46f10241c"
+    },
+    "/tmp/flysnapper-poly-calibration-probe-v2.cpp": {
+      "bytes": 2177,
+      "sha256": "afd5e45cba9c953d03f4909a5114b71cc84fba9068b36adcd4bfd3e95ecefec3"
+    },
+    "/tmp/flysnapper-poly-calibration-probe-v2.csv": {
+      "bytes": 3148,
+      "sha256": "375e8e0ac3abe78b5b40d4c963485dbb96fb9fed10f0ee4bd473199dc2b7998b"
+    },
+    "/workspace/ChatGPT/Source/Pitch/InputDynamics.h": {
+      "bytes": 5236,
+      "sha256": "8fe39927d92772e35278719c98c69659e2dab7c8b423ba4348ab704a6a1f77b5"
+    },
+    "/workspace/ChatGPT/Source/Pitch/InputDynamics.cpp": {
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1"
+    }
+  }
+}
