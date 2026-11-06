@@ -1,0 +1,54 @@
+{
+  "scope": "Separate offline audit of raw N/F/P effective absolute pitch; original nominal-anchor cases/summary remain unchanged. This stops before MIDI scale correction/synth rendering. Positive cores and author nominal anchors were set independently before detector capture.",
+  "rounding_bin": "[author nominal note -0.5, author nominal note +0.5)",
+  "physical_instantaneous_source_pitch_verified": false,
+  "physical_contact_or_damping_truth": false,
+  "reserved_holdout_samples_run": 0,
+  "total": {
+    "runs": 56,
+    "core_effective_pitch_completely_missing": 0,
+    "core_nominal_anchor_completely_missing": 1,
+    "core_silent_ms": 63.26530612244898,
+    "core_active_outside_author_pitch_bin_ms": 14.648526077097506,
+    "core_effective_pitch_uncovered_ms": 77.91383219954649,
+    "core_nominal_anchor_uncovered_ms": 137.91383219954648
+  },
+  "profiles": {
+    "mono_bend_dynamics_default": {
+      "runs": 14,
+      "core_effective_pitch_completely_missing": 0,
+      "core_nominal_anchor_completely_missing": 1,
+      "core_silent_ms": 13.310657596371883,
+      "core_active_outside_author_pitch_bin_ms": 0.0,
+      "core_effective_pitch_uncovered_ms": 13.310657596371883,
+      "core_nominal_anchor_uncovered_ms": 73.31065759637188
+    },
+    "mono_bend_dynamics_off": {
+      "runs": 14,
+      "core_effective_pitch_completely_missing": 0,
+      "core_nominal_anchor_completely_missing": 0,
+      "core_silent_ms": 28.639455782312925,
+      "core_active_outside_author_pitch_bin_ms": 0.0,
+      "core_effective_pitch_uncovered_ms": 28.639455782312925,
+      "core_nominal_anchor_uncovered_ms": 28.639455782312925
+    },
+    "mono_plain_dynamics_default": {
+      "runs": 14,
+      "core_effective_pitch_completely_missing": 0,
+      "core_nominal_anchor_completely_missing": 0,
+      "core_silent_ms": 10.657596371882086,
+      "core_active_outside_author_pitch_bin_ms": 7.324263038548753,
+      "core_effective_pitch_uncovered_ms": 17.98185941043084,
+      "core_nominal_anchor_uncovered_ms": 17.98185941043084
+    },
+    "mono_plain_dynamics_off": {
+      "runs": 14,
+      "core_effective_pitch_completely_missing": 0,
+      "core_nominal_anchor_completely_missing": 0,
+      "core_silent_ms": 10.657596371882086,
+      "core_active_outside_author_pitch_bin_ms": 7.324263038548753,
+      "core_effective_pitch_uncovered_ms": 17.98185941043084,
+      "core_nominal_anchor_uncovered_ms": 17.98185941043084
+    }
+  }
+}

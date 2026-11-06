@@ -1,0 +1,32 @@
+--- a/Source/Pitch/PitchDetector.cpp
++++ b/Source/Pitch/PitchDetector.cpp
+@@ -384,7 +384,7 @@
+     // Once an oscillator is known, a local three-period observation follows
+     // a new fret much sooner than a permanently full 42.7 ms frame. Global
+     // acquisition keeps its independent harmonic-disambiguation path.
+-    const int primary=std::min(freshCount,held>=0&&config.monoBend&&measuredPeriod>0
++    int primary=std::min(freshCount,held>=0&&config.monoBend&&measuredPeriod>0
+         ?std::clamp(int(std::ceil(measuredPeriod*3.0f)),96,512):512);
+     auto estimate=monoEstimator.estimate(frame.data()+count-primary,primary,threshold,true);
+     const float independentExcitation=held>=0&&config.monoBend&&measuredPeriod>0
+@@ -423,6 +423,20 @@
+     if(!estimate.valid&&freshCount>512) {
+         auto bass=monoEstimator.estimate(frame.data(),count,threshold,true);
+         if(bass.valid&&bass.note<36&&bass.confidence>.97f)estimate=bass;
++    }
++    if(!config.monoBend&&held>=0&&measuredPeriod>0) {
++        const int localCount=std::min(freshCount,std::clamp(int(std::ceil(measuredPeriod*3.0f)),128,512));
++        if(localCount<primary) {
++            const auto local=monoEstimator.estimate(frame.data()+count-localCount,localCount,threshold,true);
++            const bool different=local.valid&&(estimate.valid?local.note!=estimate.note:local.note!=held+lowNote);
++            const float fromHeld=local.pitch-float(held+lowNote);
++            const bool nearby=std::abs(fromHeld)<=6.0f;
++            const bool nearbyGlobal=!estimate.valid||std::abs(local.pitch-estimate.pitch)<=6.0f;
++            if(different&&nearby&&nearbyGlobal) {
++                const auto physical=measureMonoSeries(rawReference.data()+count-localCount,localCount,local.frequency,analysisRate);
++                if(physical.root&&physical.count>=3) {estimate=local;primary=localCount;}
++            }
++        }
+     }
+     if(config.monoBend&&held>=0&&measuredPeriod>0&&estimate.valid){
+         const float prior=float(69+12*std::log2(analysisRate/(440*measuredPeriod)));

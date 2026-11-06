@@ -1,0 +1,66 @@
+{
+  "created_before_any_detector_capture": true,
+  "created_at_utc": "2026-11-06T07:05:25Z",
+  "selection_sha256": "1f77d038ca3747ca1eabb5f8c2a72a9e9562cb72b3ccf7b9afe133e81e6e92fb",
+  "development": [
+    {
+      "path": "Samples/green/ord/twang_e3_f_rr1.wav",
+      "midi_nominal": 40
+    },
+    {
+      "path": "Samples/green/ord/twang_a3_mf_rr2.wav",
+      "midi_nominal": 45
+    },
+    {
+      "path": "Samples/green/ord/twang_e4_p_rr2.wav",
+      "midi_nominal": 52
+    },
+    {
+      "path": "Samples/green/ord/twang_a4_mf_rr3.wav",
+      "midi_nominal": 57
+    },
+    {
+      "path": "Samples/green/ord/twang_e5_f_rr2.wav",
+      "midi_nominal": 64
+    },
+    {
+      "path": "Samples/green/stac/staccato_e3_rr2.wav",
+      "midi_nominal": 40
+    },
+    {
+      "path": "Samples/green/stac/staccato_e4_rr3.wav",
+      "midi_nominal": 52
+    }
+  ],
+  "reserved_holdout": [
+    {
+      "path": "Samples/green/ord/twang_e3_p_rr1.wav",
+      "midi_nominal": 40
+    },
+    {
+      "path": "Samples/green/ord/twang_a3_f_rr3.wav",
+      "midi_nominal": 45
+    },
+    {
+      "path": "Samples/green/ord/twang_e4_f_rr3.wav",
+      "midi_nominal": 52
+    },
+    {
+      "path": "Samples/green/ord/twang_a4_p_rr1.wav",
+      "midi_nominal": 57
+    },
+    {
+      "path": "Samples/green/ord/twang_e5_p_rr2.wav",
+      "midi_nominal": 64
+    },
+    {
+      "path": "Samples/green/stac/staccato_a3_rr4.wav",
+      "midi_nominal": 45
+    },
+    {
+      "path": "Samples/green/stac/staccato_a4_rr1.wav",
+      "midi_nominal": 57
+    }
+  ],
+  "holdout_policy": "No detector output or candidate run until root freezes exact candidate source. Independent author SFZ + acoustic annotation allowed; no feedback to DSP before freeze. All source licensing/pitch mappings preserved. This split provides one instrument/player isolated plucks, not continuous human performance or unseen-guitar independence."
+}

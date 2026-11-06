@@ -1,0 +1,22 @@
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+{
+  "runs": 56,
+  "bounded_note_and_core_checks_passed": 38,
+  "counts": {
+    "note_ons": 77,
+    "wanted_note_ons": 71,
+    "wrong_note_ons": 6,
+    "repeated_nominal_note_ons": 16,
+    "false_octave_note_ons": 0,
+    "lower_octave_note_ons": 0,
+    "wrong_ons_in_positive_core": 0,
+    "positive_core_missing": 1,
+    "orphan_offs": 0,
+    "duplicate_active_voice": 0,
+    "active_at_end": 0,
+    "overflow": 0,
+    "deadline_misses": 44
+  },
+  "positive_core_uncovered_ms": 113.90022675736961
+}

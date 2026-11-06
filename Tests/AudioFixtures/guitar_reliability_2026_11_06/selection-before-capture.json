@@ -1,0 +1,95 @@
+{
+  "repository": "sfzinstruments/karoryfer.black-and-green-guitars",
+  "source_commit": "b3b3249d37dc977a1a297bd2dc053e6d9b6b805c",
+  "license": "CC0-1.0",
+  "selection_before_any_detector_capture": true,
+  "recorded_at_utc": "2026-11-06T07:04:35Z",
+  "scope": "Original isolated ordinary/staccato electric-guitar samples; not a continuous player performance. Author SFZ nominal anchors; no physical onset, damping or continuous pitch annotations claimed.",
+  "input_processing": "No gain/normalisation/denoising/resampling applied to retained source WAV.",
+  "files": [
+    {
+      "path": "Samples/green/ord/twang_e3_p_rr1.wav",
+      "midi_nominal": 40,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_e3_p_rr1.wav\nlokey=40\nhikey=40\nhivel=42\nseq_length=4\nseq_position=3\npitch_keycenter=40\namp_velcurve_42=1\nlfo02_pitch_oncc113=104"
+    },
+    {
+      "path": "Samples/green/ord/twang_e3_f_rr1.wav",
+      "midi_nominal": 40,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_e3_f_rr1.wav\nlokey=40\nhikey=40\nlovel=85\nseq_length=4\npitch_keycenter=40\nlfo02_pitch_oncc113=104"
+    },
+    {
+      "path": "Samples/green/ord/twang_a3_mf_rr2.wav",
+      "midi_nominal": 45,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_a3_mf_rr2.wav\nlokey=45\nhikey=45\nlovel=43\nhivel=84\nseq_length=4\nseq_position=2\npitch_keycenter=45\namp_velcurve_84=1\nlfo02_pitch_oncc113=69"
+    },
+    {
+      "path": "Samples/green/ord/twang_a3_f_rr3.wav",
+      "midi_nominal": 45,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_a3_f_rr3.wav\nlokey=45\nhikey=45\nlovel=85\nseq_length=4\nseq_position=3\npitch_keycenter=45\nlfo02_pitch_oncc113=69"
+    },
+    {
+      "path": "Samples/green/ord/twang_e4_p_rr2.wav",
+      "midi_nominal": 52,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_e4_p_rr2.wav\nlokey=52\nhikey=52\nhivel=42\nseq_length=4\nseq_position=4\npitch_keycenter=52\namp_velcurve_42=1\nlfo02_pitch_oncc113=81"
+    },
+    {
+      "path": "Samples/green/ord/twang_e4_f_rr3.wav",
+      "midi_nominal": 52,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_e4_f_rr3.wav\nlokey=52\nhikey=52\nlovel=85\nseq_length=4\nseq_position=3\npitch_keycenter=52\nlfo02_pitch_oncc113=81"
+    },
+    {
+      "path": "Samples/green/ord/twang_a4_mf_rr3.wav",
+      "midi_nominal": 57,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_a4_mf_rr3.wav\nlokey=57\nhikey=57\nlovel=43\nhivel=84\nseq_length=4\nseq_position=3\npitch_keycenter=57\namp_velcurve_84=1\nlfo02_pitch_oncc113=75"
+    },
+    {
+      "path": "Samples/green/ord/twang_a4_p_rr1.wav",
+      "midi_nominal": 57,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_a4_p_rr1.wav\nlokey=57\nhikey=57\nhivel=42\nseq_length=4\nseq_position=3\npitch_keycenter=57\namp_velcurve_42=1\nlfo02_pitch_oncc113=75"
+    },
+    {
+      "path": "Samples/green/ord/twang_e5_f_rr2.wav",
+      "midi_nominal": 64,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_e5_f_rr2.wav\nlokey=64\nhikey=64\nlovel=85\nseq_length=4\nseq_position=2\npitch_keycenter=64\nlfo02_pitch_oncc113=42"
+    },
+    {
+      "path": "Samples/green/ord/twang_e5_p_rr2.wav",
+      "midi_nominal": 64,
+      "mapping_file": "Programs/modules/maps_green/ord.sfz",
+      "mapping_region": "sample=../Samples/green/ord/twang_e5_p_rr2.wav\nlokey=64\nhikey=64\nhivel=42\nseq_length=4\nseq_position=4\npitch_keycenter=64\namp_velcurve_42=1\nlfo02_pitch_oncc113=42"
+    },
+    {
+      "path": "Samples/green/stac/staccato_e3_rr2.wav",
+      "midi_nominal": 40,
+      "mapping_file": "Programs/modules/maps_green/stac.sfz",
+      "mapping_region": "sample=../Samples/green/stac/staccato_e3_rr2.wav\nlokey=40\nhikey=40\nseq_length=4\nseq_position=2\npitch_keycenter=40\nlfo02_pitch_oncc113=104"
+    },
+    {
+      "path": "Samples/green/stac/staccato_e4_rr3.wav",
+      "midi_nominal": 52,
+      "mapping_file": "Programs/modules/maps_green/stac.sfz",
+      "mapping_region": "sample=../Samples/green/stac/staccato_e4_rr3.wav\nlokey=52\nhikey=52\nseq_length=4\nseq_position=3\npitch_keycenter=52\nlfo02_pitch_oncc113=81"
+    },
+    {
+      "path": "Samples/green/stac/staccato_a3_rr4.wav",
+      "midi_nominal": 45,
+      "mapping_file": "Programs/modules/maps_green/stac.sfz",
+      "mapping_region": "sample=../Samples/green/stac/staccato_a3_rr4.wav\nlokey=45\nhikey=45\nseq_length=4\nseq_position=4\npitch_keycenter=45\nlfo02_pitch_oncc113=69"
+    },
+    {
+      "path": "Samples/green/stac/staccato_a4_rr1.wav",
+      "midi_nominal": 57,
+      "mapping_file": "Programs/modules/maps_green/stac.sfz",
+      "mapping_region": "sample=../Samples/green/stac/staccato_a4_rr1.wav\nlokey=57\nhikey=57\nseq_length=4\npitch_keycenter=57\nlfo02_pitch_oncc113=75"
+    }
+  ]
+}

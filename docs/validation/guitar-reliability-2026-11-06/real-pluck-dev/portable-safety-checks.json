@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "negative_checks": [
+    {
+      "name": "decoded_inside_immutable_edition",
+      "passed": true,
+      "exit_code": 2,
+      "expected_rejection_marker": "Decoded audio must be outside"
+    },
+    {
+      "name": "output_inside_immutable_edition",
+      "passed": true,
+      "exit_code": 2,
+      "expected_rejection_marker": "immutable fixture edition cannot"
+    },
+    {
+      "name": "reserved_selector_unavailable",
+      "passed": true,
+      "exit_code": 2,
+      "expected_rejection_marker": "unrecognized arguments"
+    },
+    {
+      "name": "tampered_selected_dev_audio",
+      "passed": true,
+      "exit_code": 1,
+      "expected_rejection_marker": "Selected source input changed"
+    },
+    {
+      "name": "replaced_pre_capture_seal",
+      "passed": true,
+      "exit_code": 1,
+      "expected_rejection_marker": "Unexpected pre-capture seal edition"
+    },
+    {
+      "name": "audit_inside_original_capture",
+      "passed": true,
+      "exit_code": 2,
+      "expected_rejection_marker": "original capture cannot"
+    },
+    {
+      "name": "audit_inside_immutable_edition",
+      "passed": true,
+      "exit_code": 2,
+      "expected_rejection_marker": "immutable fixture edition cannot"
+    }
+  ],
+  "immutable_edition_files_unchanged": 30,
+  "compiler_or_detector_invocations_in_negative_cases": 0,
+  "reserved_detector_runs": 0
+}

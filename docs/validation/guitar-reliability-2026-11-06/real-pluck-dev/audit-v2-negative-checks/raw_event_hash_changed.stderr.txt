@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/workspace/ChatGPT/Tools/guitar_effective_pitch_audit.py", line 206, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/ChatGPT/Tools/guitar_effective_pitch_audit.py", line 164, in main
+    original,grouped,totalFrames,validation=validate_dev_capture(capture,fixtures)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ChatGPT/Tools/guitar_effective_pitch_audit.py", line 107, in validate_dev_capture
+    for name in sorted(allowed-{executable[0]}):bound(name)
+                                                ^^^^^^^^^^^
+  File "/workspace/ChatGPT/Tools/guitar_effective_pitch_audit.py", line 92, in bound
+    value=regular(capture/name);digest=hashlib.sha256(value).hexdigest();require(digest==inventory[name],'original proof hash differs: '+name);capture_hashes[name]=digest;return value
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ChatGPT/Tools/guitar_effective_pitch_audit.py", line 29, in require
+    if not condition:raise ValueError('Unverified DEV capture: '+message)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unverified DEV capture: original proof hash differs: events.csv

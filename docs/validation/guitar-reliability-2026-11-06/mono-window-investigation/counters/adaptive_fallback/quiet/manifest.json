@@ -1,0 +1,37 @@
+{
+  "recorded_at_utc": "2026-11-06T07:14:51.283994+00:00",
+  "variant": "adaptive_fallback",
+  "base_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+    "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.cpp": "7ed1b9d4dfd57937852d5117bcc2cdcb86d96c4f4a0c74628b9079d11f7ed8d6",
+    "Source/Pitch/PitchDetector.h": "6d2e28fde4a2eacb8037ee6e2eb92c134d2ee76743b15ea241b91fb732cb89df",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1"
+  },
+  "driver_sha256": "9bd726fa52e29126be170a4f5c7aefaaa65eeb67a20a7cd1772b40d1b00b0e7a",
+  "binary_sha256": "a64e540df14af1ea2a838e141e1dea214f671607ef92643d5121228f0db5e6de",
+  "command": [
+    "/tmp/flysnapper-v4-latency-overlap/adaptive_fallback-quiet-capture",
+    "/workspace/ChatGPT/Tests/AudioFixtures/readiness",
+    "/tmp/flysnapper-v4-latency-overlap/counters/adaptive_fallback/quiet"
+  ],
+  "source_changed": false,
+  "files_sha256": {
+    "capture.csv": "f3bb9d865929ad1be0e2788691c4f644f06a81cf7f8ab630b67fbfba7f11b254",
+    "status.csv": "85cd00ff2100e67854514ad3fcd5da008c8674caad27a7f9244e715000f18cbb",
+    "events.csv": "2412e795aa2a310711cd3872e895dffade12e399cd179cd2414662950237096f",
+    "console.txt": "ae37f65d3d15c526725d2070b40d10a3d5f1f96415ccd519537576c107ae0312"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "status": "passed",
+  "scope": "Actual DEV capture copies mutated only for offline input-validation checks; no new DSP measurements",
+  "actual_capture": "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235",
+  "actual_capture_manifest_sha256": "ca7c2833f2e9c606f85affc4104db2608db68930e88ff7fe0f4a7baa5ead29ad",
+  "audit_tool_sha256": "add56b28198d43127c67a69f317a58da6dcd9c02ee8a558fd12850842fa91a35",
+  "original_capture_files_unchanged": 30,
+  "fixture_metadata_unchanged": true,
+  "reserved_audio_loaded": false,
+  "reserved_detector_runs": 0,
+  "checks": [
+    {
+      "name": "raw_event_hash_changed",
+      "description": "Append one byte to actual raw event output without changing its recorded hash.",
+      "result": "rejected-as-required",
+      "exit_code": 1,
+      "expected_rejection_marker": "original proof hash differs: events.csv",
+      "changed_input_files_sha256": {
+        "events.csv": "2be53612fdb322395d2e6b80852583bd9a7bb47e05b7e866724c83f1491f2952",
+        "measurement-manifest.json": "ca7c2833f2e9c606f85affc4104db2608db68930e88ff7fe0f4a7baa5ead29ad"
+      },
+      "stdout_file": "raw_event_hash_changed.stdout.txt",
+      "stderr_file": "raw_event_hash_changed.stderr.txt",
+      "audit_output_created": false,
+      "audio_decoder_compiler_detector_executed": false
+    },
+    {
+      "name": "independent_core_changed_with_rebound_case_hash",
+      "description": "Change one actual positive-core boundary and rebind the case-file hash; fixed pre-capture annotation must still reject it.",
+      "result": "rejected-as-required",
+      "exit_code": 1,
+      "expected_rejection_marker": "case core differs from independent pre-capture annotation",
+      "changed_input_files_sha256": {
+        "cases.json": "32943a35a9fde4be691f2df69719b2640bf14dcf5c645301667c4345c967e950",
+        "measurement-manifest.json": "6c99f0a871958f93d1d0cee3b234e9089ad0abc1bbfb313ffd8d617e55eed864"
+      },
+      "stdout_file": "independent_core_changed_with_rebound_case_hash.stdout.txt",
+      "stderr_file": "independent_core_changed_with_rebound_case_hash.stderr.txt",
+      "audit_output_created": false,
+      "audio_decoder_compiler_detector_executed": false
+    },
+    {
+      "name": "reserved_record_with_rebound_event_metric_case_hashes",
+      "description": "Replace actual DEV record identities consistently in all raw/metric/case outputs with a known reserved name, rebinding all output hashes while retaining the claimed DEV-only metadata.",
+      "result": "rejected-as-required",
+      "exit_code": 1,
+      "expected_rejection_marker": "unknown/reserved/partial/duplicate metric inventory",
+      "changed_input_files_sha256": {
+        "events.csv": "f8d4e91335c24af7097508bbf1fb6b655028a784984a627307805f88b0d242ca",
+        "capture.csv": "5613ff7292f89cbe3bb8d92d9150b12395dc5c84198d9f902d6fd2f751444f75",
+        "cases.json": "8b6fa224170cfb318ac160e1978a698231ba0146091d1b33ba662cc964148bfd",
+        "measurement-manifest.json": "53f5d507dbee0303a42805f46d3d83e5bbf824a7d2a16caca598252673eb2bc1"
+      },
+      "stdout_file": "reserved_record_with_rebound_event_metric_case_hashes.stdout.txt",
+      "stderr_file": "reserved_record_with_rebound_event_metric_case_hashes.stderr.txt",
+      "audit_output_created": false,
+      "audio_decoder_compiler_detector_executed": false
+    },
+    {
+      "name": "partial55_cases_with_rebound_output_hashes",
+      "description": "Remove one actual configuration from events, metrics and cases; rebind all three hashes without changing the claimed expected56 configurations.",
+      "result": "rejected-as-required",
+      "exit_code": 1,
+      "expected_rejection_marker": "unknown/reserved/partial/duplicate metric inventory",
+      "changed_input_files_sha256": {
+        "events.csv": "7a255c00d055cbfeb4923cf19ebf15a7d04f925803f1302ba89a74b7f71d8e0a",
+        "capture.csv": "a2d7ac199eccfed00ed1fd6c90312ef849380b94c5f12b581e1d69b7f3976073",
+        "cases.json": "b0ecbb0acae6484a959ed5ada9de14e6179ce30dbaf5246aeed23c615a96f02a",
+        "measurement-manifest.json": "78499e54ecca3d87e194bf834c4d8e71e4b23a2883a741c3483bc66d8fe68d18"
+      },
+      "stdout_file": "partial55_cases_with_rebound_output_hashes.stdout.txt",
+      "stderr_file": "partial55_cases_with_rebound_output_hashes.stderr.txt",
+      "audit_output_created": false,
+      "audio_decoder_compiler_detector_executed": false
+    },
+    {
+      "name": "metadata_hash_changed_in_both_manifests",
+      "description": "Change the split metadata digest in both before-compile and measured manifests, rebinding their proof hash; immutable edition must still reject the self-consistent false binding.",
+      "result": "rejected-as-required",
+      "exit_code": 1,
+      "expected_rejection_marker": "capture metadata differs from immutable edition",
+      "changed_input_files_sha256": {
+        "before-compile-manifest.json": "909a5b4d8634b480bc41b0ea907bc23fdcf1ce52ca20180c224236edf95a3edf",
+        "measurement-manifest.json": "0d66432658b235c65bfad8a555247a3951d24c816a83742b7a08cd9702baffc1"
+      },
+      "stdout_file": "metadata_hash_changed_in_both_manifests.stdout.txt",
+      "stderr_file": "metadata_hash_changed_in_both_manifests.stderr.txt",
+      "audit_output_created": false,
+      "audio_decoder_compiler_detector_executed": false
+    }
+  ]
+}

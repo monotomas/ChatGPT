@@ -1,0 +1,64 @@
+{
+  "baseline": {
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-O2",
+      "-DNDEBUG",
+      "-I",
+      "/tmp/flysnapper-v4-poly-audit/Source",
+      "/tmp/flysnapper-v4-template-audit/falsifier.cpp",
+      "/tmp/flysnapper-v4-poly-audit/Source/Pitch/PitchDetector.cpp",
+      "/tmp/flysnapper-v4-poly-audit/Source/Pitch/TimeDomainPursuit.cpp",
+      "/tmp/flysnapper-v4-poly-audit/Source/Pitch/YinEstimator.cpp",
+      "/tmp/flysnapper-v4-poly-audit/Source/Pitch/ArticulationTracker.cpp",
+      "/tmp/flysnapper-v4-poly-audit/Source/Pitch/PolyphonicTracker.cpp",
+      "/tmp/flysnapper-v4-poly-audit/Source/Pitch/NoiseConditioner.cpp",
+      "/tmp/flysnapper-v4-poly-audit/Source/Pitch/InputDynamics.cpp",
+      "-o",
+      "/tmp/flysnapper-v4-template-audit/falsifier-baseline/capture"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1.5714117210009135,
+    "source_hashes": {
+      "PitchDetector.cpp": "5b62b2cd901b50d5e38719323c7ca4d3a172824aeac83223cb0bd9ed6f7f2226",
+      "TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1"
+    }
+  },
+  "spectral": {
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-O2",
+      "-DNDEBUG",
+      "-I",
+      "/tmp/flysnapper-v4-template-audit/Source",
+      "/tmp/flysnapper-v4-template-audit/falsifier.cpp",
+      "/tmp/flysnapper-v4-template-audit/Source/Pitch/PitchDetector.cpp",
+      "/tmp/flysnapper-v4-template-audit/Source/Pitch/TimeDomainPursuit.cpp",
+      "/tmp/flysnapper-v4-template-audit/Source/Pitch/YinEstimator.cpp",
+      "/tmp/flysnapper-v4-template-audit/Source/Pitch/ArticulationTracker.cpp",
+      "/tmp/flysnapper-v4-template-audit/Source/Pitch/PolyphonicTracker.cpp",
+      "/tmp/flysnapper-v4-template-audit/Source/Pitch/NoiseConditioner.cpp",
+      "/tmp/flysnapper-v4-template-audit/Source/Pitch/InputDynamics.cpp",
+      "-o",
+      "/tmp/flysnapper-v4-template-audit/falsifier-spectral/capture"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 3.993797604984138,
+    "source_hashes": {
+      "PitchDetector.cpp": "7fe045fef107604066774cad0ab5c46fe58c8e5890efdfa7700cc49964cf93c9",
+      "TimeDomainPursuit.cpp": "7735ee8156141d9c89702e6b30f204cb1bcc245ec3870e388a3eeaf49f1beee0",
+      "YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1"
+    }
+  }
+}

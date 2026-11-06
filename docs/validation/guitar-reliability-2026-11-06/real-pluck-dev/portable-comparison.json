@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "original_capture": "build/guitar-v4-real-bench/baseline-e235",
+  "portable_capture": "build/guitar-v4-real-bench/portable-baseline-e235",
+  "source_inputs_identical": 18,
+  "raw_events_byte_identical": true,
+  "events_sha256": "7fc00b6d9999abb20a17ad85fc58e95a9776dda9d4b97c40d613560f3b559896",
+  "nominal_case_metrics_identical_excluding_runtime_cpu": true,
+  "effective_pitch_cases_and_summary_byte_identical": true,
+  "expected_and_observed_runs": 56,
+  "reserved_detector_runs": 0,
+  "runtime_cpu_differences_preserved": {
+    "original_deadline_misses": 114,
+    "portable_deadline_misses": 30
+  },
+  "portable_driver_sha256": "7ca070747cd57dd4e89967a94be36af2f441152e9f108212df76473dda84f45a",
+  "portable_orchestration_sha256": "8219d649e19e9a64155d7774e396aceb8fb0c6cf90f9046fef6efc12aecd8c9e",
+  "original_measurement_manifest_sha256": "4e1d982904caf602513dc2db441109a8ed212b48981be1735595a257592f69bb",
+  "portable_measurement_manifest_sha256": "ca7c2833f2e9c606f85affc4104db2608db68930e88ff7fe0f4a7baa5ead29ad",
+  "effective_pitch_audit_output": "build/guitar-v4-real-bench/portable-baseline-e235-effective-pitch-v2",
+  "effective_pitch_audit_source_sha256": "48f9abf01de62a4c73f2f8700eee7ab6e7f4544ae464447f970ccbab92f24135"
+}

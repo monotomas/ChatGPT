@@ -1,0 +1,150 @@
+{
+  "recorded_at_utc": "2026-11-06T07:37:39.276626+00:00",
+  "source_root": "/workspace/ChatGPT/build/guitar-v4-real-bench/baseline-e235/source",
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+    "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+    "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+    "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.cpp": "5b62b2cd901b50d5e38719323c7ca4d3a172824aeac83223cb0bd9ed6f7f2226",
+    "Source/Pitch/PitchDetector.h": "6d2e28fde4a2eacb8037ee6e2eb92c134d2ee76743b15ea241b91fb732cb89df",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1"
+  },
+  "compiled_sources": [
+    "Source/Pitch/ArticulationTracker.cpp",
+    "Source/Pitch/EarlyEstimator.cpp",
+    "Source/Pitch/InputDynamics.cpp",
+    "Source/Pitch/NoiseConditioner.cpp",
+    "Source/Pitch/PitchDetector.cpp",
+    "Source/Pitch/PolyphonicTracker.cpp",
+    "Source/Pitch/TimeDomainPursuit.cpp",
+    "Source/Pitch/YinEstimator.cpp"
+  ],
+  "source_scope": "Pitch C++ and headers only; MpeOutputRouter excluded from standalone executable",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compile_command": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/guitar_reliability_capture.cpp",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source/Pitch/ArticulationTracker.cpp",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source/Pitch/EarlyEstimator.cpp",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source/Pitch/InputDynamics.cpp",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source/Pitch/NoiseConditioner.cpp",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source/Pitch/PitchDetector.cpp",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source/Pitch/PolyphonicTracker.cpp",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source/Pitch/TimeDomainPursuit.cpp",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/source/Source/Pitch/YinEstimator.cpp",
+    "-o",
+    "/workspace/ChatGPT/build/guitar-v4-real-bench/portable-baseline-e235/GuitarReliabilityCapture"
+  ],
+  "driver_sha256": "7ca070747cd57dd4e89967a94be36af2f441152e9f108212df76473dda84f45a",
+  "orchestration_sha256": "8219d649e19e9a64155d7774e396aceb8fb0c6cf90f9046fef6efc12aecd8c9e",
+  "metadata_sha256": {
+    "source-manifest.json": "93d95c10d01c8ebbe06d84a1b562513b1d873732d488e104160e7b3b8f531f76",
+    "selection-before-capture.json": "1f77d038ca3747ca1eabb5f8c2a72a9e9562cb72b3ccf7b9afe133e81e6e92fb",
+    "split-before-any-detector.json": "1afe89b6cbdb13c862d73feccb30413682f81c5de7942a6aed8ea860a01ab637",
+    "independent-acoustic-annotations.json": "0b9bde6a449797751a7d4b9836c96817059eff299cb62baaa6741bac1f6f748c",
+    "annotate_independent.py": "55786bf266e128a2af14fcbe52b7f1fb28baee80f298d83ad82f8bae52219fcb",
+    "PRE_CAPTURE_SEAL.json": "d312dabcffb03ea49b14eb74a8f7a9934317b7535988d278f8ff2dbd2c3fbe92",
+    "float32-exact-manifest.json": "4246566546d334ad8b21b1a733ff1697fd2ce3dedb58fa09b21ce18183f7961b",
+    "INVENTORY_SHA256.json": "7a9834b9825319d072a1434d37334130ca94b99841d2fa0ea98130a6d9d86e46",
+    "verify.py": "4ec1facd5095352eec715c4fe0f96cfa875ccb177135344f5b21dc2a4051d7ff",
+    "decode_exact.py": "2cef9a2ef6973f1b0b8b445363839a73f5268300bb17e53f6e548b9a8915f3f1"
+  },
+  "decoded_inventory_sha256": "4246566546d334ad8b21b1a733ff1697fd2ce3dedb58fa09b21ce18183f7961b",
+  "input_sha256": {
+    "Samples/green/ord/twang_e3_f_rr1.wav": {
+      "wav_sha256": "fc1e4da6de242d7197f8efac253cc3b0c49328a7075646f10c0a7a74dabcea7c",
+      "float32_sha256": "57df4cfdbc21960a66e63821d8e1720ec7f8e1251286210b4f4a2c9b3d942d87"
+    },
+    "Samples/green/ord/twang_a3_mf_rr2.wav": {
+      "wav_sha256": "deb28e025b827aafc33a2bc63503ae4917f300a382bb1c8b07ba0b43bdce875a",
+      "float32_sha256": "09ecbf75587c080684abc74bac105d623a77923242ac82974c64ab35ef6a501d"
+    },
+    "Samples/green/ord/twang_e4_p_rr2.wav": {
+      "wav_sha256": "6f0c893d7e86a8b66ca88e2dde991d39853ae62584fff666529a1c4ce9615fba",
+      "float32_sha256": "6a2b21908694bcc059140fda082c5ea13cf8c151408e267f2c838e21dc327264"
+    },
+    "Samples/green/ord/twang_a4_mf_rr3.wav": {
+      "wav_sha256": "166c2827c22b71d92d44df99ffddba587e876aff05e729d13dfa8b01c7383839",
+      "float32_sha256": "1b3932b0b05bee9a470b3c0d7c12cc3b5a50e8761a2e16af0fcea26d560853cf"
+    },
+    "Samples/green/ord/twang_e5_f_rr2.wav": {
+      "wav_sha256": "dd09ed1db41336932b8c0728f647eff082c023f8962911329aaaf9dc694def7c",
+      "float32_sha256": "216fcfe124ff4cbfafff30893d88402ba2a78133af423f138e7bd9047f80428e"
+    },
+    "Samples/green/stac/staccato_e3_rr2.wav": {
+      "wav_sha256": "d8f6eefabc21fab0e6eac363e39a4df85b16d98b2eab00fe2a2c60fa4f548f17",
+      "float32_sha256": "2649fdf0671da62cb768aedfd39d7f7071ecfff625af5dd25658f96d5ee51ff1"
+    },
+    "Samples/green/stac/staccato_e4_rr3.wav": {
+      "wav_sha256": "8c9d3d8a8a9a1880d44c83d4f966bd0de0139b685df244e7b4ac8e4afe8108f8",
+      "float32_sha256": "97db48102811372e848495600d374bc112773ca449c3ba475f19739dc12797a7"
+    }
+  },
+  "reserved_inputs_exposed_to_executable": false,
+  "expected_runs": 56,
+  "startup_contexts": {
+    "cold": 0,
+    "digital_idle_seconds": 0.35
+  },
+  "appended_silence_seconds": 0.3,
+  "input_gain": 1,
+  "resampling": false,
+  "frontend_calibration": "off; dynamics profiles explicitlyoff/default, no learned capture",
+  "physical_contact_latency_claim": false,
+  "physical_damping_claim": false,
+  "base_git_head": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "compiler_exit_code": 0,
+  "executable_sha256": "49b366500d1ea03f2c5dfae3d35525920e19a62d47386eb0e6e772b204df9fa4",
+  "capture_exit_code": 0,
+  "frozen_source_unchanged": true,
+  "metadata_unchanged": true,
+  "audio_inputs_unchanged": true,
+  "files_sha256": {
+    "GuitarReliabilityCapture": "49b366500d1ea03f2c5dfae3d35525920e19a62d47386eb0e6e772b204df9fa4",
+    "before-compile-manifest.json": "b3347127f18217dd4a5ecc1f096883763af608a69482edd5789b9351ac8a8eca",
+    "capture-console.txt": "68f05824cf6d38347bd10023770c1706d752173203b793be7154dbcbaa5f8c94",
+    "capture.csv": "75a5efa8337735fc11f759e493933e7f52e5e9962180380c220aa223c2eb20b8",
+    "cases.json": "9b7eab77ee84447905a7fc02e04dc1066238f57bc9c4be3adaad287680ea5c00",
+    "compile.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "development-inputs.tsv": "d54dbde153d153283bbb9b0194fd672c9a52ff3e6aba287448bc944d7da6f897",
+    "events.csv": "7fc00b6d9999abb20a17ad85fc58e95a9776dda9d4b97c40d613560f3b559896",
+    "guitar_reliability.py": "8219d649e19e9a64155d7774e396aceb8fb0c6cf90f9046fef6efc12aecd8c9e",
+    "guitar_reliability_capture.cpp": "7ca070747cd57dd4e89967a94be36af2f441152e9f108212df76473dda84f45a",
+    "source/Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "source/Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "source/Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "source/Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "source/Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+    "source/Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+    "source/Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+    "source/Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+    "source/Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "source/Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "source/Source/Pitch/PitchDetector.cpp": "5b62b2cd901b50d5e38719323c7ca4d3a172824aeac83223cb0bd9ed6f7f2226",
+    "source/Source/Pitch/PitchDetector.h": "6d2e28fde4a2eacb8037ee6e2eb92c134d2ee76743b15ea241b91fb732cb89df",
+    "source/Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "source/Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "source/Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "source/Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "source/Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "source/Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+    "summary.json": "30ed57c44d917168e43f4ec3761b8827b48d90fc07e1f346f1e370a834241bae"
+  }
+}

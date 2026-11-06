@@ -1,0 +1,23 @@
+{
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/tmp/flysnapper-v4-poly-audit/Source",
+    "/tmp/flysnapper-v4-template-audit/probe.cpp",
+    "/tmp/flysnapper-v4-poly-audit/Source/Pitch/PitchDetector.cpp",
+    "/tmp/flysnapper-v4-poly-audit/Source/Pitch/TimeDomainPursuit.cpp",
+    "/tmp/flysnapper-v4-poly-audit/Source/Pitch/YinEstimator.cpp",
+    "/tmp/flysnapper-v4-poly-audit/Source/Pitch/ArticulationTracker.cpp",
+    "/tmp/flysnapper-v4-poly-audit/Source/Pitch/PolyphonicTracker.cpp",
+    "/tmp/flysnapper-v4-poly-audit/Source/Pitch/NoiseConditioner.cpp",
+    "/tmp/flysnapper-v4-poly-audit/Source/Pitch/InputDynamics.cpp",
+    "-o",
+    "/tmp/flysnapper-v4-template-audit/open-baseline"
+  ],
+  "exit_code": 0,
+  "seconds": 5.185097320005298,
+  "matches_parent_case10_exactly": true
+}

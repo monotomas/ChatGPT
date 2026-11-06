@@ -1,0 +1,32 @@
+{
+  "baseline": {
+    "counts": {
+      "early_first_releases": 2,
+      "late_first_releases_over80ms": 0,
+      "expected": 32,
+      "matched_useful_20ms": 32,
+      "late_additions_expected": 8,
+      "late_additions_found_during_overlap": 2
+    },
+    "conditional_latency_ms": {
+      "median": 55.979166666666664,
+      "p95": 463.9791666666667,
+      "max": 463.9791666666667
+    }
+  },
+  "spectral": {
+    "counts": {
+      "early_first_releases": 0,
+      "late_first_releases_over80ms": 8,
+      "expected": 32,
+      "matched_useful_20ms": 32,
+      "late_additions_expected": 8,
+      "late_additions_found_during_overlap": 0
+    },
+    "conditional_latency_ms": {
+      "median": 55.979166666666664,
+      "p95": 466.6458333333333,
+      "max": 466.6458333333333
+    }
+  }
+}

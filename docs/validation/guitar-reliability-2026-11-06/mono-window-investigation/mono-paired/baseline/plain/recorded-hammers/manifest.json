@@ -1,0 +1,53 @@
+{
+  "recorded_at_utc": "2026-11-06T07:05:21.222696+00:00",
+  "source_snapshot": "/tmp/flysnapper-v4-latency-overlap/baseline",
+  "base_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "variant": "baseline",
+  "driver_sha256": "194410e537e45a697a1cf63968f96b96ce15dd397fa899f4d0a0b324b006c13c",
+  "scoring_sha256": {
+    "Tools/guitar_evaluation_score.py": "cb140fc5866131b41e04dddfe370abe6f9dc537f09127ebeaff7635221fb9417",
+    "Tests/AudioFixtures/readiness/score.py": "2b6364479e3a5256b566e0352898194ca02a3615565c968689e435a1fe27c12d",
+    "Tests/AudioFixtures/evaluation_2026_11_05/policy.json": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a"
+  },
+  "source_sha256": {
+    "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+    "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+    "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+    "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+    "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+    "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+    "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+    "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+    "Source/Pitch/PitchDetector.cpp": "5b62b2cd901b50d5e38719323c7ca4d3a172824aeac83223cb0bd9ed6f7f2226",
+    "Source/Pitch/PitchDetector.h": "6d2e28fde4a2eacb8037ee6e2eb92c134d2ee76743b15ea241b91fb732cb89df",
+    "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+    "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+    "Source/Pitch/TimeDomainPursuit.cpp": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+    "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+    "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+    "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1"
+  },
+  "binary_sha256": "0ac83e39b994ba190b2d9a5355231a03f3df3888d8f6b3de0e462c79986938f5",
+  "command": [
+    "/tmp/flysnapper-v4-latency-overlap/baseline-mono-capture",
+    "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_hammers",
+    "/tmp/flysnapper-v4-latency-overlap/mono-paired/baseline/plain/recorded-hammers",
+    "quick",
+    "default",
+    "plain"
+  ],
+  "mono_bend_enabled": false,
+  "frontend": "default integrated input dynamics",
+  "selection": "all mono cases from the unchanged sealed fixture root",
+  "fixture_root": "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_hammers",
+  "fixture_seal": "059f89547e78bf96de6835f79664116e8c79d6b244082d61b83e051cb6dcb1ae",
+  "source_changed": false,
+  "files_sha256": {
+    "summary.json": "6b45010bc0fb28a58531217afc7d0e1fe0d56fe144b5a3bf94d7c22ea6fc0be2",
+    "cases.json": "61c1682a8178d72266f52ec82369196e2ec6973af01c4c9b185014238dbfdc42",
+    "dynamics-quiet-hum.csv": "ad1189410681a313545d6e29e3b5795045067af2a1dddb06e1e113f7d2796701",
+    "capture.csv": "ca2afabee14a8b08e93f1cf1c5a37a645deecafaa97589754238df1ef8856258",
+    "events.csv": "20b00726275e2bced600ac2892d9694955d5f759de9047ae41fdb23da8a2406a",
+    "capture-console.txt": "272ec0c2fff4d9d11459a57b37def3b39ae13cca57282d3d08230fda91067bdc"
+  }
+}

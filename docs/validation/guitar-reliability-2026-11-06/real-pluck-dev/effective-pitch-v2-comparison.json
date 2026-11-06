@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "scope": "Offline strengthened DEV-binding audit only; no new audio or DSP capture",
+  "actual_portable_capture_manifest_sha256": "ca7c2833f2e9c606f85affc4104db2608db68930e88ff7fe0f4a7baa5ead29ad",
+  "audit_v2_driver_sha256": "add56b28198d43127c67a69f317a58da6dcd9c02ee8a558fd12850842fa91a35",
+  "original_nominal_capture_and_v1_audits_unchanged": true,
+  "all66_original_retained_proof_hashes_match": 66,
+  "cases_and_summary_byte_identical_to_original_v1": true,
+  "cases_sha256": "fbc05054720dfd6b03f6f2c82d9d8a1d6fb9286c271d50c70dc98c903e2464a2",
+  "summary_sha256": "64d491d2287ed60d248a9658aae2b5522e0d7bf01e65c2416274e542e9971c57",
+  "fixed_dev_configurations_verified": 56,
+  "pitch_source_inputs_verified": 18,
+  "archived_original_capture_without_runtime_binary_also_validated": true,
+  "actual_metadata_mutation_rejections": 5,
+  "rejected_inputs_create_no_audit_claim_output": true,
+  "reserved_audio_loaded_or_detector_run": false,
+  "new_proofs": [
+    "portable-effective-pitch-v2/",
+    "audit-v2-negative-checks/"
+  ]
+}

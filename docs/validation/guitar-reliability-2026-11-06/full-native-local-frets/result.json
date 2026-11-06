@@ -1,0 +1,21 @@
+{
+  "native_platform": "Linux-x86_64",
+  "ctest_exit_code": 8,
+  "builder_exit_code": 1,
+  "groups_passed": 14,
+  "groups_failed": 1,
+  "failed_groups": [
+    "FlysnapperDynamicsProcessor"
+  ],
+  "actual_processor_cases_passed": 88,
+  "actual_processor_cases_failed": 1,
+  "selected_compiled_inputs_verified": 49,
+  "module_sha256": {
+    "Contents/Resources/moduleinfo.json": "0a607929b8b8f7d7cd0c1a6de8f573a6af8a0e99b5d0c3867e85f12e71fe7181",
+    "Contents/x86_64-linux/Flysnapper.so": "cc6156217e3385661a3092715c88fb0794638bfed1c783757c80a9bf6f7a1c9f"
+  },
+  "installer_created": false,
+  "musically_ready": false,
+  "windows_execution": false,
+  "physical_interface_latency_verified": false
+}

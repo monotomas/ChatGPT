@@ -1,0 +1,14 @@
+{
+  "baseline_runtime_source_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "changed_runtime_inputs": [
+    "Source/Pitch/PitchDetector.cpp"
+  ],
+  "source_patch_scope": "Bounded nearby plain fret decisions; original fresh acquisition/bend paths retained",
+  "actual_processor_exit_code": 1,
+  "passed_cases": 88,
+  "failed_cases": 1,
+  "remaining_failed_case": "six_open_strings_one_strum_no_false_sources",
+  "first_note_latency_improvement_claimed": false,
+  "binary_retained": false,
+  "executed_binary_sha256": "6d69a93e7860dae9c2ae7e723a615fab512b6d11f1e98231165374434ea8442f"
+}

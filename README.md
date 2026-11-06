@@ -1,4 +1,15 @@
-# Flysnapper 0.3.0
+# Flysnapper – arbeid etter gitarprøven av 0.3.0
+
+Brukerens prøve 6. november viser at 0.3.0 fortsatt har for mye
+dobbelttrigging, utelatte toner, falske lavere oktaver og forsinkelse.
+Arbeidet på `research/guitar-reliability-v4` er **ikke en ny godkjent
+installasjonspakke**. En avgrenset retting finner raske monofoniske
+fingerslides; den samlede polyfoniske seksstrengsprøven feiler fortsatt.
+Se [gjeldende status og kildebundne resultater](docs/validation/guitar-reliability-2026-11-06/README.md).
+
+Beskrivelsen nedenfor gjelder den leverte 0.3.0 og dens funksjoner.
+
+## Flysnapper 0.3.0
 
 Windows x64 VST3 som gjør gitar-audio om til MIDI og korrigerer MIDI etter
 skala eller et akkordspor. Sidechain og vanlig MIDI-ruting er beholdt fra

@@ -1,0 +1,23 @@
+{
+  "compiled_sources": [
+    "PitchDetector.cpp",
+    "TimeDomainPursuit.cpp",
+    "YinEstimator.cpp",
+    "ArticulationTracker.cpp",
+    "PolyphonicTracker.cpp",
+    "NoiseConditioner.cpp",
+    "InputDynamics.cpp"
+  ],
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "binary_sha256": {
+    "open-spectral": "42270a0e57a9dc0f17a823745bdb71162183ab2dc3c386609b56a62b7d59a401",
+    "open-baseline": "ad10bd94bc96beda4c48dbb87655e35db23cb87dc5bfad9c696a9c45349b516a",
+    "falsifier-baseline": "cbe726c16ea081386437aee9f2c5032dfaca893825a84557fded7c44c5e92279",
+    "falsifier-spectral": "755746d294a77a0267cc8be60d965f9bbbfe3d006045e8f8fff00d7c8c50f7e1"
+  },
+  "excluded_payloads": "No executables, PCM, learned weights or model files are archived. Dictionary tables are generated from the retained analytic formula during prepare().",
+  "open_baseline_fresh_equals_original_parent_case10": true,
+  "no_new_real_audio_used": true,
+  "all_reserved_audio_unrun": true,
+  "git_baseline_all_16_selected_pitch_inputs_verified": true
+}

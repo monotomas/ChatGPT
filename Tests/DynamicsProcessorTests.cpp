@@ -175,6 +175,87 @@ void genuineOctavesRemainDistinct(){
         o->setProperty("old_anchor",first);o->setProperty("new_anchor",last);o->setProperty("reference_step_sample",step);o->setProperty("new_decision_sample",juce::int64(ons[1].sample));o->setProperty("transition_latency_ms",(ons[1].sample-step)/48.);o->setProperty("old_actual_off_sample",juce::int64(oldOff[0].sample));o->setProperty("reference_off_sample",damping);o->setProperty("new_actual_off_sample",juce::int64(newOff[0].sample));cases.add(report);
     }
 }
+void fastFrettedSlidesRemainDiscrete(){
+    // Phase-continuous fretting plateaus, not per-fret amplitude attacks.
+    // Each 35ms interior note must survive the full sidechain/MIDI path.
+    for(bool upward:{true,false}){
+        Harness h(upward?"plain_fast_frets_up_35ms":"plain_fast_frets_down_35ms");
+        constexpr int onset=12000,stride=1680,damping=37440;
+        auto samples=std::make_shared<std::vector<float>>(48000,0.f);double phase=0;
+        for(int n=onset;n<damping;++n){
+            const int step=std::min(7,(n-onset)/stride),note=upward?57+step:64-step;
+            phase+=2*pi*440*std::exp2((note-69)/12.)/48000;double value=0;
+            for(int harmonic=1;harmonic<=12;++harmonic)value+=std::sin(harmonic*phase+.17*harmonic)/std::pow(double(harmonic),1.25);
+            (*samples)[size_t(n)]=float(.08*std::min(1.,double(n-onset)/96)*value);
+        }
+        const Signal wave=[samples](int64_t n){return n>=0&&size_t(n)<samples->size()?(*samples)[size_t(n)]:0.f;};
+        h.run(int64_t(samples->size()),wave);h.released();
+        auto report=h.report("Plain mono, eight35ms semitone plateaus with continuous phase and no renewed attack; synthetic fretting control through the actual default-dynamics processor");
+        juce::Array<juce::var> rows;const auto ons=h.notes(true),offs=h.notes(false);
+        bool correct=ons.size()==8&&offs.size()==8;
+        for(int step=0;step<8;++step){
+            const int note=upward?57+step:64-step;
+            const int start=onset+step*stride,stop=step<7?start+stride:damping;
+            const auto found=h.notes(true,note);correct&=found.size()==1;
+            auto* row=new juce::DynamicObject;row->setProperty("pitch",note);
+            row->setProperty("reference_on_sample",start);row->setProperty("reference_off_sample",stop);
+            row->setProperty("note_on_count",int(found.size()));
+            if(!found.empty()){
+                correct&=found.front().sample>=start&&found.front().sample<stop;
+                row->setProperty("decision_sample",juce::int64(found.front().sample));
+                row->setProperty("latency_ms",(found.front().sample-start)/48.);
+            }
+            rows.add(juce::var(row));
+        }
+        report.getDynamicObject()->setProperty("references",rows);
+        if(!correct)report.getDynamicObject()->setProperty("status","failed");
+        cases.add(report);
+        check(correct,"Plain35ms fretted slide omitted a plateau, triggered a wrong note or decided after its note interval");
+    }
+}
+void sixOpenStringsRemainSixSources(){
+    // Reproduction of the four failures reported after the 0.3.0 guitar trial:
+    // a clean 7ms-per-string strum must not omit strings, invent a lower
+    // octave or repick a smoothly decaying source. No noise is injected.
+    Harness h("six_open_strings_one_strum_no_false_sources");
+    set(*h.processor,"pitchMode",1);
+    constexpr std::array<int,6> strings{{40,45,50,55,59,64}};
+    const Signal wave=[strings](int64_t n){
+        const double t=double(n)/48000.;double value=0;
+        for(size_t j=0;j<strings.size();++j){
+            const double local=t-(.08+j*.007);if(local<0||local>.6)continue;
+            const double frequency=440*std::exp2((strings[j]-69)/12.);
+            const double amplitude=std::min(local/.002,1.)*std::exp(-local/1.1);
+            for(int harmonic=1;harmonic<=8;++harmonic)
+                value+=.08/strings.size()*amplitude/std::pow(double(harmonic),1.2)
+                    *std::sin(2*pi*frequency*harmonic*local+harmonic*.391+j*.76);
+        }
+        return float(value);
+    };
+    h.run(48000,wave);h.released();
+    auto report=h.report("Clean synthetic six-open-string strum,7ms string spacing,2ms attacks and smooth independent decays; no repeated excitation or noise; per-string decision times are descriptive, not physical-interface latency");
+    auto* object=report.getDynamicObject();juce::Array<juce::var> rows;
+    int missing=0,repeats=0,wrong=0;bool lifetime=true;
+    for(const auto& event:h.notes(true))if(std::find(strings.begin(),strings.end(),event.midi.getNoteNumber())==strings.end())++wrong;
+    for(size_t j=0;j<strings.size();++j){
+        const auto ons=h.notes(true,strings[j]),offs=h.notes(false,strings[j]);
+        missing+=ons.empty();repeats+=std::max(0,int(ons.size())-1);
+        const int64_t onset=std::llround((.08+j*.007)*48000),cut=onset+28800;
+        lifetime&=ons.size()==1&&offs.size()==1&&ons.front().sample>=onset
+            &&ons.front().sample<cut&&offs.front().sample>=cut-480;
+        auto* row=new juce::DynamicObject;row->setProperty("pitch",strings[j]);
+        row->setProperty("reference_on_sample",juce::int64(onset));row->setProperty("reference_off_sample",juce::int64(cut));
+        row->setProperty("note_on_count",int(ons.size()));row->setProperty("note_off_count",int(offs.size()));
+        if(!ons.empty()){row->setProperty("decision_sample",juce::int64(ons.front().sample));row->setProperty("latency_ms",(ons.front().sample-onset)/48.);}
+        rows.add(juce::var(row));
+    }
+    object->setProperty("references",rows);object->setProperty("missing_notes",missing);
+    object->setProperty("repeated_note_ons",repeats);object->setProperty("wrong_note_ons",wrong);
+    if(missing||repeats||wrong||!lifetime)object->setProperty("status","failed");
+    cases.add(report);
+    check(missing==0&&repeats==0&&wrong==0&&lifetime,
+        "Clean six-string strum omitted sources, double-triggered, invented an unplayed note or released before damping");
+}
 Signal calibrationWave(double rate){return [=](int64_t n){const double t=n/rate;const float noise=float(.00012*std::sin(2*pi*60*t)+.00006*std::sin(2*pi*1379*t));if(t<3)return noise;
     const double local=t-3,part=std::fmod(local,1.2);if(part>.95)return noise;const double a=std::fmod(local,3.6)<1.2?.018:.075;
     return noise+stringSample(part,57,a*std::min(1.,part/.003)*std::exp(-part*.9),8);};}
@@ -248,7 +329,7 @@ void writeEvidence(const char* status,const juce::String& error={}){
 }
 int run(const std::vector<std::filesystem::path>& args){
     csv<<"case,rate,block,sample,type,channel,note,value\n";csv<<std::setprecision(9);
-    try{check(args.size()==2,"FlysnapperDynamicsProcessorTests <AudioFixtures root>");juce::ScopedJuceInitialiser_GUI runtime;defaultGateAndTail();latencyByPitch();genuineOctavesRemainDistinct();calibrationAndOverrides();quietHumRegressions(args[1]/"readiness");writeEvidence("passed");std::cout<<"FlysnapperDynamicsProcessor: PASS ("<<checks<<" checks, "<<cases.size()<<" bounded cases; not physical latency or universal guitar acceptance).\n";return 0;}
+    try{check(args.size()==2,"FlysnapperDynamicsProcessorTests <AudioFixtures root>");juce::ScopedJuceInitialiser_GUI runtime;defaultGateAndTail();latencyByPitch();genuineOctavesRemainDistinct();calibrationAndOverrides();quietHumRegressions(args[1]/"readiness");fastFrettedSlidesRemainDiscrete();sixOpenStringsRemainSixSources();writeEvidence("passed");std::cout<<"FlysnapperDynamicsProcessor: PASS ("<<checks<<" checks, "<<cases.size()<<" bounded cases; not physical latency or universal guitar acceptance).\n";return 0;}
     catch(const std::exception& error){watchNew=false;try{writeEvidence("failed",error.what());}catch(...){}std::cerr<<"FlysnapperDynamicsProcessor: FAIL: "<<error.what()<<'\n';return 1;}
 }
 #ifdef _WIN32

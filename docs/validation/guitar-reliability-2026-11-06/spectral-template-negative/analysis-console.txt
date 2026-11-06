@@ -1,0 +1,64 @@
+{
+  "open_strings": {
+    "baseline": {
+      "runs": 30,
+      "expected": 180,
+      "matched": 30,
+      "missed": 150,
+      "extra_note_ons": 32,
+      "nominal_repeats": 8,
+      "false_octave_ons": 32,
+      "false_lower_octave_ons": 32,
+      "onset_count_error_free": 0
+    },
+    "spectral": {
+      "runs": 30,
+      "expected": 180,
+      "matched": 24,
+      "missed": 156,
+      "extra_note_ons": 18,
+      "nominal_repeats": 0,
+      "false_octave_ons": 16,
+      "false_lower_octave_ons": 16,
+      "onset_count_error_free": 0
+    }
+  },
+  "falsifier": {
+    "baseline": {
+      "runs": 24,
+      "expected": 32,
+      "matched": 32,
+      "missed": 0,
+      "extra_note_ons": 8,
+      "nominal_repeats": 2,
+      "false_octave_ons": 8,
+      "false_lower_octave_ons": 0,
+      "onset_count_error_free": 14
+    },
+    "spectral": {
+      "runs": 24,
+      "expected": 32,
+      "matched": 32,
+      "missed": 0,
+      "extra_note_ons": 0,
+      "nominal_repeats": 0,
+      "false_octave_ons": 0,
+      "false_lower_octave_ons": 0,
+      "onset_count_error_free": 24
+    }
+  }
+}
+baseline callback {'runs': 24, 'deadline_misses': 1, 'worst_per_case_p99_us': 689.912, 'maximum_us': 4151.74, 'budget_us': 1333.3333333333333, 'environment': 'Shared cloud worker; serial paired runs, not certified realtime bounds'}
+single_normal {'runs': 4, 'expected': 4, 'matched': 4, 'onset_count_error_free': 4}
+single_even {'runs': 4, 'expected': 4, 'matched': 4, 'extra_note_ons': 4, 'false_octave_ons': 4}
+single_even_to_odd_morph {'runs': 4, 'expected': 4, 'matched': 4, 'extra_note_ons': 4, 'false_octave_ons': 4}
+single_12_partials {'runs': 4, 'expected': 4, 'matched': 4, 'onset_count_error_free': 4}
+late_added_octave {'runs': 4, 'expected': 8, 'matched': 8, 'nominal_repeats': 2, 'onset_count_error_free': 2}
+late_added_near_third {'runs': 4, 'expected': 8, 'matched': 8, 'onset_count_error_free': 4}
+spectral callback {'runs': 24, 'deadline_misses': 57, 'worst_per_case_p99_us': 1382.012, 'maximum_us': 4214.513, 'budget_us': 1333.3333333333333, 'environment': 'Shared cloud worker; serial paired runs, not certified realtime bounds'}
+single_normal {'runs': 4, 'expected': 4, 'matched': 4, 'onset_count_error_free': 4}
+single_even {'runs': 4, 'expected': 4, 'matched': 4, 'onset_count_error_free': 4}
+single_even_to_odd_morph {'runs': 4, 'expected': 4, 'matched': 4, 'onset_count_error_free': 4}
+single_12_partials {'runs': 4, 'expected': 4, 'matched': 4, 'onset_count_error_free': 4}
+late_added_octave {'runs': 4, 'expected': 8, 'matched': 8, 'onset_count_error_free': 4}
+late_added_near_third {'runs': 4, 'expected': 8, 'matched': 8, 'onset_count_error_free': 4}

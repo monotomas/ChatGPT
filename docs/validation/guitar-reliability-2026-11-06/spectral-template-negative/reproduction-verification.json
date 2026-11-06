@@ -1,0 +1,108 @@
+{
+  "process_exit_code": 0,
+  "raw_streams_byte_identical": {
+    "open-baseline-fresh.csv": true,
+    "open-strings.csv": true,
+    "falsifier-baseline/events.csv": true,
+    "falsifier-spectral/events.csv": true
+  },
+  "reproduced_execution": {
+    "baseline-falsifier": {
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-O2",
+        "-DNDEBUG",
+        "-I",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source",
+        "/workspace/ChatGPT/docs/validation/guitar-reliability-2026-11-06/spectral-template-negative/falsifier.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/PitchDetector.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/TimeDomainPursuit.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/YinEstimator.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/ArticulationTracker.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/PolyphonicTracker.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/NoiseConditioner.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/InputDynamics.cpp",
+        "-o",
+        "/tmp/flysnapper-v4-template-reproduction/falsifier-baseline/capture"
+      ],
+      "process_exit_code": 0,
+      "elapsed_seconds": 1.7410024470009375,
+      "executable_sha256": "cbe726c16ea081386437aee9f2c5032dfaca893825a84557fded7c44c5e92279",
+      "events_sha256": "2948508de7721d5c4111d843013f7627005ee40e9942c97dfdd65bbb33c5a65c"
+    },
+    "baseline-open": {
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-O2",
+        "-DNDEBUG",
+        "-I",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source",
+        "/workspace/ChatGPT/docs/validation/guitar-reliability-2026-11-06/spectral-template-negative/open-probe.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/PitchDetector.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/TimeDomainPursuit.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/YinEstimator.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/ArticulationTracker.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/PolyphonicTracker.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/NoiseConditioner.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/baseline/Source/Pitch/InputDynamics.cpp",
+        "-o",
+        "/tmp/flysnapper-v4-template-reproduction/open-baseline/capture"
+      ],
+      "process_exit_code": 0,
+      "elapsed_seconds": 4.747104462003335,
+      "executable_sha256": "c974dda7bdfd6608f75f4d786e3a34c54fb65e1bb5d0638f68d2ed9e5c32bb71",
+      "events_sha256": "21baec7c65dbed5194fd22a4ff57e04136fdbe5080dc70aef01f4cf951aeff64"
+    },
+    "spectral-falsifier": {
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-O2",
+        "-DNDEBUG",
+        "-I",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source",
+        "/workspace/ChatGPT/docs/validation/guitar-reliability-2026-11-06/spectral-template-negative/falsifier.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/PitchDetector.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/TimeDomainPursuit.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/YinEstimator.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/ArticulationTracker.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/PolyphonicTracker.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/NoiseConditioner.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/InputDynamics.cpp",
+        "-o",
+        "/tmp/flysnapper-v4-template-reproduction/falsifier-spectral/capture"
+      ],
+      "process_exit_code": 0,
+      "elapsed_seconds": 4.001835438015405,
+      "executable_sha256": "755746d294a77a0267cc8be60d965f9bbbfe3d006045e8f8fff00d7c8c50f7e1",
+      "events_sha256": "b2c6859ef0d8ea9f6b5b265771895907c2283b300d0625cd402f700c0b6ed0fa"
+    },
+    "spectral-open": {
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-O2",
+        "-DNDEBUG",
+        "-I",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source",
+        "/workspace/ChatGPT/docs/validation/guitar-reliability-2026-11-06/spectral-template-negative/open-probe.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/PitchDetector.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/TimeDomainPursuit.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/YinEstimator.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/ArticulationTracker.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/PolyphonicTracker.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/NoiseConditioner.cpp",
+        "/tmp/flysnapper-v4-template-reproduction/spectral/Source/Pitch/InputDynamics.cpp",
+        "-o",
+        "/tmp/flysnapper-v4-template-reproduction/open-spectral/capture"
+      ],
+      "process_exit_code": 0,
+      "elapsed_seconds": 11.153160366986413,
+      "executable_sha256": "4a21aca3704554283870f020e9ba4ca61d392991c09a4e99ce83dabf0415fb00",
+      "events_sha256": "c14ceb8c6a54ed330cfdba72db70498c5799289f33fe28f05c989ecb972f156c"
+    }
+  },
+  "timing_note": "CPU observations vary and are not required to have identical bytes."
+}

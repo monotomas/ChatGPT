@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "scope": "Mono-only paired disclosed-regression latency experiment; default integrated dynamics; plain output. Plain continuous-bend cases retain historical expression truth and are diagnostics, not acceptance.",
+  "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+  "runs": 8,
+  "passed_runs": 2,
+  "failed_runs": 6,
+  "out_of_scope_runs": 0,
+  "out_of_scope": [],
+  "absolute_latency_gate": false,
+  "latency_alignment_or_backdating": false,
+  "physical_latency_verified": false,
+  "counts": {
+    "expected": 8,
+    "matched": 8,
+    "missed": 0,
+    "extra_note_ons": 6,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 6,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "deadline_misses": 1
+  },
+  "latency_by_pitch": [
+    {
+      "mode": "mono",
+      "anchor": 40,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 65.97916666666667,
+        "p95": 65.97916666666667,
+        "maximum": 65.97916666666667
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 43,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 65.97916666666667,
+        "p95": 65.97916666666667,
+        "maximum": 65.97916666666667
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 45,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 52.645833333333336,
+        "p95": 52.645833333333336,
+        "maximum": 52.645833333333336
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 52,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 41.979166666666664,
+        "p95": 41.979166666666664,
+        "maximum": 41.979166666666664
+      }
+    }
+  ],
+  "mono_bend_enabled": false
+}

@@ -1,11 +1,18 @@
 # Flysnapper – gjeldende produktoppdrag
 
-Brukerens presiseringer 3.–5. november 2026 går foran begrensningene i den
+Brukerens presiseringer 3.–6. november 2026 går foran begrensningene i den
 opprinnelige handoveren. Utvikle hele løsningen autonomt, og gjennomfør egne
 bygginger, lydprøver, regresjonstester og installasjonskontroller. Ikke krev
 brukertesting av delprototyper eller en bekreftet Ableton-prøve før DSP-utvikling.
 
-**Gjeldende avgrensning er presiseringen 5. november nederst i dokumentet.**
+**Tilbakemelding 6. november: 0.3.0 er ikke musikalsk brukbar.** Brukeren
+rapporterer hyppig dobbelttrigging, utelatte toner, falske noter i lavere
+oktaver og for høy latency. Dette er produktfeil som skal undersøkes og
+rettes samlet. Beståtte program-/installasjonstester eller utvalgte rene
+toneprøver kan ikke brukes som ny musikalsk godkjenning. Den leverte 0.3.0
+og dens opprinnelige målinger beholdes som uendret regresjonsgrunnlag.
+
+**Funksjonsavgrensningen fra 5. november gjelder fortsatt.**
 Polyfonisk bending og absolutte latency-grenser er trukket tilbake. Historiske
 krav og målinger nedenfor beholdes som sporbarhet, ikke som gjeldende
 leveransevilkår. Brukeren ønsker nå en gjennomarbeidet versjon til utprøving

@@ -1,0 +1,3762 @@
+[
+  {
+    "variant": "baseline",
+    "case": "true_octave_up_31_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      },
+      {
+        "note": 43,
+        "sample": 33663
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 33663
+      },
+      {
+        "note": 43,
+        "sample": 55039
+      }
+    ],
+    "on_delays_ms": [
+      53.3125,
+      51.3125
+    ],
+    "off_delays_ms": [
+      51.3125,
+      46.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_down_31_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 43,
+        "sample": 10879
+      },
+      {
+        "note": 31,
+        "sample": 33791
+      }
+    ],
+    "offs": [
+      {
+        "note": 43,
+        "sample": 33407
+      },
+      {
+        "note": 31,
+        "sample": 55423
+      }
+    ],
+    "on_delays_ms": [
+      26.645833333333332,
+      53.979166666666664
+    ],
+    "off_delays_ms": [
+      45.979166666666664,
+      54.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "fretted_two_semitone_up_return_31_plain",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      },
+      {
+        "note": 33,
+        "sample": 29439
+      },
+      {
+        "note": 31,
+        "sample": 46079
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 28927
+      },
+      {
+        "note": 33,
+        "sample": 45183
+      },
+      {
+        "note": 31,
+        "sample": 62207
+      }
+    ],
+    "on_delays_ms": [
+      53.3125,
+      63.3125,
+      59.979166666666664
+    ],
+    "off_delays_ms": [
+      52.645833333333336,
+      41.3125,
+      45.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "physical_damping_31_plain",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 38527
+      }
+    ],
+    "on_delays_ms": [
+      53.3125
+    ],
+    "off_delays_ms": [
+      52.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_up_31_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      },
+      {
+        "note": 43,
+        "sample": 33407
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 33407
+      },
+      {
+        "note": 43,
+        "sample": 55167
+      }
+    ],
+    "on_delays_ms": [
+      53.3125,
+      45.979166666666664
+    ],
+    "off_delays_ms": [
+      45.979166666666664,
+      49.3125
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_down_31_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 43,
+        "sample": 10879
+      },
+      {
+        "note": 31,
+        "sample": 33791
+      }
+    ],
+    "offs": [
+      {
+        "note": 43,
+        "sample": 33407
+      },
+      {
+        "note": 31,
+        "sample": 55423
+      }
+    ],
+    "on_delays_ms": [
+      26.645833333333332,
+      53.979166666666664
+    ],
+    "off_delays_ms": [
+      45.979166666666664,
+      54.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "fretted_two_semitone_up_return_31_bend",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      },
+      {
+        "note": 33,
+        "sample": 29439
+      },
+      {
+        "note": 31,
+        "sample": 45055
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 28927
+      },
+      {
+        "note": 33,
+        "sample": 45055
+      },
+      {
+        "note": 31,
+        "sample": 62207
+      }
+    ],
+    "on_delays_ms": [
+      53.3125,
+      63.3125,
+      38.645833333333336
+    ],
+    "off_delays_ms": [
+      52.645833333333336,
+      38.645833333333336,
+      45.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "physical_damping_31_bend",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 38911
+      }
+    ],
+    "on_delays_ms": [
+      53.3125
+    ],
+    "off_delays_ms": [
+      60.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_up_35_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      },
+      {
+        "note": 47,
+        "sample": 32383
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 32383
+      },
+      {
+        "note": 47,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336,
+      24.645833333333332
+    ],
+    "off_delays_ms": [
+      24.645833333333332,
+      41.3125
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_down_35_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 47,
+        "sample": 10879
+      },
+      {
+        "note": 35,
+        "sample": 33279
+      }
+    ],
+    "offs": [
+      {
+        "note": 47,
+        "sample": 33151
+      },
+      {
+        "note": 35,
+        "sample": 55167
+      }
+    ],
+    "on_delays_ms": [
+      26.645833333333332,
+      43.3125
+    ],
+    "off_delays_ms": [
+      40.645833333333336,
+      49.3125
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "fretted_two_semitone_up_return_35_plain",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      },
+      {
+        "note": 37,
+        "sample": 29183
+      },
+      {
+        "note": 35,
+        "sample": 45951
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 28927
+      },
+      {
+        "note": 37,
+        "sample": 45823
+      },
+      {
+        "note": 35,
+        "sample": 62207
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336,
+      57.979166666666664,
+      57.3125
+    ],
+    "off_delays_ms": [
+      52.645833333333336,
+      54.645833333333336,
+      45.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "physical_damping_35_plain",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 38399
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336
+    ],
+    "off_delays_ms": [
+      49.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_up_35_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      },
+      {
+        "note": 47,
+        "sample": 33279
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 33279
+      },
+      {
+        "note": 47,
+        "sample": 55039
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336,
+      43.3125
+    ],
+    "off_delays_ms": [
+      43.3125,
+      46.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_down_35_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 47,
+        "sample": 10879
+      },
+      {
+        "note": 35,
+        "sample": 33535
+      }
+    ],
+    "offs": [
+      {
+        "note": 47,
+        "sample": 33151
+      },
+      {
+        "note": 35,
+        "sample": 55295
+      }
+    ],
+    "on_delays_ms": [
+      26.645833333333332,
+      48.645833333333336
+    ],
+    "off_delays_ms": [
+      40.645833333333336,
+      51.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "fretted_two_semitone_up_return_35_bend",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      },
+      {
+        "note": 37,
+        "sample": 28671
+      },
+      {
+        "note": 35,
+        "sample": 44799
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 28415
+      },
+      {
+        "note": 37,
+        "sample": 44799
+      },
+      {
+        "note": 35,
+        "sample": 62463
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336,
+      47.3125,
+      33.3125
+    ],
+    "off_delays_ms": [
+      41.979166666666664,
+      33.3125,
+      51.3125
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "physical_damping_35_bend",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 38783
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336
+    ],
+    "off_delays_ms": [
+      57.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_up_40_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      },
+      {
+        "note": 52,
+        "sample": 32383
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 32383
+      },
+      {
+        "note": 52,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336,
+      24.645833333333332
+    ],
+    "off_delays_ms": [
+      24.645833333333332,
+      41.3125
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_down_40_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 40,
+        "sample": 32895
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 32895
+      },
+      {
+        "note": 40,
+        "sample": 55039
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      35.3125
+    ],
+    "off_delays_ms": [
+      35.3125,
+      46.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "fretted_two_semitone_up_return_40_plain",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      },
+      {
+        "note": 42,
+        "sample": 28415
+      },
+      {
+        "note": 40,
+        "sample": 45567
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 28415
+      },
+      {
+        "note": 42,
+        "sample": 45567
+      },
+      {
+        "note": 40,
+        "sample": 62335
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336,
+      41.979166666666664,
+      49.3125
+    ],
+    "off_delays_ms": [
+      41.979166666666664,
+      49.3125,
+      48.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "physical_damping_40_plain",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 38143
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336
+    ],
+    "off_delays_ms": [
+      44.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_up_40_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      },
+      {
+        "note": 52,
+        "sample": 32255
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 32255
+      },
+      {
+        "note": 52,
+        "sample": 54911
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336,
+      21.979166666666668
+    ],
+    "off_delays_ms": [
+      21.979166666666668,
+      43.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_down_40_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 40,
+        "sample": 33663
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 33279
+      },
+      {
+        "note": 40,
+        "sample": 55295
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      51.3125
+    ],
+    "off_delays_ms": [
+      43.3125,
+      51.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "fretted_two_semitone_up_return_40_bend",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      },
+      {
+        "note": 42,
+        "sample": 28671
+      },
+      {
+        "note": 40,
+        "sample": 45183
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 28287
+      },
+      {
+        "note": 42,
+        "sample": 45183
+      },
+      {
+        "note": 40,
+        "sample": 62591
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336,
+      47.3125,
+      41.3125
+    ],
+    "off_delays_ms": [
+      39.3125,
+      41.3125,
+      53.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "physical_damping_40_bend",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 38399
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336
+    ],
+    "off_delays_ms": [
+      49.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_up_52_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 64,
+        "sample": 33663
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 33663
+      },
+      {
+        "note": 64,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      51.3125
+    ],
+    "off_delays_ms": [
+      51.3125,
+      41.3125
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_down_52_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 64,
+        "sample": 10239
+      },
+      {
+        "note": 52,
+        "sample": 32255
+      }
+    ],
+    "offs": [
+      {
+        "note": 64,
+        "sample": 32255
+      },
+      {
+        "note": 52,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      13.3125,
+      21.979166666666668
+    ],
+    "off_delays_ms": [
+      21.979166666666668,
+      41.3125
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "fretted_two_semitone_up_return_52_plain",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 54,
+        "sample": 28671
+      },
+      {
+        "note": 52,
+        "sample": 44543
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 28543
+      },
+      {
+        "note": 54,
+        "sample": 44543
+      },
+      {
+        "note": 52,
+        "sample": 61951
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      47.3125,
+      27.979166666666668
+    ],
+    "off_delays_ms": [
+      44.645833333333336,
+      27.979166666666668,
+      40.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "physical_damping_52_plain",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 38015
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332
+    ],
+    "off_delays_ms": [
+      41.979166666666664
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_up_52_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 64,
+        "sample": 32383
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 32383
+      },
+      {
+        "note": 64,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      24.645833333333332
+    ],
+    "off_delays_ms": [
+      24.645833333333332,
+      41.3125
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "true_octave_down_52_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 64,
+        "sample": 10239
+      },
+      {
+        "note": 52,
+        "sample": 33407
+      }
+    ],
+    "offs": [
+      {
+        "note": 64,
+        "sample": 33023
+      },
+      {
+        "note": 52,
+        "sample": 55039
+      }
+    ],
+    "on_delays_ms": [
+      13.3125,
+      45.979166666666664
+    ],
+    "off_delays_ms": [
+      37.979166666666664,
+      46.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "fretted_two_semitone_up_return_52_bend",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 54,
+        "sample": 27263
+      },
+      {
+        "note": 52,
+        "sample": 44159
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 27263
+      },
+      {
+        "note": 54,
+        "sample": 44159
+      },
+      {
+        "note": 52,
+        "sample": 61951
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      17.979166666666668,
+      19.979166666666668
+    ],
+    "off_delays_ms": [
+      17.979166666666668,
+      19.979166666666668,
+      40.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "case": "physical_damping_52_bend",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 38143
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332
+    ],
+    "off_delays_ms": [
+      44.645833333333336
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_31_gain1",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "8",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_31_gain1",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "26367",
+        "type": "N",
+        "note": "31",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_31_gain1",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "8",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_31_gain1",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "26367",
+        "type": "N",
+        "note": "31",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_31_gain8",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_31_gain8",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_31_gain8",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_31_gain8",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_40_gain1",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "11",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_40_gain1",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "11",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_40_gain1",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "11",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_40_gain1",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "11",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_40_gain8",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "27",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_40_gain8",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "27",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_40_gain8",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "27",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_40_gain8",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "27",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_52_gain1",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_52_gain1",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_52_gain1",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_52_gain1",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_52_gain8",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "30",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_52_gain8",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "30",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_52_gain8",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "30",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "baseline",
+    "quiet_case": [
+      "quiet_hum_52_gain8",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "30",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_up_31_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      },
+      {
+        "note": 43,
+        "sample": 33663
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 33663
+      },
+      {
+        "note": 43,
+        "sample": 55039
+      }
+    ],
+    "on_delays_ms": [
+      53.3125,
+      51.3125
+    ],
+    "off_delays_ms": [
+      51.3125,
+      46.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_down_31_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 43,
+        "sample": 10879
+      },
+      {
+        "note": 31,
+        "sample": 33791
+      }
+    ],
+    "offs": [
+      {
+        "note": 43,
+        "sample": 33407
+      },
+      {
+        "note": 31,
+        "sample": 55423
+      }
+    ],
+    "on_delays_ms": [
+      26.645833333333332,
+      53.979166666666664
+    ],
+    "off_delays_ms": [
+      45.979166666666664,
+      54.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "fretted_two_semitone_up_return_31_plain",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      },
+      {
+        "note": 33,
+        "sample": 29439
+      },
+      {
+        "note": 31,
+        "sample": 46079
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 28927
+      },
+      {
+        "note": 33,
+        "sample": 45183
+      },
+      {
+        "note": 31,
+        "sample": 62207
+      }
+    ],
+    "on_delays_ms": [
+      53.3125,
+      63.3125,
+      59.979166666666664
+    ],
+    "off_delays_ms": [
+      52.645833333333336,
+      41.3125,
+      45.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "physical_damping_31_plain",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 38527
+      }
+    ],
+    "on_delays_ms": [
+      53.3125
+    ],
+    "off_delays_ms": [
+      52.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_up_31_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      },
+      {
+        "note": 43,
+        "sample": 33407
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 33407
+      },
+      {
+        "note": 43,
+        "sample": 55167
+      }
+    ],
+    "on_delays_ms": [
+      53.3125,
+      45.979166666666664
+    ],
+    "off_delays_ms": [
+      45.979166666666664,
+      49.3125
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_down_31_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 43,
+        "sample": 10879
+      },
+      {
+        "note": 31,
+        "sample": 33791
+      }
+    ],
+    "offs": [
+      {
+        "note": 43,
+        "sample": 33407
+      },
+      {
+        "note": 31,
+        "sample": 55423
+      }
+    ],
+    "on_delays_ms": [
+      26.645833333333332,
+      53.979166666666664
+    ],
+    "off_delays_ms": [
+      45.979166666666664,
+      54.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "fretted_two_semitone_up_return_31_bend",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      },
+      {
+        "note": 33,
+        "sample": 29439
+      },
+      {
+        "note": 31,
+        "sample": 45055
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 28927
+      },
+      {
+        "note": 33,
+        "sample": 45055
+      },
+      {
+        "note": 31,
+        "sample": 62207
+      }
+    ],
+    "on_delays_ms": [
+      53.3125,
+      63.3125,
+      38.645833333333336
+    ],
+    "off_delays_ms": [
+      52.645833333333336,
+      38.645833333333336,
+      45.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "physical_damping_31_bend",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 31,
+        "sample": 12159
+      }
+    ],
+    "offs": [
+      {
+        "note": 31,
+        "sample": 38911
+      }
+    ],
+    "on_delays_ms": [
+      53.3125
+    ],
+    "off_delays_ms": [
+      60.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_up_35_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      },
+      {
+        "note": 47,
+        "sample": 32383
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 32383
+      },
+      {
+        "note": 47,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336,
+      24.645833333333332
+    ],
+    "off_delays_ms": [
+      24.645833333333332,
+      41.3125
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_down_35_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 47,
+        "sample": 10879
+      },
+      {
+        "note": 35,
+        "sample": 33535
+      }
+    ],
+    "offs": [
+      {
+        "note": 47,
+        "sample": 33151
+      },
+      {
+        "note": 35,
+        "sample": 55167
+      }
+    ],
+    "on_delays_ms": [
+      26.645833333333332,
+      48.645833333333336
+    ],
+    "off_delays_ms": [
+      40.645833333333336,
+      49.3125
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "fretted_two_semitone_up_return_35_plain",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      },
+      {
+        "note": 37,
+        "sample": 29183
+      },
+      {
+        "note": 35,
+        "sample": 45951
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 28927
+      },
+      {
+        "note": 37,
+        "sample": 45823
+      },
+      {
+        "note": 35,
+        "sample": 62207
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336,
+      57.979166666666664,
+      57.3125
+    ],
+    "off_delays_ms": [
+      52.645833333333336,
+      54.645833333333336,
+      45.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "physical_damping_35_plain",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 38399
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336
+    ],
+    "off_delays_ms": [
+      49.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_up_35_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      },
+      {
+        "note": 47,
+        "sample": 33279
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 33279
+      },
+      {
+        "note": 47,
+        "sample": 55039
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336,
+      43.3125
+    ],
+    "off_delays_ms": [
+      43.3125,
+      46.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_down_35_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 47,
+        "sample": 10879
+      },
+      {
+        "note": 35,
+        "sample": 33535
+      }
+    ],
+    "offs": [
+      {
+        "note": 47,
+        "sample": 33151
+      },
+      {
+        "note": 35,
+        "sample": 55295
+      }
+    ],
+    "on_delays_ms": [
+      26.645833333333332,
+      48.645833333333336
+    ],
+    "off_delays_ms": [
+      40.645833333333336,
+      51.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "fretted_two_semitone_up_return_35_bend",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      },
+      {
+        "note": 37,
+        "sample": 28671
+      },
+      {
+        "note": 35,
+        "sample": 44799
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 28415
+      },
+      {
+        "note": 37,
+        "sample": 44799
+      },
+      {
+        "note": 35,
+        "sample": 62463
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336,
+      47.3125,
+      33.3125
+    ],
+    "off_delays_ms": [
+      41.979166666666664,
+      33.3125,
+      51.3125
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "physical_damping_35_bend",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 35,
+        "sample": 11647
+      }
+    ],
+    "offs": [
+      {
+        "note": 35,
+        "sample": 38783
+      }
+    ],
+    "on_delays_ms": [
+      42.645833333333336
+    ],
+    "off_delays_ms": [
+      57.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_up_40_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      },
+      {
+        "note": 52,
+        "sample": 32383
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 32383
+      },
+      {
+        "note": 52,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336,
+      24.645833333333332
+    ],
+    "off_delays_ms": [
+      24.645833333333332,
+      41.3125
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_down_40_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 40,
+        "sample": 33535
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 33151
+      },
+      {
+        "note": 40,
+        "sample": 55039
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      48.645833333333336
+    ],
+    "off_delays_ms": [
+      40.645833333333336,
+      46.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "fretted_two_semitone_up_return_40_plain",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      },
+      {
+        "note": 42,
+        "sample": 28415
+      },
+      {
+        "note": 40,
+        "sample": 45183
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 28415
+      },
+      {
+        "note": 42,
+        "sample": 45183
+      },
+      {
+        "note": 40,
+        "sample": 62335
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336,
+      41.979166666666664,
+      41.3125
+    ],
+    "off_delays_ms": [
+      41.979166666666664,
+      41.3125,
+      48.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "physical_damping_40_plain",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 38143
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336
+    ],
+    "off_delays_ms": [
+      44.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_up_40_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      },
+      {
+        "note": 52,
+        "sample": 32255
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 32255
+      },
+      {
+        "note": 52,
+        "sample": 54911
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336,
+      21.979166666666668
+    ],
+    "off_delays_ms": [
+      21.979166666666668,
+      43.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_down_40_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 40,
+        "sample": 33663
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 33279
+      },
+      {
+        "note": 40,
+        "sample": 55295
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      51.3125
+    ],
+    "off_delays_ms": [
+      43.3125,
+      51.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "fretted_two_semitone_up_return_40_bend",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      },
+      {
+        "note": 42,
+        "sample": 28671
+      },
+      {
+        "note": 40,
+        "sample": 45183
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 28287
+      },
+      {
+        "note": 42,
+        "sample": 45183
+      },
+      {
+        "note": 40,
+        "sample": 62591
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336,
+      47.3125,
+      41.3125
+    ],
+    "off_delays_ms": [
+      39.3125,
+      41.3125,
+      53.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "physical_damping_40_bend",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 40,
+        "sample": 11263
+      }
+    ],
+    "offs": [
+      {
+        "note": 40,
+        "sample": 38399
+      }
+    ],
+    "on_delays_ms": [
+      34.645833333333336
+    ],
+    "off_delays_ms": [
+      49.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_up_52_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 64,
+        "sample": 33151
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 33151
+      },
+      {
+        "note": 64,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      40.645833333333336
+    ],
+    "off_delays_ms": [
+      40.645833333333336,
+      41.3125
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_down_52_plain",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 64,
+        "sample": 10239
+      },
+      {
+        "note": 52,
+        "sample": 33407
+      }
+    ],
+    "offs": [
+      {
+        "note": 64,
+        "sample": 33023
+      },
+      {
+        "note": 52,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      13.3125,
+      45.979166666666664
+    ],
+    "off_delays_ms": [
+      37.979166666666664,
+      41.3125
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "fretted_two_semitone_up_return_52_plain",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 54,
+        "sample": 27519
+      },
+      {
+        "note": 52,
+        "sample": 44287
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 27519
+      },
+      {
+        "note": 54,
+        "sample": 44287
+      },
+      {
+        "note": 52,
+        "sample": 61951
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      23.3125,
+      22.645833333333332
+    ],
+    "off_delays_ms": [
+      23.3125,
+      22.645833333333332,
+      40.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "physical_damping_52_plain",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 38015
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332
+    ],
+    "off_delays_ms": [
+      41.979166666666664
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_up_52_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 64,
+        "sample": 32383
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 32383
+      },
+      {
+        "note": 64,
+        "sample": 54783
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      24.645833333333332
+    ],
+    "off_delays_ms": [
+      24.645833333333332,
+      41.3125
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "true_octave_down_52_bend",
+    "passed": true,
+    "references": 2,
+    "ons": [
+      {
+        "note": 64,
+        "sample": 10239
+      },
+      {
+        "note": 52,
+        "sample": 33407
+      }
+    ],
+    "offs": [
+      {
+        "note": 64,
+        "sample": 33023
+      },
+      {
+        "note": 52,
+        "sample": 55039
+      }
+    ],
+    "on_delays_ms": [
+      13.3125,
+      45.979166666666664
+    ],
+    "off_delays_ms": [
+      37.979166666666664,
+      46.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "fretted_two_semitone_up_return_52_bend",
+    "passed": true,
+    "references": 3,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      },
+      {
+        "note": 54,
+        "sample": 27263
+      },
+      {
+        "note": 52,
+        "sample": 44159
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 27263
+      },
+      {
+        "note": 54,
+        "sample": 44159
+      },
+      {
+        "note": 52,
+        "sample": 61951
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332,
+      17.979166666666668,
+      19.979166666666668
+    ],
+    "off_delays_ms": [
+      17.979166666666668,
+      19.979166666666668,
+      40.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "case": "physical_damping_52_bend",
+    "passed": true,
+    "references": 1,
+    "ons": [
+      {
+        "note": 52,
+        "sample": 10495
+      }
+    ],
+    "offs": [
+      {
+        "note": 52,
+        "sample": 38143
+      }
+    ],
+    "on_delays_ms": [
+      18.645833333333332
+    ],
+    "off_delays_ms": [
+      44.645833333333336
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_31_gain1",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "8",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_31_gain1",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "26367",
+        "type": "N",
+        "note": "31",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_31_gain1",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "8",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_31_gain1",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "26367",
+        "type": "N",
+        "note": "31",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_31_gain8",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_31_gain8",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_31_gain8",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_31_gain8",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "26239",
+        "type": "N",
+        "note": "31",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_31_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76671",
+        "type": "F",
+        "note": "31",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_40_gain1",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "11",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_40_gain1",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "11",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_40_gain1",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "11",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_40_gain1",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "11",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_40_gain8",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "27",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_40_gain8",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "27",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_40_gain8",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "27",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_40_gain8",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "25471",
+        "type": "N",
+        "note": "40",
+        "velocity": "27",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_40_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76415",
+        "type": "F",
+        "note": "40",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_52_gain1",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_52_gain1",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_52_gain1",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_52_gain1",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "12",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain1",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_52_gain8",
+      "0",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "30",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "0",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_52_gain8",
+      "0",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "30",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "0",
+        "dynamics_enabled": "1",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_52_gain8",
+      "1",
+      "0"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "30",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "0",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  {
+    "variant": "adaptive_held",
+    "quiet_case": [
+      "quiet_hum_52_gain8",
+      "1",
+      "1"
+    ],
+    "passed": true,
+    "events": [
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "24959",
+        "type": "N",
+        "note": "52",
+        "velocity": "30",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "quiet_hum_52_gain8",
+        "mono_bend": "1",
+        "dynamics_enabled": "1",
+        "sample": "76159",
+        "type": "F",
+        "note": "52",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  }
+]

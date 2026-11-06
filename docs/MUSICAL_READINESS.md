@@ -1,4 +1,22 @@
-# Flysnapper 0.3.0 – gjeldende evalueringsstatus
+# Gjeldende status etter gitarprøven 6. november
+
+Brukeren avviser 0.3.0 som musikalsk ubrukbar: for hyppig dobbelttrigging,
+utelatte toner, falske lavere oktaver og for lang forsinkelse. De tekniske
+Windows-/installerresultatene står ved lag, men de dokumenterer ikke at
+pitchmotoren oppfyller den musikalske oppgaven. En ny leveranse må bygge på
+en vesentlig forbedring av disse feilene samlet, med ekte repicks, slides,
+hammer-ons, bends, svake toner og demping som motprøver. Å undertrykke nye
+anslag eller forby et lavt register er ikke i seg selv en løsning.
+
+Polyfonisk bending er fortsatt utenfor oppdraget. Latency skal reduseres og
+rapporteres per tone, uten å gjeninnføre de tilbaketrukne absolutte grensene.
+Uendrede 0.3.0-kilder, rå MIDI og mislykkede prøver er regresjonsgrunnlag.
+Kjente brede feil skal brukes til utvikling og ikke omtolkes som bestått
+fordi de avgrensede programtestene består.
+
+---
+
+# Flysnapper 0.3.0 – historisk evalueringsstatus 5. november
 
 Brukerens bestilling 5. november gjelder en kontrollert versjon for prøve med
 egen gitar. Polyfonisk bending og absolutte latency-grenser er trukket tilbake;
