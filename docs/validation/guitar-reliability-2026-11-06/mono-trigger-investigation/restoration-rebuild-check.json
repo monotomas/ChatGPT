@@ -1,0 +1,34 @@
+{
+  "recorded_at_utc": "2026-11-06T08:34:08.644907+00:00",
+  "kind": "Fresh archive restoration/rebuild check, not original measurement or product approval",
+  "candidate": "REJECTED raw-onset-floor",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compile_command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/quiet_repick_counter.cpp",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source/Pitch/ArticulationTracker.cpp",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source/Pitch/EarlyEstimator.cpp",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source/Pitch/InputDynamics.cpp",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source/Pitch/NoiseConditioner.cpp",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source/Pitch/PitchDetector.cpp",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source/Pitch/PolyphonicTracker.cpp",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source/Pitch/TimeDomainPursuit.cpp",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/restored/studies/real-repeat/raw-onset-floor/Source/Pitch/YinEstimator.cpp",
+    "-o",
+    "/tmp/flysnapper-v4-mono-trigger-restore-check-20261106/Counter"
+  ],
+  "source_logical_prefix": "studies/real-repeat/raw-onset-floor/Source",
+  "driver_logical_path": "studies/real-repeat/quiet_repick_counter.cpp",
+  "counter_files_sha256": {
+    "counter-events.csv": "5b07ae812c5e5013fa4b5558a55a50792b9cb5b8a060f6ae328e5d0422f54ada",
+    "counter-results.csv": "aedaf16754856eaa9a7b90276c6f380a3aa68c82bb866327e467fa4e5bf9bb19"
+  },
+  "recorded_original_events_exact": true,
+  "reserved_audio_read": false,
+  "physical_latency_verified": false
+}

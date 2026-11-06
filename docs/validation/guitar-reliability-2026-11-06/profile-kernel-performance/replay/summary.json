@@ -1,0 +1,81 @@
+{
+  "all_replay_suites_passed": true,
+  "replay_command": [
+    "python3",
+    "/workspace/ChatGPT/docs/validation/guitar-reliability-2026-11-06/profile-kernel-performance/reproduce.py",
+    "--suite",
+    "all",
+    "--output",
+    "/tmp/flysnapper-profile-archive-replay-20261106"
+  ],
+  "original_vs_replay_executable_hashes": {
+    "payload-cold330-baseline": {
+      "original": "7519cd2f3c1676eefa501336f67adf10a03cb6565072f9f14ae9a605d92598f9",
+      "replay": "7519cd2f3c1676eefa501336f67adf10a03cb6565072f9f14ae9a605d92598f9",
+      "identical": true
+    },
+    "payload-cold330-fast": {
+      "original": "e366bf7930348bcee739c98a174ff6eb17330051661d648fec5b37395e4fdc8f",
+      "replay": "e366bf7930348bcee739c98a174ff6eb17330051661d648fec5b37395e4fdc8f",
+      "identical": true
+    },
+    "profile-thread-open30-baseline": {
+      "original": "70d120c8bf02d4f8b759cbc6a478a00f030ce313304ee23e56ebdfcb617d05ba",
+      "replay": "70d120c8bf02d4f8b759cbc6a478a00f030ce313304ee23e56ebdfcb617d05ba",
+      "identical": true
+    },
+    "profile-thread-open30-fast": {
+      "original": "730f56ca0e97ab418c1dd6961a3b7a3996f680dd45ae6d1c1377981bdd1f4d95",
+      "replay": "730f56ca0e97ab418c1dd6961a3b7a3996f680dd45ae6d1c1377981bdd1f4d95",
+      "identical": true
+    },
+    "score-audit-open30": {
+      "original": "047c8dbdb2d14490a6633707849f4866b0fdb5b806cac70a4b2268fa3fe396a6",
+      "replay": "e806f5ddf64b940b2fcf9e23330dbc7d6d46ac4a2f9f80f7c63845e95d4c4a4d",
+      "identical": false
+    }
+  },
+  "timing_replay": {
+    "baseline": {
+      "totals": {
+        "wall_deadlines": 7241.0,
+        "thread_deadlines": 7241.0,
+        "process_thread_us": 15720181.0,
+        "analyse_calls": 7241.0,
+        "analyse_thread_us": 15230662.0,
+        "profile_candidates": 1638756.0,
+        "profile_thread_us": 12252807.0
+      },
+      "maxima": {
+        "wall_p99_us": 4095.32,
+        "wall_max_us": 122728.0,
+        "thread_p99_us": 4095.67,
+        "thread_max_us": 122722.0
+      }
+    },
+    "fast": {
+      "totals": {
+        "wall_deadlines": 105.0,
+        "thread_deadlines": 104.0,
+        "process_thread_us": 6378139.0,
+        "analyse_calls": 7241.0,
+        "analyse_thread_us": 5861738.0,
+        "profile_candidates": 1638756.0,
+        "profile_thread_us": 2987944.0
+      },
+      "maxima": {
+        "wall_p99_us": 1991.12,
+        "wall_max_us": 9974.83,
+        "thread_p99_us": 1991.3,
+        "thread_max_us": 9975.26
+      }
+    },
+    "ratios": {
+      "process_thread_us": 2.464697147553542,
+      "analyse_thread_us": 2.5983184509440713,
+      "profile_thread_us": 4.1007485414719955
+    }
+  },
+  "startup_inventory_note": "replay/verification.json records the 198-file input seal at replay startup; later additions are documentation and the replay/rejection results. Frozen source, driver and patch bytes were unchanged. Final complete seal is archive-manifest.json.",
+  "verifier_update_note": "During replay the verifier was strengthened to cross-check the full frozen-origin map and to exclude only the root manifest. Those checks and the negative checks passed separately after the change. Compiled source/driver/kernel code was unchanged."
+}

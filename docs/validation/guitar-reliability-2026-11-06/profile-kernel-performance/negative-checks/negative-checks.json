@@ -1,0 +1,41 @@
+[
+  {
+    "case": "unexpected_nested_manifest",
+    "rejected": true,
+    "returncode": 1,
+    "expected_reason": "Archive inventory/hash mismatch",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/tmp/flysnapper-profile-negative-checks-20261106/unexpected_nested_manifest/reproduce.py",
+      "--suite",
+      "verify"
+    ]
+  },
+  {
+    "case": "baseline_source_rebound_seal",
+    "rejected": true,
+    "returncode": 1,
+    "expected_reason": "Frozen baseline origin map mismatch",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/tmp/flysnapper-profile-negative-checks-20261106/baseline_source_rebound_seal/reproduce.py",
+      "--suite",
+      "verify"
+    ]
+  },
+  {
+    "case": "event_payload_rebound_seal",
+    "rejected": true,
+    "returncode": 1,
+    "expected_reason": "Original event binding mismatch",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/tmp/flysnapper-profile-negative-checks-20261106/event_payload_rebound_seal/reproduce.py",
+      "--suite",
+      "verify"
+    ]
+  }
+]

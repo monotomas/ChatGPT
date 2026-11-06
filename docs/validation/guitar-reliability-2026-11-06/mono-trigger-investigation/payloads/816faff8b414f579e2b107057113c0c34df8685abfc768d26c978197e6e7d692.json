@@ -1,0 +1,2330 @@
+{
+  "version": 1,
+  "scope": "independent-holdout",
+  "generator": "Tools/audio_validation_holdout.py",
+  "records": [
+    {
+      "file": "pcm/hidden_modal_01.wav",
+      "sha256": "6389ee514e100b2978dc002086db3468fae1dbd522f6504de81a06ff30f9acad",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_02.wav",
+      "sha256": "0ba847728d50563d08ee16526fb38654127a60781f64ea6da77ac7ac71843351",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 42,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_03.wav",
+      "sha256": "e508299543da4b40f44759c967423decc5d52bfda1f9335852e5070d14211442",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_04.wav",
+      "sha256": "33cee0676aad79f43b4677eb3ac449bd90d52fd0b979b81ff459c82d0e563023",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_05.wav",
+      "sha256": "7e3d3240e2ef51cd61349aafc4cf9ec0c8687e6b070f3c8b55e97e056342f481",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_06.wav",
+      "sha256": "f06205428a6aaec2062cdeb6f88824aeb7df995f3878001b1961f7d0d9d46c98",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_07.wav",
+      "sha256": "031ea1795283dfccb9741360c54ca848d8396c739f5fc645593acb298c59cb3e",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_08.wav",
+      "sha256": "77ab186aef8c8a0cb14650d7fd9c01474ff899c86bdfadeb12b5d6e69ce0b292",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_09.wav",
+      "sha256": "dd4c2f4805edadedca0f692ce29af7bcc27430673c8e264083b89bf77c811172",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_10.wav",
+      "sha256": "3b1c09a47c17a8327001901bfb76c10e140dfca07ac08d6be30ffbc604b3907e",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_11.wav",
+      "sha256": "9d69598272b53b47eef137543fac1835697504f7b80464ae433ee661f29c1ec6",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_12.wav",
+      "sha256": "fb37aab82e1078a884885297067a1a05ce426d576eca2945e4471e214f8ef336",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 67,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_13.wav",
+      "sha256": "c0d5c6e717e1a10c58d80b6e155d49c4bb39129ae6f178ac073e3fd4b45d1e19",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_14.wav",
+      "sha256": "76aecb399f267bc193e2007fd5036216281b35811f99cdfb1097af0b75528e40",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 72,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_15.wav",
+      "sha256": "6f7d0571cb6c47cf2fd32a8d009d872a3d1c4680e1bdbc7ff8655a8092495dd9",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_16.wav",
+      "sha256": "4250c58841da30c5dba9dc431a808dd70c715ab9b058e668a845c95cccd56728",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 79,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_17.wav",
+      "sha256": "ff8da8b4885c32f0175542248f2ee92202588a5207edacbf898a45a7cdc82086",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 83,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_modal_18.wav",
+      "sha256": "da7da4c91c45a526c638c65c79a54085d362926b6dd86daeccf2e2f0783ebeba",
+      "sample_rate": 48000,
+      "frames": 33600,
+      "family": "holdout-random-modal",
+      "truth": [
+        {
+          "note": 88,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_01.wav",
+      "sha256": "0d3203f64c60b4830656c89e36197536e5efd9b5f92eafd20ac2c391d4314dff",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 56,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_02.wav",
+      "sha256": "9c4a46da2af68de21398b44836db8901dae81de9fc63d00e6f1e663498facacd",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 57,
+          "on_sample": 2592,
+          "off_sample": 26592
+        },
+        {
+          "note": 62,
+          "on_sample": 2784,
+          "off_sample": 26784
+        },
+        {
+          "note": 66,
+          "on_sample": 2976,
+          "off_sample": 26976
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_03.wav",
+      "sha256": "a51e9c089d9e9bb1b1ef730b41ea536c5874d5c865fb73d0ad657ec2f7c4688d",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 41,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 53,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 65,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_04.wav",
+      "sha256": "68093520a41bc4d12fa821e4e7041fa3d08010dae92888efb4de5cefb0fee5e3",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 43,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 47,
+          "on_sample": 2592,
+          "off_sample": 26592
+        },
+        {
+          "note": 50,
+          "on_sample": 2784,
+          "off_sample": 26784
+        },
+        {
+          "note": 55,
+          "on_sample": 2976,
+          "off_sample": 26976
+        },
+        {
+          "note": 59,
+          "on_sample": 3168,
+          "off_sample": 27168
+        },
+        {
+          "note": 67,
+          "on_sample": 3360,
+          "off_sample": 27360
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_05.wav",
+      "sha256": "45d942258061190c0f6e9c9c10eba042f5ef8373de91c0ab1dfb1d14832ce210",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 54,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 62,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 66,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_06.wav",
+      "sha256": "ab3430d72d85f1229523a7f5c2d891a0892f33cf381816a78fa90dfbc284114d",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 52,
+          "on_sample": 2592,
+          "off_sample": 26592
+        },
+        {
+          "note": 55,
+          "on_sample": 2784,
+          "off_sample": 26784
+        },
+        {
+          "note": 60,
+          "on_sample": 2976,
+          "off_sample": 26976
+        },
+        {
+          "note": 64,
+          "on_sample": 3168,
+          "off_sample": 27168
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_07.wav",
+      "sha256": "7eb436118298ec328f73a053cb3fa76ef5ec359aad47a471ae68e3cfef4dd604",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_08.wav",
+      "sha256": "690123044706d10520c2136387d3bc94584bf411e5e7e70567f60e25cefeba57",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 57,
+          "on_sample": 2592,
+          "off_sample": 26592
+        },
+        {
+          "note": 69,
+          "on_sample": 2784,
+          "off_sample": 26784
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_poly_09.wav",
+      "sha256": "cfefec458d7a117e24ec9ab756413cf85e988ab6669dc743ad36c3075f392dff",
+      "sample_rate": 48000,
+      "frames": 40800,
+      "family": "holdout-random-poly",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_01.wav",
+      "sha256": "873df5a898abcfbf8771109d180cd518ea6d0f2d97a1ea78aecf0fac86ac66e9",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-electric",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_02.wav",
+      "sha256": "cad7985d662bc6ff3169da17907b1457d0cd01e1e7bc7863a204a29a5efd8bcf",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-electric",
+      "truth": [
+        {
+          "note": 42,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_03.wav",
+      "sha256": "34f35d216d6d8aa3855413c5aba0b566cfe51dc62850a20a4755cf8e3032f5e3",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-electric",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_04.wav",
+      "sha256": "6f3a8cde82c1074ef595f58c68b91f3d98bed5738da38e12df8b4693600de510",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-electric",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2406,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_05.wav",
+      "sha256": "86854b9ca9ef05d6eec12dfad74f8d69ede0ca35e2607f0411ff0521f0306e66",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-electric",
+      "truth": [
+        {
+          "note": 51,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_06.wav",
+      "sha256": "76b13e05cb953c4d28edf2a9c39da16e5666301446143545e8eb1527631dfd86",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-electric",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_07.wav",
+      "sha256": "4519749ce3113bb5e900657db362b83cc886fb683dc1b428d99d4ad8d7678a97",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-nylon",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_08.wav",
+      "sha256": "6b767e9be8f8adf5ca1b808a69038addeaa491b613df7aa7db2408b602418c3f",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-nylon",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_09.wav",
+      "sha256": "ca88f31afe18d18182982c21adebfcce2b131e2876e2af537085aff9215e1ef7",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-nylon",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_10.wav",
+      "sha256": "9eb42a3332e638380ddb81137ac6d9fefb534643e4396db658856bcd3515981b",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-nylon",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_11.wav",
+      "sha256": "758f06a6acb7bfd40d2b666d821b816b6ce7f2a4b25eddf87b82dd22fe1c1fb0",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-nylon",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "file": "pcm/hidden_recorded_12.wav",
+      "sha256": "771657c702d0ec5a011201d016f69aec6a17adb2f34753c9eef417098a8a7244",
+      "sample_rate": 48000,
+      "frames": 45600,
+      "family": "holdout-recorded-nylon",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2407,
+          "off_sample": 33600
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "hidden_modal_01_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_01.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_01_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_01.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_02_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_02.wav",
+      "truth": [
+        {
+          "note": 42,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_02_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_02.wav",
+      "truth": [
+        {
+          "note": 42,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_03_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_03.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_03_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_03.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_04_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_04.wav",
+      "truth": [
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_04_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_04.wav",
+      "truth": [
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_05_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_05.wav",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_05_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_05.wav",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_06_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_06.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_06_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_06.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_07_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_07.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_07_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_07.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_08_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_08.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_08_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_08.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_09_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_09.wav",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_09_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_09.wav",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_10_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_10.wav",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_10_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_10.wav",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_11_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_11.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_11_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_11.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_12_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_12.wav",
+      "truth": [
+        {
+          "note": 67,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_12_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_12.wav",
+      "truth": [
+        {
+          "note": 67,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_13_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_13.wav",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_13_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_13.wav",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_14_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_14.wav",
+      "truth": [
+        {
+          "note": 72,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_14_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_14.wav",
+      "truth": [
+        {
+          "note": 72,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_15_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_15.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_15_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_15.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_16_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_16.wav",
+      "truth": [
+        {
+          "note": 79,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_16_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_16.wav",
+      "truth": [
+        {
+          "note": 79,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_17_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_17.wav",
+      "truth": [
+        {
+          "note": 83,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_17_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_17.wav",
+      "truth": [
+        {
+          "note": 83,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_18_mono",
+      "family": "holdout-random-modal",
+      "mode": "mono",
+      "file": "pcm/hidden_modal_18.wav",
+      "truth": [
+        {
+          "note": 88,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_modal_18_poly",
+      "family": "holdout-random-modal",
+      "mode": "poly",
+      "file": "pcm/hidden_modal_18.wav",
+      "truth": [
+        {
+          "note": 88,
+          "on_sample": 2400,
+          "off_sample": 21600
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_01_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_01.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 56,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_02_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_02.wav",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 57,
+          "on_sample": 2592,
+          "off_sample": 26592
+        },
+        {
+          "note": 62,
+          "on_sample": 2784,
+          "off_sample": 26784
+        },
+        {
+          "note": 66,
+          "on_sample": 2976,
+          "off_sample": 26976
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_03_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_03.wav",
+      "truth": [
+        {
+          "note": 41,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 53,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 65,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_04_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_04.wav",
+      "truth": [
+        {
+          "note": 43,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 47,
+          "on_sample": 2592,
+          "off_sample": 26592
+        },
+        {
+          "note": 50,
+          "on_sample": 2784,
+          "off_sample": 26784
+        },
+        {
+          "note": 55,
+          "on_sample": 2976,
+          "off_sample": 26976
+        },
+        {
+          "note": 59,
+          "on_sample": 3168,
+          "off_sample": 27168
+        },
+        {
+          "note": 67,
+          "on_sample": 3360,
+          "off_sample": 27360
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_05_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_05.wav",
+      "truth": [
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 54,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 62,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 66,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_06_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_06.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 52,
+          "on_sample": 2592,
+          "off_sample": 26592
+        },
+        {
+          "note": 55,
+          "on_sample": 2784,
+          "off_sample": 26784
+        },
+        {
+          "note": 60,
+          "on_sample": 2976,
+          "off_sample": 26976
+        },
+        {
+          "note": 64,
+          "on_sample": 3168,
+          "off_sample": 27168
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_07_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_07.wav",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_08_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_08.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 57,
+          "on_sample": 2592,
+          "off_sample": 26592
+        },
+        {
+          "note": 69,
+          "on_sample": 2784,
+          "off_sample": 26784
+        }
+      ]
+    },
+    {
+      "name": "hidden_poly_09_poly",
+      "family": "holdout-random-poly",
+      "mode": "poly",
+      "file": "pcm/hidden_poly_09.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 26400
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 26400
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_01_mono",
+      "family": "holdout-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_01.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_01_poly",
+      "family": "holdout-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_01.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_02_mono",
+      "family": "holdout-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_02.wav",
+      "truth": [
+        {
+          "note": 42,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_02_poly",
+      "family": "holdout-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_02.wav",
+      "truth": [
+        {
+          "note": 42,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_03_mono",
+      "family": "holdout-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_03.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_03_poly",
+      "family": "holdout-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_03.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_04_mono",
+      "family": "holdout-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_04.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2406,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_04_poly",
+      "family": "holdout-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_04.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2406,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_05_mono",
+      "family": "holdout-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_05.wav",
+      "truth": [
+        {
+          "note": 51,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_05_poly",
+      "family": "holdout-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_05.wav",
+      "truth": [
+        {
+          "note": 51,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_06_mono",
+      "family": "holdout-recorded-electric",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_06.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_06_poly",
+      "family": "holdout-recorded-electric",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_06.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_07_mono",
+      "family": "holdout-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_07.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_07_poly",
+      "family": "holdout-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_07.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_08_mono",
+      "family": "holdout-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_08.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_08_poly",
+      "family": "holdout-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_08.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2402,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_09_mono",
+      "family": "holdout-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_09.wav",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_09_poly",
+      "family": "holdout-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_09.wav",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_10_mono",
+      "family": "holdout-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_10.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_10_poly",
+      "family": "holdout-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_10.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 2400,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_11_mono",
+      "family": "holdout-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_11.wav",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_11_poly",
+      "family": "holdout-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_11.wav",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2401,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_12_mono",
+      "family": "holdout-recorded-nylon",
+      "mode": "mono",
+      "file": "pcm/hidden_recorded_12.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2407,
+          "off_sample": 33600
+        }
+      ]
+    },
+    {
+      "name": "hidden_recorded_12_poly",
+      "family": "holdout-recorded-nylon",
+      "mode": "poly",
+      "file": "pcm/hidden_recorded_12.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2407,
+          "off_sample": 33600
+        }
+      ]
+    }
+  ],
+  "recorded_label_frequency_checks": [
+    {
+      "source": "electric_E2.ogg",
+      "expected_midi": 40,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 82.1562388738053,
+          "cents": -5.273778744212764,
+          "relative_peak": 0.3514385850973189
+        },
+        {
+          "harmonic": 2,
+          "hz": 164.08524658686162,
+          "cents": -7.669595500112855,
+          "relative_peak": 0.37872127476217476
+        },
+        {
+          "harmonic": 3,
+          "hz": 247.10450917351818,
+          "cents": -0.8136246449921533,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 4,
+          "hz": 329.5018063823203,
+          "cents": -0.6605792881954301,
+          "relative_peak": 0.645827269451309
+        },
+        {
+          "harmonic": 5,
+          "hz": 412.2468326217484,
+          "cents": 0.8921486499619808,
+          "relative_peak": 0.1288597901943736
+        },
+        {
+          "harmonic": 6,
+          "hz": 494.4630142045238,
+          "cents": 0.07590448499305129,
+          "relative_peak": 0.1017972229775772
+        },
+        {
+          "harmonic": 7,
+          "hz": 576.3782521464096,
+          "cents": -1.411053892604943,
+          "relative_peak": 0.07357156891412307
+        },
+        {
+          "harmonic": 8,
+          "hz": 662.2557689310671,
+          "cents": 7.861978714505584,
+          "relative_peak": 0.07522654755492102
+        }
+      ]
+    },
+    {
+      "source": "electric_Fs2.ogg",
+      "expected_midi": 42,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 92.34076449738399,
+          "cents": -2.9567304003596453,
+          "relative_peak": 0.7714709936473935
+        },
+        {
+          "harmonic": 2,
+          "hz": 184.77773515115678,
+          "cents": -2.055113396278387,
+          "relative_peak": 0.876332567023762
+        },
+        {
+          "harmonic": 3,
+          "hz": 277.57533278222354,
+          "cents": 0.4960098258523293,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 4,
+          "hz": 370.006572791113,
+          "cents": 0.05685027836958851,
+          "relative_peak": 0.5643783799688917
+        },
+        {
+          "harmonic": 5,
+          "hz": 462.4885269515385,
+          "cents": -0.016850158142464242,
+          "relative_peak": 0.21223415238098986
+        },
+        {
+          "harmonic": 6,
+          "hz": 555.0069168638945,
+          "cents": 0.04767231010568285,
+          "relative_peak": 0.08714492742445128
+        },
+        {
+          "harmonic": 7,
+          "hz": 648.5412189342361,
+          "cents": 2.807788874699829,
+          "relative_peak": 0.03842633636094904
+        },
+        {
+          "harmonic": 8,
+          "hz": 744.1991115732691,
+          "cents": 9.82217330626599,
+          "relative_peak": 0.02797565900453776
+        }
+      ]
+    },
+    {
+      "source": "electric_A2.ogg",
+      "expected_midi": 45,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 109.82696712701058,
+          "cents": -2.725420516955811,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 219.91425616664733,
+          "cents": -0.6748708121938178,
+          "relative_peak": 0.768913630533055
+        },
+        {
+          "harmonic": 3,
+          "hz": 330.2059999921262,
+          "cents": 1.0803725263158135,
+          "relative_peak": 0.6212625404191007
+        },
+        {
+          "harmonic": 4,
+          "hz": 440.11768024305707,
+          "cents": 0.4629654635291723,
+          "relative_peak": 0.21346510508477257
+        },
+        {
+          "harmonic": 5,
+          "hz": 550.2033694826118,
+          "cents": 0.6400274469513958,
+          "relative_peak": 0.07134600131972818
+        },
+        {
+          "harmonic": 6,
+          "hz": 661.601493805672,
+          "cents": 4.19576093979453,
+          "relative_peak": 0.029885912560151554
+        }
+      ]
+    },
+    {
+      "source": "electric_C3.ogg",
+      "expected_midi": 48,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 130.54388482933993,
+          "cents": -3.5623749882724973,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 261.78351724664174,
+          "cents": 1.0448874676621684,
+          "relative_peak": 0.8520558906754545
+        },
+        {
+          "harmonic": 3,
+          "hz": 392.0462631859272,
+          "cents": -1.7305388585620565,
+          "relative_peak": 0.23279702279167774
+        },
+        {
+          "harmonic": 4,
+          "hz": 523.4941144712116,
+          "cents": 0.8037523144795081,
+          "relative_peak": 0.07240568672905673
+        },
+        {
+          "harmonic": 5,
+          "hz": 657.9247922979778,
+          "cents": 10.189271494331303,
+          "relative_peak": 0.06246474250422537
+        },
+        {
+          "harmonic": 6,
+          "hz": 791.1431363591946,
+          "cents": 13.76725347679364,
+          "relative_peak": 0.041645057909237025
+        }
+      ]
+    },
+    {
+      "source": "electric_Ds3.ogg",
+      "expected_midi": 51,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 155.3227415756816,
+          "cents": -2.6813356773314756,
+          "relative_peak": 0.6298427037604529
+        },
+        {
+          "harmonic": 2,
+          "hz": 311.11503215381487,
+          "cents": -0.06650454773723943,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 3,
+          "hz": 466.67679839701526,
+          "cents": -0.0507376055367772,
+          "relative_peak": 0.7443482259517311
+        },
+        {
+          "harmonic": 4,
+          "hz": 621.9289554275564,
+          "cents": -0.9044841750491042,
+          "relative_peak": 0.14543119160750448
+        },
+        {
+          "harmonic": 5,
+          "hz": 779.8780218853307,
+          "cents": 4.580251047541192,
+          "relative_peak": 0.059191017679448954
+        },
+        {
+          "harmonic": 6,
+          "hz": 937.453061788202,
+          "cents": 7.536518627294295,
+          "relative_peak": 0.03308149371152609
+        }
+      ]
+    },
+    {
+      "source": "electric_A3.ogg",
+      "expected_midi": 57,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 219.82654234316936,
+          "cents": -1.3655193047031497,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 439.8528864155888,
+          "cents": -0.5789332574083358,
+          "relative_peak": 0.8545573442955795
+        },
+        {
+          "harmonic": 3,
+          "hz": 659.722869233065,
+          "cents": -0.7270893579237189,
+          "relative_peak": 0.58819246549081
+        },
+        {
+          "harmonic": 4,
+          "hz": 879.5303794940947,
+          "cents": -0.924136393146513,
+          "relative_peak": 0.17344577586609494
+        },
+        {
+          "harmonic": 5,
+          "hz": 1099.2750930268198,
+          "cents": -1.1412703065691598,
+          "relative_peak": 0.05361039087996632
+        },
+        {
+          "harmonic": 7,
+          "hz": 1543.619517089859,
+          "cents": 4.064207059428189,
+          "relative_peak": 0.03366935788190418
+        }
+      ]
+    },
+    {
+      "source": "nylon_E2.ogg",
+      "expected_midi": 40,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 82.13221712620063,
+          "cents": -5.780050075506321,
+          "relative_peak": 0.11724907898724225
+        },
+        {
+          "harmonic": 2,
+          "hz": 164.119986489124,
+          "cents": -7.303099808872319,
+          "relative_peak": 0.5219815390754453
+        },
+        {
+          "harmonic": 3,
+          "hz": 246.83423198531577,
+          "cents": -2.708244680279304,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 4,
+          "hz": 329.26281846818193,
+          "cents": -1.9167002662055992,
+          "relative_peak": 0.8014986217178648
+        },
+        {
+          "harmonic": 5,
+          "hz": 411.55957499806783,
+          "cents": -1.9964039604885035,
+          "relative_peak": 0.4075220764949138
+        },
+        {
+          "harmonic": 6,
+          "hz": 493.819174646689,
+          "cents": -2.17980169877578,
+          "relative_peak": 0.2928201393829459
+        },
+        {
+          "harmonic": 7,
+          "hz": 576.4268369022172,
+          "cents": -1.2651288192885102,
+          "relative_peak": 0.046837563853289736
+        },
+        {
+          "harmonic": 8,
+          "hz": 658.9364279095938,
+          "cents": -0.8370861172616089,
+          "relative_peak": 0.04410060469861317
+        }
+      ]
+    },
+    {
+      "source": "nylon_A2.ogg",
+      "expected_midi": 45,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 110.1044933230618,
+          "cents": 1.6437866364674782,
+          "relative_peak": 0.7295212795906126
+        },
+        {
+          "harmonic": 2,
+          "hz": 220.45718230735292,
+          "cents": 3.5939468950007623,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 3,
+          "hz": 330.08443914963163,
+          "cents": 0.44292494427607265,
+          "relative_peak": 0.8472423452353346
+        },
+        {
+          "harmonic": 4,
+          "hz": 440.1039678731101,
+          "cents": 0.4090260454329602,
+          "relative_peak": 0.2930716975617249
+        },
+        {
+          "harmonic": 5,
+          "hz": 550.0700116421909,
+          "cents": 0.2203615000371763,
+          "relative_peak": 0.7109036267303879
+        },
+        {
+          "harmonic": 6,
+          "hz": 660.2362912855051,
+          "cents": 0.6197004673060799,
+          "relative_peak": 0.6199395396140349
+        },
+        {
+          "harmonic": 7,
+          "hz": 770.0634184654778,
+          "cents": 0.1425814099863551,
+          "relative_peak": 0.2721140050129872
+        },
+        {
+          "harmonic": 8,
+          "hz": 880.5544335789842,
+          "cents": 1.0904000504697324,
+          "relative_peak": 0.05660485392830085
+        }
+      ]
+    },
+    {
+      "source": "nylon_D3.ogg",
+      "expected_midi": 50,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 146.5504135042746,
+          "cents": -3.3277820381152665,
+          "relative_peak": 0.8224469027058084
+        },
+        {
+          "harmonic": 2,
+          "hz": 293.23366113962294,
+          "cents": -2.5433595653599683,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 3,
+          "hz": 439.92783980259526,
+          "cents": -2.2389473104565143,
+          "relative_peak": 0.5216465390493803
+        },
+        {
+          "harmonic": 4,
+          "hz": 586.7518536255822,
+          "cents": -1.7036351991403653,
+          "relative_peak": 0.20449923389559846
+        },
+        {
+          "harmonic": 5,
+          "hz": 732.7564006706084,
+          "cents": -3.3175443688569777,
+          "relative_peak": 0.06194634951998075
+        },
+        {
+          "harmonic": 6,
+          "hz": 880.3400084609863,
+          "cents": -1.286227527145091,
+          "relative_peak": 0.29414108067685796
+        },
+        {
+          "harmonic": 7,
+          "hz": 1026.859213845317,
+          "cents": -1.6303453683504068,
+          "relative_peak": 0.3676738524981051
+        }
+      ]
+    },
+    {
+      "source": "nylon_Fs3.ogg",
+      "expected_midi": 54,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 184.1913818981974,
+          "cents": -7.557555329433814,
+          "relative_peak": 0.9325201583429218
+        },
+        {
+          "harmonic": 2,
+          "hz": 370.1242610195548,
+          "cents": 0.6074174501791147,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 3,
+          "hz": 554.9808617127984,
+          "cents": -0.03360347618658663,
+          "relative_peak": 0.667870103499546
+        },
+        {
+          "harmonic": 4,
+          "hz": 737.7601718412155,
+          "cents": -5.221940220900429,
+          "relative_peak": 0.1450931976165871
+        },
+        {
+          "harmonic": 5,
+          "hz": 925.3496625998197,
+          "cents": 0.6804027818334479,
+          "relative_peak": 0.09407593183449352
+        },
+        {
+          "harmonic": 7,
+          "hz": 1295.6062127573207,
+          "cents": 0.836328512827647,
+          "relative_peak": 0.03812247970158011
+        }
+      ]
+    },
+    {
+      "source": "nylon_B3.ogg",
+      "expected_midi": 59,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 246.65932549289874,
+          "cents": -1.9804293907345205,
+          "relative_peak": 0.882372744472904
+        },
+        {
+          "harmonic": 2,
+          "hz": 493.955437900041,
+          "cents": 0.2528457518539002,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 3,
+          "hz": 739.5354571703666,
+          "cents": -3.016046235260884,
+          "relative_peak": 0.40989160303716116
+        },
+        {
+          "harmonic": 4,
+          "hz": 988.011031909465,
+          "cents": 0.4283523508323965,
+          "relative_peak": 0.6191603228332722
+        },
+        {
+          "harmonic": 5,
+          "hz": 1234.6204800604537,
+          "cents": -0.12307453637909803,
+          "relative_peak": 0.18051954086464334
+        },
+        {
+          "harmonic": 6,
+          "hz": 1483.1559677580062,
+          "cents": 1.7588669182280865,
+          "relative_peak": 0.2909590632548411
+        },
+        {
+          "harmonic": 7,
+          "hz": 1731.82656830195,
+          "cents": 3.2369312929369594,
+          "relative_peak": 0.027836107325609538
+        }
+      ]
+    },
+    {
+      "source": "nylon_E4.ogg",
+      "expected_midi": 64,
+      "supported_harmonic_peaks": [
+        {
+          "harmonic": 1,
+          "hz": 329.47902256604505,
+          "cents": -0.780291779929081,
+          "relative_peak": 1.0
+        },
+        {
+          "harmonic": 2,
+          "hz": 657.5638829742086,
+          "cents": -4.446955962802482,
+          "relative_peak": 0.6710782914662776
+        },
+        {
+          "harmonic": 3,
+          "hz": 988.0745869114905,
+          "cents": -1.4152883766285234,
+          "relative_peak": 0.37762311756174355
+        },
+        {
+          "harmonic": 4,
+          "hz": 1317.1749289140578,
+          "cents": -1.7541661468346585,
+          "relative_peak": 0.1419355466829513
+        },
+        {
+          "harmonic": 5,
+          "hz": 1647.2433638014677,
+          "cents": -0.939770938293216,
+          "relative_peak": 0.15623648407757992
+        },
+        {
+          "harmonic": 6,
+          "hz": 1976.8944521472972,
+          "cents": -0.762499615129319,
+          "relative_peak": 0.3411774083978214
+        },
+        {
+          "harmonic": 7,
+          "hz": 2307.4019193709287,
+          "cents": 0.006768417579401274,
+          "relative_peak": 0.32423915623088073
+        },
+        {
+          "harmonic": 8,
+          "hz": 2637.290590695658,
+          "cents": 0.17733788774608222,
+          "relative_peak": 0.06669037818496877
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "compiler_version": "g++ (Debian 14.2.0-19) 14.2.0",
+  "changed_from_exact_uncertainty_snapshot": [
+    "Source/Pitch/PitchDetector.cpp",
+    "Source/Pitch/TimeDomainPursuit.cpp",
+    "Source/Pitch/TimeDomainPursuit.h"
+  ],
+  "no_production_source_tests_tools_or_fixtures_edited": true,
+  "root_guard_unchanged_from_original_uncertainty_negative": true,
+  "profile_atom_loop_unchanged": true,
+  "data_layout": "immutable nominalModels/nominalGram; retained fine models; fineToNominalGram and fineFineGram; fineCacheValid and per-current-frame fineUsed flags",
+  "current_evidence_semantic_changes": [
+    "Fine candidates use exact current partial-median F0; old uncertainty hysteresis and held .75/.25 smoothing removed.",
+    "No current supported/top12 selection means nominal model, even if fine model exists in cache.",
+    "Shared partial owners use immutable nominal supplied note frequencies, not previous cached fine owner geometry.",
+    "Reset clears both small flags and prediction only; MB vectors/model tables remain untouched."
+  ],
+  "no_performance_or_release_candidate_claim": true,
+  "audio_scope": "Only original synthetic330/132drivers and pure algebra/current-cache diagnostics; no PCM, no real/reserved detector input.",
+  "standalone_compile_flags": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG"
+  ],
+  "baseline_source_inventory_sha256": "a51e2d7f4e1babcd568e08b8e2365c5a35f0396f0997c98326988d19e612f784"
+}

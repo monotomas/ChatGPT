@@ -1,0 +1,16 @@
+--- a/Source/Pitch/PitchDetector.cpp
++++ b/Source/Pitch/PitchDetector.cpp
+@@ -254,8 +254,11 @@
+                 float lag=measuredPeriodNote==active&&measuredPeriod>0?measuredPeriod:float(analysisRate)/frequency[size_t(active)];int whole=int(lag);float fraction=lag-whole;
+                 float predicted=ring[size_t((writeIndex-whole+windowSize)%windowSize)]*(1-fraction)
+                     +ring[size_t((writeIndex-whole-1+windowSize)%windowSize)]*fraction;
+-                innovationEnvelope+=innovationCoefficient*(std::abs(analysisSample-predicted)-innovationEnvelope);
+-                float ratio=innovationEnvelope/std::max(envelope,gate);
++                if(!config.polyphonic)predicted=rawReferenceRing[size_t((writeIndex-whole+windowSize)%windowSize)]*(1-fraction)
++                    +rawReferenceRing[size_t((writeIndex-whole-1+windowSize)%windowSize)]*fraction;
++                const float innovationSample=config.polyphonic?analysisSample:rawReferenceRing[size_t(writeIndex)];
++                innovationEnvelope+=innovationCoefficient*(std::abs(innovationSample-predicted)-innovationEnvelope);
++                float ratio=innovationEnvelope/std::max(config.polyphonic?envelope:std::max(envelope,onsetEnvelope),gate);
+                 if(ratio>.5f&&previousInnovationRatio<=.5f&&attackCooldown==0&&voices[size_t(active)].age>analysisRate*.07) {
+                     if(config.polyphonic){
+                         pendingPolyRepick=active;pendingPolyRepickAge=0;attackCooldown=int(analysisRate*.075);

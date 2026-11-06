@@ -1,0 +1,11 @@
+#include "Pitch/BurgPredictor.h"
+#include <array>
+#include <cmath>
+#include <iostream>
+#include <limits>
+#include <chrono>
+using namespace flysnapper::pitch;
+int main(){constexpr double pi=3.14159265358979323846;BurgPredictor model;std::array<float,544> x{};std::array<float,32> predicted{};int failed=0;
+ for(int kind=0;kind<4;++kind){for(int n=0;n<544;++n){double t=(n+371)/12000.,y=0;if(kind==0)y=std::sin(2*pi*164.813778*t+.4);else for(int h=1;h<=8;++h){double frequency=164.813778*h*(kind>=2?std::sqrt(1+.0001*h*h):1);y+=std::sin(2*pi*frequency*t+.17*h)*std::exp(-t*(.5+.1*h))/std::pow(double(h),1.25);if(kind==3)y+=.25*std::sin(2*pi*frequency*1.003*t+.51*h)/std::pow(double(h),1.1);}x[size_t(n)]=float(.1*y);}
+  auto start=std::chrono::steady_clock::now();bool valid=model.forecast(x.data(),predicted);auto end=std::chrono::steady_clock::now();double e=0,p=0;for(int n=0;n<32;++n){double d=predicted[size_t(n)]-x[size_t(512+n)];e+=d*d;p+=double(x[size_t(512+n)])*x[size_t(512+n)];}double relative=std::sqrt(e/std::max(p,1e-30));std::cout<<kind<<','<<valid<<','<<relative<<','<<std::chrono::duration<double,std::micro>(end-start).count()<<'\n';failed+=!valid||relative>.1;}
+ x.fill(0);failed+=model.forecast(x.data(),predicted);x[0]=std::numeric_limits<float>::quiet_NaN();failed+=model.forecast(x.data(),predicted);std::cout<<"failed="<<failed<<'\n';return failed?1:0;}

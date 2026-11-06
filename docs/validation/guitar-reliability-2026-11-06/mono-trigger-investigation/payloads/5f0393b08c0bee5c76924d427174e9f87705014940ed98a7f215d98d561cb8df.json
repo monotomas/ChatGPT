@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-11-06T07:31:20.713520+00:00",
+  "scope": "Private causal SAME-anchor lifecycle experiments; no production edit",
+  "baseline": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "source_rule": "existing onset/slow<.65 for one measuredperiod after70msheld marksrapidwithdrawal; amplitude attack1.9 or actualnewNote resets; do notchangeNoteOff timing",
+  "variants": {
+    "withdrawal-no-phase": "suppress post-withdrawal phase-arm entirely",
+    "withdrawal-coherent-phase": "allow existingvery-highly-periodic confidence>.985 bypass"
+  },
+  "falsification": "Mustpreserve pairedold107 andexisting35msnotes; explicitcleanconstant-energy independent-phase repick after20dBwithdrawal willtestsilentveto flaw before adoption",
+  "reserved_detector_runs": 0
+}

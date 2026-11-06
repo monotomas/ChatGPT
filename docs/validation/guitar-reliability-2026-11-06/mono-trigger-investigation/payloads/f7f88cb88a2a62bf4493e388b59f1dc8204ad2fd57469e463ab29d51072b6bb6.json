@@ -1,0 +1,2056 @@
+{
+  "version": 2,
+  "generator": "Tools/audio_validation_fixtures.py",
+  "rate": 48000,
+  "records": [
+    {
+      "file": "pcm/modal_40.wav",
+      "sha256": "28e82495eeef37e8985c21aa81e69233f92b0685c0d303fe42f140586595dc33",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_41.wav",
+      "sha256": "74a883a71c19a0685c270f39497fedbfa47645663c15b282b31f67e02a222594",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 41,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_45.wav",
+      "sha256": "f88dc83a5d2bb3fb8816b1adf837b6b87827cc17ce0a9e5447d10621705ad247",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_48.wav",
+      "sha256": "fc693bd332038d16f6722ea02cad36fc7e9cf09e13a480bb064ed596c9d73d3b",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_52.wav",
+      "sha256": "250c7a9315e99a44019f0e831295245c84f03cc1cc1ca649d75ce974ad5aef1a",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_57.wav",
+      "sha256": "70b2f9e6a81117f0b2b4ab27a917c9d8c4a514148c0a77c0c0b91842e9cad11d",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_60.wav",
+      "sha256": "544c2a94fa3b8ea2e4ff9847396f1c5f65da8e71be96f6a0fab0c0b6d1f6f78d",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_64.wav",
+      "sha256": "96a760a82fe22c85d2d46c19668274751fa65033c87000d844122daac7f992d9",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_69.wav",
+      "sha256": "58b3770ad988faec25153553c2d203cde2ecb07cc195400b7a3e38a3105fd5f6",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_76.wav",
+      "sha256": "b2bec26df448a67537ca0dc21f377eb278bd6a6dfd5211fc28303394d790933d",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/modal_84.wav",
+      "sha256": "7eb2801cc470938daaaeb3f1af0c6601368498abc93f85827cf7305ed7349e16",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-modal",
+      "truth": [
+        {
+          "note": 84,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/karplus_40.wav",
+      "sha256": "43841bcf6e572d8c7c1d544c17985970894fb93c6dd6a19fcdbf067ec05bc937",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-karplus",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/karplus_52.wav",
+      "sha256": "ae1d01e551279c349428d849f35810965de1b7881a0dbc6d6a48ae1e2c320a27",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-karplus",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/karplus_64.wav",
+      "sha256": "2ba13793f86adf718d6afc9e7c0f22379f84ddd2e7f9f68dbbf9691a301513d6",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-karplus",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/karplus_76.wav",
+      "sha256": "3052658b5aeadcc8e708d4880eb47988f59989dfca1f7d1e17fbd365df868d4e",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-karplus",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/missing_fundamental_52.wav",
+      "sha256": "363374615e4fa064251fb95ab085df72c41364fc77618e8a259f51f82f072e55",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-missing-fundamental",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/detuned_52.wav",
+      "sha256": "527b73d1b4ed4afd0ca00f920ffac342e2deb471dda653124d9fe0889619c976",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-detuning",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/vibrato_64.wav",
+      "sha256": "91c14d0cfe1a9001be8c41309eda503d663b7f24dae63d979d07fdd5e58d00a4",
+      "sample_rate": 48000,
+      "frames": 43200,
+      "family": "synthetic-vibrato",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 31200
+        }
+      ]
+    },
+    {
+      "file": "pcm/soft_attack_52.wav",
+      "sha256": "805d90f394293cc21210f7e8867bc864ad3eb5bcd5d72408e4e7f521ec264bba",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-soft",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/weak_fundamental_40.wav",
+      "sha256": "3490b7cbe431cdb5bdb5d81ec897c451c0f8437f1d71e76755e22afe491c3d61",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "synthetic-bright",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "file": "pcm/repeated_52.wav",
+      "sha256": "77f3b2e0e8d9f063de767a7f8b6f0a4da5d3020e4c7d192b7f9a8fcf0bafb2b1",
+      "sample_rate": 48000,
+      "frames": 42240,
+      "family": "synthetic-repeated",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 10080
+        },
+        {
+          "note": 52,
+          "on_sample": 12480,
+          "off_sample": 20160
+        },
+        {
+          "note": 52,
+          "on_sample": 22560,
+          "off_sample": 30240
+        }
+      ]
+    },
+    {
+      "file": "pcm/continuous_repick_52.wav",
+      "sha256": "5741ba6757f8201a33e82975310bee684b47c5befffe7fdaf572bb605e791412",
+      "sample_rate": 48000,
+      "frames": 43200,
+      "family": "synthetic-repick",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 12000
+        },
+        {
+          "note": 52,
+          "on_sample": 12000,
+          "off_sample": 21600
+        },
+        {
+          "note": 52,
+          "on_sample": 21600,
+          "off_sample": 31200
+        }
+      ]
+    },
+    {
+      "file": "pcm/chromatic_up.wav",
+      "sha256": "8cbd4f8ee62c06c0ec9c065d96d98f4e0ff86f32dcc58880f27c26220b38f3de",
+      "sample_rate": 48000,
+      "frames": 70560,
+      "family": "synthetic-run",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 8160
+        },
+        {
+          "note": 53,
+          "on_sample": 9600,
+          "off_sample": 15360
+        },
+        {
+          "note": 54,
+          "on_sample": 16800,
+          "off_sample": 22560
+        },
+        {
+          "note": 55,
+          "on_sample": 24000,
+          "off_sample": 29760
+        },
+        {
+          "note": 56,
+          "on_sample": 31200,
+          "off_sample": 36960
+        },
+        {
+          "note": 57,
+          "on_sample": 38400,
+          "off_sample": 44160
+        },
+        {
+          "note": 58,
+          "on_sample": 45600,
+          "off_sample": 51360
+        },
+        {
+          "note": 59,
+          "on_sample": 52800,
+          "off_sample": 58560
+        }
+      ]
+    },
+    {
+      "file": "pcm/chromatic_down.wav",
+      "sha256": "235d8d6f9c743fec142de5c2ab008437ba6f88d85bc77463432bb0c4baf4cfb9",
+      "sample_rate": 48000,
+      "frames": 70560,
+      "family": "synthetic-run",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 8160
+        },
+        {
+          "note": 58,
+          "on_sample": 9600,
+          "off_sample": 15360
+        },
+        {
+          "note": 57,
+          "on_sample": 16800,
+          "off_sample": 22560
+        },
+        {
+          "note": 56,
+          "on_sample": 24000,
+          "off_sample": 29760
+        },
+        {
+          "note": 55,
+          "on_sample": 31200,
+          "off_sample": 36960
+        },
+        {
+          "note": 54,
+          "on_sample": 38400,
+          "off_sample": 44160
+        },
+        {
+          "note": 53,
+          "on_sample": 45600,
+          "off_sample": 51360
+        },
+        {
+          "note": 52,
+          "on_sample": 52800,
+          "off_sample": 58560
+        }
+      ]
+    },
+    {
+      "file": "pcm/major_triad.wav",
+      "sha256": "a642211c0935ab319f8382a1ce4f772e9db3f67e43c0ed66fcfb2fd642a6185a",
+      "sample_rate": 48000,
+      "frames": 36000,
+      "family": "synthetic-poly",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 55,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "file": "pcm/open_e_minor.wav",
+      "sha256": "c1a380d8f683bdef0c2b42071ca9380d18744ea5d511ac459be2ebc30f747ab0",
+      "sample_rate": 48000,
+      "frames": 36000,
+      "family": "synthetic-poly",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 55,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "file": "pcm/strummed_a_minor.wav",
+      "sha256": "b3b2303ac46429e0328bd3dd75414310a9b364d876c56838ee453b82b125a512",
+      "sample_rate": 48000,
+      "frames": 37248,
+      "family": "synthetic-poly",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 52,
+          "on_sample": 2640,
+          "off_sample": 24240
+        },
+        {
+          "note": 57,
+          "on_sample": 2928,
+          "off_sample": 24528
+        },
+        {
+          "note": 60,
+          "on_sample": 3264,
+          "off_sample": 24864
+        },
+        {
+          "note": 64,
+          "on_sample": 3648,
+          "off_sample": 25248
+        }
+      ]
+    },
+    {
+      "file": "pcm/adjacent_semitone.wav",
+      "sha256": "f1223580da11b015c1df2fee93baebc4fa6523597cd947d6360665c4e18fe6b3",
+      "sample_rate": 48000,
+      "frames": 36000,
+      "family": "synthetic-poly",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 53,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "file": "pcm/octaves.wav",
+      "sha256": "3d6cb092f520e3f8cce4e0922d567b645fb4ea4a2ed402c7c403a40036b6ba2b",
+      "sample_rate": 48000,
+      "frames": 36000,
+      "family": "synthetic-poly",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "file": "pcm/weak_upper.wav",
+      "sha256": "043fe348e716435c9dec2ba88348794487942f9e4e895524c3191fe48200397c",
+      "sample_rate": 48000,
+      "frames": 36000,
+      "family": "synthetic-poly",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "file": "pcm/staggered.wav",
+      "sha256": "8f5714ba41ee007ff5f21b1733eaf143b9bb46073be5e95b5ca89107d476518b",
+      "sample_rate": 48000,
+      "frames": 47040,
+      "family": "synthetic-poly",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 55,
+          "on_sample": 7680,
+          "off_sample": 29280
+        },
+        {
+          "note": 64,
+          "on_sample": 13440,
+          "off_sample": 35040
+        }
+      ]
+    },
+    {
+      "file": "pcm/digital_silence.wav",
+      "sha256": "ff0f9d13799096ebb950b6eca974c398f167aa06d36306114338102f0d77ff87",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "silence",
+      "truth": []
+    },
+    {
+      "file": "pcm/unpitched_click.wav",
+      "sha256": "f52422a369d7c0388a5a933df590d3576bc6b865b864c83675d8daadec1109fb",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "noise",
+      "truth": []
+    },
+    {
+      "file": "pcm/noise_floor.wav",
+      "sha256": "1055ef32975b9db6c7dcd08e729eb11e88d9a32d6ac659ca741cbc6ff7c7b417",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "noise",
+      "truth": []
+    },
+    {
+      "file": "pcm/broadband_noise.wav",
+      "sha256": "ca5da2cb5f9fb181331b6f000ba6fafb5ce27f3b1212bd8598f5ef2b26792d1a",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "noise",
+      "truth": []
+    },
+    {
+      "file": "pcm/colored_noise.wav",
+      "sha256": "7d93801166f734182e78450180d8e8afda9b0668fe9233343bbc5222c65a46fd",
+      "sample_rate": 48000,
+      "frames": 31200,
+      "family": "noise",
+      "truth": []
+    },
+    {
+      "file": "pcm/recorded_E2.wav",
+      "sha256": "f9ad81e9bec0677a160f3970571882505312b7d7417fad14a7a6e4a8601a37f2",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-single",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3321,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_A2.wav",
+      "sha256": "009fa5005bd517a4a5ace5eb4c910455e161324ebf1deb0fbf26ecd2127610ac",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-single",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 3204,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_D3.wav",
+      "sha256": "cdf75fe1a59e4a6af7fc88118082f454b83c3cf1c4775e55013988c07ac8d598",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-single",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 3092,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_G3.wav",
+      "sha256": "ef4cb2453525c871d36080adccb67bcd56542f4bdbfecf0db428660973008a4e",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-single",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 3075,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_B3.wav",
+      "sha256": "90fd0979b344c1276c56b3b8718d35cddeb35c324ec3cca2a003c45afc32d919",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-single",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 3111,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_E3.wav",
+      "sha256": "c4784004f869d9ba78a762b94471b22737552b2f7f9e86cecd71dec9daaa4290",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-single",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2904,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_E4.wav",
+      "sha256": "036850160cf0e5d3a3c3fa333f2268fa58331d2f3f346b2b32b2843c20eedb73",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-single",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 3423,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_Fs3.wav",
+      "sha256": "23620f05f26c01193f14630aa388ea48e6e76d7c70ae54a4104522d864645581",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-single",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 3227,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_E_octaves.wav",
+      "sha256": "c613a6009d0720467bbf4a9a47af434c28cc84da5024c301d471fce798e64cfb",
+      "sample_rate": 48000,
+      "frames": 48000,
+      "family": "recorded-note-mixture",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3321,
+          "off_sample": 36000
+        },
+        {
+          "note": 52,
+          "on_sample": 2904,
+          "off_sample": 36000
+        },
+        {
+          "note": 64,
+          "on_sample": 3423,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "file": "pcm/recorded_strings.wav",
+      "sha256": "98b2fb3adf2637b297f5c596ccadab3b2e8a83c123e2962d19ddd851f26ebe1a",
+      "sample_rate": 48000,
+      "frames": 49680,
+      "family": "recorded-note-mixture",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3321,
+          "off_sample": 36000
+        },
+        {
+          "note": 45,
+          "on_sample": 3540,
+          "off_sample": 36336
+        },
+        {
+          "note": 50,
+          "on_sample": 3764,
+          "off_sample": 36672
+        },
+        {
+          "note": 55,
+          "on_sample": 4083,
+          "off_sample": 37008
+        },
+        {
+          "note": 59,
+          "on_sample": 4455,
+          "off_sample": 37344
+        },
+        {
+          "note": 64,
+          "on_sample": 5103,
+          "off_sample": 37680
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "modal_40_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_40_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_41_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_41.wav",
+      "truth": [
+        {
+          "note": 41,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_41_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_41.wav",
+      "truth": [
+        {
+          "note": 41,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_45_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_45.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_45_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_45.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_48_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_48.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_48_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_48.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_52_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_52_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_57_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_57.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_57_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_57.wav",
+      "truth": [
+        {
+          "note": 57,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_60_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_60.wav",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_60_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_60.wav",
+      "truth": [
+        {
+          "note": 60,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_64_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_64_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_69_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_69.wav",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_69_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_69.wav",
+      "truth": [
+        {
+          "note": 69,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_76_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_76.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_76_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_76.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_84_mono",
+      "family": "synthetic-modal",
+      "mode": "mono",
+      "file": "pcm/modal_84.wav",
+      "truth": [
+        {
+          "note": 84,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "modal_84_poly",
+      "family": "synthetic-modal",
+      "mode": "poly",
+      "file": "pcm/modal_84.wav",
+      "truth": [
+        {
+          "note": 84,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "karplus_40_mono",
+      "family": "synthetic-karplus",
+      "mode": "mono",
+      "file": "pcm/karplus_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "karplus_40_poly",
+      "family": "synthetic-karplus",
+      "mode": "poly",
+      "file": "pcm/karplus_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "karplus_52_mono",
+      "family": "synthetic-karplus",
+      "mode": "mono",
+      "file": "pcm/karplus_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "karplus_52_poly",
+      "family": "synthetic-karplus",
+      "mode": "poly",
+      "file": "pcm/karplus_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "karplus_64_mono",
+      "family": "synthetic-karplus",
+      "mode": "mono",
+      "file": "pcm/karplus_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "karplus_64_poly",
+      "family": "synthetic-karplus",
+      "mode": "poly",
+      "file": "pcm/karplus_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "karplus_76_mono",
+      "family": "synthetic-karplus",
+      "mode": "mono",
+      "file": "pcm/karplus_76.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "karplus_76_poly",
+      "family": "synthetic-karplus",
+      "mode": "poly",
+      "file": "pcm/karplus_76.wav",
+      "truth": [
+        {
+          "note": 76,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "missing_fundamental_52_mono",
+      "family": "synthetic-missing-fundamental",
+      "mode": "mono",
+      "file": "pcm/missing_fundamental_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "missing_fundamental_52_poly",
+      "family": "synthetic-missing-fundamental",
+      "mode": "poly",
+      "file": "pcm/missing_fundamental_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "detuned_52_mono",
+      "family": "synthetic-detuning",
+      "mode": "mono",
+      "file": "pcm/detuned_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "detuned_52_poly",
+      "family": "synthetic-detuning",
+      "mode": "poly",
+      "file": "pcm/detuned_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "vibrato_64_mono",
+      "family": "synthetic-vibrato",
+      "mode": "mono",
+      "file": "pcm/vibrato_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 31200
+        }
+      ]
+    },
+    {
+      "name": "vibrato_64_poly",
+      "family": "synthetic-vibrato",
+      "mode": "poly",
+      "file": "pcm/vibrato_64.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 31200
+        }
+      ]
+    },
+    {
+      "name": "soft_attack_52_mono",
+      "family": "synthetic-soft",
+      "mode": "mono",
+      "file": "pcm/soft_attack_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "soft_attack_52_poly",
+      "family": "synthetic-soft",
+      "mode": "poly",
+      "file": "pcm/soft_attack_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "weak_fundamental_40_mono",
+      "family": "synthetic-bright",
+      "mode": "mono",
+      "file": "pcm/weak_fundamental_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "weak_fundamental_40_poly",
+      "family": "synthetic-bright",
+      "mode": "poly",
+      "file": "pcm/weak_fundamental_40.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 19200
+        }
+      ]
+    },
+    {
+      "name": "repeated_52_mono",
+      "family": "synthetic-repeated",
+      "mode": "mono",
+      "file": "pcm/repeated_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 10080
+        },
+        {
+          "note": 52,
+          "on_sample": 12480,
+          "off_sample": 20160
+        },
+        {
+          "note": 52,
+          "on_sample": 22560,
+          "off_sample": 30240
+        }
+      ]
+    },
+    {
+      "name": "repeated_52_poly",
+      "family": "synthetic-repeated",
+      "mode": "poly",
+      "file": "pcm/repeated_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 10080
+        },
+        {
+          "note": 52,
+          "on_sample": 12480,
+          "off_sample": 20160
+        },
+        {
+          "note": 52,
+          "on_sample": 22560,
+          "off_sample": 30240
+        }
+      ]
+    },
+    {
+      "name": "continuous_repick_52_mono",
+      "family": "synthetic-repick",
+      "mode": "mono",
+      "file": "pcm/continuous_repick_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 12000
+        },
+        {
+          "note": 52,
+          "on_sample": 12000,
+          "off_sample": 21600
+        },
+        {
+          "note": 52,
+          "on_sample": 21600,
+          "off_sample": 31200
+        }
+      ]
+    },
+    {
+      "name": "continuous_repick_52_poly",
+      "family": "synthetic-repick",
+      "mode": "poly",
+      "file": "pcm/continuous_repick_52.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 12000
+        },
+        {
+          "note": 52,
+          "on_sample": 12000,
+          "off_sample": 21600
+        },
+        {
+          "note": 52,
+          "on_sample": 21600,
+          "off_sample": 31200
+        }
+      ]
+    },
+    {
+      "name": "chromatic_up_mono",
+      "family": "synthetic-run",
+      "mode": "mono",
+      "file": "pcm/chromatic_up.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 8160
+        },
+        {
+          "note": 53,
+          "on_sample": 9600,
+          "off_sample": 15360
+        },
+        {
+          "note": 54,
+          "on_sample": 16800,
+          "off_sample": 22560
+        },
+        {
+          "note": 55,
+          "on_sample": 24000,
+          "off_sample": 29760
+        },
+        {
+          "note": 56,
+          "on_sample": 31200,
+          "off_sample": 36960
+        },
+        {
+          "note": 57,
+          "on_sample": 38400,
+          "off_sample": 44160
+        },
+        {
+          "note": 58,
+          "on_sample": 45600,
+          "off_sample": 51360
+        },
+        {
+          "note": 59,
+          "on_sample": 52800,
+          "off_sample": 58560
+        }
+      ]
+    },
+    {
+      "name": "chromatic_down_mono",
+      "family": "synthetic-run",
+      "mode": "mono",
+      "file": "pcm/chromatic_down.wav",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 8160
+        },
+        {
+          "note": 58,
+          "on_sample": 9600,
+          "off_sample": 15360
+        },
+        {
+          "note": 57,
+          "on_sample": 16800,
+          "off_sample": 22560
+        },
+        {
+          "note": 56,
+          "on_sample": 24000,
+          "off_sample": 29760
+        },
+        {
+          "note": 55,
+          "on_sample": 31200,
+          "off_sample": 36960
+        },
+        {
+          "note": 54,
+          "on_sample": 38400,
+          "off_sample": 44160
+        },
+        {
+          "note": 53,
+          "on_sample": 45600,
+          "off_sample": 51360
+        },
+        {
+          "note": 52,
+          "on_sample": 52800,
+          "off_sample": 58560
+        }
+      ]
+    },
+    {
+      "name": "major_triad_poly",
+      "family": "synthetic-poly",
+      "mode": "poly",
+      "file": "pcm/major_triad.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 55,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "name": "open_e_minor_poly",
+      "family": "synthetic-poly",
+      "mode": "poly",
+      "file": "pcm/open_e_minor.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 47,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 55,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 59,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "name": "strummed_a_minor_poly",
+      "family": "synthetic-poly",
+      "mode": "poly",
+      "file": "pcm/strummed_a_minor.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 52,
+          "on_sample": 2640,
+          "off_sample": 24240
+        },
+        {
+          "note": 57,
+          "on_sample": 2928,
+          "off_sample": 24528
+        },
+        {
+          "note": 60,
+          "on_sample": 3264,
+          "off_sample": 24864
+        },
+        {
+          "note": 64,
+          "on_sample": 3648,
+          "off_sample": 25248
+        }
+      ]
+    },
+    {
+      "name": "adjacent_semitone_poly",
+      "family": "synthetic-poly",
+      "mode": "poly",
+      "file": "pcm/adjacent_semitone.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 53,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "name": "octaves_poly",
+      "family": "synthetic-poly",
+      "mode": "poly",
+      "file": "pcm/octaves.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 52,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "name": "weak_upper_poly",
+      "family": "synthetic-poly",
+      "mode": "poly",
+      "file": "pcm/weak_upper.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 64,
+          "on_sample": 2400,
+          "off_sample": 24000
+        }
+      ]
+    },
+    {
+      "name": "staggered_poly",
+      "family": "synthetic-poly",
+      "mode": "poly",
+      "file": "pcm/staggered.wav",
+      "truth": [
+        {
+          "note": 48,
+          "on_sample": 2400,
+          "off_sample": 24000
+        },
+        {
+          "note": 55,
+          "on_sample": 7680,
+          "off_sample": 29280
+        },
+        {
+          "note": 64,
+          "on_sample": 13440,
+          "off_sample": 35040
+        }
+      ]
+    },
+    {
+      "name": "digital_silence_mono",
+      "family": "silence",
+      "mode": "mono",
+      "file": "pcm/digital_silence.wav",
+      "truth": []
+    },
+    {
+      "name": "digital_silence_poly",
+      "family": "silence",
+      "mode": "poly",
+      "file": "pcm/digital_silence.wav",
+      "truth": []
+    },
+    {
+      "name": "unpitched_click_mono",
+      "family": "noise",
+      "mode": "mono",
+      "file": "pcm/unpitched_click.wav",
+      "truth": []
+    },
+    {
+      "name": "unpitched_click_poly",
+      "family": "noise",
+      "mode": "poly",
+      "file": "pcm/unpitched_click.wav",
+      "truth": []
+    },
+    {
+      "name": "noise_floor_mono",
+      "family": "noise",
+      "mode": "mono",
+      "file": "pcm/noise_floor.wav",
+      "truth": []
+    },
+    {
+      "name": "noise_floor_poly",
+      "family": "noise",
+      "mode": "poly",
+      "file": "pcm/noise_floor.wav",
+      "truth": []
+    },
+    {
+      "name": "broadband_noise_mono",
+      "family": "noise",
+      "mode": "mono",
+      "file": "pcm/broadband_noise.wav",
+      "truth": []
+    },
+    {
+      "name": "broadband_noise_poly",
+      "family": "noise",
+      "mode": "poly",
+      "file": "pcm/broadband_noise.wav",
+      "truth": []
+    },
+    {
+      "name": "colored_noise_mono",
+      "family": "noise",
+      "mode": "mono",
+      "file": "pcm/colored_noise.wav",
+      "truth": []
+    },
+    {
+      "name": "colored_noise_poly",
+      "family": "noise",
+      "mode": "poly",
+      "file": "pcm/colored_noise.wav",
+      "truth": []
+    },
+    {
+      "name": "recorded_E2_mono",
+      "family": "recorded-single",
+      "mode": "mono",
+      "file": "pcm/recorded_E2.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3321,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_E2_poly",
+      "family": "recorded-single",
+      "mode": "poly",
+      "file": "pcm/recorded_E2.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3321,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_A2_mono",
+      "family": "recorded-single",
+      "mode": "mono",
+      "file": "pcm/recorded_A2.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 3204,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_A2_poly",
+      "family": "recorded-single",
+      "mode": "poly",
+      "file": "pcm/recorded_A2.wav",
+      "truth": [
+        {
+          "note": 45,
+          "on_sample": 3204,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_D3_mono",
+      "family": "recorded-single",
+      "mode": "mono",
+      "file": "pcm/recorded_D3.wav",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 3092,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_D3_poly",
+      "family": "recorded-single",
+      "mode": "poly",
+      "file": "pcm/recorded_D3.wav",
+      "truth": [
+        {
+          "note": 50,
+          "on_sample": 3092,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_G3_mono",
+      "family": "recorded-single",
+      "mode": "mono",
+      "file": "pcm/recorded_G3.wav",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 3075,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_G3_poly",
+      "family": "recorded-single",
+      "mode": "poly",
+      "file": "pcm/recorded_G3.wav",
+      "truth": [
+        {
+          "note": 55,
+          "on_sample": 3075,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_B3_mono",
+      "family": "recorded-single",
+      "mode": "mono",
+      "file": "pcm/recorded_B3.wav",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 3111,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_B3_poly",
+      "family": "recorded-single",
+      "mode": "poly",
+      "file": "pcm/recorded_B3.wav",
+      "truth": [
+        {
+          "note": 59,
+          "on_sample": 3111,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_E3_mono",
+      "family": "recorded-single",
+      "mode": "mono",
+      "file": "pcm/recorded_E3.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2904,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_E3_poly",
+      "family": "recorded-single",
+      "mode": "poly",
+      "file": "pcm/recorded_E3.wav",
+      "truth": [
+        {
+          "note": 52,
+          "on_sample": 2904,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_E4_mono",
+      "family": "recorded-single",
+      "mode": "mono",
+      "file": "pcm/recorded_E4.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 3423,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_E4_poly",
+      "family": "recorded-single",
+      "mode": "poly",
+      "file": "pcm/recorded_E4.wav",
+      "truth": [
+        {
+          "note": 64,
+          "on_sample": 3423,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_Fs3_mono",
+      "family": "recorded-single",
+      "mode": "mono",
+      "file": "pcm/recorded_Fs3.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 3227,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_Fs3_poly",
+      "family": "recorded-single",
+      "mode": "poly",
+      "file": "pcm/recorded_Fs3.wav",
+      "truth": [
+        {
+          "note": 54,
+          "on_sample": 3227,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_E_octaves_poly",
+      "family": "recorded-note-mixture",
+      "mode": "poly",
+      "file": "pcm/recorded_E_octaves.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3321,
+          "off_sample": 36000
+        },
+        {
+          "note": 52,
+          "on_sample": 2904,
+          "off_sample": 36000
+        },
+        {
+          "note": 64,
+          "on_sample": 3423,
+          "off_sample": 36000
+        }
+      ]
+    },
+    {
+      "name": "recorded_strings_poly",
+      "family": "recorded-note-mixture",
+      "mode": "poly",
+      "file": "pcm/recorded_strings.wav",
+      "truth": [
+        {
+          "note": 40,
+          "on_sample": 3321,
+          "off_sample": 36000
+        },
+        {
+          "note": 45,
+          "on_sample": 3540,
+          "off_sample": 36336
+        },
+        {
+          "note": 50,
+          "on_sample": 3764,
+          "off_sample": 36672
+        },
+        {
+          "note": 55,
+          "on_sample": 4083,
+          "off_sample": 37008
+        },
+        {
+          "note": 59,
+          "on_sample": 4455,
+          "off_sample": 37344
+        },
+        {
+          "note": 64,
+          "on_sample": 5103,
+          "off_sample": 37680
+        }
+      ]
+    }
+  ]
+}

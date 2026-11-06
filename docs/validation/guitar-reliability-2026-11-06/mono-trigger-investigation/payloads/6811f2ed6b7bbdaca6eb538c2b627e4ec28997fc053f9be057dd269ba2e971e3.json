@@ -1,0 +1,151 @@
+{
+  "scope": "Seven predeclared DEV isolated real electric-guitar samples; raw44100Hz/64sample causal mono, no gain/resampling, four profiles and two explicit startup contexts; no continuous human performance/physical contact/damping/universal readiness claim",
+  "reserved_holdout_samples_run": 0,
+  "physical_latency_measured": false,
+  "physical_damping_scored": false,
+  "tolerances_fitted_to_capture": false,
+  "total": {
+    "runs": 56,
+    "bounded_note_and_core_checks_passed": 46,
+    "counts": {
+      "note_ons": 61,
+      "wanted_note_ons": 55,
+      "wrong_note_ons": 6,
+      "repeated_nominal_note_ons": 0,
+      "false_octave_note_ons": 0,
+      "lower_octave_note_ons": 0,
+      "wrong_ons_in_positive_core": 0,
+      "positive_core_missing": 1,
+      "orphan_offs": 0,
+      "duplicate_active_voice": 0,
+      "active_at_end": 0,
+      "overflow": 0,
+      "deadline_misses": 62
+    },
+    "positive_core_uncovered_ms": 137.91383219954648
+  },
+  "profiles": {
+    "mono_bend_dynamics_default": {
+      "runs": 14,
+      "bounded_note_and_core_checks_passed": 12,
+      "counts": {
+        "note_ons": 14,
+        "wanted_note_ons": 13,
+        "wrong_note_ons": 1,
+        "repeated_nominal_note_ons": 0,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 1,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 7
+      },
+      "positive_core_uncovered_ms": 73.31065759637188
+    },
+    "mono_bend_dynamics_off": {
+      "runs": 14,
+      "bounded_note_and_core_checks_passed": 12,
+      "counts": {
+        "note_ons": 14,
+        "wanted_note_ons": 14,
+        "wrong_note_ons": 0,
+        "repeated_nominal_note_ons": 0,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 0,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 25
+      },
+      "positive_core_uncovered_ms": 28.639455782312925
+    },
+    "mono_plain_dynamics_default": {
+      "runs": 14,
+      "bounded_note_and_core_checks_passed": 11,
+      "counts": {
+        "note_ons": 16,
+        "wanted_note_ons": 14,
+        "wrong_note_ons": 2,
+        "repeated_nominal_note_ons": 0,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 0,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 16
+      },
+      "positive_core_uncovered_ms": 17.98185941043084
+    },
+    "mono_plain_dynamics_off": {
+      "runs": 14,
+      "bounded_note_and_core_checks_passed": 11,
+      "counts": {
+        "note_ons": 17,
+        "wanted_note_ons": 14,
+        "wrong_note_ons": 3,
+        "repeated_nominal_note_ons": 0,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 0,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 14
+      },
+      "positive_core_uncovered_ms": 17.98185941043084
+    }
+  },
+  "idle_contexts": {
+    "0": {
+      "runs": 28,
+      "bounded_note_and_core_checks_passed": 24,
+      "counts": {
+        "note_ons": 28,
+        "wanted_note_ons": 28,
+        "wrong_note_ons": 0,
+        "repeated_nominal_note_ons": 0,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 0,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 28
+      },
+      "positive_core_uncovered_ms": 31.92743764172336
+    },
+    "15435": {
+      "runs": 28,
+      "bounded_note_and_core_checks_passed": 22,
+      "counts": {
+        "note_ons": 33,
+        "wanted_note_ons": 27,
+        "wrong_note_ons": 6,
+        "repeated_nominal_note_ons": 0,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 1,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 34
+      },
+      "positive_core_uncovered_ms": 105.98639455782313
+    }
+  }
+}

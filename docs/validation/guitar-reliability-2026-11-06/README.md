@@ -72,3 +72,36 @@ MIDI-anchor counts separate from effective continuous pitch. Its reserved
 recordings remain detector-unrun. The [spectral-template alternative](spectral-template-negative/README.md)
 is rejected: lower false-trigger counts concealed additional omissions,
 late overlapping-source acquisition, release errors and callback overruns.
+
+## Original recording through the processor
+
+The mandatory [recorded-pluck processor regression](processor-recorded-retrigger/README.md)
+feeds the original DEV staccato52 asset through the sidechain and complete
+processor at44100Hz,64-sample blocks, with plain/bend, dynamics off/default
+and cold/350ms idle starts. All88 preceding cases pass; all eight new profiles
+fail, producing4/3/2/3/4/3/3/3 Note Ons. Offs balance and voices release, but the
+authored isolated pluck fragments into multiple MIDI notes. The test records
+all eight failures before exiting1. The existing poly test follows and is not
+reached in this run. No full-suite result is inferred from that targeted run.
+File boundaries are not physical pick/damping references or acoustic latency.
+
+## Rejected trigger and source-model research
+
+The [mono trigger archive](mono-trigger-investigation/README.md) preserves26
+complete source variants and exact baseline event parity. A lifecycle veto
+removes the real-DEV repetitions while losing genuine quiet repicks; normalized
+raw innovation recovers omitted references but creates other false triggers.
+The separate [Burg32 predictor](burg32-negative/README.md) worsens the real-asset
+repetitions17→32 and quiet counter14/16→8/16. Neither patch is adopted.
+
+[Observed fine-frequency experiments](fine-frequency-research/README.md) reduce
+some detuning failures, but still miss sources and invent lower octaves.
+Correcting cache/reset semantics does not fix those musical defects.
+The [profile-kernel optimization](profile-kernel-performance/README.md) and
+[fine-frequency combination](uncertainty-profile-combination/README.md) reproduce
+their original event payloads exactly on the measured330-case corpus and use
+substantially less CPU. Both retain deadline misses and the rejected musical
+behavior. Their floating-point shortlist is empirically checked, not proved
+universally equivalent. They remain private source snapshots, not production
+changes or installer candidates. All reserved recording detector inputs remain
+unrun. No evidence here supports musical readiness.

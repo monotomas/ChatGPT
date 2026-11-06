@@ -1,0 +1,18 @@
+{
+  "created_at_utc": "2026-11-06T08:47:04.776834+00:00",
+  "base_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "fixed_model": "Burg AR maximumorder32, fitlast512receivedNC-cleanedpre-dynamicsrawsamples, forecastnext32samplesOPENLOOPandcompareonlyasfutureinputsarrive",
+  "scope": "Onlyheldmonoafter70ms; nofrequency/admission/note/releaseparameterschanged; poly untouched",
+  "normalization": "same RAW/max(envelope,onsetEnvelope,gate) ratio withoriginal .5crossing",
+  "causality": "Trainingneveraccessesfuture; 32forecastscomputedbeforeanycorrespondinginputarrives; no lookahead/alloc/locks",
+  "numeric_safeguards": "float32-derived rank roundoff floor; reflectioncoefficientsclampedstrictlyinsideunitcircle; nonfinite/excessivelylargepredictionsinvalidatewholehop",
+  "no_threshold_or_order_grid": true,
+  "firstchecks": [
+    "Mathematicalunseenforecastagainstknownsyntheticbeating/inharmonicstrings",
+    "DEV52all8profiles",
+    "Existingquietpostdropcounter14/16baseline",
+    "Legacy107OFF/104DEFAULT"
+  ],
+  "reserved_detector_runs": 0,
+  "production_source_changed": false
+}

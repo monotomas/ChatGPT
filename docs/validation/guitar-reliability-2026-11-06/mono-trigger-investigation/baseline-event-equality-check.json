@@ -1,0 +1,29 @@
+{
+  "scope": "Archive-only reconstruction compared to original retained causal streams; no binary/audio execution",
+  "comparisons": {
+    "controlled": {
+      "exact_events": 4820,
+      "cases": 34,
+      "equal_original": true
+    },
+    "noise": {
+      "exact_events": 6313,
+      "cases": 64,
+      "equal_original": true
+    },
+    "hammers": {
+      "exact_events": 1341,
+      "cases": 8,
+      "equal_original": true
+    },
+    "trace-baseline": {
+      "exact_events": 558,
+      "equal_original": true
+    },
+    "trace-baseline-v2": {
+      "exact_events": 558,
+      "equal_original": true
+    }
+  },
+  "original_file_origins_hash_verified_after_archive": 1289
+}

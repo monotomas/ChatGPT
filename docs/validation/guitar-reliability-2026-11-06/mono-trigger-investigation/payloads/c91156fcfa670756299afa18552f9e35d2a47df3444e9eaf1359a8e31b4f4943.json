@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+  "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+  "runs": 34,
+  "passed_runs": 29,
+  "failed_runs": 5,
+  "out_of_scope_runs": 0,
+  "out_of_scope": [],
+  "absolute_latency_gate": false,
+  "latency_alignment_or_backdating": false,
+  "physical_latency_verified": false,
+  "counts": {
+    "expected": 77,
+    "matched": 77,
+    "missed": 0,
+    "extra_note_ons": 9,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 3,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "deadline_misses": 7
+  },
+  "latency_by_pitch": [
+    {
+      "mode": "mono",
+      "anchor": 31,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 49.3125,
+        "p95": 49.3125,
+        "maximum": 49.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 40,
+      "expected": 2,
+      "matched": 2,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 30.645833333333332,
+        "p95": 30.645833333333332,
+        "maximum": 30.645833333333332
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 45,
+      "expected": 1,
+      "matched": 1,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 25.3125,
+        "p95": 25.3125,
+        "maximum": 25.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 52,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 19.3125,
+        "p95": 19.979166666666668,
+        "maximum": 19.979166666666668
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 55,
+      "expected": 4,
+      "matched": 4,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 24.645833333333332,
+        "p95": 24.645833333333332,
+        "maximum": 24.645833333333332
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 57,
+      "expected": 16,
+      "matched": 16,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 16.645833333333332,
+        "p95": 17.645833333333332,
+        "maximum": 17.645833333333332
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 58,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 15.979166666666666,
+        "p95": 17.3125,
+        "maximum": 17.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 59,
+      "expected": 8,
+      "matched": 8,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 15.979166666666666,
+        "p95": 21.3125,
+        "maximum": 21.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 60,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 15.3125,
+        "p95": 15.645833333333334,
+        "maximum": 15.645833333333334
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 61,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 15.3125,
+        "p95": 15.3125,
+        "maximum": 15.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 62,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 14.3125,
+        "p95": 14.979166666666666,
+        "maximum": 14.979166666666666
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 63,
+      "expected": 6,
+      "matched": 6,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 13.3125,
+        "p95": 14.645833333333334,
+        "maximum": 14.645833333333334
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 64,
+      "expected": 8,
+      "matched": 8,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 12.3125,
+        "p95": 13.979166666666666,
+        "maximum": 13.979166666666666
+      }
+    }
+  ]
+}

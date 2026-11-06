@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/flysnapper-profile-negative-checks-20261106/event_payload_rebound_seal/reproduce.py", line 185, in <module>
+    main()
+  File "/tmp/flysnapper-profile-negative-checks-20261106/event_payload_rebound_seal/reproduce.py", line 143, in main
+    report = {'archive': verify_archive(), 'suite': args.suite}
+                         ^^^^^^^^^^^^^^^^
+  File "/tmp/flysnapper-profile-negative-checks-20261106/event_payload_rebound_seal/reproduce.py", line 63, in verify_archive
+    assert sha(run / 'events.csv') == meta['events_sha256'], 'Original event binding mismatch'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Original event binding mismatch

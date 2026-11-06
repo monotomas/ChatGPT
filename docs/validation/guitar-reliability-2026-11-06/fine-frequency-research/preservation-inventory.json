@@ -1,0 +1,3683 @@
+{
+  "recorded_at_utc": "2026-11-06T09:40:13.345017+00:00",
+  "origin": "/tmp/flysnapper-v4-poly-f0",
+  "source_base_git_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "private_sources_are_not_current_production_HEAD": true,
+  "no_reserved_audio_or_real_audio_used": true,
+  "all_original_files_sha256": [
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/ablation_probe-cold-timed.cpp",
+      "relative_path": "ablation_probe-cold-timed.cpp",
+      "bytes": 2357,
+      "sha256": "3e30f10f6119e2e63408eea5c0cf769ae0b564b48e1fad7b32693f1f6aa6e6e4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/ablation_probe-timed.cpp",
+      "relative_path": "ablation_probe-timed.cpp",
+      "bytes": 2358,
+      "sha256": "593f4d193b43d9efa56a7be28ef711ba8d75eb00969865b61cf324540a217feb",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/ablation_probe.cpp",
+      "relative_path": "ablation_probe.cpp",
+      "bytes": 1691,
+      "sha256": "caed85a085628f2589ff349dcc109902ae4f995d8515092173f0447de6f3c467",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/all-cold-scores.json",
+      "relative_path": "all-cold-scores.json",
+      "bytes": 3892889,
+      "sha256": "fa316e96ff61b5f9337280f39e95db3f5b275146c59e9fdc1e341b695eb86363",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Core/MidiEngine.cpp",
+      "relative_path": "base/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Core/MidiEngine.h",
+      "relative_path": "base/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Core/MusicData.cpp",
+      "relative_path": "base/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Core/MusicData.h",
+      "relative_path": "base/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Core/README.md",
+      "relative_path": "base/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "base/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Core/Reference/ChordInput.h",
+      "relative_path": "base/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Core/Reference/ChordNames.h",
+      "relative_path": "base/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "base/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "base/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "base/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "base/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "base/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "base/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/InputDynamics.h",
+      "relative_path": "base/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "base/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "base/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "base/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "base/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "base/Source/Pitch/PitchDetector.cpp",
+      "bytes": 60621,
+      "sha256": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/PitchDetector.h",
+      "relative_path": "base/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "base/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "base/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/README.md",
+      "relative_path": "base/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "base/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 19102,
+      "sha256": "ea6599dcd2e21046de57e7ddc92bb66779f31037508dcf3d57c53e29f0d15ebd",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "base/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 2997,
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "base/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "base/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/YinEstimator.h",
+      "relative_path": "base/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/Pitch/YinEstimator.md",
+      "relative_path": "base/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/PluginEditor.cpp",
+      "relative_path": "base/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/PluginEditor.h",
+      "relative_path": "base/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/PluginProcessor.cpp",
+      "relative_path": "base/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/Source/PluginProcessor.h",
+      "relative_path": "base/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/capture132",
+      "relative_path": "base/capture132",
+      "bytes": 170480,
+      "sha256": "52f712cb7ac21d7e0912f7c542752181b99eba064d38ac3fbf30e53de9403160",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/capture132-cold",
+      "relative_path": "base/capture132-cold",
+      "bytes": 170488,
+      "sha256": "0f913dc47942266787d051efbcdfcf2afd17897dade45f50cfbbb229b9c2bf84",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/capture330",
+      "relative_path": "base/capture330",
+      "bytes": 170360,
+      "sha256": "072bef6c37f3a5003a2fcbf86dd4622f8e57841c2f6b91f7716049a03ac91bba",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/capture330-cold",
+      "relative_path": "base/capture330-cold",
+      "bytes": 170360,
+      "sha256": "106cdd64bc8d331cfc835285d5d95245c007a8ac96604380ce321f22e6b37503",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/cold132/events.csv",
+      "relative_path": "base/cold132/events.csv",
+      "bytes": 19918,
+      "sha256": "46c25ce9e11672ba72376819dbe3e67c04c0df3b2b9c831f27f88e8be7ec3340",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/cold132/measurement-manifest.json",
+      "relative_path": "base/cold132/measurement-manifest.json",
+      "bytes": 5529,
+      "sha256": "9404c23b6b7a8210f4d9cd15303463ea2f52bb5a5599ba3366b3dc59f2c62416",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/cold132/timing.csv",
+      "relative_path": "base/cold132/timing.csv",
+      "bytes": 6256,
+      "sha256": "32c0bede571d163f512ca6f326ad617a06f67d5cc7c8d1b2a118d4f29d9e872f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/cold132-link.txt",
+      "relative_path": "base/cold132-link.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/cold330/events.csv",
+      "relative_path": "base/cold330/events.csv",
+      "bytes": 33660,
+      "sha256": "ad73390ff828d042002bd35808273f5123cc2ddfb671553645584de0239d4fa6",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/cold330/measurement-manifest.json",
+      "relative_path": "base/cold330/measurement-manifest.json",
+      "bytes": 5529,
+      "sha256": "0dd80438d59f646973df9e74bfadc420d0503eddb612f80fe281b9d40b689ed1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/cold330/timing.csv",
+      "relative_path": "base/cold330/timing.csv",
+      "bytes": 15491,
+      "sha256": "e27cd2b39ddb7c5dc2a9dca13d7a8d387b1858c9e9e1ddf9e5fdc1e440036a3e",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/cold330-link.txt",
+      "relative_path": "base/cold330-link.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/ArticulationTracker.o",
+      "relative_path": "base/objects/ArticulationTracker.o",
+      "bytes": 12544,
+      "sha256": "5a475ce781c100f7512f37a84c4ef91849cc0f94b0c4991750f0d92d71050bc9",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/EarlyEstimator.o",
+      "relative_path": "base/objects/EarlyEstimator.o",
+      "bytes": 10832,
+      "sha256": "96ebfbed3674ee0e1db2b161d911e6d9102cce2b0bedbcf4c42e9857ea8a408d",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/InputDynamics.o",
+      "relative_path": "base/objects/InputDynamics.o",
+      "bytes": 25640,
+      "sha256": "dbeac28a8d5e7e34fdf7da6a12d3bbcb36435d7203b19a7388ea797914d38894",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/NoiseConditioner.o",
+      "relative_path": "base/objects/NoiseConditioner.o",
+      "bytes": 22200,
+      "sha256": "7f99d518daebc5f0d6414c605d910ef8f03d647bf3ab454b03496bf1c732a688",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/PitchDetector.o",
+      "relative_path": "base/objects/PitchDetector.o",
+      "bytes": 64888,
+      "sha256": "b175cdc09ca4cdd1f6acf25af8e36c90cf6fc01bf7619a5a9deec5c605125173",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/PolyphonicTracker.o",
+      "relative_path": "base/objects/PolyphonicTracker.o",
+      "bytes": 48360,
+      "sha256": "5fdb97d1dba812298f6848024550cd4070e1c6f365c41f9302334de7e5439823",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/TimeDomainPursuit.o",
+      "relative_path": "base/objects/TimeDomainPursuit.o",
+      "bytes": 23768,
+      "sha256": "953fc52a77f02e0b576df102563c3e1dc9a556e0841906157e2cb999561399e0",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/YinEstimator.o",
+      "relative_path": "base/objects/YinEstimator.o",
+      "bytes": 24904,
+      "sha256": "42f1d9e8d6e57304f730eee1d0236ba92e36d3200bd39cdd7193bc856594f5e8",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/objects/compile.txt",
+      "relative_path": "base/objects/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/runs132/events.csv",
+      "relative_path": "base/runs132/events.csv",
+      "bytes": 19918,
+      "sha256": "46c25ce9e11672ba72376819dbe3e67c04c0df3b2b9c831f27f88e8be7ec3340",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/runs132/measurement-manifest.json",
+      "relative_path": "base/runs132/measurement-manifest.json",
+      "bytes": 4944,
+      "sha256": "82c53ef4c5c4dc8d72eb211f978f09d2fe98deb67c6c654b1da3c5cbbb87e4f7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/runs132/timing.csv",
+      "relative_path": "base/runs132/timing.csv",
+      "bytes": 6261,
+      "sha256": "116f18d4c61a1aca4b06c8886f117ea653867dbdd4353012f7798f7a471835ff",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/runs330/events.csv",
+      "relative_path": "base/runs330/events.csv",
+      "bytes": 33660,
+      "sha256": "ad73390ff828d042002bd35808273f5123cc2ddfb671553645584de0239d4fa6",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/runs330/measurement-manifest.json",
+      "relative_path": "base/runs330/measurement-manifest.json",
+      "bytes": 4943,
+      "sha256": "a1ba21ec3cb3faf33b39f5d0784b784bee2ee16233ef71c4ccbaa66a99a82b4f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/runs330/timing.csv",
+      "relative_path": "base/runs330/timing.csv",
+      "bytes": 15474,
+      "sha256": "67a29c3f7325f6391f6f9b118f4d7a0ea9808c7ef22bbf220a96358682f019c2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base/source-inventory.json",
+      "relative_path": "base/source-inventory.json",
+      "bytes": 3723,
+      "sha256": "a27f8d664f8b6dd7e63782442af1293753c41d937f2552eef08cd2ff240831b4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/base-cold330-scores.json",
+      "relative_path": "base-cold330-scores.json",
+      "bytes": 796582,
+      "sha256": "cda6c7413a06e80c8e68e633d002537ffa51be3e25acb1adf5b5cd9768494b35",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/cold-experiment-console.txt",
+      "relative_path": "cold-experiment-console.txt",
+      "bytes": 292,
+      "sha256": "7cb73c14064647ca6f93ebae7d7c7cda853574e7ae796fc3667c9e6af8126261",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/counter_probe-cold-timed.cpp",
+      "relative_path": "counter_probe-cold-timed.cpp",
+      "bytes": 2558,
+      "sha256": "6a66605e8cb428845a3a274ec20c8e8fb74363ef691464d3dbfd4fd01319be1d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/counter_probe-timed.cpp",
+      "relative_path": "counter_probe-timed.cpp",
+      "bytes": 2559,
+      "sha256": "1d2a4757a9da9123176633e321e6bd512d01cff6adf70a83ce2176b287dfef60",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/counter_probe.cpp",
+      "relative_path": "counter_probe.cpp",
+      "bytes": 1892,
+      "sha256": "549b29c1ac2ddfd806e41a1f8dbb9553e26598a493d1036d1046c57db49b7c26",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-compile.txt",
+      "relative_path": "diagnostic-compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Core/MidiEngine.cpp",
+      "relative_path": "diagnostic-f0/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Core/MidiEngine.h",
+      "relative_path": "diagnostic-f0/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Core/MusicData.cpp",
+      "relative_path": "diagnostic-f0/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Core/MusicData.h",
+      "relative_path": "diagnostic-f0/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Core/README.md",
+      "relative_path": "diagnostic-f0/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "diagnostic-f0/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Core/Reference/ChordInput.h",
+      "relative_path": "diagnostic-f0/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Core/Reference/ChordNames.h",
+      "relative_path": "diagnostic-f0/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "diagnostic-f0/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/InputDynamics.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/PitchDetector.cpp",
+      "bytes": 62151,
+      "sha256": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/PitchDetector.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/README.md",
+      "relative_path": "diagnostic-f0/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 28126,
+      "sha256": "7ffa5d220813f94217d41dfe9dc5481fc2e253b4e060edf6aa662670ae532930",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3642,
+      "sha256": "eecc30b16b583e428ac4b43cd1d4a406c415926fcae6627cafb76e5187df5a23",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "diagnostic-f0/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "diagnostic-f0/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/YinEstimator.h",
+      "relative_path": "diagnostic-f0/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/Pitch/YinEstimator.md",
+      "relative_path": "diagnostic-f0/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/PluginEditor.cpp",
+      "relative_path": "diagnostic-f0/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/PluginEditor.h",
+      "relative_path": "diagnostic-f0/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/PluginProcessor.cpp",
+      "relative_path": "diagnostic-f0/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-f0/Source/PluginProcessor.h",
+      "relative_path": "diagnostic-f0/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-open6-events.csv",
+      "relative_path": "diagnostic-open6-events.csv",
+      "bytes": 241,
+      "sha256": "7b590eb524bcb0f800347fa02d6ce030cf2231b83ebe9796ee8be6f22b992cdd",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-open6-f0.csv",
+      "relative_path": "diagnostic-open6-f0.csv",
+      "bytes": 865786,
+      "sha256": "13a3f75a77280a74d1264ce31458269f4da0a23fe45b1108bc293dc0f289a6f4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic-probe",
+      "relative_path": "diagnostic-probe",
+      "bytes": 179496,
+      "sha256": "87fac9c7cbb7f7c843f7e31e900bea60dd38b56127b4c057997ee1a1fea501fd",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/diagnostic_probe.cpp",
+      "relative_path": "diagnostic_probe.cpp",
+      "bytes": 2511,
+      "sha256": "fed0c3254afdf9f4fcdd4d56e629d8ea2c68303081f91fd4496521123aa61ba3",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/experiment-console.txt",
+      "relative_path": "experiment-console.txt",
+      "bytes": 403,
+      "sha256": "723fcb50dbf2650ed2af61b725af2bcaed1473a6a189730efcdc1a605553c327",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/final-context.json",
+      "relative_path": "final-context.json",
+      "bytes": 349,
+      "sha256": "cbbf0d46ba63fb8890d1422794521ca4092e06fefcc9c019223f659f174c2440",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/gram-audit-compile-raw.txt",
+      "relative_path": "gram-audit-compile-raw.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/gram-audit-compile.txt",
+      "relative_path": "gram-audit-compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/gram-audit-result-raw.txt",
+      "relative_path": "gram-audit-result-raw.txt",
+      "bytes": 157,
+      "sha256": "fb28f5ae4038d5ba371ce827d054f71892b466c8fe7fd613d6b8e9c15dbf8f53",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/gram-audit-result.txt",
+      "relative_path": "gram-audit-result.txt",
+      "bytes": 158,
+      "sha256": "a703ed6bd244a8b11e55f79fd382d3e62abf17277ef21a5a18899e15023b7320",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/gram_audit",
+      "relative_path": "gram_audit",
+      "bytes": 50880,
+      "sha256": "a9dc410f642b2b337644d2d08eabc6094d54484d66ca67c094dd7b0e7450db27",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/gram_audit.cpp",
+      "relative_path": "gram_audit.cpp",
+      "bytes": 3009,
+      "sha256": "4a0e9347716bf23cddd82d29f29138564e7d8cbb7eb24317e598e70bb7bf901e",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/implement_observed_f0.py",
+      "relative_path": "implement_observed_f0.py",
+      "bytes": 9733,
+      "sha256": "96bbfefde4aa4f9b72e69744548195724ea2e0c5dee089abe2a1def2d85d2f43",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/new132-scores.json",
+      "relative_path": "new132-scores.json",
+      "bytes": 449731,
+      "sha256": "6707e3af6a9a10e6ef592569d967e4bdc2dd7455ab01a8eb3300a4430819a02e",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/new330-scores.json",
+      "relative_path": "new330-scores.json",
+      "bytes": 689727,
+      "sha256": "2018c4d3cd38d8d652299927a4a059e140c684c024454f1b06820eda7c6aa980",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Core/MidiEngine.cpp",
+      "relative_path": "observed-f0/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Core/MidiEngine.h",
+      "relative_path": "observed-f0/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Core/MusicData.cpp",
+      "relative_path": "observed-f0/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Core/MusicData.h",
+      "relative_path": "observed-f0/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Core/README.md",
+      "relative_path": "observed-f0/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "observed-f0/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Core/Reference/ChordInput.h",
+      "relative_path": "observed-f0/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Core/Reference/ChordNames.h",
+      "relative_path": "observed-f0/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "observed-f0/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "observed-f0/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "observed-f0/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "observed-f0/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "observed-f0/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "observed-f0/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/InputDynamics.h",
+      "relative_path": "observed-f0/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "observed-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "observed-f0/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "observed-f0/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "observed-f0/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "observed-f0/Source/Pitch/PitchDetector.cpp",
+      "bytes": 62151,
+      "sha256": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/PitchDetector.h",
+      "relative_path": "observed-f0/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "observed-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "observed-f0/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/README.md",
+      "relative_path": "observed-f0/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "observed-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 27341,
+      "sha256": "7de5a5209d0c6295987b4c093c2b92c90ebfc2fdecd1a29524d5821390b44df8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "observed-f0/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3299,
+      "sha256": "24a32fdf1bb59dd356a0d1f6bd20adb7dffda1a49399aee03377364ce13f4d56",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "observed-f0/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "observed-f0/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/YinEstimator.h",
+      "relative_path": "observed-f0/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/Pitch/YinEstimator.md",
+      "relative_path": "observed-f0/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/PluginEditor.cpp",
+      "relative_path": "observed-f0/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/PluginEditor.h",
+      "relative_path": "observed-f0/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/PluginProcessor.cpp",
+      "relative_path": "observed-f0/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/Source/PluginProcessor.h",
+      "relative_path": "observed-f0/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/capture132",
+      "relative_path": "observed-f0/capture132",
+      "bytes": 179904,
+      "sha256": "a0bec4b9f6621677cabfb7e8f4a147757a612c6e86385ffeb5b26028162c3491",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/capture132-cold",
+      "relative_path": "observed-f0/capture132-cold",
+      "bytes": 179912,
+      "sha256": "41edf94f19e877e62685572a136c38d0ecbf959d2bb25d167f84f4e93eb16763",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/capture330",
+      "relative_path": "observed-f0/capture330",
+      "bytes": 179776,
+      "sha256": "169f6709d6800c98e6a9a708ef23efd86f3849aa3ca6ec0623a59073c168ec86",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/capture330-cold",
+      "relative_path": "observed-f0/capture330-cold",
+      "bytes": 179784,
+      "sha256": "b742dd55d964b28caba36907e77394487995ba9e5c3bdddcd389c61724b33d88",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/cold132/events.csv",
+      "relative_path": "observed-f0/cold132/events.csv",
+      "bytes": 20618,
+      "sha256": "bcd4cd1a311b61081bdecf6154d4282d038e2a6033615bf4f697db563c939265",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/cold132/measurement-manifest.json",
+      "relative_path": "observed-f0/cold132/measurement-manifest.json",
+      "bytes": 5625,
+      "sha256": "dd9a1e32817912df64662d6452466f1a586cc2e5419fd22a6b41df693ed6fff8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/cold132/timing.csv",
+      "relative_path": "observed-f0/cold132/timing.csv",
+      "bytes": 6266,
+      "sha256": "e7044e2fe6c745e7bc06ce6e0b35f5a4cd0ce891cf2adbfefb960c435ba7898d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/cold132-link.txt",
+      "relative_path": "observed-f0/cold132-link.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/cold330/events.csv",
+      "relative_path": "observed-f0/cold330/events.csv",
+      "bytes": 28406,
+      "sha256": "e8e0185240f5129ed7a191121f766d63dc2de33d8cade36d3c0da42d49930f23",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/cold330/measurement-manifest.json",
+      "relative_path": "observed-f0/cold330/measurement-manifest.json",
+      "bytes": 5625,
+      "sha256": "2a8c161cd88f752e7d8b66201c8313ce90c615392046bcbd8ba8297f05241048",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/cold330/timing.csv",
+      "relative_path": "observed-f0/cold330/timing.csv",
+      "bytes": 15417,
+      "sha256": "a6fa75543b1fa5cfd5511f244ae011ca3cd1f476b9ee0ccefd4b581f73a15fc9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/cold330-link.txt",
+      "relative_path": "observed-f0/cold330-link.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/ArticulationTracker.o",
+      "relative_path": "observed-f0/objects/ArticulationTracker.o",
+      "bytes": 12544,
+      "sha256": "5a475ce781c100f7512f37a84c4ef91849cc0f94b0c4991750f0d92d71050bc9",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/EarlyEstimator.o",
+      "relative_path": "observed-f0/objects/EarlyEstimator.o",
+      "bytes": 10832,
+      "sha256": "96ebfbed3674ee0e1db2b161d911e6d9102cce2b0bedbcf4c42e9857ea8a408d",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/InputDynamics.o",
+      "relative_path": "observed-f0/objects/InputDynamics.o",
+      "bytes": 25640,
+      "sha256": "dbeac28a8d5e7e34fdf7da6a12d3bbcb36435d7203b19a7388ea797914d38894",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/NoiseConditioner.o",
+      "relative_path": "observed-f0/objects/NoiseConditioner.o",
+      "bytes": 22200,
+      "sha256": "7f99d518daebc5f0d6414c605d910ef8f03d647bf3ab454b03496bf1c732a688",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/PitchDetector.o",
+      "relative_path": "observed-f0/objects/PitchDetector.o",
+      "bytes": 66320,
+      "sha256": "be5501cfe825528ddec16fca9c8c39ca22e82bdb5dca46b7823e100878fa5597",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/PolyphonicTracker.o",
+      "relative_path": "observed-f0/objects/PolyphonicTracker.o",
+      "bytes": 48360,
+      "sha256": "daa79ba0a4c711a88b07d5460aa9b24be21e5885ec3f1fa57698cbd60053ead1",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/TimeDomainPursuit.o",
+      "relative_path": "observed-f0/objects/TimeDomainPursuit.o",
+      "bytes": 36336,
+      "sha256": "40ef30a6dec97a45aa4d893f8c5ae8abf429b205136618598c958f8abf24dc07",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/YinEstimator.o",
+      "relative_path": "observed-f0/objects/YinEstimator.o",
+      "bytes": 24904,
+      "sha256": "42f1d9e8d6e57304f730eee1d0236ba92e36d3200bd39cdd7193bc856594f5e8",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/objects/compile.txt",
+      "relative_path": "observed-f0/objects/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/runs132/events.csv",
+      "relative_path": "observed-f0/runs132/events.csv",
+      "bytes": 20778,
+      "sha256": "c5a8bf519ea362f3f0a8962c457234893926173946fc0c2de906b24d25b1f3a0",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/runs132/measurement-manifest.json",
+      "relative_path": "observed-f0/runs132/measurement-manifest.json",
+      "bytes": 5662,
+      "sha256": "4d9ade4217e541d448c382a7615b54ea6c8971257800e4dfa94889f11aa6248b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/runs132/measurement-manifest.warm-sequence-original.json",
+      "relative_path": "observed-f0/runs132/measurement-manifest.warm-sequence-original.json",
+      "bytes": 5015,
+      "sha256": "bf7d9d9535011d3276fe8668fffa9406561e6f1dc84d613ab8dbecc9db5e3697",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/runs132/timing.csv",
+      "relative_path": "observed-f0/runs132/timing.csv",
+      "bytes": 6267,
+      "sha256": "7a7b8f7bd09fa6354775a72667c2e8f7b72693753646273f09bd51a21776b727",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/runs330/events.csv",
+      "relative_path": "observed-f0/runs330/events.csv",
+      "bytes": 28266,
+      "sha256": "f42a0660b79127a34454b21640f2a8744e21556ece32983b41f72baf22a4d63c",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/runs330/measurement-manifest.json",
+      "relative_path": "observed-f0/runs330/measurement-manifest.json",
+      "bytes": 5662,
+      "sha256": "bc792ea52ab49b1569af3a1e880df30470724111bb375952b2995a955c7ad316",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/runs330/measurement-manifest.warm-sequence-original.json",
+      "relative_path": "observed-f0/runs330/measurement-manifest.warm-sequence-original.json",
+      "bytes": 5015,
+      "sha256": "b525b5821a31fd5cbd56cfbcc85a0ccd5108e7f5026e853b11e05ebe9bf42922",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/runs330/timing.csv",
+      "relative_path": "observed-f0/runs330/timing.csv",
+      "bytes": 15433,
+      "sha256": "6778aa55c59e01e3d90f0af0b090b9914e8252b849010bb6c48323aa7da0bf49",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0/source-inventory.json",
+      "relative_path": "observed-f0/source-inventory.json",
+      "bytes": 3723,
+      "sha256": "a1b42439fef86186f53a5ded1f25b584316f5edc9fd8dccae9f18ad63cc74950",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0-cold132-scores.json",
+      "relative_path": "observed-f0-cold132-scores.json",
+      "bytes": 448556,
+      "sha256": "279d614c185981aa6530c42d4075bef77464ad9ec001750099665fbddcf4bec5",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/observed-f0-cold330-scores.json",
+      "relative_path": "observed-f0-cold330-scores.json",
+      "bytes": 690195,
+      "sha256": "5baca60f7402964ee29205a4cb29a83d3d6cba050b5bb1dd57f05ce44d139ae4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/old-held132-scores.json",
+      "relative_path": "old-held132-scores.json",
+      "bytes": 456899,
+      "sha256": "3e2a9c98bb79fb47fc75960d43c726c2c6bfadf552b4c76073f9c5eef23b85f0",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/old-held330-scores.json",
+      "relative_path": "old-held330-scores.json",
+      "bytes": 796582,
+      "sha256": "cda6c7413a06e80c8e68e633d002537ffa51be3e25acb1adf5b5cd9768494b35",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Core/MidiEngine.cpp",
+      "relative_path": "profile-base/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Core/MidiEngine.h",
+      "relative_path": "profile-base/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Core/MusicData.cpp",
+      "relative_path": "profile-base/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Core/MusicData.h",
+      "relative_path": "profile-base/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Core/README.md",
+      "relative_path": "profile-base/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "profile-base/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Core/Reference/ChordInput.h",
+      "relative_path": "profile-base/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Core/Reference/ChordNames.h",
+      "relative_path": "profile-base/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "profile-base/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "profile-base/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "profile-base/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "profile-base/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "profile-base/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "profile-base/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/InputDynamics.h",
+      "relative_path": "profile-base/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "profile-base/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "profile-base/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "profile-base/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "profile-base/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "profile-base/Source/Pitch/PitchDetector.cpp",
+      "bytes": 60621,
+      "sha256": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/PitchDetector.h",
+      "relative_path": "profile-base/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "profile-base/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "profile-base/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/README.md",
+      "relative_path": "profile-base/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "profile-base/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 19688,
+      "sha256": "a113017eb7a3ad79a5672c2166999b87101cb95b5ce760ecc2249d924865b12e",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "profile-base/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3203,
+      "sha256": "80051823f68f53c8a8b22759417cba709bed09444df7d0a6bc870b0b4b587e25",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "profile-base/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "profile-base/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/YinEstimator.h",
+      "relative_path": "profile-base/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/Pitch/YinEstimator.md",
+      "relative_path": "profile-base/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/PluginEditor.cpp",
+      "relative_path": "profile-base/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/PluginEditor.h",
+      "relative_path": "profile-base/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/PluginProcessor.cpp",
+      "relative_path": "profile-base/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/Source/PluginProcessor.h",
+      "relative_path": "profile-base/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/capture",
+      "relative_path": "profile-base/capture",
+      "bytes": 174952,
+      "sha256": "7e9d68a23a5f34dbd9e336652fe235f18e51b54fc2e2feab10acf2768fcce4cd",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/compile.txt",
+      "relative_path": "profile-base/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/events.csv",
+      "relative_path": "profile-base/events.csv",
+      "bytes": 5992,
+      "sha256": "b0bfda118f0690659f4f72fbbde3f0980b8445274ab36328fe0498af7b1c17e3",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/manifest.json",
+      "relative_path": "profile-base/manifest.json",
+      "bytes": 4508,
+      "sha256": "382fe220848f15e08434136ec42ad8861c84df580082b13cfa3afcfefc14c317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-base/profile.csv",
+      "relative_path": "profile-base/profile.csv",
+      "bytes": 2813,
+      "sha256": "29a749e998bf2bb72f0c604f12194fe5b0b2f4a7d9785ef29df392109eb9adf1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Core/MidiEngine.cpp",
+      "relative_path": "profile-cold-base/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Core/MidiEngine.h",
+      "relative_path": "profile-cold-base/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Core/MusicData.cpp",
+      "relative_path": "profile-cold-base/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Core/MusicData.h",
+      "relative_path": "profile-cold-base/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Core/README.md",
+      "relative_path": "profile-cold-base/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "profile-cold-base/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Core/Reference/ChordInput.h",
+      "relative_path": "profile-cold-base/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Core/Reference/ChordNames.h",
+      "relative_path": "profile-cold-base/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "profile-cold-base/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "profile-cold-base/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "profile-cold-base/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/InputDynamics.h",
+      "relative_path": "profile-cold-base/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "profile-cold-base/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "profile-cold-base/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/PitchDetector.cpp",
+      "bytes": 60621,
+      "sha256": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/PitchDetector.h",
+      "relative_path": "profile-cold-base/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "profile-cold-base/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/README.md",
+      "relative_path": "profile-cold-base/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 19688,
+      "sha256": "a113017eb7a3ad79a5672c2166999b87101cb95b5ce760ecc2249d924865b12e",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "profile-cold-base/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3203,
+      "sha256": "80051823f68f53c8a8b22759417cba709bed09444df7d0a6bc870b0b4b587e25",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "profile-cold-base/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "profile-cold-base/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/YinEstimator.h",
+      "relative_path": "profile-cold-base/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/Pitch/YinEstimator.md",
+      "relative_path": "profile-cold-base/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/PluginEditor.cpp",
+      "relative_path": "profile-cold-base/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/PluginEditor.h",
+      "relative_path": "profile-cold-base/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/PluginProcessor.cpp",
+      "relative_path": "profile-cold-base/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/Source/PluginProcessor.h",
+      "relative_path": "profile-cold-base/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/capture",
+      "relative_path": "profile-cold-base/capture",
+      "bytes": 174960,
+      "sha256": "6466f28e831551ed1a2e0abf24590be992e428615f1c772a19ac8231b121abe8",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/compile.txt",
+      "relative_path": "profile-cold-base/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/events.csv",
+      "relative_path": "profile-cold-base/events.csv",
+      "bytes": 4990,
+      "sha256": "587f221a5356e59ca44ea9594fbef54b4964c9769b689136fa1b4587cf3b5298",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/manifest.json",
+      "relative_path": "profile-cold-base/manifest.json",
+      "bytes": 4608,
+      "sha256": "4c495b0ac03bb8df08cc5ad42308392e2b7bf43aa0b3775ba57dba49b82fe487",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-base/profile.csv",
+      "relative_path": "profile-cold-base/profile.csv",
+      "bytes": 2652,
+      "sha256": "b1a85242e4e1ea56376ce74b9e19cb84f2817b5c0d8d6f26d185bd93209d597b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-console.txt",
+      "relative_path": "profile-cold-console.txt",
+      "bytes": 137,
+      "sha256": "ce7ecb67e8ec195103fd83fba741d3910c04093cc4e0bd3bf4c711c8a6802267",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-event-parity.json",
+      "relative_path": "profile-cold-event-parity.json",
+      "bytes": 263,
+      "sha256": "195f12ae0613b209485e2bda2f9cbd97d13f1f98afce470609574049c527aec4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Core/MidiEngine.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Core/MidiEngine.h",
+      "relative_path": "profile-cold-observed-f0/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Core/MusicData.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Core/MusicData.h",
+      "relative_path": "profile-cold-observed-f0/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Core/README.md",
+      "relative_path": "profile-cold-observed-f0/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "profile-cold-observed-f0/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Core/Reference/ChordInput.h",
+      "relative_path": "profile-cold-observed-f0/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Core/Reference/ChordNames.h",
+      "relative_path": "profile-cold-observed-f0/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/InputDynamics.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/PitchDetector.cpp",
+      "bytes": 62151,
+      "sha256": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/PitchDetector.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/README.md",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 28317,
+      "sha256": "59f559dd83658fb3c55c68fc34df3c42f1d50b1bc31aa4a4a4c97f901de4e60f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3505,
+      "sha256": "9b7c73c9379d45458ad9ccee27883c493351a2620c28b0a80a19308a5b02a068",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/YinEstimator.h",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/Pitch/YinEstimator.md",
+      "relative_path": "profile-cold-observed-f0/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/PluginEditor.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/PluginEditor.h",
+      "relative_path": "profile-cold-observed-f0/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/PluginProcessor.cpp",
+      "relative_path": "profile-cold-observed-f0/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/Source/PluginProcessor.h",
+      "relative_path": "profile-cold-observed-f0/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/capture",
+      "relative_path": "profile-cold-observed-f0/capture",
+      "bytes": 184384,
+      "sha256": "c38dbfba560c8a6141c83253d16b5115e48a71ad2a37a61f0e69d6b00607a538",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/compile.txt",
+      "relative_path": "profile-cold-observed-f0/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/events.csv",
+      "relative_path": "profile-cold-observed-f0/events.csv",
+      "bytes": 5196,
+      "sha256": "012fc5c563a3125fa051b4aca4931daf94f9df370084cf95fc1d62d6580a9c77",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/manifest.json",
+      "relative_path": "profile-cold-observed-f0/manifest.json",
+      "bytes": 4615,
+      "sha256": "f7539a9a676a64c287aeb0b891ae165f5269f1509ebd3b103d77d1334cba0331",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-observed-f0/profile.csv",
+      "relative_path": "profile-cold-observed-f0/profile.csv",
+      "bytes": 3448,
+      "sha256": "11775735b3cd9be06aa17558e4cf9deba42ded94ddf41fb0cf4a3c2412e1e22c",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Core/MidiEngine.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Core/MidiEngine.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Core/MusicData.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Core/MusicData.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Core/README.md",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Core/Reference/ChordInput.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Core/Reference/ChordNames.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/InputDynamics.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/PitchDetector.cpp",
+      "bytes": 62151,
+      "sha256": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/PitchDetector.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/README.md",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 29689,
+      "sha256": "119e5422c1a4bd2b137a36b7f723e25da02dacc65cdc49e79cb538f75725c7a8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3505,
+      "sha256": "9b7c73c9379d45458ad9ccee27883c493351a2620c28b0a80a19308a5b02a068",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/YinEstimator.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/Pitch/YinEstimator.md",
+      "relative_path": "profile-cold-uncertainty-f0/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/PluginEditor.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/PluginEditor.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/PluginProcessor.cpp",
+      "relative_path": "profile-cold-uncertainty-f0/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/Source/PluginProcessor.h",
+      "relative_path": "profile-cold-uncertainty-f0/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/capture",
+      "relative_path": "profile-cold-uncertainty-f0/capture",
+      "bytes": 184472,
+      "sha256": "25f559859caff31bfe7ff8cc23fe453cead3e50a075c0ef9c30f8869e5730f0b",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/compile.txt",
+      "relative_path": "profile-cold-uncertainty-f0/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/events.csv",
+      "relative_path": "profile-cold-uncertainty-f0/events.csv",
+      "bytes": 6354,
+      "sha256": "49a0d724ed91641185a246bd8405835bf6531489ed92f0327b971207e0c84dbc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/manifest.json",
+      "relative_path": "profile-cold-uncertainty-f0/manifest.json",
+      "bytes": 4618,
+      "sha256": "6b50398590f646f67e089162b2fc3c9284b6b0f721ac37b6d5b9b85beb5ef625",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-cold-uncertainty-f0/profile.csv",
+      "relative_path": "profile-cold-uncertainty-f0/profile.csv",
+      "bytes": 3462,
+      "sha256": "aa8f407fc103c5d83a021c9f67d1d3b0dd0912c7415296eeeb6a4cd6abd5a03f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-console.txt",
+      "relative_path": "profile-console.txt",
+      "bytes": 87,
+      "sha256": "3322917492d06f44ffc371e96597e3e3d729afa303b2f535ae02050254a9aa6b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Core/MidiEngine.cpp",
+      "relative_path": "profile-observed-f0/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Core/MidiEngine.h",
+      "relative_path": "profile-observed-f0/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Core/MusicData.cpp",
+      "relative_path": "profile-observed-f0/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Core/MusicData.h",
+      "relative_path": "profile-observed-f0/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Core/README.md",
+      "relative_path": "profile-observed-f0/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "profile-observed-f0/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Core/Reference/ChordInput.h",
+      "relative_path": "profile-observed-f0/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Core/Reference/ChordNames.h",
+      "relative_path": "profile-observed-f0/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "profile-observed-f0/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/InputDynamics.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/PitchDetector.cpp",
+      "bytes": 62151,
+      "sha256": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/PitchDetector.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/README.md",
+      "relative_path": "profile-observed-f0/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 28317,
+      "sha256": "59f559dd83658fb3c55c68fc34df3c42f1d50b1bc31aa4a4a4c97f901de4e60f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3505,
+      "sha256": "9b7c73c9379d45458ad9ccee27883c493351a2620c28b0a80a19308a5b02a068",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "profile-observed-f0/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "profile-observed-f0/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/YinEstimator.h",
+      "relative_path": "profile-observed-f0/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/Pitch/YinEstimator.md",
+      "relative_path": "profile-observed-f0/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/PluginEditor.cpp",
+      "relative_path": "profile-observed-f0/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/PluginEditor.h",
+      "relative_path": "profile-observed-f0/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/PluginProcessor.cpp",
+      "relative_path": "profile-observed-f0/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/Source/PluginProcessor.h",
+      "relative_path": "profile-observed-f0/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/capture",
+      "relative_path": "profile-observed-f0/capture",
+      "bytes": 184376,
+      "sha256": "8db03b426227e3deaaf66c241cf1441dca3d66e4ef7aeeb064d4f91895efddd0",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/compile.txt",
+      "relative_path": "profile-observed-f0/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/events.csv",
+      "relative_path": "profile-observed-f0/events.csv",
+      "bytes": 5873,
+      "sha256": "f70b6564cd3286645a5d20d0cbe99e0c947b0f3b5860a26f9331e1d39934d9b2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/manifest.json",
+      "relative_path": "profile-observed-f0/manifest.json",
+      "bytes": 4515,
+      "sha256": "fbc61e27f1b22c0e2f2b37b56c3e2d0fbc93f4d00d034a1fb4bbbe4823ad2422",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile-observed-f0/profile.csv",
+      "relative_path": "profile-observed-f0/profile.csv",
+      "bytes": 3889,
+      "sha256": "b4525fa9d07ac68fb28104762ee0e2f3f3bb8d1f309ffa8d4982b786cc22b1bf",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile_cpu_probe.cpp",
+      "relative_path": "profile_cpu_probe.cpp",
+      "bytes": 3213,
+      "sha256": "1f5b3508e48faf6c4680ba23f6eead8c6f7c7c002dd7fb89e156d0ed000d404c",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile_cpu_probe_cold.cpp",
+      "relative_path": "profile_cpu_probe_cold.cpp",
+      "bytes": 3240,
+      "sha256": "a34b0c8c155aeab192ee6976f131634eef0bc3b8493a9e83b4967cc0ba3cbae4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile_thread_cpu.py",
+      "relative_path": "profile_thread_cpu.py",
+      "bytes": 6870,
+      "sha256": "3daceb3b8880d7a77970e3465acb89db0d2490603725013990ba7ab3e40b7942",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/profile_thread_cpu_cold.py",
+      "relative_path": "profile_thread_cpu_cold.py",
+      "bytes": 7227,
+      "sha256": "78d241f70a557becb0195fa7b0a646acf0767791e454075e3172212d61035353",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/released-e235-330-scores.json",
+      "relative_path": "released-e235-330-scores.json",
+      "bytes": 698617,
+      "sha256": "f819331d81f925e087af06e7ea3201b627aa537bcaf7ff4c595a1d08cd3ac51c",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/run_cold_frequency_experiment.py",
+      "relative_path": "run_cold_frequency_experiment.py",
+      "bytes": 3071,
+      "sha256": "f02bf1412889a33059409fcc618d7f89c665b94f2675f84d9b89068394f5fb24",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/run_frequency_experiment.py",
+      "relative_path": "run_frequency_experiment.py",
+      "bytes": 4641,
+      "sha256": "e5cb06fe152353a6fbcbf1133c6cf05e783783036855f606f03ecc2c114faef2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/run_uncertainty_experiment.py",
+      "relative_path": "run_uncertainty_experiment.py",
+      "bytes": 4637,
+      "sha256": "45be5c32e3a2a290282b739ac3c9143b9ed9b9a6f1ebf85917370d753a0e48cf",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/score_frequency_experiment.py",
+      "relative_path": "score_frequency_experiment.py",
+      "bytes": 4252,
+      "sha256": "d8ffff851062d1293069b17d525e8cef873ccb62e46c977e2a5b9dc1d10d4708",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/scores-summary.txt",
+      "relative_path": "scores-summary.txt",
+      "bytes": 7386,
+      "sha256": "c40cefc1f902e2c4bef8a87326f2a9b48a3c8db8f08ed28caf3bf4b8f67fc98d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/scores.json",
+      "relative_path": "scores.json",
+      "bytes": 2616757,
+      "sha256": "26c967f456646096211edaa5fac535412aa3f17926c1fcc9b1bf05bb7a0f203b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-cold132-scores.json",
+      "relative_path": "uncertainty-cold132-scores.json",
+      "bytes": 457953,
+      "sha256": "61d7d8aef275bf5827dcc22e0e12a35d5609d968acc5a0c71f6a57f6e6e13a8a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-cold330-false-lower-breakdown.json",
+      "relative_path": "uncertainty-cold330-false-lower-breakdown.json",
+      "bytes": 12735,
+      "sha256": "96cfc32147b565b71c74da23c46ad8b4626b0c20e232e760d508174f3a6ab2c6",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-cold330-scores.json",
+      "relative_path": "uncertainty-cold330-scores.json",
+      "bytes": 711377,
+      "sha256": "06d9f5b2f02ae5d425bf72dfdb61a274564c42d7a40871fecf053b5df79786e5",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-experiment-console.txt",
+      "relative_path": "uncertainty-experiment-console.txt",
+      "bytes": 214,
+      "sha256": "1162245fb2f3edf673269e41b6f2cacf708a3dd191f62dba3ceb0b205b6832a8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Core/MidiEngine.cpp",
+      "relative_path": "uncertainty-f0/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Core/MidiEngine.h",
+      "relative_path": "uncertainty-f0/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Core/MusicData.cpp",
+      "relative_path": "uncertainty-f0/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Core/MusicData.h",
+      "relative_path": "uncertainty-f0/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Core/README.md",
+      "relative_path": "uncertainty-f0/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "uncertainty-f0/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Core/Reference/ChordInput.h",
+      "relative_path": "uncertainty-f0/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Core/Reference/ChordNames.h",
+      "relative_path": "uncertainty-f0/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "uncertainty-f0/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/InputDynamics.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/PitchDetector.cpp",
+      "bytes": 62151,
+      "sha256": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/PitchDetector.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/README.md",
+      "relative_path": "uncertainty-f0/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 28713,
+      "sha256": "4065814a63c9db3fffb1e486c18b5367802bf85b3ed41657ed97857707c44b09",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3299,
+      "sha256": "24a32fdf1bb59dd356a0d1f6bd20adb7dffda1a49399aee03377364ce13f4d56",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "uncertainty-f0/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "uncertainty-f0/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/YinEstimator.h",
+      "relative_path": "uncertainty-f0/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/Pitch/YinEstimator.md",
+      "relative_path": "uncertainty-f0/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/PluginEditor.cpp",
+      "relative_path": "uncertainty-f0/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/PluginEditor.h",
+      "relative_path": "uncertainty-f0/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/PluginProcessor.cpp",
+      "relative_path": "uncertainty-f0/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/Source/PluginProcessor.h",
+      "relative_path": "uncertainty-f0/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/capture132",
+      "relative_path": "uncertainty-f0/capture132",
+      "bytes": 179992,
+      "sha256": "efc8213ec95ed95d2170dfc13adb867081b440f7a4f0dfbab7418340e6f99ee5",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/capture132-cold",
+      "relative_path": "uncertainty-f0/capture132-cold",
+      "bytes": 180000,
+      "sha256": "d4fa06bb1938a1f802e9346ad358a65837433ebf91016d77f81b72bd36b0d80f",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/capture330",
+      "relative_path": "uncertainty-f0/capture330",
+      "bytes": 179864,
+      "sha256": "5ac607679b68956eeec1fd7eebd508a4d425468501d9313b8c52ed470824b548",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/capture330-cold",
+      "relative_path": "uncertainty-f0/capture330-cold",
+      "bytes": 179872,
+      "sha256": "4ee0d474171cf99c87193a17db716ec259870dcdb64d9722cb6386961ef02ca4",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/cold132/events.csv",
+      "relative_path": "uncertainty-f0/cold132/events.csv",
+      "bytes": 21662,
+      "sha256": "ae3f278c4ee45afe4ec8771e440a889138abbb8316f2a0310f0aea46a06c86f9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/cold132/measurement-manifest.json",
+      "relative_path": "uncertainty-f0/cold132/measurement-manifest.json",
+      "bytes": 5667,
+      "sha256": "2a2b9b043d1162c6ea3592552073861b68b998fbb6e722e1cd3ce74fd4de2acd",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/cold132/timing.csv",
+      "relative_path": "uncertainty-f0/cold132/timing.csv",
+      "bytes": 6250,
+      "sha256": "821e340adc37cd3051c1ebccbc67481686879b5fd101dbd67e87aff4ecb15ff7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/cold132-link.txt",
+      "relative_path": "uncertainty-f0/cold132-link.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/cold330/events.csv",
+      "relative_path": "uncertainty-f0/cold330/events.csv",
+      "bytes": 30102,
+      "sha256": "e6b267d336f17ad26fb320d42b9aacca6c8eca29f24c561f0f34b0a4da349a95",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/cold330/measurement-manifest.json",
+      "relative_path": "uncertainty-f0/cold330/measurement-manifest.json",
+      "bytes": 5667,
+      "sha256": "18aa17686edc855466d79e462e3a2a690579fb4a95507a405651db5555233cc6",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/cold330/timing.csv",
+      "relative_path": "uncertainty-f0/cold330/timing.csv",
+      "bytes": 15418,
+      "sha256": "2af07541af5c4881b340a93801a2a359761cad8c990edc61cdc8320fdaff6ae5",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/cold330-link.txt",
+      "relative_path": "uncertainty-f0/cold330-link.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/ArticulationTracker.o",
+      "relative_path": "uncertainty-f0/objects/ArticulationTracker.o",
+      "bytes": 12544,
+      "sha256": "5a475ce781c100f7512f37a84c4ef91849cc0f94b0c4991750f0d92d71050bc9",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/EarlyEstimator.o",
+      "relative_path": "uncertainty-f0/objects/EarlyEstimator.o",
+      "bytes": 10832,
+      "sha256": "96ebfbed3674ee0e1db2b161d911e6d9102cce2b0bedbcf4c42e9857ea8a408d",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/InputDynamics.o",
+      "relative_path": "uncertainty-f0/objects/InputDynamics.o",
+      "bytes": 25640,
+      "sha256": "dbeac28a8d5e7e34fdf7da6a12d3bbcb36435d7203b19a7388ea797914d38894",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/NoiseConditioner.o",
+      "relative_path": "uncertainty-f0/objects/NoiseConditioner.o",
+      "bytes": 22200,
+      "sha256": "7f99d518daebc5f0d6414c605d910ef8f03d647bf3ab454b03496bf1c732a688",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/PitchDetector.o",
+      "relative_path": "uncertainty-f0/objects/PitchDetector.o",
+      "bytes": 66320,
+      "sha256": "be5501cfe825528ddec16fca9c8c39ca22e82bdb5dca46b7823e100878fa5597",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/PolyphonicTracker.o",
+      "relative_path": "uncertainty-f0/objects/PolyphonicTracker.o",
+      "bytes": 48360,
+      "sha256": "daa79ba0a4c711a88b07d5460aa9b24be21e5885ec3f1fa57698cbd60053ead1",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/TimeDomainPursuit.o",
+      "relative_path": "uncertainty-f0/objects/TimeDomainPursuit.o",
+      "bytes": 37448,
+      "sha256": "ab60e11f91849e8e5f68518f30154aaad35ceaa1589efae2a8fe55ca897fc156",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/YinEstimator.o",
+      "relative_path": "uncertainty-f0/objects/YinEstimator.o",
+      "bytes": 24904,
+      "sha256": "42f1d9e8d6e57304f730eee1d0236ba92e36d3200bd39cdd7193bc856594f5e8",
+      "included": false,
+      "exclusion": "Executable/object/generated binary excluded; exact original hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/objects/compile.txt",
+      "relative_path": "uncertainty-f0/objects/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs132/events.csv",
+      "relative_path": "uncertainty-f0/runs132/events.csv",
+      "bytes": 22037,
+      "sha256": "2515218fb00247c8f02434c51563bf57335a5ea9f15efe7214bad2c364211c67",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs132/measurement-manifest.json",
+      "relative_path": "uncertainty-f0/runs132/measurement-manifest.json",
+      "bytes": 6318,
+      "sha256": "24fc81229757dcc4bd0ab903ec73aec3b22d6d9a21c6678ec723929e0abad25b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs132/measurement-manifest.original-label.json",
+      "relative_path": "uncertainty-f0/runs132/measurement-manifest.original-label.json",
+      "bytes": 4973,
+      "sha256": "a4b7846588f1ac56d2e691accff2946006ee10bc2586cb901574cd74ee309360",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs132/measurement-manifest.warm-sequence-original.json",
+      "relative_path": "uncertainty-f0/runs132/measurement-manifest.warm-sequence-original.json",
+      "bytes": 5671,
+      "sha256": "ff8c1394dffbf032f4642a03a77055a35192f7e321f89d6e9f4d7aa3465627c8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs132/timing.csv",
+      "relative_path": "uncertainty-f0/runs132/timing.csv",
+      "bytes": 6260,
+      "sha256": "c166b9407f2309296a219b34aa09ba35c849e5faabbefb6c9e51b5298b7dc4a0",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs330/events.csv",
+      "relative_path": "uncertainty-f0/runs330/events.csv",
+      "bytes": 29718,
+      "sha256": "36bacd017e159882ddfbf601168d6d9a33789ff8a004eb7a23aecf7b0d6b7197",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs330/measurement-manifest.json",
+      "relative_path": "uncertainty-f0/runs330/measurement-manifest.json",
+      "bytes": 6318,
+      "sha256": "ece8952e3a1540fcfef83695fe33f063aa034d8b8690ddb3e39da4eee8ed25d7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs330/measurement-manifest.original-label.json",
+      "relative_path": "uncertainty-f0/runs330/measurement-manifest.original-label.json",
+      "bytes": 4973,
+      "sha256": "5a7f6aadaea701cadbd4e7b531b4421a965418aedf257cb11aa082e458e69937",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs330/measurement-manifest.warm-sequence-original.json",
+      "relative_path": "uncertainty-f0/runs330/measurement-manifest.warm-sequence-original.json",
+      "bytes": 5671,
+      "sha256": "d4bdb76e119e6a34761a0ff07af83549ffbde39ccc25122cfa9353d23538b0d2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/runs330/timing.csv",
+      "relative_path": "uncertainty-f0/runs330/timing.csv",
+      "bytes": 15420,
+      "sha256": "047214793adbc6d008014b9af92d313623b4f1d9ca88ae11c9a964654e8a7afa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0/source-inventory.json",
+      "relative_path": "uncertainty-f0/source-inventory.json",
+      "bytes": 3723,
+      "sha256": "a51e2d7f4e1babcd568e08b8e2365c5a35f0396f0997c98326988d19e612f784",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0-cold132-scores.json",
+      "relative_path": "uncertainty-f0-cold132-scores.json",
+      "bytes": 457953,
+      "sha256": "61d7d8aef275bf5827dcc22e0e12a35d5609d968acc5a0c71f6a57f6e6e13a8a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty-f0-cold330-scores.json",
+      "relative_path": "uncertainty-f0-cold330-scores.json",
+      "bytes": 711377,
+      "sha256": "06d9f5b2f02ae5d425bf72dfdb61a274564c42d7a40871fecf053b5df79786e5",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty132-scores.json",
+      "relative_path": "uncertainty132-scores.json",
+      "bytes": 462174,
+      "sha256": "7f77c27ce27d5deb1bc041eb705713b5715533ada26a590100fbb2b7af724ba2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0/uncertainty330-scores.json",
+      "relative_path": "uncertainty330-scores.json",
+      "bytes": 706179,
+      "sha256": "96a9984d3a8436d289b276a6bfae8bdf7ca3e7fed2da678f9166925eb244b7cc",
+      "included": true
+    }
+  ],
+  "actual_complete_source_snapshots_sha256": {
+    "base": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "ea6599dcd2e21046de57e7ddc92bb66779f31037508dcf3d57c53e29f0d15ebd",
+      "Source/Pitch/TimeDomainPursuit.h": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    },
+    "diagnostic-f0": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "7ffa5d220813f94217d41dfe9dc5481fc2e253b4e060edf6aa662670ae532930",
+      "Source/Pitch/TimeDomainPursuit.h": "eecc30b16b583e428ac4b43cd1d4a406c415926fcae6627cafb76e5187df5a23",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    },
+    "observed-f0": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "7de5a5209d0c6295987b4c093c2b92c90ebfc2fdecd1a29524d5821390b44df8",
+      "Source/Pitch/TimeDomainPursuit.h": "24a32fdf1bb59dd356a0d1f6bd20adb7dffda1a49399aee03377364ce13f4d56",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    },
+    "profile-base": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "a113017eb7a3ad79a5672c2166999b87101cb95b5ce760ecc2249d924865b12e",
+      "Source/Pitch/TimeDomainPursuit.h": "80051823f68f53c8a8b22759417cba709bed09444df7d0a6bc870b0b4b587e25",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    },
+    "profile-cold-base": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "a113017eb7a3ad79a5672c2166999b87101cb95b5ce760ecc2249d924865b12e",
+      "Source/Pitch/TimeDomainPursuit.h": "80051823f68f53c8a8b22759417cba709bed09444df7d0a6bc870b0b4b587e25",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    },
+    "profile-cold-observed-f0": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "59f559dd83658fb3c55c68fc34df3c42f1d50b1bc31aa4a4a4c97f901de4e60f",
+      "Source/Pitch/TimeDomainPursuit.h": "9b7c73c9379d45458ad9ccee27883c493351a2620c28b0a80a19308a5b02a068",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    },
+    "profile-cold-uncertainty-f0": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "119e5422c1a4bd2b137a36b7f723e25da02dacc65cdc49e79cb538f75725c7a8",
+      "Source/Pitch/TimeDomainPursuit.h": "9b7c73c9379d45458ad9ccee27883c493351a2620c28b0a80a19308a5b02a068",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    },
+    "profile-observed-f0": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "59f559dd83658fb3c55c68fc34df3c42f1d50b1bc31aa4a4a4c97f901de4e60f",
+      "Source/Pitch/TimeDomainPursuit.h": "9b7c73c9379d45458ad9ccee27883c493351a2620c28b0a80a19308a5b02a068",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    },
+    "uncertainty-f0": {
+      "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "Source/Core/MusicData.cpp": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "Source/Core/MusicData.h": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "Source/Core/README.md": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "Source/Pitch/ArticulationTracker.cpp": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "Source/Pitch/ArticulationTracker.h": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "Source/Pitch/EarlyEstimator.cpp": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "Source/Pitch/EarlyEstimator.h": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "Source/Pitch/EarlyEstimator.md": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "Source/Pitch/InputDynamics.cpp": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "Source/Pitch/InputDynamics.h": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "Source/Pitch/MpeOutputRouter.cpp": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "Source/Pitch/MpeOutputRouter.h": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "Source/Pitch/NoiseConditioner.cpp": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "Source/Pitch/NoiseConditioner.h": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "Source/Pitch/PitchDetector.cpp": "972503b92b4a703073100c4a035fa371282afccbe9ec474cc30a3ea22c88760b",
+      "Source/Pitch/PitchDetector.h": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "Source/Pitch/PolyphonicTracker.cpp": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "Source/Pitch/PolyphonicTracker.h": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "Source/Pitch/README.md": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "Source/Pitch/TimeDomainPursuit.cpp": "4065814a63c9db3fffb1e486c18b5367802bf85b3ed41657ed97857707c44b09",
+      "Source/Pitch/TimeDomainPursuit.h": "24a32fdf1bb59dd356a0d1f6bd20adb7dffda1a49399aee03377364ce13f4d56",
+      "Source/Pitch/TimeDomainPursuit.md": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "Source/Pitch/YinEstimator.cpp": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "Source/Pitch/YinEstimator.h": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "Source/Pitch/YinEstimator.md": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "Source/PluginEditor.cpp": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "Source/PluginEditor.h": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "Source/PluginProcessor.cpp": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "Source/PluginProcessor.h": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86"
+    }
+  },
+  "completeness": "Every original regular file is either copied byte-for-byte under preserved/ or listed with hash and explicit binary exclusion. All full Source trees, raw CSV, source maps, reports, diagnostics, commands, and both WARM/COLD captures are retained. Source manifests bind selected project source files, not system compiler/header closure."
+}

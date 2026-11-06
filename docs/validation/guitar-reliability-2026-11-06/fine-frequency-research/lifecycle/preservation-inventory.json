@@ -1,0 +1,554 @@
+{
+  "source_origin": "/tmp/flysnapper-v4-poly-f0-lifecycle",
+  "all_original_files": [
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Core/MidiEngine.cpp",
+      "relative_path": "Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Core/MidiEngine.h",
+      "relative_path": "Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Core/MusicData.cpp",
+      "relative_path": "Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Core/MusicData.h",
+      "relative_path": "Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Core/README.md",
+      "relative_path": "Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Core/Reference/ChordDictionary.h",
+      "relative_path": "Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Core/Reference/ChordInput.h",
+      "relative_path": "Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Core/Reference/ChordNames.h",
+      "relative_path": "Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/ArticulationTracker.cpp",
+      "relative_path": "Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/ArticulationTracker.h",
+      "relative_path": "Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/EarlyEstimator.cpp",
+      "relative_path": "Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/EarlyEstimator.h",
+      "relative_path": "Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/EarlyEstimator.md",
+      "relative_path": "Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/InputDynamics.cpp",
+      "relative_path": "Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/InputDynamics.h",
+      "relative_path": "Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/MpeOutputRouter.cpp",
+      "relative_path": "Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/MpeOutputRouter.h",
+      "relative_path": "Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/NoiseConditioner.cpp",
+      "relative_path": "Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/NoiseConditioner.h",
+      "relative_path": "Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/PitchDetector.cpp",
+      "relative_path": "Source/Pitch/PitchDetector.cpp",
+      "bytes": 62172,
+      "sha256": "b8f99810d9ad7ae1bd481baf50923aa750be3e423cd06fbcfa11a80e2a16a09a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/PitchDetector.h",
+      "relative_path": "Source/Pitch/PitchDetector.h",
+      "bytes": 6981,
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/PolyphonicTracker.cpp",
+      "relative_path": "Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/PolyphonicTracker.h",
+      "relative_path": "Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/README.md",
+      "relative_path": "Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/TimeDomainPursuit.cpp",
+      "relative_path": "Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 29686,
+      "sha256": "cbfc364b1401d9399bb3caa6e3b199405d7ef23c7eb8cd04c5d400e68efeb749",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/TimeDomainPursuit.h",
+      "relative_path": "Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 3326,
+      "sha256": "54314a40b9815e946ed5ba8d6ce19c006d88e3f2fda87550d3b7591923123027",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/TimeDomainPursuit.md",
+      "relative_path": "Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/YinEstimator.cpp",
+      "relative_path": "Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/YinEstimator.h",
+      "relative_path": "Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/Pitch/YinEstimator.md",
+      "relative_path": "Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/PluginEditor.cpp",
+      "relative_path": "Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/PluginEditor.h",
+      "relative_path": "Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/PluginProcessor.cpp",
+      "relative_path": "Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/Source/PluginProcessor.h",
+      "relative_path": "Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cache-history-audit-result.txt",
+      "relative_path": "cache-history-audit-result.txt",
+      "bytes": 158,
+      "sha256": "e85128f714b31bdd1cbe8bd290d2ecf17dbaa0cd16c511d4a095945e2697171a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cache_history_audit",
+      "relative_path": "cache_history_audit",
+      "bytes": 46240,
+      "sha256": "147814c1d12772e2720ad36e1d7a6f2103cc3ee7948c4ee7ccb8e79ec169fe33",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cache_history_audit.cpp",
+      "relative_path": "cache_history_audit.cpp",
+      "bytes": 1926,
+      "sha256": "9403978b99303eb28d5126e5625d7cb5715215f1a44a3bbc948a917b90db95c9",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/capture-cold132",
+      "relative_path": "capture-cold132",
+      "bytes": 184312,
+      "sha256": "b2e2d489db6ecff668f200b55dde2aff6eb634799ee41f4661cf610888ab2be7",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/capture-cold330",
+      "relative_path": "capture-cold330",
+      "bytes": 184184,
+      "sha256": "f69e6a6c1a1c65286d8bdf2b78469d6d2ebfa920f1778096f4d8b418a965caee",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/capture-warm132",
+      "relative_path": "capture-warm132",
+      "bytes": 184304,
+      "sha256": "c47864d26db962ca978de0630518e093fd6ccf677f36dc5e4998d5e011d6a0cf",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/capture-warm330",
+      "relative_path": "capture-warm330",
+      "bytes": 184184,
+      "sha256": "dbf5224ebf0ed9b88774cdc723ea81810c408b76d8fe5798adca7d10c1867db1",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cold132/events.csv",
+      "relative_path": "cold132/events.csv",
+      "bytes": 20183,
+      "sha256": "5e925eb8e2b4bf147dc61152821f9dcc5a112e1a99a01d4259ecf8cbbc91f0d2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cold132/manifest.json",
+      "relative_path": "cold132/manifest.json",
+      "bytes": 4306,
+      "sha256": "779c96328350ba68a926755adc5df739ef3be8eb02b642038a215f060b20b943",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cold132/timing.csv",
+      "relative_path": "cold132/timing.csv",
+      "bytes": 6272,
+      "sha256": "d269292dc4aabec7757933450580df7744ccffdcd7a96d5183493f3ad1fcc2bc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cold132-scores.json",
+      "relative_path": "cold132-scores.json",
+      "bytes": 440437,
+      "sha256": "1f7c6fa16779920f9da5fb5660b4a268dbe46affab6cbe67bdcc1aeee7aac34b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cold330/events.csv",
+      "relative_path": "cold330/events.csv",
+      "bytes": 29786,
+      "sha256": "e3392d7bf7efb9823edceef202c740dc5e36e6149078c5c947d568ed1a0efcf5",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cold330/manifest.json",
+      "relative_path": "cold330/manifest.json",
+      "bytes": 4306,
+      "sha256": "37d1a5864c60085325822ab75534a4014091d34b2abc06e775a3171a956e54de",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cold330/timing.csv",
+      "relative_path": "cold330/timing.csv",
+      "bytes": 15513,
+      "sha256": "6464053a98a4d1e132d8dfeb37920d9b2c68cfe29148d26e2cb07d0600583d7f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/cold330-scores.json",
+      "relative_path": "cold330-scores.json",
+      "bytes": 706397,
+      "sha256": "e830bab37cb403350a798117839c701e50f6be3ddf945dd2f31e22b0ada08fe0",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/compile.txt",
+      "relative_path": "compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/console-first-run-error.txt",
+      "relative_path": "console-first-run-error.txt",
+      "bytes": 724,
+      "sha256": "9419d155fa51c3cb00ed9dd8842b67db157e8012a6b719618fc5f18f313d13bd",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/console.txt",
+      "relative_path": "console.txt",
+      "bytes": 1293,
+      "sha256": "a344eb1f793760daff43eee2f363fb3b5df33a6d6c04e088f3f1921fde29ea38",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/context.json",
+      "relative_path": "context.json",
+      "bytes": 1447,
+      "sha256": "99c69099a644a1e72cd9723721304ed68d7c3b33a6c4f337cc45c0426966b3f1",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/lifecycle-audit-result.txt",
+      "relative_path": "lifecycle-audit-result.txt",
+      "bytes": 202,
+      "sha256": "a621f61aad25041d068d4d356e6cf1e17157876fefa563ca8a29f1e96839a66a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/lifecycle_audit",
+      "relative_path": "lifecycle_audit",
+      "bytes": 50776,
+      "sha256": "9193b04868db6c8d6884e710fe4d39702fe1c5bbeaa10835adeb46ca943f23d6",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/lifecycle_audit.cpp",
+      "relative_path": "lifecycle_audit.cpp",
+      "bytes": 3202,
+      "sha256": "609db1e8d308a18dd63ccfcac192d1044b2ba7c772e4b85fd4c0917be510907a",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/objects/ArticulationTracker.o",
+      "relative_path": "objects/ArticulationTracker.o",
+      "bytes": 12544,
+      "sha256": "5a475ce781c100f7512f37a84c4ef91849cc0f94b0c4991750f0d92d71050bc9",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/objects/EarlyEstimator.o",
+      "relative_path": "objects/EarlyEstimator.o",
+      "bytes": 10832,
+      "sha256": "96ebfbed3674ee0e1db2b161d911e6d9102cce2b0bedbcf4c42e9857ea8a408d",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/objects/InputDynamics.o",
+      "relative_path": "objects/InputDynamics.o",
+      "bytes": 25640,
+      "sha256": "dbeac28a8d5e7e34fdf7da6a12d3bbcb36435d7203b19a7388ea797914d38894",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/objects/NoiseConditioner.o",
+      "relative_path": "objects/NoiseConditioner.o",
+      "bytes": 22200,
+      "sha256": "7f99d518daebc5f0d6414c605d910ef8f03d647bf3ab454b03496bf1c732a688",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/objects/PitchDetector.o",
+      "relative_path": "objects/PitchDetector.o",
+      "bytes": 66496,
+      "sha256": "12fab96cb8afbf5f157a0e1cd3a750c1097ce31ead094f3c37760fa4ee604768",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/objects/PolyphonicTracker.o",
+      "relative_path": "objects/PolyphonicTracker.o",
+      "bytes": 48360,
+      "sha256": "daa79ba0a4c711a88b07d5460aa9b24be21e5885ec3f1fa57698cbd60053ead1",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/objects/TimeDomainPursuit.o",
+      "relative_path": "objects/TimeDomainPursuit.o",
+      "bytes": 40824,
+      "sha256": "855144c04109ce154420a8231100172d25d64e6f5444ce6d58b5dbc8ecc77b98",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/objects/YinEstimator.o",
+      "relative_path": "objects/YinEstimator.o",
+      "bytes": 24904,
+      "sha256": "42f1d9e8d6e57304f730eee1d0236ba92e36d3200bd39cdd7193bc856594f5e8",
+      "included": false,
+      "exclusion": "Executable/object excluded; exact compiled binary hash retained."
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/parity.json",
+      "relative_path": "parity.json",
+      "bytes": 77,
+      "sha256": "5e4e31618d214060ffd282fe60890f14531bdae80d1651aca41eb680639082fc",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/run.py",
+      "relative_path": "run.py",
+      "bytes": 3263,
+      "sha256": "f6864a40eafd8a906b1e6956ba5f67491a47263d3ed8c7e1b4434d649de6345b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/source-inventory.json",
+      "relative_path": "source-inventory.json",
+      "bytes": 3717,
+      "sha256": "456d460e7ae1661b03ca8aa8faa26319670a7dc3949fc136664566c993a69b5b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/source.diff",
+      "relative_path": "source.diff",
+      "bytes": 11955,
+      "sha256": "9b6901be230ac805fdf11d71dd05b2b4da5d772f78f9b29b696dcb5301c1a665",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/warm132/events.csv",
+      "relative_path": "warm132/events.csv",
+      "bytes": 20183,
+      "sha256": "5e925eb8e2b4bf147dc61152821f9dcc5a112e1a99a01d4259ecf8cbbc91f0d2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/warm132/manifest.json",
+      "relative_path": "warm132/manifest.json",
+      "bytes": 4307,
+      "sha256": "d4ad70cdf5dfaebbb219d0da1a0c9aa3299dfe4bf4d5f809848a2b5c360b8afe",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/warm132/timing.csv",
+      "relative_path": "warm132/timing.csv",
+      "bytes": 6275,
+      "sha256": "257ff969ad58b76e91b9fd686263ccd6e0503da04b7325c8e56ab4eb29c748e2",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/warm132-scores.json",
+      "relative_path": "warm132-scores.json",
+      "bytes": 440437,
+      "sha256": "1f7c6fa16779920f9da5fb5660b4a268dbe46affab6cbe67bdcc1aeee7aac34b",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/warm330/events.csv",
+      "relative_path": "warm330/events.csv",
+      "bytes": 29786,
+      "sha256": "e3392d7bf7efb9823edceef202c740dc5e36e6149078c5c947d568ed1a0efcf5",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/warm330/manifest.json",
+      "relative_path": "warm330/manifest.json",
+      "bytes": 4306,
+      "sha256": "e8247da71c42d2e1f36ee9200c19efcc107fff86cc740e70694acb53f9d5c968",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/warm330/timing.csv",
+      "relative_path": "warm330/timing.csv",
+      "bytes": 15490,
+      "sha256": "b08c080eaf13691733e475a22de07e3ef706788ff91f93d97554b4e6d34b284f",
+      "included": true
+    },
+    {
+      "original_path": "/tmp/flysnapper-v4-poly-f0-lifecycle/warm330-scores.json",
+      "relative_path": "warm330-scores.json",
+      "bytes": 706397,
+      "sha256": "e830bab37cb403350a798117839c701e50f6be3ddf945dd2f31e22b0ada08fe0",
+      "included": true
+    }
+  ],
+  "generation_script": "implement_lifecycle.py",
+  "original_uncertainty_source": "../preserved/uncertainty-f0/Source",
+  "no_binary_or_audio_payloads": true
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/flysnapper-profile-negative-checks-20261106/baseline_source_rebound_seal/reproduce.py", line 185, in <module>
+    main()
+  File "/tmp/flysnapper-profile-negative-checks-20261106/baseline_source_rebound_seal/reproduce.py", line 143, in main
+    report = {'archive': verify_archive(), 'suite': args.suite}
+                         ^^^^^^^^^^^^^^^^
+  File "/tmp/flysnapper-profile-negative-checks-20261106/baseline_source_rebound_seal/reproduce.py", line 43, in verify_archive
+    assert file_map(baseline) == origin['files'], 'Frozen baseline origin map mismatch'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Frozen baseline origin map mismatch

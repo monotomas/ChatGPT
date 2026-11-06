@@ -1,0 +1,78 @@
+--- a/Source/Pitch/TimeDomainPursuit.h
++++ b/Source/Pitch/TimeDomainPursuit.h
+@@ -2,6 +2,7 @@
+ #pragma once
+ #include <array>
+ #include <memory>
++#include <cstdint>
+ 
+ namespace flysnapper::pitch {
+ // Causal free-phase harmonic group pursuit. Unlike a Gaussian comb, candidate
+@@ -11,6 +12,8 @@
+ class TimeDomainPursuit {
+ public:
+     static constexpr int lowNote=28,highNote=100,noteCount=73,maxSamples=512,predictionSamples=32;
++    struct CpuProfile {uint64_t analyseNs=0,profileNs=0,analysisCalls=0,profileCandidates=0;};
++    bool copyCpuProfile(CpuProfile&) const noexcept;
+     TimeDomainPursuit();
+     ~TimeDomainPursuit();
+     TimeDomainPursuit(TimeDomainPursuit&&) noexcept;
+--- a/Source/Pitch/TimeDomainPursuit.cpp
++++ b/Source/Pitch/TimeDomainPursuit.cpp
+@@ -5,6 +5,7 @@
+ #include <stdexcept>
+ #include <vector>
+ #include <cstdint>
++#include <ctime>
+ #include <limits>
+ #ifdef FLYSNAPPER_PROFILE_SCORE_AUDIT
+ extern "C" void flysnapperScoreAudit(double,double);
+@@ -17,6 +18,8 @@
+ namespace flysnapper::pitch {
+ namespace {
+ constexpr int harmonics=8,columns=2*harmonics,components=TimeDomainPursuit::noteCount*columns;
++uint64_t profileThreadNow() noexcept {timespec t{};clock_gettime(CLOCK_THREAD_CPUTIME_ID,&t);return uint64_t(t.tv_sec)*1000000000ULL+uint64_t(t.tv_nsec);}
++struct ProfileCpuScope {uint64_t& total;uint64_t start;explicit ProfileCpuScope(uint64_t& t):total(t),start(profileThreadNow()){}~ProfileCpuScope(){total+=profileThreadNow()-start;}};
+ constexpr double pi=3.1415926535897932384626433832795,ridge=.006;
+ double dot(const float* a,const float* b,int samples) noexcept {
+     int i=0;double value=0;
+@@ -73,6 +76,7 @@
+         std::array<bool,columns> valid{};
+     };
+     std::array<Model,noteCount> models{};
++    CpuProfile profile;
+     std::array<std::array<float,8>,27> profiles{};
+     std::array<std::array<double,27>,256> profileScales{};
+     std::vector<float> gram;
+@@ -279,6 +283,7 @@
+     }
+     data=std::move(next);
+ }
++bool TimeDomainPursuit::copyCpuProfile(CpuProfile& out) const noexcept {if(!data)return false;out=data->profile;return true;}
+ bool TimeDomainPursuit::copyPrediction(std::array<float,predictionSamples>& out) const noexcept {
+     if(!data||!data->predictionValid)return false;
+     out=data->prediction;return true;
+@@ -340,6 +345,7 @@
+     strength.fill(0);confidence.fill(0);
+     if(data)data->predictionValid=false;
+     if(!data||!wave||count<data->samples)return;
++    ++data->profile.analysisCalls;ProfileCpuScope timeAnalyse(data->profile.analyseNs);
+     maxVoices=std::clamp(maxVoices,1,6);sensitivity=std::clamp(sensitivity,0.f,1.f);
+     const int samples=data->samples;
+     std::array<float,maxSamples> frame{};wave+=count-samples;
+@@ -391,6 +397,7 @@
+             if(observedPower<1e-15)continue;
+             for(auto &a:observed)a/=std::sqrt(observedPower);
+ 
++            {++data->profile.profileCandidates;ProfileCpuScope timeProfiles(data->profile.profileNs);
+             unsigned validMask=0;for(int h=0;h<8;++h)if(model.valid[size_t(h)])validMask|=1u<<h;
+             const auto& scales=data->profileScales[validMask];
+             // Once per candidate: project the self Gram matrix onto each
+@@ -453,6 +460,7 @@
+ #endif
+             if(exactBest>bestScore){bestScore=exactBest;best=note;bestShape=exactAtom;}
+ 
++            }
+         }
+         if(iteration==0)firstScore=bestScore;
+         if(best<0||bestScore<energy*.006||bestScore<firstScore*cutoff)break;

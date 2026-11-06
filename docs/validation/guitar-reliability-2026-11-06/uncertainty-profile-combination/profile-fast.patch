@@ -1,0 +1,112 @@
+--- a/Source/Pitch/TimeDomainPursuit.cpp
++++ b/Source/Pitch/TimeDomainPursuit.cpp
+@@ -5,6 +5,11 @@
+ #include <stdexcept>
+ #include <vector>
+ #include <cstdint>
++#include <limits>
++#ifdef FLYSNAPPER_PROFILE_SCORE_AUDIT
++extern "C" void flysnapperScoreAudit(double,double);
++extern "C" void flysnapperChoiceAudit(int,int,int,int);
++#endif
+ #if defined(__SSE2__) || defined(_M_X64)
+ #include <emmintrin.h>
+ #endif
+@@ -69,6 +74,7 @@
+     };
+     std::array<Model,noteCount> models{};
+     std::array<std::array<float,8>,27> profiles{};
++    std::array<std::array<double,27>,256> profileScales{};
+     std::vector<float> gram;
+     int samples=512;
+     double rate=12000;
+@@ -217,6 +223,13 @@
+     for(double slope:{.7,1.2,1.8})for(double odd:{.15,1.,4.})for(double pluck:{0.,.22,.37}){
+         for(int h=1;h<=8;++h)next->profiles[size_t(profile)][size_t(h-1)]=float((h%2?odd:1.)/std::pow(double(h),slope)*(pluck==0?1.:std::abs(std::sin(pi*h*pluck))));
+         ++profile;
++    }
++
++    // Profile normalization depends only on the currently valid harmonics.
++    // Cache every mask so a later frequency retune may change validity safely.
++    for(unsigned mask=0;mask<256;++mask)for(size_t p=0;p<next->profiles.size();++p){
++        double power=0;for(int h=0;h<8;++h)if(mask&(1u<<h))power+=double(next->profiles[p][size_t(h)])*next->profiles[p][size_t(h)];
++        if(power>0)next->profileScales[mask][p]=1/std::sqrt(power);
+     }
+ 
+     for(int note=0;note<noteCount;++note){
+@@ -377,16 +390,69 @@
+                 if(magnitude>1e-15){phaseSin[size_t(h)]=beta[size_t(h)]/magnitude;phaseCos[size_t(h)]=beta[size_t(h+8)]/magnitude;}}
+             if(observedPower<1e-15)continue;
+             for(auto &a:observed)a/=std::sqrt(observedPower);
+-            for(const auto& profile:data->profiles){
+-                double power=0;for(int h=0;h<8;++h)if(model.valid[size_t(h)])power+=double(profile[size_t(h)])*profile[size_t(h)];
+-                if(power<=0)continue;const double scale=1/std::sqrt(power);
+-                std::array<double,columns> atom{};
++
++            unsigned validMask=0;for(int h=0;h<8;++h)if(model.valid[size_t(h)])validMask|=1u<<h;
++            const auto& scales=data->profileScales[validMask];
++            // Once per candidate: project the self Gram matrix onto each
++            // harmonic's already fixed sine/cosine phase direction.
++            std::array<double,8> projected{};
++            std::array<std::array<double,8>,8> quadratic{};
++            for(int h=0;h<8;++h){
++                const double hs=phaseSin[size_t(h)],hc=phaseCos[size_t(h)];
++                projected[size_t(h)]=correlation[size_t(h)]*hs+correlation[size_t(h+8)]*hc;
++                for(int k=0;k<=h;++k){
++                    const double ks=phaseSin[size_t(k)],kc=phaseCos[size_t(k)];
++                    double value=hs*data->cross(note,h,note,k)*ks+hs*data->cross(note,h,note,k+8)*kc
++                        +hc*data->cross(note,h+8,note,k)*ks+hc*data->cross(note,h+8,note,k+8)*kc;
++                    if(h==k)value+=ridge*samples*(hs*hs+hc*hc);
++                    quadratic[size_t(h)][size_t(k)]=value;
++                }
++            }
++            std::array<double,27> compressedScores{};double compressedBest=0;int compressedChoice=-1;
++#ifdef FLYSNAPPER_PROFILE_SCORE_AUDIT
++            double auditedBest=0;int auditedChoice=-1;
++#endif
++            auto originalProfile=[&](size_t p,std::array<double,columns>& atom) noexcept {
++                const auto& profile=data->profiles[p];const double scale=scales[p];
+                 for(int h=0;h<8;++h)if(model.valid[size_t(h)]){const double a=(.5*observed[size_t(h)]+.5*profile[size_t(h)]*scale)/model.weight[size_t(h)];atom[size_t(h)]=a*phaseSin[size_t(h)];atom[size_t(h+8)]=a*phaseCos[size_t(h)];}
+                 double numerator=0,penalty=0;for(int c=0;c<columns;++c){numerator+=correlation[size_t(c)]*atom[size_t(c)];penalty+=atom[size_t(c)]*atom[size_t(c)];}
+                 const double denominator=crossShape(note,atom,note,atom)+ridge*samples*penalty;
++                return numerator>0&&denominator>1e-12?numerator*numerator/denominator:0.;
++            };
++            for(size_t p=0;p<data->profiles.size();++p){
++                if(scales[p]<=0)continue;const auto& profile=data->profiles[p];
++                std::array<double,8> amplitude{};
++                for(int h=0;h<8;++h)if(model.valid[size_t(h)])amplitude[size_t(h)]=(.5*observed[size_t(h)]+.5*profile[size_t(h)]*scales[p])/model.weight[size_t(h)];
++                double numerator=0,denominator=0;
++                for(int h=0;h<8;++h){
++                    const double a=amplitude[size_t(h)];numerator+=projected[size_t(h)]*a;
++                    denominator+=quadratic[size_t(h)][size_t(h)]*a*a;
++                    for(int k=0;k<h;++k)denominator+=2*quadratic[size_t(h)][size_t(k)]*a*amplitude[size_t(k)];
++                }
+                 const double score=numerator>0&&denominator>1e-12?numerator*numerator/denominator:0;
+-                if(score>bestScore){bestScore=score;best=note;bestShape=atom;}
+-            }
++                compressedScores[p]=score;
++                if(score>compressedBest){compressedBest=score;compressedChoice=int(p);}
++#ifdef FLYSNAPPER_PROFILE_SCORE_AUDIT
++                std::array<double,columns> auditedAtom{};const double reference=originalProfile(p,auditedAtom);
++                flysnapperScoreAudit(score,reference);
++                if(reference>auditedBest){auditedBest=reference;auditedChoice=int(p);}
++#endif
++            }
++            if(compressedChoice<0)continue;
++            // Compressed arithmetic ranks the profiles. Keep the original
++            // atom and exact 16D score for selection/output, and re-evaluate
++            // close numerical ties in their original profile order.
++            int exactChoice=-1,rechecks=0;double exactBest=0;std::array<double,columns> exactAtom{};
++            const double tieMargin=compressedBest*1e-9;
++            for(size_t p=0;p<data->profiles.size();++p)if(p==size_t(compressedChoice)||compressedBest-compressedScores[p]<=tieMargin){
++                std::array<double,columns> atom{};const double score=originalProfile(p,atom);++rechecks;
++                if(score>exactBest){exactBest=score;exactChoice=int(p);exactAtom=atom;}
++            }
++#ifdef FLYSNAPPER_PROFILE_SCORE_AUDIT
++            flysnapperChoiceAudit(compressedChoice,auditedChoice,exactChoice,rechecks);
++#endif
++            if(exactBest>bestScore){bestScore=exactBest;best=note;bestShape=exactAtom;}
++
+         }
+         if(iteration==0)firstScore=bestScore;
+         if(best<0||bestScore<energy*.006||bestScore<firstScore*cutoff)break;

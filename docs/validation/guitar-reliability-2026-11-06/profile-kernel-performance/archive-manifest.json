@@ -1,0 +1,964 @@
+{
+  "format": 1,
+  "scope": "Frozen private profile-only numeric/performance research; no binary/audio/model payload",
+  "files": {
+    "README.md": {
+      "sha256": "fa4826d60a617de6dd7549cc5eae728980ea973a024f45f9fc7fba69ed2c8813",
+      "bytes": 10872
+    },
+    "build_and_measure.py": {
+      "sha256": "c93298cbc7d3dbe294012444d85007f610700982f097e6b4922d3dbbb69ae784",
+      "bytes": 1932
+    },
+    "cold330-run-console.txt": {
+      "sha256": "0d0fc6e7f3abe5c5151c9ceabbb380c8f99e04bf4bf7fdc4e398cdfe2d5e63fe",
+      "bytes": 8588
+    },
+    "counter-cold.cpp": {
+      "sha256": "6a66605e8cb428845a3a274ec20c8e8fb74363ef691464d3dbfd4fd01319be1d",
+      "bytes": 2558
+    },
+    "frozen-origin.json": {
+      "sha256": "3648355e42eacbf3d8a0cfc63b4471eb0cbe70b279c4b47e9c85c0eae2c5cb1f",
+      "bytes": 5343
+    },
+    "frozen-source/baseline/Source/Core/MidiEngine.cpp": {
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "bytes": 9192
+    },
+    "frozen-source/baseline/Source/Core/MidiEngine.h": {
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "bytes": 3594
+    },
+    "frozen-source/baseline/Source/Core/MusicData.cpp": {
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "bytes": 6993
+    },
+    "frozen-source/baseline/Source/Core/MusicData.h": {
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "bytes": 1171
+    },
+    "frozen-source/baseline/Source/Core/README.md": {
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "bytes": 5684
+    },
+    "frozen-source/baseline/Source/Core/Reference/ChordDictionary.h": {
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "bytes": 2672
+    },
+    "frozen-source/baseline/Source/Core/Reference/ChordInput.h": {
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "bytes": 1775
+    },
+    "frozen-source/baseline/Source/Core/Reference/ChordNames.h": {
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "bytes": 9928
+    },
+    "frozen-source/baseline/Source/Pitch/ArticulationTracker.cpp": {
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "bytes": 9155
+    },
+    "frozen-source/baseline/Source/Pitch/ArticulationTracker.h": {
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "bytes": 2369
+    },
+    "frozen-source/baseline/Source/Pitch/EarlyEstimator.cpp": {
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "bytes": 5677
+    },
+    "frozen-source/baseline/Source/Pitch/EarlyEstimator.h": {
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "bytes": 1894
+    },
+    "frozen-source/baseline/Source/Pitch/EarlyEstimator.md": {
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "bytes": 2853
+    },
+    "frozen-source/baseline/Source/Pitch/InputDynamics.cpp": {
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "bytes": 15393
+    },
+    "frozen-source/baseline/Source/Pitch/InputDynamics.h": {
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "bytes": 5307
+    },
+    "frozen-source/baseline/Source/Pitch/MpeOutputRouter.cpp": {
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "bytes": 20067
+    },
+    "frozen-source/baseline/Source/Pitch/MpeOutputRouter.h": {
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "bytes": 5473
+    },
+    "frozen-source/baseline/Source/Pitch/NoiseConditioner.cpp": {
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "bytes": 17900
+    },
+    "frozen-source/baseline/Source/Pitch/NoiseConditioner.h": {
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "bytes": 3627
+    },
+    "frozen-source/baseline/Source/Pitch/PitchDetector.cpp": {
+      "sha256": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "bytes": 60621
+    },
+    "frozen-source/baseline/Source/Pitch/PitchDetector.h": {
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "bytes": 6981
+    },
+    "frozen-source/baseline/Source/Pitch/PolyphonicTracker.cpp": {
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "bytes": 33108
+    },
+    "frozen-source/baseline/Source/Pitch/PolyphonicTracker.h": {
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "bytes": 2579
+    },
+    "frozen-source/baseline/Source/Pitch/README.md": {
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "bytes": 9751
+    },
+    "frozen-source/baseline/Source/Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "ea6599dcd2e21046de57e7ddc92bb66779f31037508dcf3d57c53e29f0d15ebd",
+      "bytes": 19102
+    },
+    "frozen-source/baseline/Source/Pitch/TimeDomainPursuit.h": {
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "bytes": 2997
+    },
+    "frozen-source/baseline/Source/Pitch/TimeDomainPursuit.md": {
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "bytes": 10165
+    },
+    "frozen-source/baseline/Source/Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069
+    },
+    "frozen-source/baseline/Source/Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957
+    },
+    "frozen-source/baseline/Source/Pitch/YinEstimator.md": {
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "bytes": 6061
+    },
+    "frozen-source/baseline/Source/PluginEditor.cpp": {
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "bytes": 52162
+    },
+    "frozen-source/baseline/Source/PluginEditor.h": {
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "bytes": 4540
+    },
+    "frozen-source/baseline/Source/PluginProcessor.cpp": {
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "bytes": 40450
+    },
+    "frozen-source/baseline/Source/PluginProcessor.h": {
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "bytes": 7516
+    },
+    "frozen-source/baseline-timed/Source/Core/MidiEngine.cpp": {
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "bytes": 9192
+    },
+    "frozen-source/baseline-timed/Source/Core/MidiEngine.h": {
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "bytes": 3594
+    },
+    "frozen-source/baseline-timed/Source/Core/MusicData.cpp": {
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "bytes": 6993
+    },
+    "frozen-source/baseline-timed/Source/Core/MusicData.h": {
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "bytes": 1171
+    },
+    "frozen-source/baseline-timed/Source/Core/README.md": {
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "bytes": 5684
+    },
+    "frozen-source/baseline-timed/Source/Core/Reference/ChordDictionary.h": {
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "bytes": 2672
+    },
+    "frozen-source/baseline-timed/Source/Core/Reference/ChordInput.h": {
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "bytes": 1775
+    },
+    "frozen-source/baseline-timed/Source/Core/Reference/ChordNames.h": {
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "bytes": 9928
+    },
+    "frozen-source/baseline-timed/Source/Pitch/ArticulationTracker.cpp": {
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "bytes": 9155
+    },
+    "frozen-source/baseline-timed/Source/Pitch/ArticulationTracker.h": {
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "bytes": 2369
+    },
+    "frozen-source/baseline-timed/Source/Pitch/EarlyEstimator.cpp": {
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "bytes": 5677
+    },
+    "frozen-source/baseline-timed/Source/Pitch/EarlyEstimator.h": {
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "bytes": 1894
+    },
+    "frozen-source/baseline-timed/Source/Pitch/EarlyEstimator.md": {
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "bytes": 2853
+    },
+    "frozen-source/baseline-timed/Source/Pitch/InputDynamics.cpp": {
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "bytes": 15393
+    },
+    "frozen-source/baseline-timed/Source/Pitch/InputDynamics.h": {
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "bytes": 5307
+    },
+    "frozen-source/baseline-timed/Source/Pitch/MpeOutputRouter.cpp": {
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "bytes": 20067
+    },
+    "frozen-source/baseline-timed/Source/Pitch/MpeOutputRouter.h": {
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "bytes": 5473
+    },
+    "frozen-source/baseline-timed/Source/Pitch/NoiseConditioner.cpp": {
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "bytes": 17900
+    },
+    "frozen-source/baseline-timed/Source/Pitch/NoiseConditioner.h": {
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "bytes": 3627
+    },
+    "frozen-source/baseline-timed/Source/Pitch/PitchDetector.cpp": {
+      "sha256": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "bytes": 60621
+    },
+    "frozen-source/baseline-timed/Source/Pitch/PitchDetector.h": {
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "bytes": 6981
+    },
+    "frozen-source/baseline-timed/Source/Pitch/PolyphonicTracker.cpp": {
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "bytes": 33108
+    },
+    "frozen-source/baseline-timed/Source/Pitch/PolyphonicTracker.h": {
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "bytes": 2579
+    },
+    "frozen-source/baseline-timed/Source/Pitch/README.md": {
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "bytes": 9751
+    },
+    "frozen-source/baseline-timed/Source/Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "2c6a14f2a1382bd353e91d6980fac280d0dc0649d16c2f9f8547ddd719b4fd9a",
+      "bytes": 19812
+    },
+    "frozen-source/baseline-timed/Source/Pitch/TimeDomainPursuit.h": {
+      "sha256": "ef2529f67a0f58006451f4781ebdfe12bd72837e022b6338725618d25ca66614",
+      "bytes": 3164
+    },
+    "frozen-source/baseline-timed/Source/Pitch/TimeDomainPursuit.md": {
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "bytes": 10165
+    },
+    "frozen-source/baseline-timed/Source/Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069
+    },
+    "frozen-source/baseline-timed/Source/Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957
+    },
+    "frozen-source/baseline-timed/Source/Pitch/YinEstimator.md": {
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "bytes": 6061
+    },
+    "frozen-source/baseline-timed/Source/PluginEditor.cpp": {
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "bytes": 52162
+    },
+    "frozen-source/baseline-timed/Source/PluginEditor.h": {
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "bytes": 4540
+    },
+    "frozen-source/baseline-timed/Source/PluginProcessor.cpp": {
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "bytes": 40450
+    },
+    "frozen-source/baseline-timed/Source/PluginProcessor.h": {
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "bytes": 7516
+    },
+    "frozen-source/fast/Source/Core/MidiEngine.cpp": {
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "bytes": 9192
+    },
+    "frozen-source/fast/Source/Core/MidiEngine.h": {
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "bytes": 3594
+    },
+    "frozen-source/fast/Source/Core/MusicData.cpp": {
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "bytes": 6993
+    },
+    "frozen-source/fast/Source/Core/MusicData.h": {
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "bytes": 1171
+    },
+    "frozen-source/fast/Source/Core/README.md": {
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "bytes": 5684
+    },
+    "frozen-source/fast/Source/Core/Reference/ChordDictionary.h": {
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "bytes": 2672
+    },
+    "frozen-source/fast/Source/Core/Reference/ChordInput.h": {
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "bytes": 1775
+    },
+    "frozen-source/fast/Source/Core/Reference/ChordNames.h": {
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "bytes": 9928
+    },
+    "frozen-source/fast/Source/Pitch/ArticulationTracker.cpp": {
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "bytes": 9155
+    },
+    "frozen-source/fast/Source/Pitch/ArticulationTracker.h": {
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "bytes": 2369
+    },
+    "frozen-source/fast/Source/Pitch/EarlyEstimator.cpp": {
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "bytes": 5677
+    },
+    "frozen-source/fast/Source/Pitch/EarlyEstimator.h": {
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "bytes": 1894
+    },
+    "frozen-source/fast/Source/Pitch/EarlyEstimator.md": {
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "bytes": 2853
+    },
+    "frozen-source/fast/Source/Pitch/InputDynamics.cpp": {
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "bytes": 15393
+    },
+    "frozen-source/fast/Source/Pitch/InputDynamics.h": {
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "bytes": 5307
+    },
+    "frozen-source/fast/Source/Pitch/MpeOutputRouter.cpp": {
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "bytes": 20067
+    },
+    "frozen-source/fast/Source/Pitch/MpeOutputRouter.h": {
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "bytes": 5473
+    },
+    "frozen-source/fast/Source/Pitch/NoiseConditioner.cpp": {
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "bytes": 17900
+    },
+    "frozen-source/fast/Source/Pitch/NoiseConditioner.h": {
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "bytes": 3627
+    },
+    "frozen-source/fast/Source/Pitch/PitchDetector.cpp": {
+      "sha256": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "bytes": 60621
+    },
+    "frozen-source/fast/Source/Pitch/PitchDetector.h": {
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "bytes": 6981
+    },
+    "frozen-source/fast/Source/Pitch/PolyphonicTracker.cpp": {
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "bytes": 33108
+    },
+    "frozen-source/fast/Source/Pitch/PolyphonicTracker.h": {
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "bytes": 2579
+    },
+    "frozen-source/fast/Source/Pitch/README.md": {
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "bytes": 9751
+    },
+    "frozen-source/fast/Source/Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "4bf86a11e51ee0d6d6b126fc387483aa5fa8ee867f56eb19a069a1d9d734548f",
+      "bytes": 23106
+    },
+    "frozen-source/fast/Source/Pitch/TimeDomainPursuit.h": {
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "bytes": 2997
+    },
+    "frozen-source/fast/Source/Pitch/TimeDomainPursuit.md": {
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "bytes": 10165
+    },
+    "frozen-source/fast/Source/Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069
+    },
+    "frozen-source/fast/Source/Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957
+    },
+    "frozen-source/fast/Source/Pitch/YinEstimator.md": {
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "bytes": 6061
+    },
+    "frozen-source/fast/Source/PluginEditor.cpp": {
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "bytes": 52162
+    },
+    "frozen-source/fast/Source/PluginEditor.h": {
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "bytes": 4540
+    },
+    "frozen-source/fast/Source/PluginProcessor.cpp": {
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "bytes": 40450
+    },
+    "frozen-source/fast/Source/PluginProcessor.h": {
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "bytes": 7516
+    },
+    "frozen-source/fast-timed/Source/Core/MidiEngine.cpp": {
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "bytes": 9192
+    },
+    "frozen-source/fast-timed/Source/Core/MidiEngine.h": {
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "bytes": 3594
+    },
+    "frozen-source/fast-timed/Source/Core/MusicData.cpp": {
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "bytes": 6993
+    },
+    "frozen-source/fast-timed/Source/Core/MusicData.h": {
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "bytes": 1171
+    },
+    "frozen-source/fast-timed/Source/Core/README.md": {
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "bytes": 5684
+    },
+    "frozen-source/fast-timed/Source/Core/Reference/ChordDictionary.h": {
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "bytes": 2672
+    },
+    "frozen-source/fast-timed/Source/Core/Reference/ChordInput.h": {
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "bytes": 1775
+    },
+    "frozen-source/fast-timed/Source/Core/Reference/ChordNames.h": {
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "bytes": 9928
+    },
+    "frozen-source/fast-timed/Source/Pitch/ArticulationTracker.cpp": {
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "bytes": 9155
+    },
+    "frozen-source/fast-timed/Source/Pitch/ArticulationTracker.h": {
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "bytes": 2369
+    },
+    "frozen-source/fast-timed/Source/Pitch/EarlyEstimator.cpp": {
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "bytes": 5677
+    },
+    "frozen-source/fast-timed/Source/Pitch/EarlyEstimator.h": {
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "bytes": 1894
+    },
+    "frozen-source/fast-timed/Source/Pitch/EarlyEstimator.md": {
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "bytes": 2853
+    },
+    "frozen-source/fast-timed/Source/Pitch/InputDynamics.cpp": {
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "bytes": 15393
+    },
+    "frozen-source/fast-timed/Source/Pitch/InputDynamics.h": {
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "bytes": 5307
+    },
+    "frozen-source/fast-timed/Source/Pitch/MpeOutputRouter.cpp": {
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "bytes": 20067
+    },
+    "frozen-source/fast-timed/Source/Pitch/MpeOutputRouter.h": {
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "bytes": 5473
+    },
+    "frozen-source/fast-timed/Source/Pitch/NoiseConditioner.cpp": {
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "bytes": 17900
+    },
+    "frozen-source/fast-timed/Source/Pitch/NoiseConditioner.h": {
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "bytes": 3627
+    },
+    "frozen-source/fast-timed/Source/Pitch/PitchDetector.cpp": {
+      "sha256": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "bytes": 60621
+    },
+    "frozen-source/fast-timed/Source/Pitch/PitchDetector.h": {
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "bytes": 6981
+    },
+    "frozen-source/fast-timed/Source/Pitch/PolyphonicTracker.cpp": {
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "bytes": 33108
+    },
+    "frozen-source/fast-timed/Source/Pitch/PolyphonicTracker.h": {
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "bytes": 2579
+    },
+    "frozen-source/fast-timed/Source/Pitch/README.md": {
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "bytes": 9751
+    },
+    "frozen-source/fast-timed/Source/Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "3c54f0f536332e051a2bfdd56f4a64e47c277dd2faadd5e7e04be170760c4c2f",
+      "bytes": 23816
+    },
+    "frozen-source/fast-timed/Source/Pitch/TimeDomainPursuit.h": {
+      "sha256": "ef2529f67a0f58006451f4781ebdfe12bd72837e022b6338725618d25ca66614",
+      "bytes": 3164
+    },
+    "frozen-source/fast-timed/Source/Pitch/TimeDomainPursuit.md": {
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "bytes": 10165
+    },
+    "frozen-source/fast-timed/Source/Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069
+    },
+    "frozen-source/fast-timed/Source/Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957
+    },
+    "frozen-source/fast-timed/Source/Pitch/YinEstimator.md": {
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "bytes": 6061
+    },
+    "frozen-source/fast-timed/Source/PluginEditor.cpp": {
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "bytes": 52162
+    },
+    "frozen-source/fast-timed/Source/PluginEditor.h": {
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "bytes": 4540
+    },
+    "frozen-source/fast-timed/Source/PluginProcessor.cpp": {
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "bytes": 40450
+    },
+    "frozen-source/fast-timed/Source/PluginProcessor.h": {
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "bytes": 7516
+    },
+    "independent-numeric-review.md": {
+      "sha256": "dbbf38b20a2f4b4e5b5eeffc4347cb5c2122d13e3f3f1916c357b422d9bf304c",
+      "bytes": 4079
+    },
+    "initial-source-hashes.json": {
+      "sha256": "8312410920a9b7829b06ee005cd55674c6b0316990d641663e3970a59c1214aa",
+      "bytes": 163
+    },
+    "instrument.py": {
+      "sha256": "70af2ef9fcdc251be79edef423f130398c023d894c3fda0866b30d94e8d9deb3",
+      "bytes": 4000
+    },
+    "make_fast.py": {
+      "sha256": "db0bb5de2640d5c35e4910ddadeaaafada61366ac70f274797bf16325802d7d9",
+      "bytes": 6154
+    },
+    "make_micro.py": {
+      "sha256": "3213f767e4df780bd0ae33f013a711bce672132305c87fafeeeaa0fe9c3b01ae",
+      "bytes": 7659
+    },
+    "micro-audit-comparison.json": {
+      "sha256": "5d2694ac63bdafd1c3f70dd77503eed9c933fd0b936c7baef5fb7a7db504af09",
+      "bytes": 400
+    },
+    "micro-audit-compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "micro-audit-scores.json": {
+      "sha256": "8bf1aa68e7ea13934d45b6626f60afe088e22994f07ae769ffd77bf6e5557bd8",
+      "bytes": 202
+    },
+    "micro-compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "micro-stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "micro.cpp": {
+      "sha256": "59f4fb31b9111be226d4c1a5ae6406b4d8174f9e0f3e4344cbeb1a69663c059e",
+      "bytes": 13028
+    },
+    "micro.json": {
+      "sha256": "44f1da82dc0915ffeac66dffeb73996ca0aa9a670d9a43ecf3c3072310a76084",
+      "bytes": 434
+    },
+    "negative-checks/baseline_source_rebound_seal.stderr.txt": {
+      "sha256": "ac291d2f9f0ecdbe5aaf1eb0204317ac3ff912cd56f8346d22e8e156ab134ad9",
+      "bytes": 711
+    },
+    "negative-checks/baseline_source_rebound_seal.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "negative-checks/event_payload_rebound_seal.stderr.txt": {
+      "sha256": "8e90cec5b6b85fccf39dae9b27a67a0411fdf0eed3edd5d1710eb0e0ab195b32",
+      "bytes": 719
+    },
+    "negative-checks/event_payload_rebound_seal.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "negative-checks/negative-checks.json": {
+      "sha256": "3bfaf570978a3172d9f7c31d133a53825b625c040117f898647635e0406da8a7",
+      "bytes": 1211
+    },
+    "negative-checks/unexpected_nested_manifest.stderr.txt": {
+      "sha256": "0ffbdfd4fa2b435ca78609d502a6e98409ae3bcc8caeaf26c384604ba0cea743",
+      "bytes": 677
+    },
+    "negative-checks/unexpected_nested_manifest.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-runs/cold330-baseline/build.json": {
+      "sha256": "ec070a6335d9a4013739b4e0face157bc6262f2b611cd7ae4fc31ebc4bbdaf8a",
+      "bytes": 3950
+    },
+    "original-runs/cold330-baseline/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-runs/cold330-baseline/events.csv": {
+      "sha256": "ad73390ff828d042002bd35808273f5123cc2ddfb671553645584de0239d4fa6",
+      "bytes": 33660
+    },
+    "original-runs/cold330-baseline/metrics.csv": {
+      "sha256": "7a9f5cf6dcdebce2765b9b3becfc0a7144d7af8e74b4d2b6c56c0c04fe4fb0cc",
+      "bytes": 15483
+    },
+    "original-runs/cold330-baseline/run.json": {
+      "sha256": "4f2f7c70e767dbd5874ed28c76b3ef77a3dc6c74627b219a556a55fe6a2c046f",
+      "bytes": 4184
+    },
+    "original-runs/cold330-fast/build.json": {
+      "sha256": "bf7c2933ab71ee9f3328cb2a8fd30af3cfa68b5385906b405b4c6f9ca9fed9ae",
+      "bytes": 3914
+    },
+    "original-runs/cold330-fast/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-runs/cold330-fast/events.csv": {
+      "sha256": "ad73390ff828d042002bd35808273f5123cc2ddfb671553645584de0239d4fa6",
+      "bytes": 33660
+    },
+    "original-runs/cold330-fast/metrics.csv": {
+      "sha256": "1b14feae975f0591883c3b7cb2bc2b9d8cd00baab68742aea03a85147692ee17",
+      "bytes": 14939
+    },
+    "original-runs/cold330-fast/run.json": {
+      "sha256": "f62f00a70c40b4b9acf4d4f38efb67b27cf640639785cc9e9753614d7f44f2a9",
+      "bytes": 4147
+    },
+    "original-runs/payload-cold330-baseline/build.json": {
+      "sha256": "f01c01024e763919e51b5e165141ee410d9c088c8546a2a684d432d335f524f3",
+      "bytes": 3960
+    },
+    "original-runs/payload-cold330-baseline/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-runs/payload-cold330-baseline/events.csv": {
+      "sha256": "ab1073a8c4dc0ceca83f880254a37d498bd07f785c586ce88c215557731c599f",
+      "bytes": 48024
+    },
+    "original-runs/payload-cold330-baseline/metrics.csv": {
+      "sha256": "d5304bf729c80431562e2c7a58d26dd463de97b29e084f27b078ee8e39b4a1f0",
+      "bytes": 15482
+    },
+    "original-runs/payload-cold330-baseline/run.json": {
+      "sha256": "64ace5ad165e3929087fc9f9103f68f778e79240ec17cf56e5a7a76f511f338a",
+      "bytes": 4194
+    },
+    "original-runs/payload-cold330-fast/build.json": {
+      "sha256": "6c5ab884587137dcf6ba41c406a2cfe7d4887037ce7ab4f91248d741c7d48dad",
+      "bytes": 3924
+    },
+    "original-runs/payload-cold330-fast/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-runs/payload-cold330-fast/events.csv": {
+      "sha256": "ab1073a8c4dc0ceca83f880254a37d498bd07f785c586ce88c215557731c599f",
+      "bytes": 48024
+    },
+    "original-runs/payload-cold330-fast/metrics.csv": {
+      "sha256": "201f472d32a028f484cbbe91a02eaa506a1f7b0ba73acfe24e521fb24ae15a20",
+      "bytes": 14952
+    },
+    "original-runs/payload-cold330-fast/run.json": {
+      "sha256": "db5c057ec966094aabe5f03a48b5bc61e8ce9024ffd0bbd93bde9a74e9c03e39",
+      "bytes": 4157
+    },
+    "original-runs/profile-thread-open30-baseline/build.json": {
+      "sha256": "50d94842eb781adb45a18679929f94043f2d3379b4de13485786287f74f9b29d",
+      "bytes": 4022
+    },
+    "original-runs/profile-thread-open30-baseline/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-runs/profile-thread-open30-baseline/events.csv": {
+      "sha256": "587f221a5356e59ca44ea9594fbef54b4964c9769b689136fa1b4587cf3b5298",
+      "bytes": 4990
+    },
+    "original-runs/profile-thread-open30-baseline/metrics.csv": {
+      "sha256": "879e00397b09891d12178febc2c41496002813d813382e1ae5d94268a2126cc6",
+      "bytes": 2615
+    },
+    "original-runs/profile-thread-open30-baseline/run.json": {
+      "sha256": "771cc2b53d2f1533c0117fc4d73a4b6d850bde11d08f4069cc9edb4680a8d182",
+      "bytes": 4255
+    },
+    "original-runs/profile-thread-open30-fast/build.json": {
+      "sha256": "3e196899d3faffca9d1c237651b74a2667d8c197bfa2010f8992c9a72c36d16d",
+      "bytes": 3986
+    },
+    "original-runs/profile-thread-open30-fast/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-runs/profile-thread-open30-fast/events.csv": {
+      "sha256": "587f221a5356e59ca44ea9594fbef54b4964c9769b689136fa1b4587cf3b5298",
+      "bytes": 4990
+    },
+    "original-runs/profile-thread-open30-fast/metrics.csv": {
+      "sha256": "4a380b9b304e5a50cc02c4952aaca9a7efc05766c2eba698a0d6c099517431e4",
+      "bytes": 2521
+    },
+    "original-runs/profile-thread-open30-fast/run.json": {
+      "sha256": "8d6175d5fd77392ed1b82489b73e93d7a59ea802903efc4f8ff6ed92451c239a",
+      "bytes": 4220
+    },
+    "original-runs/score-audit-open30/build.json": {
+      "sha256": "d3fcbdf4cdff26dffd168db89ce9915beab3c5c256725c2e84d2c7cf8422a4c3",
+      "bytes": 4070
+    },
+    "original-runs/score-audit-open30/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-runs/score-audit-open30/events.csv": {
+      "sha256": "587f221a5356e59ca44ea9594fbef54b4964c9769b689136fa1b4587cf3b5298",
+      "bytes": 4990
+    },
+    "original-runs/score-audit-open30/metrics.csv": {
+      "sha256": "c47037dbdfc1a296732f622884cf2b92a33e61b15db2b0479344efe41fd7ee75",
+      "bytes": 1540
+    },
+    "original-runs/score-audit-open30/run.json": {
+      "sha256": "26390d1284b359d4dd5ef93dbc99bbfc7855814182ca84c28e55243522b61121",
+      "bytes": 4303
+    },
+    "original-runs/score-audit-open30/score-audit.json": {
+      "sha256": "d08b7aa528063c0deb1c034001a8c09a867801fed8eae92fd148ecc181d3c1ac",
+      "bytes": 285
+    },
+    "payload-cold.cpp": {
+      "sha256": "9aed6dd18d478a786033c31f1988255c6f4bd0715865a11f7f482fac9b61bf28",
+      "bytes": 2484
+    },
+    "payload-cold330-runs.json": {
+      "sha256": "43118d19fc8d353a952abf1e0a2a06b278ab6c77964ef973c6b75b19b64cdf1e",
+      "bytes": 8608
+    },
+    "probe-cold.cpp": {
+      "sha256": "3e30f10f6119e2e63408eea5c0cf769ae0b564b48e1fad7b32693f1f6aa6e6e4",
+      "bytes": 2357
+    },
+    "profile-fast.patch": {
+      "sha256": "65d31f735dac9df06fde3f8d2398efdc92aba7c806754273ca4add9c3ca30b9f",
+      "bytes": 6676
+    },
+    "profile-thread-probe.cpp": {
+      "sha256": "e26c42265a9be1a4610ed65a8c8c5c5e0c647be116b259ab1e9d2d9e4061f06d",
+      "bytes": 3103
+    },
+    "replay/micro/comparison.json": {
+      "sha256": "cb08d69b60e1381f1e560b1bfed40552d56e53df9f44e32fa1f0e4fd818f5016",
+      "bytes": 434
+    },
+    "replay/micro/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "replay/micro/run.json": {
+      "sha256": "a3e46cab9af7f1e755e9b6bc56ce8a5b47e51e159d4f34d1f0d9047cb5f26120",
+      "bytes": 3836
+    },
+    "replay/micro/scores.json": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "replay/micro-audit/comparison.json": {
+      "sha256": "96ffa1f0a6c81048a246e899435f7f85489e089cf01a7bc91217e1c9d0d038af",
+      "bytes": 400
+    },
+    "replay/micro-audit/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "replay/micro-audit/run.json": {
+      "sha256": "a0b2cb05ded754a75519c9188f4e4942a22f9f6acfe93cf553f27c78a870d812",
+      "bytes": 3888
+    },
+    "replay/micro-audit/scores.json": {
+      "sha256": "8bf1aa68e7ea13934d45b6626f60afe088e22994f07ae769ffd77bf6e5557bd8",
+      "bytes": 202
+    },
+    "replay/patch.txt": {
+      "sha256": "baf4beb2116a6b8e93aeac37cb6d73e9a318c3439f21c01b132809f264c4ed61",
+      "bytes": 49
+    },
+    "replay/payload-cold330-baseline/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "replay/payload-cold330-baseline/events.csv": {
+      "sha256": "ab1073a8c4dc0ceca83f880254a37d498bd07f785c586ce88c215557731c599f",
+      "bytes": 48024
+    },
+    "replay/payload-cold330-baseline/metrics.csv": {
+      "sha256": "bbbb7148c345eeefd196c5fcf84ae62815d0518b9bb798ccb19b2ab1b0fed66b",
+      "bytes": 15489
+    },
+    "replay/payload-cold330-baseline/run.json": {
+      "sha256": "4494643fcf4dc0736038750393b762deed6df12647ed2456bf5b3f43915557bb",
+      "bytes": 4972
+    },
+    "replay/payload-cold330-fast/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "replay/payload-cold330-fast/events.csv": {
+      "sha256": "ab1073a8c4dc0ceca83f880254a37d498bd07f785c586ce88c215557731c599f",
+      "bytes": 48024
+    },
+    "replay/payload-cold330-fast/metrics.csv": {
+      "sha256": "9a9915ae5f00b35164006c29bd695e15ace7af568c2ef6bf30f6d90efc122637",
+      "bytes": 14912
+    },
+    "replay/payload-cold330-fast/run.json": {
+      "sha256": "c8cceb578e824024f2f6431eb9c779231bdaea5ca19536321b0137c4f95e8b63",
+      "bytes": 4931
+    },
+    "replay/profile-thread-open30-baseline/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "replay/profile-thread-open30-baseline/events.csv": {
+      "sha256": "587f221a5356e59ca44ea9594fbef54b4964c9769b689136fa1b4587cf3b5298",
+      "bytes": 4990
+    },
+    "replay/profile-thread-open30-baseline/metrics.csv": {
+      "sha256": "d9df2de2dd9a422f5695220a172589999d79ea17e2c67a8c9d2e37e68be5ed60",
+      "bytes": 2612
+    },
+    "replay/profile-thread-open30-baseline/run.json": {
+      "sha256": "97dab00c578a64c569ab05b7f46d9600aef98ab7b3b58d653afd0a7cf8097a15",
+      "bytes": 5049
+    },
+    "replay/profile-thread-open30-fast/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "replay/profile-thread-open30-fast/events.csv": {
+      "sha256": "587f221a5356e59ca44ea9594fbef54b4964c9769b689136fa1b4587cf3b5298",
+      "bytes": 4990
+    },
+    "replay/profile-thread-open30-fast/metrics.csv": {
+      "sha256": "1a731d37fa777fe16a318d747f16bbbd57fa355aa0a1f4f6ae173199cc51ff72",
+      "bytes": 2513
+    },
+    "replay/profile-thread-open30-fast/run.json": {
+      "sha256": "2b0d3348206d21709315eb1b259f80e9e30797151f84d8a2bcf4679ceb9a6c18",
+      "bytes": 5010
+    },
+    "replay/score-audit-open30/compile.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "replay/score-audit-open30/events.csv": {
+      "sha256": "587f221a5356e59ca44ea9594fbef54b4964c9769b689136fa1b4587cf3b5298",
+      "bytes": 4990
+    },
+    "replay/score-audit-open30/metrics.csv": {
+      "sha256": "3e17e3f0408d75bed775ee08b058db6deb4262aba73048501640edf6b5a5cc28",
+      "bytes": 1542
+    },
+    "replay/score-audit-open30/run.json": {
+      "sha256": "c28f8a78f088ef3d67b37b8ec650609e7d63eb7aab48be1919e1069cc4dcb10e",
+      "bytes": 5101
+    },
+    "replay/score-audit-open30/score-audit.json": {
+      "sha256": "d08b7aa528063c0deb1c034001a8c09a867801fed8eae92fd148ecc181d3c1ac",
+      "bytes": 285
+    },
+    "replay/summary.json": {
+      "sha256": "1674b753fd97f6445b2b2c24f05ae294db5ee76aae75c4a91e1ddb1b0fbc43b1",
+      "bytes": 3192
+    },
+    "replay/verification.json": {
+      "sha256": "5e89db6b9b9bbc182dd6cd211e311627434bd66a0dd7accd9c541c1200227fc2",
+      "bytes": 1968
+    },
+    "reproduce.py": {
+      "sha256": "7475a2c5c628171582179b2516874254451a41b784fd434f73c26b8a9aa9176f",
+      "bytes": 9545
+    },
+    "results.json": {
+      "sha256": "277bdc90eb1470bb84ee3e9d24974abc89374fea5a35b7ca7e6fe8d3a1e593c3",
+      "bytes": 3979
+    },
+    "resume-environment.json": {
+      "sha256": "ebd88733950180fdce8ce620b5f7e8a95014dcae5a45c30a33a19c73cfb91910",
+      "bytes": 3956
+    },
+    "score-audit-probe.cpp": {
+      "sha256": "1efb70de544674f3e7be78497850214af919ef9446deadc5c8e561f3e9466d7d",
+      "bytes": 3621
+    },
+    "timing-and-audit-runs.json": {
+      "sha256": "68883106437fc093197e1c724cf599594f4f7d5b3d07d6b54f7595ed65676be6",
+      "bytes": 13165
+    },
+    "verify_negative_checks.py": {
+      "sha256": "2e9519fa06f670183a7fba133a43d3d5c8d8a959df60f64e52ed32c54df155b5",
+      "bytes": 2718
+    }
+  },
+  "file_count_excluding_manifest": 239,
+  "bytes_excluding_manifest": 2256680
+}

@@ -1,0 +1,39 @@
+{
+  "baseline": {
+    "counts": {
+      "expected": 107,
+      "matched": 107,
+      "missed": 0,
+      "false_note_ons": 2,
+      "octave_errors": 0,
+      "wrong_before_correct": 1,
+      "early_offs": 1
+    },
+    "missed_cases": []
+  },
+  "plain-phase": {
+    "counts": {
+      "expected": 107,
+      "matched": 105,
+      "missed": 2,
+      "false_note_ons": 1,
+      "octave_errors": 0,
+      "wrong_before_correct": 1,
+      "early_offs": 0
+    },
+    "missed_cases": [
+      {
+        "suite": "confirmation",
+        "case": "confirm_articulation_02_mono",
+        "expected": 3,
+        "matched": 2
+      },
+      {
+        "suite": "confirmation",
+        "case": "confirm_articulation_03_mono",
+        "expected": 3,
+        "matched": 2
+      }
+    ]
+  }
+}

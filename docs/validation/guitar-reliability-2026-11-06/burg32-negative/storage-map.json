@@ -1,0 +1,782 @@
+{
+  "schema": 1,
+  "private_original_root": "/tmp/flysnapper-v4-burg32",
+  "entries": [
+    {
+      "logical_path": "Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "storage": "payload/cd/cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "storage": "payload/8e/8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "storage": "payload/c7/c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "storage": "payload/61/614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "storage": "payload/ad/adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "storage": "payload/3b/3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "storage": "payload/bd/bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "storage": "payload/b8/b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "storage": "payload/24/24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "storage": "payload/be/bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/BurgPredictor.cpp",
+      "bytes": 2980,
+      "sha256": "b515f7fc4bf8fe5f7bfd8bea72c8da859aea9ecdf1f9b96dd0c2375bccbaf6a7",
+      "storage": "payload/b5/b515f7fc4bf8fe5f7bfd8bea72c8da859aea9ecdf1f9b96dd0c2375bccbaf6a7",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/BurgPredictor.h",
+      "bytes": 448,
+      "sha256": "9e348738121beb4fbc9895855cf07e606cfd9f544abd1e71c359a00572e69afa",
+      "storage": "payload/9e/9e348738121beb4fbc9895855cf07e606cfd9f544abd1e71c359a00572e69afa",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "storage": "payload/c8/c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "storage": "payload/da/dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "storage": "payload/3c/3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "storage": "payload/f2/f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "storage": "payload/e4/e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "storage": "payload/c0/c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "storage": "payload/b6/b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "storage": "payload/5f/5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "storage": "payload/38/3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/PitchDetector.cpp",
+      "bytes": 61909,
+      "sha256": "9343936cb56ddbe0987a53d9605b4de8e2bbe863a4b9c819f424a8f8958d2734",
+      "storage": "payload/93/9343936cb56ddbe0987a53d9605b4de8e2bbe863a4b9c819f424a8f8958d2734",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/PitchDetector.h",
+      "bytes": 7208,
+      "sha256": "a8e62bdd0e2ce1f61f41f3c5cded78f517e4559db2f1877fb8fd92946cf79564",
+      "storage": "payload/a8/a8e62bdd0e2ce1f61f41f3c5cded78f517e4559db2f1877fb8fd92946cf79564",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "storage": "payload/3d/3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "storage": "payload/59/599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "storage": "payload/96/96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 26426,
+      "sha256": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "storage": "payload/d7/d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 2997,
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "storage": "payload/64/64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "storage": "payload/93/93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "storage": "payload/d2/d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "storage": "payload/8d/8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "storage": "payload/f6/f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "storage": "payload/4a/4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "storage": "payload/b3/b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "storage": "payload/f1/f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "storage": "payload/89/89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "before-first-capture-source.json",
+      "bytes": 2101,
+      "sha256": "e3a64374dbcbbfc772c63cfffa6ad66e49951523d58e09288367f46cf251d5a9",
+      "storage": "payload/e3/e3a64374dbcbbfc772c63cfffa6ad66e49951523d58e09288367f46cf251d5a9",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "check_burg.cpp",
+      "bytes": 1376,
+      "sha256": "318461a9397c5b6fcaead53d8e8412524f74e45838bd39408876ce777d525ab3",
+      "storage": "payload/31/318461a9397c5b6fcaead53d8e8412524f74e45838bd39408876ce777d525ab3",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "dev52/capture.csv",
+      "bytes": 799,
+      "sha256": "e7297c1380a77d540ab055d7bbfbcff269d7f4d6e22d9bbea2c6edda5e230122",
+      "storage": "payload/e7/e7297c1380a77d540ab055d7bbfbcff269d7f4d6e22d9bbea2c6edda5e230122.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "dev52/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "payload/e3/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "dev52/console.txt",
+      "bytes": 85,
+      "sha256": "125922afba1587e28debb65c3c232bc329236969f535e6523f9d9113ebc3eb18",
+      "storage": "payload/12/125922afba1587e28debb65c3c232bc329236969f535e6523f9d9113ebc3eb18",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "dev52/events.csv",
+      "bytes": 46673,
+      "sha256": "03937aae5737c9d20d394eb9b14136dfbd71d5d1c0e7539a3f51690af209d7e7",
+      "storage": "payload/03/03937aae5737c9d20d394eb9b14136dfbd71d5d1c0e7539a3f51690af209d7e7.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "dev52_capture.cpp",
+      "bytes": 4618,
+      "sha256": "36d16ca3f1bd4ace1066a283eb755b62ce52d96cb4e2dd6889b592523626f4f6",
+      "storage": "payload/36/36d16ca3f1bd4ace1066a283eb755b62ce52d96cb4e2dd6889b592523626f4f6",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Core/MidiEngine.cpp",
+      "bytes": 9192,
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "storage": "payload/cd/cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Core/MidiEngine.h",
+      "bytes": 3594,
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "storage": "payload/8e/8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Core/MusicData.cpp",
+      "bytes": 6993,
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "storage": "payload/c7/c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Core/MusicData.h",
+      "bytes": 1171,
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "storage": "payload/61/614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Core/README.md",
+      "bytes": 5684,
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "storage": "payload/ad/adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Core/Reference/ChordDictionary.h",
+      "bytes": 2672,
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "storage": "payload/3b/3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Core/Reference/ChordInput.h",
+      "bytes": 1775,
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "storage": "payload/bd/bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Core/Reference/ChordNames.h",
+      "bytes": 9928,
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "storage": "payload/b8/b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/ArticulationTracker.cpp",
+      "bytes": 9155,
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "storage": "payload/24/24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/ArticulationTracker.h",
+      "bytes": 2369,
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "storage": "payload/be/bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/BurgPredictor.cpp",
+      "bytes": 3346,
+      "sha256": "8c64378c3ae28d378adc00bb2f16f8ef6328d7bb6f5f77ff5d0c149f36c28a64",
+      "storage": "payload/8c/8c64378c3ae28d378adc00bb2f16f8ef6328d7bb6f5f77ff5d0c149f36c28a64",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/BurgPredictor.h",
+      "bytes": 556,
+      "sha256": "bc8601882f35bfc6ba840e56926207cde474986a2a9af54934394af1c983e610",
+      "storage": "payload/bc/bc8601882f35bfc6ba840e56926207cde474986a2a9af54934394af1c983e610",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/EarlyEstimator.cpp",
+      "bytes": 5677,
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "storage": "payload/c8/c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/EarlyEstimator.h",
+      "bytes": 1894,
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "storage": "payload/da/dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/EarlyEstimator.md",
+      "bytes": 2853,
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "storage": "payload/3c/3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/InputDynamics.cpp",
+      "bytes": 15393,
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "storage": "payload/f2/f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/InputDynamics.h",
+      "bytes": 5307,
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "storage": "payload/e4/e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/MpeOutputRouter.cpp",
+      "bytes": 20067,
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "storage": "payload/c0/c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/MpeOutputRouter.h",
+      "bytes": 5473,
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "storage": "payload/b6/b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/NoiseConditioner.cpp",
+      "bytes": 17900,
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "storage": "payload/5f/5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/NoiseConditioner.h",
+      "bytes": 3627,
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "storage": "payload/38/3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/PitchDetector.cpp",
+      "bytes": 62739,
+      "sha256": "bf30a999750be89efd999fc27edce3df476fa63bddcdbca793be8ec37359b00c",
+      "storage": "payload/bf/bf30a999750be89efd999fc27edce3df476fa63bddcdbca793be8ec37359b00c",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/PitchDetector.h",
+      "bytes": 7571,
+      "sha256": "ace66f781fdedb3a230b954f811af718f10af44e8591384335f6135dbe2b4503",
+      "storage": "payload/ac/ace66f781fdedb3a230b954f811af718f10af44e8591384335f6135dbe2b4503",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/PolyphonicTracker.cpp",
+      "bytes": 33108,
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "storage": "payload/3d/3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/PolyphonicTracker.h",
+      "bytes": 2579,
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "storage": "payload/59/599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/README.md",
+      "bytes": 9751,
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "storage": "payload/96/96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/TimeDomainPursuit.cpp",
+      "bytes": 26426,
+      "sha256": "d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "storage": "payload/d7/d7f92a1e6e57d641d3aee821845bb2abc22317c18348e2211bfb3023e9320599",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/TimeDomainPursuit.h",
+      "bytes": 2997,
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "storage": "payload/64/64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/TimeDomainPursuit.md",
+      "bytes": 10165,
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "storage": "payload/93/93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/YinEstimator.cpp",
+      "bytes": 18069,
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "storage": "payload/d2/d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/YinEstimator.h",
+      "bytes": 1957,
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "storage": "payload/8d/8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/Pitch/YinEstimator.md",
+      "bytes": 6061,
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "storage": "payload/f6/f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/PluginEditor.cpp",
+      "bytes": 52162,
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "storage": "payload/4a/4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/PluginEditor.h",
+      "bytes": 4540,
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "storage": "payload/b3/b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/PluginProcessor.cpp",
+      "bytes": 40450,
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "storage": "payload/f1/f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/Source/PluginProcessor.h",
+      "bytes": 7516,
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "storage": "payload/89/89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/before-rms-capture-source.json",
+      "bytes": 2190,
+      "sha256": "51967e4ccc2a8561027f1b822ea2d1dcae26f071023299719dcb16904f9fb259",
+      "storage": "payload/51/51967e4ccc2a8561027f1b822ea2d1dcae26f071023299719dcb16904f9fb259",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/capture.cpp",
+      "bytes": 5872,
+      "sha256": "7f058084edda35877462a96625eeada503124a652ea9844064d374ff5fe6a933",
+      "storage": "payload/7f/7f058084edda35877462a96625eeada503124a652ea9844064d374ff5fe6a933",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/capture_rms.cpp",
+      "bytes": 5916,
+      "sha256": "f907f40aa4c806f400afe811e105a1f454612e665b931fcaca9d44fe5e42b9b7",
+      "storage": "payload/f9/f907f40aa4c806f400afe811e105a1f454612e665b931fcaca9d44fe5e42b9b7",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/compile-rms.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "payload/e3/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "payload/e3/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/rms-capture-binding.json",
+      "bytes": 3336,
+      "sha256": "320456b8fc476938ecf825fe996d193555d6ebc83603dba46b02e628d9359fc2",
+      "storage": "payload/32/320456b8fc476938ecf825fe996d193555d6ebc83603dba46b02e628d9359fc2",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/run/capture.csv",
+      "bytes": 208,
+      "sha256": "cb0abbef3dcc5ee3b5a0ceb7ff7869f355408e55ecae9f2507b13dd87a69a3c5",
+      "storage": "payload/cb/cb0abbef3dcc5ee3b5a0ceb7ff7869f355408e55ecae9f2507b13dd87a69a3c5.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "diagnostic/run/console.txt",
+      "bytes": 85,
+      "sha256": "519ce46ac06c60e28680aea28a1a1de2e56932299ceddd14a69a8f4f47c08815",
+      "storage": "payload/51/519ce46ac06c60e28680aea28a1a1de2e56932299ceddd14a69a8f4f47c08815",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/run/events.csv",
+      "bytes": 10679,
+      "sha256": "98ca009facb1be2bb7566aba300e83b04cf825e9d949cefe8ee3eb681e2d9998",
+      "storage": "payload/98/98ca009facb1be2bb7566aba300e83b04cf825e9d949cefe8ee3eb681e2d9998.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "diagnostic/run/forecast-debug.csv",
+      "bytes": 24835,
+      "sha256": "2394783cc7ed9b9d4f4c0e8037e4aa0795348dd0d946447a8607c847ce294cd5",
+      "storage": "payload/23/2394783cc7ed9b9d4f4c0e8037e4aa0795348dd0d946447a8607c847ce294cd5.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "diagnostic/run/forecast-diagnosis.json",
+      "bytes": 54789,
+      "sha256": "31591030de6f5a3ce0594202e3141a1c4ab17b9c6ba8926b60ea72c2629976dd",
+      "storage": "payload/31/31591030de6f5a3ce0594202e3141a1c4ab17b9c6ba8926b60ea72c2629976dd",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/run/training-power.csv",
+      "bytes": 84155,
+      "sha256": "51d86b3622c349b1f431b63dc8cafabb1689cea09ea0b4dbb513b76097144a14",
+      "storage": "payload/51/51d86b3622c349b1f431b63dc8cafabb1689cea09ea0b4dbb513b76097144a14.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "diagnostic/run-rms-reference/capture.csv",
+      "bytes": 208,
+      "sha256": "2846c395993bdfe5cdfcc9e54e54efb3abd96781f725526383691d1489564efb",
+      "storage": "payload/28/2846c395993bdfe5cdfcc9e54e54efb3abd96781f725526383691d1489564efb.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "diagnostic/run-rms-reference/common-rms-reference.json",
+      "bytes": 3219,
+      "sha256": "9cced66e1e6ca1704140e1594e7aca6bad4694e7118fa314f1b4c8d858da2b1d",
+      "storage": "payload/9c/9cced66e1e6ca1704140e1594e7aca6bad4694e7118fa314f1b4c8d858da2b1d",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/run-rms-reference/console.txt",
+      "bytes": 85,
+      "sha256": "519ce46ac06c60e28680aea28a1a1de2e56932299ceddd14a69a8f4f47c08815",
+      "storage": "payload/51/519ce46ac06c60e28680aea28a1a1de2e56932299ceddd14a69a8f4f47c08815",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "diagnostic/run-rms-reference/events.csv",
+      "bytes": 10679,
+      "sha256": "98ca009facb1be2bb7566aba300e83b04cf825e9d949cefe8ee3eb681e2d9998",
+      "storage": "payload/98/98ca009facb1be2bb7566aba300e83b04cf825e9d949cefe8ee3eb681e2d9998.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "diagnostic/run-rms-reference/forecast-debug.csv",
+      "bytes": 24835,
+      "sha256": "2394783cc7ed9b9d4f4c0e8037e4aa0795348dd0d946447a8607c847ce294cd5",
+      "storage": "payload/23/2394783cc7ed9b9d4f4c0e8037e4aa0795348dd0d946447a8607c847ce294cd5.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "diagnostic/run-rms-reference/training-power.csv",
+      "bytes": 112435,
+      "sha256": "09cd105c208aa8666f1564e5e5d6ae80432fa474327a12ce717686ff71d9cc1d",
+      "storage": "payload/09/09cd105c208aa8666f1564e5e5d6ae80432fa474327a12ce717686ff71d9cc1d.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "first-capture-binding.json",
+      "bytes": 2024,
+      "sha256": "42e9e2564fe53fe442663bab6bb26d3bae9380eabbc66b51ea638a46b5d6ade6",
+      "storage": "payload/42/42e9e2564fe53fe442663bab6bb26d3bae9380eabbc66b51ea638a46b5d6ade6",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "legacy_driver.cpp",
+      "bytes": 12181,
+      "sha256": "5b727481f9f9fc6de3f5bb55b94f3783f2bdd39804a68ab060434f09d661127f",
+      "storage": "payload/5b/5b727481f9f9fc6de3f5bb55b94f3783f2bdd39804a68ab060434f09d661127f",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "model-math-check.txt",
+      "bytes": 94,
+      "sha256": "699b9d2f7fcf3564a74e2da61b18397dcb7b047ab152699b2ec0666f5d2ab72b",
+      "storage": "payload/69/699b9d2f7fcf3564a74e2da61b18397dcb7b047ab152699b2ec0666f5d2ab72b",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "predeclared.json",
+      "bytes": 1096,
+      "sha256": "6089f3ff1dbe341957319cf8496cdb6c8ab2d534300b6b0f3ba10837719c6631",
+      "storage": "payload/60/6089f3ff1dbe341957319cf8496cdb6c8ab2d534300b6b0f3ba10837719c6631",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "quiet-counter/compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "payload/e3/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "quiet-counter/console.txt",
+      "bytes": 131,
+      "sha256": "4478110338c12b0fde0472292c709df9417922ca85ed894f8fbc1a2ad02c9c94",
+      "storage": "payload/44/4478110338c12b0fde0472292c709df9417922ca85ed894f8fbc1a2ad02c9c94",
+      "encoding": "raw"
+    },
+    {
+      "logical_path": "quiet-counter/counter-events.csv",
+      "bytes": 1461,
+      "sha256": "7b81f2a4621088783807aeca48d59190f65fa227236f89722e71e9ecd8196ef3",
+      "storage": "payload/7b/7b81f2a4621088783807aeca48d59190f65fa227236f89722e71e9ecd8196ef3.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "quiet-counter/counter-results.csv",
+      "bytes": 399,
+      "sha256": "b6c277a40d857ad7b47c7d24f41a8540004d048a929f10c6576f397689040e0e",
+      "storage": "payload/b6/b6c277a40d857ad7b47c7d24f41a8540004d048a929f10c6576f397689040e0e.gz",
+      "encoding": "gzip"
+    },
+    {
+      "logical_path": "quiet_repick_counter.cpp",
+      "bytes": 2028,
+      "sha256": "041e96e2f490bdbd6889d313a8c02ee2e0aa1c2dc5f7f6d2f978873b7b0a9c5b",
+      "storage": "payload/04/041e96e2f490bdbd6889d313a8c02ee2e0aa1c2dc5f7f6d2f978873b7b0a9c5b",
+      "encoding": "raw"
+    }
+  ],
+  "exclusions": [
+    {
+      "logical_path": "CheckBurg",
+      "bytes": 17008,
+      "sha256": "2c926391e4217c70f0686e587d1393f43bb31aab3c1d0fe0ad4afcf1195e4400",
+      "reason": "Executable excluded; source/compile provenance retained"
+    },
+    {
+      "logical_path": "dev52/Capture",
+      "bytes": 195688,
+      "sha256": "8b110a2e4b841be71da3bcbafd6e7e661dfc7825a6f6aae9da06161811bf2fee",
+      "reason": "Executable excluded; source/compile provenance retained"
+    },
+    {
+      "logical_path": "diagnostic/Capture",
+      "bytes": 196008,
+      "sha256": "10c4baf2770013571f6c59a037f1720413adc10550d653eaf0b9cbcdb4951cd0",
+      "reason": "Executable excluded; source/compile provenance retained"
+    },
+    {
+      "logical_path": "diagnostic/CaptureRms",
+      "bytes": 196016,
+      "sha256": "a194380097b7578a0c61232c7a09568ad0c57e012c8527634b6ed48cad6aabee",
+      "reason": "Executable excluded; source/compile provenance retained"
+    },
+    {
+      "logical_path": "quiet-counter/Capture",
+      "bytes": 170232,
+      "sha256": "11a5f8a9178b20da4544609732c179044644498ea0f9961810d1b4d9ab114150",
+      "reason": "Executable excluded; source/compile provenance retained"
+    }
+  ],
+  "logical_files": 106,
+  "unique_payloads": 68
+}

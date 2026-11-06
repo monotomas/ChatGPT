@@ -1,0 +1,239 @@
+{
+  "scope": "Canonical metadata references only; no PCM/f32/audio/model payload is copied. Original per-recording audio hashes remain in the unchanged fixture manifests. Prospective reserved detector inputs were never captured here.",
+  "files": [
+    {
+      "project_path": "Tests/AudioFixtures/fixtures.json",
+      "sha256": "f7f88cb88a2a62bf4493e388b59f1dc8204ad2fd57469e463ab29d51072b6bb6",
+      "bytes": 45107,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/fixtures.tsv",
+      "sha256": "bed2eca207c577a8fb1e54c289c778a8e943fe55536dab35a38c570cbf670e13",
+      "bytes": 6449,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/README.md",
+      "sha256": "8a3090605b3da6681da1268fd5dda187050b157d6b7394012962ee78503b6b20",
+      "bytes": 4848,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/holdout/fixtures.json",
+      "sha256": "816faff8b414f579e2b107057113c0c34df8685abfc768d26c978197e6e7d692",
+      "bytes": 54978,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/holdout/fixtures.tsv",
+      "sha256": "13abbe3727f6693001fff3ec0df0207592dfe6a0f33e95ab6a89ca332c56f162",
+      "bytes": 6533,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/holdout/README.md",
+      "sha256": "be3e5fe63f5ddc5b40d052fd611ea94c46a70b4747136c3a311774f1410cdf92",
+      "bytes": 3225,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/confirmation/fixtures.json",
+      "sha256": "5baff69d15a05bac7500aef83cd9d2efcb73743aa2136ce041c8c56c5cfbbda0",
+      "bytes": 40720,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/confirmation/fixtures.tsv",
+      "sha256": "72573d677bea8b2fbf8564a8e20e8cb26d6cf6b0ec13d2427e9b031067ad892a",
+      "bytes": 4990,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/confirmation/SEALED_SHA256.txt",
+      "sha256": "f3064aeebf26d3107c6c1333096b7954f1fc2660baa3ab43571f23eba93776d3",
+      "bytes": 80,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/confirmation/README.md",
+      "sha256": "56f78b2342b39bf3df0e68c9dafcdb956b807dee5ed5c80ed1247f9b85916c17",
+      "bytes": 4236,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/fixtures.json",
+      "sha256": "faa79bd35617c0bb9b1c44e0d458b791741e977be29181e58a42486eaa4fc036",
+      "bytes": 74192,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/fixtures.tsv",
+      "sha256": "603ba629c22f3ebfd6c1d3a95eedfd7d2b8ee7c6adab2b7ce24b9780ee53fc1b",
+      "bytes": 8366,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/pitch-curves.tsv",
+      "sha256": "a503f49c6f24854385acad18965cbd5856cf191e8c3a4982b38673b05678ee3c",
+      "bytes": 1711265,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/policy.json",
+      "sha256": "e35da4a854b2ba8bba1cde9a90c3263d0e9d275b70acfe002d9b0eeedbda68be",
+      "bytes": 2279,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/SEALED_SHA256.txt",
+      "sha256": "b2496e85716674136e1c79e272c35c9fcf5a025e3b0122117fa85fc28e7e9bdc",
+      "bytes": 65,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/verify.py",
+      "sha256": "4128181514e7897627d70e8d192fdfd2d39576549fb8651e0c6634f5b43b9704",
+      "bytes": 4344,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/generate.py",
+      "sha256": "f6dae0c9e1b3b0a852184ccf9ac115503e5a1d273148906bea5c3f0ce387d547",
+      "bytes": 15480,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/README.md",
+      "sha256": "af049c5d437f0e00e9908caa92c6b59dc807af10bbe286f1bf6cfb7f6fd9bcde",
+      "bytes": 9751,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_noise/fixtures.json",
+      "sha256": "c3f4c7d9be5b876e2f0e763fa21481950513f68805af8f99f7a468d53bdb8f88",
+      "bytes": 150391,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_noise/fixtures.tsv",
+      "sha256": "b1efce5829ab4ff062e5edc928b0f2eddf664cdc633d76027582471494f2c6b1",
+      "bytes": 24009,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_noise/pitch-curves.tsv",
+      "sha256": "24d2f7f8617f06f32115874970bb8fdefbe58956f5bdbb4c3efa60f87f4a97c0",
+      "bytes": 3824652,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_noise/policy.json",
+      "sha256": "e35da4a854b2ba8bba1cde9a90c3263d0e9d275b70acfe002d9b0eeedbda68be",
+      "bytes": 2279,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_noise/SEALED_SHA256.txt",
+      "sha256": "2d552ec37505b54736f75a6408610f6d4fe96343bcfcbe2c87100151f7e63c3c",
+      "bytes": 65,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_noise/README.md",
+      "sha256": "c507b3abd9003171ad2d77adab60a1f3d9dade32315e6530407216cd3d1ca6d4",
+      "bytes": 5901,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_hammers/fixtures.json",
+      "sha256": "fa73ff8a519fe908f92a458db17bb0ab7dd381fadf0b169049ab53248f372868",
+      "bytes": 17141,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_hammers/fixtures.tsv",
+      "sha256": "91e9a8b99298c8e00b4e94f6b1244c9ab2faa6c1443fba677fb1f0193a4611da",
+      "bytes": 1625,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_hammers/pitch-curves.tsv",
+      "sha256": "458d6639ee48792cbd6ddc3c4896a662453925649d09f967d43e98ee2864d136",
+      "bytes": 293536,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_hammers/policy.json",
+      "sha256": "e35da4a854b2ba8bba1cde9a90c3263d0e9d275b70acfe002d9b0eeedbda68be",
+      "bytes": 2279,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/readiness/recorded_hammers/SEALED_SHA256.txt",
+      "sha256": "a1bf7c6532b0321f9ea1e026ae7e1a233c1c555746c30e1467c34e4fe4cf7de2",
+      "bytes": 65,
+      "kind": "canonical fixture metadata"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/PRE_CAPTURE_SEAL.json",
+      "sha256": "d312dabcffb03ea49b14eb74a8f7a9934317b7535988d278f8ff2dbd2c3fbe92",
+      "bytes": 512,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/selection-before-capture.json",
+      "sha256": "1f77d038ca3747ca1eabb5f8c2a72a9e9562cb72b3ccf7b9afe133e81e6e92fb",
+      "bytes": 5300,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/split-before-any-detector.json",
+      "sha256": "1afe89b6cbdb13c862d73feccb30413682f81c5de7942a6aed8ea860a01ab637",
+      "bytes": 1893,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/source-manifest.json",
+      "sha256": "93d95c10d01c8ebbe06d84a1b562513b1d873732d488e104160e7b3b8f531f76",
+      "bytes": 12126,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/independent-acoustic-annotations.json",
+      "sha256": "0b9bde6a449797751a7d4b9836c96817059eff299cb62baaa6741bac1f6f748c",
+      "bytes": 291580,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/float32-exact-manifest.json",
+      "sha256": "4246566546d334ad8b21b1a733ff1697fd2ce3dedb58fa09b21ce18183f7961b",
+      "bytes": 5489,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/legal-readme-provenance.json",
+      "sha256": "270df4a5f6742441f95de2d6e970eb4c3138e532ce25f72ca5e49bb10f04f9a5",
+      "bytes": 438,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/decode_exact.py",
+      "sha256": "2cef9a2ef6973f1b0b8b445363839a73f5268300bb17e53f6e548b9a8915f3f1",
+      "bytes": 2476,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/verify.py",
+      "sha256": "4ec1facd5095352eec715c4fe0f96cfa875ccb177135344f5b21dc2a4051d7ff",
+      "bytes": 8159,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    },
+    {
+      "project_path": "Tests/AudioFixtures/guitar_reliability_2026_11_06/original-source/LICENSE",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "bytes": 7048,
+      "kind": "separately retained new fixture metadata/license; no reserved detector output"
+    }
+  ]
+}

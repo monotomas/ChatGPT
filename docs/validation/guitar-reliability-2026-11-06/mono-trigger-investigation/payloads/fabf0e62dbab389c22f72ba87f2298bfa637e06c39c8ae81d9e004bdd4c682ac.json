@@ -1,0 +1,14 @@
+{
+  "created_at_utc": "2026-11-06T07:54:49.519793+00:00",
+  "baseline": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "known_raw_innovation_regression": "hidden_recorded_01_mono falseOff/On183.979ms despite .990-.996optimalrawcorrelation; waveformtroughcorrelation suggests numerator/denominatorbandwidthmismatch",
+  "hypotheses": {
+    "raw-onset-denominator": "RawNCinnovation divided by existingperiod-smoothedRAWhostonsetEnvelope, no detectionthreshold change. Poly unchanged.",
+    "raw-refined-period": "RawNCinnovation usesseparatelyrefinedrawperiodonlywhentrackconf>.985; pitch/MIDIidentity unchanged, denominatororiginal. Existing.985 precisioncriterion."
+  },
+  "no_threshold_grid": true,
+  "no_coherence_admission_veto": true,
+  "must_preserve": "107OFFtrue/104DEFAULT+restoretargetswithoutnewfalse; all14baselinequietpostdroptruecounter configurations; realDEVtailfalsemustnotworsen;35mssteps no newmiss",
+  "production_source_changed": false,
+  "reserved_detector_runs": 0
+}

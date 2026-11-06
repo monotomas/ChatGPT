@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/flysnapper-profile-negative-checks-20261106/unexpected_nested_manifest/reproduce.py", line 185, in <module>
+    main()
+  File "/tmp/flysnapper-profile-negative-checks-20261106/unexpected_nested_manifest/reproduce.py", line 143, in main
+    report = {'archive': verify_archive(), 'suite': args.suite}
+                         ^^^^^^^^^^^^^^^^
+  File "/tmp/flysnapper-profile-negative-checks-20261106/unexpected_nested_manifest/reproduce.py", line 39, in verify_archive
+    assert actual == manifest['files'], 'Archive inventory/hash mismatch'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Archive inventory/hash mismatch

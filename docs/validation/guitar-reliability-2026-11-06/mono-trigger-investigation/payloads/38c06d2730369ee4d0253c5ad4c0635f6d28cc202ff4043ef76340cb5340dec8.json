@@ -1,0 +1,3444 @@
+[
+  {
+    "case": "hum50_450_mono",
+    "family": "stationary-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 0,
+    "matched": 0,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "latencies_ms": [],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 4.447,
+    "cpu_max_us": 73.308,
+    "references": [],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "hum50_3600_mono",
+    "family": "stationary-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 0,
+    "matched": 0,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "latencies_ms": [],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 427.517,
+    "cpu_max_us": 477.811,
+    "references": [],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "hum60_450_mono",
+    "family": "stationary-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 0,
+    "matched": 0,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "latencies_ms": [],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 5.819,
+    "cpu_max_us": 234.154,
+    "references": [],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "hum60_3600_mono",
+    "family": "stationary-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 0,
+    "matched": 0,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "latencies_ms": [],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 329.023,
+    "cpu_max_us": 532.471,
+    "references": [],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "handling_damped_contacts_mono",
+    "family": "non-tonal-handling",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 0,
+    "matched": 0,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "latencies_ms": [],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 22.063,
+    "cpu_max_us": 33.229,
+    "references": [],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "fret_squeaks_mono",
+    "family": "non-tonal-squeak",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 0,
+    "matched": 0,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "latencies_ms": [],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 131.222,
+    "cpu_max_us": 270.066,
+    "references": [],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "broadband_noise_mono",
+    "family": "broadband-noise",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 0,
+    "matched": 0,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "latencies_ms": [],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 161.137,
+    "cpu_max_us": 194.796,
+    "references": [],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "handling_squeak_hum_mono",
+    "family": "mixed-unwanted",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 0,
+    "matched": 0,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "latencies_ms": [],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 174.756,
+    "cpu_max_us": 237.278,
+    "references": [],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_hum_31_gain1_mono",
+    "family": "quiet-guitar-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 18.776,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 49.3125,
+      "p95": 49.3125,
+      "maximum": 49.3125
+    },
+    "latencies_ms": [
+      49.3125
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 47.3125,
+      "p95": 47.3125,
+      "maximum": 47.3125
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 31,
+        "technique": "pluck",
+        "samples_scored": 752,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 589.355,
+    "cpu_max_us": 951.817,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 31,
+        "technique": "pluck",
+        "reference_on_sample": 24000,
+        "reference_off_sample": 74400,
+        "matched": true,
+        "decision_sample": 26367,
+        "note_off_sample": 76671,
+        "latency_ms": 49.3125
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_hum_31_gain8_mono",
+    "family": "quiet-guitar-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 18.776,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 46.645833333333336,
+      "p95": 46.645833333333336,
+      "maximum": 46.645833333333336
+    },
+    "latencies_ms": [
+      46.645833333333336
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 47.3125,
+      "p95": 47.3125,
+      "maximum": 47.3125
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 31,
+        "technique": "pluck",
+        "samples_scored": 754,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 531.119,
+    "cpu_max_us": 650.404,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 31,
+        "technique": "pluck",
+        "reference_on_sample": 24000,
+        "reference_off_sample": 74400,
+        "matched": true,
+        "decision_sample": 26239,
+        "note_off_sample": 76671,
+        "latency_ms": 46.645833333333336
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_hum_40_gain1_mono",
+    "family": "quiet-guitar-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 19.867,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 30.645833333333332,
+      "p95": 30.645833333333332,
+      "maximum": 30.645833333333332
+    },
+    "latencies_ms": [
+      30.645833333333332
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 41.979166666666664,
+      "p95": 41.979166666666664,
+      "maximum": 41.979166666666664
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 40,
+        "technique": "pluck",
+        "samples_scored": 766,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 456.159,
+    "cpu_max_us": 696.742,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 40,
+        "technique": "pluck",
+        "reference_on_sample": 24000,
+        "reference_off_sample": 74400,
+        "matched": true,
+        "decision_sample": 25471,
+        "note_off_sample": 76415,
+        "latency_ms": 30.645833333333332
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_hum_40_gain8_mono",
+    "family": "quiet-guitar-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 19.867,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 30.645833333333332,
+      "p95": 30.645833333333332,
+      "maximum": 30.645833333333332
+    },
+    "latencies_ms": [
+      30.645833333333332
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 41.979166666666664,
+      "p95": 41.979166666666664,
+      "maximum": 41.979166666666664
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 40,
+        "technique": "pluck",
+        "samples_scored": 766,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 544.79,
+    "cpu_max_us": 955.232,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 40,
+        "technique": "pluck",
+        "reference_on_sample": 24000,
+        "reference_off_sample": 74400,
+        "matched": true,
+        "decision_sample": 25471,
+        "note_off_sample": 76415,
+        "latency_ms": 30.645833333333332
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_hum_52_gain1_mono",
+    "family": "quiet-guitar-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 18.664,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 19.979166666666668,
+      "p95": 19.979166666666668,
+      "maximum": 19.979166666666668
+    },
+    "latencies_ms": [
+      19.979166666666668
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 36.645833333333336,
+      "p95": 36.645833333333336,
+      "maximum": 36.645833333333336
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 52,
+        "technique": "pluck",
+        "samples_scored": 774,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 302.353,
+    "cpu_max_us": 557.608,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 52,
+        "technique": "pluck",
+        "reference_on_sample": 24000,
+        "reference_off_sample": 74400,
+        "matched": true,
+        "decision_sample": 24959,
+        "note_off_sample": 76159,
+        "latency_ms": 19.979166666666668
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_hum_52_gain8_mono",
+    "family": "quiet-guitar-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 18.664,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 19.979166666666668,
+      "p95": 19.979166666666668,
+      "maximum": 19.979166666666668
+    },
+    "latencies_ms": [
+      19.979166666666668
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 36.645833333333336,
+      "p95": 36.645833333333336,
+      "maximum": 36.645833333333336
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 52,
+        "technique": "pluck",
+        "samples_scored": 774,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 435.57,
+    "cpu_max_us": 495.417,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 52,
+        "technique": "pluck",
+        "reference_on_sample": 24000,
+        "reference_off_sample": 74400,
+        "matched": true,
+        "decision_sample": 24959,
+        "note_off_sample": 76159,
+        "latency_ms": 19.979166666666668
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_hum_64_gain1_mono",
+    "family": "quiet-guitar-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 17.773,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 11.979166666666666,
+      "p95": 11.979166666666666,
+      "maximum": 11.979166666666666
+    },
+    "latencies_ms": [
+      11.979166666666666
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 36.645833333333336,
+      "p95": 36.645833333333336,
+      "maximum": 36.645833333333336
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 64,
+        "technique": "pluck",
+        "samples_scored": 780,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 269.075,
+    "cpu_max_us": 328.161,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 64,
+        "technique": "pluck",
+        "reference_on_sample": 24000,
+        "reference_off_sample": 74400,
+        "matched": true,
+        "decision_sample": 24575,
+        "note_off_sample": 76159,
+        "latency_ms": 11.979166666666666
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_hum_64_gain8_mono",
+    "family": "quiet-guitar-mains",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 17.773,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 11.979166666666666,
+      "p95": 11.979166666666666,
+      "maximum": 11.979166666666666
+    },
+    "latencies_ms": [
+      11.979166666666666
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 36.645833333333336,
+      "p95": 36.645833333333336,
+      "maximum": 36.645833333333336
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 64,
+        "technique": "pluck",
+        "samples_scored": 780,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 203.679,
+    "cpu_max_us": 323.975,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 64,
+        "technique": "pluck",
+        "reference_on_sample": 24000,
+        "reference_off_sample": 74400,
+        "matched": true,
+        "decision_sample": 24575,
+        "note_off_sample": 76159,
+        "latency_ms": 11.979166666666666
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "music_handling_snr6_gain1_mono",
+    "family": "music-plus-handling",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 6,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 5,
+    "noise_note_ons": 0,
+    "octave_errors": 3,
+    "wrong_before_correct": 0,
+    "early_offs": 1,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 0.16666666666666666,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 16.645833333333332,
+      "p95": 16.645833333333332,
+      "maximum": 16.645833333333332
+    },
+    "latencies_ms": [
+      16.645833333333332
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": -892.6875,
+      "p95": -892.6875,
+      "maximum": -892.6875
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 128,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [
+      "false-octave",
+      "note-precision",
+      "premature-release"
+    ],
+    "passed": false,
+    "deadline_misses": 0,
+    "cpu_p99_us": 356.723,
+    "cpu_max_us": 962.763,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 21600,
+        "reference_off_sample": 73440,
+        "matched": true,
+        "decision_sample": 22399,
+        "note_off_sample": 30591,
+        "latency_ms": 16.645833333333332
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "music_handling_snr6_gain4_mono",
+    "family": "music-plus-handling",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 6,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 5,
+    "noise_note_ons": 0,
+    "octave_errors": 3,
+    "wrong_before_correct": 0,
+    "early_offs": 1,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 0.16666666666666666,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 16.645833333333332,
+      "p95": 16.645833333333332,
+      "maximum": 16.645833333333332
+    },
+    "latencies_ms": [
+      16.645833333333332
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": -892.6875,
+      "p95": -892.6875,
+      "maximum": -892.6875
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 128,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [
+      "false-octave",
+      "note-precision",
+      "premature-release"
+    ],
+    "passed": false,
+    "deadline_misses": 0,
+    "cpu_p99_us": 391.775,
+    "cpu_max_us": 1141.53,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 21600,
+        "reference_off_sample": 73440,
+        "matched": true,
+        "decision_sample": 22399,
+        "note_off_sample": 30591,
+        "latency_ms": 16.645833333333332
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "music_handling_snr12_gain1_mono",
+    "family": "music-plus-handling",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 12,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 1,
+    "noise_note_ons": 0,
+    "octave_errors": 1,
+    "wrong_before_correct": 0,
+    "early_offs": 1,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 16.645833333333332,
+      "p95": 16.645833333333332,
+      "maximum": 16.645833333333332
+    },
+    "latencies_ms": [
+      16.645833333333332
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": -466.0208333333333,
+      "p95": -466.0208333333333,
+      "maximum": -466.0208333333333
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 448,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [
+      "false-octave",
+      "note-precision",
+      "premature-release"
+    ],
+    "passed": false,
+    "deadline_misses": 0,
+    "cpu_p99_us": 268.194,
+    "cpu_max_us": 290.306,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 21600,
+        "reference_off_sample": 73440,
+        "matched": true,
+        "decision_sample": 22399,
+        "note_off_sample": 51071,
+        "latency_ms": 16.645833333333332
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "music_handling_snr12_gain4_mono",
+    "family": "music-plus-handling",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 12,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 5,
+    "noise_note_ons": 0,
+    "octave_errors": 3,
+    "wrong_before_correct": 0,
+    "early_offs": 1,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 0.16666666666666666,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 16.645833333333332,
+      "p95": 16.645833333333332,
+      "maximum": 16.645833333333332
+    },
+    "latencies_ms": [
+      16.645833333333332
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": -471.3541666666667,
+      "p95": -471.3541666666667,
+      "maximum": -471.3541666666667
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 444,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [
+      "false-octave",
+      "note-precision",
+      "premature-release"
+    ],
+    "passed": false,
+    "deadline_misses": 0,
+    "cpu_p99_us": 375.591,
+    "cpu_max_us": 893.641,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 21600,
+        "reference_off_sample": 73440,
+        "matched": true,
+        "decision_sample": 22399,
+        "note_off_sample": 50815,
+        "latency_ms": 16.645833333333332
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "music_handling_snr24_gain1_mono",
+    "family": "music-plus-handling",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 24,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 1,
+    "noise_note_ons": 0,
+    "octave_errors": 1,
+    "wrong_before_correct": 0,
+    "early_offs": 1,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 16.645833333333332,
+      "p95": 16.645833333333332,
+      "maximum": 16.645833333333332
+    },
+    "latencies_ms": [
+      16.645833333333332
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": -463.3541666666667,
+      "p95": -463.3541666666667,
+      "maximum": -463.3541666666667
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 450,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [
+      "false-octave",
+      "note-precision",
+      "premature-release"
+    ],
+    "passed": false,
+    "deadline_misses": 0,
+    "cpu_p99_us": 328.032,
+    "cpu_max_us": 704.854,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 21600,
+        "reference_off_sample": 73440,
+        "matched": true,
+        "decision_sample": 22399,
+        "note_off_sample": 51199,
+        "latency_ms": 16.645833333333332
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "music_handling_snr24_gain4_mono",
+    "family": "music-plus-handling",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": 24,
+    "expected": 1,
+    "matched": 1,
+    "missed": 0,
+    "extra_note_ons": 1,
+    "noise_note_ons": 0,
+    "octave_errors": 1,
+    "wrong_before_correct": 0,
+    "early_offs": 1,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 16.645833333333332,
+      "p95": 16.645833333333332,
+      "maximum": 16.645833333333332
+    },
+    "latencies_ms": [
+      16.645833333333332
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": -463.3541666666667,
+      "p95": -463.3541666666667,
+      "maximum": -463.3541666666667
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 450,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [
+      "false-octave",
+      "note-precision",
+      "premature-release"
+    ],
+    "passed": false,
+    "deadline_misses": 0,
+    "cpu_p99_us": 271.168,
+    "cpu_max_us": 518.34,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 21600,
+        "reference_off_sample": 73440,
+        "matched": true,
+        "decision_sample": 22399,
+        "note_off_sample": 51199,
+        "latency_ms": 16.645833333333332
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "fretted_slide_up_35ms_mono",
+    "family": "fretted-slide",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 8,
+    "matched": 2,
+    "missed": 6,
+    "extra_note_ons": 3,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 1,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 6,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 0.4,
+    "recall": 0.25,
+    "latency_ms": {
+      "median": 48.979166666666664,
+      "p95": 48.979166666666664,
+      "maximum": 48.979166666666664
+    },
+    "latencies_ms": [
+      16.645833333333332,
+      48.979166666666664
+    ],
+    "discrete_latencies_ms": [
+      48.979166666666664
+    ],
+    "release_ms": {
+      "median": 69.64583333333333,
+      "p95": 69.64583333333333,
+      "maximum": 69.64583333333333
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 15,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n7",
+        "implementation_voice": 0,
+        "anchor": 64,
+        "technique": "fretted_slide",
+        "samples_scored": 178,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [
+      "missed-discrete-articulation",
+      "note-precision",
+      "note-recall",
+      "wrong-before-correct"
+    ],
+    "passed": false,
+    "deadline_misses": 0,
+    "cpu_p99_us": 231.84,
+    "cpu_max_us": 533.493,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 12000,
+        "reference_off_sample": 13680,
+        "matched": true,
+        "decision_sample": 12799,
+        "note_off_sample": 17023,
+        "latency_ms": 16.645833333333332
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "reference_on_sample": 13680,
+        "reference_off_sample": 15360,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n2",
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "reference_on_sample": 15360,
+        "reference_off_sample": 17040,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n3",
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "reference_on_sample": 17040,
+        "reference_off_sample": 18720,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n4",
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "reference_on_sample": 18720,
+        "reference_off_sample": 20400,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n5",
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "reference_on_sample": 20400,
+        "reference_off_sample": 22080,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n6",
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "reference_on_sample": 22080,
+        "reference_off_sample": 23760,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n7",
+        "anchor": 64,
+        "technique": "fretted_slide",
+        "reference_on_sample": 23760,
+        "reference_off_sample": 37440,
+        "matched": true,
+        "decision_sample": 26111,
+        "note_off_sample": 39167,
+        "latency_ms": 48.979166666666664
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "fretted_slide_down_35ms_mono",
+    "family": "fretted-slide",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 8,
+    "matched": 2,
+    "missed": 6,
+    "extra_note_ons": 3,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 6,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 0.4,
+    "recall": 0.25,
+    "latency_ms": {
+      "median": 43.645833333333336,
+      "p95": 43.645833333333336,
+      "maximum": 43.645833333333336
+    },
+    "latencies_ms": [
+      13.979166666666666,
+      43.645833333333336
+    ],
+    "discrete_latencies_ms": [
+      43.645833333333336
+    ],
+    "release_ms": {
+      "median": 61.645833333333336,
+      "p95": 61.645833333333336,
+      "maximum": 61.645833333333336
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 64,
+        "technique": "pluck",
+        "samples_scored": 17,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n7",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "fretted_slide",
+        "samples_scored": 182,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [
+      "missed-discrete-articulation",
+      "note-precision",
+      "note-recall"
+    ],
+    "passed": false,
+    "deadline_misses": 0,
+    "cpu_p99_us": 218.05,
+    "cpu_max_us": 678.936,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 64,
+        "technique": "pluck",
+        "reference_on_sample": 12000,
+        "reference_off_sample": 13680,
+        "matched": true,
+        "decision_sample": 12671,
+        "note_off_sample": 16639,
+        "latency_ms": 13.979166666666666
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "reference_on_sample": 13680,
+        "reference_off_sample": 15360,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n2",
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "reference_on_sample": 15360,
+        "reference_off_sample": 17040,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n3",
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "reference_on_sample": 17040,
+        "reference_off_sample": 18720,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n4",
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "reference_on_sample": 18720,
+        "reference_off_sample": 20400,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n5",
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "reference_on_sample": 20400,
+        "reference_off_sample": 22080,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n6",
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "reference_on_sample": 22080,
+        "reference_off_sample": 23760,
+        "matched": false,
+        "decision_sample": null,
+        "note_off_sample": null,
+        "latency_ms": null
+      },
+      {
+        "note_id": "s0-n7",
+        "anchor": 57,
+        "technique": "fretted_slide",
+        "reference_on_sample": 23760,
+        "reference_off_sample": 37440,
+        "matched": true,
+        "decision_sample": 25855,
+        "note_off_sample": 39295,
+        "latency_ms": 43.645833333333336
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "fretted_slide_up_65ms_mono",
+    "family": "fretted-slide",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 8,
+    "matched": 8,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 47.979166666666664,
+      "p95": 49.645833333333336,
+      "maximum": 49.645833333333336
+    },
+    "latencies_ms": [
+      16.645833333333332,
+      28.979166666666668,
+      46.645833333333336,
+      48.3125,
+      47.3125,
+      48.979166666666664,
+      47.979166666666664,
+      49.645833333333336
+    ],
+    "discrete_latencies_ms": [
+      28.979166666666668,
+      46.645833333333336,
+      48.3125,
+      47.3125,
+      48.979166666666664,
+      47.979166666666664,
+      49.645833333333336
+    ],
+    "release_ms": {
+      "median": 47.979166666666664,
+      "p95": 49.645833333333336,
+      "maximum": 49.645833333333336
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 37,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n1",
+        "implementation_voice": 0,
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "samples_scored": 28,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n2",
+        "implementation_voice": 0,
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "samples_scored": 15,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n3",
+        "implementation_voice": 0,
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "samples_scored": 13,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n4",
+        "implementation_voice": 0,
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "samples_scored": 14,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n5",
+        "implementation_voice": 0,
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "samples_scored": 13,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n6",
+        "implementation_voice": 0,
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "samples_scored": 14,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n7",
+        "implementation_voice": 0,
+        "anchor": 64,
+        "technique": "fretted_slide",
+        "samples_scored": 200,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 198.211,
+    "cpu_max_us": 288.604,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 12000,
+        "reference_off_sample": 15120,
+        "matched": true,
+        "decision_sample": 12799,
+        "note_off_sample": 16511,
+        "latency_ms": 16.645833333333332
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "reference_on_sample": 15120,
+        "reference_off_sample": 18240,
+        "matched": true,
+        "decision_sample": 16511,
+        "note_off_sample": 20479,
+        "latency_ms": 28.979166666666668
+      },
+      {
+        "note_id": "s0-n2",
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "reference_on_sample": 18240,
+        "reference_off_sample": 21360,
+        "matched": true,
+        "decision_sample": 20479,
+        "note_off_sample": 23679,
+        "latency_ms": 46.645833333333336
+      },
+      {
+        "note_id": "s0-n3",
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "reference_on_sample": 21360,
+        "reference_off_sample": 24480,
+        "matched": true,
+        "decision_sample": 23679,
+        "note_off_sample": 26751,
+        "latency_ms": 48.3125
+      },
+      {
+        "note_id": "s0-n4",
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "reference_on_sample": 24480,
+        "reference_off_sample": 27600,
+        "matched": true,
+        "decision_sample": 26751,
+        "note_off_sample": 29951,
+        "latency_ms": 47.3125
+      },
+      {
+        "note_id": "s0-n5",
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "reference_on_sample": 27600,
+        "reference_off_sample": 30720,
+        "matched": true,
+        "decision_sample": 29951,
+        "note_off_sample": 33023,
+        "latency_ms": 48.979166666666664
+      },
+      {
+        "note_id": "s0-n6",
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "reference_on_sample": 30720,
+        "reference_off_sample": 33840,
+        "matched": true,
+        "decision_sample": 33023,
+        "note_off_sample": 36223,
+        "latency_ms": 47.979166666666664
+      },
+      {
+        "note_id": "s0-n7",
+        "anchor": 64,
+        "technique": "fretted_slide",
+        "reference_on_sample": 33840,
+        "reference_off_sample": 48960,
+        "matched": true,
+        "decision_sample": 36223,
+        "note_off_sample": 50687,
+        "latency_ms": 49.645833333333336
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "fretted_slide_down_65ms_mono",
+    "family": "fretted-slide",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 8,
+    "matched": 8,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 47.979166666666664,
+      "p95": 49.3125,
+      "maximum": 49.3125
+    },
+    "latencies_ms": [
+      13.979166666666666,
+      34.3125,
+      49.3125,
+      48.3125,
+      47.3125,
+      48.979166666666664,
+      47.979166666666664,
+      46.979166666666664
+    ],
+    "discrete_latencies_ms": [
+      34.3125,
+      49.3125,
+      48.3125,
+      47.3125,
+      48.979166666666664,
+      47.979166666666664,
+      46.979166666666664
+    ],
+    "release_ms": {
+      "median": 47.979166666666664,
+      "p95": 49.3125,
+      "maximum": 49.3125
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 64,
+        "technique": "pluck",
+        "samples_scored": 39,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n1",
+        "implementation_voice": 0,
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "samples_scored": 24,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n2",
+        "implementation_voice": 0,
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "samples_scored": 13,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n3",
+        "implementation_voice": 0,
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "samples_scored": 13,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n4",
+        "implementation_voice": 0,
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "samples_scored": 14,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n5",
+        "implementation_voice": 0,
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "samples_scored": 13,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n6",
+        "implementation_voice": 0,
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "samples_scored": 14,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n7",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "fretted_slide",
+        "samples_scored": 202,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 208.276,
+    "cpu_max_us": 336.414,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 64,
+        "technique": "pluck",
+        "reference_on_sample": 12000,
+        "reference_off_sample": 15120,
+        "matched": true,
+        "decision_sample": 12671,
+        "note_off_sample": 16767,
+        "latency_ms": 13.979166666666666
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "reference_on_sample": 15120,
+        "reference_off_sample": 18240,
+        "matched": true,
+        "decision_sample": 16767,
+        "note_off_sample": 20607,
+        "latency_ms": 34.3125
+      },
+      {
+        "note_id": "s0-n2",
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "reference_on_sample": 18240,
+        "reference_off_sample": 21360,
+        "matched": true,
+        "decision_sample": 20607,
+        "note_off_sample": 23679,
+        "latency_ms": 49.3125
+      },
+      {
+        "note_id": "s0-n3",
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "reference_on_sample": 21360,
+        "reference_off_sample": 24480,
+        "matched": true,
+        "decision_sample": 23679,
+        "note_off_sample": 26751,
+        "latency_ms": 48.3125
+      },
+      {
+        "note_id": "s0-n4",
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "reference_on_sample": 24480,
+        "reference_off_sample": 27600,
+        "matched": true,
+        "decision_sample": 26751,
+        "note_off_sample": 29951,
+        "latency_ms": 47.3125
+      },
+      {
+        "note_id": "s0-n5",
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "reference_on_sample": 27600,
+        "reference_off_sample": 30720,
+        "matched": true,
+        "decision_sample": 29951,
+        "note_off_sample": 33023,
+        "latency_ms": 48.979166666666664
+      },
+      {
+        "note_id": "s0-n6",
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "reference_on_sample": 30720,
+        "reference_off_sample": 33840,
+        "matched": true,
+        "decision_sample": 33023,
+        "note_off_sample": 36095,
+        "latency_ms": 47.979166666666664
+      },
+      {
+        "note_id": "s0-n7",
+        "anchor": 57,
+        "technique": "fretted_slide",
+        "reference_on_sample": 33840,
+        "reference_off_sample": 48960,
+        "matched": true,
+        "decision_sample": 36095,
+        "note_off_sample": 50815,
+        "latency_ms": 46.979166666666664
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "fretted_slide_up_105ms_mono",
+    "family": "fretted-slide",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 8,
+    "matched": 8,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 19.645833333333332,
+      "p95": 20.645833333333332,
+      "maximum": 20.645833333333332
+    },
+    "latencies_ms": [
+      16.645833333333332,
+      15.645833333333334,
+      19.979166666666668,
+      18.979166666666668,
+      20.645833333333332,
+      19.645833333333332,
+      18.645833333333332,
+      20.3125
+    ],
+    "discrete_latencies_ms": [
+      15.645833333333334,
+      19.979166666666668,
+      18.979166666666668,
+      20.645833333333332,
+      19.645833333333332,
+      18.645833333333332,
+      20.3125
+    ],
+    "release_ms": {
+      "median": 19.979166666666668,
+      "p95": 35.979166666666664,
+      "maximum": 35.979166666666664
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 67,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n1",
+        "implementation_voice": 0,
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "samples_scored": 68,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n2",
+        "implementation_voice": 0,
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "samples_scored": 65,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n3",
+        "implementation_voice": 0,
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "samples_scored": 65,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n4",
+        "implementation_voice": 0,
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "samples_scored": 64,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n5",
+        "implementation_voice": 0,
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "samples_scored": 65,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n6",
+        "implementation_voice": 0,
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "samples_scored": 66,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n7",
+        "implementation_voice": 0,
+        "anchor": 64,
+        "technique": "fretted_slide",
+        "samples_scored": 252,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 207.183,
+    "cpu_max_us": 607.241,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 12000,
+        "reference_off_sample": 17040,
+        "matched": true,
+        "decision_sample": 12799,
+        "note_off_sample": 17791,
+        "latency_ms": 16.645833333333332
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "reference_on_sample": 17040,
+        "reference_off_sample": 22080,
+        "matched": true,
+        "decision_sample": 17791,
+        "note_off_sample": 23039,
+        "latency_ms": 15.645833333333334
+      },
+      {
+        "note_id": "s0-n2",
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "reference_on_sample": 22080,
+        "reference_off_sample": 27120,
+        "matched": true,
+        "decision_sample": 23039,
+        "note_off_sample": 28031,
+        "latency_ms": 19.979166666666668
+      },
+      {
+        "note_id": "s0-n3",
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "reference_on_sample": 27120,
+        "reference_off_sample": 32160,
+        "matched": true,
+        "decision_sample": 28031,
+        "note_off_sample": 33151,
+        "latency_ms": 18.979166666666668
+      },
+      {
+        "note_id": "s0-n4",
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "reference_on_sample": 32160,
+        "reference_off_sample": 37200,
+        "matched": true,
+        "decision_sample": 33151,
+        "note_off_sample": 38143,
+        "latency_ms": 20.645833333333332
+      },
+      {
+        "note_id": "s0-n5",
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "reference_on_sample": 37200,
+        "reference_off_sample": 42240,
+        "matched": true,
+        "decision_sample": 38143,
+        "note_off_sample": 43135,
+        "latency_ms": 19.645833333333332
+      },
+      {
+        "note_id": "s0-n6",
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "reference_on_sample": 42240,
+        "reference_off_sample": 47280,
+        "matched": true,
+        "decision_sample": 43135,
+        "note_off_sample": 48255,
+        "latency_ms": 18.645833333333332
+      },
+      {
+        "note_id": "s0-n7",
+        "anchor": 64,
+        "technique": "fretted_slide",
+        "reference_on_sample": 47280,
+        "reference_off_sample": 64320,
+        "matched": true,
+        "decision_sample": 48255,
+        "note_off_sample": 66047,
+        "latency_ms": 20.3125
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "fretted_slide_down_105ms_mono",
+    "family": "fretted-slide",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 8,
+    "matched": 8,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 20.3125,
+      "p95": 22.645833333333332,
+      "maximum": 22.645833333333332
+    },
+    "latencies_ms": [
+      13.979166666666666,
+      15.645833333333334,
+      22.645833333333332,
+      18.979166666666668,
+      20.645833333333332,
+      19.645833333333332,
+      21.3125,
+      20.3125
+    ],
+    "discrete_latencies_ms": [
+      15.645833333333334,
+      22.645833333333332,
+      18.979166666666668,
+      20.645833333333332,
+      19.645833333333332,
+      21.3125,
+      20.3125
+    ],
+    "release_ms": {
+      "median": 20.645833333333332,
+      "p95": 38.645833333333336,
+      "maximum": 38.645833333333336
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 64,
+        "technique": "pluck",
+        "samples_scored": 69,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n1",
+        "implementation_voice": 0,
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "samples_scored": 68,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n2",
+        "implementation_voice": 0,
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "samples_scored": 63,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n3",
+        "implementation_voice": 0,
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "samples_scored": 65,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n4",
+        "implementation_voice": 0,
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "samples_scored": 64,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n5",
+        "implementation_voice": 0,
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "samples_scored": 65,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n6",
+        "implementation_voice": 0,
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "samples_scored": 64,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n7",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "fretted_slide",
+        "samples_scored": 252,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 193.784,
+    "cpu_max_us": 386.287,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 64,
+        "technique": "pluck",
+        "reference_on_sample": 12000,
+        "reference_off_sample": 17040,
+        "matched": true,
+        "decision_sample": 12671,
+        "note_off_sample": 17791,
+        "latency_ms": 13.979166666666666
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 63,
+        "technique": "fretted_slide",
+        "reference_on_sample": 17040,
+        "reference_off_sample": 22080,
+        "matched": true,
+        "decision_sample": 17791,
+        "note_off_sample": 23167,
+        "latency_ms": 15.645833333333334
+      },
+      {
+        "note_id": "s0-n2",
+        "anchor": 62,
+        "technique": "fretted_slide",
+        "reference_on_sample": 22080,
+        "reference_off_sample": 27120,
+        "matched": true,
+        "decision_sample": 23167,
+        "note_off_sample": 28031,
+        "latency_ms": 22.645833333333332
+      },
+      {
+        "note_id": "s0-n3",
+        "anchor": 61,
+        "technique": "fretted_slide",
+        "reference_on_sample": 27120,
+        "reference_off_sample": 32160,
+        "matched": true,
+        "decision_sample": 28031,
+        "note_off_sample": 33151,
+        "latency_ms": 18.979166666666668
+      },
+      {
+        "note_id": "s0-n4",
+        "anchor": 60,
+        "technique": "fretted_slide",
+        "reference_on_sample": 32160,
+        "reference_off_sample": 37200,
+        "matched": true,
+        "decision_sample": 33151,
+        "note_off_sample": 38143,
+        "latency_ms": 20.645833333333332
+      },
+      {
+        "note_id": "s0-n5",
+        "anchor": 59,
+        "technique": "fretted_slide",
+        "reference_on_sample": 37200,
+        "reference_off_sample": 42240,
+        "matched": true,
+        "decision_sample": 38143,
+        "note_off_sample": 43263,
+        "latency_ms": 19.645833333333332
+      },
+      {
+        "note_id": "s0-n6",
+        "anchor": 58,
+        "technique": "fretted_slide",
+        "reference_on_sample": 42240,
+        "reference_off_sample": 47280,
+        "matched": true,
+        "decision_sample": 43263,
+        "note_off_sample": 48255,
+        "latency_ms": 21.3125
+      },
+      {
+        "note_id": "s0-n7",
+        "anchor": 57,
+        "technique": "fretted_slide",
+        "reference_on_sample": 47280,
+        "reference_off_sample": 64320,
+        "matched": true,
+        "decision_sample": 48255,
+        "note_off_sample": 66175,
+        "latency_ms": 20.3125
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "hammer_pull_no_amplitude_attack_mono",
+    "family": "hammer-pull",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 5,
+    "matched": 5,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 19.3125,
+      "p95": 21.3125,
+      "maximum": 21.3125
+    },
+    "latencies_ms": [
+      19.3125,
+      19.3125,
+      15.979166666666666,
+      19.3125,
+      21.3125
+    ],
+    "discrete_latencies_ms": [
+      19.3125,
+      15.979166666666666,
+      19.3125,
+      21.3125
+    ],
+    "release_ms": {
+      "median": 19.3125,
+      "p95": 37.979166666666664,
+      "maximum": 37.979166666666664
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 52,
+        "technique": "pluck",
+        "samples_scored": 226,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n1",
+        "implementation_voice": 0,
+        "anchor": 55,
+        "technique": "hammer_on",
+        "samples_scored": 219,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n2",
+        "implementation_voice": 0,
+        "anchor": 59,
+        "technique": "hammer_on",
+        "samples_scored": 207,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n3",
+        "implementation_voice": 0,
+        "anchor": 55,
+        "technique": "pull_off",
+        "samples_scored": 219,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n4",
+        "implementation_voice": 0,
+        "anchor": 52,
+        "technique": "pull_off",
+        "samples_scored": 203,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 1,
+    "cpu_p99_us": 234.334,
+    "cpu_max_us": 1673.63,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 52,
+        "technique": "pluck",
+        "reference_on_sample": 12000,
+        "reference_off_sample": 27360,
+        "matched": true,
+        "decision_sample": 12927,
+        "note_off_sample": 28287,
+        "latency_ms": 19.3125
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 55,
+        "technique": "hammer_on",
+        "reference_on_sample": 27360,
+        "reference_off_sample": 42240,
+        "matched": true,
+        "decision_sample": 28287,
+        "note_off_sample": 43007,
+        "latency_ms": 19.3125
+      },
+      {
+        "note_id": "s0-n2",
+        "anchor": 59,
+        "technique": "hammer_on",
+        "reference_on_sample": 42240,
+        "reference_off_sample": 56160,
+        "matched": true,
+        "decision_sample": 43007,
+        "note_off_sample": 57087,
+        "latency_ms": 15.979166666666666
+      },
+      {
+        "note_id": "s0-n3",
+        "anchor": 55,
+        "technique": "pull_off",
+        "reference_on_sample": 56160,
+        "reference_off_sample": 71040,
+        "matched": true,
+        "decision_sample": 57087,
+        "note_off_sample": 72063,
+        "latency_ms": 19.3125
+      },
+      {
+        "note_id": "s0-n4",
+        "anchor": 52,
+        "technique": "pull_off",
+        "reference_on_sample": 71040,
+        "reference_off_sample": 84960,
+        "matched": true,
+        "decision_sample": 72063,
+        "note_off_sample": 86783,
+        "latency_ms": 21.3125
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "hammer_pull_tiny_contact_mono",
+    "family": "hammer-pull",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 5,
+    "matched": 5,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 19.3125,
+      "p95": 21.3125,
+      "maximum": 21.3125
+    },
+    "latencies_ms": [
+      19.3125,
+      19.3125,
+      15.979166666666666,
+      19.3125,
+      21.3125
+    ],
+    "discrete_latencies_ms": [
+      19.3125,
+      15.979166666666666,
+      19.3125,
+      21.3125
+    ],
+    "release_ms": {
+      "median": 19.3125,
+      "p95": 37.979166666666664,
+      "maximum": 37.979166666666664
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 52,
+        "technique": "pluck",
+        "samples_scored": 226,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n1",
+        "implementation_voice": 0,
+        "anchor": 55,
+        "technique": "hammer_on",
+        "samples_scored": 219,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n2",
+        "implementation_voice": 0,
+        "anchor": 59,
+        "technique": "hammer_on",
+        "samples_scored": 207,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n3",
+        "implementation_voice": 0,
+        "anchor": 55,
+        "technique": "pull_off",
+        "samples_scored": 219,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n4",
+        "implementation_voice": 0,
+        "anchor": 52,
+        "technique": "pull_off",
+        "samples_scored": 203,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 264.498,
+    "cpu_max_us": 429.53,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 52,
+        "technique": "pluck",
+        "reference_on_sample": 12000,
+        "reference_off_sample": 27360,
+        "matched": true,
+        "decision_sample": 12927,
+        "note_off_sample": 28287,
+        "latency_ms": 19.3125
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 55,
+        "technique": "hammer_on",
+        "reference_on_sample": 27360,
+        "reference_off_sample": 42240,
+        "matched": true,
+        "decision_sample": 28287,
+        "note_off_sample": 43007,
+        "latency_ms": 19.3125
+      },
+      {
+        "note_id": "s0-n2",
+        "anchor": 59,
+        "technique": "hammer_on",
+        "reference_on_sample": 42240,
+        "reference_off_sample": 56160,
+        "matched": true,
+        "decision_sample": 43007,
+        "note_off_sample": 57087,
+        "latency_ms": 15.979166666666666
+      },
+      {
+        "note_id": "s0-n3",
+        "anchor": 55,
+        "technique": "pull_off",
+        "reference_on_sample": 56160,
+        "reference_off_sample": 71040,
+        "matched": true,
+        "decision_sample": 57087,
+        "note_off_sample": 72063,
+        "latency_ms": 19.3125
+      },
+      {
+        "note_id": "s0-n4",
+        "anchor": 52,
+        "technique": "pull_off",
+        "reference_on_sample": 71040,
+        "reference_off_sample": 84960,
+        "matched": true,
+        "decision_sample": 72063,
+        "note_off_sample": 86783,
+        "latency_ms": 21.3125
+      }
+    ],
+    "scope": "mono-expression"
+  },
+  {
+    "case": "quiet_new_note_after_decay_noise_mono",
+    "family": "quiet-rearticulation",
+    "mode": "mono",
+    "rate": 48000,
+    "block": 64,
+    "snr_db": null,
+    "expected": 2,
+    "matched": 2,
+    "missed": 0,
+    "extra_note_ons": 0,
+    "noise_note_ons": 0,
+    "octave_errors": 0,
+    "wrong_before_correct": 0,
+    "early_offs": 0,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "latency_ms": {
+      "median": 25.3125,
+      "p95": 25.3125,
+      "maximum": 25.3125
+    },
+    "latencies_ms": [
+      25.3125,
+      17.3125
+    ],
+    "discrete_latencies_ms": [],
+    "release_ms": {
+      "median": 38.645833333333336,
+      "p95": 38.645833333333336,
+      "maximum": 38.645833333333336
+    },
+    "pitch_error_cents": {
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "curves": [
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n0",
+        "implementation_voice": 0,
+        "anchor": 45,
+        "technique": "pluck",
+        "samples_scored": 342,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      },
+      {
+        "fractional_ground_truth": false,
+        "note_id": "s0-n1",
+        "implementation_voice": 0,
+        "anchor": 57,
+        "technique": "pluck",
+        "samples_scored": 393,
+        "pitch_events": 0,
+        "error_cents": {
+          "median": 0.0,
+          "p95": 0.0,
+          "maximum": 0.0
+        },
+        "steady_max_cents": 0.0
+      }
+    ],
+    "failures": [],
+    "passed": true,
+    "deadline_misses": 0,
+    "cpu_p99_us": 258.589,
+    "cpu_max_us": 372.998,
+    "references": [
+      {
+        "note_id": "s0-n0",
+        "anchor": 45,
+        "technique": "pluck",
+        "reference_on_sample": 14400,
+        "reference_off_sample": 37440,
+        "matched": true,
+        "decision_sample": 15615,
+        "note_off_sample": 39295,
+        "latency_ms": 25.3125
+      },
+      {
+        "note_id": "s0-n1",
+        "anchor": 57,
+        "technique": "pluck",
+        "reference_on_sample": 48960,
+        "reference_off_sample": 74880,
+        "matched": true,
+        "decision_sample": 49791,
+        "note_off_sample": 76671,
+        "latency_ms": 17.3125
+      }
+    ],
+    "scope": "mono-expression"
+  }
+]

@@ -1,0 +1,4050 @@
+{
+  "schema": 1,
+  "edition": "real-muted-percussive-and-quiet-controls-v1",
+  "sample_rate": 48000,
+  "baseline_source_commit": "c5b05337641b13ae259836f5346e7c1850b7382c",
+  "detector_used_during_generation": false,
+  "recorded_real_articulations_included": true,
+  "real_technique_evidence": [
+    "muted_percussive_noise",
+    "plucked_note_isolated"
+  ],
+  "missing_required_real_techniques": [
+    "continuous_fretted_slide",
+    "hammer_transition",
+    "pull_off",
+    "continuous_bend",
+    "vibrato",
+    "independent_poly_bend",
+    "real_fret_squeak",
+    "real_mains_hum"
+  ],
+  "original_physical_latency_groundtruth_available": false,
+  "derive_script_sha256": "7946a66966798ccf4086775304fb9f65d76606fcf411b7f5a91d436e6663197d",
+  "policy_sha256": "e35da4a854b2ba8bba1cde9a90c3263d0e9d275b70acfe002d9b0eeedbda68be",
+  "source_repository": "https://github.com/sfzinstruments/karoryfer.shinyguitar",
+  "source_commit": "57243cca85277dbcc120ce17c6178032f93c80f3",
+  "source_license": "CC0-1.0",
+  "paired_capture_warning": "Acoustic and electric samples are microphone and magnetic pickup views of the same named gestures, not independent performances.",
+  "semantic_limit": "Chosen percussive/muted author-labelled sounds are suppression controls in this edition. They do not prove that every quiet pitched string is unwanted and do not constitute real fret squeak or hum evidence.",
+  "records": [
+    {
+      "name": "Samples-acoustic-mute_strings1_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak25.wav",
+      "frames": 76800,
+      "sha256": "910bb882ac69dbb626809f02192b6894a83e6a684fcc86be90e7f83ccbff62a6",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+      "source_sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.025,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-acoustic-mute_strings1_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak150.wav",
+      "frames": 76800,
+      "sha256": "4a43d7190d4c610203ed8b6be91e2ca771b26d67b021728aaa21497029f38fce",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+      "source_sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.15,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-acoustic-mute_strings3_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak25.wav",
+      "frames": 76800,
+      "sha256": "3e077bdadc7a6bb2a6a99e8dbc9d5936fe1c22c89bf40690832d48be3d269b18",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-acoustic-mute_strings3_rr1_1.wav",
+      "source_sha256": "3a892d8b76088321221eaf90481f03afed35320e40b20ff0df222619af386219",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-mute_strings3_rr1_1.wav",
+          "sha256": "3a892d8b76088321221eaf90481f03afed35320e40b20ff0df222619af386219"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.025,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-acoustic-mute_strings3_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak150.wav",
+      "frames": 76800,
+      "sha256": "b659c5c6dd3fed3c3494269d688b9e9713d4bab842c288648878c865f551749d",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-acoustic-mute_strings3_rr1_1.wav",
+      "source_sha256": "3a892d8b76088321221eaf90481f03afed35320e40b20ff0df222619af386219",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-mute_strings3_rr1_1.wav",
+          "sha256": "3a892d8b76088321221eaf90481f03afed35320e40b20ff0df222619af386219"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.15,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-acoustic-perc_1_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-perc_1_rr1_1_noise_peak25.wav",
+      "frames": 76800,
+      "sha256": "fde9012f87a22852c279468aa6f68a0bd13bea40f09e6710549dfa9883a75fc5",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-acoustic-perc_1_rr1_1.wav",
+      "source_sha256": "ae9b366921ce1aa2cadaffb24db967cc906723c28e770f26ba81dfe070254967",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-perc_1_rr1_1.wav",
+          "sha256": "ae9b366921ce1aa2cadaffb24db967cc906723c28e770f26ba81dfe070254967"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.025,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-acoustic-perc_1_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-perc_1_rr1_1_noise_peak150.wav",
+      "frames": 76800,
+      "sha256": "d7ea8729b15424a83abb547c10b86a9ca8b1ff3fe913288804b66a9ca5156005",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-acoustic-perc_1_rr1_1.wav",
+      "source_sha256": "ae9b366921ce1aa2cadaffb24db967cc906723c28e770f26ba81dfe070254967",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-perc_1_rr1_1.wav",
+          "sha256": "ae9b366921ce1aa2cadaffb24db967cc906723c28e770f26ba81dfe070254967"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.15,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-acoustic-perc_4_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-perc_4_rr1_1_noise_peak25.wav",
+      "frames": 76800,
+      "sha256": "5d429214912c7aa97771bc838f77e1b019c4c56b871161aa58cd1812ed6c3f25",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-acoustic-perc_4_rr1_1.wav",
+      "source_sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.025,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-acoustic-perc_4_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-perc_4_rr1_1_noise_peak150.wav",
+      "frames": 76800,
+      "sha256": "91a50352e2787a42725211d5cf200aea18fee98adf5dcb01d07c6044611c7c19",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-acoustic-perc_4_rr1_1.wav",
+      "source_sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.15,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-electric-mute_strings1_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-mute_strings1_rr1_2_noise_peak25.wav",
+      "frames": 76800,
+      "sha256": "8860223d6cc80e566cc728bdbea512e16a9842dc9185da9ab213e77327efff58",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-electric-mute_strings1_rr1_2.wav",
+      "source_sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.025,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-electric-mute_strings1_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-mute_strings1_rr1_2_noise_peak150.wav",
+      "frames": 76800,
+      "sha256": "8a3c71a5a68692770be08726d45f2ab7082e6599dc91e83aaa2db5e1b3c4ecf7",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-electric-mute_strings1_rr1_2.wav",
+      "source_sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.15,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-electric-mute_strings3_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-mute_strings3_rr1_2_noise_peak25.wav",
+      "frames": 76800,
+      "sha256": "457c5d8025c3ce9840d1ceed02c31c99592c314b08d40a00abc116765cf43483",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-electric-mute_strings3_rr1_2.wav",
+      "source_sha256": "6c0946d6cc6b6c5327234c78263bf5f2f06622242756245dc2bd3360e14d0c4d",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-mute_strings3_rr1_2.wav",
+          "sha256": "6c0946d6cc6b6c5327234c78263bf5f2f06622242756245dc2bd3360e14d0c4d"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.025,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-electric-mute_strings3_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-mute_strings3_rr1_2_noise_peak150.wav",
+      "frames": 76800,
+      "sha256": "64d08368ac2a45108d8d68831306147e3b42c566b1dc7102c76c52c881c1ead9",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-electric-mute_strings3_rr1_2.wav",
+      "source_sha256": "6c0946d6cc6b6c5327234c78263bf5f2f06622242756245dc2bd3360e14d0c4d",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-mute_strings3_rr1_2.wav",
+          "sha256": "6c0946d6cc6b6c5327234c78263bf5f2f06622242756245dc2bd3360e14d0c4d"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.15,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-electric-perc_1_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-perc_1_rr1_2_noise_peak25.wav",
+      "frames": 76800,
+      "sha256": "26947cf819b7e097a4e61a66fa2fe006ec4d8769258505e82a8928cc2931b17d",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-electric-perc_1_rr1_2.wav",
+      "source_sha256": "9da966729553e76814ac318a5e75997e600ed0f7e2d22813900ebe1508e095ed",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-perc_1_rr1_2.wav",
+          "sha256": "9da966729553e76814ac318a5e75997e600ed0f7e2d22813900ebe1508e095ed"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.025,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-electric-perc_1_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-perc_1_rr1_2_noise_peak150.wav",
+      "frames": 76800,
+      "sha256": "97c56e62969cd00e2786ba4ed9b1a0f8e427feb5cb0e01215f2db4b6389410bd",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-electric-perc_1_rr1_2.wav",
+      "source_sha256": "9da966729553e76814ac318a5e75997e600ed0f7e2d22813900ebe1508e095ed",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-perc_1_rr1_2.wav",
+          "sha256": "9da966729553e76814ac318a5e75997e600ed0f7e2d22813900ebe1508e095ed"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.15,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-electric-perc_4_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-perc_4_rr1_2_noise_peak25.wav",
+      "frames": 76800,
+      "sha256": "ffe36311e93771296e914534146a5e1777be239c63139a85d059faa07d1b7627",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-electric-perc_4_rr1_2.wav",
+      "source_sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.025,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-electric-perc_4_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-perc_4_rr1_2_noise_peak150.wav",
+      "frames": 76800,
+      "sha256": "b07b81908deb1bb034350d7916271a79ef7de3d374c0a127cb116c76a7cefe3b",
+      "origin": "repeated-real-noise-sample",
+      "source": "source/Samples-electric-perc_4_rr1_2.wav",
+      "source_sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_peak": 0.15,
+        "sample_starts_seconds": [
+          0.1,
+          0.8
+        ],
+        "author_label": "muted strings or percussion; assigned suppression intent for these controls"
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25.wav",
+      "frames": 67200,
+      "sha256": "45216f9479521c8fffc551cc04231291742b5d87e5ce32d58723124035c83d47",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        }
+      ],
+      "derivation": {
+        "peak": 0.025,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150.wav",
+      "frames": 67200,
+      "sha256": "f8885a9338fa4e7cfe463be6053d93b41779d8dab5b99a89728cb52a7d59c4ae",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        }
+      ],
+      "derivation": {
+        "peak": 0.15,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25.wav",
+      "frames": 84000,
+      "sha256": "77ed85f589d93c04b732add1ec7e7aea804add36647a2ec2c7cd1b41abd7ed9e",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        }
+      ],
+      "derivation": {
+        "peak": 0.025,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150.wav",
+      "frames": 84000,
+      "sha256": "72326f8e30481d83b6a112097ce1060ef4bde1b6f5d97afbfce5feec00e74733",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        }
+      ],
+      "derivation": {
+        "peak": 0.15,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "frames": 79200,
+      "sha256": "f8adc661ec1b2bf9a454b99fbf5a8d9cab3698e6b2e5d919ac9ca11cffe113f9",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        },
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999997,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "frames": 79200,
+      "sha256": "4b5ed95b32595874d31daeaae6132ce6914b74cfe5355f3feb0117af32110ab4",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        },
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999997,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "frames": 79200,
+      "sha256": "808fd6a9759f85b092c1bb93be98cd6586b3d61784e02ffefae716c0c09c6151",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        },
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 11.999999999999996,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "frames": 79200,
+      "sha256": "f785709d7c56c05177056f8a995869d86e18ae5cdbfd0657215a86a5d6823d95",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        },
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 11.999999999999996,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "frames": 79200,
+      "sha256": "057b38958a384f7e3aa3648ed7cb3d2196b8740f00bb575870ee269efd730e27",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        },
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999997,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "frames": 79200,
+      "sha256": "35db0a2f561c4a908566962bdb9aea35dcf100bf6158596886e54861f0c70658",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        },
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999997,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "frames": 79200,
+      "sha256": "1b23b52d0d29621bfa4eec5d6fd88aa155537a580f6e6479f8278100eaf85b8c",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        },
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "frames": 79200,
+      "sha256": "9e55507a8a328a782ada1bfb30dd5f772d91db38cfaf5ed97bd91d6af26e1074",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+      "source_sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-a3_vl1_rr1_1.wav",
+          "sha256": "67017c9fb0fe7a83762c499d28865b5105a210588fbdb702ad15982901abcea1"
+        },
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25.wav",
+      "frames": 67200,
+      "sha256": "c2486b01256d1ff92c92ca6950d60cb3792ac63ef83525674691c56613e83e84",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        }
+      ],
+      "derivation": {
+        "peak": 0.025,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150.wav",
+      "frames": 67200,
+      "sha256": "5cc7b6907c60b6b295c490256abbc3516c43d3199dd5755eaa2dce6b4d70e372",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        }
+      ],
+      "derivation": {
+        "peak": 0.15,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25.wav",
+      "frames": 84000,
+      "sha256": "e9138b8166f931b2ee237f8bc1ae61860b7aa03b5826f244cd748e986dc819aa",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        }
+      ],
+      "derivation": {
+        "peak": 0.025,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150.wav",
+      "frames": 84000,
+      "sha256": "54c4c57f0b40046b1b949832630b4874c990bcb3385a62a473f41f05d2df8f86",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        }
+      ],
+      "derivation": {
+        "peak": 0.15,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "frames": 79200,
+      "sha256": "505d43116cf4b9cbc486233590adc024bfbdc57c1a1044fbb8e28ae0a18b0c1f",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        },
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 6.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "frames": 79200,
+      "sha256": "6a0608d855c150c04f704b2a79e37a4dd7597899c8b9961fd3610c667310f4a1",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        },
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 6.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "frames": 79200,
+      "sha256": "aa642bb768d59e1f646fdb1148c9b481e3232e7561aefa23419fb40d6fc79477",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        },
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "frames": 79200,
+      "sha256": "ba89cb48e765242f1f455f40e9743dbfd80d5810e865bd155a2d385d5799a869",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        },
+        {
+          "path": "source/Samples-acoustic-mute_strings1_rr1_1.wav",
+          "sha256": "34f2626b1476b5eb5881ac839e961ed70c377f43c2d751cc395d5339a201dc7d"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "frames": 79200,
+      "sha256": "2ae6f0bf8b62a4bfe4611af6b0a69c678cd31a5c74f2c431dcfd927ed2d40b04",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        },
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 6.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "frames": 79200,
+      "sha256": "2bddf7dc5689ea48cb64fa61fdbe75e53e329960e3d67fdec31aaec41517356a",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        },
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 6.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "frames": 79200,
+      "sha256": "4f6e3c18aa8d812cdaccb960304b291c9a94a6eb5338783fb23434c346c5723f",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        },
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "frames": 79200,
+      "sha256": "88165c7beaba9665bcd0e551758e81f271f2fe3c503a15c40e49904702f2d87d",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+      "source_sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691",
+      "all_sources": [
+        {
+          "path": "source/Samples-acoustic-e2_vl1_rr1_1.wav",
+          "sha256": "12565c71ce02d60e251a10cf6ac3e1b0a57004684ad3e7a887a306dec1406691"
+        },
+        {
+          "path": "source/Samples-acoustic-perc_4_rr1_1.wav",
+          "sha256": "3b4dcf3292195ebfacc96ded84841f1898dc994048ba5fae6c1fa3631c6a5d3a"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25.wav",
+      "frames": 67200,
+      "sha256": "fccd8b5a21da0dc0256585791280cff5ded0241c55e5a7e6884cbfb98192471a",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        }
+      ],
+      "derivation": {
+        "peak": 0.025,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150.wav",
+      "frames": 67200,
+      "sha256": "38bb825e1273aafcb8a4df06d5764350c945afd4e0352459dac49d3a5f81f17d",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        }
+      ],
+      "derivation": {
+        "peak": 0.15,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25.wav",
+      "frames": 84000,
+      "sha256": "37dd4e659f59ce6bbe47bdeec540628572b6f2bc0a2525b29e5d760fdecf371c",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        }
+      ],
+      "derivation": {
+        "peak": 0.025,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150.wav",
+      "frames": 84000,
+      "sha256": "d7146b848ee10a5c3e10c3bdd31c9e0d27925a035e6266fd1121f7496961d53d",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        }
+      ],
+      "derivation": {
+        "peak": 0.15,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "frames": 79200,
+      "sha256": "15d94d938e2c26e48ace07b613f2b647cfd9491528739f573c16d1104f9cf069",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        },
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999998,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "frames": 79200,
+      "sha256": "6d60a36f685ded7feeb8a1a74ea96e2326c01517f00b966804990e607ee070a3",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        },
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999998,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "frames": 79200,
+      "sha256": "8af198af44bbdb51651455abe86421aae0b60cde42ac88edc1a7506ca2f8fbcf",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        },
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 11.999999999999996,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "frames": 79200,
+      "sha256": "a6f76b55bbde19eb20a60a39e0c47dc7aa172966f9251b04390406a8cb27803e",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        },
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 11.999999999999996,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "frames": 79200,
+      "sha256": "7ef1a21cc3ddd6e0bbfead79aad5fc2016b44a77f6e2b4c0da501009d3d95d80",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        },
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.9999999999999964,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "frames": 79200,
+      "sha256": "9b9d660c109d5d546c7fc7bdbabdd4d1b4aab4d6865c055c0d8eacde0dfb9be6",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        },
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.9999999999999964,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "frames": 79200,
+      "sha256": "e184555e45dafa7cea1f3ff11f229ec6842750461a2063f0f585d7c56578f7fa",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        },
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "frames": 79200,
+      "sha256": "152d249b7a15c570a07ae8f3fe67a6a9f0d841398c4f482caa7201ec2a361897",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-a3_vl1_rr1_2.wav",
+      "source_sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-a3_vl1_rr1_2.wav",
+          "sha256": "88d0678a1de137e6f8fb584230001951f2a1a5830ce4cf3ad9105d40ba905229"
+        },
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25.wav",
+      "frames": 67200,
+      "sha256": "e22bf05da938966078c266a2cdba3a9d77b53a8b16af5c83157a1f6c62921e91",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        }
+      ],
+      "derivation": {
+        "peak": 0.025,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150.wav",
+      "frames": 67200,
+      "sha256": "2e9912671b56b0c2af54f1081629546f435a146bc090b62843316d62fe32c809",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        }
+      ],
+      "derivation": {
+        "peak": 0.15,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25.wav",
+      "frames": 84000,
+      "sha256": "f8bbfc78f2e0486f64b476bb6fd8102a84fc2fe1dc893d67c4e91bf66dbcf8e3",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        }
+      ],
+      "derivation": {
+        "peak": 0.025,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150.wav",
+      "frames": 84000,
+      "sha256": "2f18ca7fecf7ea0ca172a40956053e541dd18a4fd7b6d9d358def369cbfa2a8e",
+      "origin": "derived-real-recording",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        }
+      ],
+      "derivation": {
+        "peak": 0.15,
+        "controlled_damping_samples": 192,
+        "onset_definition": "Authored sample playback start; physical gesture timing before source edit unknown"
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "frames": 79200,
+      "sha256": "ea3f79a8a93912a9b24cb242b5e42beae7fc1fc75d8d4a56e54906cf8b54904f",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        },
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999998,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "frames": 79200,
+      "sha256": "95a2ba94946c2e39762147c3105fb0f708b82d5faa7e1b39e19f0cbf520b488f",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        },
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999998,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "frames": 79200,
+      "sha256": "3839601450baa2e59d6a5d5c590f7b5ae1d814aaa6b299cb35d79db0571a88a4",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        },
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "frames": 79200,
+      "sha256": "1bd6dfc7de8f2fd2d01aff5280ebb0e187f2115deaa0c830a578acd6e9db50bb",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        },
+        {
+          "path": "source/Samples-electric-mute_strings1_rr1_2.wav",
+          "sha256": "de65b178971a7b6bb510a2c9ae48769082ae5e33505e1712005e41d862ef8862"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 12.0,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "frames": 79200,
+      "sha256": "b6282188402336fceacb4fa6cf17602d444c96a762db12771b6e87767739368b",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        },
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999997,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "frames": 79200,
+      "sha256": "a32ccdd8a837731619b705634d5db694e2212d8017beb5eef8675cbea281d0d9",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        },
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 6,
+        "measured_snr_db": 5.999999999999997,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "frames": 79200,
+      "sha256": "982198a4b9dbdbe3b1fb3a88ede85fa23cf799864a61fa71f09d3fa7e422141a",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        },
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 11.999999999999996,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.04,
+        "controlled_damping_samples": 192
+      }
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "frames": 79200,
+      "sha256": "cb9276f6ae460a9453da9b3fba9cc87050895450037f41ca8431e4423b1e593f",
+      "origin": "real-recording-mixture",
+      "source": "source/Samples-electric-e2_vl1_rr1_2.wav",
+      "source_sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689",
+      "all_sources": [
+        {
+          "path": "source/Samples-electric-e2_vl1_rr1_2.wav",
+          "sha256": "dd674048f69240292b89e7d9ee64f043db14629d51cc0e1f0d27f766f5206689"
+        },
+        {
+          "path": "source/Samples-electric-perc_4_rr1_2.wav",
+          "sha256": "74ebf5b3e02e465e5ca7fdd06206f27eadbe6b0e9512d987ac1bb4f19ee80185"
+        }
+      ],
+      "derivation": {
+        "noise_starts_seconds": [
+          0.45,
+          0.95
+        ],
+        "nominal_snr_db": 12,
+        "measured_snr_db": 11.999999999999996,
+        "snr_definition": "RMS desired/noise over complete known note-active interval, before common gain",
+        "common_gain": 0.16,
+        "controlled_damping_samples": 192
+      }
+    }
+  ],
+  "cases": [
+    {
+      "name": "Samples-acoustic-mute_strings1_rr1_1_noise_peak25_mono",
+      "record": "Samples-acoustic-mute_strings1_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-mute_strings1_rr1_1_noise_peak25_poly",
+      "record": "Samples-acoustic-mute_strings1_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-mute_strings1_rr1_1_noise_peak150_mono",
+      "record": "Samples-acoustic-mute_strings1_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-mute_strings1_rr1_1_noise_peak150_poly",
+      "record": "Samples-acoustic-mute_strings1_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-mute_strings1_rr1_1_noise_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-mute_strings3_rr1_1_noise_peak25_mono",
+      "record": "Samples-acoustic-mute_strings3_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-mute_strings3_rr1_1_noise_peak25_poly",
+      "record": "Samples-acoustic-mute_strings3_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-mute_strings3_rr1_1_noise_peak150_mono",
+      "record": "Samples-acoustic-mute_strings3_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-mute_strings3_rr1_1_noise_peak150_poly",
+      "record": "Samples-acoustic-mute_strings3_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-mute_strings3_rr1_1_noise_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-perc_1_rr1_1_noise_peak25_mono",
+      "record": "Samples-acoustic-perc_1_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-perc_1_rr1_1_noise_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-perc_1_rr1_1_noise_peak25_poly",
+      "record": "Samples-acoustic-perc_1_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-perc_1_rr1_1_noise_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-perc_1_rr1_1_noise_peak150_mono",
+      "record": "Samples-acoustic-perc_1_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-perc_1_rr1_1_noise_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-perc_1_rr1_1_noise_peak150_poly",
+      "record": "Samples-acoustic-perc_1_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-perc_1_rr1_1_noise_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-perc_4_rr1_1_noise_peak25_mono",
+      "record": "Samples-acoustic-perc_4_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-perc_4_rr1_1_noise_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-perc_4_rr1_1_noise_peak25_poly",
+      "record": "Samples-acoustic-perc_4_rr1_1_noise_peak25",
+      "file": "pcm/Samples-acoustic-perc_4_rr1_1_noise_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-perc_4_rr1_1_noise_peak150_mono",
+      "record": "Samples-acoustic-perc_4_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-perc_4_rr1_1_noise_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-perc_4_rr1_1_noise_peak150_poly",
+      "record": "Samples-acoustic-perc_4_rr1_1_noise_peak150",
+      "file": "pcm/Samples-acoustic-perc_4_rr1_1_noise_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-mute_strings1_rr1_2_noise_peak25_mono",
+      "record": "Samples-electric-mute_strings1_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-mute_strings1_rr1_2_noise_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-mute_strings1_rr1_2_noise_peak25_poly",
+      "record": "Samples-electric-mute_strings1_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-mute_strings1_rr1_2_noise_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-mute_strings1_rr1_2_noise_peak150_mono",
+      "record": "Samples-electric-mute_strings1_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-mute_strings1_rr1_2_noise_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-mute_strings1_rr1_2_noise_peak150_poly",
+      "record": "Samples-electric-mute_strings1_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-mute_strings1_rr1_2_noise_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-mute_strings3_rr1_2_noise_peak25_mono",
+      "record": "Samples-electric-mute_strings3_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-mute_strings3_rr1_2_noise_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-mute_strings3_rr1_2_noise_peak25_poly",
+      "record": "Samples-electric-mute_strings3_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-mute_strings3_rr1_2_noise_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-mute_strings3_rr1_2_noise_peak150_mono",
+      "record": "Samples-electric-mute_strings3_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-mute_strings3_rr1_2_noise_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-mute_strings3_rr1_2_noise_peak150_poly",
+      "record": "Samples-electric-mute_strings3_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-mute_strings3_rr1_2_noise_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-perc_1_rr1_2_noise_peak25_mono",
+      "record": "Samples-electric-perc_1_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-perc_1_rr1_2_noise_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-perc_1_rr1_2_noise_peak25_poly",
+      "record": "Samples-electric-perc_1_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-perc_1_rr1_2_noise_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-perc_1_rr1_2_noise_peak150_mono",
+      "record": "Samples-electric-perc_1_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-perc_1_rr1_2_noise_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-perc_1_rr1_2_noise_peak150_poly",
+      "record": "Samples-electric-perc_1_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-perc_1_rr1_2_noise_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-perc_4_rr1_2_noise_peak25_mono",
+      "record": "Samples-electric-perc_4_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-perc_4_rr1_2_noise_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-perc_4_rr1_2_noise_peak25_poly",
+      "record": "Samples-electric-perc_4_rr1_2_noise_peak25",
+      "file": "pcm/Samples-electric-perc_4_rr1_2_noise_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-perc_4_rr1_2_noise_peak150_mono",
+      "record": "Samples-electric-perc_4_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-perc_4_rr1_2_noise_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-perc_4_rr1_2_noise_peak150_poly",
+      "record": "Samples-electric-perc_4_rr1_2_noise_peak150",
+      "file": "pcm/Samples-electric-perc_4_rr1_2_noise_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-recorded-noise-only",
+      "snr_db": null,
+      "reference_notes": [],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start0_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_quiet_start350_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_poly",
+      "record": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start0_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_quiet_start350_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr6_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_poly",
+      "record": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160",
+      "file": "pcm/Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start0_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_quiet_start350_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160_mono",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160_poly",
+      "record": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 57,
+          "pitch": 57,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start0_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 0,
+          "off_sample": 52800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_quiet_start350_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-quiet-pluck",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 69600,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr6_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 6,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160_mono",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160_poly",
+      "record": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160",
+      "file": "pcm/Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain160.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-note-plus-recorded-noise",
+      "snr_db": 12,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 12000,
+          "off_sample": 64800,
+          "technique": "plucked_note_isolated"
+        }
+      ],
+      "pitch_curve_ground_truth": false
+    }
+  ]
+}

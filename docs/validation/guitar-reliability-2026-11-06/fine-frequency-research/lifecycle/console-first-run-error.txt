@@ -1,0 +1,9 @@
+all four captures compiled
+Traceback (most recent call last):
+  File "/tmp/flysnapper-v4-poly-f0-lifecycle/run.py", line 18, in <module>
+    score_source=(O/'score_frequency_experiment.py').read_text().split('output={}')[0];scope={};exec(compile(score_source,str(O/'score_frequency_experiment.py'),'exec'),scope);score=scope['score']
+                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/flysnapper-v4-poly-f0/score_frequency_experiment.py", line 3, in <module>
+    H=Path(__file__).resolve().parent
+           ^^^^^^^^
+NameError: name '__file__' is not defined. Did you mean: '__name__'?

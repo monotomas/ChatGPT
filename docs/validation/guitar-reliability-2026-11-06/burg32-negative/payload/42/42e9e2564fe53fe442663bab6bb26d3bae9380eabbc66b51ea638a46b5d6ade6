@@ -1,0 +1,50 @@
+{
+  "dev52": {
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-O2",
+      "-DNDEBUG",
+      "-I",
+      "/tmp/flysnapper-v4-burg32/Source",
+      "/tmp/flysnapper-v4-burg32/dev52_capture.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/ArticulationTracker.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/BurgPredictor.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/EarlyEstimator.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/InputDynamics.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/NoiseConditioner.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/PitchDetector.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/PolyphonicTracker.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/TimeDomainPursuit.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/YinEstimator.cpp",
+      "-o",
+      "/tmp/flysnapper-v4-burg32/dev52/Capture"
+    ],
+    "executable_sha256": "8b110a2e4b841be71da3bcbafd6e7e661dfc7825a6f6aae9da06161811bf2fee",
+    "capture_exit": 0
+  },
+  "quiet-counter": {
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-O2",
+      "-DNDEBUG",
+      "-I",
+      "/tmp/flysnapper-v4-burg32/Source",
+      "/tmp/flysnapper-v4-burg32/quiet_repick_counter.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/ArticulationTracker.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/BurgPredictor.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/EarlyEstimator.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/InputDynamics.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/NoiseConditioner.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/PitchDetector.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/PolyphonicTracker.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/TimeDomainPursuit.cpp",
+      "/tmp/flysnapper-v4-burg32/Source/Pitch/YinEstimator.cpp",
+      "-o",
+      "/tmp/flysnapper-v4-burg32/quiet-counter/Capture"
+    ],
+    "executable_sha256": "11a5f8a9178b20da4544609732c179044644498ea0f9961810d1b4d9ab114150",
+    "capture_exit": 0
+  }
+}

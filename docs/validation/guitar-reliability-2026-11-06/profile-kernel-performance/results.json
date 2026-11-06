@@ -1,0 +1,158 @@
+{
+  "candidate_status": "PRIVATE_NOT_ADOPTED",
+  "event_parity": {
+    "cold330": {
+      "byte_identical": true,
+      "events_sha256": "ad73390ff828d042002bd35808273f5123cc2ddfb671553645584de0239d4fa6",
+      "event_rows": 1686,
+      "types": {
+        "N": 843,
+        "F": 843,
+        "P": 0
+      },
+      "metric_configurations": 330,
+      "event_configurations": 330,
+      "columns": [
+        "case",
+        "cents",
+        "timbre",
+        "dynamics",
+        "sample",
+        "type",
+        "note"
+      ]
+    },
+    "payload-cold330": {
+      "byte_identical": true,
+      "events_sha256": "ab1073a8c4dc0ceca83f880254a37d498bd07f785c586ce88c215557731c599f",
+      "event_rows": 1686,
+      "types": {
+        "N": 843,
+        "F": 843,
+        "P": 0
+      },
+      "metric_configurations": 330,
+      "event_configurations": 330,
+      "columns": [
+        "case",
+        "cents",
+        "timbre",
+        "dynamics",
+        "sample",
+        "type",
+        "note",
+        "velocity",
+        "voice_id",
+        "pitch_change",
+        "pitch"
+      ]
+    },
+    "profile-thread-open30": {
+      "byte_identical": true,
+      "events_sha256": "587f221a5356e59ca44ea9594fbef54b4964c9769b689136fa1b4587cf3b5298",
+      "event_rows": 240,
+      "types": {
+        "N": 120,
+        "F": 120,
+        "P": 0
+      },
+      "metric_configurations": 30,
+      "event_configurations": 30,
+      "columns": [
+        "case",
+        "cents",
+        "timbre",
+        "dynamics",
+        "sample",
+        "type",
+        "note"
+      ]
+    }
+  },
+  "timing_original_worker": {
+    "baseline": {
+      "configurations": 30,
+      "callbacks": 22500,
+      "totals": {
+        "wall_deadlines": 7241.0,
+        "thread_deadlines": 7241.0,
+        "process_thread_us": 17871375.0,
+        "analyse_calls": 7241.0,
+        "analyse_thread_us": 17237292.0,
+        "profile_candidates": 1638756.0,
+        "profile_thread_us": 13529498.0
+      },
+      "maxima": {
+        "wall_p99_us": 4560.03,
+        "wall_max_us": 7562.48,
+        "thread_p99_us": 4560.4,
+        "thread_max_us": 7562.98
+      }
+    },
+    "fast": {
+      "configurations": 30,
+      "callbacks": 22500,
+      "totals": {
+        "wall_deadlines": 165.0,
+        "thread_deadlines": 164.0,
+        "process_thread_us": 6436285.0,
+        "analyse_calls": 7241.0,
+        "analyse_thread_us": 5928986.0,
+        "profile_candidates": 1638756.0,
+        "profile_thread_us": 3014909.2
+      },
+      "maxima": {
+        "wall_p99_us": 1968.78,
+        "wall_max_us": 9220.46,
+        "thread_p99_us": 1969.03,
+        "thread_max_us": 9221.01
+      }
+    },
+    "ratios": {
+      "process_thread_us": 2.7766599832045973,
+      "analyse_thread_us": 2.907291735888734,
+      "profile_thread_us": 4.487530835091153
+    }
+  },
+  "ordinary_score_audit": {
+    "score_calls": 44246412,
+    "candidate_calls": 1638756,
+    "compressed_argmax_differences": 0,
+    "final_argmax_differences": 0,
+    "extra_original_rechecks": 0,
+    "reference_zero_approx_nonzero": 0,
+    "max_absolute_score_error": 4.718447854656915e-16,
+    "max_relative_score_error": 5.115797926708156e-15
+  },
+  "forced_micro_comparison": {
+    "cached_scale_bit_checks": 6912,
+    "cached_scale_bit_differences": 0,
+    "kernel_comparisons": 9000,
+    "kernel_bit_differences": 0,
+    "score_bit_differences": 0,
+    "shape_bit_differences": 0,
+    "max_winner_score_difference": 0,
+    "families_normal_duplicate_adjacent_float_comparisons": [
+      3000,
+      3000,
+      3000
+    ],
+    "families_bit_differences": [
+      0,
+      0,
+      0
+    ],
+    "timing_loops": 0,
+    "original_thread_ns": 681,
+    "fast_thread_ns": 191,
+    "checksum": 0
+  },
+  "forced_micro_score_audit": {
+    "score_calls": 243000,
+    "candidate_calls": 9000,
+    "compressed_argmax_differences": 1144,
+    "final_argmax_differences": 0,
+    "extra_original_rechecks": 141583,
+    "max_relative_score_error": 3.4752588684197517e-15
+  }
+}

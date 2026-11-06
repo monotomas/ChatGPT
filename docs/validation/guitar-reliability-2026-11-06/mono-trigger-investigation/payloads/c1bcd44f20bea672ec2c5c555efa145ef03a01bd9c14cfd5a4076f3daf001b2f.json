@@ -1,0 +1,88 @@
+{
+  "phase-raw": {
+    "off": {
+      "counts": {
+        "expected": 107,
+        "matched": 107,
+        "missed": 0,
+        "false_note_ons": 2,
+        "octave_errors": 0,
+        "wrong_before_correct": 1,
+        "early_offs": 1
+      },
+      "changed_event_suites_vs_paired_baseline": []
+    },
+    "default": {
+      "counts": {
+        "expected": 107,
+        "matched": 104,
+        "missed": 3,
+        "false_note_ons": 1,
+        "octave_errors": 0,
+        "wrong_before_correct": 1,
+        "early_offs": 0
+      },
+      "changed_event_suites_vs_paired_baseline": []
+    }
+  },
+  "innovation-raw": {
+    "off": {
+      "counts": {
+        "expected": 107,
+        "matched": 107,
+        "missed": 0,
+        "false_note_ons": 2,
+        "octave_errors": 0,
+        "wrong_before_correct": 1,
+        "early_offs": 1
+      },
+      "changed_event_suites_vs_paired_baseline": []
+    },
+    "default": {
+      "counts": {
+        "expected": 107,
+        "matched": 107,
+        "missed": 0,
+        "false_note_ons": 2,
+        "octave_errors": 0,
+        "wrong_before_correct": 1,
+        "early_offs": 1
+      },
+      "changed_event_suites_vs_paired_baseline": [
+        "public",
+        "holdout",
+        "confirmation"
+      ]
+    }
+  },
+  "articulation-raw": {
+    "off": {
+      "counts": {
+        "expected": 107,
+        "matched": 107,
+        "missed": 0,
+        "false_note_ons": 2,
+        "octave_errors": 0,
+        "wrong_before_correct": 1,
+        "early_offs": 1
+      },
+      "changed_event_suites_vs_paired_baseline": []
+    },
+    "default": {
+      "counts": {
+        "expected": 107,
+        "matched": 107,
+        "missed": 0,
+        "false_note_ons": 2,
+        "octave_errors": 0,
+        "wrong_before_correct": 1,
+        "early_offs": 1
+      },
+      "changed_event_suites_vs_paired_baseline": [
+        "public",
+        "holdout",
+        "confirmation"
+      ]
+    }
+  }
+}

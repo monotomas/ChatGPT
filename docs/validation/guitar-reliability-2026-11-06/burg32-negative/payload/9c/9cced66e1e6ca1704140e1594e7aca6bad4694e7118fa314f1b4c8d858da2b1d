@@ -1,0 +1,76 @@
+{
+  "scope": "Fair normalization uses the SAME training-window inputRMS for fitted/forecast/original-period errors; future-hopRMS numbers retained separately",
+  "events_identical_to_prior_diagnostic": true,
+  "hops": [
+    {
+      "serial": 1,
+      "fit_input_rms": 0.073844997793,
+      "future_hop_input_rms": 0.012124654159573338,
+      "fit_one_step_relative_rms": 0.0396020188928,
+      "ar_forecast_relative_to_train_rms": 0.2418049120597137,
+      "period_relative_to_train_rms": 0.06451591186024018,
+      "ar_forecast_relative_to_future_hop_rms": 1.4727086614084888,
+      "period_relative_to_future_hop_rms": 0.39293305245916127
+    },
+    {
+      "serial": 2,
+      "fit_input_rms": 0.072680232998,
+      "future_hop_input_rms": 0.0736923266398569,
+      "fit_one_step_relative_rms": 0.0378992073238,
+      "ar_forecast_relative_to_train_rms": 0.9689173226450983,
+      "period_relative_to_train_rms": 0.07321915659498121,
+      "ar_forecast_relative_to_future_hop_rms": 0.955610169696507,
+      "period_relative_to_future_hop_rms": 0.07221356149124587
+    },
+    {
+      "serial": 3,
+      "fit_input_rms": 0.0740876020629,
+      "future_hop_input_rms": 0.06390747289943499,
+      "fit_one_step_relative_rms": 0.0370182022452,
+      "ar_forecast_relative_to_train_rms": 0.24591057387149376,
+      "period_relative_to_train_rms": 0.06614408349177056,
+      "ar_forecast_relative_to_future_hop_rms": 0.28508285359241103,
+      "period_relative_to_future_hop_rms": 0.0766804931289476
+    },
+    {
+      "serial": 4,
+      "fit_input_rms": 0.0707702051972,
+      "future_hop_input_rms": 0.028134765132765617,
+      "fit_one_step_relative_rms": 0.0372838750482,
+      "ar_forecast_relative_to_train_rms": 0.30269011982033583,
+      "period_relative_to_train_rms": 0.06824135530388084,
+      "ar_forecast_relative_to_future_hop_rms": 0.761386910100874,
+      "period_relative_to_future_hop_rms": 0.1716543463220995
+    },
+    {
+      "serial": 5,
+      "fit_input_rms": 0.0709765199488,
+      "future_hop_input_rms": 0.09511078945822381,
+      "fit_one_step_relative_rms": 0.0355270206928,
+      "ar_forecast_relative_to_train_rms": 0.6016239108952524,
+      "period_relative_to_train_rms": 0.08324098755270073,
+      "ar_forecast_relative_to_future_hop_rms": 0.4489624337740135,
+      "period_relative_to_future_hop_rms": 0.062118668631040624
+    },
+    {
+      "serial": 6,
+      "fit_input_rms": 0.0695072874228,
+      "future_hop_input_rms": 0.02301796529083539,
+      "fit_one_step_relative_rms": 0.0356185697019,
+      "ar_forecast_relative_to_train_rms": 0.2912105978343666,
+      "period_relative_to_train_rms": 0.09279620154799985,
+      "ar_forecast_relative_to_future_hop_rms": 0.8793678532610267,
+      "period_relative_to_future_hop_rms": 0.2802164383881915
+    },
+    {
+      "serial": 7,
+      "fit_input_rms": 0.0696277059231,
+      "future_hop_input_rms": 0.09347085936896823,
+      "fit_one_step_relative_rms": 0.0328355580568,
+      "ar_forecast_relative_to_train_rms": 1.2837287070127568,
+      "period_relative_to_train_rms": 0.06593808677833023,
+      "ar_forecast_relative_to_future_hop_rms": 0.9562668568617041,
+      "period_relative_to_future_hop_rms": 0.04911817165615628
+    }
+  ]
+}

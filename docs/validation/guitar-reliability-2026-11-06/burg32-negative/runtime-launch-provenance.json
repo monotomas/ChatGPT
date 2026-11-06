@@ -1,0 +1,25 @@
+{
+  "status": "RETROSPECTIVE launch reconstruction from retained drivers; source and output hashes are primary binding",
+  "commands": [
+    [
+      "/tmp/flysnapper-v4-burg32/dev52/Capture",
+      "<exact seven-development-row inventory TSV>",
+      "/tmp/flysnapper-v4-burg32/dev52"
+    ],
+    [
+      "/tmp/flysnapper-v4-burg32/quiet-counter/Capture",
+      "/tmp/flysnapper-v4-burg32/quiet-counter"
+    ],
+    [
+      "/tmp/flysnapper-v4-burg32/diagnostic/Capture",
+      "<exact seven-development-row inventory TSV>",
+      "/tmp/flysnapper-v4-burg32/diagnostic/run"
+    ],
+    [
+      "/tmp/flysnapper-v4-burg32/diagnostic/CaptureRms",
+      "<exact seven-development-row inventory TSV>",
+      "/tmp/flysnapper-v4-burg32/diagnostic/run-rms-reference"
+    ]
+  ],
+  "note": "Drivers reject reserved inventory rows and process only staccato_e4_rr3. The quiet counter generates its own synthetic waveform. Legacy driver retained but never invoked for this failed candidate."
+}

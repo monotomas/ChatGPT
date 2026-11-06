@@ -213,6 +213,49 @@ void fastFrettedSlidesRemainDiscrete(){
         check(correct,"Plain35ms fretted slide omitted a plateau, triggered a wrong note or decided after its note interval");
     }
 }
+void isolatedRecordedPluckDoesNotFragment(const std::filesystem::path& fixtureRoot){
+    // Original CC0 development sample, not a continuous performance or a
+    // physical pick/damping reference. Decode its PCM24 without resampling,
+    // gain or normalization. The independent edition verifier checks SHA256.
+    constexpr const char* relative="guitar_reliability_2026_11_06/original-source/Samples/green/stac/staccato_e4_rr3.wav";
+    constexpr const char* hash="8c9d3d8a8a9a1880d44c83d4f966bd0de0139b685df244e7b4ac8e4afe8108f8";
+    std::ifstream file(fixtureRoot/std::filesystem::u8path(relative),std::ios::binary);
+    check(bool(file),"Cannot read original development pluck");
+    const std::vector<uint8_t> bytes((std::istreambuf_iterator<char>(file)),{});
+    const auto u16=[&](size_t at){if(at+2>bytes.size())throw std::runtime_error("Truncated development WAV");return uint16_t(bytes[at])|(uint16_t(bytes[at+1])<<8);};
+    const auto u32=[&](size_t at){return uint32_t(u16(at))|(uint32_t(u16(at+2))<<16);};
+    check(bytes.size()==75588&&std::string(reinterpret_cast<const char*>(bytes.data()),4)=="RIFF"
+        &&std::string(reinterpret_cast<const char*>(bytes.data()+8),4)=="WAVE","Original development WAV identity/shape changed");
+    int format=0,channels=0,rate=0,bits=0;size_t data=0,length=0;
+    for(size_t at=12;at+8<=bytes.size();){const auto count=u32(at+4);check(at+8+uint64_t(count)<=bytes.size(),"Development WAV chunk outside file");
+        const std::string tag(reinterpret_cast<const char*>(bytes.data()+at),4);
+        if(tag=="fmt "){check(count>=16,"Short development WAV format");format=u16(at+8);channels=u16(at+10);rate=int(u32(at+12));bits=u16(at+22);
+            if(format==0xfffe){constexpr std::array<uint8_t,16> pcmGuid{{1,0,0,0,0,0,16,0,128,0,0,170,0,56,155,113}};
+                check(count>=40&&u16(at+24)>=22&&u16(at+26)==24
+                    &&std::equal(pcmGuid.begin(),pcmGuid.end(),bytes.begin()+at+32),"Development WAV extensible subformat must bePCM24");format=1;}}
+        if(tag=="data"){data=at+8;length=count;}at+=8+count+(count&1);}
+    check(format==1&&channels==1&&rate==44100&&bits==24&&data&&length==25169*3,"Development pluck must retain original44100Hz monoPCM24");
+    auto samples=std::make_shared<std::vector<float>>(length/3);
+    for(size_t n=0;n<samples->size();++n){const auto at=data+n*3;int32_t value=int32_t(bytes[at])|(int32_t(bytes[at+1])<<8)|(int32_t(bytes[at+2])<<16);
+        if(value&0x800000)value-=0x1000000;(*samples)[n]=float(value)/8388608.f;}
+    bool allCorrect=true;
+    for(bool bend:{false,true})for(bool dynamics:{false,true})for(int idle:{0,15435}){
+        Harness h(std::string("recorded_staccato52_")+(bend?"bend":"plain")+(dynamics?"_dynamics":"_dry")+"_idle"+std::to_string(idle),44100,64);
+        set(*h.processor,"monoBend",bend?1.f:0.f);set(*h.processor,"bendRange",1.f);set(*h.processor,"dynamicsEnabled",dynamics?1.f:0.f);
+        const Signal wave=[samples,idle](int64_t n){n-=idle;return n>=0&&size_t(n)<samples->size()?(*samples)[size_t(n)]:0.f;};
+        h.run(idle+int64_t(samples->size())+13230,wave);h.released();const auto ons=h.notes(true),offs=h.notes(false);
+        const bool correct=ons.size()==1&&offs.size()==1&&ons.front().midi.getNoteNumber()==52&&offs.front().midi.getNoteNumber()==52
+            &&ons.front().sample>=idle&&ons.front().sample<idle+int64_t(samples->size())&&offs.front().sample>ons.front().sample;
+        auto report=h.report("Original isolated CC0 DEV sample; exactly decoded monoPCM24, no gain/resampling; authored nominal52 and no fragmentation; file-relative decisions are not physical pick/damping latency");
+        auto* object=report.getDynamicObject();object->setProperty("fixture_file",relative);object->setProperty("expected_fixture_sha256",hash);
+        object->setProperty("source_frames",25169);object->setProperty("idle_samples",idle);object->setProperty("mono_bend",bend);object->setProperty("dynamics",dynamics);
+        object->setProperty("note_on_count",int(ons.size()));object->setProperty("note_off_count",int(offs.size()));
+        if(!ons.empty())object->setProperty("file_relative_decision_sample",juce::int64(ons.front().sample-idle));
+        if(!correct)object->setProperty("status","failed");cases.add(report);
+        allCorrect&=correct;
+    }
+    check(allCorrect,"Original isolated staccato52 was missed, changed pitch or fragmented into repeated MIDI notes");
+}
 void sixOpenStringsRemainSixSources(){
     // Reproduction of the four failures reported after the 0.3.0 guitar trial:
     // a clean 7ms-per-string strum must not omit strings, invent a lower
@@ -329,7 +372,7 @@ void writeEvidence(const char* status,const juce::String& error={}){
 }
 int run(const std::vector<std::filesystem::path>& args){
     csv<<"case,rate,block,sample,type,channel,note,value\n";csv<<std::setprecision(9);
-    try{check(args.size()==2,"FlysnapperDynamicsProcessorTests <AudioFixtures root>");juce::ScopedJuceInitialiser_GUI runtime;defaultGateAndTail();latencyByPitch();genuineOctavesRemainDistinct();calibrationAndOverrides();quietHumRegressions(args[1]/"readiness");fastFrettedSlidesRemainDiscrete();sixOpenStringsRemainSixSources();writeEvidence("passed");std::cout<<"FlysnapperDynamicsProcessor: PASS ("<<checks<<" checks, "<<cases.size()<<" bounded cases; not physical latency or universal guitar acceptance).\n";return 0;}
+    try{check(args.size()==2,"FlysnapperDynamicsProcessorTests <AudioFixtures root>");juce::ScopedJuceInitialiser_GUI runtime;defaultGateAndTail();latencyByPitch();genuineOctavesRemainDistinct();calibrationAndOverrides();quietHumRegressions(args[1]/"readiness");fastFrettedSlidesRemainDiscrete();isolatedRecordedPluckDoesNotFragment(args[1]);sixOpenStringsRemainSixSources();writeEvidence("passed");std::cout<<"FlysnapperDynamicsProcessor: PASS ("<<checks<<" checks, "<<cases.size()<<" bounded cases; not physical latency or universal guitar acceptance).\n";return 0;}
     catch(const std::exception& error){watchNew=false;try{writeEvidence("failed",error.what());}catch(...){}std::cerr<<"FlysnapperDynamicsProcessor: FAIL: "<<error.what()<<'\n';return 1;}
 }
 #ifdef _WIN32

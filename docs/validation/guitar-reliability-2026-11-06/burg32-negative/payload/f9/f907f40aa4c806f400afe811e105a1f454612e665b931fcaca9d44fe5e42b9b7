@@ -1,0 +1,61 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Raw causal DEV-only pluck capture. No physical pick/damping truth is implied.
+#include "Pitch/PitchDetector.h"
+#include <algorithm>
+#include <chrono>
+#include <cmath>
+#include <cstdint>
+#include <filesystem>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <iterator>
+#include <memory>
+#include <sstream>
+#include <stdexcept>
+#include <string>
+#include <vector>
+namespace fs=std::filesystem;
+struct Record {std::string name;fs::path file;int rate=0,note=0,frames=0;};
+std::vector<std::string> split(const std::string& line){std::stringstream in(line);std::vector<std::string> r;std::string s;while(std::getline(in,s,'\t'))r.push_back(s);return r;}
+int main(int argc,char** argv){try{
+ if(argc!=3)throw std::runtime_error("capture <dev-inputs.tsv> <output-dir>");
+ const fs::path output=fs::u8path(argv[2]);fs::create_directories(output);
+ std::ifstream inventory(fs::u8path(argv[1]));if(!inventory)throw std::runtime_error("Missing preselected inventory");
+ std::string line;std::getline(inventory,line);std::vector<Record> records;
+ while(std::getline(inventory,line)){auto f=split(line);if(f.size()!=6)throw std::runtime_error("Bad inventory row");records.push_back({f[0],fs::u8path(f[1]),std::stoi(f[2]),std::stoi(f[3]),std::stoi(f[4])});if(f[5]!="development")throw std::runtime_error("Reserved data is prohibited by this capture");}
+ if(records.size()!=7)throw std::runtime_error("Expected the exact seven DEV inputs");
+ std::ofstream events(output/"events.csv"),metrics(output/"capture.csv");
+ events<<"record,profile,idle_samples,rate,block,sample,type,note,velocity,pitch,voice_id\n";
+ metrics<<"record,profile,idle_samples,rate,block,source_frames,total_frames,events,overflow,deadline_misses,max_callback_us,active_at_end\n";
+ events<<std::setprecision(10);metrics<<std::setprecision(10);
+ std::ofstream debug(output/"forecast-debug.csv"),spectrum(output/"training-power.csv");debug<<"sample,serial,degree,ar_error,period_error,observed_squared,denominator,ratio,fit_relative_rms,armed\n";spectrum<<"serial,train_clock,frequency,power,f0,input_rms\n";debug<<std::setprecision(12);spectrum<<std::setprecision(12);int seenSerial=-1;
+ int runs=0;
+ for(const auto& record:records){if(record.name!="staccato_e4_rr3")continue;
+  std::ifstream in(record.file,std::ios::binary|std::ios::ate);if(!in)throw std::runtime_error("Missing selected float input");
+  const auto bytes=in.tellg();if(bytes!=std::streamoff(record.frames*sizeof(float)))throw std::runtime_error("Float input shape changed");
+  in.seekg(0);std::vector<float> original(size_t(record.frames));in.read(reinterpret_cast<char*>(original.data()),bytes);if(!in)throw std::runtime_error("Truncated input");
+  for(float x:original)if(!std::isfinite(x))throw std::runtime_error("Nonfinite input");
+  for(bool bend:{true})for(bool dynamics:{false})for(int idleSamples:{0}){
+   const std::string profile=std::string(bend?"mono_bend":"mono_plain")+(dynamics?"_dynamics_default":"_dynamics_off");
+   auto detector=std::make_unique<flysnapper::pitch::PitchDetector>();detector->prepare(record.rate);
+   flysnapper::pitch::Settings settings;settings.polyphonic=false;settings.monoBend=bend;settings.bendRangeSemitones=12;settings.inputDynamics.enabled=dynamics;detector->configure(settings);
+   std::vector<float> signal(size_t(idleSamples)+original.size()+size_t(std::llround(record.rate*.300)),0.f);
+   std::copy(original.begin(),original.end(),signal.begin()+idleSamples);
+   constexpr int block=64;int countEvents=0,overflow=0,deadlineMisses=0;double maximumUs=0;
+   for(int at=0;at<int(signal.size());at+=block){
+    const int n=std::min(block,int(signal.size())-at);flysnapper::pitch::Output out;
+    const auto before=std::chrono::steady_clock::now();detector->process(signal.data()+at,n,out);const auto after=std::chrono::steady_clock::now();
+    for(size_t q=0;q<detector->auditCount;++q){const auto& z=detector->auditRows[q];const int sample=at+z.offset;if(sample>=int(record.rate*.130)&&sample<=int(record.rate*.185))debug<<sample<<','<<z.serial<<','<<z.degree<<','<<z.arError<<','<<z.periodError<<','<<z.observedSquared<<','<<z.denominator<<','<<z.ratio<<','<<z.fitRelativeRms<<','<<z.armed<<'\n';}
+    if(detector->auditFitSerial!=seenSerial){seenSerial=detector->auditFitSerial;const double center=detector->auditFitClock/12000.;if(center>=.130&&center<=.185){double mean=0;for(auto v:detector->auditLastTrain)mean+=v;mean/=512;for(int k=0;k<=256;++k){double re=0,im=0;for(int n=0;n<512;++n){const double phase=6.283185307179586*k*n/512,window=.5-.5*std::cos(6.283185307179586*n/511),v=(detector->auditLastTrain[size_t(n)]-mean)*window;re+=v*std::cos(phase);im-=v*std::sin(phase);}spectrum<<seenSerial<<','<<detector->auditFitClock<<','<<k*12000./512<<','<<re*re+im*im<<','<<detector->auditFitF0<<','<<detector->auditFit.inputRms<<'\n';}}}
+    const double us=std::chrono::duration<double,std::micro>(after-before).count();maximumUs=std::max(maximumUs,us);deadlineMisses+=us>1e6*n/record.rate;overflow+=out.overflow;
+    for(size_t k=0;k<out.size;++k){const auto& e=out.events[k];if(e.offset<0||e.offset>=n)throw std::runtime_error("Noncausal event offset");
+     events<<record.name<<','<<profile<<','<<idleSamples<<','<<record.rate<<','<<block<<','<<at+e.offset<<','<<(e.pitchChange?'P':e.on?'N':'F')<<','<<e.note<<','<<e.velocity<<',';
+     if(e.pitchChange)events<<e.pitch;events<<','<<e.voiceId<<'\n';++countEvents;
+    }
+   }
+   metrics<<record.name<<','<<profile<<','<<idleSamples<<','<<record.rate<<','<<block<<','<<original.size()<<','<<signal.size()<<','<<countEvents<<','<<overflow<<','<<deadlineMisses<<','<<maximumUs<<','<<detector->status().activeNotes<<'\n';++runs;
+  }
+ }
+ std::cout<<"Captured "<<runs<<" DEV-only causal pluck runs. No physical-contact latency or damping claim.\n";return 0;
+ }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

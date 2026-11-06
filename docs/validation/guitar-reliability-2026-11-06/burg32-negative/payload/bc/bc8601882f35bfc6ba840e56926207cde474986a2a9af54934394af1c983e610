@@ -1,0 +1,13 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+#pragma once
+#include <array>
+namespace flysnapper::pitch {
+// Private research: causal fixed-size open-loop waveform prediction. A valid
+// forecast does not establish musical intent, a note onset or product readiness.
+class BurgPredictor {
+public:
+    static constexpr int samples=512,order=32,horizon=32;
+    struct Diagnostics {int degree=0;double fitRelativeRms=0,inputRms=0;};
+    bool forecast(const float* received,std::array<float,horizon>& next,Diagnostics* diagnostics=nullptr) const noexcept;
+};
+}

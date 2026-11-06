@@ -1,0 +1,526 @@
+{
+  "schema": 1,
+  "edition": "real-isolated-hammers-v1",
+  "sample_rate": 48000,
+  "baseline_source_commit": "c5b05337641b13ae259836f5346e7c1850b7382c",
+  "detector_used_during_generation": false,
+  "recorded_real_articulations_included": true,
+  "real_technique_evidence": [
+    "hammer_on_isolated"
+  ],
+  "missing_required_real_techniques": [
+    "continuous_fretted_slide",
+    "hammer_transition",
+    "pull_off",
+    "continuous_bend",
+    "vibrato",
+    "independent_poly_bend",
+    "non_tonal_handling_or_squeak"
+  ],
+  "original_physical_latency_groundtruth_available": false,
+  "derive_script_sha256": "3884a70528a52c3fdd1ed4341ed238aff5a1501b89634c5a3c80e5b785e8993c",
+  "policy_sha256": "e35da4a854b2ba8bba1cde9a90c3263d0e9d275b70acfe002d9b0eeedbda68be",
+  "source_repository": "https://github.com/sfzinstruments/karoryfer.black-and-green-guitars",
+  "source_commit": "b3b3249d37dc977a1a297bd2dc053e6d9b6b805c",
+  "source_license": "CC0-1.0; README independently permits commercial/noncommercial royalty-free use",
+  "records": [
+    {
+      "name": "hammer_a3_rr1_peak25",
+      "file": "pcm/hammer_a3_rr1_peak25.wav",
+      "frames": 81600,
+      "sha256": "ef2c235bdbc12e199d0f7c44eb63fafec31222a2e24236b30fca8e4be3ec5f29",
+      "origin": "derived-real-recording",
+      "source": "source/Samples/green/hammer/hammer_a3_rr1.wav",
+      "source_sha256": "6198e55c66de40bc74ce8e329c5964a3a0771ccf23f525fc465d6822f9281b75",
+      "peak": 0.025,
+      "crop_source_frames": [
+        0,
+        50400
+      ],
+      "controlled_damping_samples": 192,
+      "onset_definition": "Start of authored sample playback, not unknown original physical gesture before the audio edit",
+      "fractional_pitch_groundtruth": false,
+      "description": "Real isolated CC0 hammer articulation, scalar gain and controlled4ms cutoff; not concatenated/synthesized legato."
+    },
+    {
+      "name": "hammer_a3_rr1_peak150",
+      "file": "pcm/hammer_a3_rr1_peak150.wav",
+      "frames": 81600,
+      "sha256": "e8d1f79800a9fc99c22e84cd4768830b1b23c7fde65bc9a8dd640a54e9a07e27",
+      "origin": "derived-real-recording",
+      "source": "source/Samples/green/hammer/hammer_a3_rr1.wav",
+      "source_sha256": "6198e55c66de40bc74ce8e329c5964a3a0771ccf23f525fc465d6822f9281b75",
+      "peak": 0.15,
+      "crop_source_frames": [
+        0,
+        50400
+      ],
+      "controlled_damping_samples": 192,
+      "onset_definition": "Start of authored sample playback, not unknown original physical gesture before the audio edit",
+      "fractional_pitch_groundtruth": false,
+      "description": "Real isolated CC0 hammer articulation, scalar gain and controlled4ms cutoff; not concatenated/synthesized legato."
+    },
+    {
+      "name": "hammer_e3_rr1_peak25",
+      "file": "pcm/hammer_e3_rr1_peak25.wav",
+      "frames": 81600,
+      "sha256": "cbe732b658f0d1bd5b187d136be314dac1958eae821671f4ab9328bddc8858c7",
+      "origin": "derived-real-recording",
+      "source": "source/Samples/green/hammer/hammer_e3_rr1.wav",
+      "source_sha256": "93debe8eb6276f9733da1b956e06a61a4064a65d2c9c20d868fd365f2813de42",
+      "peak": 0.025,
+      "crop_source_frames": [
+        0,
+        50400
+      ],
+      "controlled_damping_samples": 192,
+      "onset_definition": "Start of authored sample playback, not unknown original physical gesture before the audio edit",
+      "fractional_pitch_groundtruth": false,
+      "description": "Real isolated CC0 hammer articulation, scalar gain and controlled4ms cutoff; not concatenated/synthesized legato."
+    },
+    {
+      "name": "hammer_e3_rr1_peak150",
+      "file": "pcm/hammer_e3_rr1_peak150.wav",
+      "frames": 81600,
+      "sha256": "fe216de9ece651bf9a16c39bd852a987d30a99e0703667d0d89b790a0df678c9",
+      "origin": "derived-real-recording",
+      "source": "source/Samples/green/hammer/hammer_e3_rr1.wav",
+      "source_sha256": "93debe8eb6276f9733da1b956e06a61a4064a65d2c9c20d868fd365f2813de42",
+      "peak": 0.15,
+      "crop_source_frames": [
+        0,
+        50400
+      ],
+      "controlled_damping_samples": 192,
+      "onset_definition": "Start of authored sample playback, not unknown original physical gesture before the audio edit",
+      "fractional_pitch_groundtruth": false,
+      "description": "Real isolated CC0 hammer articulation, scalar gain and controlled4ms cutoff; not concatenated/synthesized legato."
+    },
+    {
+      "name": "hammer_e4_rr2_peak25",
+      "file": "pcm/hammer_e4_rr2_peak25.wav",
+      "frames": 81600,
+      "sha256": "3d9188bc51a20d355db6eec7cb79f5ea0e1360e77a166f1e716bbaaa13e60bb5",
+      "origin": "derived-real-recording",
+      "source": "source/Samples/green/hammer/hammer_e4_rr2.wav",
+      "source_sha256": "9a39abd85cacab5b6924e9d83e271e3d09bd482de32e6d49c575e79b14592b43",
+      "peak": 0.025,
+      "crop_source_frames": [
+        0,
+        50400
+      ],
+      "controlled_damping_samples": 192,
+      "onset_definition": "Start of authored sample playback, not unknown original physical gesture before the audio edit",
+      "fractional_pitch_groundtruth": false,
+      "description": "Real isolated CC0 hammer articulation, scalar gain and controlled4ms cutoff; not concatenated/synthesized legato."
+    },
+    {
+      "name": "hammer_e4_rr2_peak150",
+      "file": "pcm/hammer_e4_rr2_peak150.wav",
+      "frames": 81600,
+      "sha256": "6373d88686a15ddef472b1061e04585244be49e6ed250d71571e90fa773c2d10",
+      "origin": "derived-real-recording",
+      "source": "source/Samples/green/hammer/hammer_e4_rr2.wav",
+      "source_sha256": "9a39abd85cacab5b6924e9d83e271e3d09bd482de32e6d49c575e79b14592b43",
+      "peak": 0.15,
+      "crop_source_frames": [
+        0,
+        50400
+      ],
+      "controlled_damping_samples": 192,
+      "onset_definition": "Start of authored sample playback, not unknown original physical gesture before the audio edit",
+      "fractional_pitch_groundtruth": false,
+      "description": "Real isolated CC0 hammer articulation, scalar gain and controlled4ms cutoff; not concatenated/synthesized legato."
+    },
+    {
+      "name": "hammer_g3_rr1_peak25",
+      "file": "pcm/hammer_g3_rr1_peak25.wav",
+      "frames": 81600,
+      "sha256": "58e41f477c2111c1628f1eaa5a1b1974d3742b9410d0d2cca1d22ddd5d5ce885",
+      "origin": "derived-real-recording",
+      "source": "source/Samples/green/hammer/hammer_g3_rr1.wav",
+      "source_sha256": "4dd4ddd7b690855365cf4bc13cb96bc0f0b2e81d29ae8b02f53f094db8682def",
+      "peak": 0.025,
+      "crop_source_frames": [
+        0,
+        50400
+      ],
+      "controlled_damping_samples": 192,
+      "onset_definition": "Start of authored sample playback, not unknown original physical gesture before the audio edit",
+      "fractional_pitch_groundtruth": false,
+      "description": "Real isolated CC0 hammer articulation, scalar gain and controlled4ms cutoff; not concatenated/synthesized legato."
+    },
+    {
+      "name": "hammer_g3_rr1_peak150",
+      "file": "pcm/hammer_g3_rr1_peak150.wav",
+      "frames": 81600,
+      "sha256": "805c4c99cd0d371c4c5ed379370f6643877ec1abc3a365f95bf9db74c583dd42",
+      "origin": "derived-real-recording",
+      "source": "source/Samples/green/hammer/hammer_g3_rr1.wav",
+      "source_sha256": "4dd4ddd7b690855365cf4bc13cb96bc0f0b2e81d29ae8b02f53f094db8682def",
+      "peak": 0.15,
+      "crop_source_frames": [
+        0,
+        50400
+      ],
+      "controlled_damping_samples": 192,
+      "onset_definition": "Start of authored sample playback, not unknown original physical gesture before the audio edit",
+      "fractional_pitch_groundtruth": false,
+      "description": "Real isolated CC0 hammer articulation, scalar gain and controlled4ms cutoff; not concatenated/synthesized legato."
+    }
+  ],
+  "cases": [
+    {
+      "name": "hammer_a3_rr1_peak25_mono",
+      "record": "hammer_a3_rr1_peak25",
+      "file": "pcm/hammer_a3_rr1_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 45,
+          "pitch": 45,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_a3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_a3_rr1_peak25_poly",
+      "record": "hammer_a3_rr1_peak25",
+      "file": "pcm/hammer_a3_rr1_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 45,
+          "pitch": 45,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_a3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_a3_rr1_peak150_mono",
+      "record": "hammer_a3_rr1_peak150",
+      "file": "pcm/hammer_a3_rr1_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 45,
+          "pitch": 45,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_a3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_a3_rr1_peak150_poly",
+      "record": "hammer_a3_rr1_peak150",
+      "file": "pcm/hammer_a3_rr1_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 45,
+          "pitch": 45,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_a3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_e3_rr1_peak25_mono",
+      "record": "hammer_e3_rr1_peak25",
+      "file": "pcm/hammer_e3_rr1_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_e3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_e3_rr1_peak25_poly",
+      "record": "hammer_e3_rr1_peak25",
+      "file": "pcm/hammer_e3_rr1_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_e3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_e3_rr1_peak150_mono",
+      "record": "hammer_e3_rr1_peak150",
+      "file": "pcm/hammer_e3_rr1_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_e3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_e3_rr1_peak150_poly",
+      "record": "hammer_e3_rr1_peak150",
+      "file": "pcm/hammer_e3_rr1_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 40,
+          "pitch": 40,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_e3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_e4_rr2_peak25_mono",
+      "record": "hammer_e4_rr2_peak25",
+      "file": "pcm/hammer_e4_rr2_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "pitch": 52,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_e4_rr2",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_e4_rr2_peak25_poly",
+      "record": "hammer_e4_rr2_peak25",
+      "file": "pcm/hammer_e4_rr2_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "pitch": 52,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_e4_rr2",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_e4_rr2_peak150_mono",
+      "record": "hammer_e4_rr2_peak150",
+      "file": "pcm/hammer_e4_rr2_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "pitch": 52,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_e4_rr2",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_e4_rr2_peak150_poly",
+      "record": "hammer_e4_rr2_peak150",
+      "file": "pcm/hammer_e4_rr2_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 52,
+          "pitch": 52,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_e4_rr2",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_g3_rr1_peak25_mono",
+      "record": "hammer_g3_rr1_peak25",
+      "file": "pcm/hammer_g3_rr1_peak25.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 43,
+          "pitch": 43,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_g3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_g3_rr1_peak25_poly",
+      "record": "hammer_g3_rr1_peak25",
+      "file": "pcm/hammer_g3_rr1_peak25.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 43,
+          "pitch": 43,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_g3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_g3_rr1_peak150_mono",
+      "record": "hammer_g3_rr1_peak150",
+      "file": "pcm/hammer_g3_rr1_peak150.wav",
+      "mode": "mono",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 43,
+          "pitch": 43,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_g3_rr1",
+      "pitch_curve_ground_truth": false
+    },
+    {
+      "name": "hammer_g3_rr1_peak150_poly",
+      "record": "hammer_g3_rr1_peak150",
+      "file": "pcm/hammer_g3_rr1_peak150.wav",
+      "mode": "poly",
+      "bend_enabled": true,
+      "family": "real-isolated-hammer",
+      "snr_db": null,
+      "reference_notes": [
+        {
+          "id": "s0-n0",
+          "string": 0,
+          "anchor": 43,
+          "pitch": 43,
+          "on_sample": 16800,
+          "off_sample": 67200,
+          "technique": "hammer_on_isolated"
+        }
+      ],
+      "gain_pair": "hammer_g3_rr1",
+      "pitch_curve_ground_truth": false
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "observed_origin": "/tmp/flysnapper-v4-poly-audit/time-atoms-held-prediction/Source",
+  "archive_baseline_identical_all_files": true,
+  "files": {
+    "Core/MidiEngine.cpp": {
+      "sha256": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+      "bytes": 9192
+    },
+    "Core/MidiEngine.h": {
+      "sha256": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+      "bytes": 3594
+    },
+    "Core/MusicData.cpp": {
+      "sha256": "c700085f7d973fc491a7fbe12f9b0eae8819266094848418e353e361bb6de969",
+      "bytes": 6993
+    },
+    "Core/MusicData.h": {
+      "sha256": "614223a96b25fe6c0cc972af8d8dfc08b658de87386a79cdfdc0f8dd073c6286",
+      "bytes": 1171
+    },
+    "Core/README.md": {
+      "sha256": "adb3939f2e5cae84465c03f1813d872b4924584ec8397b16a4c97924b2ef4b82",
+      "bytes": 5684
+    },
+    "Core/Reference/ChordDictionary.h": {
+      "sha256": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+      "bytes": 2672
+    },
+    "Core/Reference/ChordInput.h": {
+      "sha256": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+      "bytes": 1775
+    },
+    "Core/Reference/ChordNames.h": {
+      "sha256": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+      "bytes": 9928
+    },
+    "Pitch/ArticulationTracker.cpp": {
+      "sha256": "24274d3c89715bb28221ab0f2713dc9dc259503817bf8c7fe0b83d458a9e2b1a",
+      "bytes": 9155
+    },
+    "Pitch/ArticulationTracker.h": {
+      "sha256": "bef371b822e127a8b76ce0542f4e0588ce97f9f71d8a31ea8915e8474f831b34",
+      "bytes": 2369
+    },
+    "Pitch/EarlyEstimator.cpp": {
+      "sha256": "c814beaffba85795a6182a009fc45ee90789262dc5914ef8d2ac11ada720a317",
+      "bytes": 5677
+    },
+    "Pitch/EarlyEstimator.h": {
+      "sha256": "dad941a6e8d4483749de082d8ba1a950e4c1cfd3450b5ba23e1eca68bf31a0f8",
+      "bytes": 1894
+    },
+    "Pitch/EarlyEstimator.md": {
+      "sha256": "3ce86891c25c92df1aba29ba89e36bfa41c04d81d5293a89cc72cbc427d7ee2d",
+      "bytes": 2853
+    },
+    "Pitch/InputDynamics.cpp": {
+      "sha256": "f2605f9aaf9395eda6507d79f7bb0de785b2cfdd450e18e0ab90b9c1a74294c1",
+      "bytes": 15393
+    },
+    "Pitch/InputDynamics.h": {
+      "sha256": "e4b2c88b49c80fe70f5ad83a1215d3bbd9b9c56237b9ff00c9456f0c04ace16b",
+      "bytes": 5307
+    },
+    "Pitch/MpeOutputRouter.cpp": {
+      "sha256": "c0d072809d10b2b33ce85c70de23b4215323468274619aea7d5a0e3e246161f2",
+      "bytes": 20067
+    },
+    "Pitch/MpeOutputRouter.h": {
+      "sha256": "b6e005d2a5541e71eafb48826d5dfc40f9f43ce2bf5cce2eb7bdd55c6e792aee",
+      "bytes": 5473
+    },
+    "Pitch/NoiseConditioner.cpp": {
+      "sha256": "5f68d01a8cd4202dab066aac99b8d6067d055caa5e7bd9fb08766d5cde7862a1",
+      "bytes": 17900
+    },
+    "Pitch/NoiseConditioner.h": {
+      "sha256": "3882e85817f9e0a2822e32857820a1249a689d1502244fc24e4ebd185d418852",
+      "bytes": 3627
+    },
+    "Pitch/PitchDetector.cpp": {
+      "sha256": "a8a0cacaff03dcce668ed0e36ff9fe5b84cb38cdaa10d1932cf252c632b7490d",
+      "bytes": 60621
+    },
+    "Pitch/PitchDetector.h": {
+      "sha256": "0d7eadec49b5ac781681ddaaaf50164b3c52534521343e0ebaf85bba94376149",
+      "bytes": 6981
+    },
+    "Pitch/PolyphonicTracker.cpp": {
+      "sha256": "3d6536ffce7199f9a42d6bd5da2baec8f9bbd09d77028604d0ec16a262283983",
+      "bytes": 33108
+    },
+    "Pitch/PolyphonicTracker.h": {
+      "sha256": "599a9ace01f252ab5da8dc7761f7f1dc30722a54e1a1f628956c16c013a39db7",
+      "bytes": 2579
+    },
+    "Pitch/README.md": {
+      "sha256": "96fd9b75cd46615a1d5422430257c22d87448fe20a2f9de6977242bab8bc027f",
+      "bytes": 9751
+    },
+    "Pitch/TimeDomainPursuit.cpp": {
+      "sha256": "ea6599dcd2e21046de57e7ddc92bb66779f31037508dcf3d57c53e29f0d15ebd",
+      "bytes": 19102
+    },
+    "Pitch/TimeDomainPursuit.h": {
+      "sha256": "64aef1c1d6ed4ecfb8ee7a9d920eb15096e4f018b847f8ed83af1cf947b40737",
+      "bytes": 2997
+    },
+    "Pitch/TimeDomainPursuit.md": {
+      "sha256": "93571a9f9be32487c20e0329541024044fcfbd7ab89bee777fa57f03f56b2707",
+      "bytes": 10165
+    },
+    "Pitch/YinEstimator.cpp": {
+      "sha256": "d218c5860878fc722f231edafd5a6ad0ea5e65ba52fba6f752ff89ad0b00b7fa",
+      "bytes": 18069
+    },
+    "Pitch/YinEstimator.h": {
+      "sha256": "8d5334b296eda83c9dfa513e2ef4817524527735475a2dcb022848a0640bb5e1",
+      "bytes": 1957
+    },
+    "Pitch/YinEstimator.md": {
+      "sha256": "f6533c130a2a6b91713d75d558a9df8e7fe5d5b780b648a89b4815a8e5f81569",
+      "bytes": 6061
+    },
+    "PluginEditor.cpp": {
+      "sha256": "4a8ddf74f9cfb389c6169df217fdffbbcf327fec0255122d85f7b5dabec128af",
+      "bytes": 52162
+    },
+    "PluginEditor.h": {
+      "sha256": "b36594bbe69936194ada39b83671491d5f0990e7a1a50a4b54bf0737c17c5da9",
+      "bytes": 4540
+    },
+    "PluginProcessor.cpp": {
+      "sha256": "f10e3c5daa78dbcc58da5673bb8ad3032239b22a257eb756c021f27d300ce386",
+      "bytes": 40450
+    },
+    "PluginProcessor.h": {
+      "sha256": "89521fb92c4da0bd58d344a114040bc4b361a9b6780eae8532fd01939e8a2b86",
+      "bytes": 7516
+    }
+  },
+  "private_patch_sha256": "65d31f735dac9df06fde3f8d2398efdc92aba7c806754273ca4add9c3ca30b9f",
+  "baseline_time_domain_pursuit_sha256": "ea6599dcd2e21046de57e7ddc92bb66779f31037508dcf3d57c53e29f0d15ebd",
+  "fast_time_domain_pursuit_sha256": "4bf86a11e51ee0d6d6b126fc387483aa5fa8ee867f56eb19a069a1d9d734548f"
+}

@@ -1,0 +1,39 @@
+{
+  "actual_compile_command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/quiet_repick_counter.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/ArticulationTracker.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/BurgPredictor.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/EarlyEstimator.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/InputDynamics.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/NoiseConditioner.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/PitchDetector.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/PolyphonicTracker.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/TimeDomainPursuit.cpp",
+    "/tmp/flysnapper-v4-burg-negative-restore-20261106/Source/Pitch/YinEstimator.cpp",
+    "-o",
+    "/tmp/flysnapper-v4-burg-negative-rebuild-20261106/Capture"
+  ],
+  "actual_run_command": [
+    "/tmp/flysnapper-v4-burg-negative-rebuild-20261106/Capture",
+    "/tmp/flysnapper-v4-burg-negative-rebuild-20261106"
+  ],
+  "executable_sha256": "11a5f8a9178b20da4544609732c179044644498ea0f9961810d1b4d9ab114150",
+  "parity": {
+    "counter-results.csv": {
+      "expected_sha256": "b6c277a40d857ad7b47c7d24f41a8540004d048a929f10c6576f397689040e0e",
+      "actual_sha256": "b6c277a40d857ad7b47c7d24f41a8540004d048a929f10c6576f397689040e0e",
+      "exact": true
+    },
+    "counter-events.csv": {
+      "expected_sha256": "7b81f2a4621088783807aeca48d59190f65fa227236f89722e71e9ecd8196ef3",
+      "actual_sha256": "7b81f2a4621088783807aeca48d59190f65fa227236f89722e71e9ecd8196ef3",
+      "exact": true
+    }
+  }
+}

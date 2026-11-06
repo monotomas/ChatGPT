@@ -1,0 +1,53 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+#include "BurgPredictor.h"
+#include <algorithm>
+#include <cmath>
+#include <limits>
+namespace flysnapper::pitch {
+bool BurgPredictor::forecast(const float* received,std::array<float,horizon>& next) const noexcept {
+    next.fill(0);if(!received)return false;
+    double mean=0,scale=0;
+    for(int n=0;n<samples;++n){if(!std::isfinite(received[n]))return false;mean+=received[n];}
+    mean/=samples;
+    for(int n=0;n<samples;++n)scale=std::max(scale,std::abs(double(received[n])-mean));
+    if(scale<1e-12)return false;
+    std::array<double,samples> wave{},forward{},backward{};
+    double inputEnergy=0;
+    for(int n=0;n<samples;++n){const double x=(received[n]-mean)/scale;wave[size_t(n)]=forward[size_t(n)]=backward[size_t(n)]=x;inputEnergy+=x*x;}
+    // The input is float32. Stop rather than fit residuals below its accumulated
+    // representation uncertainty. This is numerical rank handling, not a
+    // musical signal/noise or frequency-admission threshold.
+    constexpr double floatEpsilon=std::numeric_limits<float>::epsilon();
+    const double roundoff=inputEnergy*(128*floatEpsilon*floatEpsilon);
+    std::array<double,order+1> reflection{};int degree=0;
+    for(int m=1;m<=order;++m){
+        double cross=0,energy=0;
+        for(int n=m;n<samples;++n){const double f=forward[size_t(n)],b=backward[size_t(n-1)];cross+=f*b;energy+=f*f+b*b;}
+        if(!std::isfinite(energy)||!std::isfinite(cross))return false;
+        if(energy<=roundoff)break;
+        const double k=std::clamp(-2*cross/energy,-.999999999,.999999999);
+        reflection[size_t(m)]=k;degree=m;
+        for(int n=samples-1;n>=m;--n){const double f=forward[size_t(n)],b=backward[size_t(n-1)];forward[size_t(n)]=f+k*b;backward[size_t(n)]=b+k*f;}
+    }
+    if(degree==0)return false;
+    // Lattice analysis avoids forming a poorly conditioned high-order direct
+    // polynomial for tightly clustered string partials. Feed received samples
+    // only; each future forecast then advances this state with its OWN output.
+    std::array<double,order+1> previous{},updated{};
+    for(double x:wave){
+        double f=x;updated[0]=x;
+        for(int m=1;m<=degree;++m){const double old=f;f=old+reflection[size_t(m)]*previous[size_t(m-1)];updated[size_t(m)]=previous[size_t(m-1)]+reflection[size_t(m)]*old;}
+        previous=updated;
+    }
+    for(int n=0;n<horizon;++n){
+        double x=0;for(int m=1;m<=degree;++m)x-=reflection[size_t(m)]*previous[size_t(m-1)];
+        if(!std::isfinite(x)||std::abs(x)>8)return false;
+        const double output=mean+scale*x;if(!std::isfinite(output)||std::abs(output)>std::numeric_limits<float>::max())return false;
+        next[size_t(n)]=float(output);
+        double f=x;updated[0]=x;
+        for(int m=1;m<=degree;++m){const double old=f;f=old+reflection[size_t(m)]*previous[size_t(m-1)];updated[size_t(m)]=previous[size_t(m-1)]+reflection[size_t(m)]*old;}
+        previous=updated;
+    }
+    return true;
+}
+}

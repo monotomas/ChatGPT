@@ -1,0 +1,264 @@
+{
+  "scope": "Excluded runtime bytes are recorded only as hashes/sizes; no executable/object/model/audio payload preserved",
+  "files": [
+    {
+      "logical_path": "studies/initial-mono/TraceCapture",
+      "original_path": "/tmp/flysnapper-v4-mono-audit/TraceCapture",
+      "sha256": "9f9649436f45fd3354e493fac1be9f6541d1a01e1459eee9eb38f6e934bf2f7a",
+      "bytes": 206232,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/initial-mono/baseline/Capture",
+      "original_path": "/tmp/flysnapper-v4-mono-audit/baseline/Capture",
+      "sha256": "7d6a4ad04a7f06fed5629affbe7696dc64f9f67ab073102257530a8d7e534784",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/initial-mono/baseline-old107/validation",
+      "original_path": "/tmp/flysnapper-v4-mono-audit/baseline-old107/validation",
+      "sha256": "17a28f5d623766b0b88e049cd39b701a6ecd29aa0c293cc0e2d17f136dd7ed23",
+      "bytes": 218832,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/initial-mono/plain-owned-octave/Capture",
+      "original_path": "/tmp/flysnapper-v4-mono-audit/plain-owned-octave/Capture",
+      "sha256": "f018617ef1c82d652068a7c1a803adb6928808efecee75398a00a8d4df42df97",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/initial-mono/plain-phase/Capture",
+      "original_path": "/tmp/flysnapper-v4-mono-audit/plain-phase/Capture",
+      "sha256": "239121e3f41dc25170556dc9fa9899cf045eae047464c27a72216b590e82955e",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/initial-mono/plain-phase-old107/validation",
+      "original_path": "/tmp/flysnapper-v4-mono-audit/plain-phase-old107/validation",
+      "sha256": "9ebc3becefc4696bec9b89a481f39f2668b5bda84bb8b66184b836f63ebb1363",
+      "bytes": 218832,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/initial-mono/variance2/Capture",
+      "original_path": "/tmp/flysnapper-v4-mono-audit/variance2/Capture",
+      "sha256": "7cf0ad92512ad0b92cbcb835088ff72889656ac7be7a3b56761fbebc0ee2eca7",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/initial-mono/variance3/Capture",
+      "original_path": "/tmp/flysnapper-v4-mono-audit/variance3/Capture",
+      "sha256": "4f752f1bd363b784d4b1bbf40bed71001ccc31b4ff8e662f47630df4cb74d134",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/FloorArmTrace",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/FloorArmTrace",
+      "sha256": "b4729eceaea445d8866570d47460b808c23a03db80d8b956accf169fe11565f0",
+      "bytes": 210672,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/LegacyEvidenceTrace",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/LegacyEvidenceTrace",
+      "sha256": "0f8568f9bb8c260eb8112efab541d8456e26647308d664df3213c97c09caab54",
+      "bytes": 206584,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/RawArmTrace",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/RawArmTrace",
+      "sha256": "2234f719ca35f1b1d388a65aad9c886b6ca3f2319c099317fce210887f509259",
+      "bytes": 211136,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/TraceCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/TraceCapture",
+      "sha256": "927a62f3ef72955aa4d93cd877bf9ab398063967b15704fa2ba49c174aa7ddeb",
+      "bytes": 195664,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/articulation-raw/LegacyCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/articulation-raw/LegacyCapture",
+      "sha256": "7413e42755d94be407dea5bfbc376b1dd5da9c46fb393d348c9cd22c0f11e364",
+      "bytes": 223088,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/articulation-raw-dev/RealPluckCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/articulation-raw-dev/RealPluckCapture",
+      "sha256": "bbc9a7732eaab6241361e39f3fd6fb8a4162886edcf89e21b1cb4f7ff485d5f4",
+      "bytes": 191368,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/baseline-quiet-counter/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/baseline-quiet-counter/Capture",
+      "sha256": "492b7112938745b8c215f1e9a77421a3d715c364fcb0ec69cd5d2cf197424a64",
+      "bytes": 170016,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/flag-trace/TraceCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/flag-trace/TraceCapture",
+      "sha256": "d46459a32869efddfd0d956420a9c67ac07b320540a590de3a44566bb51d9125",
+      "bytes": 206368,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/innovation-raw/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/innovation-raw/Capture",
+      "sha256": "4b1e9b915d84d5a160203cde23957a01515600d3d776036684632ae70fb00640",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/innovation-raw/LegacyCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/innovation-raw/LegacyCapture",
+      "sha256": "34c81c5343266c82f72dba321095f1f2f6b23051ea7a659f3c5c58dd530b5631",
+      "bytes": 223088,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/innovation-raw-dev/RealPluckCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/innovation-raw-dev/RealPluckCapture",
+      "sha256": "1fd3d9c84053a721c205e5e12dd6968687cece4fa31e6338ee24f00561685610",
+      "bytes": 191368,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/phase-raw/LegacyCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/phase-raw/LegacyCapture",
+      "sha256": "17289bcd2c7c7f87b1cb4564f61c97ca120a3d966056aa66357c771375550d22",
+      "bytes": 223088,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/phase-raw-dev/RealPluckCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/phase-raw-dev/RealPluckCapture",
+      "sha256": "af1904d67a91316c74972db277fdc28ecf172115b6dfe41b8f76264ac3a1dcee",
+      "bytes": 191368,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/raw-onset-denominator/LegacyCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/raw-onset-denominator/LegacyCapture",
+      "sha256": "d96b9a2c4ebccf7808c5dffc519991cd5997cdb617e61e9f598c6f9ad45c52b2",
+      "bytes": 223088,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/raw-onset-denominator/quiet-counter/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/raw-onset-denominator/quiet-counter/Capture",
+      "sha256": "7f54881869c15e1136a563204bd0749cc1b43ba591cab07d61781d9fd8ee60fe",
+      "bytes": 170016,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/raw-onset-floor/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/raw-onset-floor/Capture",
+      "sha256": "715ed4a92b9f2430b441d108a45a7be3fd5626d9b63e2daf654af971752dca9e",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/raw-onset-floor/LegacyCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/raw-onset-floor/LegacyCapture",
+      "sha256": "68077aacce0b25fb0bc0e0a6899f2f3e996e3a52ce707186bb4d4a8ac3869189",
+      "bytes": 223088,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/raw-onset-floor/quiet-counter/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/raw-onset-floor/quiet-counter/Capture",
+      "sha256": "029aa609c317e1013e32423b838c54ae94c5d6c48f3103f97dd28806f0fae966",
+      "bytes": 170016,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/raw-onset-floor-dev/RealPluckCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/raw-onset-floor-dev/RealPluckCapture",
+      "sha256": "162c9e8e52427bfc72c17f4ddb197a0030a04454e0c99f7a9905c6df18e03294",
+      "bytes": 191368,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/raw-refined-period/LegacyCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/raw-refined-period/LegacyCapture",
+      "sha256": "610aa18449ab2049e6dea8e2f88f32e0022e8043292149ad1a6080eb931528b0",
+      "bytes": 223088,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/raw-refined-period/quiet-counter/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/raw-refined-period/quiet-counter/Capture",
+      "sha256": "aca1d2961d456b997c00672b25bc37c71986ad04ba2769b0d7c80aa6b0ea600e",
+      "bytes": 170016,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/reference-clear-tracked/LegacyCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/reference-clear-tracked/LegacyCapture",
+      "sha256": "1f6ad896f660eee3347ef22465e5d0a56ad33275840af10679f0f48455561f1d",
+      "bytes": 223088,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/withdrawal-arm-confidence-quiet-counter/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/withdrawal-arm-confidence-quiet-counter/Capture",
+      "sha256": "32842e4de98e496425427ce199a46d74ef7ada1d7d6ddabe86124290217d61e0",
+      "bytes": 170016,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/withdrawal-coherent-phase/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/withdrawal-coherent-phase/Capture",
+      "sha256": "4526d5652e47e402c5788c7ae6e114ca1a693d7a9a16c2d0f6d4c5ec7ebdd4c4",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/withdrawal-coherent-phase-dev/RealPluckCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/withdrawal-coherent-phase-dev/RealPluckCapture",
+      "sha256": "d37965c77801af0f0fa93c760e30e95dd68ff65b051f814e96e10a4f60475e4c",
+      "bytes": 191368,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/withdrawal-coherent-phase-quiet-counter/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/withdrawal-coherent-phase-quiet-counter/Capture",
+      "sha256": "ba5aee3ecc48c52af479a77e86a9ebb1f0b0405aec8560287bfa6db670ca01d9",
+      "bytes": 170016,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/withdrawal-no-phase/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/withdrawal-no-phase/Capture",
+      "sha256": "58a0acd2ce464dc1cd36f409a27d0a9e4d4b09b9245c3f4b1074d79038fb0ed8",
+      "bytes": 205848,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/withdrawal-no-phase-dev/RealPluckCapture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/withdrawal-no-phase-dev/RealPluckCapture",
+      "sha256": "3ac887ef2ecb1b1dccef8220b0c6eb166882034d3924f46e0a09077c537cf7d2",
+      "bytes": 191368,
+      "reason": "ELF runtime executable"
+    },
+    {
+      "logical_path": "studies/real-repeat/withdrawal-no-phase-quiet-counter/Capture",
+      "original_path": "/tmp/flysnapper-v4-real-repeat-audit/withdrawal-no-phase-quiet-counter/Capture",
+      "sha256": "f6fc81426f9b75b7ebaaa6371742813a223c6ec3f19c1546cbca31a636991748",
+      "bytes": 170016,
+      "reason": "ELF runtime executable"
+    }
+  ]
+}

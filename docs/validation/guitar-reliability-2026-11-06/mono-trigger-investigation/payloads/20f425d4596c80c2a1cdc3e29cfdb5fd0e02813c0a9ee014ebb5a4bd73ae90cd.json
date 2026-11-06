@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-11-06T08:13:52.807341+00:00",
+  "scope": "Private causal real-DEV repeat audit; no safe product fix",
+  "baseline": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+  "raw_root": "/tmp/flysnapper-v4-real-repeat-audit",
+  "reserved_detector_runs": 0,
+  "reserved_metadata_visible": true,
+  "production_edits_by_this_agent": false,
+  "files_sha256": {
+    "REPORT.md": "52034f40a52ad0f9df6a205efc76122f0fa4d142b8946f2f3cec086ff2936e16",
+    "arming-state-predeclared.json": "ffa7d702f9d9e3e6df49f60a65590c15ed8a7121c836f9af5ff8ac798fe2790e",
+    "baseline-real-repeat-diagnosis.png": "e9f461d26d287d96165c09f5eefda1f1de6896dccb923eacc8f4ce54502d7ea7",
+    "floor-predeclared.json": "c29f0b53aa0bfb1098ebc9c87e650d8f618b21803d640159a291dea8d2f22980",
+    "make_normalization_factors.py": "15b0eba2c342146337cabf9b44ca9b85d3033177be88047fd276f650c1b64219",
+    "make_withdrawal.py": "e5f00c560a6557786739f7715a2c75132f7c185a8bc33c4b0dafbd295142cbed",
+    "normalization-floor-summary.json": "c01007ac1ecfcd8f9562e57f2430304ace544d36f91815c527e41b5da8d22234",
+    "normalization-initial-summary.json": "24a8677f2c1af6011ad5788184f9973bb03a3ead87a62674c0bc0d82306e54f7",
+    "normalization-predeclared.json": "fabf0e62dbab389c22f72ba87f2298bfa637e06c39c8ae81d9e004bdd4c682ac",
+    "quiet_repick_counter.cpp": "041e96e2f490bdbd6889d313a8c02ee2e0aa1c2dc5f7f6d2f978873b7b0a9c5b",
+    "raw-onset-floor.DISPOSITION.txt": "446793b79afa5e01c46f9e0adf7bef06f7f774c0f4ac0280d34efccb6e910a21",
+    "raw-onset-floor.patch": "9ec4f1df089acd23ff1adf64b36a1c5a8000bf73b92f5c7b73ea2aac210cf815",
+    "raw-topology-legacy107-summary.json": "c1bcd44f20bea672ec2c5c555efa145ef03a01bd9c14cfd5a4076f3daf001b2f",
+    "reference-flag-legacy107-summary.json": "f391b2234acc344c1b8255d8b37da2042c7bebfd872c27aabe50ee21dce6a8b7",
+    "run_normalization_factors.py": "3d2e62e62e0dae307f9210ceb54fa1b673e584fd2a4b1b0d848d80e53f4a48bc",
+    "run_raw_topology.py": "a38a0e7cdebdb1df532cc2cd56171688aa7b7e6797bf509b3d2f95f5706288cc",
+    "run_reference_flag.py": "7f3d9de5db01ab335734caa0f6f39864e6d4c62bb9c3c1b7b628c73427ba6621",
+    "withdrawal-predeclared.json": "5f0393b08c0bee5c76924d427174e9f87705014940ed98a7f215d98d561cb8df"
+  }
+}
