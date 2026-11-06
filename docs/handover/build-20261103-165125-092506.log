@@ -1,0 +1,582 @@
+FLYSNAPPER 0.1.0 ROUTING/MIDI PROTOTYPE | 2026.11.03-prototype-0.1.0
+Logg: D:\Flysnapper-0.1.0\logs\build-20261103-165125-092506.log
+
+> "C:\Users\Olav Lægreid\AppData\Local\Python\pythoncore-3.15-64\python.exe" -m unittest discover -s D:\Flysnapper-0.1.0\Tests -p test_builder*.py -v
+test_cache_changes_with_sdk_and_toolchain (test_builder.EnvironmentFixTests.test_cache_changes_with_sdk_and_toolchain) ... ok
+test_checked_project_never_uses_vs_instance_generator (test_builder.EnvironmentFixTests.test_checked_project_never_uses_vs_instance_generator) ... ok
+test_correct_child_environment_does_not_modify_parent (test_builder.EnvironmentFixTests.test_correct_child_environment_does_not_modify_parent) ... ok
+test_explicit_rc_and_mt_forwarded_to_cmake (test_builder.EnvironmentFixTests.test_explicit_rc_and_mt_forwarded_to_cmake) ... ok
+test_installed_ninja_preferred (test_builder.EnvironmentFixTests.test_installed_ninja_preferred) ... MSVC x64: D:\Flysnapper-0.1.0\build\temp\tmpo40arnm6\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | D:\Flysnapper-0.1.0\build\temp\tmpo40arnm6\sdk
+Ressurskompilator: D:\Flysnapper-0.1.0\build\temp\tmpo40arnm6\sdk\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: D:\Flysnapper-0.1.0\build\temp\tmpo40arnm6\sdk\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+ok
+test_setup_recovers_after_exact_reported_rc_error (test_builder.EnvironmentFixTests.test_setup_recovers_after_exact_reported_rc_error) ... Microsofts automatiske miljooppsett var ufullstendig. Kontrollerer verktøy og SDK-filer direkte.
+VsDevCmd.bat: Windows SDK-verktøyet rc.exe er ikke tilgjengelig i byggemiljoet.
+MSVC x64: D:\Flysnapper-0.1.0\build\temp\tmptztsaqrb\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | D:\Flysnapper-0.1.0\build\temp\tmptztsaqrb\Windows Kits\10
+Ressurskompilator: D:\Flysnapper-0.1.0\build\temp\tmptztsaqrb\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: D:\Flysnapper-0.1.0\build\temp\tmptztsaqrb\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: NMake Makefiles (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+ok
+test_build_command_contains_current_targets_only (test_builder.FlysnapperSafetyTests.test_build_command_contains_current_targets_only) ... ok
+test_changed_resource_or_binary_blocks_install (test_builder.FlysnapperSafetyTests.test_changed_resource_or_binary_blocks_install) ... ok
+test_copy_failure_restores_old_installation (test_builder.FlysnapperSafetyTests.test_copy_failure_restores_old_installation) ... ok
+test_ctest_failure_exit_propagates (test_builder.FlysnapperSafetyTests.test_ctest_failure_exit_propagates) ... ok
+test_current_complete_result_passes (test_builder.FlysnapperSafetyTests.test_current_complete_result_passes) ... ok
+test_default_does_not_install (test_builder.FlysnapperSafetyTests.test_default_does_not_install) ... ok
+test_failed_tests_or_native_manifest_blocks_install (test_builder.FlysnapperSafetyTests.test_failed_tests_or_native_manifest_blocks_install) ... ok
+test_install_fixture_in_actual_builder_temporary_context (test_builder.FlysnapperSafetyTests.test_install_fixture_in_actual_builder_temporary_context) ... INSTALLERT: D:\Flysnapper-0.1.0\build\temp\tmpyy4de1ia\Plugins\Flysnapper.vst3
+ok
+test_invalid_destination_does_not_implicitly_install (test_builder.FlysnapperSafetyTests.test_invalid_destination_does_not_implicitly_install) ... usage: python.exe -m unittest [-h] [--native] [--juce-dir JUCE_DIR]
+                              [--jobs JOBS] [--install-sdk] [--install |
+                              --install-only] [--choose-install-dir |
+                              --install-dir INSTALL_DIR]
+python.exe -m unittest: error: installation destination requires --install or --install-only
+ok
+test_missing_current_results_cannot_reuse_old_file (test_builder.FlysnapperSafetyTests.test_missing_current_results_cannot_reuse_old_file) ... ok
+test_native_cannot_install_windows_bundle (test_builder.FlysnapperSafetyTests.test_native_cannot_install_windows_bundle) ... usage: python.exe -m unittest [-h] [--native] [--juce-dir JUCE_DIR]
+                              [--jobs JOBS] [--install-sdk] [--install |
+                              --install-only] [--choose-install-dir |
+                              --install-dir INSTALL_DIR]
+python.exe -m unittest: error: --native is Linux validation only and cannot install
+ok
+test_replaces_only_flysnapper_and_keeps_recovery_outside_scan (test_builder.FlysnapperSafetyTests.test_replaces_only_flysnapper_and_keeps_recovery_outside_scan) ... INSTALLERT: D:\Flysnapper-0.1.0\build\temp\tmpw724ncx9\Plugins\Flysnapper.vst3
+Forrige versjon for gjenoppretting: D:\Flysnapper-0.1.0\build\temp\tmpw724ncx9\dist\previous-installations\20261103-165125-259933\Flysnapper.vst3
+ok
+test_skipped_required_test_fails_readiness (test_builder.FlysnapperSafetyTests.test_skipped_required_test_fails_readiness) ... ok
+test_stale_staging_is_preserved (test_builder.FlysnapperSafetyTests.test_stale_staging_is_preserved) ... ok
+test_test_inventory_must_contain_required_tests (test_builder.FlysnapperSafetyTests.test_test_inventory_must_contain_required_tests) ... ok
+test_installer_exit_failure_or_restart_never_reported_as_ready (test_builder.InstallSafetyTests.test_installer_exit_failure_or_restart_never_reported_as_ready) ... Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: D:\Flysnapper-0.1.0\build\temp\tmpb_13ewsx\sdk-install-20261103-165125.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: D:\Flysnapper-0.1.0\build\temp\tmp322y86a9\sdk-install-20261103-165125.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: D:\Flysnapper-0.1.0\build\temp\tmpmix6i5o7\sdk-install-20261103-165125.log
+ok
+test_installer_only_selects_x64_and_never_reboots (test_builder.InstallSafetyTests.test_installer_only_selects_x64_and_never_reboots) ... Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: D:\Flysnapper-0.1.0\build\temp\tmp6qdbhqut\sdk-install-20261103-165125.log
+Microsofts SDK-installasjon er ferdig. Kontrollerer filene pa nytt.
+ok
+test_never_installs_when_sdk_exists_even_with_permission_flag (test_builder.InstallSafetyTests.test_never_installs_when_sdk_exists_even_with_permission_flag) ... ok
+test_no_download_or_install_without_explicit_flag (test_builder.InstallSafetyTests.test_no_download_or_install_without_explicit_flag) ... ok
+test_only_https_microsoft_download_host_allowed (test_builder.InstallSafetyTests.test_only_https_microsoft_download_host_allowed) ... ok
+test_rechecks_files_after_installer_and_calls_only_once (test_builder.InstallSafetyTests.test_rechecks_files_after_installer_and_calls_only_once) ... missing
+ok
+test_redirect_to_other_host_rejected_before_following (test_builder.InstallSafetyTests.test_redirect_to_other_host_rejected_before_following) ... ok
+test_signature_check_requires_success_marker (test_builder.InstallSafetyTests.test_signature_check_requires_success_marker) ... ok
+test_signature_command_requires_valid_microsoft_publisher (test_builder.InstallSafetyTests.test_signature_command_requires_valid_microsoft_publisher) ... ok
+test_success_exit_does_not_hide_still_missing_sdk (test_builder.InstallSafetyTests.test_success_exit_does_not_hide_still_missing_sdk) ... missing
+ok
+test_crlf_input_is_supported (test_builder.PatchTests.test_crlf_input_is_supported) ... ok
+test_non_windows_keeps_utf8_entry (test_builder.PatchTests.test_non_windows_keeps_utf8_entry) ... ok
+test_preserves_descriptive_juce_file_failures (test_builder.PatchTests.test_preserves_descriptive_juce_file_failures) ... ok
+test_refuses_double_patching (test_builder.PatchTests.test_refuses_double_patching) ... ok
+test_rejects_unknown_missing_or_duplicate_patterns (test_builder.PatchTests.test_rejects_unknown_missing_or_duplicate_patterns) ... ok
+test_source_payload_is_not_silently_reinterpreted (test_builder.PatchTests.test_source_payload_is_not_silently_reinterpreted) ... ok
+test_wide_entry_and_direct_wide_string_on_windows (test_builder.PatchTests.test_wide_entry_and_direct_wide_string_on_windows) ... ok
+test_compile_failure_does_not_run_the_test_executable (test_builder.PreflightTests.test_compile_failure_does_not_run_the_test_executable) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_no_false_positive_if_build_created_no_executable (test_builder.PreflightTests.test_no_false_positive_if_build_created_no_executable) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_no_false_positive_if_executable_returns_wrong_output (test_builder.PreflightTests.test_no_false_positive_if_executable_returns_wrong_output) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_requires_actual_executable_and_success_output (test_builder.PreflightTests.test_requires_actual_executable_and_success_output) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+FLYSNAPPER_TOOLCHAIN_OK
+ok
+test_actual_output_required_and_unicode_arguments_kept (test_builder.ResourceProbeTests.test_actual_output_required_and_unicode_arguments_kept) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+ok
+test_empty_or_invalid_resource_rejected (test_builder.ResourceProbeTests.test_empty_or_invalid_resource_rejected) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_helper_failure_stops_before_rc (test_builder.ResourceProbeTests.test_helper_failure_stops_before_rc) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_missing_helper_rejected (test_builder.ResourceProbeTests.test_missing_helper_rejected) ... ok
+test_missing_info_rejected (test_builder.ResourceProbeTests.test_missing_info_rejected) ... ok
+test_new_cmake_cache_leaves_old_cache_unchanged (test_builder.ResourceProbeTests.test_new_cmake_cache_leaves_old_cache_unchanged) ... ok
+test_old_resource_does_not_mask_new_failure (test_builder.ResourceProbeTests.test_old_resource_does_not_mask_new_failure) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_resource_compiler_failure_is_propagated (test_builder.ResourceProbeTests.test_resource_compiler_failure_is_propagated) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_resource_compiler_must_create_nonempty_output (test_builder.ResourceProbeTests.test_resource_compiler_must_create_nonempty_output) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_absent_sdk_reports_all_checked_locations_and_install_option (test_builder.SdkDiscoveryTests.test_absent_sdk_reports_all_checked_locations_and_install_option) ... ok
+test_compiler_exe_alone_is_rejected (test_builder.SdkDiscoveryTests.test_compiler_exe_alone_is_rejected) ... ok
+test_complete_older_sdk_beats_partial_newer_one (test_builder.SdkDiscoveryTests.test_complete_older_sdk_beats_partial_newer_one) ... ok
+test_environment_registry_default_and_path_roots_are_considered (test_builder.SdkDiscoveryTests.test_environment_registry_default_and_path_roots_are_considered) ... ok
+test_latest_complete_msvc_selected (test_builder.SdkDiscoveryTests.test_latest_complete_msvc_selected) ... ok
+test_missing_rc_or_mt_is_rejected (test_builder.SdkDiscoveryTests.test_missing_rc_or_mt_is_rejected) ... ok
+test_never_combines_incomplete_sdk_versions (test_builder.SdkDiscoveryTests.test_never_combines_incomplete_sdk_versions) ... ok
+test_no_recursive_scan_of_entire_drive (test_builder.SdkDiscoveryTests.test_no_recursive_scan_of_entire_drive) ... ok
+test_numeric_version_order (test_builder.SdkDiscoveryTests.test_numeric_version_order) ... ok
+test_sdk_found_when_rc_not_on_path (test_builder.SdkDiscoveryTests.test_sdk_found_when_rc_not_on_path) ... ok
+test_tools_without_headers_are_not_a_complete_sdk (test_builder.SdkDiscoveryTests.test_tools_without_headers_are_not_a_complete_sdk) ... ok
+test_ucrt_static_library_is_required (test_builder.SdkDiscoveryTests.test_ucrt_static_library_is_required) ... ok
+test_x86_resource_tools_are_supported_with_x64_libraries (test_builder.SdkDiscoveryTests.test_x86_resource_tools_are_supported_with_x64_libraries) ... ok
+test_copy_changes_only_juceaide_and_keeps_original_clean (test_builder.SnapshotTests.test_copy_changes_only_juceaide_and_keeps_original_clean) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_different_source_gets_separate_copy (test_builder.SnapshotTests.test_different_source_gets_separate_copy) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_external_symlinks_rejected (test_builder.SnapshotTests.test_external_symlinks_rejected) ... skipped 'symlink creation can require privilege on Windows'
+test_incomplete_source_is_rejected (test_builder.SnapshotTests.test_incomplete_source_is_rejected) ... ok
+test_missing_manifest_is_not_trusted (test_builder.SnapshotTests.test_missing_manifest_is_not_trusted) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_modified_build_copy_is_not_trusted_or_overwritten (test_builder.SnapshotTests.test_modified_build_copy_is_not_trusted_or_overwritten) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_partial_copy_failure_is_not_published (test_builder.SnapshotTests.test_partial_copy_failure_is_not_published) ... ok
+test_repeat_uses_verified_copy_without_rewriting (test_builder.SnapshotTests.test_repeat_uses_verified_copy_without_rewriting) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+Kontrollert JUCE-byggekopi med Windows Unicode-rettelse brukes pa nytt.
+ok
+
+----------------------------------------------------------------------
+Ran 72 tests in 0.225s
+
+OK (skipped=1)
+
+> "C:\Program Files\CMake\bin\cmake.EXE" --version
+cmake version 4.4.5
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+> "C:\Program Files\Git\cmd\git.EXE" --version
+git version 2.56.0.windows.4
+
+> "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -all -prerelease -products * -format json -utf8
+[
+  {
+    "instanceId": "26c2c78a",
+    "installDate": "2026-10-30T22:40:34Z",
+    "installationName": "VisualStudio/18.11.3+12328.437",
+    "installationPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools",
+    "installationVersion": "18.11.12328.437",
+    "productId": "Microsoft.VisualStudio.Product.BuildTools",
+    "productPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\Common7\\Tools\\LaunchDevCmd.bat",
+    "state": 4294967295,
+    "isComplete": true,
+    "isLaunchable": true,
+    "isPrerelease": false,
+    "isRebootRequired": false,
+    "displayName": "Visual Studio Build Tools 2026",
+    "description": "Essential MSBuild and compiler tools – no IDE required.",
+    "channelId": "VisualStudio.18.Release",
+    "channelUri": "https://aka.ms/vs/18/stable/channel",
+    "enginePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service",
+    "installedChannelId": "VisualStudio.18.Release",
+    "installedChannelUri": "https://aka.ms/vs/18/stable/channel",
+    "releaseNotes": "https://docs.microsoft.com/en-us/visualstudio/releases/18/release-notes-v18.11#18.11.3",
+    "resolvedInstallationPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools",
+    "thirdPartyNotices": "https://go.microsoft.com/fwlink/?LinkId=661480",
+    "updateDate": "2026-10-30T22:40:34.1772609Z",
+    "catalog": {
+      "buildBranch": "stable",
+      "buildVersion": "18.11.12328.437",
+      "featureReleaseMonth": "10",
+      "featureReleaseYear": "2026",
+      "id": "VisualStudio/18.11.3+12328.437",
+      "includeBuildVersionInDisplayVersion": "False",
+      "localBuild": "build-lab",
+      "manifestName": "VisualStudio",
+      "manifestType": "installer",
+      "productDisplayVersion": "18.11.3",
+      "productLine": "Dev18",
+      "productLineVersion": "18",
+      "productMilestone": "RTW",
+      "productMilestoneIsPreRelease": "False",
+      "productName": "Visual Studio",
+      "productPatchVersion": "3",
+      "productPreReleaseMilestoneSuffix": "1.0",
+      "productRelease": "RTW",
+      "productSemanticVersion": "18.11.3+12328.437",
+      "requiredEngineVersion": "4.11.24.2075"
+    },
+    "properties": {
+      "campaignId": "",
+      "channelManifestId": "VisualStudio.18.Release/18.11.3+12328.437",
+      "includeRecommended": "0",
+      "nickname": "",
+      "setupEngineFilePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\setup.exe"
+    }
+  }
+]
+
+> "C:\Program Files\CMake\bin\cmake.EXE" -E capabilities
+{"debugger":true,"fileApi":{"requests":[{"kind":"codemodel","version":[{"major":2,"minor":11}]},{"kind":"configureLog","version":[{"major":1,"minor":0}]},{"kind":"cache","version":[{"major":2,"minor":0}]},{"kind":"cmakeFiles","version":[{"major":1,"minor":1}]},{"kind":"toolchains","version":[{"major":1,"minor":1}]}]},"generators":[{"extraGenerators":[],"name":"Visual Studio 18 2026","platformSupport":true,"supportedPlatforms":["x64","Win32","ARM","ARM64","ARM64EC"],"toolsetSupport":true},{"extraGenerators":["CodeBlocks"],"name":"NMake Makefiles JOM","platformSupport":false,"toolsetSupport":false},{"extraGenerators":[],"name":"MSYS Makefiles","platformSupport":false,"toolsetSupport":false},{"extraGenerators":[],"name":"Borland Makefiles","platformSupport":false,"toolsetSupport":false},{"extraGenerators":["Kate"],"name":"Ninja Multi-Config","platformSupport":false,"toolsetSupport":false},{"extraGenerators":[],"name":"Visual Studio 17 2022","platformSupport":true,"supportedPlatforms":["x64","Win32","ARM","ARM64","ARM64EC"],"toolsetSupport":true},{"extraGenerators":[],"name":"Visual Studio 16 2019","platformSupport":true,"supportedPlatforms":["x64","Win32","ARM","ARM64","ARM64EC"],"toolsetSupport":true},{"extraGenerators":[],"name":"Visual Studio 15 2017","platformSupport":true,"supportedPlatforms":["x64","Win32","ARM","ARM64"],"toolsetSupport":true},{"extraGenerators":["CodeBlocks","CodeLite","Eclipse CDT4","Kate","Sublime Text 2"],"name":"NMake Makefiles","platformSupport":false,"toolsetSupport":false},{"extraGenerators":[],"name":"Visual Studio 14 2015","platformSupport":true,"supportedPlatforms":["x64","Win32","ARM"],"toolsetSupport":true},{"extraGenerators":["CodeBlocks","CodeLite","Eclipse CDT4","Kate","Sublime Text 2"],"name":"MinGW Makefiles","platformSupport":false,"toolsetSupport":false},{"extraGenerators":[],"name":"Green Hills MULTI","platformSupport":true,"toolsetSupport":true},{"extraGenerators":["CodeBlocks","CodeLite","Eclipse CDT4","Kate","Sublime Text 2"],"name":"Unix Makefiles","platformSupport":false,"toolsetSupport":false},{"extraGenerators":["CodeBlocks","CodeLite","Eclipse CDT4","Kate","Sublime Text 2"],"name":"Ninja","platformSupport":false,"toolsetSupport":false},{"extraGenerators":[],"name":"FASTBuild","platformSupport":false,"toolsetSupport":false},{"extraGenerators":[],"name":"Watcom WMake","platformSupport":false,"toolsetSupport":false}],"serverMode":false,"tls":true,"version":{"isDirty":false,"major":4,"minor":4,"patch":5,"string":"4.4.5","suffix":""}}
+Klargjor Microsofts x64-kommandolinjemiljo: C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Auxiliary\Build\vcvarsall.bat
+Direkte x64-kompilator: C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Tools\MSVC\14.51.36231\bin\Hostx64\x64\cl.exe
+MSVC x64: C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | C:\Program Files (x86)\Windows Kits\10
+Ressurskompilator: C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+
+> "C:\Program Files\CMake\bin\cmake.EXE" -S D:\Flysnapper-0.1.0\build\x64-sdk-check-fix4-8c64849b6f1c\source -B D:\Flysnapper-0.1.0\build\x64-sdk-check-fix4-8c64849b6f1c -G Ninja -DCMAKE_BUILD_TYPE=Release "-DCMAKE_C_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe" "-DCMAKE_CXX_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe" "-DCMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe" "-DCMAKE_MT:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe" "-DCMAKE_LINKER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.exe" "-DCMAKE_AR:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/lib.exe" "-DCMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$<$<CONFIG:Debug>:Debug>
+-- The C compiler identification is MSVC 19.51.36260.0
+-- The CXX compiler identification is MSVC 19.51.36260.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (1.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/Flysnapper-0.1.0/build/x64-sdk-check-fix4-8c64849b6f1c
+
+> "C:\Program Files\CMake\bin\cmake.EXE" --build D:\Flysnapper-0.1.0\build\x64-sdk-check-fix4-8c64849b6f1c --config Release --target FlysnapperToolchainCheck
+[1/3] Building RC object CMakeFiles\FlysnapperToolchainCheck.dir\probe.rc.res
+[2/3] Building CXX object CMakeFiles\FlysnapperToolchainCheck.dir\probe.cpp.obj
+[3/3] Linking CXX executable FlysnapperToolchainCheck.exe
+
+> D:\Flysnapper-0.1.0\build\x64-sdk-check-fix4-8c64849b6f1c\FlysnapperToolchainCheck.exe
+FLYSNAPPER_TOOLCHAIN_OK: C++17, CRT, Windows SDK, RC and linker
+FLYSNAPPER_TOOLCHAIN_OK: C++17, CRT, Windows SDK, RC and linker
+
+> "C:\Program Files\Git\cmd\git.EXE" -c core.longpaths=true clone --depth 1 --branch 8.0.16-security https://github.com/juce-framework/JUCE.git D:\Flysnapper-0.1.0\deps\JUCE
+Cloning into 'D:\Flysnapper-0.1.0\deps\JUCE'...
+warning: refs/tags/8.0.16-security a74b024c188339fdfe07b73088e6f6961ff66709 is not a commit!
+Note: switching to 'ea77444750de45e036e0279bb0291144bf8e3688'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+
+> "C:\Program Files\Git\cmd\git.EXE" -C D:\Flysnapper-0.1.0\deps\JUCE config core.longpaths true
+
+> "C:\Program Files\Git\cmd\git.EXE" -C D:\Flysnapper-0.1.0\deps\JUCE rev-parse HEAD
+ea77444750de45e036e0279bb0291144bf8e3688
+
+> "C:\Program Files\Git\cmd\git.EXE" -C D:\Flysnapper-0.1.0\deps\JUCE status --porcelain
+
+> "C:\Program Files\Git\cmd\git.EXE" -C D:\Flysnapper-0.1.0\deps\JUCE rev-parse HEAD
+ea77444750de45e036e0279bb0291144bf8e3688
+JUCE 8.0.16-security kontrollert: ea77444750de45e036e0279bb0291144bf8e3688
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+
+> "C:\Program Files\CMake\bin\cmake.EXE" -S D:\Flysnapper-0.1.0 -B D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3 -G Ninja -DCMAKE_BUILD_TYPE=Release "-DCMAKE_C_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe" "-DCMAKE_CXX_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe" "-DCMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe" "-DCMAKE_MT:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe" "-DCMAKE_LINKER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.exe" "-DCMAKE_AR:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/lib.exe" "-DCMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$<$<CONFIG:Debug>:Debug> -DJUCE_DIR=D:\Flysnapper-0.1.0\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7 -DFLYSNAPPER_CORE_ONLY=OFF -DFLYSNAPPER_BUILD_TESTS=ON
+-- The C compiler identification is MSVC 19.51.36260.0
+-- The CXX compiler identification is MSVC 19.51.36260.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring juceaide
+-- Building juceaide
+-- Exporting juceaide
+-- Testing juceaide
+-- Finished setting up juceaide
+-- Configuring done (15.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+
+> D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\juce\tools\extras\Build\juceaide\juceaide_artefacts\Custom\juceaide.exe rcfile "D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\juceaide-unicode-check\Olav Lægreid\Info æøå.txt" "D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\juceaide-unicode-check\Olav Lægreid\Flysnapper æøå.rc"
+
+> "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" /nologo /fo "D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\juceaide-unicode-check\Olav Lægreid\Flysnapper æøå.res" "D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\juceaide-unicode-check\Olav Lægreid\Flysnapper æøå.rc"
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+
+> "C:\Program Files\CMake\bin\cmake.EXE" --build D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3 --config Release --target Flysnapper_VST3 FlysnapperCoreTests FlysnapperPluginTests FlysnapperVst3HostTests --parallel 2
+[0/2] Re-checking globbed directories...
+[1/83] Building CXX object CMakeFiles\FlysnapperCore.dir\Source\Core\MidiEngine.cpp.obj
+[2/83] Building CXX object CMakeFiles\FlysnapperCore.dir\Source\Core\MusicData.cpp.obj
+[3/83] Linking CXX static library FlysnapperCore.lib
+[4/83] Building CXX object CMakeFiles\Flysnapper.dir\Source\PluginProcessor.cpp.obj
+[5/83] Building CXX object CMakeFiles\Flysnapper.dir\Source\PluginEditor.cpp.obj
+[6/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors\juce_audio_processors.cpp.obj
+[7/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_extra\juce_gui_extra.cpp.obj
+[8/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_2.cpp.obj
+[9/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics.cpp.obj
+[10/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_3.cpp.obj
+[11/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_4.cpp.obj
+[12/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_5.cpp.obj
+[13/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics.cpp.obj
+[14/83] Building C object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Sheenbidi.c.obj
+[15/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_events\juce_events.cpp.obj
+[16/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Harfbuzz.cpp.obj
+[17/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_core\juce_core_CompilationTime.cpp.obj
+[18/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_data_structures\juce_data_structures.cpp.obj
+[19/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_core\juce_core.cpp.obj
+[20/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_ara.cpp.obj
+[21/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_lv2_libs.cpp.obj
+[22/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless.cpp.obj
+[23/83] Building VST3 manifest helper for Flysnapper
+-- The CXX compiler identification is MSVC 19.51.36260.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3/vst3_helpers/Flysnapper
+[1/2] Building CXX object CMakeFiles\vst3_helper.dir\a9f756c386f818026d747c30d991d926\modules\juce_audio_plugin_client\VST3\juce_VST3ManifestHelper.cpp.obj
+[2/2] Linking CXX executable vst3_helper.exe
+[24/83] Generating Flysnapper_artefacts/JuceLibraryCode/Flysnapper_resources.rc
+[25/83] Building CXX object CMakeFiles\Flysnapper.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_basics\juce_audio_basics.cpp.obj
+[26/83] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_AAX.cpp.obj
+[27/83] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_AAX_utils.cpp.obj
+[28/83] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_ARA.cpp.obj
+[29/83] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_LV2.cpp.obj
+[30/83] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_Standalone.cpp.obj
+[31/83] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_Unity.cpp.obj
+[32/83] Linking CXX static library Flysnapper_artefacts\Release\Flysnapper_SharedCode.lib
+[33/83] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_VST2.cpp.obj
+[34/83] Building RC object CMakeFiles\Flysnapper_rc_lib.dir\Flysnapper_artefacts\JuceLibraryCode\Flysnapper_resources.rc.res
+[35/83] Generating FlysnapperPluginTests_artefacts/JuceLibraryCode/FlysnapperPluginTests_resources.rc
+[36/83] Generating FlysnapperVst3HostTests_artefacts/JuceLibraryCode/FlysnapperVst3HostTests_resources.rc
+[37/83] Building CXX object CMakeFiles\FlysnapperCoreTests.dir\Tests\CoreTests.cpp.obj
+[38/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\Tests\PluginTests.cpp.obj
+[39/83] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_VST3.cpp.obj
+[40/83] Linking CXX shared module Flysnapper_artefacts\Release\VST3\Flysnapper.vst3\Contents\x86_64-win\Flysnapper.vst3
+removing moduleinfo.json
+creating D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3/Contents/Resources/moduleinfo.json
+[41/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors\juce_audio_processors.cpp.obj
+[42/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_extra\juce_gui_extra.cpp.obj
+[43/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_2.cpp.obj
+[44/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics.cpp.obj
+[45/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_3.cpp.obj
+[46/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_4.cpp.obj
+[47/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_5.cpp.obj
+[48/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics.cpp.obj
+[49/83] Building C object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Sheenbidi.c.obj
+[50/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_events\juce_events.cpp.obj
+[51/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Harfbuzz.cpp.obj
+[52/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_core\juce_core_CompilationTime.cpp.obj
+[53/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_data_structures\juce_data_structures.cpp.obj
+[54/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_core\juce_core.cpp.obj
+[55/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_ara.cpp.obj
+[56/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_lv2_libs.cpp.obj
+[57/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless.cpp.obj
+[58/83] Building RC object CMakeFiles\FlysnapperPluginTests_rc_lib.dir\FlysnapperPluginTests_artefacts\JuceLibraryCode\FlysnapperPluginTests_resources.rc.res
+[59/83] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_basics\juce_audio_basics.cpp.obj
+[60/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\Tests\Vst3HostTests.cpp.obj
+[61/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors\juce_audio_processors.cpp.obj
+[62/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_extra\juce_gui_extra.cpp.obj
+[63/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_2.cpp.obj
+[64/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics.cpp.obj
+[65/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_3.cpp.obj
+[66/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_4.cpp.obj
+[67/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_5.cpp.obj
+[68/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics.cpp.obj
+[69/83] Building C object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Sheenbidi.c.obj
+[70/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Harfbuzz.cpp.obj
+[71/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_events\juce_events.cpp.obj
+[72/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_core\juce_core_CompilationTime.cpp.obj
+[73/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_data_structures\juce_data_structures.cpp.obj
+[74/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_core\juce_core.cpp.obj
+[75/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_ara.cpp.obj
+[76/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_lv2_libs.cpp.obj
+[77/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_basics\juce_audio_basics.cpp.obj
+[78/83] Building RC object CMakeFiles\FlysnapperVst3HostTests_rc_lib.dir\FlysnapperVst3HostTests_artefacts\JuceLibraryCode\FlysnapperVst3HostTests_resources.rc.res
+[79/83] Linking CXX executable FlysnapperCoreTests.exe
+[80/83] Linking CXX executable FlysnapperPluginTests_artefacts\Release\FlysnapperPluginTests.exe
+[81/83] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\dependencies\JUCE-unicode3-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless.cpp.obj
+[82/83] Linking CXX executable FlysnapperVst3HostTests_artefacts\Release\FlysnapperVst3HostTests.exe
+
+> "C:\Program Files\CMake\bin\ctest.EXE" --test-dir D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3 -C Release --show-only=json-v1
+{
+  "backtraceGraph" : 
+  {
+    "commands" : 
+    [
+      "add_test"
+    ],
+    "files" : 
+    [
+      "D:/Flysnapper-0.1.0/CMakeLists.txt"
+    ],
+    "nodes" : 
+    [
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 19,
+        "parent" : 0
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 56,
+        "parent" : 2
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 69,
+        "parent" : 4
+      }
+    ]
+  },
+  "kind" : "ctestInfo",
+  "tests" : 
+  [
+    {
+      "backtrace" : 1,
+      "command" : 
+      [
+        "D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3/FlysnapperCoreTests.exe"
+      ],
+      "config" : "Release",
+      "name" : "FlysnapperCore",
+      "properties" : 
+      [
+        {
+          "name" : "TIMEOUT",
+          "value" : 120.0
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3"
+        }
+      ]
+    },
+    {
+      "backtrace" : 3,
+      "command" : 
+      [
+        "D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3/FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests.exe"
+      ],
+      "config" : "Release",
+      "name" : "FlysnapperPluginSmoke",
+      "properties" : 
+      [
+        {
+          "name" : "TIMEOUT",
+          "value" : 120.0
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3"
+        }
+      ]
+    },
+    {
+      "backtrace" : 5,
+      "command" : 
+      [
+        "D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe",
+        "D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3"
+      ],
+      "config" : "Release",
+      "name" : "FlysnapperActualVst3",
+      "properties" : 
+      [
+        {
+          "name" : "TIMEOUT",
+          "value" : 120.0
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3"
+        }
+      ]
+    }
+  ],
+  "version" : 
+  {
+    "major" : 1,
+    "minor" : 0
+  }
+}
+
+> "C:\Program Files\CMake\bin\ctest.EXE" --test-dir D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3 -C Release --no-tests=error --verbose --output-on-failure --output-junit D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\flysnapper-ctest.xml
+UpdateCTestConfiguration  from :D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3/DartConfiguration.tcl
+Test project D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: FlysnapperCore
+
+1: Test command: D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\FlysnapperCoreTests.exe
+1: Working Directory: D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3
+1: Test timeout computed to be: 120
+1: Flysnapper core: 6 suites passed, 2104154 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+1/3 Test #1: FlysnapperCore ...................   Passed    0.05 sec
+test 2
+    Start 2: FlysnapperPluginSmoke
+
+2: Test command: D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\FlysnapperPluginTests_artefacts\Release\FlysnapperPluginTests.exe
+2: Working Directory: D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3
+2: Test timeout computed to be: 120
+2: PASS 50 x 19 choices, stable IDs, mixed table, instances, malformed state, transient test reset
+2: PASS block-internal chord timing, routing role isolation, note binding, bypass, generated/external, sustain, panic, expression
+2: PASS generated sample schedule at 3 rates x 5 blocks, seek/stop, zero-frame reset, bounded overload, sidechain bus layouts
+2: PASS warmed processor C++ new allocation check (malloc/realloc and host wrapper excluded)
+2: PASS actual JUCE editor: large chord, 50x19 menus, flip/close continuity; front/back PNG snapshots written
+2: FlysnapperPluginSmoke: PASS (225603 assertions)
+2/3 Test #2: FlysnapperPluginSmoke ............   Passed    0.37 sec
+test 3
+    Start 3: FlysnapperActualVst3
+
+3: Test command: D:\Flysnapper-0.1.0\build\x64-direct-fix4-8c64849b6f1c-unicode3\FlysnapperVst3HostTests_artefacts\Release\FlysnapperVst3HostTests.exe "D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3/Flysnapper_artefacts/Release/VST3/Flysnapper.vst3"
+3: Working Directory: D:/Flysnapper-0.1.0/build/x64-direct-fix4-8c64849b6f1c-unicode3
+3: Test timeout computed to be: 120
+3: PASS actual VST3 discovery and instrument classification
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 32 samples
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 128 samples
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 257 samples
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 32 samples
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 128 samples
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 257 samples
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 32 samples
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 128 samples
+3: PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 257 samples
+3: PASS actual VST3 named sidechain activation, audio, digital silence and deactivation
+3: PASS actual VST3 generated/external simultaneous events, 4800-sample test gate, source-only shutdown
+3: PASS actual VST3 all settings/table state roundtrip, instance isolation, no revived notes
+3: PASS actual VST3 stop/restart/seek flush, no stale chord or repeated note offs
+3: MEASURE actual VST3 Controller Modulation Wheel (coarse): 73 Channel 2 offset in=17 out=17
+3: MEASURE actual VST3 Pitch wheel 12345 Channel 2 offset in=17 out=17
+3: MEASURE actual VST3 Channel pressure 41 Channel 2 offset in=17 out=17
+3: MEASURE actual VST3 Program change 17 Channel 2 offset in=17 out=17
+3: PASS actual VST3 CC1, pitch bend, channel pressure and program-change values
+3: PASS actual VST3 forwarded CC66/CC69 released at transport stop without active core voices
+3: RESULT actual VST3 host tests passed (28010 assertions).
+3: NOT VERIFIED: Windows/MSVC, Ableton Live, audio-driver latency, pitch detection.
+3/3 Test #3: FlysnapperActualVst3 .............   Passed    0.26 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =   0.68 sec
+BYGG OG AUTOMATISKE TESTER BESTATT: D:\Flysnapper-0.1.0\dist\Flysnapper.vst3
+Ableton Live og fysisk end-to-end-latency er ikke verifisert av byggeskriptet.
+Ingen installasjon utført. Windows: bruk --install eller --install-only naar du onsker installasjon.
