@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-11-06T09:53:05.526910+00:00",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/quiet_repick_counter.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/ArticulationTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/EarlyEstimator.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/InputDynamics.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/NoiseConditioner.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/PitchDetector.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/PolyphonicTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/TimeDomainPursuit.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/YinEstimator.cpp",
+    "-o",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/QuietCapture"
+  ],
+  "driver_sha256": "041e96e2f490bdbd6889d313a8c02ee2e0aa1c2dc5f7f6d2f978873b7b0a9c5b"
+}

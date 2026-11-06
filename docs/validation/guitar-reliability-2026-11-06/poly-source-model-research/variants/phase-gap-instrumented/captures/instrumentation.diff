@@ -1,0 +1,48 @@
+--- /tmp/flysnapper-v4-phase-gap-trace/TimeDomainPursuit.original.cpp	2026-11-06 09:15:34.442278430 +0000
++++ /tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/TimeDomainPursuit.cpp	2026-11-06 09:50:09.257002419 +0000
+@@ -313,6 +313,11 @@
+     // The state below belongs to held physical-source hypotheses. Instant
+     // candidate-order churn is excluded by the separate held-set joint fit.
+     const int64_t clock=data->observationClock>0?data->observationClock:data->lastObservationClock+predictionSamples;
++    const bool phaseTrace=clock>=4560&&clock<=6720;
++    if(phaseTrace){std::cerr<<std::setprecision(17)<<"HELD,"<<clock<<','<<(clock<=data->lastObservationClock)<<',';
++        for(int n=0;n<noteCount;++n)if(data->previousHeld[size_t(n)])std::cerr<<n+lowNote<<';';std::cerr<<',';
++        if(evidence)for(int n=0;n<noteCount;++n)if(evidence->active[size_t(n)])std::cerr<<n+lowNote<<';';std::cerr<<',';
++        for(int k=0;k<predictionUsed;++k)std::cerr<<predictionSelected[size_t(k)]+lowNote<<';';std::cerr<<'\n';}
+     if(clock<=data->lastObservationClock)data->sourcePhase={};
+     std::array<bool,noteCount> held{};if(evidence)held=evidence->active;
+     if(held!=data->previousHeld)data->sourcePhase={};
+@@ -366,12 +371,15 @@
+         const int note=predictionSelected[size_t(j)];if(!held[size_t(note)])continue;
+         const auto &model=data->models[size_t(note)];auto &state=data->sourcePhase[size_t(note)];
+         const int64_t elapsed=clock-state.sample;
++        if(phaseTrace&&note+lowNote==55)std::cerr<<std::setprecision(17)<<"STATE,"<<clock<<','<<state.sample<<','<<elapsed<<','<<state.warmup<<','<<state.lastEvent<<','<<(elapsed<=0||elapsed>predictionSamples*4)<<','<<variance<<','<<residual<<','<<energy<<','<<freeRelativePrecision<<','<<nullExplained<<','<<nullRelativeResidual<<','<<data->nullPrecision<<'\n';
+         if(elapsed<=0||elapsed>predictionSamples*4){state={};state.lastEvent=-1000000;}
+         const double dt=state.sample>0?double(clock-state.sample):0;
+         std::array<double,8> power{},angle{};double maximum=0;
+         for(int h=0;h<8;++h){const double a=predictionCoefficient[size_t(j)][size_t(h)],c=predictionCoefficient[size_t(j)][size_t(h+8)];power[size_t(h)]=(a*a+c*c)*model.weight[size_t(h)]*model.weight[size_t(h)];maximum=std::max(maximum,power[size_t(h)]);angle[size_t(h)]=std::remainder(std::atan2(c,a)+model.phase[size_t(h)]*(samples-1)*.5,2*pi);}
+         int supported=0,changed=0;double largest=0;
+         for(int h=0;h<8;++h){double coherence=0;
++            const auto oldPhase=state.phase[size_t(h)],oldOmega=state.omega[size_t(h)],oldTrend=state.trend[size_t(h)],oldDeparture=state.departure[size_t(h)],oldPower=state.power[size_t(h)];
++            const auto oldValid=state.valid[size_t(h)];
+             for(int other=0;other<predictionUsed;++other)if(other!=j){const auto &m=data->models[size_t(predictionSelected[size_t(other)])];
+                 for(int k=0;k<8;++k)if(m.valid[size_t(k)]){const double delta=model.phase[size_t(h)]-m.phase[size_t(k)],denominator=samples*std::sin(delta*.5);const double value=std::abs(denominator)<1e-10?1.:std::abs(std::sin(samples*delta*.5)/denominator);coherence=std::max(coherence,value);}}
+             const int si=j*columns+h,ci=j*columns+h+8;
+@@ -387,10 +395,17 @@
+                     const double distance=std::abs(state.departure[size_t(h)]);largest=std::max(largest,distance);++supported;if(distance>.30+3*phaseUncertainty)++changed;
+                     if(distance<.15)state.trend[size_t(h)]=.9*state.trend[size_t(h)]+.1*difference/dt;}
+             }else{state.trend[size_t(h)]=0;state.departure[size_t(h)]=0;}
++            if(phaseTrace&&note+lowNote==55){
++                const double advance=std::remainder(angle[size_t(h)]-oldPhase,2*pi),expected=.5*(model.phase[size_t(h)]+oldOmega)*dt;
++                const double difference=std::remainder(angle[size_t(h)]-oldPhase-expected,2*pi),innovation=std::remainder(difference-oldTrend*dt,2*pi);
++                const char* branch=!(reliable&&oldValid&&dt>0&&dt<=predictionSamples*4)?"CLEAR":(state.warmup<4||clock-state.lastEvent<data->rate*.075||nullExplained)?"TREND":"DEPARTURE";
++                std::cerr<<std::setprecision(17)<<"PHASE,"<<clock<<','<<h+1<<','<<predictionCoefficient[size_t(j)][size_t(h)]<<','<<predictionCoefficient[size_t(j)][size_t(h+8)]<<','<<angle[size_t(h)]<<','<<oldPhase<<','<<model.phase[size_t(h)]<<','<<oldOmega<<','<<dt<<','<<advance<<','<<expected<<','<<difference<<','<<oldTrend<<','<<oldTrend*dt<<','<<innovation<<','<<oldDeparture<<','<<state.departure[size_t(h)]<<','<<state.trend[size_t(h)]<<','<<power[size_t(h)]<<','<<oldPower<<','<<maximum<<','<<variance<<','<<conditionalVariance[size_t(si)]<<','<<conditionalVariance[size_t(ci)]<<','<<conditioning<<','<<coherence<<','<<noisePower<<','<<phaseUncertainty<<','<<model.valid[size_t(h)]<<','<<reliable<<','<<oldValid<<','<<state.warmup<<','<<nullExplained<<','<<branch<<','<<(.30+3*phaseUncertainty)<<'\n';
++            }
+             state.phase[size_t(h)]=angle[size_t(h)];state.omega[size_t(h)]=model.phase[size_t(h)];state.power[size_t(h)]=power[size_t(h)];state.valid[size_t(h)]=reliable;
+         }
+         if(!nullExplained&&supported>=2&&changed>=2&&clock-state.lastEvent>data->rate*.075){state.lastEvent=clock;state.departure={};}
+         if(clock-state.lastEvent<data->rate*.060)data->sourceExcitation[size_t(note)]=1;
++        if(phaseTrace&&note+lowNote==55)std::cerr<<std::setprecision(17)<<"DECISION,"<<clock<<','<<supported<<','<<changed<<','<<largest<<','<<state.lastEvent<<','<<data->sourceExcitation[size_t(note)]<<'\n';
+         state.warmup=std::min(state.warmup+1,8);state.sample=clock;
+     }
+     data->nullPreviousHeld=held;data->nullPreviousSample=clock;

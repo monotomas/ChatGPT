@@ -1,0 +1,11 @@
+{
+  "input_snapshot": "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-input",
+  "origin": "/tmp/flysnapper-v4-uncertainty-profile-combo/fast-Source",
+  "input_TimeDomainPursuit_sha256": "88b78c18070ece578532c07dd2be2393136402658d67922ef11a3d75698e92c2",
+  "factor_patch_sha256": "d0d94f0bba4f4bb5645744f2d991be8bd906182da7ab981cccd74bd7c465535c",
+  "changed_source_paths": [
+    "Source/Pitch/TimeDomainPursuit.cpp"
+  ],
+  "phase_observer_compounded": false,
+  "driver_lifecycle": "Fresh PitchDetector object for every technical configuration; original mutable-cache uncertainty model retained."
+}

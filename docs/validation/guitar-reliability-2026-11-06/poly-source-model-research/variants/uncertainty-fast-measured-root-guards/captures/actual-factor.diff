@@ -1,0 +1,122 @@
+--- /tmp/flysnapper-v4-poly-audit/uncertainty-fast-input/Source/Pitch/TimeDomainPursuit.cpp	2026-11-06 09:53:32.837337177 +0000
++++ /tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/TimeDomainPursuit.cpp	2026-11-06 10:03:28.171087185 +0000
+@@ -355,6 +355,75 @@
+     std::array<int,6> selected{};selected.fill(-1);
+     std::array<std::array<double,columns>,6> shape{},coefficient{};
+     std::array<double,6> amplitudes{};int used=0;double firstScore=0;
++    const int anchor=evidence&&evidence->anchorNote>=0&&evidence->anchorNote<noteCount?evidence->anchorNote:-1;
++    auto computeActiveUpperSupport=[&](int note) noexcept {
++        if(!evidence||!evidence->active[size_t(note)])return false;
++        const double frequency=evidence->frequencies[size_t(note)];int found=0;
++        if(!std::isfinite(frequency)||frequency<=0||!std::isfinite(evidence->maximumMagnitude)||evidence->maximumMagnitude<=0)return false;
++        const int peakCount=std::clamp(evidence->count,0,int(evidence->peaks.size()));
++        bool lowerSelected=false;for(int j=0;j<used;++j)lowerSelected|=selected[size_t(j)]==note-12;
++        if(!lowerSelected)return false;
++        const double base=frequency*.5;
++        if(base*16>=evidence->maximumHz)return false;
++        std::array<double,16> physical{};int oddFound=0;
++        for(int h=1;h<=16;++h){
++            const double target=base*h;double value=0;
++            for(int q=0;q<peakCount;++q){const auto& peak=evidence->peaks[size_t(q)];
++                if(std::abs(peak.frequency-target)<target*.022f+evidence->resolutionHz*.05f)value=std::max(value,double(peak.magnitude));
++            }
++            physical[size_t(h-1)]=std::max(value,double(evidence->maximumMagnitude)*.004);
++            if(h%2&&value>=evidence->maximumMagnitude*.008)++oddFound;
++        }
++        if(oddFound<5)return false;
++        double sx=0,sy=0,sxx=0,sxy=0;
++        for(int h=1;h<=15;h+=2){double x=std::log(double(h)),y=std::log(physical[size_t(h-1)]);sx+=x;sy+=y;sxx+=x*x;sxy+=x*y;}
++        const double slope=std::clamp((8*sxy-sx*sy)/(8*sxx-sx*sx),-3.,.5),intercept=(sy-slope*sx)/8;
++        double excess=0;int strong=0;
++        for(int h=10;h<=16;h+=2){double ratio=physical[size_t(h-1)]/std::exp(intercept+slope*std::log(double(h)));excess+=std::log(std::max(ratio,1e-9));if(ratio>2)++strong;}
++        if(strong<2||excess<4*std::log(1.8))return false;
++        for(int h=3;h<=8;++h){
++            const double target=frequency*h;if(target>=evidence->maximumHz)break;
++            bool shared=false;
++            for(int j=0;j<used&&!shared;++j){
++                const double other=evidence->frequencies[size_t(selected[size_t(j)])];
++                if(!std::isfinite(other)||other<=0)continue;
++                const int k=int(std::lround(target/other));
++                if(k>=1&&k<=8&&std::abs(target-other*k)<evidence->resolutionHz)shared=true;
++            }
++            if(shared)continue;
++            for(int q=0;q<peakCount;++q){const auto& peak=evidence->peaks[size_t(q)];
++                if(peak.magnitude>=evidence->maximumMagnitude*.008f&&std::abs(peak.frequency-target)<target*.022f+evidence->resolutionHz*.05f){++found;break;}
++            }
++        }
++        return found>=2;
++    };
++    // The selected models stay fixed while candidates are compared. Cache
++    // this selected-model-dependent result only within that one iteration.
++    std::array<int8_t,noteCount> activeSupport{};activeSupport.fill(-1);
++    auto activeUpperSupport=[&](int note) noexcept {
++        auto& cached=activeSupport[size_t(note)];
++        if(cached<0)cached=computeActiveUpperSupport(note)?1:0;
++        return cached!=0;
++    };
++    // A single already-held string can make YIN prefer its upper octave when
++    // the odd partials fade relative to the evens. Preserve the original model
++    // only while its physical fundamental and an independent odd partial are
++    // still observed. This is continuity, never admission of a new voice.
++    // Multiple held voices keep the original independent-octave rules.
++    std::array<bool,noteCount> heldOctaveSupport{};
++    int activeCount=0;if(evidence)for(bool active:evidence->active)activeCount+=active;
++    if(evidence&&activeCount==1)for(int n=0;n<noteCount;++n)if(evidence->active[size_t(n)]&&anchor==n+12
++        &&hasIndependentPeaks(n,*evidence,evidence->active,false)) {
++        const float f=evidence->frequencies[size_t(n)];
++        for(int h:{3,5,7}) {
++            const float target=f*h;if(target>=evidence->maximumHz)continue;
++            // Odd partials of the held root cannot belong to its upper octave.
++            if(observedPeak(*evidence,target,target*.022f+evidence->resolutionHz*.05f,evidence->maximumMagnitude*.008f)) {
++                heldOctaveSupport[size_t(n)]=true;break;
++            }
++        }
++    }
++
+     // Private explicit standard-six-string prior: each model must be
+     // jointly assignable to a distinct string, before it can explain audio.
+     auto guitarAssignable=[&](int note) noexcept {
+@@ -375,6 +444,7 @@
+         double result=0;for(int i=0;i<columns;++i)for(int j=0;j<columns;++j)result+=x[size_t(i)]*data->cross(a,i,b,j)*y[size_t(j)];return result;
+     };
+     for(int iteration=0;iteration<maxVoices;++iteration){
++        activeSupport.fill(-1);
+         int best=-1;double bestScore=0;
+         std::array<double,columns> bestShape{};
+         for(int note=0;note<noteCount;++note){
+@@ -389,6 +459,11 @@
+             for(int h=0;h<8;++h){const double magnitude=std::hypot(beta[size_t(h)],beta[size_t(h+8)]);observed[size_t(h)]=magnitude*model.weight[size_t(h)];observedPower+=observed[size_t(h)]*observed[size_t(h)];
+                 if(magnitude>1e-15){phaseSin[size_t(h)]=beta[size_t(h)]/magnitude;phaseCos[size_t(h)]=beta[size_t(h+8)]/magnitude;}}
+             if(observedPower<1e-15)continue;
++            // This is measured residual-wave evidence, before a profile
++            // can insert a hypothesized fundamental into its own atom.
++            if(observed[size_t(0)]*observed[size_t(0)]<observedPower*.05&&anchor!=note
++                &&!activeUpperSupport(note)&&!heldOctaveSupport[size_t(note)])continue;
++
+             for(auto &a:observed)a/=std::sqrt(observedPower);
+ 
+             unsigned validMask=0;for(int h=0;h<8;++h)if(model.valid[size_t(h)])validMask|=1u<<h;
+@@ -468,7 +543,23 @@
+         for(int sweep=0;sweep<12;++sweep)for(int i=0;i<used;++i){double value=rhs[i];for(int j=0;j<used;++j)if(j!=i)value-=gram[i][j]*amplitudes[size_t(j)];amplitudes[size_t(i)]=std::max(0.,value/std::max(gram[i][i],1e-12));}
+         for(int j=0;j<used;++j)for(int c=0;c<columns;++c)coefficient[size_t(j)][size_t(c)]=shape[size_t(j)][size_t(c)]*amplitudes[size_t(j)];
+     }
++    // The final evidence fit is independent of the imposed envelope.
++    // New candidates must not borrow a profile-imputed root as measurement.
++    constexpr int measuredMaximum=6*columns;const int measuredDimension=used*columns;
++    std::array<float,measuredMaximum*measuredMaximum> measuredFactor{};
++    std::array<double,measuredMaximum> measuredRhs{},measuredSolution{};
++    for(int i=0;i<measuredDimension;++i){const int n=selected[size_t(i/columns)],c=i%columns;measuredRhs[size_t(i)]=projection[size_t(n)][size_t(c)];
++        for(int j=0;j<=i;++j){double value=data->cross(n,c,selected[size_t(j/columns)],j%columns)+(i==j?ridge*samples:0.);
++            value-=dot(measuredFactor.data()+i*measuredMaximum,measuredFactor.data()+j*measuredMaximum,j);
++            measuredFactor[size_t(i*measuredMaximum+j)]=float(i==j?std::sqrt(std::max(value,1e-10)):value/measuredFactor[size_t(j*measuredMaximum+j)]);}}
++    for(int i=0;i<measuredDimension;++i){double value=measuredRhs[size_t(i)];for(int j=0;j<i;++j)value-=measuredFactor[size_t(i*measuredMaximum+j)]*measuredSolution[size_t(j)];measuredSolution[size_t(i)]=value/measuredFactor[size_t(i*measuredMaximum+i)];}
++    for(int i=measuredDimension-1;i>=0;--i){double value=measuredSolution[size_t(i)];for(int j=i+1;j<measuredDimension;++j)value-=measuredFactor[size_t(j*measuredMaximum+i)]*measuredSolution[size_t(j)];measuredSolution[size_t(i)]=value/measuredFactor[size_t(i*measuredMaximum+i)];}
++    std::array<bool,6> measuredSupported{};activeSupport.fill(-1);
++    for(int j=0;j<used;++j){const int n=selected[size_t(j)];const auto &m=data->models[size_t(n)];double rootPower=0,totalPower=0;
++        for(int c=0;c<columns;++c){const double a=measuredSolution[size_t(j*columns+c)]*m.weight[size_t(c)];totalPower+=a*a;if(c==0||c==harmonics)rootPower+=a*a;}
++        measuredSupported[size_t(j)]=rootPower>=totalPower*.035||anchor==n||activeUpperSupport(n)||heldOctaveSupport[size_t(n)];}
+     for(int j=0;j<used;++j){const int note=selected[size_t(j)];const auto& model=data->models[size_t(note)];double magnitude=0;
++        if(!measuredSupported[size_t(j)])continue;
+         for(int c=0;c<columns;++c){const double a=coefficient[size_t(j)][size_t(c)]*model.weight[size_t(c)];magnitude+=a*a;}
+         strength[size_t(note)]=float(std::sqrt(magnitude*.5));confidence[size_t(note)]=float(std::clamp(crossShape(note,coefficient[size_t(j)],note,coefficient[size_t(j)])/energy,0.,1.));
+     }

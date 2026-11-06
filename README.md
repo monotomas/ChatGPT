@@ -5,6 +5,8 @@ dobbelttrigging, utelatte toner, falske lavere oktaver og forsinkelse.
 Arbeidet på `research/guitar-reliability-v4` er **ikke en ny godkjent
 installasjonspakke**. En avgrenset retting finner raske monofoniske
 fingerslides; den samlede polyfoniske seksstrengsprøven feiler fortsatt.
+En ny prøve gjennom selve prosessoren gjenskaper også dobbelttrigging med
+et originalt gitaropptak i alle åtte innstillingskombinasjonene.
 Se [gjeldende status og kildebundne resultater](docs/validation/guitar-reliability-2026-11-06/README.md).
 
 Beskrivelsen nedenfor gjelder den leverte 0.3.0 og dens funksjoner.

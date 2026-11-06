@@ -1,0 +1,48 @@
+from pathlib import Path
+import json,csv,hashlib,collections
+P=Path(__file__).resolve().parent
+load=lambda f:json.loads(f.read_text())
+rows=lambda f:list(csv.DictReader(f.open()))
+sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
+result={'status':'All factors REJECTED; no production Source change or installer; observations are not musical acceptance','reserved_detector_inputs_run':0,'factors':{}}
+for tag,p in [('existing_estimate_certificate',P),('fresh_raw_certificate',P/'raw-certificate'),('scoped_original_innovation',P/'scoped-original')]:
+ q=rows(p/'quiet/counter-results.csv');e=rows(p/'target52/events.csv')
+ result['factors'][tag]={'quiet_successes':sum(int(r['note_ons'])==2 and int(r['note_offs'])==2 and int(r['correct'])==2 and int(r['second_decision'])>=21600 and r['active']=='0' for r in q),'quiet_total':len(q),'quiet_results':q,'target52_note_ons':dict((str(k),v) for k,v in sorted(collections.Counter((r['profile'],r['idle_samples']) for r in e if r['type']=='N').items())),'target52_note_on_events':[r for r in e if r['type']=='N']}
+B=P/'comparison-inputs';result['real_DEV56']={'baseline':load(B/'real-pluck-dev/original-baseline/summary.json')['total']}
+for tag in ['raw-certificate','scoped-with-root-frets']:
+ p=P/tag;result['real_DEV56'][tag]=load(p/'dev56/summary.json')['total'];result['real_DEV56'][tag+'_effective_pitch']=load(p/'effective-pitch-audit/summary.json')['total']
+ result.setdefault('legacy107',{})[tag]={'scored_counts':{dyn:load(p/'regression-summary.json')[dyn] for dyn in ['off','default']},'event_differences':[]}
+ for dyn in ['off','default']:
+  for suite in ['public','holdout','confirmation']:
+   old=rows(B/'legacy107'/dyn/suite/'audio-events.csv');new=rows(p/'legacy107'/dyn/suite/'audio-events.csv')
+   for case in sorted({r['case'] for r in old+new}):
+    o=[r for r in old if r['case']==case];n=[r for r in new if r['case']==case]
+    if o!=n:result['legacy107'][tag]['event_differences'].append({'dynamics':dyn,'suite':suite,'case':case,'old':o,'new':n})
+ result.setdefault('broad',{})[tag]={'summaries':load(p/'regression-summary.json')['broad'],'per_case_differences':[],'regressions':[]}
+ for mode in ['bend','plain']:
+  for suite,oldname in [('controlled','controlled'),('noise','recorded-noise'),('hammers','recorded-hammers')]:
+   old={r['case']:r for r in load(B/'root-frets-broad'/mode/oldname/'cases.json')};new=load(p/'broad'/(suite+'-'+mode)/'cases.json')
+   for r in new:
+    o=old[r['case']];keys=['matched','extra_note_ons','early_offs','octave_errors'];diff={k:[o[k],r[k]] for k in keys if o[k]!=r[k]}
+    if diff:
+     entry={'mode':mode,'suite':suite,'case':r['case'],'differences':diff};result['broad'][tag]['per_case_differences'].append(entry)
+     if any((r[k]<o[k] if k=='matched' else r[k]>o[k]) for k in keys):result['broad'][tag]['regressions'].append(entry)
+# Actual read-only diagnostic output parity, including pitch payloads.
+raw=P/'raw-certificate';orig=rows(raw/'dev56/events.csv');tail=rows(raw/'tailE2-trace/events.csv');target=[r for r in orig if r['record']=='twang_e3_f_rr1' and r['profile']=='mono_plain_dynamics_off' and r['idle_samples']=='15435'];assert tail==target
+checks={'tail_E2_exact_events':len(tail),'tail_E2_event_parity':True,'noise_event_parity':[],'counter_event_parity':[]}
+noiseorig=rows(raw/'broad/noise-bend/events.csv')
+for out in sorted((raw/'noise-trace-diagnostic').glob('case[0-9]')):
+ e=rows(out/'events.csv');expected=[r for r in noiseorig if r['case']==e[0]['case']];assert e==expected;checks['noise_event_parity'].append({'case':e[0]['case'],'events':len(e),'equal':True})
+final=P/'scoped-with-root-frets';orig=rows(final/'broad/controlled-plain/events.csv');case='music_handling_snr24_gain1_mono';expected=[r for r in orig if r['case']==case]
+for name in ['counter','counter-raw']:
+ e=rows(P/'scoped-counter-trace'/name/'events.csv');assert e==expected;checks['counter_event_parity'].append({'trace':name,'events':len(e),'equal':True})
+r=next(r for r in rows(P/'scoped-counter-trace/counter-raw/state.csv') if r['sample']=='62847');checks['false_retrigger_state']=r
+old=rows(B/'root-frets-broad/plain/controlled/events.csv');checks['counter_old_events']=[r for r in old if r['case']==case];checks['counter_new_events']=expected
+result['read_only_diagnostic_checks']=checks
+# Verify actual retained source snapshots did not change after before-capture declarations.
+freeze=[]
+for relative,key in [('pre-capture.json','Source'),('raw-certificate/pre-capture.json','sources'),('scoped-original/pre-capture.json','sources'),('scoped-with-root-frets/pre-capture.json','sources')]:
+ f=P/relative;d=load(f)[key];parent=f.parent;actual={x.relative_to(parent).as_posix():sha(x) for x in sorted((parent/'Source').rglob('*')) if x.is_file()};assert d==actual;freeze.append({'manifest':relative,'source_files':len(d),'unchanged':True})
+result['source_freeze_checks']=freeze
+(P/'result-checks.json').write_text(json.dumps(result,indent=2)+'\n')
+print('PASS frozen source, trace event equality, and immutable numeric comparison inputs; all musical factors rejected')

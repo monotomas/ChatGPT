@@ -1,0 +1,31 @@
+{
+  "kind": "Byte-for-byte copy of independently completed uncertainty+profile-fast cold330 input capture; not a second execution.",
+  "source_snapshot": "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-input/Source",
+  "files": {
+    "events.csv": {
+      "source": "/tmp/flysnapper-v4-uncertainty-profile-combo/payload-cold330-fast/events.csv",
+      "retained_name": "events.csv",
+      "sha256": "0c5b65b8ebc5d807c9370b1b8310b7fb35e8955a7d2635fa5b50c712bb3d5e6c"
+    },
+    "metrics.csv": {
+      "source": "/tmp/flysnapper-v4-uncertainty-profile-combo/payload-cold330-fast/metrics.csv",
+      "retained_name": "metrics.csv",
+      "sha256": "7fa8ba921ddfd6d6d30ba9000b40c705b623f7e061bcf3db923c389c21b0daba"
+    },
+    "build.json": {
+      "source": "/tmp/flysnapper-v4-uncertainty-profile-combo/payload-cold330-fast/build.json",
+      "retained_name": "inherited-build.json",
+      "sha256": "270e1801d97552ad232f04c05a88a82c451e1c8fc3d24c1c3073804728bdf357"
+    },
+    "run.json": {
+      "source": "/tmp/flysnapper-v4-uncertainty-profile-combo/payload-cold330-fast/run.json",
+      "retained_name": "inherited-run.json",
+      "sha256": "00669db67b03b7ad7df0438400cbe222b56876187b040d228de44b35b231e1eb"
+    },
+    "compile.txt": {
+      "source": "/tmp/flysnapper-v4-uncertainty-profile-combo/payload-cold330-fast/compile.txt",
+      "retained_name": "inherited-compile.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+diff --git a/Source/Pitch/PitchDetector.cpp b/Source/Pitch/PitchDetector.cpp
+index 90a34f7..d270bb4 100644
+--- a/Source/Pitch/PitchDetector.cpp
++++ b/Source/Pitch/PitchDetector.cpp
+@@ -384,7 +384,7 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
+     // Once an oscillator is known, a local three-period observation follows
+     // a new fret much sooner than a permanently full 42.7 ms frame. Global
+     // acquisition keeps its independent harmonic-disambiguation path.
+-    const int primary=std::min(freshCount,held>=0&&config.monoBend&&measuredPeriod>0
++    int primary=std::min(freshCount,held>=0&&config.monoBend&&measuredPeriod>0
+         ?std::clamp(int(std::ceil(measuredPeriod*3.0f)),96,512):512);
+     auto estimate=monoEstimator.estimate(frame.data()+count-primary,primary,threshold,true);
+     const float independentExcitation=held>=0&&config.monoBend&&measuredPeriod>0
+@@ -424,6 +424,26 @@ void PitchDetector::analyseMono(int count,int,Output&) noexcept {
+         auto bass=monoEstimator.estimate(frame.data(),count,threshold,true);
+         if(bass.valid&&bass.note<36&&bass.confidence>.97f)estimate=bass;
+     }
++    if(!config.monoBend&&held>=0&&measuredPeriod>0) {
++        // The full 42.7ms frame can span an entire fast fretted note. Use a
++        // recent three-period observation only to resolve a conflicting nearby
++        // semitone hypothesis; steady sources and fresh acquisition retain
++        // the original estimator. At most six semitones keeps two periods of
++        // a lower candidate inside this window. Real octave changes keep the
++        // original full-frame path and its independent alias checks below.
++        const int localCount=std::min(freshCount,std::clamp(int(std::ceil(measuredPeriod*3.0f)),128,512));
++        if(localCount<primary) {
++            const auto local=monoEstimator.estimate(frame.data()+count-localCount,localCount,threshold,true);
++            const bool different=local.valid&&(estimate.valid?local.note!=estimate.note:local.note!=held+lowNote);
++            const float fromHeld=local.pitch-float(held+lowNote);
++            const bool nearby=std::abs(fromHeld)<=6.0f;
++            const bool nearbyGlobal=!estimate.valid||std::abs(local.pitch-estimate.pitch)<=6.0f;
++            if(different&&nearby&&nearbyGlobal) {
++                const auto physical=measureMonoSeries(rawReference.data()+count-localCount,localCount,local.frequency,analysisRate);
++                if(physical.root&&physical.count>=3) {estimate=local;primary=localCount;}
++            }
++        }
++    }
+     if(config.monoBend&&held>=0&&measuredPeriod>0&&estimate.valid){
+         const float prior=float(69+12*std::log2(analysisRate/(440*measuredPeriod)));
+         if(estimate.pitch-prior>10.f&&estimate.pitch-prior<14.f){

@@ -14,6 +14,13 @@ Uendrede 0.3.0-kilder, rå MIDI og mislykkede prøver er regresjonsgrunnlag.
 Kjente brede feil skal brukes til utvikling og ikke omtolkes som bestått
 fordi de avgrensede programtestene består.
 
+[Arbeidet etter gitarprøven](validation/guitar-reliability-2026-11-06/README.md)
+gjenskaper feilene gjennom selve prosessoren. En avgrenset retting av raske
+monofoniske fingerslides er beholdt. Nytt gitaropptak feiler i alle åtte
+mono-oppsett, og den rene seksstrengsprøven feiler fortsatt. Flere forsøk gir
+bedre samlet treffprosent, men nye feil i andre prøver; de er forkastet.
+Det foreligger ingen ny godkjent installasjonspakke etter denne gjennomgangen.
+
 ---
 
 # Flysnapper 0.3.0 – historisk evalueringsstatus 5. november

@@ -1,0 +1,46 @@
+from pathlib import Path
+import subprocess,csv,json,hashlib,datetime,os,sys,copy,collections
+p=Path(__file__).resolve().parent;root=Path('/workspace/ChatGPT')
+sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
+source={f.relative_to(p).as_posix():sha(f) for f in sorted((p/'Source').rglob('*')) if f.is_file()}
+cpp=[f for f in sorted((p/'Source/Pitch').glob('*.cpp')) if f.name!='MpeOutputRouter.cpp']
+manifest={'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_sha256':source,'runs':[],'scope':'Bounded historical regression falsification only; no reserved new guitar inputs; no musical acceptance'}
+for driver,exe in [('legacy_driver.cpp','LegacyCapture'),('broad_driver.cpp','BroadCapture')]:
+ cmd=['g++','-std=c++17','-O2','-DNDEBUG','-I',str(p/'Source'),str(p/driver),*map(str,cpp),'-o',str(p/exe)]
+ manifest[exe]={'command':cmd,'driver_sha256':sha(p/driver)};(p/'remaining-before.json').write_text(json.dumps(manifest,indent=2)+'\n')
+ with (p/(exe+'-compile.txt')).open('w') as log:r=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT)
+ assert r.returncode==0
+ manifest[exe]['sha256']=sha(p/exe)
+summary={}
+for dyn in ['off','default']:
+ counts={k:0 for k in ['expected','matched','missed','false_note_ons','octave_errors','wrong_before_correct','early_offs']}
+ for suite,fixtures in [('public',root/'Tests/AudioFixtures'),('holdout',root/'Tests/AudioFixtures/holdout'),('confirmation',root/'Tests/AudioFixtures/confirmation')]:
+  out=p/'legacy107'/dyn/suite;out.mkdir(parents=True);cmd=[str(p/'LegacyCapture'),str(fixtures),str(out),'quick',dyn]
+  manifest['runs'].append({'command':cmd});(p/'remaining-progress.json').write_text(json.dumps(manifest,indent=2)+'\n')
+  with (out/'console.txt').open('w') as log:r=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT)
+  assert r.returncode==0
+  for row in csv.DictReader((out/'audio-cases.csv').open()):
+   for k in counts:counts[k]+=int(row[k])
+ summary[dyn]=counts;print('legacy',dyn,counts,flush=True)
+sys.path.insert(0,str(root/'Tools'));import guitar_evaluation_score as score
+policy=json.loads(score.POLICY.read_text());manifest['scoring_inputs']={str(f):sha(f) for f in [root/'Tools/guitar_evaluation_score.py',score.POLICY]};summary['broad']={}
+for mode in ['bend','plain']:
+ summary['broad'][mode]={}
+ for suite,fixtures in [('controlled',root/'Tests/AudioFixtures/readiness'),('noise',root/'Tests/AudioFixtures/readiness/recorded_noise'),('hammers',root/'Tests/AudioFixtures/readiness/recorded_hammers')]:
+  out=p/'broad'/(suite+'-'+mode);out.mkdir(parents=True);env=os.environ.copy()
+  if mode=='plain':env['PLAIN_MODE']='1'
+  cmd=[str(p/'BroadCapture'),str(fixtures),str(out),'quick','default'];manifest['runs'].append({'command':cmd,'PLAIN_MODE':env.get('PLAIN_MODE')});(p/'remaining-progress.json').write_text(json.dumps(manifest,indent=2)+'\n')
+  with (out/'console.txt').open('w') as log:r=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT,env=env)
+  assert r.returncode==0
+  cases={c['name']:c for c in json.loads((fixtures/'fixtures.json').read_text())['cases']};curves=score.original.read_curves(fixtures);events=collections.defaultdict(list)
+  for e in csv.DictReader((out/'events.csv').open()):events[e['case']].append(e)
+  rows=[]
+  for m in csv.DictReader((out/'capture.csv').open()):
+   c=copy.deepcopy(cases[m['case']])
+   if mode=='plain':
+    if c['family']=='continuous-bend':continue
+    c['bend_enabled']=False;c['pitch_curve_ground_truth']=False
+   rows.append(score.evaluate(c,m,events[c['name']],curves,policy))
+  info=score.summarize(rows,[]);summary['broad'][mode][suite]=info;(out/'cases.json').write_text(json.dumps(rows,indent=2)+'\n');(out/'summary.json').write_text(json.dumps(info,indent=2)+'\n');print('broad',mode,suite,info['passed_runs'],'/',info['runs'],info['counts'],flush=True)
+manifest['source_unchanged']=source=={f.relative_to(p).as_posix():sha(f) for f in sorted((p/'Source').rglob('*')) if f.is_file()};assert manifest['source_unchanged']
+(p/'remaining-final.json').write_text(json.dumps(manifest,indent=2)+'\n');(p/'regression-summary.json').write_text(json.dumps(summary,indent=2)+'\n')

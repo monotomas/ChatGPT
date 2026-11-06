@@ -1,0 +1,4499 @@
+{
+  "status": "All factors REJECTED; no production Source change or installer; observations are not musical acceptance",
+  "reserved_detector_inputs_run": 0,
+  "factors": {
+    "existing_estimate_certificate": {
+      "quiet_successes": 16,
+      "quiet_total": 16,
+      "quiet_results": [
+        {
+          "note": "40",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23295",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23295",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23295",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23295",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        }
+      ],
+      "target52_note_ons": {
+        "('mono_bend_dynamics_default', '0')": 1,
+        "('mono_bend_dynamics_default', '15435')": 1,
+        "('mono_bend_dynamics_off', '0')": 1,
+        "('mono_bend_dynamics_off', '15435')": 1,
+        "('mono_plain_dynamics_default', '0')": 1,
+        "('mono_plain_dynamics_default', '15435')": 1,
+        "('mono_plain_dynamics_off', '0')": 1,
+        "('mono_plain_dynamics_off', '15435')": 1
+      },
+      "target52_note_on_events": [
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_off",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3292",
+          "type": "N",
+          "note": "52",
+          "velocity": "44",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_off",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_default",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3410",
+          "type": "N",
+          "note": "52",
+          "velocity": "79",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_default",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_off",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3292",
+          "type": "N",
+          "note": "52",
+          "velocity": "44",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_off",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_default",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3410",
+          "type": "N",
+          "note": "52",
+          "velocity": "79",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_default",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        }
+      ]
+    },
+    "fresh_raw_certificate": {
+      "quiet_successes": 16,
+      "quiet_total": 16,
+      "quiet_results": [
+        {
+          "note": "40",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23679",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23679",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23679",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23679",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        }
+      ],
+      "target52_note_ons": {
+        "('mono_bend_dynamics_default', '0')": 1,
+        "('mono_bend_dynamics_default', '15435')": 1,
+        "('mono_bend_dynamics_off', '0')": 1,
+        "('mono_bend_dynamics_off', '15435')": 1,
+        "('mono_plain_dynamics_default', '0')": 1,
+        "('mono_plain_dynamics_default', '15435')": 1,
+        "('mono_plain_dynamics_off', '0')": 1,
+        "('mono_plain_dynamics_off', '15435')": 1
+      },
+      "target52_note_on_events": [
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_off",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3292",
+          "type": "N",
+          "note": "52",
+          "velocity": "44",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_off",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_default",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3410",
+          "type": "N",
+          "note": "52",
+          "velocity": "79",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_default",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_off",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3292",
+          "type": "N",
+          "note": "52",
+          "velocity": "44",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_off",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_default",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3410",
+          "type": "N",
+          "note": "52",
+          "velocity": "79",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_default",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        }
+      ]
+    },
+    "scoped_original_innovation": {
+      "quiet_successes": 14,
+      "quiet_total": 16,
+      "quiet_results": [
+        {
+          "note": "40",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23679",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "23679",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "1",
+          "note_offs": "1",
+          "correct": "1",
+          "second_decision": "-1",
+          "active": "0"
+        },
+        {
+          "note": "40",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "1",
+          "note_offs": "1",
+          "correct": "1",
+          "second_decision": "-1",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "52",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22655",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "57",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22527",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "0",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "0",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "1",
+          "dynamics": "0",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        },
+        {
+          "note": "64",
+          "bend": "1",
+          "dynamics": "1",
+          "note_ons": "2",
+          "note_offs": "2",
+          "correct": "2",
+          "second_decision": "22271",
+          "active": "0"
+        }
+      ],
+      "target52_note_ons": {
+        "('mono_bend_dynamics_default', '0')": 1,
+        "('mono_bend_dynamics_default', '15435')": 1,
+        "('mono_bend_dynamics_off', '0')": 1,
+        "('mono_bend_dynamics_off', '15435')": 1,
+        "('mono_plain_dynamics_default', '0')": 1,
+        "('mono_plain_dynamics_default', '15435')": 1,
+        "('mono_plain_dynamics_off', '0')": 1,
+        "('mono_plain_dynamics_off', '15435')": 1
+      },
+      "target52_note_on_events": [
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_off",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3292",
+          "type": "N",
+          "note": "52",
+          "velocity": "44",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_off",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_default",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3410",
+          "type": "N",
+          "note": "52",
+          "velocity": "79",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_plain_dynamics_default",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_off",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3292",
+          "type": "N",
+          "note": "52",
+          "velocity": "44",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_off",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_default",
+          "idle_samples": "0",
+          "rate": "44100",
+          "block": "64",
+          "sample": "3410",
+          "type": "N",
+          "note": "52",
+          "velocity": "79",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        {
+          "record": "staccato_e4_rr3",
+          "profile": "mono_bend_dynamics_default",
+          "idle_samples": "15435",
+          "rate": "44100",
+          "block": "64",
+          "sample": "18933",
+          "type": "N",
+          "note": "52",
+          "velocity": "54",
+          "pitch": "",
+          "voice_id": "0"
+        }
+      ]
+    }
+  },
+  "real_DEV56": {
+    "baseline": {
+      "runs": 56,
+      "bounded_note_and_core_checks_passed": 38,
+      "counts": {
+        "note_ons": 78,
+        "wanted_note_ons": 72,
+        "wrong_note_ons": 6,
+        "repeated_nominal_note_ons": 17,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 1,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 114
+      },
+      "positive_core_uncovered_ms": 137.91383219954648
+    },
+    "raw-certificate": {
+      "runs": 56,
+      "bounded_note_and_core_checks_passed": 46,
+      "counts": {
+        "note_ons": 61,
+        "wanted_note_ons": 56,
+        "wrong_note_ons": 5,
+        "repeated_nominal_note_ons": 1,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 1,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 36
+      },
+      "positive_core_uncovered_ms": 137.91383219954648
+    },
+    "raw-certificate_effective_pitch": {
+      "runs": 56,
+      "core_effective_pitch_completely_missing": 0,
+      "core_nominal_anchor_completely_missing": 1,
+      "core_silent_ms": 63.26530612244898,
+      "core_active_outside_author_pitch_bin_ms": 14.648526077097506,
+      "core_effective_pitch_uncovered_ms": 77.91383219954649,
+      "core_nominal_anchor_uncovered_ms": 137.91383219954648
+    },
+    "scoped-with-root-frets": {
+      "runs": 56,
+      "bounded_note_and_core_checks_passed": 46,
+      "counts": {
+        "note_ons": 61,
+        "wanted_note_ons": 55,
+        "wrong_note_ons": 6,
+        "repeated_nominal_note_ons": 0,
+        "false_octave_note_ons": 0,
+        "lower_octave_note_ons": 0,
+        "wrong_ons_in_positive_core": 0,
+        "positive_core_missing": 1,
+        "orphan_offs": 0,
+        "duplicate_active_voice": 0,
+        "active_at_end": 0,
+        "overflow": 0,
+        "deadline_misses": 78
+      },
+      "positive_core_uncovered_ms": 137.91383219954648
+    },
+    "scoped-with-root-frets_effective_pitch": {
+      "runs": 56,
+      "core_effective_pitch_completely_missing": 0,
+      "core_nominal_anchor_completely_missing": 1,
+      "core_silent_ms": 63.26530612244898,
+      "core_active_outside_author_pitch_bin_ms": 14.648526077097506,
+      "core_effective_pitch_uncovered_ms": 77.91383219954649,
+      "core_nominal_anchor_uncovered_ms": 137.91383219954648
+    }
+  },
+  "legacy107": {
+    "raw-certificate": {
+      "scored_counts": {
+        "off": {
+          "expected": 107,
+          "matched": 107,
+          "missed": 0,
+          "false_note_ons": 1,
+          "octave_errors": 0,
+          "wrong_before_correct": 1,
+          "early_offs": 0
+        },
+        "default": {
+          "expected": 107,
+          "matched": 107,
+          "missed": 0,
+          "false_note_ons": 1,
+          "octave_errors": 0,
+          "wrong_before_correct": 1,
+          "early_offs": 0
+        }
+      },
+      "event_differences": [
+        {
+          "dynamics": "off",
+          "suite": "public",
+          "case": "karplus_76_mono",
+          "old": [
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "62",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "21119",
+              "time_ms": "439.979167"
+            }
+          ],
+          "new": [
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "62",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "20991",
+              "time_ms": "437.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "off",
+          "suite": "public",
+          "case": "modal_76_mono",
+          "old": [
+            {
+              "case": "modal_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "75",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "modal_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "21119",
+              "time_ms": "439.979167"
+            }
+          ],
+          "new": [
+            {
+              "case": "modal_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "75",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "modal_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "20991",
+              "time_ms": "437.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "off",
+          "suite": "holdout",
+          "case": "hidden_modal_11_mono",
+          "old": [
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "59",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "23551",
+              "time_ms": "490.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "59",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "23423",
+              "time_ms": "487.979167"
+            }
+          ]
+        },
+        {
+          "dynamics": "off",
+          "suite": "holdout",
+          "case": "hidden_modal_17_mono",
+          "old": [
+            {
+              "case": "hidden_modal_17_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "83",
+              "velocity": "68",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "hidden_modal_17_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "83",
+              "velocity": "0",
+              "sample": "23295",
+              "time_ms": "485.312500"
+            }
+          ],
+          "new": [
+            {
+              "case": "hidden_modal_17_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "83",
+              "velocity": "68",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "hidden_modal_17_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "83",
+              "velocity": "0",
+              "sample": "23551",
+              "time_ms": "490.645833"
+            }
+          ]
+        },
+        {
+          "dynamics": "off",
+          "suite": "holdout",
+          "case": "hidden_recorded_01_mono",
+          "old": [
+            {
+              "case": "hidden_recorded_01_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "40",
+              "velocity": "44",
+              "sample": "3839",
+              "time_ms": "79.979167"
+            },
+            {
+              "case": "hidden_recorded_01_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "40",
+              "velocity": "0",
+              "sample": "8831",
+              "time_ms": "183.979167"
+            },
+            {
+              "case": "hidden_recorded_01_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "40",
+              "velocity": "40",
+              "sample": "8831",
+              "time_ms": "183.979167"
+            },
+            {
+              "case": "hidden_recorded_01_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "40",
+              "velocity": "0",
+              "sample": "35711",
+              "time_ms": "743.979167"
+            }
+          ],
+          "new": [
+            {
+              "case": "hidden_recorded_01_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "40",
+              "velocity": "44",
+              "sample": "3839",
+              "time_ms": "79.979167"
+            },
+            {
+              "case": "hidden_recorded_01_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "40",
+              "velocity": "0",
+              "sample": "35711",
+              "time_ms": "743.979167"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "public",
+          "case": "continuous_repick_52_mono",
+          "old": [
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "52",
+              "velocity": "85",
+              "sample": "3327",
+              "time_ms": "69.312500"
+            },
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "52",
+              "velocity": "0",
+              "sample": "13055",
+              "time_ms": "271.979167"
+            },
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "52",
+              "velocity": "67",
+              "sample": "13055",
+              "time_ms": "271.979167"
+            },
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "52",
+              "velocity": "0",
+              "sample": "33023",
+              "time_ms": "687.979167"
+            }
+          ],
+          "new": [
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "52",
+              "velocity": "85",
+              "sample": "3327",
+              "time_ms": "69.312500"
+            },
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "52",
+              "velocity": "0",
+              "sample": "13055",
+              "time_ms": "271.979167"
+            },
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "52",
+              "velocity": "67",
+              "sample": "13055",
+              "time_ms": "271.979167"
+            },
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "52",
+              "velocity": "0",
+              "sample": "22655",
+              "time_ms": "471.979167"
+            },
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "52",
+              "velocity": "75",
+              "sample": "22655",
+              "time_ms": "471.979167"
+            },
+            {
+              "case": "continuous_repick_52_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "52",
+              "velocity": "0",
+              "sample": "33023",
+              "time_ms": "687.979167"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "public",
+          "case": "karplus_76_mono",
+          "old": [
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "62",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "21119",
+              "time_ms": "439.979167"
+            }
+          ],
+          "new": [
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "62",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "20991",
+              "time_ms": "437.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "public",
+          "case": "recorded_E4_mono",
+          "old": [
+            {
+              "case": "recorded_E4_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "52",
+              "sample": "6655",
+              "time_ms": "138.645833"
+            },
+            {
+              "case": "recorded_E4_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "37887",
+              "time_ms": "789.312500"
+            }
+          ],
+          "new": [
+            {
+              "case": "recorded_E4_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "52",
+              "sample": "6655",
+              "time_ms": "138.645833"
+            },
+            {
+              "case": "recorded_E4_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "37759",
+              "time_ms": "786.645833"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "public",
+          "case": "recorded_Fs3_mono",
+          "old": [
+            {
+              "case": "recorded_Fs3_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "54",
+              "velocity": "73",
+              "sample": "6783",
+              "time_ms": "141.312500"
+            },
+            {
+              "case": "recorded_Fs3_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "54",
+              "velocity": "0",
+              "sample": "38143",
+              "time_ms": "794.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "recorded_Fs3_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "54",
+              "velocity": "73",
+              "sample": "6783",
+              "time_ms": "141.312500"
+            },
+            {
+              "case": "recorded_Fs3_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "54",
+              "velocity": "0",
+              "sample": "37887",
+              "time_ms": "789.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "holdout",
+          "case": "hidden_modal_11_mono",
+          "old": [
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "59",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "23551",
+              "time_ms": "490.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "59",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "23423",
+              "time_ms": "487.979167"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "holdout",
+          "case": "hidden_modal_16_mono",
+          "old": [
+            {
+              "case": "hidden_modal_16_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "79",
+              "velocity": "70",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "hidden_modal_16_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "79",
+              "velocity": "0",
+              "sample": "23551",
+              "time_ms": "490.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "hidden_modal_16_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "79",
+              "velocity": "70",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "hidden_modal_16_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "79",
+              "velocity": "0",
+              "sample": "23295",
+              "time_ms": "485.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "confirmation",
+          "case": "confirm_articulation_02_mono",
+          "old": [
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "57",
+              "velocity": "66",
+              "sample": "3199",
+              "time_ms": "66.645833"
+            },
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "57",
+              "velocity": "0",
+              "sample": "13951",
+              "time_ms": "290.645833"
+            },
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "57",
+              "velocity": "65",
+              "sample": "13951",
+              "time_ms": "290.645833"
+            },
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "57",
+              "velocity": "0",
+              "sample": "35839",
+              "time_ms": "746.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "57",
+              "velocity": "66",
+              "sample": "3199",
+              "time_ms": "66.645833"
+            },
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "57",
+              "velocity": "0",
+              "sample": "13951",
+              "time_ms": "290.645833"
+            },
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "57",
+              "velocity": "65",
+              "sample": "13951",
+              "time_ms": "290.645833"
+            },
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "57",
+              "velocity": "0",
+              "sample": "24319",
+              "time_ms": "506.645833"
+            },
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "57",
+              "velocity": "66",
+              "sample": "24319",
+              "time_ms": "506.645833"
+            },
+            {
+              "case": "confirm_articulation_02_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "57",
+              "velocity": "0",
+              "sample": "35839",
+              "time_ms": "746.645833"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "confirmation",
+          "case": "confirm_articulation_03_mono",
+          "old": [
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "57",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "13695",
+              "time_ms": "285.312500"
+            },
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "52",
+              "sample": "13695",
+              "time_ms": "285.312500"
+            },
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "35839",
+              "time_ms": "746.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "57",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "13695",
+              "time_ms": "285.312500"
+            },
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "52",
+              "sample": "13695",
+              "time_ms": "285.312500"
+            },
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "24319",
+              "time_ms": "506.645833"
+            },
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "56",
+              "sample": "24319",
+              "time_ms": "506.645833"
+            },
+            {
+              "case": "confirm_articulation_03_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "35839",
+              "time_ms": "746.645833"
+            }
+          ]
+        }
+      ]
+    },
+    "scoped-with-root-frets": {
+      "scored_counts": {
+        "off": {
+          "expected": 107,
+          "matched": 107,
+          "missed": 0,
+          "false_note_ons": 2,
+          "octave_errors": 0,
+          "wrong_before_correct": 1,
+          "early_offs": 1
+        },
+        "default": {
+          "expected": 107,
+          "matched": 104,
+          "missed": 3,
+          "false_note_ons": 1,
+          "octave_errors": 0,
+          "wrong_before_correct": 1,
+          "early_offs": 0
+        }
+      },
+      "event_differences": [
+        {
+          "dynamics": "off",
+          "suite": "public",
+          "case": "karplus_76_mono",
+          "old": [
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "62",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "21119",
+              "time_ms": "439.979167"
+            }
+          ],
+          "new": [
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "62",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "20991",
+              "time_ms": "437.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "off",
+          "suite": "public",
+          "case": "modal_76_mono",
+          "old": [
+            {
+              "case": "modal_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "75",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "modal_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "21119",
+              "time_ms": "439.979167"
+            }
+          ],
+          "new": [
+            {
+              "case": "modal_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "75",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "modal_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "20991",
+              "time_ms": "437.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "off",
+          "suite": "holdout",
+          "case": "hidden_modal_11_mono",
+          "old": [
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "59",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "23551",
+              "time_ms": "490.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "59",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "23423",
+              "time_ms": "487.979167"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "public",
+          "case": "karplus_76_mono",
+          "old": [
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "62",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "21119",
+              "time_ms": "439.979167"
+            }
+          ],
+          "new": [
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "76",
+              "velocity": "62",
+              "sample": "2943",
+              "time_ms": "61.312500"
+            },
+            {
+              "case": "karplus_76_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "76",
+              "velocity": "0",
+              "sample": "20991",
+              "time_ms": "437.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "public",
+          "case": "recorded_E4_mono",
+          "old": [
+            {
+              "case": "recorded_E4_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "52",
+              "sample": "6655",
+              "time_ms": "138.645833"
+            },
+            {
+              "case": "recorded_E4_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "37887",
+              "time_ms": "789.312500"
+            }
+          ],
+          "new": [
+            {
+              "case": "recorded_E4_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "52",
+              "sample": "6655",
+              "time_ms": "138.645833"
+            },
+            {
+              "case": "recorded_E4_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "37759",
+              "time_ms": "786.645833"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "public",
+          "case": "recorded_Fs3_mono",
+          "old": [
+            {
+              "case": "recorded_Fs3_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "54",
+              "velocity": "73",
+              "sample": "6783",
+              "time_ms": "141.312500"
+            },
+            {
+              "case": "recorded_Fs3_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "54",
+              "velocity": "0",
+              "sample": "38143",
+              "time_ms": "794.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "recorded_Fs3_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "54",
+              "velocity": "73",
+              "sample": "6783",
+              "time_ms": "141.312500"
+            },
+            {
+              "case": "recorded_Fs3_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "54",
+              "velocity": "0",
+              "sample": "37887",
+              "time_ms": "789.312500"
+            }
+          ]
+        },
+        {
+          "dynamics": "default",
+          "suite": "holdout",
+          "case": "hidden_modal_11_mono",
+          "old": [
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "59",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "23551",
+              "time_ms": "490.645833"
+            }
+          ],
+          "new": [
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "1",
+              "note": "64",
+              "velocity": "59",
+              "sample": "3071",
+              "time_ms": "63.979167"
+            },
+            {
+              "case": "hidden_modal_11_mono",
+              "rate": "48000",
+              "block": "64",
+              "on": "0",
+              "note": "64",
+              "velocity": "0",
+              "sample": "23423",
+              "time_ms": "487.979167"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "broad": {
+    "raw-certificate": {
+      "summaries": {
+        "bend": {
+          "controlled": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 34,
+            "passed_runs": 29,
+            "failed_runs": 5,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 77,
+              "matched": 77,
+              "missed": 0,
+              "extra_note_ons": 5,
+              "noise_note_ons": 0,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 3,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 12
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 31,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 49.3125,
+                  "p95": 49.3125,
+                  "maximum": 49.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 30.645833333333332,
+                  "p95": 30.645833333333332,
+                  "maximum": 30.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 45,
+                "expected": 1,
+                "matched": 1,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 25.3125,
+                  "p95": 25.3125,
+                  "maximum": 25.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 52,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 19.3125,
+                  "p95": 19.979166666666668,
+                  "maximum": 19.979166666666668
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 55,
+                "expected": 4,
+                "matched": 4,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 19.3125,
+                  "maximum": 19.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 57,
+                "expected": 16,
+                "matched": 16,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 17.645833333333332,
+                  "maximum": 17.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 58,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 15.979166666666666,
+                  "p95": 17.3125,
+                  "maximum": 17.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 59,
+                "expected": 8,
+                "matched": 8,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 14.979166666666666,
+                  "p95": 16.979166666666668,
+                  "maximum": 16.979166666666668
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 60,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 15.3125,
+                  "p95": 15.645833333333334,
+                  "maximum": 15.645833333333334
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 61,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 15.3125,
+                  "p95": 15.3125,
+                  "maximum": 15.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 62,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 14.3125,
+                  "p95": 14.979166666666666,
+                  "maximum": 14.979166666666666
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 63,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 13.3125,
+                  "p95": 14.645833333333334,
+                  "maximum": 14.645833333333334
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 64,
+                "expected": 8,
+                "matched": 8,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 12.3125,
+                  "p95": 13.979166666666666,
+                  "maximum": 13.979166666666666
+                }
+              }
+            ]
+          },
+          "noise": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 64,
+            "passed_runs": 32,
+            "failed_runs": 32,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 48,
+              "matched": 48,
+              "missed": 0,
+              "extra_note_ons": 51,
+              "noise_note_ons": 3,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 30,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 38
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 24,
+                "matched": 24,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 42.645833333333336,
+                  "p95": 44.645833333333336,
+                  "maximum": 45.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 57,
+                "expected": 24,
+                "matched": 24,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 16.645833333333332,
+                  "maximum": 16.645833333333332
+                }
+              }
+            ]
+          },
+          "hammers": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 8,
+            "passed_runs": 2,
+            "failed_runs": 6,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 8,
+              "matched": 8,
+              "missed": 0,
+              "extra_note_ons": 6,
+              "noise_note_ons": 0,
+              "octave_errors": 0,
+              "wrong_before_correct": 6,
+              "early_offs": 0,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 2
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 63.3125,
+                  "p95": 63.3125,
+                  "maximum": 63.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 43,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 60.645833333333336,
+                  "p95": 60.645833333333336,
+                  "maximum": 60.645833333333336
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 45,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 52.645833333333336,
+                  "p95": 52.645833333333336,
+                  "maximum": 52.645833333333336
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 52,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 39.3125,
+                  "p95": 39.3125,
+                  "maximum": 39.3125
+                }
+              }
+            ]
+          }
+        },
+        "plain": {
+          "controlled": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 31,
+            "passed_runs": 23,
+            "failed_runs": 8,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 74,
+              "matched": 63,
+              "missed": 11,
+              "extra_note_ons": 18,
+              "noise_note_ons": 0,
+              "octave_errors": 12,
+              "wrong_before_correct": 1,
+              "early_offs": 6,
+              "late_offs": 0,
+              "discrete_misses": 11,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 5
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 31,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 49.3125,
+                  "p95": 49.3125,
+                  "maximum": 49.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 30.645833333333332,
+                  "p95": 30.645833333333332,
+                  "maximum": 30.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 45,
+                "expected": 1,
+                "matched": 1,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 25.3125,
+                  "p95": 25.3125,
+                  "maximum": 25.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 52,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 19.979166666666668,
+                  "p95": 21.3125,
+                  "maximum": 21.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 55,
+                "expected": 4,
+                "matched": 4,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 19.3125,
+                  "p95": 19.3125,
+                  "maximum": 19.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 57,
+                "expected": 13,
+                "matched": 13,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 46.979166666666664,
+                  "maximum": 46.979166666666664
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 58,
+                "expected": 6,
+                "matched": 4,
+                "missed": 2,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 28.979166666666668,
+                  "p95": 47.979166666666664,
+                  "maximum": 47.979166666666664
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 59,
+                "expected": 8,
+                "matched": 7,
+                "missed": 1,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 19.645833333333332,
+                  "p95": 48.979166666666664,
+                  "maximum": 48.979166666666664
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 60,
+                "expected": 6,
+                "matched": 4,
+                "missed": 2,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 47.3125,
+                  "p95": 48.3125,
+                  "maximum": 48.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 61,
+                "expected": 6,
+                "matched": 4,
+                "missed": 2,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 47.3125,
+                  "p95": 48.3125,
+                  "maximum": 48.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 62,
+                "expected": 6,
+                "matched": 4,
+                "missed": 2,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 48.979166666666664,
+                  "p95": 49.3125,
+                  "maximum": 49.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 63,
+                "expected": 6,
+                "matched": 4,
+                "missed": 2,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 34.3125,
+                  "p95": 47.979166666666664,
+                  "maximum": 47.979166666666664
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 64,
+                "expected": 8,
+                "matched": 8,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 13.979166666666666,
+                  "p95": 49.645833333333336,
+                  "maximum": 49.645833333333336
+                }
+              }
+            ]
+          },
+          "noise": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 64,
+            "passed_runs": 30,
+            "failed_runs": 34,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 48,
+              "matched": 48,
+              "missed": 0,
+              "extra_note_ons": 71,
+              "noise_note_ons": 3,
+              "octave_errors": 1,
+              "wrong_before_correct": 0,
+              "early_offs": 32,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 20
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 24,
+                "matched": 24,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 42.645833333333336,
+                  "p95": 44.645833333333336,
+                  "maximum": 45.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 57,
+                "expected": 24,
+                "matched": 24,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 16.645833333333332,
+                  "maximum": 16.645833333333332
+                }
+              }
+            ]
+          },
+          "hammers": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 8,
+            "passed_runs": 2,
+            "failed_runs": 6,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 8,
+              "matched": 8,
+              "missed": 0,
+              "extra_note_ons": 6,
+              "noise_note_ons": 0,
+              "octave_errors": 0,
+              "wrong_before_correct": 6,
+              "early_offs": 0,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 4
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 65.97916666666667,
+                  "p95": 65.97916666666667,
+                  "maximum": 65.97916666666667
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 43,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 65.97916666666667,
+                  "p95": 65.97916666666667,
+                  "maximum": 65.97916666666667
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 45,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 52.645833333333336,
+                  "p95": 52.645833333333336,
+                  "maximum": 52.645833333333336
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 52,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 63.3125,
+                  "p95": 63.3125,
+                  "maximum": 63.3125
+                }
+              }
+            ]
+          }
+        }
+      },
+      "per_case_differences": [
+        {
+          "mode": "bend",
+          "suite": "controlled",
+          "case": "music_handling_snr6_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "controlled",
+          "case": "music_handling_snr12_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              5,
+              3
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              0,
+              1
+            ],
+            "early_offs": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              0,
+              1
+            ],
+            "early_offs": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              0,
+              1
+            ],
+            "early_offs": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr6_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              5,
+              2
+            ],
+            "octave_errors": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr6_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              5,
+              2
+            ],
+            "octave_errors": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr12_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              3
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr12_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              5,
+              3
+            ],
+            "octave_errors": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr24_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr24_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "fretted_slide_up_35ms_mono",
+          "differences": {
+            "matched": [
+              8,
+              2
+            ],
+            "extra_note_ons": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "fretted_slide_down_35ms_mono",
+          "differences": {
+            "matched": [
+              8,
+              3
+            ],
+            "extra_note_ons": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        }
+      ],
+      "regressions": [
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              0,
+              1
+            ],
+            "early_offs": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              0,
+              1
+            ],
+            "early_offs": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              0,
+              1
+            ],
+            "early_offs": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-mute_strings1_rr1_2_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr12_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              3
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr24_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr24_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "fretted_slide_up_35ms_mono",
+          "differences": {
+            "matched": [
+              8,
+              2
+            ],
+            "extra_note_ons": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "fretted_slide_down_35ms_mono",
+          "differences": {
+            "matched": [
+              8,
+              3
+            ],
+            "extra_note_ons": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    "scoped-with-root-frets": {
+      "summaries": {
+        "bend": {
+          "controlled": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 34,
+            "passed_runs": 31,
+            "failed_runs": 3,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 77,
+              "matched": 77,
+              "missed": 0,
+              "extra_note_ons": 3,
+              "noise_note_ons": 0,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 1,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 11
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 31,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 49.3125,
+                  "p95": 49.3125,
+                  "maximum": 49.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 30.645833333333332,
+                  "p95": 30.645833333333332,
+                  "maximum": 30.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 45,
+                "expected": 1,
+                "matched": 1,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 25.3125,
+                  "p95": 25.3125,
+                  "maximum": 25.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 52,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 19.3125,
+                  "p95": 19.979166666666668,
+                  "maximum": 19.979166666666668
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 55,
+                "expected": 4,
+                "matched": 4,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 24.645833333333332,
+                  "p95": 24.645833333333332,
+                  "maximum": 24.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 57,
+                "expected": 16,
+                "matched": 16,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 17.645833333333332,
+                  "maximum": 17.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 58,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 15.979166666666666,
+                  "p95": 17.3125,
+                  "maximum": 17.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 59,
+                "expected": 8,
+                "matched": 8,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 15.979166666666666,
+                  "p95": 21.3125,
+                  "maximum": 21.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 60,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 15.3125,
+                  "p95": 15.645833333333334,
+                  "maximum": 15.645833333333334
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 61,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 15.3125,
+                  "p95": 15.3125,
+                  "maximum": 15.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 62,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 14.3125,
+                  "p95": 14.979166666666666,
+                  "maximum": 14.979166666666666
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 63,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 13.3125,
+                  "p95": 14.645833333333334,
+                  "maximum": 14.645833333333334
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 64,
+                "expected": 8,
+                "matched": 8,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 12.3125,
+                  "p95": 13.979166666666666,
+                  "maximum": 13.979166666666666
+                }
+              }
+            ]
+          },
+          "noise": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 64,
+            "passed_runs": 35,
+            "failed_runs": 29,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 48,
+              "matched": 48,
+              "missed": 0,
+              "extra_note_ons": 46,
+              "noise_note_ons": 3,
+              "octave_errors": 0,
+              "wrong_before_correct": 0,
+              "early_offs": 27,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 7
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 24,
+                "matched": 24,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 42.645833333333336,
+                  "p95": 44.645833333333336,
+                  "maximum": 45.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 57,
+                "expected": 24,
+                "matched": 24,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 16.645833333333332,
+                  "maximum": 16.645833333333332
+                }
+              }
+            ]
+          },
+          "hammers": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 8,
+            "passed_runs": 2,
+            "failed_runs": 6,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 8,
+              "matched": 8,
+              "missed": 0,
+              "extra_note_ons": 6,
+              "noise_note_ons": 0,
+              "octave_errors": 0,
+              "wrong_before_correct": 6,
+              "early_offs": 0,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 1
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 63.3125,
+                  "p95": 63.3125,
+                  "maximum": 63.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 43,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 60.645833333333336,
+                  "p95": 60.645833333333336,
+                  "maximum": 60.645833333333336
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 45,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 52.645833333333336,
+                  "p95": 52.645833333333336,
+                  "maximum": 52.645833333333336
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 52,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 39.3125,
+                  "p95": 39.3125,
+                  "maximum": 39.3125
+                }
+              }
+            ]
+          }
+        },
+        "plain": {
+          "controlled": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 31,
+            "passed_runs": 25,
+            "failed_runs": 6,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 74,
+              "matched": 74,
+              "missed": 0,
+              "extra_note_ons": 12,
+              "noise_note_ons": 0,
+              "octave_errors": 9,
+              "wrong_before_correct": 0,
+              "early_offs": 6,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 8
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 31,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 49.3125,
+                  "p95": 49.3125,
+                  "maximum": 49.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 30.645833333333332,
+                  "p95": 30.645833333333332,
+                  "maximum": 30.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 45,
+                "expected": 1,
+                "matched": 1,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 25.3125,
+                  "p95": 25.3125,
+                  "maximum": 25.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 52,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 19.979166666666668,
+                  "p95": 21.3125,
+                  "maximum": 21.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 55,
+                "expected": 4,
+                "matched": 4,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 19.3125,
+                  "p95": 19.3125,
+                  "maximum": 19.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 57,
+                "expected": 13,
+                "matched": 13,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 20.3125,
+                  "maximum": 20.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 58,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 21.3125,
+                  "p95": 21.645833333333332,
+                  "maximum": 21.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 59,
+                "expected": 8,
+                "matched": 8,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 19.645833333333332,
+                  "p95": 19.979166666666668,
+                  "maximum": 19.979166666666668
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 60,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 18.979166666666668,
+                  "p95": 20.979166666666668,
+                  "maximum": 20.979166666666668
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 61,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 18.979166666666668,
+                  "p95": 20.645833333333332,
+                  "maximum": 20.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 62,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 18.645833333333332,
+                  "p95": 22.645833333333332,
+                  "maximum": 22.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 63,
+                "expected": 6,
+                "matched": 6,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 18.3125,
+                  "p95": 18.645833333333332,
+                  "maximum": 18.645833333333332
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 64,
+                "expected": 8,
+                "matched": 8,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 13.979166666666666,
+                  "p95": 20.3125,
+                  "maximum": 20.3125
+                }
+              }
+            ]
+          },
+          "noise": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 64,
+            "passed_runs": 31,
+            "failed_runs": 33,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 48,
+              "matched": 48,
+              "missed": 0,
+              "extra_note_ons": 70,
+              "noise_note_ons": 3,
+              "octave_errors": 1,
+              "wrong_before_correct": 0,
+              "early_offs": 31,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 7
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 24,
+                "matched": 24,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 42.645833333333336,
+                  "p95": 44.645833333333336,
+                  "maximum": 45.3125
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 57,
+                "expected": 24,
+                "matched": 24,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 16.645833333333332,
+                  "p95": 16.645833333333332,
+                  "maximum": 16.645833333333332
+                }
+              }
+            ]
+          },
+          "hammers": {
+            "schema": 1,
+            "scope": "Nov5 fixed-semitone poly / mono bend evaluation; no physical interface or universal musical-readiness claim",
+            "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+            "runs": 8,
+            "passed_runs": 2,
+            "failed_runs": 6,
+            "out_of_scope_runs": 0,
+            "out_of_scope": [],
+            "absolute_latency_gate": false,
+            "latency_alignment_or_backdating": false,
+            "physical_latency_verified": false,
+            "counts": {
+              "expected": 8,
+              "matched": 8,
+              "missed": 0,
+              "extra_note_ons": 6,
+              "noise_note_ons": 0,
+              "octave_errors": 0,
+              "wrong_before_correct": 6,
+              "early_offs": 0,
+              "late_offs": 0,
+              "discrete_misses": 0,
+              "bend_retriggers": 0,
+              "hung": 0,
+              "overflow": 0,
+              "deadline_misses": 1
+            },
+            "latency_by_pitch": [
+              {
+                "mode": "mono",
+                "anchor": 40,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 65.97916666666667,
+                  "p95": 65.97916666666667,
+                  "maximum": 65.97916666666667
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 43,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 65.97916666666667,
+                  "p95": 65.97916666666667,
+                  "maximum": 65.97916666666667
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 45,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 52.645833333333336,
+                  "p95": 52.645833333333336,
+                  "maximum": 52.645833333333336
+                }
+              },
+              {
+                "mode": "mono",
+                "anchor": 52,
+                "expected": 2,
+                "matched": 2,
+                "missed": 0,
+                "conditional_on_matched": true,
+                "decision_ms": {
+                  "median": 41.979166666666664,
+                  "p95": 41.979166666666664,
+                  "maximum": 41.979166666666664
+                }
+              }
+            ]
+          }
+        }
+      },
+      "per_case_differences": [
+        {
+          "mode": "bend",
+          "suite": "controlled",
+          "case": "music_handling_snr6_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              0
+            ],
+            "early_offs": [
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "controlled",
+          "case": "music_handling_snr6_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              0
+            ],
+            "early_offs": [
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "controlled",
+          "case": "music_handling_snr12_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              5,
+              3
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-a3_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "bend",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr6_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              5,
+              2
+            ],
+            "octave_errors": [
+              3,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr6_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              5,
+              2
+            ],
+            "octave_errors": [
+              3,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr12_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              5,
+              3
+            ],
+            "octave_errors": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr24_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr24_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              0
+            ],
+            "early_offs": [
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr6_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain40_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "noise",
+          "case": "Samples-electric-e2_vl1_rr1_2_plus_Samples-electric-perc_4_rr1_2_snr6_gain160_mono",
+          "differences": {
+            "extra_note_ons": [
+              3,
+              2
+            ]
+          }
+        }
+      ],
+      "regressions": [
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr24_gain1_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "mode": "plain",
+          "suite": "controlled",
+          "case": "music_handling_snr24_gain4_mono",
+          "differences": {
+            "extra_note_ons": [
+              1,
+              2
+            ],
+            "octave_errors": [
+              1,
+              2
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "read_only_diagnostic_checks": {
+    "tail_E2_exact_events": 6,
+    "tail_E2_event_parity": true,
+    "noise_event_parity": [
+      {
+        "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+        "events": 156,
+        "equal": true
+      },
+      {
+        "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+        "events": 143,
+        "equal": true
+      },
+      {
+        "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+        "events": 139,
+        "equal": true
+      }
+    ],
+    "counter_event_parity": [
+      {
+        "trace": "counter",
+        "events": 6,
+        "equal": true
+      },
+      {
+        "trace": "counter-raw",
+        "events": 6,
+        "equal": true
+      }
+    ],
+    "false_retrigger_state": {
+      "sample": "62847",
+      "clock": "15712",
+      "held": "69",
+      "phase": "0",
+      "age": "218",
+      "remaining": "0",
+      "origin": "69.02489471",
+      "pitch": "69.14155579",
+      "period": "27.0506382",
+      "tracked": "0",
+      "cert": "1",
+      "independent": "0",
+      "old_veto": "1",
+      "had_phase": "1",
+      "innovation": "0.09277719259",
+      "onset_ratio": "1.063031435",
+      "fresh_count": "218",
+      "primary": "218",
+      "owned": "1",
+      "raw_conf": "0.9903275967",
+      "raw_harmonic": "0.9947906137",
+      "raw_coherence": "0.9995455146",
+      "full512_pitch": "68.97544098",
+      "full512_conf": "0.9120752811",
+      "raw512_pitch": "68.97544098",
+      "raw512_conf": "0.9120752811"
+    },
+    "counter_old_events": [
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "22399",
+        "type": "N",
+        "note": "57",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "51199",
+        "type": "F",
+        "note": "57",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "51199",
+        "type": "N",
+        "note": "69",
+        "velocity": "13",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "74879",
+        "type": "F",
+        "note": "69",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ],
+    "counter_new_events": [
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "22399",
+        "type": "N",
+        "note": "57",
+        "velocity": "21",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "51199",
+        "type": "F",
+        "note": "57",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "51199",
+        "type": "N",
+        "note": "69",
+        "velocity": "13",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "62847",
+        "type": "F",
+        "note": "69",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "62847",
+        "type": "N",
+        "note": "69",
+        "velocity": "15",
+        "pitch": "",
+        "voice_id": "0"
+      },
+      {
+        "case": "music_handling_snr24_gain1_mono",
+        "rate": "48000",
+        "block": "64",
+        "sample": "75135",
+        "type": "F",
+        "note": "69",
+        "velocity": "0",
+        "pitch": "",
+        "voice_id": "0"
+      }
+    ]
+  },
+  "source_freeze_checks": [
+    {
+      "manifest": "pre-capture.json",
+      "source_files": 22,
+      "unchanged": true
+    },
+    {
+      "manifest": "raw-certificate/pre-capture.json",
+      "source_files": 22,
+      "unchanged": true
+    },
+    {
+      "manifest": "scoped-original/pre-capture.json",
+      "source_files": 34,
+      "unchanged": true
+    },
+    {
+      "manifest": "scoped-with-root-frets/pre-capture.json",
+      "source_files": 35,
+      "unchanged": true
+    }
+  ]
+}

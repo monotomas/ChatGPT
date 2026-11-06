@@ -1,0 +1,25 @@
+{
+  "time": "2026-11-06T09:52:10.266002+00:00",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/tmp/flysnapper-v4-mono-emission/Source",
+    "/tmp/flysnapper-v4-mono-emission/target52_diagnostic.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/ArticulationTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/EarlyEstimator.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/InputDynamics.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/NoiseConditioner.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/PitchDetector.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/PolyphonicTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/TimeDomainPursuit.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/YinEstimator.cpp",
+    "-o",
+    "/tmp/flysnapper-v4-mono-emission/Target52Capture"
+  ],
+  "driver_sha256": "8d9cbbcccf71f6920785c6b576d5be574d6f227e258ed80abadf3cb02e6a57ab",
+  "official_driver_unchanged": true,
+  "scope": "separate targeted diagnostic only; guard requires exact1 DEV52identity; officialTools remain56"
+}

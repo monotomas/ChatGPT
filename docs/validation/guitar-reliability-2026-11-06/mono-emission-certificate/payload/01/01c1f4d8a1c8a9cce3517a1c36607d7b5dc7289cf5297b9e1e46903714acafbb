@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/workspace/ChatGPT/Tools/guitar_reliability.py", line 125, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/workspace/ChatGPT/Tools/guitar_reliability.py", line 72, in main
+    if sha(decoded_root/'float32-exact-manifest.json')!=FLOAT_MANIFEST_SHA256:raise RuntimeError('External decoded inventory differs from the immutable edition')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ChatGPT/Tools/guitar_reliability.py", line 18, in sha
+    def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/flysnapper-v4-data-evidence/float32-exact/float32-exact-manifest.json'

@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "scope": "Mono-only paired disclosed-regression latency experiment; default integrated dynamics; plain output. Plain continuous-bend cases retain historical expression truth and are diagnostics, not acceptance.",
+  "policy_sha256": "2f5905a6090c8d53036c7517e711ce60e98330fa346977ae2aa0191b3e6c535a",
+  "runs": 64,
+  "passed_runs": 30,
+  "failed_runs": 34,
+  "out_of_scope_runs": 0,
+  "out_of_scope": [],
+  "absolute_latency_gate": false,
+  "latency_alignment_or_backdating": false,
+  "physical_latency_verified": false,
+  "counts": {
+    "expected": 48,
+    "matched": 48,
+    "missed": 0,
+    "extra_note_ons": 78,
+    "noise_note_ons": 3,
+    "octave_errors": 1,
+    "wrong_before_correct": 0,
+    "early_offs": 32,
+    "late_offs": 0,
+    "discrete_misses": 0,
+    "bend_retriggers": 0,
+    "hung": 0,
+    "overflow": 0,
+    "deadline_misses": 16
+  },
+  "latency_by_pitch": [
+    {
+      "mode": "mono",
+      "anchor": 40,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 42.645833333333336,
+        "p95": 44.645833333333336,
+        "maximum": 45.3125
+      }
+    },
+    {
+      "mode": "mono",
+      "anchor": 57,
+      "expected": 24,
+      "matched": 24,
+      "missed": 0,
+      "conditional_on_matched": true,
+      "decision_ms": {
+        "median": 16.645833333333332,
+        "p95": 16.645833333333332,
+        "maximum": 16.645833333333332
+      }
+    }
+  ],
+  "mono_bend_enabled": false
+}

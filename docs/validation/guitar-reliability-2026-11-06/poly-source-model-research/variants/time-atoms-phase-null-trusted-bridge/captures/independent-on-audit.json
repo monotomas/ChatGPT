@@ -1,0 +1,1397 @@
+{
+  "scope": "Independent read-only source/event audit of the same corrected-v2 48 configurations; no compile or Source edit by auditor.",
+  "matching": "Each expected fixed MIDI note requires one fresh On in [authored onset, next same-string repick); final gesture window ends 600 ms after authored onset. Earliest unused eligible On matches once; all other Ons are extras. Sustained MIDI cannot match a repick.",
+  "sample_rate": 48000,
+  "driver_sha256": "a67c13a051588447570ecd81399786b2047b3871e986b3cbdc626a30b9e5b60c",
+  "patch_sha256": "e817789143a19127da94516d2ddc5cdc5e0e2275a87066a1b82f8c0d50044829",
+  "source_differences_from_null_guard": [
+    "Source/Pitch/TimeDomainPursuit.cpp"
+  ],
+  "source_inventory_verified": true,
+  "compile_result": {
+    "exit_code": 0,
+    "elapsed_s": 5.753232456016121
+  },
+  "run_result": {
+    "exit_code": 0,
+    "elapsed_s": 35.36877431199537,
+    "cpu": 3,
+    "performance_claim": false
+  },
+  "patch_review": {
+    "actual_dt_from_last_trusted_sample": true,
+    "unreliable_angle_overwrites_trusted_reference": false,
+    "bridge_bound_analysis_samples": 128,
+    "bridge_bound_ms_at_12k": 10.666666666666666,
+    "preserve_requires_previously_valid_and_null_unexplained": true,
+    "existing_threshold_constants_changed": false,
+    "caveats": [
+      "Reliable NULL-explained return still learns trend and clears departure.",
+      "Warmup is per note; phase differences remain wrapped; long gaps and permanent coherence exclusions remain."
+    ]
+  },
+  "datasets": {
+    "null_guard": {
+      "path": "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-guard/chord-repicks-corrected-v2/events.csv",
+      "sha256": "713f98b86d8ea3e87b23550972c198fa0f21bf82171365b263ccaa1d0fb50759",
+      "event_rows": 576,
+      "totals": {
+        "0": {
+          "cases": 12,
+          "initial_expected": 72,
+          "initial_matched": 72,
+          "extra_ons": 0,
+          "onset_complete_cases": 12
+        },
+        "1": {
+          "cases": 12,
+          "initial_expected": 72,
+          "initial_matched": 72,
+          "second_expected": 72,
+          "second_matched": 10,
+          "second_missed": 62,
+          "extra_ons": 6,
+          "onset_complete_cases": 0
+        },
+        "2": {
+          "cases": 12,
+          "initial_expected": 60,
+          "initial_matched": 24,
+          "initial_missed": 36,
+          "second_expected": 60,
+          "second_missed": 54,
+          "extra_ons": 26,
+          "onset_complete_cases": 0,
+          "second_matched": 6
+        },
+        "3": {
+          "cases": 12,
+          "initial_expected": 72,
+          "initial_matched": 72,
+          "extra_ons": 0,
+          "onset_complete_cases": 12
+        }
+      }
+    },
+    "trusted_bridge": {
+      "path": "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/chord-repicks-corrected-v2/events.csv",
+      "sha256": "ddbe45000b1fd125a1eaafd18586f1b2d8aaccd35c63a2aac7efca6b79eebbde",
+      "event_rows": 636,
+      "totals": {
+        "0": {
+          "cases": 12,
+          "initial_expected": 72,
+          "initial_matched": 72,
+          "extra_ons": 12,
+          "onset_complete_cases": 0
+        },
+        "1": {
+          "cases": 12,
+          "initial_expected": 72,
+          "initial_matched": 72,
+          "second_expected": 72,
+          "second_matched": 12,
+          "second_missed": 60,
+          "extra_ons": 10,
+          "onset_complete_cases": 0
+        },
+        "2": {
+          "cases": 12,
+          "initial_expected": 60,
+          "initial_matched": 24,
+          "initial_missed": 36,
+          "second_expected": 60,
+          "second_missed": 54,
+          "extra_ons": 26,
+          "onset_complete_cases": 0,
+          "second_matched": 6
+        },
+        "3": {
+          "cases": 12,
+          "initial_expected": 72,
+          "initial_matched": 72,
+          "extra_ons": 12,
+          "onset_complete_cases": 0
+        }
+      }
+    }
+  },
+  "common_matched_on_counts": {
+    "initial": 240,
+    "second": 16
+  },
+  "common_matched_on_timing_changes": [],
+  "gained_expected_ons": [
+    {
+      "kind": 1,
+      "phase": "0",
+      "new_gain": "1",
+      "dynamics": "0",
+      "gesture": 1,
+      "note": 55,
+      "null_guard": null,
+      "trusted_bridge": {
+        "sample": 22399,
+        "expected_sample": 20208,
+        "latency_ms": 45.645833333333336
+      }
+    },
+    {
+      "kind": 1,
+      "phase": "0",
+      "new_gain": "1",
+      "dynamics": "1",
+      "gesture": 1,
+      "note": 55,
+      "null_guard": null,
+      "trusted_bridge": {
+        "sample": 22399,
+        "expected_sample": 20208,
+        "latency_ms": 45.645833333333336
+      }
+    }
+  ],
+  "lost_expected_ons": [],
+  "extra_on_groups": {
+    "null_guard": [
+      {
+        "kind": 1,
+        "note": 40,
+        "sample": 50431,
+        "time_ms": 1050.6458333333333,
+        "count": 2,
+        "phase_gain_dynamics": [
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 1,
+        "note": 52,
+        "sample": 23679,
+        "time_ms": 493.3125,
+        "count": 4,
+        "phase_gain_dynamics": [
+          [
+            "2.1",
+            "0.5",
+            "0"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "1"
+          ],
+          [
+            "2.1",
+            "1",
+            "0"
+          ],
+          [
+            "2.1",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 2,
+        "note": 41,
+        "sample": 7679,
+        "time_ms": 159.97916666666666,
+        "count": 12,
+        "phase_gain_dynamics": [
+          [
+            "0",
+            "0.5",
+            "0"
+          ],
+          [
+            "0",
+            "0.5",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "1"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ],
+          [
+            "0.9",
+            "1",
+            "0"
+          ],
+          [
+            "0.9",
+            "1",
+            "1"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "0"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "1"
+          ],
+          [
+            "2.1",
+            "1",
+            "0"
+          ],
+          [
+            "2.1",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 2,
+        "note": 51,
+        "sample": 11903,
+        "time_ms": 247.97916666666666,
+        "count": 12,
+        "phase_gain_dynamics": [
+          [
+            "0",
+            "0.5",
+            "0"
+          ],
+          [
+            "0",
+            "0.5",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "1"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ],
+          [
+            "0.9",
+            "1",
+            "0"
+          ],
+          [
+            "0.9",
+            "1",
+            "1"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "0"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "1"
+          ],
+          [
+            "2.1",
+            "1",
+            "0"
+          ],
+          [
+            "2.1",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 2,
+        "note": 52,
+        "sample": 48767,
+        "time_ms": 1015.9791666666666,
+        "count": 2,
+        "phase_gain_dynamics": [
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ]
+        ]
+      }
+    ],
+    "trusted_bridge": [
+      {
+        "kind": 0,
+        "note": 40,
+        "sample": 35071,
+        "time_ms": 730.6458333333334,
+        "count": 12,
+        "phase_gain_dynamics": [
+          [
+            "0",
+            "0.5",
+            "0"
+          ],
+          [
+            "0",
+            "0.5",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "1"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ],
+          [
+            "0.9",
+            "1",
+            "0"
+          ],
+          [
+            "0.9",
+            "1",
+            "1"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "0"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "1"
+          ],
+          [
+            "2.1",
+            "1",
+            "0"
+          ],
+          [
+            "2.1",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 1,
+        "note": 40,
+        "sample": 50047,
+        "time_ms": 1042.6458333333333,
+        "count": 6,
+        "phase_gain_dynamics": [
+          [
+            "0",
+            "0.5",
+            "0"
+          ],
+          [
+            "0",
+            "0.5",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "1"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 1,
+        "note": 52,
+        "sample": 23679,
+        "time_ms": 493.3125,
+        "count": 4,
+        "phase_gain_dynamics": [
+          [
+            "2.1",
+            "0.5",
+            "0"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "1"
+          ],
+          [
+            "2.1",
+            "1",
+            "0"
+          ],
+          [
+            "2.1",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 2,
+        "note": 41,
+        "sample": 7679,
+        "time_ms": 159.97916666666666,
+        "count": 12,
+        "phase_gain_dynamics": [
+          [
+            "0",
+            "0.5",
+            "0"
+          ],
+          [
+            "0",
+            "0.5",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "1"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ],
+          [
+            "0.9",
+            "1",
+            "0"
+          ],
+          [
+            "0.9",
+            "1",
+            "1"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "0"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "1"
+          ],
+          [
+            "2.1",
+            "1",
+            "0"
+          ],
+          [
+            "2.1",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 2,
+        "note": 51,
+        "sample": 11903,
+        "time_ms": 247.97916666666666,
+        "count": 12,
+        "phase_gain_dynamics": [
+          [
+            "0",
+            "0.5",
+            "0"
+          ],
+          [
+            "0",
+            "0.5",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "1"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ],
+          [
+            "0.9",
+            "1",
+            "0"
+          ],
+          [
+            "0.9",
+            "1",
+            "1"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "0"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "1"
+          ],
+          [
+            "2.1",
+            "1",
+            "0"
+          ],
+          [
+            "2.1",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 2,
+        "note": 52,
+        "sample": 48767,
+        "time_ms": 1015.9791666666666,
+        "count": 2,
+        "phase_gain_dynamics": [
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ]
+        ]
+      },
+      {
+        "kind": 3,
+        "note": 40,
+        "sample": 35071,
+        "time_ms": 730.6458333333334,
+        "count": 12,
+        "phase_gain_dynamics": [
+          [
+            "0",
+            "0.5",
+            "0"
+          ],
+          [
+            "0",
+            "0.5",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "1"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "0"
+          ],
+          [
+            "0.9",
+            "0.5",
+            "1"
+          ],
+          [
+            "0.9",
+            "1",
+            "0"
+          ],
+          [
+            "0.9",
+            "1",
+            "1"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "0"
+          ],
+          [
+            "2.1",
+            "0.5",
+            "1"
+          ],
+          [
+            "2.1",
+            "1",
+            "0"
+          ],
+          [
+            "2.1",
+            "1",
+            "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "per_note_timing_rollup": [
+    {
+      "kind": 0,
+      "gesture": 0,
+      "note": 40,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          87.97916666666667,
+          87.97916666666667,
+          87.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          87.97916666666667,
+          87.97916666666667,
+          87.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 0,
+      "gesture": 0,
+      "note": 45,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          78.3125,
+          78.3125,
+          78.3125
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          78.3125,
+          78.3125,
+          78.3125
+        ]
+      }
+    },
+    {
+      "kind": 0,
+      "gesture": 0,
+      "note": 50,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          84.64583333333333,
+          84.64583333333333,
+          84.64583333333333
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          84.64583333333333,
+          84.64583333333333,
+          84.64583333333333
+        ]
+      }
+    },
+    {
+      "kind": 0,
+      "gesture": 0,
+      "note": 55,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          66.97916666666667,
+          66.97916666666667,
+          66.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          66.97916666666667,
+          66.97916666666667,
+          66.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 0,
+      "gesture": 0,
+      "note": 59,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          67.97916666666667,
+          67.97916666666667,
+          67.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          67.97916666666667,
+          67.97916666666667,
+          67.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 0,
+      "gesture": 0,
+      "note": 64,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          63.645833333333336,
+          63.645833333333336,
+          63.645833333333336
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          63.645833333333336,
+          63.645833333333336,
+          63.645833333333336
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 0,
+      "note": 40,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          87.97916666666667,
+          87.97916666666667,
+          87.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          87.97916666666667,
+          87.97916666666667,
+          87.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 0,
+      "note": 45,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          78.3125,
+          78.3125,
+          78.3125
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          78.3125,
+          78.3125,
+          78.3125
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 0,
+      "note": 50,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          84.64583333333333,
+          84.64583333333333,
+          84.64583333333333
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          84.64583333333333,
+          84.64583333333333,
+          84.64583333333333
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 0,
+      "note": 55,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          66.97916666666667,
+          66.97916666666667,
+          66.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          66.97916666666667,
+          66.97916666666667,
+          66.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 0,
+      "note": 59,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          67.97916666666667,
+          67.97916666666667,
+          67.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          67.97916666666667,
+          67.97916666666667,
+          67.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 0,
+      "note": 64,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          63.645833333333336,
+          63.645833333333336,
+          63.645833333333336
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          63.645833333333336,
+          63.645833333333336,
+          63.645833333333336
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 1,
+      "note": 40,
+      "expected": 12,
+      "null_guard": {
+        "matched": 6,
+        "latency_ms_min_median_max": [
+          31.979166666666668,
+          50.645833333333336,
+          79.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 6,
+        "latency_ms_min_median_max": [
+          31.979166666666668,
+          50.645833333333336,
+          79.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 1,
+      "note": 45,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 1,
+      "note": 50,
+      "expected": 12,
+      "null_guard": {
+        "matched": 4,
+        "latency_ms_min_median_max": [
+          52.645833333333336,
+          53.97916666666667,
+          55.3125
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 4,
+        "latency_ms_min_median_max": [
+          52.645833333333336,
+          53.97916666666667,
+          55.3125
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 1,
+      "note": 55,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 2,
+        "latency_ms_min_median_max": [
+          45.645833333333336,
+          45.645833333333336,
+          45.645833333333336
+        ]
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 1,
+      "note": 59,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 1,
+      "gesture": 1,
+      "note": 64,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 0,
+      "note": 45,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          66.64583333333333,
+          66.64583333333333,
+          66.64583333333333
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          66.64583333333333,
+          66.64583333333333,
+          66.64583333333333
+        ]
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 0,
+      "note": 52,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 0,
+      "note": 57,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 0,
+      "note": 60,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          45.645833333333336,
+          45.645833333333336,
+          45.645833333333336
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          45.645833333333336,
+          45.645833333333336,
+          45.645833333333336
+        ]
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 0,
+      "note": 64,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 1,
+      "note": 45,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 1,
+      "note": 52,
+      "expected": 12,
+      "null_guard": {
+        "matched": 6,
+        "latency_ms_min_median_max": [
+          67.64583333333333,
+          72.97916666666667,
+          72.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 6,
+        "latency_ms_min_median_max": [
+          67.64583333333333,
+          72.97916666666667,
+          72.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 1,
+      "note": 57,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 1,
+      "note": 60,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 2,
+      "gesture": 1,
+      "note": 64,
+      "expected": 12,
+      "null_guard": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      },
+      "trusted_bridge": {
+        "matched": 0,
+        "latency_ms_min_median_max": null
+      }
+    },
+    {
+      "kind": 3,
+      "gesture": 0,
+      "note": 40,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          87.97916666666667,
+          87.97916666666667,
+          87.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          87.97916666666667,
+          87.97916666666667,
+          87.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 3,
+      "gesture": 0,
+      "note": 45,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          78.3125,
+          78.3125,
+          78.3125
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          78.3125,
+          78.3125,
+          78.3125
+        ]
+      }
+    },
+    {
+      "kind": 3,
+      "gesture": 0,
+      "note": 50,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          84.64583333333333,
+          84.64583333333333,
+          84.64583333333333
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          84.64583333333333,
+          84.64583333333333,
+          84.64583333333333
+        ]
+      }
+    },
+    {
+      "kind": 3,
+      "gesture": 0,
+      "note": 55,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          66.97916666666667,
+          66.97916666666667,
+          66.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          66.97916666666667,
+          66.97916666666667,
+          66.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 3,
+      "gesture": 0,
+      "note": 59,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          67.97916666666667,
+          67.97916666666667,
+          67.97916666666667
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          67.97916666666667,
+          67.97916666666667,
+          67.97916666666667
+        ]
+      }
+    },
+    {
+      "kind": 3,
+      "gesture": 0,
+      "note": 64,
+      "expected": 12,
+      "null_guard": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          63.645833333333336,
+          63.645833333333336,
+          63.645833333333336
+        ]
+      },
+      "trusted_bridge": {
+        "matched": 12,
+        "latency_ms_min_median_max": [
+          63.645833333333336,
+          63.645833333333336,
+          63.645833333333336
+        ]
+      }
+    }
+  ],
+  "conclusion": "Reject as a musical pass: two G3 repick matches gained, but held/gain damping controls acquire 24 false E2 Ons; total extras rise32 to60. All256 common expected matches retain exact sample timing; second-gesture failures remain114/132.",
+  "limits": "Synthetic capture only. Phase/new_gain are unused in held/gain renderer controls, so those parameter repetitions are not independent waveforms. No performance claim."
+}

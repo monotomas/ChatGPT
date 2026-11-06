@@ -1,0 +1,58 @@
+{
+  "baseline": {
+    "1": {
+      "expected_second": 72,
+      "any_second": 16,
+      "second_within120ms": 4,
+      "second_before200ms": 6
+    },
+    "2": {
+      "expected_second": 60,
+      "any_second": 16,
+      "second_within120ms": 12,
+      "second_before200ms": 12
+    }
+  },
+  "held": {
+    "1": {
+      "expected_second": 72,
+      "any_second": 8,
+      "second_within120ms": 0,
+      "second_before200ms": 0
+    },
+    "2": {
+      "expected_second": 60,
+      "any_second": 16,
+      "second_within120ms": 14,
+      "second_before200ms": 14
+    }
+  },
+  "phase_v2": {
+    "1": {
+      "expected_second": 72,
+      "any_second": 34,
+      "second_within120ms": 6,
+      "second_before200ms": 8
+    },
+    "2": {
+      "expected_second": 60,
+      "any_second": 20,
+      "second_within120ms": 10,
+      "second_before200ms": 14
+    }
+  },
+  "phase_v3": {
+    "1": {
+      "expected_second": 72,
+      "any_second": 34,
+      "second_within120ms": 12,
+      "second_before200ms": 16
+    },
+    "2": {
+      "expected_second": 60,
+      "any_second": 20,
+      "second_within120ms": 10,
+      "second_before200ms": 14
+    }
+  }
+}

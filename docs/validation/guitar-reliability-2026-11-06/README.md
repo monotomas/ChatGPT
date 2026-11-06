@@ -105,3 +105,24 @@ behavior. Their floating-point shortlist is empirically checked, not proved
 universally equivalent. They remain private source snapshots, not production
 changes or installer candidates. All reserved recording detector inputs remain
 unrun. No evidence here supports musical readiness.
+
+The completed [poly source-model archive](poly-source-model-research/README.md)
+retains32 private snapshots and both final causal counterexamples. Bridging a
+trusted phase reference across an uncertain interval recovers two repicks but
+adds false events after damping. Restoring measured-root guards to the faster
+fine-frequency engine reduces lower-octave extras44→10 over330 constructions,
+but increases repeats4→10 and loses notes in a previously working dyad. Dense
+open strings still miss40/180 references. These variants remain rejected.
+
+The final [mono emission-certificate investigation](mono-emission-certificate/README.md)
+removes all17 repeated nominal DEV Ons while retaining the existing quiet and
+legacy reference counts. It nevertheless adds repeated wrong-octave Ons in two
+controlled plain cases. An independent trace shows that a provisional phase
+edge alters pitch observation before permission and that a narrow tracker can
+reconfirm the existing wrong octave. Global RAW YIN also selects that wrong
+octave, so root agreement is not a validated repair. All factors are rejected;
+none changes production Source. Initial-note latency is not improved.
+
+`python3 verify_archive.py` checks the final aggregate inventory, including
+nested manifests and complete source/evidence payloads. It executes no audio
+or detector and does not certify musical readiness.

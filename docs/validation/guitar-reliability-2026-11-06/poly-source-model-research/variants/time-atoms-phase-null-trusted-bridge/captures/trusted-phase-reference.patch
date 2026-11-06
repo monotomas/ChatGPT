@@ -1,0 +1,49 @@
+--- /tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-guard/Source/Pitch/TimeDomainPursuit.cpp	2026-11-06 09:15:34.442278430 +0000
++++ /tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/TimeDomainPursuit.cpp	2026-11-06 10:00:53.433888044 +0000
+@@ -65,7 +65,7 @@
+         std::array<bool,columns> valid{};
+     };
+     std::array<Model,noteCount> models{};
+-    struct PhaseState {std::array<double,8> phase{},omega{},trend{},departure{},power{};std::array<bool,8> valid{};int warmup=0;int64_t sample=0,lastEvent=-1000000;};
++    struct PhaseState {std::array<double,8> phase{},omega{},trend{},departure{},power{};std::array<bool,8> valid{};std::array<int64_t,8> trustedSample{};int warmup=0;int64_t sample=0,lastEvent=-1000000;};
+     std::array<PhaseState,noteCount> sourcePhase{};
+     std::array<float,noteCount> sourceExcitation{};
+     int64_t observationClock=0,lastObservationClock=0;
+@@ -367,7 +367,6 @@
+         const auto &model=data->models[size_t(note)];auto &state=data->sourcePhase[size_t(note)];
+         const int64_t elapsed=clock-state.sample;
+         if(elapsed<=0||elapsed>predictionSamples*4){state={};state.lastEvent=-1000000;}
+-        const double dt=state.sample>0?double(clock-state.sample):0;
+         std::array<double,8> power{},angle{};double maximum=0;
+         for(int h=0;h<8;++h){const double a=predictionCoefficient[size_t(j)][size_t(h)],c=predictionCoefficient[size_t(j)][size_t(h+8)];power[size_t(h)]=(a*a+c*c)*model.weight[size_t(h)]*model.weight[size_t(h)];maximum=std::max(maximum,power[size_t(h)]);angle[size_t(h)]=std::remainder(std::atan2(c,a)+model.phase[size_t(h)]*(samples-1)*.5,2*pi);}
+         int supported=0,changed=0;double largest=0;
+@@ -379,6 +378,11 @@
+             const double noisePower=variance*(conditionalVariance[size_t(si)]+conditionalVariance[size_t(ci)])*model.weight[size_t(h)]*model.weight[size_t(h)];
+             const double phaseUncertainty=std::sqrt(noisePower/std::max(power[size_t(h)],1e-30));
+             const bool reliable=model.valid[size_t(h)]&&coherence<.80&&conditioning<8&&power[size_t(h)]>std::max(maximum*.003,noisePower*9.)&&power[size_t(h)]>1e-16;
++            // Keep only trusted per-partial observations. A short confidence
++            // gap in an unexplained waveform must not erase the PRE-event
++            // phase or replace it with an unreliable cancellation angle.
++            // The existing observation-gap bound is unchanged.
++            const double dt=state.trustedSample[size_t(h)]>0?double(clock-state.trustedSample[size_t(h)]):0;
+             if(reliable&&state.valid[size_t(h)]&&dt>0&&dt<=predictionSamples*4){
+                 const double expected=.5*(model.phase[size_t(h)]+state.omega[size_t(h)])*dt;
+                 const double difference=std::remainder(angle[size_t(h)]-state.phase[size_t(h)]-expected,2*pi);
+@@ -386,8 +390,15 @@
+                 else{const double innovation=std::remainder(difference-state.trend[size_t(h)]*dt,2*pi);state.departure[size_t(h)]=state.departure[size_t(h)]*std::exp(-dt/(data->rate*.040))+innovation;
+                     const double distance=std::abs(state.departure[size_t(h)]);largest=std::max(largest,distance);++supported;if(distance>.30+3*phaseUncertainty)++changed;
+                     if(distance<.15)state.trend[size_t(h)]=.9*state.trend[size_t(h)]+.1*difference/dt;}
+-            }else{state.trend[size_t(h)]=0;state.departure[size_t(h)]=0;}
+-            state.phase[size_t(h)]=angle[size_t(h)];state.omega[size_t(h)]=model.phase[size_t(h)];state.power[size_t(h)]=power[size_t(h)];state.valid[size_t(h)]=reliable;
++            }else if(reliable||nullExplained||!state.valid[size_t(h)]||dt>predictionSamples*4){
++                state.trend[size_t(h)]=0;state.departure[size_t(h)]=0;
++            }
++            if(reliable){
++                state.phase[size_t(h)]=angle[size_t(h)];state.omega[size_t(h)]=model.phase[size_t(h)];state.power[size_t(h)]=power[size_t(h)];
++                state.valid[size_t(h)]=true;state.trustedSample[size_t(h)]=clock;
++            }else if(nullExplained||dt>predictionSamples*4){
++                state.valid[size_t(h)]=false;state.trustedSample[size_t(h)]=0;
++            }
+         }
+         if(!nullExplained&&supported>=2&&changed>=2&&clock-state.lastEvent>data->rate*.075){state.lastEvent=clock;state.departure={};}
+         if(clock-state.lastEvent<data->rate*.060)data->sourceExcitation[size_t(note)]=1;

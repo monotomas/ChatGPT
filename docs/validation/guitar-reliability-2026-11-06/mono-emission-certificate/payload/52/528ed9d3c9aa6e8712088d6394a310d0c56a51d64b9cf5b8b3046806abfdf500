@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-11-06T09:57:26.325718+00:00",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/tailE2_trace.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/ArticulationTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/EarlyEstimator.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/InputDynamics.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/NoiseConditioner.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/PitchDetector.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/PolyphonicTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/TimeDomainPursuit.cpp",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/Source/Pitch/YinEstimator.cpp",
+    "-o",
+    "/tmp/flysnapper-v4-mono-emission/raw-certificate/TailE2Trace"
+  ],
+  "driver_sha256": "a24524814fb31b7d3e4e3e3168d981d20d79c4ddb85a725b5fffbbb5cd015d83",
+  "scope": "read-only postcallback trace; independent estimator and conditioner COPY cannot influence detector"
+}

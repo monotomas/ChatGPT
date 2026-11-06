@@ -1,0 +1,19 @@
+[
+  "g++",
+  "-std=c++17",
+  "-O2",
+  "-DNDEBUG",
+  "-I",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source",
+  "/tmp/flysnapper-v4-poly-audit/chord_repick_probe_v2.cpp",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/ArticulationTracker.cpp",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/EarlyEstimator.cpp",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/InputDynamics.cpp",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/NoiseConditioner.cpp",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/PitchDetector.cpp",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/PolyphonicTracker.cpp",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/TimeDomainPursuit.cpp",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/Source/Pitch/YinEstimator.cpp",
+  "-o",
+  "/tmp/flysnapper-v4-poly-audit/time-atoms-phase-null-trusted-bridge/chord-repicks-corrected-v2/probe"
+]

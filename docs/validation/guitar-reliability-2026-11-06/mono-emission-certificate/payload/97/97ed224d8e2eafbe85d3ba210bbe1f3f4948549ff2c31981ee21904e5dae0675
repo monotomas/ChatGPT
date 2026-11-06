@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/CounterTrace",
+    "/workspace/ChatGPT/Tests/AudioFixtures/readiness",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/counter",
+    "quick",
+    "default"
+  ],
+  "env": {
+    "ONLY_CASE": "music_handling_snr24_gain1_mono",
+    "PLAIN_MODE": "1"
+  },
+  "exe_sha256": "173997056d612ed3344f436b59275383a76f401d69b88f8ba0da89eea8141368"
+}

@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-11-06T10:08:43.577179+00:00",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/counter_trace_raw.cpp",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source/Pitch/ArticulationTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source/Pitch/EarlyEstimator.cpp",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source/Pitch/InputDynamics.cpp",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source/Pitch/NoiseConditioner.cpp",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source/Pitch/PitchDetector.cpp",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source/Pitch/PolyphonicTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source/Pitch/TimeDomainPursuit.cpp",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/Source/Pitch/YinEstimator.cpp",
+    "-o",
+    "/tmp/flysnapper-v4-mono-emission/scoped-counter-trace/CounterTraceRaw"
+  ],
+  "driver_sha256": "c318a60165bcb7232aae1c9f4bc53b31618f141618e86ab75aa5c6f89055dfea"
+}

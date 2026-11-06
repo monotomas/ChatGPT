@@ -1,0 +1,55 @@
+from pathlib import Path,PurePosixPath
+import json,hashlib,gzip,datetime,shutil
+P=Path(__file__).resolve().parent;R=Path('/workspace/ChatGPT');D=R/'docs/validation/guitar-reliability-2026-11-06/mono-emission-certificate'
+assert not D.exists();D.mkdir()
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def save(p,x):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(x,indent=2)+'\n')
+entries=[];blobs={};excluded=[]
+for f in sorted(P.rglob('*')):
+ if not f.is_file():continue
+ assert not f.is_symlink();data=f.read_bytes();logical='study/'+f.relative_to(P).as_posix()
+ if data.startswith((b'\x7fELF',b'MZ',b'!<arch>')) or f.suffix.lower() in {'.f32','.wav','.flac','.mp3','.npy','.npz','.o','.obj','.so','.dll','.exe','.a','.lib','.pyc','.onnx','.pt','.pth','.tflite','.h5','.safetensors'}:
+  excluded.append({'logical_path':logical,'origin':str(f),'sha256':sha(data),'bytes':len(data),'reason':'runtime binary/object/audio/model excluded'});continue
+ digest=sha(data)
+ if digest not in blobs:
+  encoding='gzip' if f.suffix=='.csv' else 'raw';encoded=gzip.compress(data,compresslevel=9,mtime=0) if encoding=='gzip' else data;stored='payload/'+digest[:2]+'/'+digest;dest=D/stored;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(encoded);blobs[digest]={'stored_path':stored,'encoding':encoding,'stored_sha256':sha(encoded),'stored_bytes':len(encoded)}
+ entries.append({'logical_path':logical,'origin':str(f),'sha256':digest,'bytes':len(data),**blobs[digest]})
+save(D/'storage-map.json',{'schema':1,'root_origin':str(P),'files':entries})
+save(D/'exclusions.json',{'files':excluded})
+# Every omitted executable is bound to a retained actual compile command.
+commands={}
+def visit(x,origin):
+ if isinstance(x,dict):
+  for v in x.values():visit(v,origin)
+ elif isinstance(x,list):
+  if len(x)>3 and all(isinstance(v,str) for v in x) and Path(x[0]).name in {'g++','c++','clang++'} and '-o' in x:
+   commands.setdefault(x[x.index('-o')+1],[]).append({'manifest':'study/'+origin.relative_to(P).as_posix(),'command':x})
+  else:
+   for v in x:visit(v,origin)
+for f in P.rglob('*.json'):
+ try:visit(json.loads(f.read_text()),f)
+ except (ValueError,UnicodeDecodeError):pass
+bindings=[]
+for e in excluded:
+ if not (P/e['logical_path'][len('study/'):]).read_bytes().startswith(b'\x7fELF'):continue
+ found=commands.get(e['origin'],[]);assert found,'unbound executable '+e['origin']
+ bindings.append({**e,'recorded_compile_bindings':found})
+save(D/'runtime-bindings.json',{'scope':'Actual retained compiler command manifests plus omitted executable SHA; project source only, no compiler/header closure','files':bindings})
+# Complete and Pitch-only source snapshots are explicit and losslessly restorable.
+snapshots=[]
+for f in P.rglob('Source/Pitch/PitchDetector.cpp'):
+ src=f.parent.parent;files={x.relative_to(src).as_posix():sha(x.read_bytes()) for x in sorted(src.rglob('*')) if x.is_file()};snapshots.append({'logical_prefix':'study/'+src.relative_to(P).as_posix(),'files_sha256':files,'scope':'Complete copied project Source tree' if (src/'Core').exists() else 'Pitch-only compiled snapshot'})
+save(D/'source-snapshots.json',{'snapshots':snapshots})
+external=[]
+for name in ['Tools/guitar_reliability.py','Tools/guitar_reliability_capture.cpp','Tools/guitar_effective_pitch_audit.py','Tools/guitar_evaluation_score.py','Tests/AudioFixtures/readiness/score.py','Tests/AudioFixtures/evaluation_2026_11_05/policy.json']:
+ data=(R/name).read_bytes();dest=D/'bindings'/name;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data);external.append({'project_path':name,'sha256':sha(data),'kind':'evaluator/tool source copied at archive freeze'})
+for name in ['Tests/AudioFixtures','Tests/AudioFixtures/holdout','Tests/AudioFixtures/confirmation','Tests/AudioFixtures/readiness','Tests/AudioFixtures/readiness/recorded_noise','Tests/AudioFixtures/readiness/recorded_hammers','Tests/AudioFixtures/guitar_reliability_2026_11_06']:
+ for leaf in ['fixtures.json','fixtures.tsv','pitch-curves.tsv','PRE_CAPTURE_SEAL.json','INVENTORY_SHA256.json','source-manifest.json','split-before-any-detector.json','float32-exact-manifest.json','SEALED_SHA256.txt','independent-acoustic-annotations.json']:
+  f=R/name/leaf
+  if f.is_file():external.append({'project_path':f.relative_to(R).as_posix(),'sha256':sha(f.read_bytes()),'kind':'canonical fixture metadata reference; no audio duplication'})
+save(D/'external-inputs.json',{'scope':'Canonical recordings/decodings remain in the separately owned fixture edition. DEV56 original before-run manifests retain input seals; targeted diagnostic input hashes can be checked against that edition retrospectively. Reserved detector runs zero.','files':external})
+shutil.copyfile(P/'REPORT.md',D/'README.md');shutil.copyfile(P/'independent-causal-review.md',D/'INDEPENDENT_REVIEW.md');shutil.copyfile(P/'result-checks.json',D/'result-checks.json');shutil.copyfile(P/'verify_restore.py',D/'verify_restore.py')
+save(D/'retention.json',{'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'logical_files':len(entries),'unique_payloads':len(blobs),'excluded_binaries':len(excluded),'source_snapshots':len(snapshots),'production_source_changed':False,'ready_for_musical_use':False,'reserved_detector_runs':0})
+files={f.relative_to(D).as_posix():{'sha256':sha(f.read_bytes()),'bytes':f.stat().st_size} for f in sorted(D.rglob('*')) if f.is_file()}
+save(D/'archive-manifest.json',{'schema':1,'files':files})
+print('FROZEN',len(entries),'logical',len(blobs),'payloads',len(files),'inventory',len(excluded),'excluded',len(snapshots),'source snapshots')

@@ -1,0 +1,38 @@
+{
+  "commands": [
+    {
+      "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+      "command": [
+        "/tmp/flysnapper-v4-mono-emission/raw-certificate/noise-trace-diagnostic/NoiseTrace",
+        "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise",
+        "/tmp/flysnapper-v4-mono-emission/raw-certificate/noise-trace-diagnostic/case0",
+        "quick",
+        "default"
+      ],
+      "ONLY_CASE": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono"
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+      "command": [
+        "/tmp/flysnapper-v4-mono-emission/raw-certificate/noise-trace-diagnostic/NoiseTrace",
+        "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise",
+        "/tmp/flysnapper-v4-mono-emission/raw-certificate/noise-trace-diagnostic/case1",
+        "quick",
+        "default"
+      ],
+      "ONLY_CASE": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono"
+    },
+    {
+      "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+      "command": [
+        "/tmp/flysnapper-v4-mono-emission/raw-certificate/noise-trace-diagnostic/NoiseTrace",
+        "/workspace/ChatGPT/Tests/AudioFixtures/readiness/recorded_noise",
+        "/tmp/flysnapper-v4-mono-emission/raw-certificate/noise-trace-diagnostic/case2",
+        "quick",
+        "default"
+      ],
+      "ONLY_CASE": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono"
+    }
+  ],
+  "exe_sha256": "aee4b6b19f58f062e4cd0c1fcd8757ed53427d0dc61068b696d929ee738c931c"
+}

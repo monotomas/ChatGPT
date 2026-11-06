@@ -1,0 +1,23 @@
+{
+  "time": "2026-11-06T09:51:23.124960+00:00",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-DNDEBUG",
+    "-I",
+    "/tmp/flysnapper-v4-mono-emission/Source",
+    "/tmp/flysnapper-v4-mono-emission/guitar_reliability_capture.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/ArticulationTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/EarlyEstimator.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/InputDynamics.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/NoiseConditioner.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/PitchDetector.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/PolyphonicTracker.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/TimeDomainPursuit.cpp",
+    "/tmp/flysnapper-v4-mono-emission/Source/Pitch/YinEstimator.cpp",
+    "-o",
+    "/tmp/flysnapper-v4-mono-emission/RealCapture"
+  ],
+  "driver_sha256": "7ca070747cd57dd4e89967a94be36af2f441152e9f108212df76473dda84f45a"
+}

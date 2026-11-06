@@ -1,0 +1,114 @@
+{
+  "configuration": {
+    "kind": 1,
+    "phase": 0,
+    "newGain": 1,
+    "dynamics": 1,
+    "sampleRate": 48000,
+    "internalRate": 12000,
+    "traceClockRange": [
+      4560,
+      6720
+    ],
+    "notes": [
+      40,
+      45,
+      50,
+      55,
+      59,
+      64
+    ],
+    "firstStartSeconds": [
+      0.08,
+      0.087,
+      0.094,
+      0.101,
+      0.108,
+      0.115
+    ],
+    "repickStartSeconds": [
+      0.4,
+      0.407,
+      0.414,
+      0.421,
+      0.428,
+      0.435
+    ]
+  },
+  "heldSetChanges": [],
+  "phaseStateResets": [],
+  "rootUnreliableClocks": [
+    5280,
+    5312,
+    5344
+  ],
+  "rootFirstReacquire": [
+    {
+      "clock": "5376",
+      "harmonic": "1",
+      "betaSin": "-0.0012462699828768621",
+      "betaCos": "0.0020670809337992543",
+      "angleCentered": "-3.0820973454490748",
+      "oldPhase": "-0.15492413744253497",
+      "omega": "0.10262416516008263",
+      "oldOmega": "0.10262416516008263",
+      "dt": "32",
+      "actualAdvanceWrapped": "-2.9271732080065398",
+      "expectedAdvance": "3.2839732851226442",
+      "difference": "0.072038814050402245",
+      "oldTrend": "0",
+      "expectedTrendAdvance": "0",
+      "innovation": "0.072038814050402245",
+      "oldDeparture": "0",
+      "departure": "0",
+      "trend": "0",
+      "power": "5.8260124570962911e-06",
+      "oldPower": "3.8603181811298797e-06",
+      "maximum": "3.081288166269074e-05",
+      "variance": "5.9856175082189467e-05",
+      "conditionalVarianceSin": "0.0041052267049288445",
+      "conditionalVarianceCos": "0.0041320138473948413",
+      "conditioning": "1.0576244394912262",
+      "pairwiseCoherence": "0.20612128863316864",
+      "noisePower": "4.930497126939976e-07",
+      "phaseUncertainty": "0.29091067001803483",
+      "modelValid": "1",
+      "reliable": "1",
+      "oldValid": "0",
+      "warmup": "8",
+      "nullExplained": "0",
+      "branch": "CLEAR",
+      "changedThreshold": "1.1727320100541045"
+    }
+  ],
+  "nonzeroChangedDecisions": [
+    {
+      "clock": "5536",
+      "supported": "2",
+      "changed": "1",
+      "largest": "0.72826072469555547",
+      "lastEvent": "-1000000",
+      "excitation": "0"
+    },
+    {
+      "clock": "5568",
+      "supported": "2",
+      "changed": "1",
+      "largest": "0.69729455221408265",
+      "lastEvent": "-1000000",
+      "excitation": "0"
+    },
+    {
+      "clock": "5600",
+      "supported": "2",
+      "changed": "1",
+      "largest": "0.52322253721153311",
+      "lastEvent": "-1000000",
+      "excitation": "0"
+    }
+  ],
+  "rootSkippedPhaseAdvanceGapRadians": 0.7313329900955168,
+  "eventOccurred": false,
+  "originalSourceUnchanged": true,
+  "limits": "One synthetic renderer configuration. Diagnostic reproduction only; no musical pass, production readiness, or performance claim."
+}

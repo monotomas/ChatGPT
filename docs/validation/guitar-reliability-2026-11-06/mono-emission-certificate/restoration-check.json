@@ -1,0 +1,26 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "verify_restore.py",
+        "--project-root",
+        "/workspace/ChatGPT",
+        "--output",
+        "/tmp/flysnapper-mono-emission-restore-20261106"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "/tmp/flysnapper-mono-emission-restore-20261106/study/summarize_results.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "logical_files_restored": 533,
+  "numeric_and_event_parity_regeneration_byte_identical": true,
+  "result_checks_sha256": "33b317c245ae047426b2c70f10a80c486e45477d60727e01bc17d73631b70b2b",
+  "scope": "Offline preservation/reconstruction only; no new native code/audio execution. README legacy event-diff count corrected6\u21927 after this restore; raw/source/CSV/numeric files unchanged."
+}

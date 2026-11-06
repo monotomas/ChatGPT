@@ -1,0 +1,19 @@
+[
+  "g++",
+  "-std=c++17",
+  "-O2",
+  "-DNDEBUG",
+  "-I",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty_fast_guard_probe.cpp",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/ArticulationTracker.cpp",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/EarlyEstimator.cpp",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/InputDynamics.cpp",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/NoiseConditioner.cpp",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/PitchDetector.cpp",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/PolyphonicTracker.cpp",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/TimeDomainPursuit.cpp",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/Source/Pitch/YinEstimator.cpp",
+  "-o",
+  "/tmp/flysnapper-v4-poly-audit/uncertainty-fast-measured-root-guards/probe"
+]

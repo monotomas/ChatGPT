@@ -1,0 +1,22 @@
+[
+  "taskset",
+  "-c",
+  "3",
+  "g++",
+  "-std=c++17",
+  "-O2",
+  "-DNDEBUG",
+  "-DFLYSNAPPER_RESEARCH_TRACE_NULL",
+  "-I/tmp/flysnapper-v4-phase-gap-trace/Source",
+  "/tmp/flysnapper-v4-phase-gap-trace/probe.cpp",
+  "/tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/ArticulationTracker.cpp",
+  "/tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/EarlyEstimator.cpp",
+  "/tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/InputDynamics.cpp",
+  "/tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/NoiseConditioner.cpp",
+  "/tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/PitchDetector.cpp",
+  "/tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/PolyphonicTracker.cpp",
+  "/tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/TimeDomainPursuit.cpp",
+  "/tmp/flysnapper-v4-phase-gap-trace/Source/Pitch/YinEstimator.cpp",
+  "-o",
+  "/tmp/flysnapper-v4-phase-gap-trace/probe"
+]

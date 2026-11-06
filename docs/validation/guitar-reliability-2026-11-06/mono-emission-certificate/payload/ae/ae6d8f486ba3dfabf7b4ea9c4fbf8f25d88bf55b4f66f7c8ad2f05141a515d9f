@@ -1,0 +1,113 @@
+[
+  {
+    "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+    "event_stream_exact": true,
+    "new_note_ons": [
+      {
+        "event": {
+          "case": "Samples-acoustic-a3_vl1_rr1_1_plus_Samples-acoustic-mute_strings1_rr1_1_snr12_gain160_mono",
+          "rate": "48000",
+          "block": "64",
+          "sample": "50815",
+          "type": "N",
+          "note": "57",
+          "velocity": "48",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        "causal_callback_state": {
+          "sample": "50815",
+          "clock": "12704",
+          "held": "57",
+          "phase": "0",
+          "age": "296",
+          "remaining": "0",
+          "origin": "56.85329437",
+          "pitch": "56.93624878",
+          "period": "54.74668503",
+          "tracked": "0",
+          "cert": "1",
+          "independent": "1",
+          "old_veto": "0",
+          "had_phase": "1",
+          "innovation": "0.07068903744",
+          "onset_ratio": "0.9744045734"
+        }
+      }
+    ]
+  },
+  {
+    "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+    "event_stream_exact": true,
+    "new_note_ons": [
+      {
+        "event": {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain40_mono",
+          "rate": "48000",
+          "block": "64",
+          "sample": "24831",
+          "type": "N",
+          "note": "40",
+          "velocity": "30",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        "causal_callback_state": {
+          "sample": "24831",
+          "clock": "6208",
+          "held": "40",
+          "phase": "0",
+          "age": "715",
+          "remaining": "0",
+          "origin": "39.99361801",
+          "pitch": "39.94186401",
+          "period": "146.1087189",
+          "tracked": "0",
+          "cert": "1",
+          "independent": "0",
+          "old_veto": "1",
+          "had_phase": "1",
+          "innovation": "0.07321219891",
+          "onset_ratio": "0.9772612453"
+        }
+      }
+    ]
+  },
+  {
+    "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+    "event_stream_exact": true,
+    "new_note_ons": [
+      {
+        "event": {
+          "case": "Samples-acoustic-e2_vl1_rr1_1_plus_Samples-acoustic-perc_4_rr1_1_snr12_gain160_mono",
+          "rate": "48000",
+          "block": "64",
+          "sample": "24831",
+          "type": "N",
+          "note": "40",
+          "velocity": "57",
+          "pitch": "",
+          "voice_id": "0"
+        },
+        "causal_callback_state": {
+          "sample": "24831",
+          "clock": "6208",
+          "held": "40",
+          "phase": "0",
+          "age": "715",
+          "remaining": "0",
+          "origin": "39.99333572",
+          "pitch": "39.94185257",
+          "period": "146.1088104",
+          "tracked": "0",
+          "cert": "1",
+          "independent": "0",
+          "old_veto": "1",
+          "had_phase": "1",
+          "innovation": "0.07320382446",
+          "onset_ratio": "0.9772284031"
+        }
+      }
+    ]
+  }
+]
