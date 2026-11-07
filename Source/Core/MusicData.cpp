@@ -65,8 +65,8 @@ constexpr std::array<ChordType,chordTypeCount> types{{
  {"minor_major_seventh","mMaj7",4},{"half_diminished","m7b5",22},{"diminished_seventh","dim7",14},
  {"dominant_sus4","7sus4",5},{"dominant_sus4_flat9","7sus4b9",19},
  {"dominant_flat5","7b5",15},{"dominant_sharp5","7#5",16},
- {"dominant_flat9","7b9",17},{"dominant_sharp9","7#9",16},{"dominant_sharp11","7#11",15},
- {"dominant_flat13","7b13",16},{"dominant_flat5_flat9","7b5b9",16},
+ {"dominant_flat9","7b9",17},{"dominant_sharp9","7#9",13},{"dominant_sharp11","7#11",15},
+ {"dominant_flat13","7b13",21},{"dominant_flat5_flat9","7b5b9",16},
  {"dominant_flat5_sharp9","7b5#9",16},{"dominant_sharp5_flat9","7#5b9",16},
  {"dominant_sharp5_sharp9","7#5#9",16},{"major_seventh_sharp5","Maj7#5",20},
  {"major_seventh_sharp9","Maj7#9",26},{"major_seventh_sharp11","Maj7#11",7},
@@ -75,9 +75,9 @@ constexpr std::array<ChordType,chordTypeCount> types{{
  {"dominant_eleventh","11",8},{"major_eleventh","Maj11",1},{"minor_eleventh","m11",5},
  {"minor_eleventh_flat5","m11b5",22},{"dominant_thirteenth","13",8},
  {"major_thirteenth","Maj13",1},{"minor_major_thirteenth","mMaj13",4},
- {"thirteenth_flat9","13b9",35},{"thirteenth_sharp9","13#9",35},
+ {"thirteenth_flat9","13b9",35},{"thirteenth_sharp9","13#9",0},
  {"thirteenth_sus4","13sus4",8},{"thirteenth_sus4_flat9","13sus4b9",35},
- {"minor_thirteenth","m13",5},{"thirteenth_add_sharp9","13add#9",8},{"minor_thirteenth_flat5","m13b5",32},
+ {"minor_thirteenth","m13",5},{"thirteenth_add_sharp9","13add#9",0},{"minor_thirteenth_flat5","m13b5",32},
  // User-requested Flysnapper extensions. Factory assignments follow the
  // uploaded worksheet; no original chord IDs are renamed or repurposed.
  {"major_thirteenth_sharp11","Maj13#11",7},{"major_ninth_sharp11","Maj9#11",7}

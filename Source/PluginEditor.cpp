@@ -146,7 +146,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(
 #ifdef JucePlugin_VersionString
     label(version,JucePlugin_VersionString,12.f,muted);
 #else
-    label(version,"0.4.1",12.f,muted);
+    label(version,"0.4.2",12.f,muted);
 #endif
     label(chord,"No chord input",42.f,text,true);chord.setComponentID("chordDisplay");chord.setMinimumHorizontalScale(.75f);
     label(activeScale,"Chromatic",18.f,green);activeScale.setComponentID("activeScale");

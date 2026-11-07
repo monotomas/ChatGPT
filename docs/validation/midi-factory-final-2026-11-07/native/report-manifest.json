@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "kind": "MidiOnlyNativeExecution",
+  "status": "passed",
+  "scope": {
+    "feature_set": "midi-to-midi-only",
+    "audio_processing": false,
+    "pitch_to_midi": false,
+    "scales": 38,
+    "chord_types": 52,
+    "host_device_role": "instrument",
+    "silent_audio_output": true,
+    "host_scope": "native-processor-and-compiled-vst3-test-host",
+    "ableton_verified": false
+  },
+  "platform": "Linux-x86_64",
+  "source_commit": null,
+  "source_sha256": {
+    "CMakeLists.txt": "318d60a218f07f26e2fc8cb6590603db521b0e8d5d46d0dacd30aa49d3c9fdbb",
+    "Source/Core/MidiEngine.cpp": "a0187595aff787b954b90cf56cabc6b9aff534f9605ea5d88d3fda959ba76be2",
+    "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+    "Source/Core/MusicData.cpp": "b99c07735f060603fea9f68c2aceef3ceafc74e3cae4c1ab16bcdffed32e462c",
+    "Source/Core/MusicData.h": "2e3fdb87aa51360a67aeb11aa87d841b51b834717fc9c4b12053f350c60e40b7",
+    "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+    "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+    "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+    "Source/PluginEditor.cpp": "fd73457811582692d04ae1fb349258ada450494df2be2f24af6412abff6e9eda",
+    "Source/PluginEditor.h": "1cab2cd6c9b3c0b284a87aa4419f71945b77a740ad1900653f88cf6266a323e5",
+    "Source/PluginProcessor.cpp": "5f6c80cdee3fa1e23d3b089642ce6882805bc6bc8b543c9b68c9dcd2bebdad36",
+    "Source/PluginProcessor.h": "141500a225057717725a488205911b4b16981252a7cdea44f2ca7c06b6135436",
+    "Tests/CoreTests.cpp": "a628825e36ec458fd8ed28639402e270d9009e124521e610b9e1ab5f59ee78e6",
+    "Tests/MidiOnlyProcessorTests.cpp": "42d4d26ac6b629832f7e36e6c49a6856a464296a171f383e3a54f014bc2775bf",
+    "Tests/PluginTests.cpp": "39dcb9559e694005711a40d013f6779b224c2c199020ab06709058a061490949",
+    "Tests/Vst3HostTests.cpp": "1de4f3d8d590070f6aadfdedd512bd9db2f00144a7ee0c2000f9a4e25f22ebdd",
+    "Tools/midi_only_evidence.py": "b7f5dde9b26ce78b8227ed826ac829c4999ca8fc7eac96a646a0701deb084725",
+    "Tools/package_source.py": "61cbdbd1d9f7a31d20d5bb0ef4e48e76729881a102c66d4a2eb33dcc82e7e0ee",
+    "Tools/package_windows.py": "8de22282b1cd9e81a5f74c2c6fdda283b495c554c15503738f2725c4f673e794",
+    "build_plugin.py": "c086917070031acc7590a78d583a80a4694ef24a69fb8e3a8f937315a3042d40",
+    "dependencies.lock.json": "718bf94a4c59ea8bab61360e38e8c957dc1db7eb2b9dda1575c69f0788cb5bf2"
+  },
+  "ctest_sha256": "c11d1e1ace669a0f2a9557b9e849eb53f465088f134447fa484145cca4ef128e",
+  "vst3_sha256": "44ddc3f8ef92a78839bc0482688d55dc47b8c80bbe6aa22b04b91cbbbb434d58",
+  "moduleinfo_sha256": "871b22d6b6035bc8ff718382b2cc42e1d9fbdd8897fd4f6e2fe4b2a59e0458e5",
+  "module": {
+    "name": "Flysnapper MIDI",
+    "version": "0.4.2",
+    "component_cid": "ABCDEF019182FAEB466C797346736D31",
+    "sub_categories": [
+      "Instrument"
+    ]
+  },
+  "executions": {
+    "FlysnapperMidiOnlyProcessor": {
+      "target": "FlysnapperMidiOnlyProcessorTests",
+      "binary": "build/native-release/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests",
+      "binary_sha256": "33619357c8017e6b19c55169714949dfb402a0f75c41a2de288ea54d3718798b",
+      "binary_bytes": 11111344,
+      "report_sha256": "52affe49b0cf9cbc7e5eb5ceb2944e56dfc345a52c457f24fb64ccddb55f20cc",
+      "events_sha256": "70b995eeb480f72a46c05a66174dedbc343fcf0e0ec217d20a3da8889a760545",
+      "checks": 120459,
+      "events_rows": 2387
+    },
+    "FlysnapperActualVst3": {
+      "target": "FlysnapperVst3HostTests",
+      "binary": "build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests",
+      "binary_sha256": "1dbdc7bd2526a0368b1cc6e1ec4587b5930921b6fe9b0244a00ade850d2a863d",
+      "binary_bytes": 10576664,
+      "report_sha256": "e9e02a7f8eb9b3c7d369cf9b8b4cdf74716c6f0d90c091249ce102ed94c12ab4",
+      "events_sha256": "8a90589fb557913d3df53d3d5496d9a42990ac411680d11e6c1f91264a1fc532",
+      "checks": 5642,
+      "events_rows": 1128
+    }
+  }
+}

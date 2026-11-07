@@ -16,7 +16,7 @@ import struct
 import xml.etree.ElementTree as ET
 
 COMPILED_INPUTS = 'flysnapper-midi-compiled-inputs.json'
-VERSION = '0.4.1'
+VERSION = '0.4.2'
 DIRECTORY = 'midi-validation'
 MANIFEST = 'report-manifest.json'
 STAGE = 'midi-only-native-validation'

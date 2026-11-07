@@ -1,44 +1,26 @@
-# Gjeldende arbeid: Flysnapper MIDI 0.4.1 instrumentadapter
+# Gjeldende arbeid: Flysnapper MIDI 0.4.2
 
-Brukeren har valgt å prøve eksisterende Flysnapper som VST3 Instrument
-med audioutgang før videre formatutvikling. Gjeldende leveranse er 0.4.1:
-ingen audioinngang, stille stereo audioutgang, samme Fsm1-identitet og
-samme `Flysnapper MIDI.vst3`-bundle som 0.4.0. Se
-[versjonsnotatet](RELEASE_0.4.1.md) og
-[oppsettet i brukerveiledningen](BRUKERVEILEDNING.md).
+Alle52 akkordtyper og38 skalaer beholdes. Fire fabrikkrettelser fra ny
+Excel-fil og siste brukerpresisering er innarbeidet: C7#9→Half Whole
+Diminished, C7b13→Mixolydian b6, C13#9/C13add#9→Chromatic. Ingen
+fargeunntak eller ekstra kommentartekst; vanlig tidligere UI beholdes.
+Se [versjonsnotatet](RELEASE_0.4.2.md) og
+[fabrikkgrunnlaget](factory-settings/2026-11-07-user-values-final/README.md).
 
-MIDI-algoritmen, 52 akkordtyper, 38 skalaer og brukerens 52 Excel-valg skal
-beholdes. Det legges ikke til pitchgjenkjenning, audio-DSP eller sidechain.
-Ingen wrapper-, Max for Live- eller CLAP-utvikling er valgt. Tidligere
-planer om en ren MIDI-effekt og samme-spor-kjeding i Live er utsatt mens
-instrumentadapteren prøves.
+1. Fullfør lokale native-/GUI-/VST3- og Python-kontroller med fryste
+   inndata for alle52 fabrikkvalg og de fire nye MIDI-prøvene.
+2. Windows-bygg og ny installasjonspakke gjenstår. Automatisk
+   godkjenningskontroll avviste tidligere bred GitHub-publisering av
+   pakke, kildekode og diagnostikk utover pakkeleveransen. Ikke omgå
+   denne grensen ved å utløse en CI-pipeline som publiserer samme data
+   indirekte. Avklar nødvendig tillatelse etter at endringen er konkret
+   og kontrollert lokalt. Ingen ny ekstern publisering er utført her.
+3. Når autorisert: bygg riktig0.4.2, kontroller faktisk Windows-installasjon
+   og eksakt pakke-/kilde-/mapping-/modulbinding, lever riktig pakke.
 
-## Før pakken kan leveres
-
-1. Fullfør ferske native kontroller av MIDI-reglene, alle 52 fabrikkvalg,
-   38 skalavalg, instanstilstand og den faktisk kompilerte 0.4.1-modulen.
-   SDK-busser og metadata skal vise Instrument, null audioinnganger og
-   stille stereo audioutgang. Den nye adapteren skal ikke vurderes mot
-   den gamle null-audiobusskontrakten.
-2. Kontroller Windows x64-bygg og faktisk installasjon/innlasting av den
-   installerte modulen. Bind riktig kilde, modul, brukerfil, mapping og
-   installasjonsbevis til den eksakte 0.4.1-pakken før publisering.
-3. Lever den kontrollerte pakken med konkret status for det som er prøvd.
-   Praktisk Live-aksept er fortsatt uavklart: innlasting, kanal 1/16 og
-   korrigert MIDI til et separat instrumentspor må bekreftes i Live.
-   Øverste MIDI From velger Flysnapper-sporet; nederste velger pluginens
-   MIDI-utgangspunkt; mottakersporet monitoreres.
-
-## Etter den praktiske Live-prøven
-
-Bruk resultatet fra denne instrumentadapteren før nye formatvalg tas.
-Vellykket innlasting alene beviser ikke en MIDI-effektkjede foran et
-instrument på samme spor. En eventuell videre bestilling om en slik
-kjede må vurderes separat. Generiske testverter og Windows-kontroller
-skal fortsatt ikke omtales som utført Ableton-testing.
-
-0.4.0-resultater, den tidligere leveringen og gamle lydforsøk beholdes som
-historie. De kan ikke ommerkes til bevis for 0.4.1. Brukerens fabrikkvalg
-skal beholdes nøyaktig, også de fire valgene uten alle akkordtonene.
-Konstruktøravrundingsregresjoner skal følge faktiske relevante
-standardverdier uten cacheinjeksjon eller endring av brukerdata.
+Vertsrollen er fortsatt Instrument, null audioinngang/stille stereoutgang
+og sammeFsm1-identitet. MIDI hentes gjennom pluginens eget uttak til et
+separat instrumentspor. Praktisk Live-aksept er eget testpunkt.
+Pitch-to-MIDI, wrapper, CLAP og Max for Live utvikles ikke nå. Avbrutt
+51-bibliotek og særskilt grønn tekst er arkivert lokalt og skal ikke
+gjeninnføres. Historiske bevis kan ikke ommerkes til gjeldende0.4.2.

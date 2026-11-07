@@ -1,6 +1,6 @@
-# Flysnapper MIDI 0.4.1
+# Flysnapper MIDI 0.4.2
 
-0.4.1 bruker instrumentkategorien med en stille stereo lydutgang og MIDI
+0.4.2 bruker instrumentkategorien med en stille stereo lydutgang og MIDI
 inn/ut. Dette er brukerens valgte neste prøve etter at Live 12.4.6 avviste
 0.4.0 som audioeffekt uten audioinngang. Se
 [diagnosen](docs/validation/live-open-failure-2026-11-07/README.md).
@@ -8,8 +8,10 @@ inn/ut. Dette er brukerens valgte neste prøve etter at Live 12.4.6 avviste
 Flysnapper MIDI behandler bare MIDI og korrigerer etter skalaer
 eller et akkordspor. Den stille instrumentutgangen endrer vertsrollen;
 ingen audioinngang eller pitchgjenkjenning er lagt til. Ombyggingen følger brukerens bestilling
-7. november 2026. Brukerens utfylte Excel-fil er innarbeidet: alle 52
-fabrikkvalg følger filen, med 20 endringer fra malen. 38 skalaer beholdes.
+7. november 2026. De to nye Excel-rettelsene er C7#9 til Half Whole
+Diminished og C7b13 til Mixolydian b6. Etter siste presisering får C13#9
+og C13add#9 Chromatic som fabrikkvalg. Alle 52 akkordtyper og 38 skalaer
+beholdes. Vanlig kommentering og farger er uendret.
 Tidligere pakker og testbevis er bevart som egne kontrollpunkt. Den nye
 instrumentrollen må kontrolleres i generisk VST3-vert og Windows-installasjon
 før publisering. Praktisk aksept i Ableton gjenstår til brukerens prøve.
@@ -18,7 +20,7 @@ En ny Windows-pakke publiseres etter kontrollene; den gamle 0.4.0-pakken
 har den bekreftede Live-feilen og er beholdt som historikk.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
-[versjonsnotatet](docs/RELEASE_0.4.1.md) og
+[versjonsnotatet](docs/RELEASE_0.4.2.md) og
 [brukerveiledningen](docs/BRUKERVEILEDNING.md) beskriver gjeldende løsning.
 Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
 
@@ -51,8 +53,8 @@ overskriftene **Scales with all chord tones** og **Chord tones outside
 scale**. Begge grupper følger parentfamilie og modusnummer. Uforenlige
 valg er merket og navngir manglende toner; de er fortsatt valgbare.
 
-[Brukerens fabrikkoppsett](docs/factory-settings/2026-11-07-user-values/README.md)
-inneholder alle 52 valgene fra kolonne E i den opplastede filen. Radene er
+[Brukerens fabrikkoppsett](docs/factory-settings/2026-11-07-user-values-final/README.md)
+inneholder alle 52 valgene fra filen med de to etterfølgende Chromatic-valgene. Radene er
 koblet etter stabile ID-er, og den opprinnelige arbeidsboken er bevart.
 Hver ny instans bruker disse fabrikkvalgene. Eksisterende lagret tilstand
 beholder sine egne tilordninger; Reset all 52 to factory bruker de nye
@@ -71,7 +73,7 @@ På et annet MIDI-/instrumentspor velges Flysnapper-sporet i øverste
 **MIDI From**, og den pluginspesifikke **Flysnapper MIDI**-oppføringen i
 feltet under. Mottakersporet trenger Monitor In, eller Auto med opptaksarm.
 Dette er samme type MIDI-utgangsruting som brukeren tidligere fikk til.
-0.4.1 er ikke en native MIDI-effekt som kan plasseres foran et annet
+0.4.2 er ikke en native MIDI-effekt som kan plasseres foran et annet
 instrument på samme spor. Ingen Live-installasjon er tilgjengelig her;
 den nye binærfilens praktiske Live-aksept gjenstår til brukerprøven.
 CLAP, Max for Live og flere interne prosessorer er utsatt. Help og Guide

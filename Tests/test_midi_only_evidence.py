@@ -12,13 +12,16 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
     def verify(self):return e.verify(self.f.root,self.f.dist,self.f.manifest)
     def test_exact_fixture_bindings_pass_without_claiming_native_execution(self):
         self.assertEqual(set(self.verify()),{e.MANIFEST}|{n for s in e.SPECS for n in s[2:4]})
+        self.assertEqual(e.VERSION,'0.4.2')
+        self.assertEqual(e.SCOPE['scales'],38)
+        self.assertEqual(e.SCOPE['chord_types'],52)
         self.assertEqual(e.SCOPE['host_device_role'],'instrument')
         self.assertIs(e.SCOPE['silent_audio_output'],True)
         self.assertIn('silent_stereo_audio_output',e.FEATURES)
         self.assertNotIn('zero_audio_buses',e.FEATURES)
         info=json.loads((self.f.bundle/'Contents/Resources/moduleinfo.json').read_text())
         self.assertEqual(info['Classes'][0]['Sub Categories'],['Instrument'])
-        self.assertEqual(info['Classes'][0]['Version'],'0.4.1')
+        self.assertEqual(info['Classes'][0]['Version'],'0.4.2')
     def test_source_mutation_and_extra_source_are_rejected(self):
         p=self.f.root/'Source/Core/MidiEngine.cpp';p.write_text('changed source')
         with self.assertRaisesRegex(ValueError,'source differs'):self.verify()
@@ -58,7 +61,7 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'exactly once'):self.verify()
     def test_old_component_identity_fx_role_and_version_are_rejected(self):
         p=self.f.bundle/'Contents/Resources/moduleinfo.json';original=json.loads(p.read_text())
-        for key,value in [('CID','ABCDEF019182FAEB466C797346736E31'),('Sub Categories',['Fx','Tools']),('Sub Categories',['Instrument','Fx']),('Sub Categories',['Instrument','Tools']),('Sub Categories',['Tools']),('Sub Categories',[]),('Version','0.4.0')]:
+        for key,value in [('CID','ABCDEF019182FAEB466C797346736E31'),('Sub Categories',['Fx','Tools']),('Sub Categories',['Instrument','Fx']),('Sub Categories',['Instrument','Tools']),('Sub Categories',['Tools']),('Sub Categories',[]),('Version','0.4.0'),('Version','0.4.1')]:
             x=copy.deepcopy(original);x['Classes'][0][key]=value
             with self.subTest(key=key),self.assertRaises(ValueError):e.module_info(json.dumps(x).encode())
     def test_juce_trailing_commas_do_not_rewrite_quoted_values(self):

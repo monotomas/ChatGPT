@@ -114,7 +114,7 @@ function Get-FlysnapperVerifiedPackage([string]$Root) {
     # The MIDI component retains its 0.4 identity, separate from the 0.3 product.
     $bundleName = 'Flysnapper.vst3'
     $binaryName = 'Contents/x86_64-win/Flysnapper.vst3'
-    if ([string]$manifest.version -eq '0.4.1') {
+    if ([string]$manifest.version -eq '0.4.2') {
         if ($manifest.bundle_name -ne 'Flysnapper MIDI.vst3' -or $manifest.product_name -ne 'Flysnapper MIDI' -or
             $build.bundle_name -ne 'Flysnapper MIDI.vst3' -or $build.product -ne 'Flysnapper MIDI' -or
             $build.pitch_detection_implemented -ne $false -or $build.audio_processing_implemented -ne $false -or

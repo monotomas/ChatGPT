@@ -51,14 +51,19 @@ void scaleCatalogAndMenus() {
     }};
     // These are the original parameter values, not positions in a new menu.
     for(size_t i=0;i<legacyIds.size();++i)CHECK(scaleIndexFromId(legacyIds[i])==int(i));
-    // User's uploaded52-row worksheet, independently mapped by stable IDs.
-    // These intentionally replace old provisional choices, including scales
-    // outside the nominal chord; containment must not rewrite user choices.
+    // User's corrected52-row worksheet and explicit chromatic sharp9-13 assignments,
+    // independently mapped by stable IDs.
+    // These replace old provisional choices. Both sharp9-thirteenth formulas
+    // use Chromatic as explicitly requested, with all52 formulas contained.
     constexpr std::array<int,52> userFactoryDefaults{{
-        1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,16,15,16,16,16,16,
-        16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,35,8,35,5,8,32,7,7
+        1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,13,15,21,16,16,16,
+        16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,0,8,35,5,0,32,7,7
     }};
     for(size_t i=0;i<userFactoryDefaults.size();++i)CHECK(factoryDefaults()[i]==userFactoryDefaults[i]);
+    CHECK(chordIndexFromId("dominant_sharp9")==20);
+    CHECK(chordIndexFromId("dominant_flat13")==22);
+    CHECK(chordIndexFromId("thirteenth_sharp9")==44);
+    CHECK(chordIndexFromId("thirteenth_add_sharp9")==48);
     CHECK(chordIndexFromId("major_thirteenth_sharp11")==50);
     CHECK(chordIndexFromId("major_ninth_sharp11")==51);
     const auto& definitions=scaleDefinitions();
@@ -140,10 +145,19 @@ void scaleCatalogAndMenus() {
     CHECK(chordToneMask(-1)==0&&chordToneMask(chordTypeCount)==0);
     CHECK(chordToneMask(50)==buffkiller::chordBits({0,2,4,6,7,9,11}));
     CHECK(chordToneMask(51)==buffkiller::chordBits({0,2,4,6,7,11}));
+    CHECK(chordToneMask(44)==buffkiller::chordBits({0,3,4,5,7,9,10}));
+    CHECK(chordToneMask(48)==buffkiller::chordBits({0,2,3,4,5,7,9,10}));
+    for(int scale=0;scale<scaleCount;++scale) {
+        // Both retained sharp9 formulas need the chromatic catalog option
+        // for complete containment. User assignments remain selectable.
+        CHECK(scaleContainsChord(scale,chordToneMask(44))==(scale==0));
+        CHECK(scaleContainsChord(scale,chordToneMask(48))==(scale==0));
+    }
     CHECK(!scaleContainsChord(-1,0)&&!scaleContainsChord(scaleCount,0));
     for(int type=0;type<chordTypeCount;++type){
         const auto mask=chordToneMask(type);
         if(type<50)CHECK(mask==buffkiller::correctedChordPatterns[size_t(type)].intervals);
+        CHECK(scaleContainsChord(factoryDefaults()[size_t(type)],mask));
         const auto actual=orderedScaleIndices(mask);std::array<int,scaleCount> expected{};size_t at=0;
         // Stable filtering of the independently specified parent/mode order
         // must produce both selectable groups, not remove incompatible scales.
@@ -326,7 +340,7 @@ void chordControlAndScales() {
     // Real new user defaults include high indices32/35 and the fractional-
     // normalization regression's index3. Test fresh core instances without
     // overriding their maps, including the packed GUI status high bit.
-    constexpr std::array<std::pair<int,int>,5> freshFactoryCases{{{43,35},{49,32},{33,3},{10,7},{31,7}}};
+    constexpr std::array<std::pair<int,int>,9> freshFactoryCases{{{43,35},{49,32},{33,3},{10,7},{31,7},{20,13},{22,21},{44,0},{48,0}}};
     for(const auto& expected:freshFactoryCases){
         Engine fresh;auto settings=fresh.settings();settings.mode=Mode::ChordScale;fresh.setSettings(settings);
         const auto formula=chordToneMask(expected.first);

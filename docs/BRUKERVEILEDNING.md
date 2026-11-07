@@ -1,6 +1,6 @@
-# Flysnapper MIDI 0.4.1 – brukerveiledning
+# Flysnapper MIDI 0.4.2 – brukerveiledning
 
-0.4.1 er en VST3-instrumentadapter som skal prøves i Ableton Live. Den har
+0.4.2 er en VST3-instrumentadapter som skal prøves i Ableton Live. Den har
 ingen audioinngang og sender bare stillhet på sin stereo audioutgang.
 Selve funksjonen er MIDI-til-MIDI: 52 akkordtyper, 38 skalaer og brukerens
 52 fabrikkvalg fra den utfylte Excel-filen. Pitch-to-MIDI og lydanalyse er
@@ -9,25 +9,29 @@ fjernet.
 Korrigert MIDI hentes fra Flysnapper til et separat instrumentspor.
 Denne utgaven er ikke dokumentert som en MIDI-effekt som kan seriekobles
 foran et annet instrument på samme Live-spor. Se
-[versjonsnotatet for 0.4.1](RELEASE_0.4.1.md) for gjeldende kontrollstatus.
+[versjonsnotatet for 0.4.2](RELEASE_0.4.2.md) for gjeldende kontrollstatus.
 Innlasting og ruting i brukerens Live 12.4.6 er fortsatt ikke bekreftet.
 
 ## Installasjon og pluginidentitet
 
-Bruk Windows-pakken merket 0.4.1. Pakk ut hele ZIP-filen, lukk
+Bruk Windows-pakken merket 0.4.2. Pakk ut hele ZIP-filen, lukk
 pluginvertene og kjør `INSTALL_FLYSNAPPER.bat`. Python, CMake og Visual
 Studio trengs ikke til normal installasjon. Ved manuell installasjon skal
 hele `Flysnapper MIDI.vst3`-bundlen kopieres, ikke bare filen inne i
 Contents. En Linux-modul kan ikke brukes som Windows-plugin.
 
-0.4.1 beholder navnet **Flysnapper MIDI** og samme Fsm1-komponentidentitet
+0.4.2 beholder navnet **Flysnapper MIDI** og samme Fsm1-komponentidentitet
 som 0.4.0. Den oppdaterer derfor denne bundlen. Gammel `Flysnapper.vst3`
 0.3.0 har en annen identitet og blir ikke overskrevet. Velg Flysnapper MIDI
-og kontroller versjon 0.4.1 ved utprøvingen.
+og kontroller versjon 0.4.2 ved utprøvingen.
 
 Musikalsk XML-tilstand bruker stabile akkord-/skala-ID-er. Dette er ikke et
 løfte om automatisk migrering av gamle prosjekter eller normalisert
 19-/31-valgsautomasjon til komponentens 38 skalavalg.
+
+Nye instanser og **Reset all 52 to factory** bruker de fire reviderte
+fabrikkvalgene: C7#9 → Half Whole Diminished, C7b13 → Mixolydian b6,
+C13#9 og C13add#9 → Chromatic. Lagrede tilordninger beholdes.
 
 ## Oppsettet som skal prøves i Live
 
@@ -124,5 +128,5 @@ En plugin kan ikke sende oppryddingshendelser etter at verten har fjernet den.
 Pluginen rapporterer null kompensasjonslatency og bruker ikke et
 analysevindu. Vertens buffere, ruting og mottakerinstrument kan likevel gi
 hørbar forsinkelse. Generiske VST3-tester og Windows-installasjonskontroller
-er ikke en praktisk Ableton-godkjenning. 0.4.1 skal vurderes i Live før
+er ikke en praktisk Ableton-godkjenning. 0.4.2 skal vurderes i Live før
 videre format- eller kjedeutvikling.

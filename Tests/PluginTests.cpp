@@ -148,6 +148,16 @@ void guiBeforeProcessing(){
 void gui(){
     FlysnapperProcessor p;p.prepareToPlay(48000,128);set(p,"mode",1);process(p,128,cChord());
     std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditor());check(editor!=nullptr,"editor creation failed");
+    for(const char* id:{"thirteenth_sharp9","thirteenth_add_sharp9"}) {
+        auto* choice=dynamic_cast<juce::ComboBox*>(find(*editor,"mapping_"+juce::String(id)));
+        auto* tones=dynamic_cast<juce::Label*>(find(*editor,"scaleTones_"+juce::String(id)));
+        auto* factory=dynamic_cast<juce::Label*>(find(*editor,"factory_"+juce::String(id)));
+        check(choice&&tones&&factory,"retained thirteenth row is missing");
+        check(choice->getSelectedId()==1&&get(p,"map_"+juce::String(id))==0,"both thirteenth factories must be Chromatic");
+        check(factory->getText()=="Factory: Chromatic"&&!tones->getText().contains("Outside scale:"),"Chromatic factory must use ordinary compatible-scale information");
+        check(find(*editor,"factoryExplanation_"+juce::String(id))==nullptr,"canceled exception text remains");
+    }
+    check(get(p,"map_dominant_sharp9")==13&&get(p,"map_dominant_flat13")==21,"the two workbook corrections are missing");
     auto* chord=dynamic_cast<juce::Label*>(find(*editor,"chordDisplay"));check(chord&&chord->getText().contains("C"),"chord display absent");check(chord->getFont().getHeight()>=32&&chord->getHeight()>=60,"chord display too small");
     for(const char* old:{"pitchEnabled","pitchMode","monoBend","bendRange","autoInput","mpeOutput","inputGate","sensitivity","releaseMs","inputCalibration","inputMeter","dynamicsTab","trackingTab","dynamicsEnabled"})check(find(*editor,old)==nullptr,"removed audio UI still present");
     auto* mode=dynamic_cast<juce::ComboBox*>(find(*editor,"correctionMode"));auto* fixed=dynamic_cast<juce::ComboBox*>(find(*editor,"fixedScale"));

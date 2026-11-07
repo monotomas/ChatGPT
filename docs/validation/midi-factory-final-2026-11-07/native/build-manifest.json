@@ -1,0 +1,43 @@
+{
+  "version": "0.4.2",
+  "product": "Flysnapper MIDI",
+  "bundle_name": "Flysnapper MIDI.vst3",
+  "stage": "midi-only-native-validation",
+  "evaluation_scope": {
+    "feature_set": "midi-to-midi-only",
+    "audio_processing": false,
+    "pitch_to_midi": false,
+    "scales": 38,
+    "chord_types": 52,
+    "host_device_role": "instrument",
+    "silent_audio_output": true,
+    "host_scope": "native-processor-and-compiled-vst3-test-host",
+    "ableton_verified": false
+  },
+  "builder_revision": "2026.11.07-midi-instrument-adapter",
+  "platform": "Linux-x86_64",
+  "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
+  "built_at": "2026-11-07T20:19:49.590704+00:00",
+  "python": "3.12.14",
+  "source_commit": null,
+  "vst3_sha256": "44ddc3f8ef92a78839bc0482688d55dc47b8c80bbe6aa22b04b91cbbbb434d58",
+  "bundle_sha256": {
+    "Contents/Resources/moduleinfo.json": "871b22d6b6035bc8ff718382b2cc42e1d9fbdd8897fd4f6e2fe4b2a59e0458e5",
+    "Contents/x86_64-linux/Flysnapper MIDI.so": "44ddc3f8ef92a78839bc0482688d55dc47b8c80bbe6aa22b04b91cbbbb434d58"
+  },
+  "tests": "passed",
+  "required_test_names": [
+    "FlysnapperActualVst3",
+    "FlysnapperCore",
+    "FlysnapperMidiOnlyProcessor",
+    "FlysnapperPluginSmoke"
+  ],
+  "ableton_verified": false,
+  "pitch_detection_implemented": false,
+  "audio_processing_implemented": false,
+  "windows_verified": false,
+  "midi_only_evidence": {
+    "path": "midi-validation/report-manifest.json",
+    "sha256": "6203981b1db99ea0b27a88c56254897866f1bbf20bf4284cb5669229059cbcd3"
+  }
+}

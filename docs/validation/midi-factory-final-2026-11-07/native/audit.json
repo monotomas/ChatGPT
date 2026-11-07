@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "version": "0.4.2",
+  "selected_input_count": 21,
+  "selected_inputs_unchanged": true,
+  "module_sha256": "44ddc3f8ef92a78839bc0482688d55dc47b8c80bbe6aa22b04b91cbbbb434d58",
+  "factory_mapping_sha256": "8372f68334a1ed37e09500c0b527151a73fa6c18988fd0a972bf933bc3fd779e",
+  "reports": {
+    "Flysnapper-midi-processor-evaluation.json": {
+      "status": "passed",
+      "checks": 120459,
+      "events_rows": 2387,
+      "audio_input_channels": 0,
+      "audio_output_channels": 2,
+      "audio_output_silent": true,
+      "factory_mapping_sha256": "8372f68334a1ed37e09500c0b527151a73fa6c18988fd0a972bf933bc3fd779e",
+      "cases": 15
+    },
+    "Flysnapper-midi-vst3-evaluation.json": {
+      "status": "passed",
+      "checks": 5642,
+      "events_rows": 1128,
+      "audio_input_channels": 0,
+      "audio_output_channels": 2,
+      "audio_output_silent": true,
+      "factory_mapping_sha256": "8372f68334a1ed37e09500c0b527151a73fa6c18988fd0a972bf933bc3fd779e",
+      "cases": 23
+    }
+  },
+  "scope": {
+    "feature_set": "midi-to-midi-only",
+    "audio_processing": false,
+    "pitch_to_midi": false,
+    "scales": 38,
+    "chord_types": 52,
+    "host_device_role": "instrument",
+    "silent_audio_output": true,
+    "host_scope": "native-processor-and-compiled-vst3-test-host",
+    "ableton_verified": false
+  },
+  "actual_live_executed": false,
+  "windows_0_4_2_built": false
+}

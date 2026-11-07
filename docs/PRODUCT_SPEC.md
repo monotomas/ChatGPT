@@ -1,24 +1,25 @@
-# Flysnapper MIDI – gjeldende produktoppdrag 0.4.1
+# Flysnapper MIDI – gjeldende produktoppdrag 0.4.2
 
 Brukeren har valgt å prøve den eksisterende Flysnapper som **VST3
 Instrument med audioutgang** før videre arbeid med en ren MIDI-effekt
 eller alternative formater. Denne presiseringen går foran tidligere
 påstander om null audiobusser eller samme-spor-kjeding i Live. Se
-[versjonsnotatet](RELEASE_0.4.1.md) og
+[versjonsnotatet](RELEASE_0.4.2.md) og
 [brukerveiledningen](BRUKERVEILEDNING.md).
 
 ## Gjeldende leveranse
 
-0.4.1 heter Flysnapper MIDI og beholder Fsm1-identiteten og bundlen
+0.4.2 heter Flysnapper MIDI og beholder Fsm1-identiteten og bundlen
 `Flysnapper MIDI.vst3` fra 0.4.0. Vertskategorien er Instrument, med ingen
 audioinngang og én stille stereo audioutgang. Audioutgangen er en
 vertsadapter; pluginen inneholder ingen synthesizer, pitchdetektor,
 sidechain eller audio-DSP. 0.3.0 har separat pluginidentitet.
 
-MIDI-algoritmen og brukerdataene beholdes: 52 akkordtyper, 38 skalaer og
-samtlige 52 fabrikkvalg fra den utfylte Excel-filen. De 20 endringene og
-de fire valgene uten alle nominelle akkordtoner skal ikke normaliseres
-bort. Den bevarte [brukerfilen og mappingen](factory-settings/2026-11-07-user-values/README.md)
+Alle 52 akkordtyper, 38 skalaer og eksisterende MIDI-regler beholdes.
+Fire fabrikkvalg er rettet etter ny Excel-fil og siste tekstvalg: C7#9
+bruker Half Whole Diminished, C7b13 bruker Mixolydian b6, og både C13#9
+og C13add#9 bruker Chromatic. Ingen farge-/tekstunntak innføres. Den
+bevarte [brukerfilen og mappingen](factory-settings/2026-11-07-user-values-final/README.md)
 er referansen. De to tilføyde akkordene er CMaj13#11 = C D E F# G A B og
 CMaj9#11 = C D E F# G B. De sju Harmonic Major-modusene inngår i de 38
 skalaene. Eksisterende råindekser og stabile ID-er beholdes.

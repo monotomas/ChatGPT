@@ -44,13 +44,15 @@ std::ostringstream csv;
 int64_t eventRows = 0;
 int64_t silentOutputSamplesChecked = 0;
 unsigned bypassSilenceCallbacks = 0;
-// Independently audited user workbook, canonical ordered mapping digest
-// 146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814.
+// Independent approved52-row factory oracle: the corrected workbook changes
+// C7#9 and C7b13; the user's final instruction assigns both C13#9 variants
+// (C13#9 and the distinct C13add#9) to Chromatic.
+constexpr const char* factoryMappingSha256="8372f68334a1ed37e09500c0b527151a73fa6c18988fd0a972bf933bc3fd779e";
 // This literal is an external factory-preset expectation, not a copy read
 // back from the runtime defaults under test.
 constexpr std::array<int,52> userFactoryChoices{{
-    1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,16,15,16,16,16,16,
-    16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,35,8,35,5,8,32,7,7
+    1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,13,15,21,16,16,16,
+    16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,0,8,35,5,0,32,7,7
 }};
 
 void check(bool value, const std::string& message) {
@@ -455,6 +457,38 @@ void chordControlAndInternalBypass() {
     passed("chord_tracking_during_internal_off", "MIDI delivered to callbacks: channel16, same-sample priority and held notes; re-enable mid-chord needs no new chord event");
 }
 
+void revisedFactoryChoices() {
+    struct Reference {
+        const char* id;
+        Stream input;
+        int type,scale,played;
+        uint16_t chordMask,allowedMask;
+    };
+    const std::array<Reference,4> references{{
+        {"dominant_sharp9",chord({48,51,52,55,58},true,7),20,13,67,0x499,0x6db},
+        {"dominant_flat13",chord({48,52,55,56,58},true,7),22,21,62,0x591,0x5b5},
+        {"thirteenth_sharp9",chord({48,51,52,53,55,57,58},true,7),44,0,63,0x6b9,0xfff},
+        {"thirteenth_add_sharp9",chord({48,50,51,52,53,55,57,58},true,7),48,0,63,0x6bd,0xfff}
+    }};
+    for(const auto& reference:references) {
+        Harness h(std::string("revised_factory_")+reference.id);auto& p=*h.processor;
+        check(flysnapper::chordIndexFromId(reference.id)==reference.type,"A retained chord ID moved from its original position");
+        check(userFactoryChoices[size_t(reference.type)]==reference.scale,"Independent revised factory oracle changed");
+        // Only the operating mode is set. The musical assignment is the
+        // genuine fresh factory value, never a setter-generated fixture.
+        set(p,"mode",1);auto input=reference.input;input.emplace_back(23,on(reference.played));
+        expectNote(h.process(128,input),true,reference.played,23);
+        const auto snapshot=p.getSnapshot();
+        check(snapshot.root==0&&snapshot.typeIndex==reference.type&&snapshot.chordMask==reference.chordMask
+              &&snapshot.effectiveScale==reference.scale&&snapshot.allowedMask==reference.allowedMask,
+              "Actual callback did not use the revised factory assignment for the retained chord type");
+        expectNote(h.process(128,{{41,off(reference.played)}}),false,reference.played,41);
+        p.requestPanic();h.process(128);h.released();
+    }
+    feature("revised_user_factory_defaults");
+    passed("revised_four_factory_assignments", "Untouched52-type factory callbacks: C7#9 Half Whole Diminished retains G, C7b13 Melodic Minor5 retains D, and distinct C13#9/C13add#9 Chromatic assignments retain Eb; each note distinguishes its previous assignment and all offsets/releases remain balanced");
+}
+
 void newSharpEleventhChordTypes() {
     struct Reference {
         const char* id;
@@ -712,6 +746,7 @@ void routingPulseDoesNotOwnExternalNote() {
 void writeEvidence(const char* status, const juce::String& error = {}) {
     auto* object = new juce::DynamicObject;
     object->setProperty("schema", 1); object->setProperty("kind", "FlysnapperMidiOnlyProcessor");
+    object->setProperty("version","0.4.2");object->setProperty("factory_mapping_sha256",factoryMappingSha256);
     object->setProperty("status", status); object->setProperty("checks", int(checks)); object->setProperty("cases", cases);
     object->setProperty("events_file", "Flysnapper-midi-processor-events.csv"); object->setProperty("events_rows", juce::int64(eventRows));
     juce::Array<juce::var> rawCases;
@@ -743,7 +778,7 @@ int main() {
     try {
         juce::ScopedJuceInitialiser_GUI runtime;
         declarationsAndState(); normalisedChoiceCoverage(); freshConstructorChoiceRounding(); harmonicMajorCallbackCoverage();
-        chordControlAndInternalBypass(); newSharpEleventhChordTypes(); threeStageChain(); chordTimeAndHeldBindings();
+        chordControlAndInternalBypass(); revisedFactoryChoices(); newSharpEleventhChordTypes(); threeStageChain(); chordTimeAndHeldBindings();
         relayChangesAndConditionalBypass(); rawMessagesSustainAndPanic(); transportLimitsAndRealtime(); routingPulseDoesNotOwnExternalNote();
         writeEvidence("passed");
         std::cout << "FlysnapperMidiOnlyProcessor: PASS (" << checks << " checks, " << cases.size() << " cases; no Ableton verification).\n";

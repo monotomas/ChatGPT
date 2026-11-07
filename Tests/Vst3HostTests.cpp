@@ -166,12 +166,13 @@ constexpr std::array<const char*, 52> chordIds{{
     "minor_major_thirteenth", "thirteenth_flat9", "thirteenth_sharp9", "thirteenth_sus4", "thirteenth_sus4_flat9",
     "minor_thirteenth", "thirteenth_add_sharp9", "minor_thirteenth_flat5", "major_thirteenth_sharp11", "major_ninth_sharp11"
 }};
-// External oracle from the user's edited workbook, in stable chord-ID order.
+// External oracle from the user's edited workbook plus the four explicit
+// factory revisions; all52 stable chord IDs and their order are retained.
 // Canonical mapping SHA256 (not derived from the runtime Core defaults):
-constexpr const char* factoryMappingSha256 = "146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814";
+constexpr const char* factoryMappingSha256 = "8372f68334a1ed37e09500c0b527151a73fa6c18988fd0a972bf933bc3fd779e";
 constexpr std::array<int, 52> userFactoryChoices{{
-    1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,16,15,16,16,16,16,
-    16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,35,8,35,5,8,32,7,7
+    1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,13,15,21,16,16,16,
+    16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,0,8,35,5,0,32,7,7
 }};
 void expectUserFactoryChoices(juce::AudioPluginInstance& p, bool declaredDefaults) {
     for (size_t i = 0; i < chordIds.size(); ++i) {
@@ -188,7 +189,7 @@ void expectUserFactoryChoices(juce::AudioPluginInstance& p, bool declaredDefault
 
 void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     check(d.isInstrument, "Actual VST3 must be classified as an instrument");
-    check(d.version == "0.4.1", "Actual VST3 must report version 0.4.1");
+    check(d.version == "0.4.2", "Actual VST3 must report version 0.4.2");
     const auto categories = juce::StringArray::fromTokens(d.category, "|", "");
     check(categories.size()==1 && categories.contains("Instrument"),
           "Actual VST3 metadata must contain exactly Instrument, without Fx/Tools");
@@ -292,6 +293,38 @@ void testUserFactoryState(juce::AudioPluginFormatManager& formats, const juce::P
         check(midi.isEmpty() && copied.isEmpty(), "Factory chord controls leaked to the instrument");
     }
     features.add("user_factory_defaults");
+}
+void testRevisedFactoryPitches(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    for (int fixture = 0; fixture < 4; ++fixture) {
+        Session s(formats, d, "revised_factory_" + juce::String(fixture));
+        setChoice(*s.plugin, "Mode", 1); s.flushControls();
+        juce::MidiBuffer midi;
+        if (fixture == 0) chord(midi, true, {48, 51, 52, 55, 58}, 7);       // C7#9.
+        else if (fixture == 1) chord(midi, true, {48, 52, 55, 56, 58}, 7);  // C7b13.
+        else if (fixture == 2) chord(midi, true, {48, 51, 52, 53, 55, 57, 58}, 7); // C13#9, original type44.
+        else chord(midi, true, {48, 50, 51, 52, 53, 55, 57, 58}, 7);     // C13add#9, original type48.
+        // No assignment setter is used. G is retained by Half-Whole but
+        // would move under the old Altered choice. D is retained by Melodic
+        // Minor mode5 but not Altered. Eb remains unchanged for both retained
+        // thirteenth types with Chromatic; their previous choices excluded it.
+        const int input = fixture == 0 ? 67 : fixture == 1 ? 62 : 63;
+        midi.addEvent(juce::MidiMessage::noteOn(1, input, juce::uint8(91 + fixture)), 23);
+        midi.addEvent(juce::MidiMessage::noteOff(1, input), 47);
+        const auto out = s.process(midi);
+        check(out.size() == 2, "Revised factory assignment lost a MIDI lifecycle");
+        expectNote(out, 0, true, input, 23, 1, 91 + fixture);
+        expectNote(out, 1, false, input, 47);
+        midi.clear();
+        if (fixture == 0) chord(midi, false, {48, 51, 52, 55, 58}, 55);
+        else if (fixture == 1) chord(midi, false, {48, 52, 55, 56, 58}, 55);
+        else if (fixture == 2) chord(midi, false, {48, 51, 52, 53, 55, 57, 58}, 55);
+        else chord(midi, false, {48, 50, 51, 52, 53, 55, 57, 58}, 55);
+        s.process(midi); check(midi.isEmpty(), "Revised factory chord controls leaked to the receiver");
+    }
+    features.add("revised_factory_7sharp9_half_whole");
+    features.add("revised_factory_7flat13_melodic_minor5");
+    features.add("revised_factory_13sharp9_chromatic");
+    features.add("revised_factory_13addsharp9_chromatic");
 }
 void testRouting(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d, double rate, int block) {
     Session s(formats, d, "routing_" + juce::String(rate, 0) + "_" + juce::String(block), rate, block);
@@ -659,7 +692,7 @@ void writeEvidence(const juce::File& directory, bool passed, const juce::String&
     check(events.replaceWithText(csv), "Could not write VST3 MIDI events");
     auto* object = new juce::DynamicObject;
     object->setProperty("schema", 1); object->setProperty("kind", "FlysnapperMidiOnlyVst3");
-    object->setProperty("version", "0.4.1");
+    object->setProperty("version", "0.4.2");
     object->setProperty("status", passed ? "passed" : "failed"); object->setProperty("checks", assertions);
     object->setProperty("scope", "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver");
     object->setProperty("ableton_verified", false); object->setProperty("pitch_detection_implemented", false);
@@ -691,6 +724,7 @@ int run(int argc, const juce::String& path, const juce::String& output) {
         check(descriptions.size() == 1 && descriptions[0]->name == "Flysnapper MIDI", "Actual discovery returned the wrong class");
         const auto& d = *descriptions[0]; runCase("module_contract", [&] { testModule(formats, d); });
         runCase("user_factory_defaults_and_fresh_state", [&] { testUserFactoryState(formats, d); });
+        runCase("four_revised_factory_assignments", [&] { testRevisedFactoryPitches(formats, d); });
         for (double rate : {44100., 48000., 96000.}) for (int block : {32, 128, 257})
             runCase("routing_" + juce::String(rate, 0) + "_" + juce::String(block), [&] { testRouting(formats, d, rate, block); });
         features.add("note_sample_offsets");
