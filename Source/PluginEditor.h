@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-// Palette and control styling adapted from the supplied Buffkiller reference.
+// MIDI-only Flysnapper editor. Visual conventions follow the Buffkiller reference.
 #pragma once
 #include <juce_audio_processors/juce_audio_processors.h>
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <array>
+#include <functional>
 #include <memory>
 #include <vector>
 
@@ -12,16 +13,21 @@ class FlysnapperProcessor;
 class FlysnapperLook final : public juce::LookAndFeel_V4 {
 public:
     FlysnapperLook();
-    void drawToggleButton(juce::Graphics&, juce::ToggleButton&, bool, bool) override;
-    void drawRotarySlider(juce::Graphics&, int, int, int, int, float, float, float, juce::Slider&) override;
+    void drawToggleButton(juce::Graphics&,juce::ToggleButton&,bool,bool) override;
 };
 
-class FlysnapperInputMeter final : public juce::Component {
+// Scale menu order depends on the chord. Item IDs retain the parameter's
+// stable scale index; JUCE's stock ComboBoxAttachment uses visible positions.
+class FlysnapperScaleAttachment final : private juce::ComboBox::Listener {
 public:
-    void setLevel(float decibels);
-    void paint(juce::Graphics&) override;
+    FlysnapperScaleAttachment(juce::RangedAudioParameter&,juce::ComboBox&,
+                             std::function<void()> onChange={});
+    ~FlysnapperScaleAttachment() override;
 private:
-    float levelDb=-120.0f;
+    void comboBoxChanged(juce::ComboBox*) override;
+    juce::ComboBox& box;
+    std::function<void()> changed;
+    juce::ParameterAttachment attachment;
 };
 
 class FlysnapperMappingTable final : public juce::Component {
@@ -30,13 +36,16 @@ public:
     void setHelp(bool);
     void resized() override;
     void paint(juce::Graphics&) override;
+    static constexpr int rowHeight=86, chordColumnWidth=276;
 private:
-    std::array<juce::Label, 50> names, defaults;
-    std::array<juce::ComboBox, 50> choices;
-    std::array<std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment>, 50> attachments;
+    void updateRow(size_t);
+    std::array<juce::Label,50> names,chordTones,scaleTones,defaults;
+    std::array<juce::ComboBox,50> choices;
+    std::array<std::unique_ptr<FlysnapperScaleAttachment>,50> attachments;
+    bool helpEnabled=true;
 };
 
-class FlysnapperEditor final : public juce::AudioProcessorEditor, private juce::Timer {
+class FlysnapperEditor final : public juce::AudioProcessorEditor,private juce::Timer {
 public:
     explicit FlysnapperEditor(FlysnapperProcessor&);
     ~FlysnapperEditor() override;
@@ -45,50 +54,34 @@ public:
 private:
     void timerCallback() override;
     void setBackVisible(bool);
+    void setGuideVisible(bool);
     void resetMappings();
     void showRoutingHelp();
-    void setDynamicsVisible(bool);
-    void setGuideVisible(bool);
     void addTip(juce::SettableTooltipClient&,const juce::String&);
     void setHelp(bool);
     float parameter(const char*) const;
     FlysnapperProcessor& processor;
     FlysnapperLook look;
-    juce::TooltipWindow tooltips{this, 400};
-    juce::Component front, trackingControls, dynamicsControls, guidePanel;
-    juce::Label title, byline, version, chord, activeScale, chordStatus, allowedTitle;
-    juce::Label pitchTitle, sidechain, detectedNotes, tuning, midiTitle, modeTitle, rootTitle, scaleTitle;
-    juce::Label activity, eventStatus, warning, footer, backTitle, backDescription, midiRouting;
-    juce::Label gateTitle, sensitivityTitle, releaseTitle;
-    juce::Label calibrationStatus, dynamicsSummary, guideTitle;
-    std::array<juce::Label, 12> notes;
-    std::array<juce::Label,9> dynamicsTitles;
-    std::array<juce::Slider,9> dynamicsKnobs;
-    juce::ComboBox mode, root, scale, pitchMode, bendRange;
-    juce::ToggleButton correction{"Correction enabled"}, pitchEnabled{"Audio to MIDI"}, monoBend{"Mono pitch bend"};
-    juce::ToggleButton autoInput{"Automatic input"}, mpeOutput{"MPE output"};
-    juce::ToggleButton dynamicsEnabled{"Input dynamics"}, help{"Help"};
-    juce::Slider inputGate, sensitivity, release;
-    FlysnapperInputMeter inputMeter;
-    juce::TextButton flip{"Chord / scale setup"}, panic{"Panic"};
-    juce::TextButton routingHelp{"Audio / MIDI routing"};
-    juce::TextButton trackingTab{"Tracking"}, dynamicsTab{"Input dynamics"}, calibrate{"Learn / 20 seconds"};
-    juce::TextButton guide{"Guide"}, guideClose{"Back to controls"};
+    juce::TooltipWindow tooltips{this,400};
+    juce::Component front,guidePanel;
+    juce::Label title,byline,version,chord,activeScale,chordTones,chordStatus,allowedTitle;
+    juce::Label midiTitle,modeTitle,rootTitle,scaleTitle,fixedScaleTones,midiRouting;
+    juce::Label activity,eventStatus,warning,footer,backTitle,backDescription,backTip,guideTitle;
+    std::array<juce::Label,12> notes;
+    juce::ComboBox mode,root,scale;
+    juce::ToggleButton correction{"Note Correction"},chordThru{"Chord MIDI Through"},help{"Help"};
+    juce::TextButton flip{"Chord / scale setup"},panic{"Panic"},routingHelp{"MIDI routing"};
+    juce::TextButton guide{"Guide"},guideClose{"Back to controls"},restore{"Reset all 50 to factory"};
     juce::TextEditor guideText;
-    double calibrationProgress=0;
-    juce::ProgressBar calibrationProgressBar{calibrationProgress};
-    juce::TextButton restore{"Reset all 50 to factory"};
     juce::Viewport viewport;
     FlysnapperMappingTable mappingTable;
-    std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> correctionAttachment, pitchEnabledAttachment, monoBendAttachment, autoInputAttachment, mpeOutputAttachment, dynamicsEnabledAttachment, helpAttachment;
-    std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> modeAttachment, rootAttachment, scaleAttachment, pitchModeAttachment, bendRangeAttachment;
-    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> gateAttachment, sensitivityAttachment, releaseAttachment;
-    std::array<std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment>,9> dynamicsAttachments;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> correctionAttachment,chordThruAttachment,helpAttachment;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> modeAttachment,rootAttachment;
+    std::unique_ptr<FlysnapperScaleAttachment> scaleAttachment;
     std::vector<std::pair<juce::SettableTooltipClient*,juce::String>> tips;
-    bool backVisible = false;
-    bool dynamicsVisible=false, guideVisible=false, helpState=true, calibrationRunning=false;
-    unsigned previousOutputCount = 0;
-    int activityTicks = 0;
-    juce::Rectangle<int> chordPanel, pitchPanel, midiPanel;
+    bool backVisible=false,guideVisible=false,helpState=true;
+    unsigned previousOutputCount=0;
+    int activityTicks=0;
+    juce::Rectangle<int> chordPanel,midiPanel;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FlysnapperEditor)
 };

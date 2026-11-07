@@ -1,0 +1,34 @@
+{
+  "scope": "Exact standalone command retained after its successful execution; native CMake/GUI/module tests are separate",
+  "cwd": "/workspace/ChatGPT",
+  "compile_argv": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-I",
+    "Source",
+    "Tests/CoreTests.cpp",
+    "Source/Core/MusicData.cpp",
+    "Source/Core/MidiEngine.cpp",
+    "-o",
+    "/tmp/flysnapper-midi-core-nov7/CoreTests"
+  ],
+  "compile_exit_code": 0,
+  "run_argv": [
+    "/tmp/flysnapper-midi-core-nov7/CoreTests"
+  ],
+  "run_exit_code": 0,
+  "compiler_version_observed_after_run": "g++ (Debian 14.2.0-19) 14.2.0",
+  "excluded_binary": {
+    "path": "/tmp/flysnapper-midi-core-nov7/CoreTests",
+    "sha256": "9c5f1bb37ab03a32918d7eb2bf2f1fb253cc6420e6d67fda5117931545b7ea99",
+    "bytes": 1127952
+  },
+  "assertions": 2140697,
+  "suites": 6,
+  "allocation_check_iterations": 10000,
+  "allocation_calls": 0
+}

@@ -53,6 +53,25 @@ class PackagingTests(unittest.TestCase):
                 expected, name = line.split("  ", 1)
                 self.assertEqual(hashlib.sha256((destination / prefix / name).read_bytes()).hexdigest(), expected)
 
+    def test_current_midi_evidence_is_included_without_historical_research_bloat(self):
+        files={
+            "docs/validation/old-guitar/archive.bin": b"historical retained only in Git",
+            "docs/validation/old-summary.json": b"historical aggregate",
+            "docs/research/old-model/notes.txt": b"historical research retained only in Git",
+            "docs/validation/midi-only-2026-11-07/report.json": b"current MIDI proof",
+            "docs/handover/Original.zip": b"original user attachment",
+        }
+        for name,data in files.items():
+            p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+        package.build_package(self.root,self.output)
+        with ZipFile(self.output) as z:
+            names=set(z.namelist());prefix=package.PACKAGE_ROOT+"/"
+            for name in ("docs/validation/midi-only-2026-11-07/report.json","docs/handover/Original.zip"):
+                self.assertIn(prefix+name,names)
+            for name in ("docs/validation/old-guitar/archive.bin","docs/validation/old-summary.json","docs/research/old-model/notes.txt"):
+                self.assertNotIn(prefix+name,names)
+            for name in files:self.assertEqual((self.root/name).read_bytes(),files[name])
+
     def test_deterministic_repeated_packages(self):
         package.build_package(self.root, self.output)
         first = self.output.read_bytes()

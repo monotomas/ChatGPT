@@ -38,10 +38,112 @@ void on(Engine& e,int n,Output& out,int t=0,Source src=Source::External,int chan
 }
 void off(Engine& e,int n,Output& out,int t=0,Source src=Source::External,int channel=1){e.noteOff(src,channel,n,0,t,out);}
 void chord(Engine& e,std::initializer_list<int> notes){e.clearChord();for(auto n:notes)e.chordNoteOn(n);e.refreshChord();}
+void scaleCatalogAndMenus() {
+    static_assert(scaleCount<=31,"Packed snapshots reserve five bits for scale index plus one");
+    constexpr std::array<const char*,19> legacyIds{{
+        "chromatic","ionian","aeolian","harmonic_minor","melodic_minor",
+        "dorian","phrygian","lydian","mixolydian","locrian","whole_tone",
+        "major_pentatonic","minor_pentatonic","diminished_half_whole",
+        "diminished_whole_half","lydian_dominant","altered","phrygian_dominant","minor_blues"
+    }};
+    // These are the original parameter values, not positions in a new menu.
+    for(size_t i=0;i<legacyIds.size();++i)CHECK(scaleIndexFromId(legacyIds[i])==int(i));
+    constexpr std::array<int,50> legacyDefaults{{
+        1,2,1,1,11,8,1,5,1,8,1,5,4,9,14,8,17,15,16,17,16,15,16,16,16,
+        16,16,4,3,7,8,1,5,4,8,15,8,1,5,9,8,1,4,13,13,8,17,5,13,9
+    }};
+    CHECK(factoryDefaults()==legacyDefaults);
+    const auto& definitions=scaleDefinitions();
+    const auto checkModes=[&](int family,const std::array<int,7>& parent){
+        std::array<bool,7> found{};int count=0;
+        for(const auto& definition:definitions)if(definition.familyOrder==family){
+            CHECK(definition.modeOrder>=1&&definition.modeOrder<=7);
+            const size_t mode=size_t(definition.modeOrder-1);CHECK(!found[mode]);found[mode]=true;++count;
+            uint16_t expected=0;for(const int tone:parent)expected=uint16_t(expected|(1u<<((tone-parent[mode]+12)%12)));
+            CHECK(definition.mask==expected);CHECK(buffkiller::chordBitCount(definition.mask)==7);
+        }
+        CHECK(count==7);for(bool present:found)CHECK(present);
+    };
+    checkModes(1,{{0,2,4,5,7,9,11}});
+    checkModes(2,{{0,2,3,5,7,9,11}}); // Jazz melodic minor, same both directions.
+    checkModes(4,{{0,2,3,5,7,8,11}});
+    const auto exact=[&](const char* id,std::initializer_list<int> tones){
+        const int index=scaleIndexFromId(id);CHECK(index>=0);
+        CHECK(definitions[size_t(index)].mask==buffkiller::chordBits(tones));
+    };
+    exact("chromatic",{0,1,2,3,4,5,6,7,8,9,10,11});
+    exact("bebop_dominant",{0,2,4,5,7,9,10,11});
+    exact("bebop_major",{0,2,4,5,7,8,9,11});
+    exact("bebop_dorian",{0,2,3,5,7,9,10,11});
+    exact("diminished_half_whole",{0,1,3,4,6,7,9,10});
+    exact("diminished_whole_half",{0,2,3,5,6,8,9,11});
+    exact("whole_tone",{0,2,4,6,8,10});
+    exact("major_pentatonic",{0,2,4,7,9});
+    exact("minor_pentatonic",{0,3,5,7,10});
+    exact("minor_blues",{0,3,5,6,7,10});
+    constexpr std::array<const char*,7> melodicNames{{
+        "Melodic Minor 1","Mel. Min. 2: Dorian ♭2 (Phrygian ♮6)",
+        "Mel. Min. 3: Lydian Augmented (Lydian ♯5)","Mel. Min. 4: Lydian Dominant",
+        "Mel. Min. 5: Mixolydian ♭6 (Hindu)",
+        "Mel. Min. 6: Aeolian ♭5 (Locrian ♮2 / Half Dim.)",
+        "Mel. Min. 7: Altered (Super Locrian)"
+    }};
+    for(const auto& definition:definitions){
+        CHECK(definition.mask>0&&definition.mask<=0xfff&&(definition.mask&1));
+        CHECK(definition.familyOrder>=0&&definition.familyOrder<=9);
+        if(definition.familyOrder==2)CHECK(std::string(definition.name)==melodicNames[size_t(definition.modeOrder-1)]);
+    }
+    // The requested display contract is explicit and independent of persisted
+    // array order. This also checks ordering between scale parent families.
+    constexpr std::array<const char*,31> globalIds{{
+        "chromatic","ionian","dorian","phrygian","lydian","mixolydian","aeolian","locrian",
+        "melodic_minor","melodic_minor_2","melodic_minor_3","lydian_dominant",
+        "melodic_minor_5","melodic_minor_6","altered",
+        "bebop_dominant","bebop_major","bebop_dorian",
+        "harmonic_minor","harmonic_minor_2","harmonic_minor_3","harmonic_minor_4",
+        "phrygian_dominant","harmonic_minor_6","harmonic_minor_7",
+        "diminished_half_whole","diminished_whole_half","whole_tone",
+        "major_pentatonic","minor_pentatonic","minor_blues"
+    }};
+    const auto global=orderedScaleIndices();
+    for(size_t i=0;i<global.size();++i)CHECK(std::string(definitions[size_t(global[i])].id)==globalIds[i]);
+    CHECK(chordToneMask(-1)==0&&chordToneMask(50)==0);
+    CHECK(!scaleContainsChord(-1,0)&&!scaleContainsChord(scaleCount,0));
+    for(int type=0;type<chordTypeCount;++type){
+        const auto mask=chordToneMask(type);CHECK(mask==buffkiller::correctedChordPatterns[size_t(type)].intervals);
+        const auto actual=orderedScaleIndices(mask);std::array<int,scaleCount> expected{};size_t at=0;
+        // Stable filtering of the independently specified parent/mode order
+        // must produce both selectable groups, not remove incompatible scales.
+        for(bool compatible:{true,false})for(const char* id:globalIds){
+            const int index=scaleIndexFromId(id);CHECK(index>=0);
+            const bool contains=(definitions[size_t(index)].mask&mask)==mask;
+            if(contains==compatible)expected[at++]=index;
+        }
+        CHECK(at==size_t(scaleCount)&&actual==expected);
+        std::array<bool,scaleCount> seen{};
+        for(int index:actual){CHECK(index>=0&&index<scaleCount);CHECK(!seen[size_t(index)]);seen[size_t(index)]=true;}
+        for(bool present:seen)CHECK(present);
+        for(int index=0;index<scaleCount;++index)for(int root=0;root<12;++root){
+            const auto chordRotated=rotateMask(mask,root),scaleRotated=rotateMask(definitions[size_t(index)].mask,root);
+            CHECK(scaleContainsChord(index,mask)==((chordRotated&scaleRotated)==chordRotated));
+        }
+    }
+    // A C-major chord's compatible church modes precede the other modes,
+    // preserving mode numbers separately in both selectable groups.
+    std::array<std::string,7> majorModes{};size_t at=0;
+    for(int index:orderedScaleIndices(buffkiller::chordBits({0,4,7})))
+        if(definitions[size_t(index)].familyOrder==1)majorModes[at++]=definitions[size_t(index)].id;
+    CHECK(at==7);
+    CHECK((majorModes==std::array<std::string,7>{{"ionian","lydian","mixolydian","dorian","phrygian","aeolian","locrian"}}));
+    // The two bebop octatonic scales differ in exactly the specified added
+    // passing tone; no scale is silently aliased to another catalog entry.
+    CHECK(scaleIndexFromId("bebop_dominant")!=scaleIndexFromId("bebop_major"));
+}
 void dataAndRecognition() {
-    CHECK(scaleDefinitions().size()==19);CHECK(chordTypes().size()==50);
+    scaleCatalogAndMenus();
+    CHECK(scaleDefinitions().size()==31);CHECK(chordTypes().size()==50);
     std::set<std::string> ids;
-    for(int i=0;i<19;++i){CHECK(ids.insert(scaleDefinitions()[size_t(i)].id).second);CHECK(scaleIndexFromId(scaleDefinitions()[size_t(i)].id)==i);}
+    for(int i=0;i<scaleCount;++i){CHECK(ids.insert(scaleDefinitions()[size_t(i)].id).second);CHECK(scaleIndexFromId(scaleDefinitions()[size_t(i)].id)==i);}
     ids.clear();
     for(int i=0;i<50;++i){CHECK(ids.insert(chordTypes()[size_t(i)].id).second);CHECK(chordIndexFromId(chordTypes()[size_t(i)].id)==i);CHECK(factoryDefaults()[size_t(i)]>=0&&factoryDefaults()[size_t(i)]<19);}
     CHECK(scaleIndexFromId("missing")==-1);CHECK(chordIndexFromId("missing")==-1);
@@ -120,7 +222,7 @@ void chordControlAndScales() {
         e.clearChord();
         for(int pc=0;pc<12;++pc)if(mask&(1u<<pc))e.chordNoteOn(pc==root?36+pc:60+pc);
         e.refreshChord();const auto match=e.snapshot();CHECK(match.typeIndex>=0);
-        for(int scale=0;scale<19;++scale) {
+        for(int scale=0;scale<scaleCount;++scale) {
             s.chordScales[size_t(match.typeIndex)]=scale;e.setSettings(s);
             CHECK(e.snapshot().allowedMask==rotateMask(scaleDefinitions()[size_t(scale)].mask,match.root));
         }
@@ -145,6 +247,14 @@ void chordControlAndScales() {
     const auto fixed=unpackSnapshot(packSnapshot(e.snapshot()));
     CHECK(fixed.effectiveScale==18&&fixed.effectiveRoot==11&&fixed.mode==2&&fixed.correctionEnabled);
     CHECK(fixed.allowedMask==rotateMask(scaleDefinitions()[18].mask,11));
+    // Every appended scale survives settings, transposition and the packed
+    // GUI snapshot, including index30 which fills the five-bit field.
+    for(int scale=0;scale<scaleCount;++scale)for(int root=0;root<12;++root){
+        s.scale=scale;s.root=root;e.setSettings(s);
+        const auto expanded=unpackSnapshot(packSnapshot(e.snapshot()));
+        CHECK(expanded.effectiveScale==scale&&expanded.effectiveRoot==root);
+        CHECK(expanded.allowedMask==rotateMask(scaleDefinitions()[size_t(scale)].mask,root));
+    }
     s.correctionEnabled=false;e.setSettings(s);
     const auto bypass=unpackSnapshot(packSnapshot(e.snapshot()));
     CHECK(!bypass.correctionEnabled&&bypass.allowedMask==0xfff&&bypass.effectiveScale==-1);
@@ -222,7 +332,7 @@ void boundedRealtime() {
     allocationCount=0;countAllocations=true;
     for(int iteration=0;iteration<10000;++iteration){
         o.clear();e.chordNoteOn(60);e.chordNoteOn(64);e.chordNoteOn(67);e.refreshChord();
-        auto s=e.settings();s.mode=Mode(iteration%3);s.root=iteration%12;s.scale=iteration%19;e.setSettings(s);
+        auto s=e.settings();s.mode=Mode(iteration%3);s.root=iteration%12;s.scale=iteration%scaleCount;e.setSettings(s);
         e.beginTimestamp(1);e.noteOn(Source::External,1,iteration%128,100,17,o);
         e.noteOn(Source::Generated,1,(iteration+3)%128,90,18,o);
         e.controller(Source::External,1,64,127,20,o);e.noteOff(Source::External,1,iteration%128,0,21,o);

@@ -106,18 +106,43 @@ function Get-FlysnapperVerifiedPackage([string]$Root) {
     $actual = Get-FlysnapperInventory $rootPath
     [void]$actual.Remove('release-manifest.json')
     Assert-FlysnapperMatchingInventory $actual $expected
-    $binaryPath = Join-Path $rootPath 'Flysnapper.vst3/Contents/x86_64-win/Flysnapper.vst3'
-    Assert-FlysnapperPE $binaryPath
     $build = Get-Content -LiteralPath (Join-Path $rootPath 'Validation/build-manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-    if ($build.platform -ne 'Windows-x64' -or $build.tests -ne 'passed' -or $build.windows_verified -ne $true -or $build.pitch_detection_implemented -ne $true -or $build.version -ne $manifest.version) {
+    if ($build.platform -ne 'Windows-x64' -or $build.tests -ne 'passed' -or $build.windows_verified -ne $true -or $build.version -ne $manifest.version) {
         throw 'Build proof does not match a complete Windows installation package.'
     }
+    # These are fixed product identities, never arbitrary manifest paths. The
+    # MIDI-only component is deliberately separate from the old instrument.
+    $bundleName = 'Flysnapper.vst3'
+    $binaryName = 'Contents/x86_64-win/Flysnapper.vst3'
+    if ([string]$manifest.version -eq '0.4.0') {
+        if ($manifest.bundle_name -ne 'Flysnapper MIDI.vst3' -or $manifest.product_name -ne 'Flysnapper MIDI' -or
+            $build.bundle_name -ne 'Flysnapper MIDI.vst3' -or $build.product -ne 'Flysnapper MIDI' -or
+            $build.pitch_detection_implemented -ne $false -or $build.audio_processing_implemented -ne $false -or
+            $build.stage -ne 'midi-only-native-validation' -or $build.ableton_verified -ne $false -or
+            $build.evaluation_scope.feature_set -ne 'midi-to-midi-only' -or
+            $build.evaluation_scope.scales -ne 31 -or $build.evaluation_scope.chord_types -ne 50) {
+            throw 'MIDI-only product identity or validation scope differs.'
+        }
+        if ($build.midi_only_evidence.path -ne 'midi-validation/report-manifest.json' -or
+            $build.midi_only_evidence.sha256 -notmatch '^[0-9a-f]{64}$' -or
+            (Get-FlysnapperFileHash (Join-Path $rootPath 'Validation/midi-validation/report-manifest.json')) -ne $build.midi_only_evidence.sha256) {
+            throw 'MIDI-only native execution proof differs.'
+        }
+        $bundleName = 'Flysnapper MIDI.vst3'
+        $binaryName = 'Contents/x86_64-win/Flysnapper MIDI.vst3'
+    } elseif ($build.pitch_detection_implemented -ne $true) {
+        throw 'Legacy instrument build proof is incomplete.'
+    }
+    $binaryPath = Join-Path (Join-Path $rootPath $bundleName) $binaryName
+    Assert-FlysnapperPE $binaryPath
+    $bundlePrefix = $bundleName + '/'
     $bundle = New-Object 'System.Collections.Generic.Dictionary[string,string]' ([StringComparer]::OrdinalIgnoreCase)
     foreach ($entry in $expected.GetEnumerator()) {
-        if ($entry.Key.StartsWith('Flysnapper.vst3/', [StringComparison]::Ordinal)) { $bundle.Add($entry.Key.Substring('Flysnapper.vst3/'.Length), $entry.Value) }
+        if ($entry.Key.StartsWith($bundlePrefix, [StringComparison]::Ordinal)) { $bundle.Add($entry.Key.Substring($bundlePrefix.Length), $entry.Value) }
     }
     if ($bundle.Count -eq 0) { throw 'The VST3 bundle is missing.' }
-    return @{ Root = $rootPath; Version = [string]$manifest.version; Bundle = $bundle }
+    return @{ Root = $rootPath; Version = [string]$manifest.version; Bundle = $bundle; BundleName = $bundleName }
+
 }
 function Copy-FlysnapperTree([string]$Source, [string]$DestinationPath) {
     Assert-FlysnapperNoLinks $Source
@@ -159,8 +184,8 @@ function Install-FlysnapperPackage([string]$Root, [string]$TargetDirectory, [str
     if (Test-FlysnapperWithin $backupRoot $destinationPath) { throw 'Backup directory must be outside the VST3 scan directory.' }
     Assert-FlysnapperNoLinks $backupRoot
     [IO.Directory]::CreateDirectory($destinationPath) | Out-Null
-    $target = Join-Path $destinationPath 'Flysnapper.vst3'
-    if ((Test-Path -LiteralPath $target) -and -not (Test-Path -LiteralPath $target -PathType Container)) { throw 'Flysnapper.vst3 exists as a file; no files were overwritten.' }
+    $target = Join-Path $destinationPath $package.BundleName
+    if ((Test-Path -LiteralPath $target) -and -not (Test-Path -LiteralPath $target -PathType Container)) { throw ($package.BundleName + ' exists as a file; no files were overwritten.') }
     Assert-FlysnapperNoLinks $target
     $id = [DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss-fffffff') + '-' + [Guid]::NewGuid().ToString('N')
     $stage = Join-Path $destinationPath ('.Flysnapper-install-' + $id)
@@ -168,11 +193,11 @@ function Install-FlysnapperPackage([string]$Root, [string]$TargetDirectory, [str
     $backup = ''
     $movedOld = $false; $movedNew = $false; $committed = $false
     try {
-        Copy-FlysnapperTree (Join-Path $package.Root 'Flysnapper.vst3') $stage
+        Copy-FlysnapperTree (Join-Path $package.Root $package.BundleName) $stage
         Assert-FlysnapperMatchingInventory (Get-FlysnapperInventory $stage) $package.Bundle
         if (Test-Path -LiteralPath $target) {
             $oldInventory = Get-FlysnapperInventory $target
-            $backup = Join-Path (Join-Path $backupRoot $id) 'Flysnapper.vst3'
+            $backup = Join-Path (Join-Path $backupRoot $id) $package.BundleName
             [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($backup)) | Out-Null
             Copy-FlysnapperTree $target $backup
             Assert-FlysnapperMatchingInventory (Get-FlysnapperInventory $backup) $oldInventory
@@ -199,7 +224,7 @@ function Install-FlysnapperPackage([string]$Root, [string]$TargetDirectory, [str
 function New-FlysnapperFolderDialog {
     Add-Type -AssemblyName System.Windows.Forms
     $dialog = New-Object System.Windows.Forms.FolderBrowserDialog
-    $dialog.Description = 'Velg VST3-mappen som Ableton bruker. Bare Flysnapper.vst3 blir installert.'
+    $dialog.Description = 'Velg VST3-mappen som Ableton bruker. Bare pluginpakken i denne installasjonen blir kopiert.'
     $dialog.ShowNewFolderButton = $true
     $common = $env:CommonProgramW6432
     if ([string]::IsNullOrEmpty($common)) { $common = [Environment]::GetFolderPath('CommonProgramFiles') }

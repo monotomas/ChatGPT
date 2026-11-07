@@ -1,20 +1,25 @@
-# Vedlikehold og videre utvikling
+# Gjeldende videre arbeid: MIDI-only
 
-Gjeldende bestilling er hele Flysnapper, se PRODUCT_SPEC.md. Eldre prototypestopp
-og pålegg om at brukeren først må prøve ruting, er ikke gjeldende arbeidskrav.
-Utvikleren eier feilretting, lydmålinger, byggekjede og installasjonspakking.
+Brukerens [bestilling7.november](MIDI_ONLY_REQUEST_2026-11-07.md) overstyrer
+alle tidligere pitchmål. Ikke gjenoppta DSP-utvikling. Det gamle forsknings-
+og målematerialet beholdes som sporbarhet.
 
-Før en ny Windows-pakke kan leveres skal alle obligatoriske tester kjøres på
-faktisk Windows, og den uavhengige AudioQuality-kontrollen må bestå. Mål også
-hele lydkorpuset og en separat kontrollklang med andre anslag/timbre. Ikke
-endre annotasjoner eller godta feilnoter bare for å få grønt bygg.
+Gjennomfør egne kontroller av MIDI-kjernen, grensesnittet, den faktiske
+VST3-modulen og Windows-installasjon. Nåværende produkt skal ha null
+audiobusser,31 skalaer,50 uavhengige kart og korrekt kanal1/16-behandling.
+Ikke svekk MIDI-testene eller presenter bortfalte audiokrav som bestått.
 
-Publisering av verifiserte installasjonspakker skjer automatisk fra
-release/full-flysnapper til downloads/flysnapper-complete. Kildecommit,
-Windows-/Unicode-bevis, testresultater og filhashes må passe sammen. Bruk
-immutable GitHub-lenker i chatten, ikke interne workspace-/sandbox-lenker.
+Før en ferdig brukerleveranse må følgende være avklart:
 
-Brukeren skal ikke feilsøke kildekode, kompilere normale sluttbrukerpakker eller
-bli delaktig i mellomliggende utviklerprøver. Eventuelle gjenstående begrensninger
-må beskrives konkret i leveransen. Ikke erklær fysisk 5/10ms-latency eller faktisk
-Ableton-godkjenning på grunnlag av motor- eller testvertresultater.
+- Brukerens redigerte Excel-fil må valideres og eventuelle nye fabrikkvalg
+  innarbeides etter stabile akkord-/skala-ID-er.
+- Konkrete spor-/pluginrutingsegenskaper i Live12.4.6 må dokumenteres:
+  kanalidentitet ved Track In, valg av direkte instansadresse, bypass og
+  reaktivering under en holdt akkord. Generiske VST3-tester er ikke Live.
+- Hele native-/Python-/Windows-/installerkontrollen må passe til nøyaktig
+  kildecommit og ny modulidentitet, også erstattings-/gjenopprettingsprøver.
+
+Forskningsbygg kan lagres på en separat valideringsgren. Den offisielle
+nedlastingsgrenen skal ikke oppdateres automatisk av et forskningsbygg.
+Brukeren skal ikke få kjente utilstrekkelige mellomversjoner eller måtte
+kompilere og feilsøke utviklerskript.

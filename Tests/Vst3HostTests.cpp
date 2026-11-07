@@ -1,13 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-// Actual compiled VST3 integration test. Derived from Buffkiller's JUCE host
-// pattern; the assertions below exercise Flysnapper, not the reference plugin.
-// No DAW or audio driver is used. These results do not establish Live behavior.
+// Execute the compiled module through JUCE's VST3 host and inspect SDK buses.
+// This does not establish any Ableton Live routing or device-off behavior.
 #include <juce_audio_processors/juce_audio_processors.h>
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <pluginterfaces/vst/ivstcomponent.h>
 #include <algorithm>
 #include <array>
-#include <functional>
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
@@ -15,683 +13,567 @@
 #include <vector>
 
 namespace {
-int assertions = 0;
+int assertions = 0, eventRows = 0;
+juce::Array<juce::var> cases;
+juce::StringArray features;
+juce::String currentCase;
+juce::String csv = "case,rate,block,sample,type,channel,note,value,offset,rawhex,stage\n";
 void check(bool ok, const std::string& message) {
     ++assertions;
     if (!ok) throw std::runtime_error(message);
 }
-
-juce::AudioProcessorParameter& parameter(juce::AudioPluginInstance& plugin, const juce::String& name) {
-    for (auto* p : plugin.getParameters()) if (p->getName(128) == name) return *p;
+juce::AudioProcessorParameter* findParameter(juce::AudioPluginInstance& p, const juce::String& name) {
+    for (auto* item : p.getParameters()) if (item->getName(128) == name) return item;
+    return nullptr;
+}
+juce::AudioProcessorParameter& parameter(juce::AudioPluginInstance& p, const juce::String& name) {
+    if (auto* item = findParameter(p, name)) return *item;
     throw std::runtime_error("Actual VST3 parameter not found: " + name.toStdString());
 }
-void setNormalised(juce::AudioPluginInstance& plugin, const juce::String& name, float value) {
-    auto& p = parameter(plugin, name);
-    p.beginChangeGesture(); p.setValueNotifyingHost(value); p.endChangeGesture();
+void setNormalised(juce::AudioPluginInstance& p, const juce::String& name, float value) {
+    auto& item = parameter(p, name);
+    item.beginChangeGesture(); item.setValueNotifyingHost(value); item.endChangeGesture();
 }
-
+void setChoice(juce::AudioPluginInstance& p, const juce::String& name, int choice) {
+    auto& item = parameter(p, name);
+    check(choice >= 0 && choice < item.getNumSteps(), "Illegal test choice");
+    setNormalised(p, name, float(choice) / float(item.getNumSteps() - 1));
+}
+void chord(juce::MidiBuffer& midi, bool on, std::initializer_list<int> pitches, int offset) {
+    for (int pitch : pitches)
+        midi.addEvent(on ? juce::MidiMessage::noteOn(16, pitch, juce::uint8(100))
+                         : juce::MidiMessage::noteOff(16, pitch), offset);
+}
+struct Note { bool on; int channel, pitch, velocity, offset; };
+std::vector<Note> notes(const juce::MidiBuffer& midi) {
+    std::vector<Note> result;
+    for (const auto metadata : midi) {
+        const auto m = metadata.getMessage();
+        if (m.isNoteOnOrOff()) result.push_back({m.isNoteOn(), m.getChannel(),
+            m.getNoteNumber(), m.getVelocity(), metadata.samplePosition});
+    }
+    return result;
+}
+void expectNote(const std::vector<Note>& output, size_t index, bool on, int pitch,
+                int offset, int channel = 1, int velocity = -1) {
+    check(index < output.size(), "Missing actual VST3 MIDI note " + std::to_string(index));
+    const auto& n = output[index];
+    check(n.on == on && n.pitch == pitch && n.offset == offset && n.channel == channel
+          && (velocity < 0 || n.velocity == velocity),
+          "Actual VST3 note mismatch: got " + std::string(n.on ? "on " : "off ")
+          + std::to_string(n.pitch) + " @ " + std::to_string(n.offset)
+          + " channel " + std::to_string(n.channel));
+}
+void record(const juce::String& name, double rate, int block, int64_t start, const juce::MidiBuffer& midi) {
+    for (const auto metadata : midi) {
+        const auto m = metadata.getMessage();
+        check(metadata.samplePosition >= 0 && metadata.samplePosition < block,
+              "Actual VST3 event offset outside its callback");
+        juce::String type = "O";
+        int note = 0, value = 0;
+        if (m.isNoteOnOrOff()) { type = m.isNoteOn() ? "N" : "F"; note = m.getNoteNumber(); value = m.getVelocity(); }
+        else if (m.isController()) { type = "C"; note = m.getControllerNumber(); value = m.getControllerValue(); }
+        else if (m.isPitchWheel()) { type = "P"; value = m.getPitchWheelValue(); }
+        else if (m.isChannelPressure()) { type = "A"; value = m.getChannelPressureValue(); }
+        else if (m.isAftertouch()) { type = "A"; note = m.getNoteNumber(); value = m.getAfterTouchValue(); }
+        else if (m.isProgramChange()) value = m.getProgramChangeNumber();
+        csv += currentCase + "," + juce::String(rate, 0) + "," + juce::String(block) + ","
+            + juce::String(start + metadata.samplePosition) + "," + type + ","
+            + juce::String(m.getChannel()) + "," + juce::String(note) + "," + juce::String(value)
+            + "," + juce::String(metadata.samplePosition) + ","
+            + juce::String::toHexString(m.getRawData(), m.getRawDataSize(), 0) + "," + name + "\n";
+        ++eventRows;
+    }
+}
 class Timeline final : public juce::AudioPlayHead {
 public:
     int64_t sample = 0;
     double rate = 48000;
     bool playing = true;
     juce::Optional<PositionInfo> getPosition() const override {
-        PositionInfo p;
-        p.setIsPlaying(playing); p.setTimeInSamples(sample);
-        p.setBpm(120); p.setPpqPosition(double(sample) * 2 / rate);
-        return p;
+        PositionInfo p; p.setIsPlaying(playing); p.setTimeInSamples(sample);
+        p.setBpm(120); p.setPpqPosition(double(sample) * 2 / rate); return p;
     }
 };
-struct Note {
-    bool on; int channel; int pitch; int velocity; int offset;
-};
-std::vector<Note> notes(const juce::MidiBuffer& midi) {
-    std::vector<Note> result;
-    for (const auto metadata : midi) {
-        auto message = metadata.getMessage();
-        if (message.isNoteOnOrOff()) result.push_back({message.isNoteOn(), message.getChannel(),
-            message.getNoteNumber(), message.getVelocity(), metadata.samplePosition});
-    }
-    return result;
-}
-void expectNote(const std::vector<Note>& output, size_t index, bool on, int pitch,
-                int offset, int channel = 1, int velocity = -1) {
-    check(index < output.size(), "Missing output MIDI note at index " + std::to_string(index));
-    const auto& n = output[index];
-    check(n.on == on && n.pitch == pitch && n.offset == offset && n.channel == channel
-          && (velocity < 0 || n.velocity == velocity),
-          "Actual VST3 MIDI mismatch at index " + std::to_string(index) + ": got "
-          + (n.on ? "on " : "off ") + std::to_string(n.pitch) + " @ "
-          + std::to_string(n.offset) + " channel " + std::to_string(n.channel));
-}
-void chord(juce::MidiBuffer& midi, bool on, std::initializer_list<int> pitches, int offset) {
-    for (int p : pitches) midi.addEvent(on ? juce::MidiMessage::noteOn(16, p, juce::uint8(100))
-                                        : juce::MidiMessage::noteOff(16, p), offset);
-}
-
 class Session {
 public:
     Session(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& description,
-            double rate = 48000, int block = 128) : maxBlock(block) {
+            juce::String name, double rate = 48000, int block = 128)
+        : caseName(std::move(name)), maxBlock(block) {
         juce::String error;
         plugin = formats.createPluginInstance(description, rate, block, error);
         if (!plugin) throw std::runtime_error("Actual VST3 creation failed: " + error.toStdString());
-        // Musical routing fixtures select their own policy; product defaults
-        // intentionally start in playable Fixed Scale / Chromatic.
-        setNormalised(*plugin, "Mode", 0);
-        setNormalised(*plugin, "Pitch Enabled", 0);
-        timeline.rate = rate;
-        plugin->setPlayHead(&timeline);
-        plugin->prepareToPlay(rate, block);
+        check(plugin->getBusCount(true) == 0 && plugin->getBusCount(false) == 0,
+              "MIDI-only VST3 unexpectedly exposes a JUCE audio bus");
+        check(plugin->getTotalNumInputChannels() == 0 && plugin->getTotalNumOutputChannels() == 0,
+              "MIDI-only VST3 unexpectedly exposes audio channels");
+        setChoice(*plugin, "Mode", 0);
+        timeline.rate = rate; plugin->setPlayHead(&timeline); plugin->prepareToPlay(rate, block);
     }
     ~Session() { plugin->setPlayHead(nullptr); plugin->releaseResources(); }
-    std::vector<Note> process(juce::MidiBuffer& midi, int count = -1, bool sidechainSignal = false) {
+    std::vector<Note> process(juce::MidiBuffer& midi, int count = -1, bool bypassCallback = false) {
         if (count < 0) count = maxBlock;
-        juce::AudioBuffer<float> audio(std::max(2, std::max(plugin->getTotalNumInputChannels(),
-                                                          plugin->getTotalNumOutputChannels())), count);
-        audio.clear();
-        if (audioSource) {
-            for (int c = 0; c < plugin->getTotalNumInputChannels(); ++c)
-                for (int n = 0; n < count; ++n)
-                    audio.setSample(c, n, audioSource(timeline.sample + n));
-        } else if (sidechainSignal) {
-            for (int c = 0; c < plugin->getTotalNumInputChannels(); ++c)
-                for (int n = 0; n < count; ++n)
-                    audio.setSample(c, n, float(.1 * std::sin(6.283185307179586 * 440
-                        * double(timeline.sample + n) / timeline.rate)));
-        }
-        plugin->processBlock(audio, midi);
-        for (int c = 0; c < plugin->getTotalNumOutputChannels(); ++c)
-            for (int n = 0; n < count; ++n)
-                check(std::isfinite(audio.getSample(c, n)) && audio.getSample(c, n) == 0,
-                      "Instrument audio output must be silent; source monitoring belongs to source track");
+        // Zero audio channels, but a real callback sample count.
+        juce::AudioBuffer<float> audio(0, count);
+        if (bypassCallback) plugin->processBlockBypassed(audio, midi);
+        else plugin->processBlock(audio, midi);
+        check(audio.getNumChannels() == 0 && audio.getNumSamples() == count,
+              "MIDI callback changed the zero-channel buffer");
+        // Evidence sample counts processed callback frames; a transport seek
+        // changes the playhead, not this monotonic delivery clock.
+        record(caseName, timeline.rate, count, processedSamples, midi);
+        processedSamples += count;
         timeline.sample += count;
         return notes(midi);
     }
-    void flushControls() {
-        juce::MidiBuffer midi;
-        process(midi);
-    }
+    void flushControls() { juce::MidiBuffer midi; process(midi); }
     std::unique_ptr<juce::AudioPluginInstance> plugin;
     Timeline timeline;
+    juce::String caseName;
     int maxBlock;
-    std::function<float(int64_t)> audioSource;
+    int64_t processedSamples = 0;
 };
+template <typename Fn> void runCase(const juce::String& name, Fn&& fn) {
+    currentCase = name;
+    auto* item = new juce::DynamicObject; item->setProperty("name", name);
+    try { fn(); item->setProperty("status", "passed"); }
+    catch (const std::exception& e) {
+        item->setProperty("status", "failed"); item->setProperty("error", e.what());
+        cases.add(juce::var(item)); throw;
+    }
+    cases.add(juce::var(item)); std::cout << "PASS " << name << '\n';
+}
 
-void testRouting(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& description,
-                 double rate, int block) {
-    Session session(formats, description, rate, block);
-    auto& plugin = *session.plugin;
-    check(plugin.acceptsMidi(), "Actual VST3 must accept MIDI");
-    check(plugin.producesMidi(), "Actual VST3 must expose MIDI output");
-    check(plugin.hasEditor(), "Actual VST3 must expose its editor");
-    check(plugin.getBusCount(false) >= 1 && plugin.getChannelCountOfBus(false, 0) == 2,
-          "Actual VST3 must expose stereo instrument output");
-    check(plugin.getLatencySamples() == 0, "MIDI routing unexpectedly reports frame compensation latency");
-
+void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    check(!d.isInstrument, "Actual VST3 must be classified as an effect");
+    check(d.version == "0.4.0", "Actual VST3 must report version 0.4.0");
+    const auto categories = juce::StringArray::fromTokens(d.category, "|", "");
+    check(categories.contains("Fx") && categories.contains("Tools") && !categories.contains("Instrument"),
+          "Actual VST3 metadata must contain Fx|Tools and omit Instrument");
+    Session s(formats, d, "module_contract"); auto& p = *s.plugin;
+    check(p.acceptsMidi() && p.producesMidi(), "Actual VST3 MIDI input/output unavailable");
+    check(p.getLatencySamples() == 0, "Pure MIDI module declares unexpected latency frames");
+    const auto* extension = p.getVST3Client(); check(extension != nullptr, "VST3 SDK extension unavailable");
+    auto* component = extension->getIComponentPtr(); check(component != nullptr, "VST3 IComponent unavailable");
+    check(component->getBusCount(Steinberg::Vst::kAudio, Steinberg::Vst::kInput) == 0
+          && component->getBusCount(Steinberg::Vst::kAudio, Steinberg::Vst::kOutput) == 0,
+          "Actual SDK component exposes an obsolete audio bus");
+    for (auto direction : {Steinberg::Vst::kInput, Steinberg::Vst::kOutput}) {
+        check(component->getBusCount(Steinberg::Vst::kEvent, direction) == 1, "SDK MIDI event bus missing or duplicated");
+        Steinberg::Vst::BusInfo info{};
+        check(component->getBusInfo(Steinberg::Vst::kEvent, direction, 0, info) == Steinberg::kResultOk,
+              "SDK event bus metadata unavailable");
+        check(info.mediaType == Steinberg::Vst::kEvent && info.direction == direction
+              && info.channelCount == 16 && info.busType == Steinberg::Vst::kMain,
+              "SDK event bus must expose all sixteen MIDI channels");
+    }
+    check(p.hasEditor(), "Actual VST3 editor unavailable");
+    {
+        std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditorIfNeeded());
+        check(editor != nullptr && editor->getWidth() > 0 && editor->getHeight() > 0, "Actual VST3 editor creation failed");
+    }
+    for (const auto* name : {"Pitch Enabled", "Pitch Mode", "Mono Bend", "MPE Output", "Bend Range",
+                            "Input Threshold", "Automatic Input", "Sensitivity", "Release", "Input Dynamics",
+                            "Input Gain", "Gate Open Threshold", "Gate Hysteresis", "Gate Attack", "Gate Hold",
+                            "Gate Release", "Compressor Threshold", "Compressor Ratio", "Limiter Ceiling"})
+        check(findParameter(p, name) == nullptr, std::string("Obsolete audio parameter exposed: ") + name);
+    check(parameter(p, "Scale").getNumSteps() == 31, "Actual VST3 must expose 31 scales");
+    check(parameter(p, "Mode").getNumSteps() == 3, "Mode indices must remain 0/1/2");
+    check(parameter(p, "Mode").getText(0, 128) == "Chord Tones Only"
+          && parameter(p, "Mode").getText(.5f, 128) == "Chord-Scale Assignment"
+          && parameter(p, "Mode").getText(1, 128) == "Fixed Scale", "Actual VST3 mode labels changed");
+    check(parameter(p, "Chord MIDI Through").getValue() == 0, "Chord relay must default off");
+    int maps = 0;
+    for (auto* item : p.getParameters()) if (item->getName(128).startsWith("Map ")) {
+        ++maps; check(item->getNumSteps() == 31, "Chord mapping must expose all 31 scales");
+    }
+    check(maps == 50, "Actual VST3 must expose 50 chord mappings");
+    features.add("zero_audio_buses"); features.add("sdk_midi_event_buses"); features.add("effect_metadata");
+    features.add("editor"); features.add("removed_pitch_parameters");
+}
+void testRouting(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d, double rate, int block) {
+    Session s(formats, d, "routing_" + juce::String(rate, 0) + "_" + juce::String(block), rate, block);
     juce::MidiBuffer midi;
-    // Deliberately insert performance input first at the same sample: chord
-    // controls are applied before performance notes regardless of event order.
-    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(93)), 11);
-    chord(midi, true, {48, 52, 55}, 11);
-    midi.addEvent(juce::MidiMessage::noteOff(1, 61), block - 3);
-    auto output = session.process(midi);
-    check(output.size() == 2, "Chord control notes leaked or performance note missing");
-    expectNote(output, 0, true, 60, 11, 1, 93);
-    expectNote(output, 1, false, 60, block - 3);
-
-    // Register-independent correction and channel preservation.
+    // Insert playing input first: controls at the same sample still win.
+    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(93)), 11); chord(midi, true, {48, 52, 55}, 11);
+    midi.addEvent(juce::MidiMessage::noteOff(1, 61, juce::uint8(37)), block - 3);
+    auto out = s.process(midi); check(out.size() == 2, "Chord notes leaked or playing input lost");
+    expectNote(out, 0, true, 60, 11, 1, 93); expectNote(out, 1, false, 60, block - 3, 1, 37);
     midi.clear();
-    midi.addEvent(juce::MidiMessage::noteOn(3, 13, juce::uint8(75)), 1);
-    midi.addEvent(juce::MidiMessage::noteOn(4, 109, juce::uint8(88)), 2);
-    midi.addEvent(juce::MidiMessage::noteOff(3, 13), 3);
-    midi.addEvent(juce::MidiMessage::noteOff(4, 109), 4);
-    output = session.process(midi);
-    check(output.size() == 4, "Register/channel test event count");
-    expectNote(output, 0, true, 12, 1, 3, 75);
-    expectNote(output, 1, true, 108, 2, 4, 88);
-    expectNote(output, 2, false, 12, 3, 3);
-    expectNote(output, 3, false, 108, 4, 4);
-
-    // A chord change in the middle of the block must not affect earlier notes,
-    // and an old input's off must end the original output after that change.
-    midi.clear();
-    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(100)), 5);
-    chord(midi, false, {48, 52, 55}, block / 2);
-    chord(midi, true, {50, 53, 57}, block / 2);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 13, juce::uint8(75)), 1); midi.addEvent(juce::MidiMessage::noteOff(1, 13), 2);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 109, juce::uint8(88)), 3); midi.addEvent(juce::MidiMessage::noteOff(1, 109), 4);
+    out = s.process(midi); check(out.size() == 4, "Low/high register lifecycle lost");
+    expectNote(out, 0, true, 12, 1, 1, 75); expectNote(out, 1, false, 12, 2);
+    expectNote(out, 2, true, 108, 3, 1, 88); expectNote(out, 3, false, 108, 4);
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(100)), 5);
+    chord(midi, false, {48, 52, 55}, block / 2); chord(midi, true, {50, 53, 57}, block / 2);
     midi.addEvent(juce::MidiMessage::noteOn(1, 63, juce::uint8(101)), block / 2);
-    midi.addEvent(juce::MidiMessage::noteOff(1, 61), block - 2);
-    midi.addEvent(juce::MidiMessage::noteOff(1, 63), block - 1);
-    output = session.process(midi);
-    check(output.size() == 4, "Mid-block chord change event count");
-    expectNote(output, 0, true, 60, 5);
-    expectNote(output, 1, true, 62, block / 2);
-    expectNote(output, 2, false, 60, block - 2);
-    expectNote(output, 3, false, 62, block - 1);
-
-    // A zero-velocity Note On is a Note Off throughout the compiled wrapper.
-    midi.clear();
-    midi.addEvent(juce::MidiMessage::noteOn(1, 65, juce::uint8(111)), 7);
+    midi.addEvent(juce::MidiMessage::noteOff(1, 61), block - 2); midi.addEvent(juce::MidiMessage::noteOff(1, 63), block - 1);
+    out = s.process(midi); check(out.size() == 4, "Mid-block chord change lost events");
+    expectNote(out, 0, true, 60, 5); expectNote(out, 1, true, 62, block / 2);
+    expectNote(out, 2, false, 60, block - 2); expectNote(out, 3, false, 62, block - 1);
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 65, juce::uint8(111)), 7);
     midi.addEvent(juce::MidiMessage::noteOn(1, 65, juce::uint8(0)), 19);
-    output = session.process(midi);
-    check(output.size() == 2, "Velocity-zero lifecycle event count");
-    expectNote(output, 0, true, 65, 7);
-    expectNote(output, 1, false, 65, 19);
-
-    std::cout << "PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: "
-              << rate << " Hz / " << block << " samples\n";
+    out = s.process(midi); check(out.size() == 2, "Velocity-zero Note On lifecycle lost");
+    expectNote(out, 0, true, 65, 7); expectNote(out, 1, false, 65, 19);
 }
-
-void testSidechain(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& description) {
-    Session session(formats, description);
-    auto& p = *session.plugin;
-    int sidechain = -1;
-    for (int b = 0; b < p.getBusCount(true); ++b)
-        if (p.getBus(true, b)->getName().containsIgnoreCase("sidechain")) sidechain = b;
-    check(sidechain >= 0, "Actual VST3 sidechain bus not found");
-    // Inspect the SDK component, not JUCE's first-input abstraction: Live
-    // needs an actual kAux audio bus to expose its native sidechain panel.
-    const auto* extension = p.getVST3Client();
-    check(extension != nullptr, "VST3 SDK extension unavailable");
-    auto* component = extension->getIComponentPtr();
-    check(component != nullptr, "VST3 IComponent unavailable");
-    check(component->getBusCount(Steinberg::Vst::kAudio, Steinberg::Vst::kInput) == 1,
-          "Expected one audio input, dedicated to sidechain");
-    Steinberg::Vst::BusInfo info{};
-    check(component->getBusInfo(Steinberg::Vst::kAudio, Steinberg::Vst::kInput, 0, info)
-              == Steinberg::kResultOk, "VST3 audio input bus metadata unavailable");
-    check(info.busType == Steinberg::Vst::kAux && info.channelCount == 2,
-          "Native VST3 audio input is not a stereo kAux sidechain");
-    check(component->getBusCount(Steinberg::Vst::kEvent, Steinberg::Vst::kInput) == 1
-          && component->getBusCount(Steinberg::Vst::kEvent, Steinberg::Vst::kOutput) == 1,
-          "Native VST3 MIDI event input/output buses missing");
-    p.releaseResources();
-    check(p.getBus(true, sidechain)->enable(true), "Actual VST3 sidechain could not be activated");
-    p.prepareToPlay(48000, 128);
-    check(p.getBus(true, sidechain)->isEnabled(), "Sidechain activation was not retained");
-    juce::MidiBuffer midi;
-    chord(midi, true, {48, 52, 55}, 0);
-    midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(90)), 13);
-    auto output = session.process(midi, 128, true);
-    check(output.size() == 1, "Sidechain audio unexpectedly changed MIDI routing");
-    expectNote(output, 0, true, 64, 13);
-    midi.clear(); midi.addEvent(juce::MidiMessage::noteOff(1, 64), 9);
-    output = session.process(midi); // Enabled, digitally silent source.
-    check(output.size() == 1, "Digitally silent enabled sidechain disrupted MIDI");
-    expectNote(output, 0, false, 64, 9);
-    p.releaseResources();
-    check(p.getBus(true, sidechain)->enable(false), "Actual VST3 sidechain could not be disabled");
-    p.prepareToPlay(48000, 128);
-    check(!p.getBus(true, sidechain)->isEnabled(), "Sidechain deactivation was not retained");
-    midi.clear(); chord(midi, true, {48, 52, 55}, 0);
-    midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(90)), 13);
-    midi.addEvent(juce::MidiMessage::noteOff(1, 64), 27);
-    output = session.process(midi);
-    check(output.size() == 2, "External MIDI failed with disabled sidechain");
-    expectNote(output, 0, true, 64, 13);
-    expectNote(output, 1, false, 64, 27);
-    std::cout << "PASS actual VST3 named sidechain activation, audio, digital silence and deactivation\n";
+constexpr unsigned mask(std::initializer_list<int> pcs) {
+    unsigned result = 0; for (int pc : pcs) result |= 1u << pc; return result;
 }
-
-void testGenerated(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& description) {
-    Session session(formats, description);
-    setNormalised(*session.plugin, "Correction", 0);
-    session.flushControls();
-    setNormalised(*session.plugin, "Routing Test", 1);
-    std::vector<Note> generated;
-    int externalCount = 0;
+// Expected formulas in automation order; indices 0..18 retain the old scales.
+constexpr std::array<unsigned, 31> scaleMasks{{
+    0xfff, mask({0,2,4,5,7,9,11}), mask({0,2,3,5,7,8,10}), mask({0,2,3,5,7,8,11}),
+    mask({0,2,3,5,7,9,11}), mask({0,2,3,5,7,9,10}), mask({0,1,3,5,7,8,10}), mask({0,2,4,6,7,9,11}),
+    mask({0,2,4,5,7,9,10}), mask({0,1,3,5,6,8,10}), mask({0,2,4,6,8,10}), mask({0,2,4,7,9}),
+    mask({0,3,5,7,10}), mask({0,1,3,4,6,7,9,10}), mask({0,2,3,5,6,8,9,11}), mask({0,2,4,6,7,9,10}),
+    mask({0,1,3,4,6,8,10}), mask({0,1,4,5,7,8,10}), mask({0,3,5,6,7,10}),
+    mask({0,1,3,5,7,9,10}), mask({0,2,4,6,8,9,11}), mask({0,2,4,5,7,8,10}), mask({0,2,3,5,6,8,10}),
+    // Harmonic Minor mode 4: subtract its fourth degree (5) from
+    // {0,2,3,5,7,8,11}, modulo 12 -> {0,2,3,6,7,9,10} (Dorian #4).
+    mask({0,1,3,5,6,9,10}), mask({0,2,4,5,8,9,11}), mask({0,2,3,6,7,9,10}), mask({0,3,4,6,7,9,11}),
+    mask({0,1,3,4,6,8,9}), mask({0,2,4,5,7,9,10,11}), mask({0,2,4,5,7,8,9,11}), mask({0,2,3,5,7,9,10,11})
+}};
+void testScales(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session s(formats, d, "all_31_scale_indices"); setChoice(*s.plugin, "Mode", 2);
+    for (int scale = 0; scale < 31; ++scale) {
+        setChoice(*s.plugin, "Scale", scale); juce::MidiBuffer midi;
+        auto& choice = parameter(*s.plugin, "Scale");
+        check(std::lround(choice.getValue() * 30) == scale,
+              "Actual VST3 host did not accept scale index " + std::to_string(scale));
+        for (int pc = 0; pc < 12; ++pc) {
+            midi.addEvent(juce::MidiMessage::noteOn(1, 60 + pc, juce::uint8(80 + pc)), pc * 4);
+            midi.addEvent(juce::MidiMessage::noteOff(1, 60 + pc), pc * 4 + 1);
+        }
+        const auto out = s.process(midi); check(out.size() == 24, "Scale fixture lost a note lifecycle");
+        check(std::lround(choice.getValue() * 30) == scale,
+              "Actual VST3 host scale changed during processing");
+        for (int pc = 0; pc < 12; ++pc) {
+            const auto& on = out[size_t(pc * 2)];
+            check(on.on && on.channel == 1 && on.offset == pc * 4 && on.velocity == 80 + pc,
+                  "Scale changed channel, velocity or sample offset");
+            check((scaleMasks[size_t(scale)] & (1u << (on.pitch % 12))) != 0,
+                  "Compiled scale index " + std::to_string(scale) + " ("
+                  + choice.getText(choice.getValue(), 128).toStdString() + ") emitted "
+                  + std::to_string(on.pitch) + " for input " + std::to_string(60 + pc)
+                  + " outside the expected set");
+            if (scaleMasks[size_t(scale)] & (1u << pc))
+                check(on.pitch == 60 + pc, "Allowed note moved at retained scale index " + std::to_string(scale));
+            int distance = 12;
+            for (int delta = -12; delta <= 12; ++delta)
+                if (scaleMasks[size_t(scale)] & (1u << ((pc + delta + 12) % 12))) distance = std::min(distance, std::abs(delta));
+            check(std::abs(on.pitch - (60 + pc)) == distance, "Compiled scale did not choose a nearest pitch");
+            expectNote(out, size_t(pc * 2 + 1), false, on.pitch, pc * 4 + 1);
+        }
+    }
+    features.add("all_31_scales"); features.add("legacy_19_scale_indices");
+}
+void testInternalCorrection(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session s(formats, d, "internal_correction_off_held_chord"); setNormalised(*s.plugin, "Note Correction", 0);
+    juce::MidiBuffer midi; midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(91)), 11);
+    chord(midi, true, {48, 52, 55}, 11); auto out = s.process(midi);
+    check(out.size() == 1, "Internal correction off must consume controls and pass playing input");
+    expectNote(out, 0, true, 61, 11, 1, 91);
+    setNormalised(*s.plugin, "Note Correction", 1); midi.clear();
+    midi.addEvent(juce::MidiMessage::noteOn(1, 63, juce::uint8(89)), 9);
+    midi.addEvent(juce::MidiMessage::noteOff(1, 61), 21); midi.addEvent(juce::MidiMessage::noteOff(1, 63), 27);
+    out = s.process(midi); check(out.size() == 3, "Correction on lost held controls or old bindings");
+    expectNote(out, 0, true, 64, 9, 1, 89); expectNote(out, 1, false, 61, 21); expectNote(out, 2, false, 64, 27);
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 66, juce::uint8(90)), 4);
+    out = s.process(midi); check(out.size() == 1, "Held binding fixture failed"); expectNote(out, 0, true, 67, 4);
+    setNormalised(*s.plugin, "Note Correction", 0); midi.clear();
+    midi.addEvent(juce::MidiMessage::noteOff(1, 66), 7);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 66, juce::uint8(90)), 13); midi.addEvent(juce::MidiMessage::noteOff(1, 66), 19);
+    out = s.process(midi); check(out.size() == 3, "Correction change cut an existing binding");
+    expectNote(out, 0, false, 67, 7); expectNote(out, 1, true, 66, 13); expectNote(out, 2, false, 66, 19);
+    features.add("internal_correction_bypass"); features.add("held_note_off_bindings");
+}
+void testSerial(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session first(formats, d, "serial_first"), middle(formats, d, "serial_middle_off"), last(formats, d, "serial_last");
+    setNormalised(*first.plugin, "Chord MIDI Through", 1); setNormalised(*middle.plugin, "Chord MIDI Through", 1);
+    setNormalised(*middle.plugin, "Note Correction", 0); setNormalised(*last.plugin, "Note Correction", 0);
+    first.flushControls(); middle.flushControls(); last.flushControls();
+    juce::MidiBuffer midi; chord(midi, true, {48, 52, 55}, 3);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(92)), 9); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 17);
+    auto out = first.process(midi); check(out.size() == 5, "First serial instance failed chord relay");
+    expectNote(out, 0, true, 48, 3, 16); expectNote(out, 1, true, 52, 3, 16); expectNote(out, 2, true, 55, 3, 16);
+    expectNote(out, 3, true, 60, 9, 1, 92); expectNote(out, 4, false, 60, 17);
+    const juce::MidiBuffer firstOutput(midi); middle.process(midi);
+    check(midi.getNumEvents() == firstOutput.getNumEvents(), "Internal-off middle instance lost relay events");
+    auto a = midi.begin(), b = firstOutput.begin();
+    for (; a != midi.end(); ++a, ++b) {
+        const auto x = (*a).getMessage(), y = (*b).getMessage();
+        check((*a).samplePosition == (*b).samplePosition && x.getRawDataSize() == y.getRawDataSize()
+              && std::equal(x.getRawData(), x.getRawData() + x.getRawDataSize(), y.getRawData()),
+              "Internal-off middle instance changed serial bytes or offset");
+    }
+    out = last.process(midi); check(out.size() == 2, "Final instance must consume chord controls");
+    expectNote(out, 0, true, 60, 9, 1, 92); expectNote(out, 1, false, 60, 17);
+    // Last learned the held chord while off; first now corrects to D Ionian.
+    setChoice(*first.plugin, "Mode", 2); setChoice(*first.plugin, "Root", 2); setChoice(*first.plugin, "Scale", 1);
+    setNormalised(*last.plugin, "Note Correction", 1); midi.clear();
+    midi.addEvent(juce::MidiMessage::noteOn(1, 60, juce::uint8(95)), 23); midi.addEvent(juce::MidiMessage::noteOff(1, 60), 45);
+    out = first.process(midi); check(out.size() == 2, "First cascade lifecycle missing");
+    expectNote(out, 0, true, 61, 23); expectNote(out, 1, false, 61, 45);
+    middle.process(midi); out = last.process(midi); check(out.size() == 2, "Second active correction lost cascade lifecycle");
+    expectNote(out, 0, true, 60, 23, 1, 95); expectNote(out, 1, false, 60, 45);
+    // Here the cascade differs from the last stage alone: C chord tones
+    // would send input F (65) to E (64), but D Ionian first sends it to F#.
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 65, juce::uint8(96)), 23);
+    midi.addEvent(juce::MidiMessage::noteOff(1, 65), 45);
+    out = first.process(midi); check(out.size() == 2, "Distinct cascade first lifecycle missing");
+    expectNote(out, 0, true, 66, 23, 1, 96); expectNote(out, 1, false, 66, 45);
+    middle.process(midi); out = last.process(midi); check(out.size() == 2, "Distinct cascade final lifecycle missing");
+    expectNote(out, 0, true, 67, 23, 1, 96); expectNote(out, 1, false, 67, 45);
+    midi.clear(); chord(midi, false, {48, 52, 55}, 63); first.process(midi); middle.process(midi); last.process(midi);
+    check(midi.isEmpty(), "Final stage leaked chord releases");
+    features.add("chord_channel_16"); features.add("chord_relay"); features.add("serial_correction");
+}
+void testExpression(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session s(formats, d, "non_ch1_notes_and_expression");
+    for (int channel : {2, 3, 15}) {
+        juce::MidiBuffer midi; midi.addEvent(juce::MidiMessage::noteOn(channel, 61, juce::uint8(87)), 11);
+        midi.addEvent(juce::MidiMessage::aftertouchChange(channel, 61, 73), 19);
+        midi.addEvent(juce::MidiMessage::noteOff(channel, 61, juce::uint8(42)), 31);
+        const auto out = s.process(midi); check(midi.getNumEvents() == 3 && out.size() == 2, "Raw note/expression lifecycle missing");
+        expectNote(out, 0, true, 61, 11, channel, 87); expectNote(out, 1, false, 61, 31, channel, 42);
+        auto it = midi.begin(); ++it; const auto m = (*it).getMessage();
+        check(m.isAftertouch() && m.getChannel() == channel && m.getNoteNumber() == 61
+              && m.getAfterTouchValue() == 73 && (*it).samplePosition == 19, "Non-channel-one polyphonic expression changed");
+    }
+    for (const auto& expected : std::vector<juce::MidiMessage>{juce::MidiMessage::controllerEvent(2, 1, 73),
+             juce::MidiMessage::pitchWheel(2, 12345), juce::MidiMessage::channelPressureChange(2, 41),
+             juce::MidiMessage::programChange(2, 17)}) {
+        juce::MidiBuffer midi; midi.addEvent(expected, 17); s.process(midi);
+        check(midi.getNumEvents() == 1, "Non-note MIDI event missing or duplicated");
+        const auto actual = (*midi.begin()).getMessage();
+        check(actual.getRawDataSize() == expected.getRawDataSize()
+              && std::equal(actual.getRawData(), actual.getRawData() + actual.getRawDataSize(), expected.getRawData()),
+              "Actual VST3 changed non-note expression bytes");
+        check((*midi.begin()).samplePosition == 17, "Actual VST3 changed expression sample offset");
+    }
+    features.add("non_ch1_passthrough"); features.add("expression_offsets");
+}
+void testPedals(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session s(formats, d, "channel1_sustain_and_latch_reset"); juce::MidiBuffer midi; chord(midi, true, {48, 52, 55}, 0);
+    midi.addEvent(juce::MidiMessage::controllerEvent(1, 64, 127), 1);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(90)), 11); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 21);
+    midi.addEvent(juce::MidiMessage::controllerEvent(1, 64, 0), 31);
+    auto out = s.process(midi); check(out.size() == 2 && midi.getNumEvents() == 2, "Core sustain lifecycle or CC64 consumption changed");
+    expectNote(out, 0, true, 60, 11); expectNote(out, 1, false, 60, 31);
+    midi.clear(); midi.addEvent(juce::MidiMessage::controllerEvent(1, 66, 127), 3);
+    midi.addEvent(juce::MidiMessage::controllerEvent(1, 69, 127), 7); s.process(midi);
+    check(midi.getNumEvents() == 2, "Destination latch controllers missing");
+    s.timeline.playing = false; midi.clear(); out = s.process(midi);
+    check(out.empty() && midi.getNumEvents() == 2, "Stop failed to reset remembered latch pedals");
+    bool up66 = false, up69 = false;
+    for (const auto metadata : midi) {
+        const auto m = metadata.getMessage();
+        check(m.isController() && m.getChannel() == 1 && m.getControllerValue() == 0 && metadata.samplePosition == 0,
+              "Latch reset must be a channel-one controller release at sample zero");
+        if (m.getControllerNumber() == 66) up66 = true; if (m.getControllerNumber() == 69) up69 = true;
+    }
+    check(up66 && up69, "Stop failed to release both latch pedals");
+    midi.clear(); s.process(midi); check(midi.isEmpty(), "Stop repeated latch releases"); features.add("channel1_pedals");
+}
+void testOverlappingBindings(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session s(formats, d, "overlapping_input_bindings"); juce::MidiBuffer midi; chord(midi, true, {48, 52, 55}, 0);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(81)), 3);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 60, juce::uint8(95)), 7);
+    midi.addEvent(juce::MidiMessage::noteOff(1, 61), 11); midi.addEvent(juce::MidiMessage::noteOff(1, 60), 19);
+    auto out = s.process(midi); check(out.size() == 2, "Shared corrected output lost reference ownership");
+    expectNote(out, 0, true, 60, 3, 1, 81); expectNote(out, 1, false, 60, 19);
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(82)), 5);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(92)), 9);
+    midi.addEvent(juce::MidiMessage::noteOff(1, 61), 17); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 29);
+    out = s.process(midi); check(out.size() == 2, "Repeated input FIFO lost corrected output ownership");
+    expectNote(out, 0, true, 60, 5, 1, 82); expectNote(out, 1, false, 60, 29);
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 31); out = s.process(midi);
+    check(out.empty(), "Unmatched note release generated a spurious output");
+    features.add("overlapping_note_bindings");
+}
+void testState(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session original(formats, d, "state_original"), restored(formats, d, "state_clone"), independent(formats, d, "state_independent");
+    struct Saved { juce::String name; float value, independent; }; std::vector<Saved> expected;
+    int index = 0, maps = 0;
+    for (auto* item : original.plugin->getParameters()) {
+        const auto name = item->getName(128);
+        if (name != "Note Correction" && name != "Mode" && name != "Root" && name != "Scale"
+            && name != "Chord MIDI Through" && name != "Context Help" && !name.startsWith("Map ")) continue;
+        const int steps = item->getNumSteps(); check(steps >= 2 && steps <= 31, "Unexpected saved MIDI parameter range");
+        const float value = float((index++ * 7 + 1) % steps) / float(steps - 1); item->setValueNotifyingHost(value);
+        expected.push_back({name, value, parameter(*independent.plugin, name).getValue()}); if (name.startsWith("Map ")) ++maps;
+    }
+    check(expected.size() == 56 && maps == 50, "State must cover six MIDI/UI controls and 50 assignments");
+    original.flushControls(); juce::MemoryBlock state; original.plugin->getStateInformation(state);
+    check(state.getSize() > 0, "Actual VST3 state empty");
+    restored.plugin->setStateInformation(state.getData(), int(state.getSize())); restored.flushControls();
+    for (const auto& saved : expected) {
+        check(std::abs(parameter(*restored.plugin, saved.name).getValue() - saved.value) < .00001f,
+              "Actual VST3 state roundtrip failed: " + saved.name.toStdString());
+        check(parameter(*independent.plugin, saved.name).getValue() == saved.independent, "One instance changed another's settings");
+    }
+    const auto map = std::find_if(expected.begin(), expected.end(), [](const Saved& s) { return s.name == "Map major"; });
+    check(map != expected.end(), "Major chord mapping missing");
+    setChoice(*original.plugin, "Map major", map->value == 0 ? 30 : 0);
+    check(std::abs(parameter(*restored.plugin, "Map major").getValue() - map->value) < .00001f, "Cloned assignment changed with source instance");
+    // Also exercise a newly appended scale through the actual assignment
+    // path. A copied C-major assignment remains Dorian Bebop after the source
+    // instance switches that assignment to Ionian.
+    setChoice(*original.plugin, "Mode", 1); setNormalised(*original.plugin, "Note Correction", 1);
+    setNormalised(*original.plugin, "Chord MIDI Through", 0); setChoice(*original.plugin, "Map major", 30);
+    original.flushControls(); original.plugin->getStateInformation(state);
+    restored.plugin->setStateInformation(state.getData(), int(state.getSize())); restored.flushControls();
+    setChoice(*original.plugin, "Map major", 1);
+    juce::MidiBuffer assignment; chord(assignment, true, {48, 52, 55}, 0);
+    assignment.addEvent(juce::MidiMessage::noteOn(1, 63, juce::uint8(94)), 11);
+    assignment.addEvent(juce::MidiMessage::noteOff(1, 63), 27);
+    juce::MidiBuffer clonedAssignment(assignment);
+    const auto sourceAssignment = original.process(assignment), cloneAssignment = restored.process(clonedAssignment);
+    check(sourceAssignment.size() == 2 && cloneAssignment.size() == 2, "Instance assignment path lost a note lifecycle");
+    expectNote(sourceAssignment, 0, true, 64, 11); expectNote(sourceAssignment, 1, false, 64, 27);
+    expectNote(cloneAssignment, 0, true, 63, 11); expectNote(cloneAssignment, 1, false, 63, 27);
+    assignment.clear(); chord(assignment, false, {48, 52, 55}, 0); clonedAssignment = assignment;
+    original.process(assignment); restored.process(clonedAssignment);
+    // State contains settings, never the held keys or active note mappings.
+    setChoice(*original.plugin, "Mode", 0); setNormalised(*original.plugin, "Note Correction", 1);
+    setNormalised(*original.plugin, "Chord MIDI Through", 0); original.flushControls();
+    juce::MidiBuffer midi; chord(midi, true, {48, 52, 55}, 0); midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(90)), 11);
+    const auto out = original.process(midi); check(out.size() == 1, "State-held-note fixture failed"); expectNote(out, 0, true, 60, 11);
+    original.plugin->getStateInformation(state); restored.plugin->setStateInformation(state.getData(), int(state.getSize()));
+    midi.clear(); auto cloneOut = restored.process(midi); check(cloneOut.empty(), "State revived a held MIDI note");
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 7); cloneOut = restored.process(midi);
+    check(cloneOut.empty(), "State revived an active voice binding");
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(90)), 11); cloneOut = restored.process(midi);
+    check(cloneOut.empty(), "State revived held chord controls"); features.add("instance_state");
+}
+void testTransport(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session s(formats, d, "transport_reset"); juce::MidiBuffer midi; chord(midi, true, {48, 52, 55}, 0);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(80)), 17); auto out = s.process(midi);
+    check(out.size() == 1, "Transport onset fixture failed");
+    s.timeline.playing = false; midi.clear(); out = s.process(midi); check(out.size() == 1, "Stop failed to release held note");
+    expectNote(out, 0, false, 60, 0);
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(80)), 1); out = s.process(midi);
+    check(out.empty(), "Stop retained stale chord controls");
+    s.timeline.playing = true; midi.clear(); chord(midi, true, {48, 52, 55}, 0);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(80)), 17); out = s.process(midi);
+    check(out.size() == 1, "Restart onset fixture failed");
+    s.timeline.sample = 0; midi.clear(); out = s.process(midi); check(out.size() == 1, "Seek failed to release held note");
+    expectNote(out, 0, false, 60, 0); midi.clear(); s.process(midi); check(midi.isEmpty(), "Seek repeated releases");
+    features.add("transport_reset");
+}
+void testGeneratedRouting(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session s(formats, d, "generated_midi_routing"), restored(formats, d, "generated_midi_state_clone");
+    setNormalised(*s.plugin, "Note Correction", 0); s.flushControls();
+    setNormalised(*s.plugin, "Routing Test", 1);
+    std::vector<Note> generated; int external = 0;
     for (int start = 0; start < 5000; start += 128) {
         juce::MidiBuffer midi;
         if (start == 0) {
             midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(77)), 11);
             midi.addEvent(juce::MidiMessage::noteOff(1, 64), 31);
         }
-        for (auto n : session.process(midi)) {
+        for (auto n : s.process(midi)) {
             if (n.pitch == 60) { n.offset += start; generated.push_back(n); }
             else {
-                check(n.pitch == 64, "Unexpected internally generated pitch");
-                if (n.on) check(n.offset == 11 && n.velocity == 77, "Simultaneous external onset changed");
-                else check(n.offset == 31, "Simultaneous external release changed");
-                ++externalCount;
+                check(n.pitch == 64, "Unexpected diagnostic MIDI pitch");
+                if (n.on) check(n.offset == 11 && n.velocity == 77, "Diagnostic MIDI changed external onset");
+                else check(n.offset == 31, "Diagnostic MIDI changed external release");
+                ++external;
             }
         }
     }
-    check(externalCount == 2, "External MIDI did not coexist with routing-test note");
-    check(generated.size() == 2, "Routing test must generate exactly one on/off pair per rising edge");
-    expectNote(generated, 0, true, 60, 0, 1, 100);
-    expectNote(generated, 1, false, 60, 4800);
-    setNormalised(*session.plugin, "Routing Test", 0);
-    session.flushControls();
-    setNormalised(*session.plugin, "Routing Test", 1);
-    juce::MidiBuffer midi;
-    auto output = session.process(midi);
-    check(output.size() == 1, "Re-arming routing test failed");
-    expectNote(output, 0, true, 60, 0);
-    midi.clear();
-    midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(72)), 5);
-    output = session.process(midi);
-    check(output.size() == 1 && output[0].pitch == 64 && output[0].on,
-          "Concurrent external sustained note was not accepted");
-    setNormalised(*session.plugin, "Routing Test", 0);
-    midi.clear(); output = session.process(midi);
-    check(output.size() == 1, "Routing test deactivation should release only its note");
-    expectNote(output, 0, false, 60, 0);
-    midi.clear(); midi.addEvent(juce::MidiMessage::noteOff(1, 64), 17);
-    output = session.process(midi);
-    check(output.size() == 1, "Generated-source deactivation lost external note binding");
-    expectNote(output, 0, false, 64, 17);
-    std::cout << "PASS actual VST3 generated/external simultaneous events, 4800-sample test gate, source-only shutdown\n";
+    check(external == 2 && generated.size() == 2, "Diagnostic routing must coexist with external MIDI and emit one lifecycle");
+    expectNote(generated, 0, true, 60, 0, 1, 100); expectNote(generated, 1, false, 60, 4800);
+    setNormalised(*s.plugin, "Routing Test", 0); s.flushControls();
+    setNormalised(*s.plugin, "Routing Test", 1); juce::MidiBuffer midi; auto out = s.process(midi);
+    check(out.size() == 1, "Diagnostic MIDI did not re-arm"); expectNote(out, 0, true, 60, 0);
+    juce::MemoryBlock state; s.plugin->getStateInformation(state);
+    restored.plugin->setStateInformation(state.getData(), int(state.getSize())); midi.clear();
+    auto cloneOut = restored.process(midi);
+    check(cloneOut.empty() && parameter(*restored.plugin, "Routing Test").getValue() == 0,
+          "State must never re-arm the transient MIDI routing test");
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(72)), 5); out = s.process(midi);
+    check(out.size() == 1, "External sustained-note fixture failed"); expectNote(out, 0, true, 64, 5);
+    setNormalised(*s.plugin, "Routing Test", 0); midi.clear(); out = s.process(midi);
+    check(out.size() == 1, "Stopping diagnostic MIDI must release only that source"); expectNote(out, 0, false, 60, 0);
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOff(1, 64), 17); out = s.process(midi);
+    check(out.size() == 1, "Diagnostic stop lost external binding"); expectNote(out, 0, false, 64, 17);
+    features.add("generated_midi_routing");
 }
-
-void testState(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& description) {
-    Session original(formats, description), restored(formats, description), independent(formats, description);
-    auto& p = *original.plugin;
-    auto savedControl = [](const juce::String& name) {
-        return name == "Correction" || name == "Mode" || name == "Root" || name == "Scale"
-            || name == "Pitch Enabled" || name == "Pitch Mode" || name == "Input Threshold"
-            || name == "Sensitivity" || name == "Release" || name.startsWith("Map ");
-    };
-    struct SavedValue {juce::String name; float original; float independent;};
-    std::vector<SavedValue> expected;
-    int index = 0;
-    for (auto* item : p.getParameters()) {
-        const auto name = item->getName(128);
-        if (!savedControl(name)) continue;
-        // The VST3 host caches the precise normalized value supplied by the
-        // host, whereas AudioParameterChoice rounds to a legal choice before
-        // state serialization. Exercise actual choices, and compare against
-        // the intended value rather than an arbitrary between-choice cache.
-        float value=0;
-        if(name=="Input Threshold")value=item->getValueForText("-61");
-        else if(name=="Sensitivity")value=item->getValueForText("0.73");
-        else if(name=="Release")value=item->getValueForText("48");
-        else {
-            const int steps=item->getNumSteps();
-            check(steps>=2&&steps<=19,"Unexpected musical parameter choice range");
-            value=float((index*7)%steps)/float(steps-1);
-        }
-        ++index;
-        check(value>=0&&value<=1,"Host failed to parse legal audio parameter value");
-        item->setValueNotifyingHost(value);
-        expected.push_back({name,value,parameter(*independent.plugin,name).getValue()});
-    }
-    check(index == 59, "Expected nine musical/audio controls and exactly 50 chord-scale parameters");
-    original.flushControls();
-    for (const auto& saved : expected)
-        check(std::abs(parameter(p,saved.name).getValue() - saved.original) < 0.00001f,
-              "Source instance did not accept legal parameter choice: " + saved.name.toStdString());
-    juce::MemoryBlock state;
-    p.getStateInformation(state);
-    check(state.getSize() > 0, "Actual VST3 state was empty");
-    restored.plugin->setStateInformation(state.getData(), int(state.getSize()));
-    restored.flushControls();
-    for (const auto& saved : expected) {
-        check(std::abs(parameter(*restored.plugin,saved.name).getValue() - saved.original) < 0.00001f,
-              "Actual VST3 state roundtrip failed: " + saved.name.toStdString() + " expected="
-              + std::to_string(saved.original) + " actual="
-              + std::to_string(parameter(*restored.plugin,saved.name).getValue()));
-        check(parameter(*independent.plugin,saved.name).getValue() == saved.independent,
-              "Changing one plugin instance changed another instance");
-    }
-    // State carries settings only. Saving while a generated note is held must
-    // not re-arm the transient test source or revive voices after restoration.
-    setNormalised(p, "Correction", 0); original.flushControls();
-    setNormalised(p, "Routing Test", 1);
-    juce::MidiBuffer midi;
-    auto output = original.process(midi);
-    check(output.size() == 1 && output[0].on && output[0].pitch == 60,
-          "State active-note fixture did not start generated note");
-    p.getStateInformation(state);
-    restored.plugin->setStateInformation(state.getData(), int(state.getSize()));
-    midi.clear(); output = restored.process(midi);
-    check(output.empty(), "State restoration revived a previous active note or routing test");
-    check(parameter(*restored.plugin, "Routing Test").getValue() == 0,
-          "Transient routing test must restore disabled");
-    std::cout << "PASS actual VST3 all settings/table state roundtrip, instance isolation, no revived notes\n";
+void testBypassCallback(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session s(formats, d, "host_invoked_bypass_callback"); juce::MidiBuffer midi; chord(midi, true, {48, 52, 55}, 0);
+    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(82)), 11); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 31);
+    auto out = s.process(midi, -1, true); check(out.size() == 2, "Invoked bypass callback lost MIDI");
+    expectNote(out, 0, true, 61, 11); expectNote(out, 1, false, 61, 31);
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(82)), 13); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 29);
+    out = s.process(midi); check(out.size() == 2, "Normal callback lost controls learned during invoked bypass");
+    expectNote(out, 0, true, 60, 13); expectNote(out, 1, false, 60, 29);
+    features.add("host_invoked_bypass_callback_only");
 }
-
-void testTransport(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& description) {
-    Session session(formats, description);
-    juce::MidiBuffer midi;
-    chord(midi, true, {48, 52, 55}, 0);
-    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(80)), 17);
-    auto output = session.process(midi);
-    check(output.size() == 1, "Transport test onset fixture");
-    session.timeline.playing = false;
-    midi.clear(); output = session.process(midi);
-    check(output.size() == 1, "Transport stop did not release held note");
-    expectNote(output, 0, false, 60, 0);
-    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(80)), 1);
-    output = session.process(midi);
-    check(output.empty(), "Transport stop did not clear stale chord controls");
-    session.timeline.playing = true;
-    midi.clear(); chord(midi, true, {48, 52, 55}, 0);
-    midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(80)), 17);
-    output = session.process(midi);
-    check(output.size() == 1, "Transport restart onset fixture");
-    session.timeline.sample = 0; // loop/seek backwards
-    midi.clear(); output = session.process(midi);
-    check(output.size() == 1, "Loop/seek did not release held note");
-    expectNote(output, 0, false, 60, 0);
-    midi.clear(); output = session.process(midi);
-    check(output.empty(), "Loop/seek emitted duplicate releases");
-    std::cout << "PASS actual VST3 stop/restart/seek flush, no stale chord or repeated note offs\n";
+void writeEvidence(const juce::File& directory, bool passed, const juce::String& error) {
+    check(directory.createDirectory().wasOk(), "Could not create VST3 evidence directory");
+    const auto events = directory.getChildFile("Flysnapper-midi-vst3-events.csv");
+    check(events.replaceWithText(csv), "Could not write VST3 MIDI events");
+    auto* object = new juce::DynamicObject;
+    object->setProperty("schema", 1); object->setProperty("kind", "FlysnapperMidiOnlyVst3");
+    object->setProperty("version", "0.4.0");
+    object->setProperty("status", passed ? "passed" : "failed"); object->setProperty("checks", assertions);
+    object->setProperty("scope", "Compiled VST3 module executed by the JUCE VST3 test host; no DAW or audio driver");
+    object->setProperty("ableton_verified", false); object->setProperty("pitch_detection_implemented", false);
+    object->setProperty("audio_input_channels", 0); object->setProperty("audio_output_channels", 0);
+    object->setProperty("audio_input_buses", 0); object->setProperty("audio_output_buses", 0);
+    object->setProperty("declared_latency_samples", 0); object->setProperty("scale_count", 31); object->setProperty("chord_type_count", 50);
+    object->setProperty("cases", juce::var(cases)); object->setProperty("verified_features", juce::var(features));
+    object->setProperty("events_file", events.getFileName()); object->setProperty("events_rows", eventRows);
+    object->setProperty("limitations", "No Ableton Live 12.4.6 execution; no claim about Device Activator scheduling, direct endpoint fan-out, held-chord replay or downstream instruments. Bypass case invokes the callback explicitly.");
+    if (error.isNotEmpty()) object->setProperty("error", error);
+    check(directory.getChildFile("Flysnapper-midi-vst3-evaluation.json").replaceWithText(juce::JSON::toString(juce::var(object), false)),
+          "Could not write VST3 evaluation");
 }
-
-void testExpression(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& description) {
-    Session session(formats, description);
-    std::vector<juce::MidiMessage> messages{
-        juce::MidiMessage::controllerEvent(2, 1, 73),
-        juce::MidiMessage::pitchWheel(2, 12345),
-        juce::MidiMessage::channelPressureChange(2, 41),
-        juce::MidiMessage::programChange(2, 17)
-    };
-    // VST3 represents most controller input through parameter changes. Test
-    // the compiled wrapper's recovered values; report its timing separately.
-    for (const auto& expected : messages) {
-        juce::MidiBuffer midi; midi.addEvent(expected, 17);
-        session.process(midi);
-        check(midi.getNumEvents() == 1, "Non-note MIDI passthrough missing/duplicated message");
-        const auto actual = (*midi.begin()).getMessage();
-        check(actual.getRawDataSize() == expected.getRawDataSize()
-              && std::equal(actual.getRawData(), actual.getRawData() + actual.getRawDataSize(), expected.getRawData()),
-              "Actual VST3 changed non-note MIDI bytes");
-        std::cout << "MEASURE actual VST3 " << expected.getDescription() << " offset in=17 out="
-                  << (*midi.begin()).samplePosition << "\n";
-    }
-    std::cout << "PASS actual VST3 CC1, pitch bend, channel pressure and program-change values\n";
-}
-
-void testLatchedControllerReset(juce::AudioPluginFormatManager& formats,
-                                const juce::PluginDescription& description) {
-    Session session(formats, description);
-    setNormalised(*session.plugin, "Correction", 0);
-    session.flushControls();
-    juce::MidiBuffer midi;
-    midi.addEvent(juce::MidiMessage::controllerEvent(2, 66, 127), 1);
-    midi.addEvent(juce::MidiMessage::controllerEvent(2, 69, 127), 3);
-    midi.addEvent(juce::MidiMessage::noteOn(2, 64, juce::uint8(90)), 11);
-    midi.addEvent(juce::MidiMessage::noteOff(2, 64), 31);
-    auto output = session.process(midi);
-    check(midi.getNumEvents() == 4 && output.size() == 2,
-          "Forwarded CC66/CC69 fixture must retain both controllers and normal note lifecycle");
-    expectNote(output, 0, true, 64, 11, 2, 90);
-    expectNote(output, 1, false, 64, 31, 2);
-    bool down66 = false, down69 = false;
-    for (const auto metadata : midi) {
-        const auto message = metadata.getMessage();
-        if (message.isController() && message.getControllerNumber() == 66)
-            down66 = message.getChannel() == 2 && message.getControllerValue() == 127;
-        if (message.isController() && message.getControllerNumber() == 69)
-            down69 = message.getChannel() == 2 && message.getControllerValue() == 127;
-    }
-    check(down66 && down69, "Actual VST3 did not forward both destination latch pedals");
-    // The input note has already been released: there are no active core
-    // voices, but downstream instruments may still be latched by these CCs.
-    session.timeline.playing = false;
-    midi.clear(); output = session.process(midi);
-    check(output.empty() && midi.getNumEvents() == 2,
-          "Transport stop must release remembered CC66/CC69 despite no active core voices");
-    bool up66 = false, up69 = false;
-    for (const auto metadata : midi) {
-        const auto message = metadata.getMessage();
-        check(message.isController() && message.getChannel() == 2
-              && message.getControllerValue() == 0 && metadata.samplePosition == 0,
-              "Latched controller reset must be an explicit value-zero event at sample zero");
-        if (message.getControllerNumber() == 66) up66 = true;
-        if (message.getControllerNumber() == 69) up69 = true;
-    }
-    check(up66 && up69, "Stop did not reset both remembered latch controllers");
-    midi.clear(); session.process(midi);
-    check(midi.isEmpty(), "Latched controllers were reset repeatedly after stop");
-    std::cout << "PASS actual VST3 forwarded CC66/CC69 released at transport stop without active core voices\n";
-}
-
-
-void testAudioPipeline(juce::AudioPluginFormatManager& formats,
-                       const juce::PluginDescription& description) {
-    constexpr double rate=48000;
-    constexpr double twoPi=6.283185307179586476925286766559;
-    auto frequency=[](int note){return 440.0*std::pow(2.0,(note-69)/12.0);};
-    auto enableAudio=[](Session& session,bool polyphonic){
-        auto& p=*session.plugin;
-        p.releaseResources();
-        check(p.getBusCount(true)==1&&p.getBus(true,0)->enable(true),
-              "Actual compiled VST3 audio test cannot enable auxiliary sidechain");
-        p.prepareToPlay(session.timeline.rate,session.maxBlock);
-        setNormalised(p,"Pitch Enabled",1);
-        setNormalised(p,"Pitch Mode",polyphonic?1.0f:0.0f);
-        setNormalised(p,"Correction",1);
-    };
-    struct AbsoluteNote {bool on;int pitch,channel;int64_t sample;};
-    auto collect=[](std::vector<AbsoluteNote>& all,const std::vector<Note>& block,
-                    int64_t start,std::array<int,128>& sounding){
-        for(const auto& n:block) {
-            check(n.channel==1,"Audio-derived output escaped performance channel 1");
-            if(n.on) {
-                check(n.velocity>0,"Actual VST3 generated zero-velocity Note On");
-                ++sounding[size_t(n.pitch)];
-            } else {
-                check(sounding[size_t(n.pitch)]>0,"Actual VST3 audio pipeline emitted unmatched Note Off");
-                --sounding[size_t(n.pitch)];
-            }
-            all.push_back({n.on,n.pitch,n.channel,start+n.offset});
-        }
-    };
-    // This fixture sends actual audio through the compiled auxiliary VST3 bus,
-    // plus simultaneous external notes and channel-16 controls. Neither source
-    // is replaced by the diagnostic Routing Test parameter.
-    {
-        Session session(formats,description,rate,128);enableAudio(session,false);
-        session.audioSource=[&](int64_t sample){
-            const double t=sample/rate;if(t>=.35)return 0.0f;
-            const double phase=twoPi*frequency(61)*t;
-            return float(.27*std::min(1.0,t/.002)*(std::sin(phase)+.30*std::sin(2*phase)+.12*std::sin(3*phase)));
-        };
-        std::array<int,128> sounding{};std::vector<AbsoluteNote> all;
-        while(session.timeline.sample<rate*.65) {
-            int64_t start=session.timeline.sample;juce::MidiBuffer midi;
-            if(start==0) {
-                chord(midi,true,{48,52,55},0);
-                midi.addEvent(juce::MidiMessage::noteOn(1,69,juce::uint8(88)),17);
-            }
-            if(start<=7200&&start+128>7200)
-                midi.addEvent(juce::MidiMessage::noteOff(1,69),int(7200-start));
-            collect(all,session.process(midi),start,sounding);
-        }
-        std::vector<AbsoluteNote> generated,external;
-        for(const auto& event:all) {
-            check(event.pitch==60||event.pitch==67,
-                  "Compiled audio/chord correction produced unexpected note "+std::to_string(event.pitch));
-            (event.pitch==60?generated:external).push_back(event);
-        }
-        check(generated.size()==2&&generated.front().on&&!generated.back().on,
-              "Compiled mono audio must yield one corrected C# -> C lifecycle");
-        check(generated.front().sample<=int64_t(rate*.15),
-              "Compiled mono pipeline exceeded 150 ms functional acquisition budget");
-        check(external.size()==2&&external.front().on&&external.front().sample==17
-              &&!external.back().on&&external.back().sample==7200,
-              "Simultaneous external A -> G correction or timing changed");
-        for(int count:sounding)check(count==0,"Compiled mono audio left a held output note");
-        std::cout<<"MEASURE actual VST3 audio first useful note "<<1000.*generated.front().sample/rate
-                 <<" ms (functional sample observation, excludes driver/Live/synth latency)\n";
-    }
-    {
-        Session session(formats,description,rate,128);enableAudio(session,true);
-        setNormalised(*session.plugin,"Mode",1); // Fixed Scale index 2 of 3.
-        setNormalised(*session.plugin,"Scale",0); // Chromatic.
-        session.audioSource=[&](int64_t sample){
-            const double t=sample/rate;if(t>=.50)return 0.0f;
-            double value=0;for(int note:{60,64,67}) {
-                const double phase=twoPi*frequency(note)*t;
-                value+=.15*(std::sin(phase)+.20*std::sin(2*phase)+.08*std::sin(3*phase));
-            }
-            return float(std::min(1.0,t/.002)*value);
-        };
-        std::array<int,128> sounding{};std::array<bool,128> heard{};
-        std::vector<AbsoluteNote> all;
-        while(session.timeline.sample<rate*.85) {
-            const int64_t start=session.timeline.sample;juce::MidiBuffer midi;
-            collect(all,session.process(midi),start,sounding);
-        }
-        for(const auto& event:all)if(event.on) {
-            check(event.pitch==60||event.pitch==64||event.pitch==67,
-                  "Compiled polyphonic audio emitted unrelated pitch "+std::to_string(event.pitch));
-            heard[size_t(event.pitch)]=true;
-        }
-        check(heard[60]&&heard[64]&&heard[67],"Compiled VST3 polyphonic audio missed C/E/G voice");
-        for(int count:sounding)check(count==0,"Compiled polyphonic audio left an output note active");
-    }
-    {
-        Session session(formats,description,rate,128);enableAudio(session,false);
-        setNormalised(*session.plugin,"Mode",1);setNormalised(*session.plugin,"Scale",0);
-        session.audioSource=[&](int64_t sample){
-            const double t=sample/rate;const double phase=twoPi*frequency(57)*t;
-            return float(.27*std::min(1.0,t/.002)*(std::sin(phase)+.25*std::sin(2*phase)));
-        };
-        std::array<int,128> sounding{};std::vector<AbsoluteNote> all;
-        while(session.timeline.sample<12000) {
-            const int64_t start=session.timeline.sample;juce::MidiBuffer midi;
-            if(start==0)midi.addEvent(juce::MidiMessage::noteOn(1,72,juce::uint8(91)),0);
-            collect(all,session.process(midi),start,sounding);
-        }
-        check(sounding[57]==1&&sounding[72]==1,"Compiled source-stop fixture lacks both real sources");
-        setNormalised(*session.plugin,"Pitch Enabled",0);
-        int64_t start=session.timeline.sample;juce::MidiBuffer midi;
-        collect(all,session.process(midi),start,sounding);
-        check(sounding[57]==0&&sounding[72]==1,
-              "Disabling compiled detector failed source-only release or cut external MIDI");
-        start=session.timeline.sample;midi.clear();midi.addEvent(juce::MidiMessage::noteOff(1,72),23);
-        collect(all,session.process(midi),start,sounding);
-        for(int count:sounding)check(count==0,"Compiled source stop left stale note ownership");
-    }
-    std::cout<<"PASS actual compiled VST3 mono/poly sidechain -> MIDI -> correction, simultaneous external/control MIDI and source-only shutdown\n";
-}
-
-void testAudioBend(juce::AudioPluginFormatManager& formats,
-                   const juce::PluginDescription& description) {
-    constexpr double twoPi=6.283185307179586476925286766559;
-    for(double rate:{44100.,48000.,96000.})for(int range:{2,12}) {
-        Session session(formats,description,rate,128);
-        auto& plugin=*session.plugin;
-        plugin.releaseResources();
-        check(plugin.getBus(true,0)->enable(true),"Bend test cannot enable sidechain");
-        plugin.prepareToPlay(rate,128);
-        setNormalised(plugin,"Pitch Enabled",1);
-        setNormalised(plugin,"Correction",0);
-        setNormalised(plugin,"Mono Bend",1);
-        setNormalised(plugin,"Bend Range",range==12?1.0f:0.0f);
-        std::vector<float> signal(size_t(std::ceil(rate*.75)));
-        std::vector<double> target(signal.size());
-        double phase=0;
-        for(size_t n=0;n<signal.size();++n) {
-            const double t=double(n)/rate;
-            const double bend=std::clamp((t-.15)*3.75,0.0,1.5);
-            const double vibrato=t>.15?.07*std::sin(twoPi*5*(t-.15)):0;
-            target[n]=57+bend+vibrato;
-            phase+=twoPi*440*std::pow(2.0,(target[n]-69)/12)/rate;
-            const double envelope=.25*std::min(1.,t/.002)*std::exp(-.8*t);
-            signal[n]=float(envelope*(std::sin(phase)+.30*std::sin(2*phase)+.12*std::sin(3*phase)));
-        }
-        session.audioSource=[&](int64_t sample){return sample>=0&&size_t(sample)<signal.size()?signal[size_t(sample)]:0.0f;};
-        int generatedOns=0,generatedOffs=0,externalOns=0,externalOffs=0,externalWheels=0;
-        bool rangeSent=false,generatedHeld=false,centredAfterOff=false;
-        std::vector<double> errors;
-        while(session.timeline.sample<rate*1.0) {
-            const int64_t start=session.timeline.sample;
-            juce::MidiBuffer midi;
-            if(start==0)midi.addEvent(juce::MidiMessage::noteOn(1,72,juce::uint8(91)),0);
-            const int64_t wheelAt=int64_t(rate*.30),offAt=int64_t(rate*.70);
-            if(start<=wheelAt&&wheelAt<start+128)midi.addEvent(juce::MidiMessage::pitchWheel(1,10000),int(wheelAt-start));
-            if(start<=offAt&&offAt<start+128)midi.addEvent(juce::MidiMessage::noteOff(1,72),int(offAt-start));
-            session.process(midi);
-            for(const auto metadata:midi) {
-                const auto m=metadata.getMessage();
-                check(metadata.samplePosition>=0&&metadata.samplePosition<128,"Bend event offset outside current callback");
-                const int64_t absolute=start+metadata.samplePosition;
-                check(m.getChannel()!=16,"Bend output leaked chord control channel");
-                if(m.getChannel()==1) {
-                    if(m.isNoteOn()){++externalOns;check(m.getNoteNumber()==72&&absolute==0,"Bend changed external Note On");}
-                    else if(m.isNoteOff()){++externalOffs;check(m.getNoteNumber()==72&&absolute==offAt,"Bend changed external Note Off");}
-                    else if(m.isPitchWheel()){++externalWheels;check(m.getPitchWheelValue()==10000&&absolute==wheelAt,"Audio bend altered external pitch wheel");}
-                }
-                if(m.getChannel()!=2)continue;
-                if(m.isController()&&m.getControllerNumber()==6&&m.getControllerValue()==range)rangeSent=true;
-                if(m.isNoteOn()) {
-                    check(rangeSent,"Bend sensitivity RPN was not sent before generated Note On");
-                    check(m.getNoteNumber()==57&&!generatedHeld,"Bend retriggered or changed generated anchor");
-                    ++generatedOns;generatedHeld=true;
-                    check(absolute<rate*.15,"Bend test failed acquisition before expression starts");
-                } else if(m.isNoteOff()) {
-                    check(m.getNoteNumber()==57&&generatedHeld,"Bend lost anchor Note Off binding");
-                    check(absolute>=rate*.72,"Bend ended an audible held note too early");
-                    ++generatedOffs;generatedHeld=false;
-                } else if(m.isPitchWheel()) {
-                    if(!generatedHeld&&generatedOffs>0&&m.getPitchWheelValue()==8192)centredAfterOff=true;
-                    if(generatedHeld&&absolute>=rate*.25&&absolute<rate*.70&&size_t(absolute)<target.size()) {
-                        const double reconstructed=57+(m.getPitchWheelValue()-8192)*range/8192.0;
-                        errors.push_back(std::abs(reconstructed-target[size_t(absolute)]));
-                    }
-                }
-            }
-        }
-        check(generatedOns==1&&generatedOffs==1&&!generatedHeld,"Compiled mono bend did not preserve one complete voice lifecycle");
-        check(externalOns==1&&externalOffs==1&&externalWheels==1,"Compiled bend lost concurrent channel-one MIDI");
-        check(centredAfterOff,"Compiled mono bend failed to centre wheel after generated release");
-        check(errors.size()>=15,"Compiled mono bend did not emit continuous pitch expression");
-        std::sort(errors.begin(),errors.end());
-        const auto p95=errors[size_t(std::ceil(errors.size()*.95))-1];
-        check(p95<.20,"Compiled pitch wheel did not follow the independent acoustic bend target");
-        std::cout<<"MEASURE actual VST3 mono bend "<<rate<<" Hz, +/-"<<range
-                 <<" semitones: "<<errors.size()<<" pitch updates, P95 error "<<100*p95<<" cents\n";
-    }
-    std::cout<<"PASS actual VST3 acoustic bend/vibrato, RPN range, generated channel isolation and wheel reset\n";
-}
-
-int run(int argc, const juce::String& path) {
+int run(int argc, const juce::String& path, const juce::String& output) {
+    const auto directory = output.isNotEmpty() ? juce::File(output) : juce::File::getCurrentWorkingDirectory();
     try {
         juce::ScopedJuceInitialiser_GUI gui;
-        check(argc == 2, "Expected the complete Flysnapper.vst3 bundle path");
-        juce::File bundle(path);
-        check(bundle.isDirectory(), "VST3 bundle was not found: " + path.toStdString());
-        juce::AudioPluginFormatManager formats;
-        auto vst = std::make_unique<juce::VST3PluginFormat>();
-        auto* format = vst.get(); formats.addFormat(std::move(vst));
-        juce::OwnedArray<juce::PluginDescription> descriptions;
+        check(argc == 2 || argc == 3, "Expected VST3 bundle path and optional evidence directory");
+        const juce::File bundle(path); check(bundle.isDirectory(), "Actual VST3 bundle not found");
+        juce::AudioPluginFormatManager formats; auto vst = std::make_unique<juce::VST3PluginFormat>();
+        auto* format = vst.get(); formats.addFormat(std::move(vst)); juce::OwnedArray<juce::PluginDescription> descriptions;
         format->findAllTypesForFile(descriptions, bundle.getFullPathName());
-        check(descriptions.size() == 1, "Actual VST3 discovery must return exactly one class");
-        check(descriptions[0]->name == "Flysnapper", "Wrong product name");
-        check(descriptions[0]->isInstrument, "VST3 class must be an instrument");
-        std::cout << "PASS actual VST3 discovery and instrument classification\n";
-        for (double rate : {44100., 48000., 96000.})
-            for (int block : {32, 128, 257}) testRouting(formats, *descriptions[0], rate, block);
-        testSidechain(formats, *descriptions[0]);
-        testGenerated(formats, *descriptions[0]);
-        testState(formats, *descriptions[0]);
-        testTransport(formats, *descriptions[0]);
-        testExpression(formats, *descriptions[0]);
-        testLatchedControllerReset(formats, *descriptions[0]);
-        testAudioPipeline(formats, *descriptions[0]);
-        testAudioBend(formats, *descriptions[0]);
+        check(descriptions.size() == 1 && descriptions[0]->name == "Flysnapper MIDI", "Actual discovery returned the wrong class");
+        const auto& d = *descriptions[0]; runCase("module_contract", [&] { testModule(formats, d); });
+        for (double rate : {44100., 48000., 96000.}) for (int block : {32, 128, 257})
+            runCase("routing_" + juce::String(rate, 0) + "_" + juce::String(block), [&] { testRouting(formats, d, rate, block); });
+        features.add("note_sample_offsets");
+        runCase("all_31_scale_indices", [&] { testScales(formats, d); });
+        runCase("internal_correction_off_held_chord", [&] { testInternalCorrection(formats, d); });
+        runCase("serial_instances_and_two_active_corrections", [&] { testSerial(formats, d); });
+        runCase("non_ch1_notes_and_expression", [&] { testExpression(formats, d); });
+        runCase("channel1_sustain_and_latch_reset", [&] { testPedals(formats, d); });
+        runCase("overlapping_input_bindings", [&] { testOverlappingBindings(formats, d); });
+        runCase("instance_state", [&] { testState(formats, d); });
+        runCase("transport_reset", [&] { testTransport(formats, d); });
+        runCase("generated_midi_routing", [&] { testGeneratedRouting(formats, d); });
+        runCase("host_invoked_bypass_callback", [&] { testBypassCallback(formats, d); });
+        writeEvidence(directory, true, {});
         std::cout << "RESULT actual VST3 host tests passed (" << assertions << " assertions).\n";
 #if JUCE_WINDOWS
         std::cout << "PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.\n";
 #else
-        std::cout << "PLATFORM VERIFIED: native Linux VST3; Windows build is a separate required result.\n";
+        std::cout << "PLATFORM VERIFIED: native Linux VST3; Windows is a separate result.\n";
 #endif
-        std::cout << "NOT VERIFIED BY THIS TEST: Ableton Live, audio-driver/end-to-end latency or general musical accuracy.\n";
+        std::cout << "NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.\n";
         return 0;
-    } catch (const std::exception& e) { std::cerr << "FAIL " << e.what() << '\n'; return 1; }
+    } catch (const std::exception& e) {
+        std::cerr << "FAIL " << e.what() << '\n'; try { writeEvidence(directory, false, e.what()); } catch (...) {} return 1;
+    }
 }
 } // namespace
-
-// MSVC delivers the original UTF-16 path, including non-ASCII directory names.
 #if JUCE_WINDOWS
 int wmain(int argc, wchar_t** argv) {
-    return run(argc, argc == 2 ? juce::String(argv[1]) : juce::String());
+    return run(argc, argc >= 2 ? juce::String(argv[1]) : juce::String(), argc >= 3 ? juce::String(argv[2]) : juce::String());
 }
 #else
 int main(int argc, char** argv) {
-    return run(argc, argc == 2 ? juce::String::fromUTF8(argv[1]) : juce::String());
+    return run(argc, argc >= 2 ? juce::String::fromUTF8(argv[1]) : juce::String(), argc >= 3 ? juce::String::fromUTF8(argv[2]) : juce::String());
 }
 #endif

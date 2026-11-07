@@ -6,3 +6,20 @@ docs/validation/** -text
 # Research captures and their hash inventories also preserve exact bytes.
 docs/research/** -text
 docs/handover/Request_MIDI_only_2026-11-07.txt -text
+# Keep current compiled/proof inputs byte-identical in Windows CI.
+Source/** text eol=lf
+Source/Core/Reference/** -text
+Tests/*.cpp text eol=lf
+Tests/*.h text eol=lf
+Tests/*.py text eol=lf
+Tools/*.py text eol=lf
+Tools/*.sh text eol=lf
+build_plugin.py text eol=lf
+CMakeLists.txt text eol=lf
+dependencies.lock.json text eol=lf
+.github/workflows/*.yml text eol=lf
+# Preserve native launchers and all original attachment bytes exactly.
+*.bat -text
+Tools/*.ps1 -text
+docs/handover/** -text
+docs/factory-settings/** -text

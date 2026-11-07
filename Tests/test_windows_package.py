@@ -23,7 +23,11 @@ class WindowsPackageTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.base=Path(self.temp.name);self.root=self.base/'source';self.root.mkdir()
-        for name in source.REQUIRED_FILES:
+        # Legacy0.3 protocol fixtures remain independent of the current MIDI-only source inventory.
+        legacy={'docs/INPUT_DYNAMICS.md','Tools/windows_audio_diagnostics.py','Tools/audio_validation_run.py',
+                'Tools/audio_validation_verify.py','Tools/audio_validation_holdout.py','Tools/audio_validation_confirmation.py',
+                *dynamics.EXTRA_INPUTS}
+        for name in source.REQUIRED_FILES|legacy:
             f=self.root/name;f.parent.mkdir(parents=True,exist_ok=True);f.write_text('fixture '+name+'\n')
         for name in ('Tools/package_source.py','Tools/windows_installer.ps1','INSTALL_FLYSNAPPER.bat'):
             f=self.root/name;f.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/name,f)

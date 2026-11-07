@@ -1,0 +1,19 @@
+{
+  "scope": "Hash identities only; no native binaries retained in this archive",
+  "module": {
+    "sha256": "81831a3729e43e82d38d947b6ab2c0b1360fb5d382fb460d07e1c00a8a0b4714",
+    "bytes": 11632056
+  },
+  "test_executables": {
+    "FlysnapperMidiOnlyProcessor": {
+      "binary": "build/native-release/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests",
+      "binary_sha256": "8ede87a14e5d2c1e59d95b0971364eeae75780668f1bb1650baea8e45fbf16ed",
+      "binary_bytes": 11024552
+    },
+    "FlysnapperActualVst3": {
+      "binary": "build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests",
+      "binary_sha256": "ad4cdfaa5030332ad9dcb75f3c0257f26e6059cfee99c526f3ff096b1beaa1fc",
+      "binary_bytes": 10545544
+    }
+  }
+}

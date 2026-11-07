@@ -11,25 +11,39 @@ constexpr uint16_t bits(std::initializer_list<int> notes) {
     uint16_t m=0; for(auto n:notes) m=uint16_t(m|(1u<<n)); return m;
 }
 constexpr std::array<ScaleDefinition,scaleCount> scales{{
- {"chromatic","Chromatic",0xfff},
- {"ionian","Major / Ionian",bits({0,2,4,5,7,9,11})},
- {"aeolian","Natural Minor / Aeolian",bits({0,2,3,5,7,8,10})},
- {"harmonic_minor","Harmonic Minor",bits({0,2,3,5,7,8,11})},
- {"melodic_minor","Melodic Minor",bits({0,2,3,5,7,9,11})},
- {"dorian","Dorian",bits({0,2,3,5,7,9,10})},
- {"phrygian","Phrygian",bits({0,1,3,5,7,8,10})},
- {"lydian","Lydian",bits({0,2,4,6,7,9,11})},
- {"mixolydian","Mixolydian",bits({0,2,4,5,7,9,10})},
- {"locrian","Locrian",bits({0,1,3,5,6,8,10})},
- {"whole_tone","Whole Tone",bits({0,2,4,6,8,10})},
- {"major_pentatonic","Major Pentatonic",bits({0,2,4,7,9})},
- {"minor_pentatonic","Minor Pentatonic",bits({0,3,5,7,10})},
- {"diminished_half_whole","Diminished Half-Whole",bits({0,1,3,4,6,7,9,10})},
- {"diminished_whole_half","Diminished Whole-Half",bits({0,2,3,5,6,8,9,11})},
- {"lydian_dominant","Lydian Dominant",bits({0,2,4,6,7,9,10})},
- {"altered","Altered",bits({0,1,3,4,6,8,10})},
- {"phrygian_dominant","Phrygian Dominant",bits({0,1,4,5,7,8,10})},
- {"minor_blues","Minor Blues",bits({0,3,5,6,7,10})}
+ // Keep the original nineteen indices stable for old state and automation.
+ {"chromatic","Chromatic",0xfff,0,1},
+ {"ionian","Ionian (Major)",bits({0,2,4,5,7,9,11}),1,1},
+ {"aeolian","Aeolian (Minor)",bits({0,2,3,5,7,8,10}),1,6},
+ {"harmonic_minor","Harm. Min. 1: Harmonic Minor",bits({0,2,3,5,7,8,11}),4,1},
+ {"melodic_minor","Melodic Minor 1",bits({0,2,3,5,7,9,11}),2,1},
+ {"dorian","Dorian",bits({0,2,3,5,7,9,10}),1,2},
+ {"phrygian","Phrygian",bits({0,1,3,5,7,8,10}),1,3},
+ {"lydian","Lydian",bits({0,2,4,6,7,9,11}),1,4},
+ {"mixolydian","Mixolydian",bits({0,2,4,5,7,9,10}),1,5},
+ {"locrian","Locrian",bits({0,1,3,5,6,8,10}),1,7},
+ {"whole_tone","Whole Tone",bits({0,2,4,6,8,10}),6,1},
+ {"major_pentatonic","Major Pentatonic",bits({0,2,4,7,9}),7,1},
+ {"minor_pentatonic","Minor Pentatonic",bits({0,3,5,7,10}),8,1},
+ {"diminished_half_whole","Half Whole Diminished",bits({0,1,3,4,6,7,9,10}),5,1},
+ {"diminished_whole_half","Whole Half Diminished",bits({0,2,3,5,6,8,9,11}),5,2},
+ {"lydian_dominant","Mel. Min. 4: Lydian Dominant",bits({0,2,4,6,7,9,10}),2,4},
+ {"altered","Mel. Min. 7: Altered (Super Locrian)",bits({0,1,3,4,6,8,10}),2,7},
+ {"phrygian_dominant","Harm. Min. 5: Phrygian Dominant",bits({0,1,4,5,7,8,10}),4,5},
+ {"minor_blues","Minor Blues",bits({0,3,5,6,7,10}),9,1},
+ // New modes and bebop scales are appended; menus use metadata below.
+ {"melodic_minor_2","Mel. Min. 2: Dorian ♭2 (Phrygian ♮6)",bits({0,1,3,5,7,9,10}),2,2},
+ {"melodic_minor_3","Mel. Min. 3: Lydian Augmented (Lydian ♯5)",bits({0,2,4,6,8,9,11}),2,3},
+ {"melodic_minor_5","Mel. Min. 5: Mixolydian ♭6 (Hindu)",bits({0,2,4,5,7,8,10}),2,5},
+ {"melodic_minor_6","Mel. Min. 6: Aeolian ♭5 (Locrian ♮2 / Half Dim.)",bits({0,2,3,5,6,8,10}),2,6},
+ {"harmonic_minor_2","Harm. Min. 2: Locrian ♮6",bits({0,1,3,5,6,9,10}),4,2},
+ {"harmonic_minor_3","Harm. Min. 3: Ionian ♯5",bits({0,2,4,5,8,9,11}),4,3},
+ {"harmonic_minor_4","Harm. Min. 4: Dorian ♯4",bits({0,2,3,6,7,9,10}),4,4},
+ {"harmonic_minor_6","Harm. Min. 6: Lydian ♯2",bits({0,3,4,6,7,9,11}),4,6},
+ {"harmonic_minor_7","Harm. Min. 7: Ultralocrian",bits({0,1,3,4,6,8,9}),4,7},
+ {"bebop_dominant","Dominant Bebop Scale",bits({0,2,4,5,7,9,10,11}),3,1},
+ {"bebop_major","Major Bebop Scale",bits({0,2,4,5,7,8,9,11}),3,2},
+ {"bebop_dorian","Minor / Dorian Bebop Scale",bits({0,2,3,5,7,9,10,11}),3,3}
 }};
 constexpr std::array<ChordType,chordTypeCount> types{{
  {"major","",1},{"minor","m",2},{"sus2","sus2",1},{"sus4","sus4",1},
@@ -114,6 +128,29 @@ int scaleIndexFromId(const std::string& id) noexcept {
 int chordIndexFromId(const std::string& id) noexcept {
     for(int i=0;i<chordTypeCount;++i)if(id==types[size_t(i)].id)return i;
     return -1;
+}
+uint16_t chordToneMask(int typeIndex) noexcept {
+    if(typeIndex<0||typeIndex>=chordTypeCount)return 0;
+    return buffkiller::correctedChordPatterns[size_t(typeIndex)].intervals;
+}
+bool scaleContainsChord(int scaleIndex,uint16_t chordMask) noexcept {
+    if(scaleIndex<0||scaleIndex>=scaleCount)return false;
+    chordMask&=0xfff;
+    return (scales[size_t(scaleIndex)].mask&chordMask)==chordMask;
+}
+std::array<int,scaleCount> orderedScaleIndices(uint16_t chordMask) noexcept {
+    std::array<int,scaleCount> result{};
+    for(int i=0;i<scaleCount;++i)result[size_t(i)]=i;
+    std::sort(result.begin(),result.end(),[chordMask](int a,int b) noexcept {
+        const bool compatibleA=scaleContainsChord(a,chordMask);
+        const bool compatibleB=scaleContainsChord(b,chordMask);
+        if(compatibleA!=compatibleB)return compatibleA;
+        const auto& first=scales[size_t(a)];const auto& second=scales[size_t(b)];
+        if(first.familyOrder!=second.familyOrder)return first.familyOrder<second.familyOrder;
+        if(first.modeOrder!=second.modeOrder)return first.modeOrder<second.modeOrder;
+        return a<b;
+    });
+    return result;
 }
 uint16_t rotateMask(uint16_t mask,int root) noexcept {
     root=(root%12+12)%12;mask&=0xfff;

@@ -8,12 +8,28 @@ from pathlib import Path,PurePosixPath
 from zipfile import ZipFile,ZipInfo,ZIP_DEFLATED
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
-BINARY='Contents/x86_64-win/Flysnapper.vst3'
+BINARY='Contents/x86_64-win/Flysnapper.vst3'  # Legacy 0.3 package identity.
+MIDI_BUNDLE='Flysnapper MIDI.vst3'
+MIDI_BINARY='Contents/x86_64-win/Flysnapper MIDI.vst3'
 
 def dynamics_evidence_module():
     spec=importlib.util.spec_from_file_location('flysnapper_input_dynamics_evidence',Path(__file__).with_name('input_dynamics_evidence.py'))
     result=importlib.util.module_from_spec(spec);spec.loader.exec_module(result)
     return result
+
+def midi_evidence_module():
+    spec=importlib.util.spec_from_file_location('flysnapper_midi_only_evidence',Path(__file__).with_name('midi_only_evidence.py'))
+    result=importlib.util.module_from_spec(spec);spec.loader.exec_module(result)
+    return result
+
+def bundle_identity(manifest):
+    if manifest.get('version')=='0.4.0':
+        if manifest.get('bundle_name')!=MIDI_BUNDLE or manifest.get('product')!='Flysnapper MIDI':
+            raise ValueError('The MIDI-only product must have its separate bundle identity')
+        return MIDI_BUNDLE,MIDI_BINARY
+    if manifest.get('bundle_name','Flysnapper.vst3')!='Flysnapper.vst3':
+        raise ValueError('Unexpected legacy bundle identity')
+    return 'Flysnapper.vst3',BINARY
 
 def safe_relative(name: str) -> str:
     path=PurePosixPath(name)
@@ -51,16 +67,27 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
     if manifest.get('version')!=version:raise ValueError('Build version differs from the dependency/project lock')
     if manifest.get('windows_verified') is not True or manifest.get('toolchain_probe')!='passed' or manifest.get('juceaide_unicode_probe')!='passed':
         raise ValueError('Native Windows toolchain and Unicode probes must pass')
-    if manifest.get('pitch_detection_implemented') is not True or 'prototype' in str(manifest.get('stage','')).lower():
-        raise ValueError('An unfinished prototype cannot be shipped as the complete product')
-    dynamics=dynamics_evidence_module()
-    if version=='0.3.0' and manifest.get('stage')!=dynamics.EVALUATION_STAGE:
-        raise ValueError('Flysnapper 0.3.0 requires the qualified real-guitar evaluation stage')
-    if manifest.get('stage')==dynamics.EVALUATION_STAGE and manifest.get('evaluation_scope')!=dynamics.EVALUATION_SCOPE:
-        raise ValueError('The dated real-guitar evaluation scope is missing or different')
+    midi_only=version=='0.4.0'
+    if midi_only:
+        midi=midi_evidence_module()
+        if (manifest.get('pitch_detection_implemented') is not False or manifest.get('audio_processing_implemented') is not False
+                or manifest.get('stage')!=midi.STAGE or manifest.get('evaluation_scope')!=midi.SCOPE
+                or manifest.get('ableton_verified') is not False):
+            raise ValueError('The MIDI-only native validation scope is missing or different')
+        needed=set(midi.REQUIRED_TESTS)
+    else:
+        if manifest.get('pitch_detection_implemented') is not True or 'prototype' in str(manifest.get('stage','')).lower():
+            raise ValueError('An unfinished prototype cannot be shipped as the complete product')
+        dynamics=dynamics_evidence_module()
+        if version=='0.3.0' and manifest.get('stage')!=dynamics.EVALUATION_STAGE:
+            raise ValueError('Flysnapper 0.3.0 requires the qualified real-guitar evaluation stage')
+        if manifest.get('stage')==dynamics.EVALUATION_STAGE and manifest.get('evaluation_scope')!=dynamics.EVALUATION_SCOPE:
+            raise ValueError('The dated real-guitar evaluation scope is missing or different')
+        needed={'FlysnapperCore','FlysnapperYin','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperInputDynamics','FlysnapperDynamicsProcessor','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3'}
     required=manifest.get('required_test_names')
-    if not isinstance(required,list) or len(set(required))!=len(required) or not {'FlysnapperCore','FlysnapperYin','FlysnapperPitch','FlysnapperPluginSmoke','FlysnapperProcessorAudio','FlysnapperActualVst3','FlysnapperAudioQuality','FlysnapperGuitarQuality','FlysnapperBendProcessor','FlysnapperNoise','FlysnapperInputDynamics','FlysnapperDynamicsProcessor','FlysnapperMpeOutput','FlysnapperMpeProcessor','FlysnapperMpeActualVst3'}<=set(required):
+    if not isinstance(required,list) or len(set(required))!=len(required) or not needed<=set(required):
         raise ValueError('Missing required validation target names')
+    bundle_name,binary_name=bundle_identity(manifest)
     report=dist/'test-results.xml'
     if report.is_symlink():raise ValueError('Symlink test report is not accepted')
     cases=ET.parse(report).findall('.//testcase')
@@ -69,13 +96,13 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
     if not set(required)<=passed:raise ValueError('All required test cases must finish without failure or skip')
     if any(sum(c.get('name')==name for c in cases)!=1 for name in required):raise ValueError('Required test cases must occur exactly once')
     if any(c.find('failure') is not None or c.find('error') is not None for c in cases):raise ValueError('Test report contains a failure')
-    bundle=files_below(dist/'Flysnapper.vst3')
+    bundle=files_below(dist/bundle_name)
     actual={n:hashlib.sha256(b).hexdigest() for n,b in bundle.items()}
     if not isinstance(manifest.get('bundle_sha256'),dict) or actual!=manifest['bundle_sha256']:
         raise ValueError('Built bundle inventory or SHA256 differs from passed-test manifest')
-    if BINARY not in bundle:raise ValueError('Windows VST3 binary missing')
-    verify_pe(bundle[BINARY])
-    if hashlib.sha256(bundle[BINARY]).hexdigest()!=manifest.get('vst3_sha256'):
+    if binary_name not in bundle:raise ValueError('Windows VST3 binary missing')
+    verify_pe(bundle[binary_name])
+    if hashlib.sha256(bundle[binary_name]).hexdigest()!=manifest.get('vst3_sha256'):
         raise ValueError('Windows binary hash differs from passed-test manifest')
     return bundle,manifest
 
@@ -116,35 +143,64 @@ def build_package(root: Path,dist: Path,output: Path) -> Path:
     version=json.loads((root/'dependencies.lock.json').read_text(encoding='utf-8')).get('project_version','')
     if not re.fullmatch(r'\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?',version):raise ValueError('Invalid project version')
     bundle,build=verified_payload(dist,version)
-    audio_evidence=verified_audio_evidence(root,dist)
-    dynamics=dynamics_evidence_module()
-    dynamics_evidence=dynamics.verify(root,dist,build)
-    diagnostic_spec=importlib.util.spec_from_file_location('flysnapper_windows_diagnostics',Path(__file__).with_name('windows_audio_diagnostics.py'))
-    diagnostics=importlib.util.module_from_spec(diagnostic_spec);diagnostic_spec.loader.exec_module(diagnostics)
-    diagnostic_evidence=diagnostics.verify_saved(root,dist,build)
+    midi_only=version=='0.4.0'
+    bundle_name,binary_name=bundle_identity(build)
+    if midi_only:
+        midi_evidence=midi_evidence_module().verify(root,dist,build)
+    else:
+        audio_evidence=verified_audio_evidence(root,dist)
+        dynamics=dynamics_evidence_module()
+        dynamics_evidence=dynamics.verify(root,dist,build)
+        diagnostic_spec=importlib.util.spec_from_file_location('flysnapper_windows_diagnostics',Path(__file__).with_name('windows_audio_diagnostics.py'))
+        diagnostics=importlib.util.module_from_spec(diagnostic_spec);diagnostic_spec.loader.exec_module(diagnostics)
+        diagnostic_evidence=diagnostics.verify_saved(root,dist,build)
     for p in (root/'Tools/windows_installer.ps1',root/'INSTALL_FLYSNAPPER.bat'):
         if p.is_symlink() or not p.is_file():raise ValueError('Native installer missing or linked')
-    members={'Flysnapper.vst3/'+n:b for n,b in bundle.items()}
+    members={bundle_name+'/'+n:b for n,b in bundle.items()}
     members['Install-Flysnapper.ps1']=(root/'Tools/windows_installer.ps1').read_bytes()
     members['INSTALL_FLYSNAPPER.bat']=(root/'INSTALL_FLYSNAPPER.bat').read_bytes()
     for n in ('LICENSE.txt','THIRD_PARTY.md'):members[n]=(root/n).read_bytes()
     members['BRUKERVEILEDNING.md']=(root/'docs/BRUKERVEILEDNING.md').read_bytes()
-    members['INPUT_DYNAMICS.md']=(root/'docs/INPUT_DYNAMICS.md').read_bytes()
+    if not midi_only:members['INPUT_DYNAMICS.md']=(root/'docs/INPUT_DYNAMICS.md').read_bytes()
     members['Validation/build-manifest.json']=json.dumps(build,indent=2,ensure_ascii=False).encode('utf-8')+b'\n'
     members['Validation/test-results.xml']=(dist/'test-results.xml').read_bytes()
     members['Validation/automated-tests.txt']=(dist/'automated-tests.txt').read_bytes()
-    members.update({'Validation/audio-validation/'+name:data for name,data in audio_evidence.items()})
-    members.update({'Validation/input-dynamics/'+name:data for name,data in dynamics_evidence.items()})
-    members.update({'Validation/windows-audio-diagnostics/'+name:data for name,data in diagnostic_evidence.items()})
+    if midi_only:
+        members.update({'Validation/midi-validation/'+name:data for name,data in midi_evidence.items()})
+    else:
+        members.update({'Validation/audio-validation/'+name:data for name,data in audio_evidence.items()})
+        members.update({'Validation/input-dynamics/'+name:data for name,data in dynamics_evidence.items()})
+        members.update({'Validation/windows-audio-diagnostics/'+name:data for name,data in diagnostic_evidence.items()})
     members['LES_MEG.txt']=(f'''Flysnapper {version} - Windows x64 VST3\r\n\r\nPakk ut HELE ZIP-filen til en egen mappe, for eksempel pa D:.\r\nLukk Ableton og andre pluginverter. Dobbeltklikk INSTALL_FLYSNAPPER.bat.\r\nVelg VST3-mappen som Ableton bruker. Installeren kopierer bare Flysnapper.vst3.\r\nIngen Python, CMake eller Visual Studio kreves.\r\nVed erstatning beholdes en kontrollert sikkerhetskopi utenfor VST3-mappen.\r\nBuffkiller og andre plugins blir ikke endret.\r\n\r\nKanal 1 er spille-MIDI, kanal 16 er akkordkontroll. Velg sidechain-audio\r\ni vertens eget panel. Mono/poly velges i Flysnapper.\r\nSe BRUKERVEILEDNING.md for ruting, betjening og maalte grenser.\r\nKildekoden finnes i Source/Flysnapper-Source.zip.\r\nWindows-bygg og automatiske tester finnes under Validation. Dette er ikke\r\ni seg selv dokumentasjon av fysisk lydkortlatency eller en Ableton-test.\r\n''').encode('utf-8-sig')
     members['LES_MEG.txt'] += ('''\r\nFør første gitarprøve: Åpne Input dynamics og trykk Learn / 20 seconds.\r\nDemp strengene i 3 sekunder med vanlig håndkontakt. Spill deretter normalt\r\ni 17 sekunder, med svake/sterke anslag, akkorder og en lang utklang.\r\nEn vellykket prøve stiller de synlige kontrollene. Du kan justere dem etterpå.\r\nGenerert MIDI er dempet under prøven; eksternt spille-MIDI fortsetter.\r\nSe INPUT_DYNAMICS.md for kalibrering, gate, kompressor, limiter og hjelpetekster.\r\nMono har valgfri bending. Poly sender definerte halvtoner uten polyfonisk bend.\r\nForsinkelsen optimaliseres og rapporteres per tone og måleoppsett. Lydkort,\r\nvertens buffere/ruting og mottakerinstrument bidrar til totalforsinkelsen.\r\n''').encode('utf-8')
+    if midi_only:
+        members['LES_MEG.txt']=(f'''Flysnapper MIDI {version} - Windows x64 VST3
+
+Pakk ut HELE ZIP-filen til en egen mappe. Lukk pluginvertene og kjor
+INSTALL_FLYSNAPPER.bat. Velg VST3-mappen som Ableton bruker.
+Ingen Python, CMake eller Visual Studio kreves for installasjon.
+
+Denne MIDI-utgaven installeres som Flysnapper MIDI.vst3. Den erstatter
+ikke den eldre Flysnapper.vst3-instrumentutgaven eller andre plugins.
+Ved ny installasjon av MIDI-utgaven kontrolleres gjenopprettingskopien
+utenfor vertens VST3-skannemappe.
+
+Flysnapper MIDI behandler bare MIDI. Den har ingen audiobusser, sidechain,
+pitchgjenkjenning, input dynamics eller lydgenerering. Spille-MIDI bruker
+kanal 1; akkordkontroll bruker kanal 16.
+Se BRUKERVEILEDNING.md for korreksjon, skalaer, instanser og ruting.
+
+Validation inneholder native MIDI-prosessor- og faktisk VST3-testvertbevis,
+med kilde-/modulhashes. Dette er ikke en utfort Ableton Live-test.
+Kildekoden finnes i Source/Flysnapper-Source.zip.
+''').replace('\n','\r\n').encode('utf-8-sig')
     spec=importlib.util.spec_from_file_location('flysnapper_source_shipping',root/'Tools/package_source.py')
     source=importlib.util.module_from_spec(spec);spec.loader.exec_module(source)
     with tempfile.TemporaryDirectory(prefix='flysnapper-corresponding-source-') as temp:
         p=Path(temp)/'Flysnapper-Source.zip';source.build_package(root,p);members['Source/Flysnapper-Source.zip']=p.read_bytes()
     shipping={'schema':1,'product':'Flysnapper','version':version,'platform':'Windows-x64','tests':'passed',
               'stage':build.get('stage'),'evaluation_scope':build.get('evaluation_scope'),
-              'source_commit':build.get('source_commit'),'files':{n:hashlib.sha256(b).hexdigest() for n,b in sorted(members.items())}}
+              'source_commit':build.get('source_commit'),'bundle_name':bundle_name,'product_name':build.get('product','Flysnapper'),'files':{n:hashlib.sha256(b).hexdigest() for n,b in sorted(members.items())}}
     members['release-manifest.json']=json.dumps(shipping,indent=2,ensure_ascii=False).encode('utf-8')+b'\n'
     output=output.absolute()
     if output.is_symlink():raise ValueError('Refusing linked ZIP output')
@@ -175,7 +231,11 @@ def verify_package(path: Path) -> None:
         if actual!=release['files'].keys():raise ValueError('Release ZIP inventory differs from manifest')
         for n,d in release['files'].items():
             if hashlib.sha256(archive.read(prefix+n)).hexdigest()!=d:raise ValueError('Release ZIP checksum failed: '+n)
-        verify_pe(archive.read(prefix+'Flysnapper.vst3/'+BINARY))
+        if release.get('version')=='0.4.0':
+            if release.get('bundle_name')!=MIDI_BUNDLE or release.get('product_name')!='Flysnapper MIDI':raise ValueError('MIDI-only release identity differs')
+            verify_pe(archive.read(prefix+MIDI_BUNDLE+'/'+MIDI_BINARY))
+        else:
+            verify_pe(archive.read(prefix+'Flysnapper.vst3/'+BINARY))
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--root',type=Path,default=ROOT)

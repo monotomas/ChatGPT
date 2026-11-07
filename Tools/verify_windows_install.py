@@ -7,7 +7,7 @@ from __future__ import annotations
 import argparse,datetime as dt,hashlib,json,os,platform,re,shutil,subprocess,sys,tempfile
 from pathlib import Path
 from zipfile import ZipFile
-from package_windows import BINARY,files_below,verify_package,verify_pe
+from package_windows import BINARY,files_below,verify_package,verify_pe,bundle_identity
 
 PS_DRIVER=r'''
 $ErrorActionPreference = 'Stop'
@@ -16,6 +16,13 @@ $ErrorActionPreference = 'Stop'
 $package = $env:FLYSNAPPER_VERIFY_PACKAGE
 $destination = $env:FLYSNAPPER_VERIFY_DEST
 $backup = $env:FLYSNAPPER_VERIFY_BACKUP
+$meta = Get-FlysnapperVerifiedPackage $package
+$legacy = ''
+if ($meta.BundleName -eq 'Flysnapper MIDI.vst3') {
+    $legacy = Join-Path $destination 'Flysnapper.vst3/legacy-instrument-control.txt'
+    [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($legacy)) | Out-Null
+    [IO.File]::WriteAllText($legacy, 'legacy audio instrument must remain untouched')
+}
 $first = Install-FlysnapperPackage $package $destination $backup
 $other = Join-Path $destination 'Buffkiller.vst3/installation-control.txt'
 [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($other)) | Out-Null
@@ -23,6 +30,7 @@ $other = Join-Path $destination 'Buffkiller.vst3/installation-control.txt'
 $second = Install-FlysnapperPackage $package $destination $backup
 if ([string]::IsNullOrEmpty($second.Backup)) { throw 'Actual replacement did not produce a recovery copy.' }
 if ([IO.File]::ReadAllText($other) -ne 'unrelated installation control') { throw 'Replacement touched another plugin.' }
+if ($legacy -ne '' -and [IO.File]::ReadAllText($legacy) -ne 'legacy audio instrument must remain untouched') { throw 'MIDI installation touched the legacy instrument.' }
 $result = @{
     installed_bundle = $second.Installed
     recovery_bundle = $second.Backup
@@ -30,6 +38,8 @@ $result = @{
     installed_files_sha256 = Get-FlysnapperInventory $second.Installed
     recovery_files_sha256 = Get-FlysnapperInventory $second.Backup
     unrelated_plugin_preserved = $true
+    legacy_instrument_preserved = ($legacy -ne '')
+    bundle_name = $meta.BundleName
 }
 $json = $result | ConvertTo-Json -Depth 10
 [IO.File]::WriteAllText($env:FLYSNAPPER_VERIFY_RESULT, $json, (New-Object Text.UTF8Encoding($false)))
@@ -90,7 +100,10 @@ def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host
             build=json.loads((package/'Validation/build-manifest.json').read_text(encoding='utf-8'))
             if release.get('source_commit')!=source_commit or build.get('source_commit')!=source_commit:
                 raise ValueError('Packaged source proof differs from the requested CI revision')
-            expected={name[len('Flysnapper.vst3/'):]:digest for name,digest in release['files'].items() if name.startswith('Flysnapper.vst3/')}
+            bundle_name,binary_name=bundle_identity(build)
+            prefix=bundle_name+'/'
+            expected={name[len(prefix):]:digest for name,digest in release['files'].items() if name.startswith(prefix)}
+            proof['bundle_name']=bundle_name
             if expected!=build.get('bundle_sha256'):raise ValueError('Build and package bundle inventories disagree')
             target=unicode/'Separate VST3';backup=unicode/'Recovery outside scan'
             result_path=private/'installation-result.json';driver=private/'install-verification.ps1';driver.write_text(PS_DRIVER,encoding='utf-8-sig')
@@ -103,13 +116,18 @@ def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host
             if result.returncode!=0 or not result_path.is_file():raise ValueError('Actual packaged PowerShell installer failed; see installation-powershell.txt')
             install=json.loads(result_path.read_text(encoding='utf-8-sig'))
             installed=Path(install['installed_bundle']);recovery=Path(install['recovery_bundle'])
-            if installed.resolve()!= (target/'Flysnapper.vst3').resolve():raise ValueError('Installer did not use the private VST3 destination')
+            if installed.resolve()!= (target/bundle_name).resolve():raise ValueError('Installer did not use the private VST3 destination')
             if not recovery.resolve().is_relative_to(backup.resolve()) or recovery.resolve().is_relative_to(target.resolve()):
                 raise ValueError('Installer recovery copy is not outside the scan directory')
             actual=hashes(installed);saved=hashes(recovery)
             if actual!=expected or saved!=expected or install.get('installed_files_sha256')!=expected or install.get('recovery_files_sha256')!=expected:
                 raise ValueError('Installed or recovery Windows bundle differs from the verified package')
             if install.get('unrelated_plugin_preserved') is not True:raise ValueError('Unrelated plugin preservation was not verified')
+            if build.get('version')=='0.4.0':
+                legacy=target/'Flysnapper.vst3/legacy-instrument-control.txt'
+                if install.get('bundle_name')!=bundle_name or install.get('legacy_instrument_preserved') is not True or legacy.read_text()!='legacy audio instrument must remain untouched':
+                    raise ValueError('MIDI-only installation did not preserve the old instrument')
+                proof['legacy_instrument_preserved']=True
             proof.update(installed_files_sha256=actual,recovery_files_sha256=saved,unrelated_plugin_preserved=True,
                 extraction_path=str(package),installed_bundle_path=str(installed),recovery_bundle_path=str(recovery),
                 unicode_paths_verified='æ' in str(package) and 'æ' in str(installed))
@@ -126,9 +144,11 @@ def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host
                 if result.returncode!=0 or marker not in launcher_log.read_bytes():raise ValueError('Actual packaged BAT launcher failed or did not report installation; see installation-launcher.txt')
                 created=[path for path in backup.iterdir() if path.resolve() not in before]
                 if len(created)!=1 or not created[0].is_dir():raise ValueError('BAT replacement did not create exactly one private recovery copy')
-                launcher_recovery=created[0]/'Flysnapper.vst3';launcher_saved=hashes(launcher_recovery)
+                launcher_recovery=created[0]/bundle_name;launcher_saved=hashes(launcher_recovery)
                 if hashes(installed)!=expected or launcher_saved!=expected:raise ValueError('BAT-installed/recovery payload differs from the package')
                 if (target/'Buffkiller.vst3/installation-control.txt').read_text()!='unrelated installation control':raise ValueError('BAT replacement changed another plugin')
+                if build.get('version')=='0.4.0' and (target/'Flysnapper.vst3/legacy-instrument-control.txt').read_text()!='legacy audio instrument must remain untouched':
+                    raise ValueError('BAT MIDI installation touched the legacy instrument')
                 proof.update(bat_launcher_verified=True,bat_launcher_marker=marker.decode('ascii'),launcher_recovery_files_sha256=launcher_saved,launcher_recovery_bundle_path=str(launcher_recovery))
             command=[str(host),str(installed)];proof['installed_host_command']=command
             with host_log.open('wb') as log:

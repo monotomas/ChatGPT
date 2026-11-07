@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "kind": "FlysnapperMidiOnlyVst3",
+  "version": "0.4.0",
+  "status": "passed",
+  "checks": 4084,
+  "scope": "Compiled VST3 module executed by the JUCE VST3 test host; no DAW or audio driver",
+  "ableton_verified": false,
+  "pitch_detection_implemented": false,
+  "audio_input_channels": 0,
+  "audio_output_channels": 0,
+  "audio_input_buses": 0,
+  "audio_output_buses": 0,
+  "declared_latency_samples": 0,
+  "scale_count": 31,
+  "chord_type_count": 50,
+  "cases": [
+    {
+      "name": "module_contract",
+      "status": "passed"
+    },
+    {
+      "name": "routing_44100_32",
+      "status": "passed"
+    },
+    {
+      "name": "routing_44100_128",
+      "status": "passed"
+    },
+    {
+      "name": "routing_44100_257",
+      "status": "passed"
+    },
+    {
+      "name": "routing_48000_32",
+      "status": "passed"
+    },
+    {
+      "name": "routing_48000_128",
+      "status": "passed"
+    },
+    {
+      "name": "routing_48000_257",
+      "status": "passed"
+    },
+    {
+      "name": "routing_96000_32",
+      "status": "passed"
+    },
+    {
+      "name": "routing_96000_128",
+      "status": "passed"
+    },
+    {
+      "name": "routing_96000_257",
+      "status": "passed"
+    },
+    {
+      "name": "all_31_scale_indices",
+      "status": "passed"
+    },
+    {
+      "name": "internal_correction_off_held_chord",
+      "status": "passed"
+    },
+    {
+      "name": "serial_instances_and_two_active_corrections",
+      "status": "passed"
+    },
+    {
+      "name": "non_ch1_notes_and_expression",
+      "status": "passed"
+    },
+    {
+      "name": "channel1_sustain_and_latch_reset",
+      "status": "passed"
+    },
+    {
+      "name": "overlapping_input_bindings",
+      "status": "passed"
+    },
+    {
+      "name": "instance_state",
+      "status": "passed"
+    },
+    {
+      "name": "transport_reset",
+      "status": "passed"
+    },
+    {
+      "name": "generated_midi_routing",
+      "status": "passed"
+    },
+    {
+      "name": "host_invoked_bypass_callback",
+      "status": "passed"
+    }
+  ],
+  "verified_features": [
+    "zero_audio_buses",
+    "sdk_midi_event_buses",
+    "effect_metadata",
+    "editor",
+    "removed_pitch_parameters",
+    "note_sample_offsets",
+    "all_31_scales",
+    "legacy_19_scale_indices",
+    "internal_correction_bypass",
+    "held_note_off_bindings",
+    "chord_channel_16",
+    "chord_relay",
+    "serial_correction",
+    "non_ch1_passthrough",
+    "expression_offsets",
+    "channel1_pedals",
+    "overlapping_note_bindings",
+    "instance_state",
+    "transport_reset",
+    "generated_midi_routing",
+    "host_invoked_bypass_callback_only"
+  ],
+  "events_file": "Flysnapper-midi-vst3-events.csv",
+  "events_rows": 936,
+  "limitations": "No Ableton Live 12.4.6 execution; no claim about Device Activator scheduling, direct endpoint fan-out, held-chord replay or downstream instruments. Bypass case invokes the callback explicitly."
+}

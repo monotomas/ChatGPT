@@ -1,4 +1,14 @@
-# Gjeldende status etter gitarprøven 6. november
+# Gjeldende oppdrag: MIDI-only, 7. november
+
+Pitch-to-MIDI er trukket fra produktet av brukeren og skal ikke utvikles
+videre. [Den nye bestillingen](MIDI_ONLY_REQUEST_2026-11-07.md) og
+[0.4.0-notatet](RELEASE_0.4.0.md) gjelder nå. Audiofeilene nedenfor er
+historiske resultater, ikke aktuelle MIDI-leveransevilkår eller beståtte
+tester ved at modulen fjernes. Ny MIDI-kode, faktiske VST3-instanskjedinger
+og Windows-installasjon har egne kontrollbevis. Praktisk Live12.4.6-ruting
+er fortsatt ikke verifisert her.
+
+## Historisk status etter gitarprøven 6. november
 
 Brukeren avviser 0.3.0 som musikalsk ubrukbar: for hyppig dobbelttrigging,
 utelatte toner, falske lavere oktaver og for lang forsinkelse. De tekniske

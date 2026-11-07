@@ -63,5 +63,15 @@ MIDI-til-audio, men beviser ikke den ønskede tredjepartsplasseringen.
 
 Brukeren ba uttrykkelig om rask tilbakemelding før videre koding dersom
 denne instans-/rutingsformen ikke er enkel å få til. Dette er meldt tilbake.
-Ved dette kontrollpunktet er **ingen programkode endret og ingen ny plugin
-bygget**. Ikke påstå at ombyggingen eller en praktisk Live-test er ferdig.
+Ved det opprinnelige kontrollpunktet `d65f2bc` var ingen programkode endret.
+Deretter er MIDI-only-ombyggingen startet; aktuell implementasjon er under
+bygging og test. Den gamle aktive Pitch-koden er fjernet. Skala-/GUI-/MIDI-
+endringene må ha sine egne ferske bevis før leveranse.
+
+Brukeren har siden oppgitt Live12.4.6 og korrigert en viktig slutning:
+Device Activator-bypass i sporets vanlige kjede beviser ikke omdirigering
+av en feed som er routet direkte til én bestemt plugin. Brukeren foretrekker
+kanal16 til sporets inngang dersom denne kanalidentiteten bevares. Ikke lås
+hjelpen til alltid aktiv første instans i alle oppsett; gjør forutsetningen
+om direkte pluginruting tydelig. Se
+[det avgrensede rutingsgrunnlaget](validation/midi-only-2026-11-07/host-routing/README.md).

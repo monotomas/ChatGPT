@@ -5,14 +5,31 @@
 #include <string>
 
 namespace flysnapper {
-constexpr int scaleCount = 19, chordTypeCount = 50;
-struct ScaleDefinition { const char* id; const char* name; uint16_t mask; };
+constexpr int scaleCount = 31, chordTypeCount = 50;
+// Array position is the persisted parameter value. Display order is separate:
+// the original nineteen positions/IDs must remain stable across upgrades.
+struct ScaleDefinition {
+    const char* id;
+    const char* name;
+    uint16_t mask;
+    int familyOrder;
+    int modeOrder;
+};
 struct ChordType { const char* id; const char* suffix; int defaultScale; };
 const std::array<ScaleDefinition, scaleCount>& scaleDefinitions() noexcept;
 const std::array<ChordType, chordTypeCount>& chordTypes() noexcept;
 std::array<int, chordTypeCount> factoryDefaults() noexcept;
 int scaleIndexFromId(const std::string& id) noexcept;
 int chordIndexFromId(const std::string& id) noexcept;
+// Nominal chord-type formula relative to C, including tones recognition may
+// permit omitted. An invalid type has no formula and returns zero.
+uint16_t chordToneMask(int typeIndex) noexcept;
+// Both masks use the low twelve pitch-class bits. A zero chord is contained
+// in every valid scale; an invalid scale index is never compatible.
+bool scaleContainsChord(int scaleIndex, uint16_t chordMask) noexcept;
+// Compatible scales first, then requested parent-family and mode order within
+// each group. Passing zero supplies the global fixed-scale menu order.
+std::array<int, scaleCount> orderedScaleIndices(uint16_t chordMask=0) noexcept;
 uint16_t rotateMask(uint16_t mask, int root) noexcept;
 struct ChordMatch { int root=-1, typeIndex=-1, candidateCount=0; };
 // Call initialiseMusicData before entering realtime processing. Engine does so

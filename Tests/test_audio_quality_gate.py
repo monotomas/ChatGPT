@@ -14,6 +14,7 @@ import hashlib
 import io
 import json
 import runpy
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -55,6 +56,19 @@ class AudioQualityGateTests(unittest.TestCase):
         self.evaluator = self.base / "fake evaluator.exe"
         self.evaluator.write_bytes(b"fake evaluator identity for provenance\n")
         self.runs = 0
+        # This is the retained 0.3 gate's protocol test, not a current MIDI-only
+        # product dependency. Supply isolated, explicitly fake provenance inputs
+        # instead of keeping the cancelled detector in active Source/Pitch.
+        self.gate_root = self.base / "legacy gate protocol fixture"
+        tools = self.gate_root / "Tools"
+        tools.mkdir(parents=True)
+        for name in ("audio_quality_gate.py", "audio_validation.cpp", "audio_validation_verify.py"):
+            shutil.copyfile(ROOT / "Tools" / name, tools / name)
+        pitch = self.gate_root / "Source/Pitch"
+        pitch.mkdir(parents=True)
+        for name in ("PitchDetector.cpp", "PitchDetector.h", "MpeOutputRouter.cpp", "MpeOutputRouter.h"):
+            (pitch / name).write_text("// Provenance protocol fixture; not a detector implementation.\n")
+        self.gate = tools / "audio_quality_gate.py"
 
     def valid_rows(self):
         rows = []
@@ -105,7 +119,7 @@ class AudioQualityGateTests(unittest.TestCase):
         def fake_run(command, **kwargs):
             invocations.append((command, kwargs))
             if Path(command[0]).resolve() == Path(sys.executable).resolve():
-                self.assertEqual(Path(command[1]), ROOT / "Tools/audio_validation_verify.py")
+                self.assertEqual(Path(command[1]), self.gate_root / "Tools/audio_validation_verify.py")
                 self.assertEqual(Path(command[2]), fixtures.resolve())
                 self.assertTrue(kwargs.get("check"), "Fixture verification must fail closed")
                 if verifier_exit:
@@ -127,17 +141,17 @@ class AudioQualityGateTests(unittest.TestCase):
                     (current / name).write_text(text, encoding="utf-8")
             return subprocess.CompletedProcess(command, exit_code)
 
-        argv = [str(GATE), "--evaluator", str(self.evaluator), "--fixtures", str(fixtures),
+        argv = [str(self.gate), "--evaluator", str(self.evaluator), "--fixtures", str(fixtures),
                 "--output", str(output)]
         with mock.patch.object(sys, "argv", argv), mock.patch.object(subprocess, "run", side_effect=fake_run), \
                 contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
             try:
                 if optimized:
                     # Exercise the real CLI under the semantics of python -O.
-                    namespace = {"__file__": str(GATE), "__name__": "__main__"}
-                    exec(compile(GATE.read_text(), str(GATE), "exec", optimize=1), namespace)
+                    namespace = {"__file__": str(self.gate), "__name__": "__main__"}
+                    exec(compile(self.gate.read_text(), str(self.gate), "exec", optimize=1), namespace)
                 else:
-                    runpy.run_path(str(GATE), run_name="__main__")
+                    runpy.run_path(str(self.gate), run_name="__main__")
             except SystemExit as error:
                 code = error.code
             else:

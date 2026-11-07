@@ -1,122 +1,95 @@
-# Flysnapper – MIDI-only-bestilling 7. november 2026
+# Flysnapper MIDI 0.4.0
 
-Pitch-to-MIDI-arbeidet er avsluttet etter brukerens nye bestilling. Neste
-produkt skal være en ren MIDI-prosessor med31 skalaer og forbedret
-akkord-/skalaoppsett. [Gjeldende bestilling](docs/MIDI_ONLY_REQUEST_2026-11-07.md)
-overstyrer det historiske audiooppdraget nedenfor. En
-[Excel-mal for alle50 fabrikktilordningene](docs/factory-settings/2026-11-07/README.md)
-er klar. Programkoden er ennå ikke bygget om; VST3-plassering som seriekoblede
-MIDI-effekter i Live er et uavklart vertsspørsmål, ikke en utført praktisk test.
+Flysnapper MIDI er en ren VST3-prosessor for MIDI-korreksjon etter skalaer
+eller et akkordspor. MIDI-only-ombyggingen følger brukerens bestilling
+7. november 2026. Den er under teknisk verifikasjon; det er ennå ingen
+publisert, praktisk Live-godkjent0.4.0-leveranse. Den samlede Linux-native-
+kontrollen består4/4 grupper, og196 Python-tester består med2 forventede
+BAT-hopp på Linux. Windows- og Live-resultater må dokumenteres separat.
 
-## Historisk arbeid etter gitarprøven av 0.3.0
+[Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
+[versjonsnotatet](docs/RELEASE_0.4.0.md) og
+[brukerveiledningen](docs/BRUKERVEILEDNING.md) beskriver gjeldende løsning.
+Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
 
-Brukerens prøve 6. november viser at 0.3.0 fortsatt har for mye
-dobbelttrigging, utelatte toner, falske lavere oktaver og forsinkelse.
-Arbeidet på `research/guitar-reliability-v4` er **ikke en ny godkjent
-installasjonspakke**. En avgrenset retting finner raske monofoniske
-fingerslides; den samlede polyfoniske seksstrengsprøven feiler fortsatt.
-En ny prøve gjennom selve prosessoren gjenskaper også dobbelttrigging med
-et originalt gitaropptak i alle åtte innstillingskombinasjonene.
-Se [gjeldende status og kildebundne resultater](docs/validation/guitar-reliability-2026-11-06/README.md).
+## MIDI og korreksjon
 
-Beskrivelsen nedenfor gjelder den leverte 0.3.0 og dens funksjoner.
+- Spille-MIDI på kanal1 korrigeres. Kanal16 brukes til akkordkontroll.
+  Andre spillekanaler videresendes uten notekorreksjon.
+- **Chord Tones Only** bruker de holdte akkordtonene. **Chord-Scale
+  Assignment** bruker skalaen som er tilordnet den gjenkjente akkordtypen.
+  **Fixed Scale** bruker valgt grunntone og skala uavhengig av akkordsporet.
+- Buffkillers50 korrigerte akkordtyper og de eksisterende melodiske
+  retningsreglene er beholdt. Holdte noter følger med ved akkordskift.
+- **Note Correction** av gir uendrede tonehøyder for nye spilletoner, mens
+  akkordanalysen fortsetter. Påbegynte notebindinger, FIFO, kollisjons- og
+  sustainregler beholdes slik at senere Note Off slipper riktig tone.
+- **Chord MIDI Through** videresender kanal16 til neste instans. Aktiver
+  dette i mellominstanser og slå det av i siste instans, slik at
+  akkordkontrollen ikke spilles av mottakerinstrumentet.
 
-## Flysnapper 0.3.0
+## Skalaer og fabrikkvalg
 
-Windows x64 VST3 som gjør gitar-audio om til MIDI og korrigerer MIDI etter
-skala eller et akkordspor. Sidechain og vanlig MIDI-ruting er beholdt fra
-versjonen brukeren har bekreftet i Ableton.
+31 skalaer: kromatisk; syv diatoniske moduser; syv moduser av melodisk moll;
+tre bebopskalaer; syv moduser av harmonisk moll; to diminished; heltone;
+durpentatonisk; mollpentatonisk; minor blues. Melodisk moll bruker samme
+stigende tonemengde i begge retninger.
 
-Versjonen er beregnet på utprøving med gitar etter automatisk validering.
-[Leveransenotatet](docs/RELEASE_0.3.0.md) beskriver endringene og begrensningene.
-Hver Windows-pakke inneholder sine egne bygg-, test- og installasjonsbevis;
-Linux-tester er ikke dokumentasjon av Windows eller fysisk Ableton-latency.
+På baksiden viser hver av50 rader akkordtoner og skalatoner med tonenavn.
+Skalamenyen deler kompatible valg fra valg som utelater akkordtoner, med
+overskriftene **Scales with all chord tones** og **Chord tones outside
+scale**. Begge grupper følger parentfamilie og modusnummer. Uforenlige
+valg er merket og navngir manglende toner; de er fortsatt valgbare.
 
-Brukerens [presisering 5. november](docs/PRODUCT_SPEC.md) er gjeldende oppdrag:
-poly skal levere definerte halvtoner, monofonisk bending beholdes, og latency
-skal optimaliseres og rapporteres per tone uten tidligere absolutte grenser.
-Målet er en kontrollert installasjonspakke for utprøving med brukerens gitar.
+[Excel-malen](docs/factory-settings/2026-11-07/README.md) har alle50 stabile
+akkord-ID-er og31 skalaalternativer. Nåværende fabrikkvalg beholdes inntil
+brukerens redigerte fil er mottatt og kontrollert. Hver instans lagrer sine
+egne tilordninger med prosjekttilstanden.
 
-## Inngang og spilleprøve
+## Format og vertsstatus
 
-Input dynamics kombinerer gate/expander, kompressor og limiter uten lookahead.
-Ni synlige kontroller kan justeres manuelt. **Learn / 20 seconds** bruker
-3 sekunder med dempede strenger og normal håndkontakt, deretter 17 sekunder
-representativt spill med svake/sterke anslag, akkorder og lang utklang.
+Den nye komponenten heter **Flysnapper MIDI** og bruker bundle
+`Flysnapper MIDI.vst3`, med MIDI inn/ut og null audiobusser. Egen
+pluginidentitet gjør at den gamle0.3.0-komponenten og dens eksisterende
+prosjekt-/automasjonsdata ikke blir erstattet. Gamle normaliserte
+skalaparametre med19 valg kan ikke uten videre brukes som31-valgsautomasjon.
 
-En vellykket prøve stiller de faktiske kontrollene og aktiverer behandlingen.
-Avbrudd eller ubrukelig prøve endrer ikke kontrollene. Manuelle endringer
-avbryter pågående læring. Generert MIDI er dempet under prøven; eksternt MIDI
-og akkordkontroll fortsetter. Eldre presets beholder inngangsbehandlingen av
-for kompatibilitet; Learn eller manuell aktivering tar den i bruk.
+Brukeren oppgir Live12.4.6 og støtte for VST3-MIDI-kjeder. Det er ikke utført
+en faktisk Live-test i dette miljøet. Direkte ruting til én plugin,
+ruting til sporets inngang og parallell levering er forskjellige ting.
+[Vertsnotatet](docs/validation/midi-only-2026-11-07/host-routing/README.md)
+skiller bekreftet kode-/manualgrunnlag fra uavklart vertsatferd.
 
-[Inngangsveiledningen](docs/INPUT_DYNAMICS.md) forklarer hver kontroll og
-støy/utklang-avveiningen. **Help** gir forklaringer ved musepekeren, og
-**Guide** åpner veiledning inne i pluginen.
+Ved direkte ruting til første instans må den ikke deaktiveres i verten
+under mottak; bruk intern Note Correction av/på. Ved sporruting som
+bevarer kanal1/16 kan den vanlige kjeden ha andre bypass-egenskaper.
+Ingen automatisk omdirigering eller gjenutsending av holdte akkordnoter
+ved reaktivering er forutsatt. Help og Guide forklarer kontrollene.
 
-## Mono, poly og korreksjon
+## Utvikling og kontroll
 
-* Mono har valgfri bending og vibrato. Vanlig MIDI bruker en reservert
-  kanal 2 for dette, med valgt +/-2 eller +/-12 halvtoner og standard RPN.
-  Mottakeren må bruke samme bøyeområde.
-* Poly gjenkjenner inntil seks samtidige halvtoner. Den sender Note On/Off,
-  uten uavhengige bendkurver. MPE er valgfritt utgangsformat og aktiverer
-  ikke polyfonisk bending.
-* Genererte toner og eksternt spille-MIDI behandles av samme korreksjon.
-  Fabrikkinnstillingen Fixed Scale/Chromatic gir ingen halvtoneendring.
-* Chord Notes bruker de holdte akkordtonene på inngangskanal 16. Chord Scale
-  bruker Buffkillers 50 akkordtyper og hver types uavhengige skalaoppsett på
-  baksiden. Alle 18 opprinnelige skalaer pluss Chromatic beholdes.
-* Holdte akkordnoter følger med over akkordskift. Holdte spilletoner beholder
-  bindingen de startet med; nye toner bruker gjeldende akkord/skala.
+Bruk eksisterende checkout; ikke opprett Git-worktree uten uttrykkelig ønske.
+I Linux-skyen:
 
-## Installasjon og ruting
+```sh
+bash Tools/cloud_setup.sh
+source Tools/cloud_env.sh
+CMAKE_BUILD_PARALLEL_LEVEL=2 bash Tools/cloud_validate.sh
+python -m unittest discover -s Tests -p 'test*.py'
+```
 
-Windows-pakken inneholder ferdig VST3 og installer. Pakk ut hele ZIP-filen til
-for eksempel en mappe på D:, lukk pluginvertene og kjør
-`INSTALL_FLYSNAPPER.bat`. Velg VST3-mappen Ableton bruker. Python, CMake og
-Visual Studio behøves ikke for installasjon. Ikke bruk et Linux-valideringsbygg
-som Windows-plugin.
+Valideringsskriptet eier `build/native-release/.flysnapper-build.lock` og
+midlertidig Xvfb. Alle manuelle CMake/Ninja-kall, også diagnostikk, må bruke
+samme lås. Ikke legg en ny lås rundt skriptet som allerede holder den.
 
-Legg Flysnapper på MIDI-/instrumentsporet og velg audio i Abletons eget
-sidechain-panel. På mottakersporet velges Flysnapper-sporet og deretter selve
-Flysnapper-pluginens utgang i de to MIDI From-feltene. Sett monitorering til In.
-Akkordsporet sendes manuelt til Flysnapper på kanal 16; vanlig spille-MIDI
-bruker kanal 1. Pluginen har stille audio-utgang; mottakerinstrumentet lager lyd.
+Den aktuelle MIDI-utgaven har egne kjerne-, GUI-, prosessor- og faktiske
+VST3-testvertprøver. Windows-pakking krever dessuten kilde-/modulbundet
+bevis, PE-/Unicode-kontroller og reelle installasjons-/gjenopprettingsprøver.
+En generisk testvert dokumenterer ikke faktisk Ableton-atferd.
+Se [det aktuelle kontrollpunktet](docs/validation/midi-only-2026-11-07/README.md).
+Kildepakken beholder all aktuell kode og testdata; historiske DSP-arkiver
+finnes i repositoriet og er utelatt fra den kompakte0.4.0-kildepakken.
 
-[Brukerveiledningen](docs/BRUKERVEILEDNING.md) dekker installasjon, manuell
-kopiering av hele VST3-bundlen, ruting, korreksjon og kontroller.
-
-## Målinger og begrensninger
-
-Mål faktisk første korrekte MIDI-beslutning, manglende og ekstra toner,
-tidlige/sene Note Off og CPU-frister. Pluginens deklarerte 0 latency er ikke
-den fysiske responstiden gjennom gitar, lydkort, analyse, vert og instrument.
-
-En gate kan avvise lyd under terskelen; den kan ikke generelt skille en ønsket
-tone fra like sterk støy som klinger samtidig. Svake grunntoner, sammenfallende
-overtoner og sterkt inharmoniske lyder er fortsatt krevende. Lavere buffer,
-ASIO og Reduced Latency When Monitoring kan redusere deler av vertens venting.
-Høyere samplerate halverer ikke automatisk den interne observasjonstiden.
-
-Tidligere forseglede tester og feil er beholdt. Ny evaluering merker poly-bend
-utenfor det reviderte oppdraget og rapporterer resten uendret; den teller ikke
-utelatte tilfeller som bestått. Faktisk Windows-installasjon, native VST3-testvert
-og brukerens senere gitarprøve er ulike former for dokumentasjon.
-
-## Utvikling
-
-Behold eksisterende checkout og lokale endringer; ikke opprett et Git-worktree
-uten uttrykkelig ønske. I Linux-skyen klargjør `bash Tools/cloud_setup.sh`
-verktøyene; `bash Tools/cloud_validate.sh` bygger og tester med midlertidig Xvfb
-og felles byggelås. Manuelle CMake/Ninja-kall må bruke samme lås, også diagnostikk.
-Ikke legg en ny lås rundt skriptet som allerede holder den selv.
-
-JUCE 8.0.16-security er låst til
-`ea77444750de45e036e0279bb0291144bf8e3688`. Windows bruker Python 3.10+,
-CMake og MSVC/Windows SDK ved kildebygg. Installerpakken har ingen slike krav.
-`Tools/package_windows.py` krever native Windows-bygg, ferske testresultater,
-originale fixture-hasher, fullkjedeprøver av dynamikk/kalibrering og reell
-installasjonskontroll før en leveranse kan godkjennes.
-
+JUCE8.0.16-security er låst til
+`ea77444750de45e036e0279bb0291144bf8e3688`.
 Lisens og opphav: [LICENSE.txt](LICENSE.txt), [THIRD_PARTY.md](THIRD_PARTY.md).

@@ -1,7 +1,7 @@
-name: Flysnapper complete Windows x64 package
+name: Flysnapper MIDI Windows x64 package
 on:
   push:
-    branches: [release/full-flysnapper, research/musical-readiness]
+    branches: [release/full-flysnapper, research/midi-only]
   workflow_dispatch:
 permissions:
   contents: write
@@ -23,7 +23,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Record running state through Git
-        run: python Tools/publish_windows_delivery.py --result running
+        shell: pwsh
+        run: |
+          $publication = if ($env:GITHUB_REF -eq 'refs/heads/release/full-flysnapper') { @() } else { @('--research') }
+          python Tools/publish_windows_delivery.py --result running @publication
+          exit $LASTEXITCODE
       - name: Python and Windows PowerShell installer regressions
         shell: pwsh
         run: |
@@ -41,9 +45,6 @@ jobs:
           $buildExit = 1
           try {
             python build_plugin.py --jobs 2 *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG -Append
-            $buildExit = $LASTEXITCODE
-            if ($buildExit -ne 0) { exit $buildExit }
-            python Tools/windows_audio_diagnostics.py --source-root "$target" --source-commit "$env:GITHUB_SHA" *>&1 | Tee-Object -FilePath $env:DELIVERY_LOG -Append
             $buildExit = $LASTEXITCODE
             if ($buildExit -ne 0) { exit $buildExit }
             New-Item -ItemType Directory -Path "$env:GITHUB_WORKSPACE\artifacts" -Force | Out-Null
@@ -71,12 +72,13 @@ jobs:
           JOB_STATUS: ${{ job.status }}
         run: |
           $state = if ($env:BUILD_OUTCOME -eq 'success' -and $env:INSTALL_OUTCOME -eq 'success' -and $env:JOB_STATUS -eq 'success') { 'completed' } else { 'failed' }
-          python Tools/publish_windows_delivery.py --result $state --artifact artifacts/Flysnapper-Windows-x64.zip --log "$env:DELIVERY_LOG" --build-manifest dist/build-manifest.json --test-results dist/test-results.xml --installation-proof artifacts/installation-validation.json
+          $publication = if ($env:GITHUB_REF -eq 'refs/heads/release/full-flysnapper') { @() } else { @('--research') }
+          python Tools/publish_windows_delivery.py --result $state --artifact artifacts/Flysnapper-Windows-x64.zip --log "$env:DELIVERY_LOG" --build-manifest dist/build-manifest.json --test-results dist/test-results.xml --installation-proof artifacts/installation-validation.json @publication
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Flysnapper-Windows-x64
+          name: Flysnapper-MIDI-Windows-x64
           path: |
             artifacts/
             dist/build-manifest.json

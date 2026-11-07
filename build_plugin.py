@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build/test Flysnapper 0.3.0. Standard library only.
+"""Build/test Flysnapper MIDI 0.4.0. Standard library only.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 Windows tool discovery and Unicode patch adapted from Buffkiller 1.0.0.
@@ -29,9 +29,10 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from typing import Mapping, Sequence, NamedTuple
-from Tools import input_dynamics_evidence
+from Tools import input_dynamics_evidence  # Historical protocol fixtures only.
+from Tools import midi_only_evidence
 
-BUILDER_REVISION = "2026.11.05-calibrated-input-guitar-evaluation"
+BUILDER_REVISION = "2026.11.07-midi-only-native-validation"
 ROOT = Path(__file__).resolve().parent
 JUCE_TAG = "8.0.16-security"
 JUCE_COMMIT = "ea77444750de45e036e0279bb0291144bf8e3688"
@@ -293,9 +294,8 @@ def choose_direct_generator(installation: Path, env: Mapping[str, str],
 
 def build_command(cmake: str, build: Path, generator: str, jobs: int) -> list[str]:
     command = [cmake, "--build", str(build), "--config", "Release", "--target",
-               "Flysnapper_VST3", "FlysnapperCoreTests",
-               "FlysnapperPluginTests", "FlysnapperVst3HostTests", "FlysnapperPitchTests", "FlysnapperProcessorAudioTests", "FlysnapperAudioValidation", "FlysnapperYinTests", "FlysnapperGuitarQualityTests", "FlysnapperBendProcessorTests",
-               "FlysnapperNoiseTests", "FlysnapperInputDynamicsTests", "FlysnapperDynamicsProcessorTests", "FlysnapperMpeOutputTests", "FlysnapperMpeProcessorTests", "FlysnapperMpeVst3HostTests"]
+               "Flysnapper_VST3", "FlysnapperCoreTests", "FlysnapperPluginTests",
+               "FlysnapperMidiOnlyProcessorTests", "FlysnapperVst3HostTests"]
     if generator != "NMake Makefiles":
         command.extend(["--parallel", str(max(1, jobs))])
     return command
@@ -333,8 +333,17 @@ def bundle_hashes(folder: Path) -> dict[str, str]:
 
 
 def install_bundle(install_dir: Path | None = None) -> None:
-    source = DIST / "Flysnapper.vst3"
-    binary = source / "Contents/x86_64-win/Flysnapper.vst3"
+    manifest_path = DIST / "build-manifest.json"
+    if not manifest_path.is_file():
+        raise RuntimeError("Byggemanifest mangler. Kjor full bygging forst.")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    midi_only = manifest.get("version") == "0.4.0"
+    bundle_name = midi_only_evidence.BUNDLE if midi_only else "Flysnapper.vst3"
+    suffix = midi_only_evidence.WINDOWS_BINARY if midi_only else "Contents/x86_64-win/Flysnapper.vst3"
+    if midi_only and manifest.get("bundle_name") != bundle_name:
+        raise RuntimeError("MIDI-pakkens identitet er feil.")
+    source = DIST / bundle_name
+    binary = source / suffix
     if not binary.is_file():
         raise RuntimeError("Ingen ferdig Windows x64 VST3-pakke i dist. Kjor full Windows-bygging forst.")
     data = binary.read_bytes()
@@ -343,22 +352,20 @@ def install_bundle(install_dir: Path | None = None) -> None:
     pe = int.from_bytes(data[60:64], "little")
     if pe + 6 > len(data) or data[pe:pe+6] != b"PE\0\0\x64\x86":
         raise RuntimeError("Pluginen er ikke en gyldig x64 Windows-binaerfil.")
-    manifest_path = DIST / "build-manifest.json"
-    if not manifest_path.is_file():
-        raise RuntimeError("Byggemanifest mangler. Kjor full bygging forst.")
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if (manifest.get("tests") != "passed" or manifest.get("platform") != "Windows-x64"
             or manifest.get("vst3_sha256") != hashlib.sha256(data).hexdigest()
             or manifest.get("bundle_sha256") != bundle_hashes(source)):
         raise RuntimeError("Pluginpakken avviker fra det testede Windows-resultatet. Installerer ikke.")
+    if midi_only:
+        midi_only_evidence.verify(ROOT, DIST, manifest)
     common = Path(os.environ.get("CommonProgramFiles", r"C:\Program Files\Common Files"))
     destination = validate_install_directory(install_dir) if install_dir is not None else common / "VST3"
-    target = destination / "Flysnapper.vst3"
+    target = destination / bundle_name
     if target.resolve() == source.resolve():
         raise RuntimeError("Velg en egen VST3-mappe, ikke prosjektets dist-mappe.")
     destination.mkdir(parents=True, exist_ok=True)
-    staging = destination / "Flysnapper.installing"
-    rollback = destination / "Flysnapper.rollback"
+    staging = destination / (bundle_name.removesuffix(".vst3") + ".installing")
+    rollback = destination / (bundle_name.removesuffix(".vst3") + ".rollback")
     if staging.exists() or rollback.exists():
         raise RuntimeError("En tidligere Flysnapper.installing/rollback finnes. Ingen eksisterende filer overskrives.")
     backup = None
@@ -369,7 +376,7 @@ def install_bundle(install_dir: Path | None = None) -> None:
             raise RuntimeError("Kopieringen bestod ikke kontrollsummene.")
         if target.exists():
             # Recovery stays outside the DAW scan folder; do not leave duplicate plugins.
-            backup = DIST / "previous-installations" / dt.datetime.now().strftime("%Y%m%d-%H%M%S-%f") / "Flysnapper.vst3"
+            backup = DIST / "previous-installations" / dt.datetime.now().strftime("%Y%m%d-%H%M%S-%f") / bundle_name
             backup.parent.mkdir(parents=True)
             shutil.copytree(target, backup)
             if bundle_hashes(backup) != bundle_hashes(target):
@@ -1174,8 +1181,7 @@ def finish_installation(choose: bool, directory: Path | None) -> bool:
     return elevate_install()
 
 
-REQUIRED_TESTS = {"FlysnapperCore", "FlysnapperPluginSmoke", "FlysnapperActualVst3", "FlysnapperPitch", "FlysnapperProcessorAudio", "FlysnapperAudioQuality", "FlysnapperYin", "FlysnapperGuitarQuality", "FlysnapperBendProcessor",
-                  "FlysnapperNoise", "FlysnapperInputDynamics", "FlysnapperDynamicsProcessor", "FlysnapperMpeOutput", "FlysnapperMpeProcessor", "FlysnapperMpeActualVst3"}
+REQUIRED_TESTS = set(midi_only_evidence.REQUIRED_TESTS)
 
 
 def verified_juce(git: str, directory: Path | None) -> Path:
@@ -1198,7 +1204,7 @@ def run_required_tests(ctest: str | Path, build: Path, build_env=None) -> None:
     result_file = build / "flysnapper-ctest.xml"
     result_file.unlink(missing_ok=True)
     # A passing test inventory must not reuse an earlier frontend capture.
-    for name in (input_dynamics_evidence.REPORT, input_dynamics_evidence.EVENTS):
+    for name in (n for spec in midi_only_evidence.SPECS for n in spec[2:4]):
         (build / name).unlink(missing_ok=True)
     run([ctest, "--test-dir", build, "-C", "Release", "--no-tests=error", "--verbose", "--output-on-failure",
          "--output-junit", result_file],
@@ -1215,15 +1221,14 @@ def run_required_tests(ctest: str | Path, build: Path, build_env=None) -> None:
 
 def collect_result(build: Path, native: bool, extra_manifest=None) -> Path:
     platform_name = "Linux-x86_64" if native else "Windows-x64"
-    suffix = "Contents/x86_64-linux/Flysnapper.so" if native else "Contents/x86_64-win/Flysnapper.vst3"
-    source = build / "Flysnapper_artefacts/Release/VST3/Flysnapper.vst3"
+    suffix = midi_only_evidence.LINUX_BINARY if native else midi_only_evidence.WINDOWS_BINARY
+    source = build / "Flysnapper_artefacts/Release/VST3" / midi_only_evidence.BUNDLE
     if not (source / suffix).is_file():
         raise RuntimeError("Fant ikke forventet bygget VST3-pakke: " + str(source / suffix))
-    # Keep Linux evidence separate from the Windows-only installer input.
     output = DIST / "linux-validation" if native else DIST
     output.mkdir(parents=True, exist_ok=True)
-    target = output / "Flysnapper.vst3"
-    staging = output / "Flysnapper.vst3.staging"
+    target = output / midi_only_evidence.BUNDLE
+    staging = output / (midi_only_evidence.BUNDLE + ".staging")
     if staging.exists():
         raise RuntimeError("En ufullstendig dist-kopi finnes. Ingen filer overskrives: " + str(staging))
     shutil.copytree(source, staging)
@@ -1240,29 +1245,20 @@ def collect_result(build: Path, native: bool, extra_manifest=None) -> Path:
         raise RuntimeError("Ingen testlogg fra denne byggingen.")
     shutil.copy2(test_log, output / "automated-tests.txt")
     shutil.copy2(build / "flysnapper-ctest.xml", output / "test-results.xml")
-    audio_evidence = build / "audio-quality"
-    if not (audio_evidence / "summary.json").is_file():
-        raise RuntimeError("Independent audio quality evidence is missing; no shipping result created.")
-    audio_target = output / "audio-validation"
-    if audio_target.exists(): shutil.rmtree(audio_target)
-    shutil.copytree(audio_evidence, audio_target)
     manifest = {
-        # Qualified against the revised 5 November automated controls for a
-        # real-guitar evaluation. The explicit scope preserves the pending
-        # guitar/host/physical-latency work and all reported acoustic limits.
-        "version": "0.3.0", "stage": input_dynamics_evidence.EVALUATION_STAGE,
-        "evaluation_scope": dict(input_dynamics_evidence.EVALUATION_SCOPE), "builder_revision": BUILDER_REVISION,
-        "platform": platform_name, "juce_commit": JUCE_COMMIT,
+        "version": "0.4.0", "product": "Flysnapper MIDI", "bundle_name": midi_only_evidence.BUNDLE,
+        "stage": midi_only_evidence.STAGE, "evaluation_scope": dict(midi_only_evidence.SCOPE),
+        "builder_revision": BUILDER_REVISION, "platform": platform_name, "juce_commit": JUCE_COMMIT,
         "built_at": dt.datetime.now(dt.timezone.utc).isoformat(), "python": platform.python_version(),
         "source_commit": os.environ.get("GITHUB_SHA"),
         "vst3_sha256": hashlib.sha256((target / suffix).read_bytes()).hexdigest(),
         "bundle_sha256": bundle_hashes(target), "tests": "passed",
         "required_test_names": sorted(REQUIRED_TESTS), "ableton_verified": False,
-        "pitch_detection_implemented": True,
+        "pitch_detection_implemented": False, "audio_processing_implemented": False,
     }
     manifest.update(extra_manifest or {})
-    manifest["input_dynamics_evidence"] = input_dynamics_evidence.collect(ROOT, build, output, manifest)
-    input_dynamics_evidence.verify(ROOT, output, manifest)
+    manifest["midi_only_evidence"] = midi_only_evidence.collect(ROOT, build, output, manifest)
+    midi_only_evidence.verify(ROOT, output, manifest)
     (output / "build-manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return target
 
@@ -1307,7 +1303,7 @@ def main(argv=None) -> int:
     _log = log.open("w", encoding="utf-8")
     try:
         with local_temporary_directory():
-            say("FLYSNAPPER 0.3.0 AUDIO + MIDI | " + BUILDER_REVISION + "\nLogg: " + str(log))
+            say("FLYSNAPPER MIDI 0.4.0 | " + BUILDER_REVISION + "\nLogg: " + str(log))
             if args.install_only:
                 return 0 if finish_installation(args.choose_install_dir, args.install_dir) else 1
             run([sys.executable, "-m", "unittest", "discover", "-s", ROOT / "Tests", "-p", "test_builder*.py", "-v"])
@@ -1339,15 +1335,12 @@ def main(argv=None) -> int:
                 extra.update({"visual_studio_build_version": full_version, "windows_sdk_version": tools.sdk.version,
                               "toolchain_probe": "passed", "juceaide_unicode_probe": "passed",
                               "juce_unicode_patch": JUCEAIDE_PATCH_REVISION, "windows_verified": True})
-            compiled_inputs = input_dynamics_evidence.source_hashes(ROOT)
-            (build / input_dynamics_evidence.COMPILED_INPUTS).write_text(
+            compiled_inputs = midi_only_evidence.source_hashes(ROOT)
+            (build / midi_only_evidence.COMPILED_INPUTS).write_text(
                 json.dumps(compiled_inputs, indent=2) + "\n", encoding="utf-8")
             run(build_command(cmake, build, generator, args.jobs), env=build_env)
-            if input_dynamics_evidence.source_hashes(ROOT) != compiled_inputs:
+            if midi_only_evidence.source_hashes(ROOT) != compiled_inputs:
                 raise RuntimeError("Kildekoden ble endret under byggingen. Ingen resultatpakke opprettes.")
-            # The processor suite also consumes the original readiness PCM.
-            # Its immutable seals are separate from the older 30-case gate.
-            run([sys.executable, ROOT / "Tests/AudioFixtures/readiness/verify.py"])
             run_required_tests(ctest, build, build_env)
             target = collect_result(build, args.native, extra)
             say("BYGG OG AUTOMATISKE TESTER BESTATT: " + str(target))
