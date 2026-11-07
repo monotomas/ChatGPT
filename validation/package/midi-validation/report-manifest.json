@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "kind": "MidiOnlyNativeExecution",
+  "status": "passed",
+  "scope": {
+    "feature_set": "midi-to-midi-only",
+    "audio_processing": false,
+    "pitch_to_midi": false,
+    "scales": 31,
+    "chord_types": 52,
+    "host_scope": "native-processor-and-compiled-vst3-test-host",
+    "ableton_verified": false
+  },
+  "platform": "Windows-x64",
+  "source_commit": "e891c2eef2f85e87138d22bbec8165e2b44f4c25",
+  "source_sha256": {
+    "build_plugin.py": "b0134d6911249c30cf6f75dc8cf0e0001f6aa3724125e45ffce8e0c439f8df20",
+    "CMakeLists.txt": "fb3707ecf453d621708c99779dace4c9c5e55e1960dc2a0390c97f22bf5d17e2",
+    "dependencies.lock.json": "c5319d7492ccb2585bab398029181a90c731f5ee6df0822b998570b9d46d9dcc",
+    "Source/Core/MidiEngine.cpp": "cdfa9db7941ca04f34c7434f2962bc8985ba12b9e2a4e39e48e8f943037ad48b",
+    "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+    "Source/Core/MusicData.cpp": "746d06a3928bbd14c3f85904027d55e220031ca90c189ebc3b46b1b7c6a63569",
+    "Source/Core/MusicData.h": "5e091aa783e0ba6956304f7d4b016dffa463d298154fe637ec6b5fef769b4791",
+    "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+    "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+    "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+    "Source/PluginEditor.cpp": "d450d9144a3ebbf5fdb89c01384055758ca98c574384311e656ddcf53a2f2bbe",
+    "Source/PluginEditor.h": "810f8e68a52d0108963c916f7feb92ddccd8e2cb6e0c82f89d33ec77231c3e01",
+    "Source/PluginProcessor.cpp": "02703c64c41ff4af8015e550d3a09a17e9bf7e09609437b35e431cfeab0501f4",
+    "Source/PluginProcessor.h": "6ee704ba0f11e563bc87bc8b8cb05135860602c82afa12eb40bdbe217413e9e3",
+    "Tests/CoreTests.cpp": "e862f67038aa4ca29dbc3bc0915954f176965b561d49dc8d599539d66b60b470",
+    "Tests/MidiOnlyProcessorTests.cpp": "4d76b873cef078cd671cdb5607529d422a7bcbc3d3f87f9f9e0d9bf30bcdc82a",
+    "Tests/PluginTests.cpp": "e77c419306eeda694b4c27b6068919379b8e8aba9ed074e2edcfdae2d3bb5a65",
+    "Tests/Vst3HostTests.cpp": "61b0ae41dcfaa77a3ea3b6d6287d38a3ed185898f1f5eceb2f65d47bb41b0d3e",
+    "Tools/midi_only_evidence.py": "da4625488af665a902fd09522ffc7fdaa7958862f7afbdecc8dfde4e44b8a366",
+    "Tools/package_source.py": "b187dc40ed3ebbea707898936676f92280922ed5be852ab3502aee86911a7dff",
+    "Tools/package_windows.py": "7fab2e787100bcc8ecf9ceb267e63b9bd45bef2163662898b66cb9460e915f7b"
+  },
+  "ctest_sha256": "1ac57c0a26d6907e5d856e3060760ecc19e195730e4e4f53ff72127edcb1d175",
+  "vst3_sha256": "931199be09a20bf0d145bb96aad7120b33d3b48ef474a4269f7c0ce1a9a4f9f6",
+  "moduleinfo_sha256": "3c13c87f6e21a7b6c09cd81287e28468b36beef310186dc77b5b504586d55df5",
+  "module": {
+    "name": "Flysnapper MIDI",
+    "version": "0.4.0",
+    "component_cid": "ABCDEF019182FAEB466C797346736D31",
+    "sub_categories": [
+      "Fx",
+      "Tools"
+    ]
+  },
+  "executions": {
+    "FlysnapperMidiOnlyProcessor": {
+      "target": "FlysnapperMidiOnlyProcessorTests",
+      "binary": "build/w-a40571ed5356/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests.exe",
+      "binary_sha256": "8629b03d0caa9a079e51b9b1c42429d82193a6e0ce771145aa89f93fa501d642",
+      "binary_bytes": 4794368,
+      "report_sha256": "6349a27d676e6ca2332e6ff5529585fb5ba9f3a054367040ef7cd2bc495a84bc",
+      "events_sha256": "4e04941712086fc3684311782d1d7f53165d2149031aa9f26ecd1c3ba7eb2908",
+      "checks": 87182,
+      "events_rows": 359
+    },
+    "FlysnapperActualVst3": {
+      "target": "FlysnapperVst3HostTests",
+      "binary": "build/w-a40571ed5356/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe",
+      "binary_sha256": "9bc5b2854495cc70aec9a36ab4f90f9995716f67763a0c603e86f1a95487d096",
+      "binary_bytes": 3795968,
+      "report_sha256": "d866c247e50c34a90778127a4f4d947a5bd61796970c86ebdef6228d83b0be36",
+      "events_sha256": "9be835aa773ccf554b9c6d9036ff06114aa8887280665a3c511a6f0811f41d0d",
+      "checks": 4292,
+      "events_rows": 944
+    }
+  }
+}

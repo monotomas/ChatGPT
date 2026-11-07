@@ -1,0 +1,724 @@
+test_all_valid_metrics_pass_with_exact_boundary_values (test_audio_quality_gate.AudioQualityGateTests.test_all_valid_metrics_pass_with_exact_boundary_values) ... ok
+test_an_ungated_early_release_may_legitimately_have_no_release_quantiles (test_audio_quality_gate.AudioQualityGateTests.test_an_ungated_early_release_may_legitimately_have_no_release_quantiles) ... ok
+test_cached_success_cannot_replace_missing_fresh_measurements (test_audio_quality_gate.AudioQualityGateTests.test_cached_success_cannot_replace_missing_fresh_measurements) ... ok
+test_csv_schema_must_be_complete_and_unambiguous (test_audio_quality_gate.AudioQualityGateTests.test_csv_schema_must_be_complete_and_unambiguous) ... ok
+test_detector_response_ceiling_is_enforced_for_each_group (test_audio_quality_gate.AudioQualityGateTests.test_detector_response_ceiling_is_enforced_for_each_group) ... ok
+test_each_zero_required_metric_blocks_each_of_the_frozen_30_cases (test_audio_quality_gate.AudioQualityGateTests.test_each_zero_required_metric_blocks_each_of_the_frozen_30_cases) ... ok
+test_fixture_verification_failure_and_missing_evaluator_fail_closed (test_audio_quality_gate.AudioQualityGateTests.test_fixture_verification_failure_and_missing_evaluator_fail_closed) ... ok
+test_fixture_verifier_path_accepts_real_directory_alias (test_audio_quality_gate.AudioQualityGateTests.test_fixture_verifier_path_accepts_real_directory_alias) ... ok
+test_impossible_counts_and_percentile_order_are_rejected_in_ungated_rows (test_audio_quality_gate.AudioQualityGateTests.test_impossible_counts_and_percentile_order_are_rejected_in_ungated_rows) ... ok
+test_malformed_numeric_counts_and_floats_are_rejected_in_all_rows (test_audio_quality_gate.AudioQualityGateTests.test_malformed_numeric_counts_and_floats_are_rejected_in_all_rows) ... ok
+test_missing_correct_reference_note_is_rejected (test_audio_quality_gate.AudioQualityGateTests.test_missing_correct_reference_note_is_rejected) ... ok
+test_missing_evaluator_auxiliary_reports_are_rejected (test_audio_quality_gate.AudioQualityGateTests.test_missing_evaluator_auxiliary_reports_are_rejected) ... ok
+test_missing_extra_duplicate_and_replaced_case_inventory_is_rejected (test_audio_quality_gate.AudioQualityGateTests.test_missing_extra_duplicate_and_replaced_case_inventory_is_rejected) ... ok
+test_negative_counts_and_cpu_measurements_are_rejected (test_audio_quality_gate.AudioQualityGateTests.test_negative_counts_and_cpu_measurements_are_rejected) ... ok
+test_nonfinite_numbers_are_rejected_in_every_float_column (test_audio_quality_gate.AudioQualityGateTests.test_nonfinite_numbers_are_rejected_in_every_float_column) ... ok
+test_nonzero_evaluator_exit_cannot_use_fresh_or_cached_success (test_audio_quality_gate.AudioQualityGateTests.test_nonzero_evaluator_exit_cannot_use_fresh_or_cached_success) ... ok
+test_optimized_python_still_rejects_invented_reference_counts (test_audio_quality_gate.AudioQualityGateTests.test_optimized_python_still_rejects_invented_reference_counts) ... ok
+test_optional_measurements_follow_the_reference_match_counts (test_audio_quality_gate.AudioQualityGateTests.test_optional_measurements_follow_the_reference_match_counts) ... ok
+test_policy_cannot_reclassify_a_case_to_relax_its_frozen_ceiling (test_audio_quality_gate.AudioQualityGateTests.test_policy_cannot_reclassify_a_case_to_relax_its_frozen_ceiling) ... ok
+test_policy_inventory_and_exact_rules_cannot_be_relaxed (test_audio_quality_gate.AudioQualityGateTests.test_policy_inventory_and_exact_rules_cannot_be_relaxed) ... ok
+test_quality_criteria_remain_limited_to_the_frozen_30_cases (test_audio_quality_gate.AudioQualityGateTests.test_quality_criteria_remain_limited_to_the_frozen_30_cases) ... ok
+test_rate_and_block_are_checked_in_all_81_rows (test_audio_quality_gate.AudioQualityGateTests.test_rate_and_block_are_checked_in_all_81_rows) ... ok
+test_reference_annotation_mismatch_is_rejected_for_any_case (test_audio_quality_gate.AudioQualityGateTests.test_reference_annotation_mismatch_is_rejected_for_any_case) ... ok
+test_release_p95_ceiling_is_enforced (test_audio_quality_gate.AudioQualityGateTests.test_release_p95_ceiling_is_enforced) ... ok
+test_required_correct_response_and_release_cannot_be_blank (test_audio_quality_gate.AudioQualityGateTests.test_required_correct_response_and_release_cannot_be_blank) ... ok
+test_failed_evaluator_exit_status_is_preserved (test_audio_validation_runner.AudioMeasurementProvenanceTests.test_failed_evaluator_exit_status_is_preserved) ... ok
+test_source_change_invalidates_successful_evaluator_and_preserves_proof (test_audio_validation_runner.AudioMeasurementProvenanceTests.test_source_change_invalidates_successful_evaluator_and_preserves_proof) ... ok
+test_stable_external_evaluator_records_completed_measurement (test_audio_validation_runner.AudioMeasurementProvenanceTests.test_stable_external_evaluator_records_completed_measurement) ... ok
+test_cache_changes_with_sdk_and_toolchain (test_builder.EnvironmentFixTests.test_cache_changes_with_sdk_and_toolchain) ... ok
+test_checked_project_never_uses_vs_instance_generator (test_builder.EnvironmentFixTests.test_checked_project_never_uses_vs_instance_generator) ... ok
+test_correct_child_environment_does_not_modify_parent (test_builder.EnvironmentFixTests.test_correct_child_environment_does_not_modify_parent) ... ok
+test_explicit_rc_and_mt_forwarded_to_cmake (test_builder.EnvironmentFixTests.test_explicit_rc_and_mt_forwarded_to_cmake) ... ok
+MSVC x64: C:\Users\runneradmin\AppData\Local\Temp\tmp3wa7j3nw\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | C:\Users\runneradmin\AppData\Local\Temp\tmp3wa7j3nw\sdk
+Ressurskompilator: C:\Users\runneradmin\AppData\Local\Temp\tmp3wa7j3nw\sdk\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: C:\Users\runneradmin\AppData\Local\Temp\tmp3wa7j3nw\sdk\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+test_installed_ninja_preferred (test_builder.EnvironmentFixTests.test_installed_ninja_preferred) ... ok
+Microsofts automatiske miljooppsett var ufullstendig. Kontrollerer verkt�y og SDK-filer direkte.
+VsDevCmd.bat: Windows SDK-verkt�yet rc.exe er ikke tilgjengelig i byggemiljoet.
+MSVC x64: C:\Users\runneradmin\AppData\Local\Temp\tmpp2f6r9h0\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | C:\Users\runneradmin\AppData\Local\Temp\tmpp2f6r9h0\Windows Kits\10
+Ressurskompilator: C:\Users\runneradmin\AppData\Local\Temp\tmpp2f6r9h0\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: C:\Users\runneradmin\AppData\Local\Temp\tmpp2f6r9h0\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: NMake Makefiles (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+test_setup_recovers_after_exact_reported_rc_error (test_builder.EnvironmentFixTests.test_setup_recovers_after_exact_reported_rc_error) ... ok
+test_build_command_contains_current_targets_only (test_builder.FlysnapperSafetyTests.test_build_command_contains_current_targets_only) ... ok
+test_changed_resource_or_binary_blocks_install (test_builder.FlysnapperSafetyTests.test_changed_resource_or_binary_blocks_install) ... ok
+test_copy_failure_restores_old_installation (test_builder.FlysnapperSafetyTests.test_copy_failure_restores_old_installation) ... ok
+test_ctest_failure_exit_propagates (test_builder.FlysnapperSafetyTests.test_ctest_failure_exit_propagates) ... ok
+test_current_complete_result_passes (test_builder.FlysnapperSafetyTests.test_current_complete_result_passes) ... ok
+test_default_does_not_install (test_builder.FlysnapperSafetyTests.test_default_does_not_install) ... ok
+test_failed_tests_or_native_manifest_blocks_install (test_builder.FlysnapperSafetyTests.test_failed_tests_or_native_manifest_blocks_install) ... ok
+INSTALLERT: D:\a\ChatGPT\ChatGPT\build\temp\tmpof1jlchw\Plugins\Flysnapper.vst3
+test_install_fixture_in_actual_builder_temporary_context (test_builder.FlysnapperSafetyTests.test_install_fixture_in_actual_builder_temporary_context) ... ok
+test_invalid_destination_does_not_implicitly_install (test_builder.FlysnapperSafetyTests.test_invalid_destination_does_not_implicitly_install) ... usage: python.exe -m unittest [-h] [--native] [--juce-dir JUCE_DIR]
+                              [--jobs JOBS] [--install-sdk]
+                              [--install | --install-only]
+                              [--choose-install-dir | --install-dir INSTALL_DIR]
+python.exe -m unittest: error: installation destination requires --install or --install-only
+ok
+test_missing_current_results_cannot_reuse_old_file (test_builder.FlysnapperSafetyTests.test_missing_current_results_cannot_reuse_old_file) ... ok
+test_native_cannot_install_windows_bundle (test_builder.FlysnapperSafetyTests.test_native_cannot_install_windows_bundle) ... usage: python.exe -m unittest [-h] [--native] [--juce-dir JUCE_DIR]
+                              [--jobs JOBS] [--install-sdk]
+                              [--install | --install-only]
+                              [--choose-install-dir | --install-dir INSTALL_DIR]
+python.exe -m unittest: error: --native is Linux validation only and cannot install
+ok
+INSTALLERT: C:\Users\runneradmin\AppData\Local\Temp\tmphhcwgx37\Plugins\Flysnapper.vst3
+Forrige versjon for gjenoppretting: C:\Users\RUNNER~1\AppData\Local\Temp\tmphhcwgx37\dist\previous-installations\20261107-144433-042464\Flysnapper.vst3
+test_replaces_only_flysnapper_and_keeps_recovery_outside_scan (test_builder.FlysnapperSafetyTests.test_replaces_only_flysnapper_and_keeps_recovery_outside_scan) ... ok
+test_skipped_required_test_fails_readiness (test_builder.FlysnapperSafetyTests.test_skipped_required_test_fails_readiness) ... ok
+test_stale_staging_is_preserved (test_builder.FlysnapperSafetyTests.test_stale_staging_is_preserved) ... ok
+test_test_inventory_must_contain_required_tests (test_builder.FlysnapperSafetyTests.test_test_inventory_must_contain_required_tests) ... ok
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: C:\Users\RUNNER~1\AppData\Local\Temp\tmp26fyxob_\sdk-install-20261107-144433.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: C:\Users\RUNNER~1\AppData\Local\Temp\tmpbnout4lk\sdk-install-20261107-144433.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: C:\Users\RUNNER~1\AppData\Local\Temp\tmpqb_sqe82\sdk-install-20261107-144433.log
+test_installer_exit_failure_or_restart_never_reported_as_ready (test_builder.InstallSafetyTests.test_installer_exit_failure_or_restart_never_reported_as_ready) ... ok
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: C:\Users\RUNNER~1\AppData\Local\Temp\tmprovni78q\sdk-install-20261107-144433.log
+Microsofts SDK-installasjon er ferdig. Kontrollerer filene pa nytt.
+test_installer_only_selects_x64_and_never_reboots (test_builder.InstallSafetyTests.test_installer_only_selects_x64_and_never_reboots) ... ok
+test_never_installs_when_sdk_exists_even_with_permission_flag (test_builder.InstallSafetyTests.test_never_installs_when_sdk_exists_even_with_permission_flag) ... ok
+test_no_download_or_install_without_explicit_flag (test_builder.InstallSafetyTests.test_no_download_or_install_without_explicit_flag) ... ok
+test_only_https_microsoft_download_host_allowed (test_builder.InstallSafetyTests.test_only_https_microsoft_download_host_allowed) ... ok
+missing
+test_rechecks_files_after_installer_and_calls_only_once (test_builder.InstallSafetyTests.test_rechecks_files_after_installer_and_calls_only_once) ... ok
+test_redirect_to_other_host_rejected_before_following (test_builder.InstallSafetyTests.test_redirect_to_other_host_rejected_before_following) ... ok
+test_signature_check_requires_success_marker (test_builder.InstallSafetyTests.test_signature_check_requires_success_marker) ... ok
+test_signature_command_requires_valid_microsoft_publisher (test_builder.InstallSafetyTests.test_signature_command_requires_valid_microsoft_publisher) ... ok
+missing
+test_success_exit_does_not_hide_still_missing_sdk (test_builder.InstallSafetyTests.test_success_exit_does_not_hide_still_missing_sdk) ... ok
+test_crlf_input_is_supported (test_builder.PatchTests.test_crlf_input_is_supported) ... ok
+test_non_windows_keeps_utf8_entry (test_builder.PatchTests.test_non_windows_keeps_utf8_entry) ... ok
+test_preserves_descriptive_juce_file_failures (test_builder.PatchTests.test_preserves_descriptive_juce_file_failures) ... ok
+test_refuses_double_patching (test_builder.PatchTests.test_refuses_double_patching) ... ok
+test_rejects_unknown_missing_or_duplicate_patterns (test_builder.PatchTests.test_rejects_unknown_missing_or_duplicate_patterns) ... ok
+test_source_payload_is_not_silently_reinterpreted (test_builder.PatchTests.test_source_payload_is_not_silently_reinterpreted) ... ok
+test_wide_entry_and_direct_wide_string_on_windows (test_builder.PatchTests.test_wide_entry_and_direct_wide_string_on_windows) ... ok
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+test_compile_failure_does_not_run_the_test_executable (test_builder.PreflightTests.test_compile_failure_does_not_run_the_test_executable) ... ok
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+test_no_false_positive_if_build_created_no_executable (test_builder.PreflightTests.test_no_false_positive_if_build_created_no_executable) ... ok
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+test_no_false_positive_if_executable_returns_wrong_output (test_builder.PreflightTests.test_no_false_positive_if_executable_returns_wrong_output) ... ok
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+FLYSNAPPER_TOOLCHAIN_OK
+test_requires_actual_executable_and_success_output (test_builder.PreflightTests.test_requires_actual_executable_and_success_output) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+test_actual_output_required_and_unicode_arguments_kept (test_builder.ResourceProbeTests.test_actual_output_required_and_unicode_arguments_kept) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_empty_or_invalid_resource_rejected (test_builder.ResourceProbeTests.test_empty_or_invalid_resource_rejected) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_helper_failure_stops_before_rc (test_builder.ResourceProbeTests.test_helper_failure_stops_before_rc) ... ok
+test_missing_helper_rejected (test_builder.ResourceProbeTests.test_missing_helper_rejected) ... ok
+test_missing_info_rejected (test_builder.ResourceProbeTests.test_missing_info_rejected) ... ok
+test_new_cmake_cache_leaves_old_cache_unchanged (test_builder.ResourceProbeTests.test_new_cmake_cache_leaves_old_cache_unchanged) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_old_resource_does_not_mask_new_failure (test_builder.ResourceProbeTests.test_old_resource_does_not_mask_new_failure) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_resource_compiler_failure_is_propagated (test_builder.ResourceProbeTests.test_resource_compiler_failure_is_propagated) ... ok
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+test_resource_compiler_must_create_nonempty_output (test_builder.ResourceProbeTests.test_resource_compiler_must_create_nonempty_output) ... ok
+test_absent_sdk_reports_all_checked_locations_and_install_option (test_builder.SdkDiscoveryTests.test_absent_sdk_reports_all_checked_locations_and_install_option) ... ok
+test_compiler_exe_alone_is_rejected (test_builder.SdkDiscoveryTests.test_compiler_exe_alone_is_rejected) ... ok
+test_complete_older_sdk_beats_partial_newer_one (test_builder.SdkDiscoveryTests.test_complete_older_sdk_beats_partial_newer_one) ... ok
+test_environment_registry_default_and_path_roots_are_considered (test_builder.SdkDiscoveryTests.test_environment_registry_default_and_path_roots_are_considered) ... ok
+test_latest_complete_msvc_selected (test_builder.SdkDiscoveryTests.test_latest_complete_msvc_selected) ... ok
+test_missing_rc_or_mt_is_rejected (test_builder.SdkDiscoveryTests.test_missing_rc_or_mt_is_rejected) ... ok
+test_never_combines_incomplete_sdk_versions (test_builder.SdkDiscoveryTests.test_never_combines_incomplete_sdk_versions) ... ok
+test_no_recursive_scan_of_entire_drive (test_builder.SdkDiscoveryTests.test_no_recursive_scan_of_entire_drive) ... ok
+test_numeric_version_order (test_builder.SdkDiscoveryTests.test_numeric_version_order) ... ok
+test_sdk_found_when_rc_not_on_path (test_builder.SdkDiscoveryTests.test_sdk_found_when_rc_not_on_path) ... ok
+test_tools_without_headers_are_not_a_complete_sdk (test_builder.SdkDiscoveryTests.test_tools_without_headers_are_not_a_complete_sdk) ... ok
+test_ucrt_static_library_is_required (test_builder.SdkDiscoveryTests.test_ucrt_static_library_is_required) ... ok
+test_x86_resource_tools_are_supported_with_x64_libraries (test_builder.SdkDiscoveryTests.test_x86_resource_tools_are_supported_with_x64_libraries) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+test_copy_changes_only_juceaide_and_keeps_original_clean (test_builder.SnapshotTests.test_copy_changes_only_juceaide_and_keeps_original_clean) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+test_different_source_gets_separate_copy (test_builder.SnapshotTests.test_different_source_gets_separate_copy) ... ok
+test_external_symlinks_rejected (test_builder.SnapshotTests.test_external_symlinks_rejected) ... skipped 'symlink creation can require privilege on Windows'
+test_incomplete_source_is_rejected (test_builder.SnapshotTests.test_incomplete_source_is_rejected) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+test_missing_manifest_is_not_trusted (test_builder.SnapshotTests.test_missing_manifest_is_not_trusted) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+test_modified_build_copy_is_not_trusted_or_overwritten (test_builder.SnapshotTests.test_modified_build_copy_is_not_trusted_or_overwritten) ... ok
+test_partial_copy_failure_is_not_published (test_builder.SnapshotTests.test_partial_copy_failure_is_not_published) ... ok
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+Kontrollert JUCE-byggekopi med Windows Unicode-rettelse brukes pa nytt.
+test_repeat_uses_verified_copy_without_rewriting (test_builder.SnapshotTests.test_repeat_uses_verified_copy_without_rewriting) ... ok
+test_cp1252_console_keeps_full_unicode_in_log (test_builder_encoding.BuilderEncodingTests.test_cp1252_console_keeps_full_unicode_in_log) ... ok
+test_nonzero_child_preserves_exit_status_under_cp1252 (test_builder_encoding.BuilderEncodingTests.test_nonzero_child_preserves_exit_status_under_cp1252) ... ok
+test_python_child_utf8_response_and_caller_environment_preserved (test_builder_encoding.BuilderEncodingTests.test_python_child_utf8_response_and_caller_environment_preserved) ... ok
+test_actual_cmake_generation_hashes_the_long_object_path (test_builder_paths.ObjectPathTests.test_actual_cmake_generation_hashes_the_long_object_path) ... ok
+test_configure_compacts_only_generated_paths_and_preserves_unicode_source (test_builder_paths.ObjectPathTests.test_configure_compacts_only_generated_paths_and_preserves_unicode_source) ... ok
+test_exact_reported_ci_object_crosses_max_path_and_new_namespace_fits (test_builder_paths.ObjectPathTests.test_exact_reported_ci_object_crosses_max_path_and_new_namespace_fits) ... ok
+test_impossibly_deep_developer_checkout_stops_before_compiler (test_builder_paths.ObjectPathTests.test_impossibly_deep_developer_checkout_stops_before_compiler) ... ok
+test_autocrlf_checkout_preserves_pinned_sources_and_measurement_proof (test_fixture_checkout.FixtureCheckoutTests.test_autocrlf_checkout_preserves_pinned_sources_and_measurement_proof) ... ok
+test_retained_waveforms_annotations_and_original_baseline (test_guitar_controls.GuitarControlIntegrity.test_retained_waveforms_annotations_and_original_baseline) ... ok
+test_early_release_and_noise_only_notes_remain_failures (test_guitar_evaluation_score.GuitarEvaluationScoreTests.test_early_release_and_noise_only_notes_remain_failures) ... ok
+test_late_correct_note_is_reported_without_absolute_latency_gate (test_guitar_evaluation_score.GuitarEvaluationScoreTests.test_late_correct_note_is_reported_without_absolute_latency_gate) ... ok
+test_missing_note_and_extra_octave_remain_failures (test_guitar_evaluation_score.GuitarEvaluationScoreTests.test_missing_note_and_extra_octave_remain_failures) ... ok
+test_poly_bend_is_explicitly_outside_scope_and_mono_is_retained (test_guitar_evaluation_score.GuitarEvaluationScoreTests.test_poly_bend_is_explicitly_outside_scope_and_mono_is_retained) ... ok
+test_static_poly_note_identity_preserves_overlapping_chord (test_guitar_evaluation_score.GuitarEvaluationScoreTests.test_static_poly_note_identity_preserves_overlapping_chord) ... ok
+test_static_poly_pitch_wheel_is_not_silently_accepted (test_guitar_evaluation_score.GuitarEvaluationScoreTests.test_static_poly_pitch_wheel_is_not_silently_accepted) ... ok
+test_complete_capture_is_bound_to_sources_binary_events_and_ctest (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_complete_capture_is_bound_to_sources_binary_events_and_ctest) ... ok
+test_each_quiet_fixture_requires_both_modes_and_matching_raw_lifetime (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_each_quiet_fixture_requires_both_modes_and_matching_raw_lifetime) ... ok
+test_missing_fresh_report_or_raw_events_cannot_collect (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_missing_fresh_report_or_raw_events_cannot_collect) ... ok
+test_native_header_must_match_execution_platform (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_native_header_must_match_execution_platform) ... ok
+test_original_readiness_pcm_and_report_pins_are_verified (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_original_readiness_pcm_and_report_pins_are_verified) ... ok
+test_post_capture_changes_cannot_reuse_proof (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_post_capture_changes_cannot_reuse_proof) ... ok
+test_raw_event_time_and_case_integrity_is_checked (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_raw_event_time_and_case_integrity_is_checked) ... ok
+test_skipped_failed_missing_or_duplicate_ctest_is_rejected (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_skipped_failed_missing_or_duplicate_ctest_is_rejected) ... ok
+test_source_changed_since_build_snapshot_is_rejected (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_source_changed_since_build_snapshot_is_rejected) ... ok
+test_unfinished_empty_duplicate_or_physically_mislabelled_reports_are_rejected (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_unfinished_empty_duplicate_or_physically_mislabelled_reports_are_rejected) ... ok
+test_unlisted_or_linked_evidence_is_rejected (test_input_dynamics_evidence.InputDynamicsEvidenceTests.test_unlisted_or_linked_evidence_is_rejected) ... ok
+test_changed_native_test_or_missing_test_cannot_ship (test_midi_only_evidence.MidiOnlyEvidenceTests.test_changed_native_test_or_missing_test_cannot_ship) ... ok
+test_changed_report_or_events_require_exact_binding (test_midi_only_evidence.MidiOnlyEvidenceTests.test_changed_report_or_events_require_exact_binding) ... ok
+test_collect_rejects_changed_precompile_inputs (test_midi_only_evidence.MidiOnlyEvidenceTests.test_collect_rejects_changed_precompile_inputs) ... ok
+test_duplicate_cases_and_noncausal_event_times_rejected_even_with_rebound_hash (test_midi_only_evidence.MidiOnlyEvidenceTests.test_duplicate_cases_and_noncausal_event_times_rejected_even_with_rebound_hash) ... ok
+test_duplicate_pass_and_skip_required_ctest_is_rejected (test_midi_only_evidence.MidiOnlyEvidenceTests.test_duplicate_pass_and_skip_required_ctest_is_rejected) ... ok
+test_exact_fixture_bindings_pass_without_claiming_native_execution (test_midi_only_evidence.MidiOnlyEvidenceTests.test_exact_fixture_bindings_pass_without_claiming_native_execution) ... ok
+test_juce_trailing_commas_do_not_rewrite_quoted_values (test_midi_only_evidence.MidiOnlyEvidenceTests.test_juce_trailing_commas_do_not_rewrite_quoted_values) ... ok
+test_old_component_identity_and_instrument_category_are_rejected (test_midi_only_evidence.MidiOnlyEvidenceTests.test_old_component_identity_and_instrument_category_are_rejected) ... ok
+test_proof_inventory_and_unsafe_paths_are_rejected (test_midi_only_evidence.MidiOnlyEvidenceTests.test_proof_inventory_and_unsafe_paths_are_rejected) ... ok
+test_raw_configuration_case_inventory_is_explicit_and_exact (test_midi_only_evidence.MidiOnlyEvidenceTests.test_raw_configuration_case_inventory_is_explicit_and_exact) ... ok
+test_rebound_false_host_claim_and_missing_feature_are_rejected (test_midi_only_evidence.MidiOnlyEvidenceTests.test_rebound_false_host_claim_and_missing_feature_are_rejected) ... ok
+test_source_mutation_and_extra_source_are_rejected (test_midi_only_evidence.MidiOnlyEvidenceTests.test_source_mutation_and_extra_source_are_rejected) ... ok
+test_actual_powershell_entrypoint_replaces_only_midi_and_preserves_old_instrument (test_midi_windows_package.MidiWindowsPackageTests.test_actual_powershell_entrypoint_replaces_only_midi_and_preserves_old_instrument) ... ok
+test_actual_workflow_powershell_splat_preserves_argument_boundaries (test_midi_windows_package.MidiWindowsPackageTests.test_actual_workflow_powershell_splat_preserves_argument_boundaries) ... ok
+test_all_four_midi_tests_are_required_and_must_finish (test_midi_windows_package.MidiWindowsPackageTests.test_all_four_midi_tests_are_required_and_must_finish) ... ok
+test_completed_research_checkpoint_retains_proof_but_omits_native_executables (test_midi_windows_package.MidiWindowsPackageTests.test_completed_research_checkpoint_retains_proof_but_omits_native_executables) ... ok
+test_legacy_bundle_audio_or_false_ableton_claim_cannot_masquerade_as_midi (test_midi_windows_package.MidiWindowsPackageTests.test_legacy_bundle_audio_or_false_ableton_claim_cannot_masquerade_as_midi) ... ok
+test_midi_package_uses_new_identity_and_only_relevant_evidence (test_midi_windows_package.MidiWindowsPackageTests.test_midi_package_uses_new_identity_and_only_relevant_evidence) ... ok
+test_midi_release_zip_is_deterministic (test_midi_windows_package.MidiWindowsPackageTests.test_midi_release_zip_is_deterministic) ... ok
+test_missing_or_rebound_invalid_native_report_cannot_ship (test_midi_windows_package.MidiWindowsPackageTests.test_missing_or_rebound_invalid_native_report_cannot_ship) ... ok
+test_research_cli_failure_fallback_stays_on_research_branch (test_midi_windows_package.MidiWindowsPackageTests.test_research_cli_failure_fallback_stays_on_research_branch) ... ok
+test_research_git_checkpoint_never_changes_user_delivery_branch (test_midi_windows_package.MidiWindowsPackageTests.test_research_git_checkpoint_never_changes_user_delivery_branch) ... ok
+test_source_or_native_binary_mutation_blocks_midi_packaging (test_midi_windows_package.MidiWindowsPackageTests.test_source_or_native_binary_mutation_blocks_midi_packaging) ... ok
+test_windows_bat_launcher_installs_the_separate_midi_bundle (test_midi_windows_package.MidiWindowsPackageTests.test_windows_bat_launcher_installs_the_separate_midi_bundle) ... ok
+test_workflow_research_artifacts_do_not_publish_a_user_release (test_midi_windows_package.MidiWindowsPackageTests.test_workflow_research_artifacts_do_not_publish_a_user_release) ... ok
+test_case_collision_rejected_for_windows (test_packaging.PackagingTests.test_case_collision_rejected_for_windows) ... ok
+test_complete_safe_extract_and_all_hashes (test_packaging.PackagingTests.test_complete_safe_extract_and_all_hashes) ... ok
+test_current_midi_evidence_is_included_without_historical_research_bloat (test_packaging.PackagingTests.test_current_midi_evidence_is_included_without_historical_research_bloat) ... ok
+test_deterministic_repeated_packages (test_packaging.PackagingTests.test_deterministic_repeated_packages) ... ok
+test_incomplete_source_fails_before_output (test_packaging.PackagingTests.test_incomplete_source_fails_before_output) ... ok
+test_self_exclusion_inside_included_tree (test_packaging.PackagingTests.test_self_exclusion_inside_included_tree) ... ok
+test_symlink_file_or_directory_rejected (test_packaging.PackagingTests.test_symlink_file_or_directory_rejected) ... ok
+test_symlink_output_rejected (test_packaging.PackagingTests.test_symlink_output_rejected) ... ok
+test_unsafe_names_rejected (test_packaging.PackagingTests.test_unsafe_names_rejected) ... ok
+test_verification_detects_changed_or_unlisted_members (test_packaging.PackagingTests.test_verification_detects_changed_or_unlisted_members) ... ok
+test_verification_rejects_case_colliding_zip_members (test_packaging.PackagingTests.test_verification_rejects_case_colliding_zip_members) ... ok
+test_failure_timeout_or_modified_bundle_cannot_pass (test_pluginval_runner.PluginvalProtocolTests.test_failure_timeout_or_modified_bundle_cannot_pass) ... ok
+test_incomplete_or_embedded_success_text_does_not_pass (test_pluginval_runner.PluginvalProtocolTests.test_incomplete_or_embedded_success_text_does_not_pass) ... ok
+test_real_official_plural_protocol_counts_executed_groups (test_pluginval_runner.PluginvalProtocolTests.test_real_official_plural_protocol_counts_executed_groups) ... ok
+test_zero_group_run_cannot_pass_from_success_word_only (test_pluginval_runner.PluginvalProtocolTests.test_zero_group_run_cannot_pass_from_success_word_only) ... ok
+test_log_redaction (test_windows_package.GitDeliveryTests.test_log_redaction) ... ok
+test_running_and_failed_states_append_without_overwriting_previous_payload (test_windows_package.GitDeliveryTests.test_running_and_failed_states_append_without_overwriting_previous_payload) ... ok
+test_030_requires_explicit_dated_guitar_evaluation_scope (test_windows_package.WindowsPackageTests.test_030_requires_explicit_dated_guitar_evaluation_scope) ... ok
+test_32bit_pe_is_rejected_even_with_matching_hashes (test_windows_package.WindowsPackageTests.test_32bit_pe_is_rejected_even_with_matching_hashes) ... ok
+test_bad_completed_provenance_publishes_failed_state_instead_of_staying_running (test_windows_package.WindowsPackageTests.test_bad_completed_provenance_publishes_failed_state_instead_of_staying_running) ... Delivery publication failed: Windows artifact proof belongs to a different source commit
+ok
+test_cmd_launcher_quotes_unicode_and_shell_metacharacters (test_windows_package.WindowsPackageTests.test_cmd_launcher_quotes_unicode_and_shell_metacharacters) ... ok
+test_complete_package_contains_prebuilt_binary_installer_source_and_proof (test_windows_package.WindowsPackageTests.test_complete_package_contains_prebuilt_binary_installer_source_and_proof) ... ok
+test_complete_publication_and_failed_next_build_preserve_verified_artifact (test_windows_package.WindowsPackageTests.test_complete_publication_and_failed_next_build_preserve_verified_artifact) ... ok
+test_diagnostic_driver_runs_three_explicit_roles_with_bound_fixture_evaluator (test_windows_package.WindowsPackageTests.test_diagnostic_driver_runs_three_explicit_roles_with_bound_fixture_evaluator) ... ok
+test_duplicate_or_unsafe_windows_provenance_paths_are_rejected (test_windows_package.WindowsPackageTests.test_duplicate_or_unsafe_windows_provenance_paths_are_rejected) ... ok
+test_duplicate_required_pass_and_skip_cannot_ship (test_windows_package.WindowsPackageTests.test_duplicate_required_pass_and_skip_cannot_ship) ... ok
+test_extra_resource_cannot_escape_bundle_manifest (test_windows_package.WindowsPackageTests.test_extra_resource_cannot_escape_bundle_manifest) ... ok
+test_failed_stale_or_tampered_audio_report_cannot_ship (test_windows_package.WindowsPackageTests.test_failed_stale_or_tampered_audio_report_cannot_ship) ... ok
+test_full_diagnostics_are_measurements_allowing_errors_but_require_all_corpora (test_windows_package.WindowsPackageTests.test_full_diagnostics_are_measurements_allowing_errors_but_require_all_corpora) ... ok
+test_guitar_noise_dynamics_and_mpe_groups_are_required_for_shipping (test_windows_package.WindowsPackageTests.test_guitar_noise_dynamics_and_mpe_groups_are_required_for_shipping) ... ok
+test_host_discovery_refuses_stale_or_ambiguous_builds (test_windows_package.WindowsPackageTests.test_host_discovery_refuses_stale_or_ambiguous_builds) ... ok
+test_installed_module_host_must_execute_nonzero_tests_on_windows (test_windows_package.WindowsPackageTests.test_installed_module_host_must_execute_nonzero_tests_on_windows) ... ok
+test_installed_module_proof_is_mandatory_and_bound_to_exact_zip_and_source (test_windows_package.WindowsPackageTests.test_installed_module_proof_is_mandatory_and_bound_to_exact_zip_and_source) ... ok
+test_installer_transaction_integrity_unicode_recovery_and_rollback (test_windows_package.WindowsPackageTests.test_installer_transaction_integrity_unicode_recovery_and_rollback) ... ok
+test_legacy_020_install_proof_remains_valid_without_bat_claim (test_windows_package.WindowsPackageTests.test_legacy_020_install_proof_remains_valid_without_bat_claim) ... ok
+test_linux_failed_or_incomplete_proof_is_rejected (test_windows_package.WindowsPackageTests.test_linux_failed_or_incomplete_proof_is_rejected) ... ok
+test_missing_or_changed_full_processor_dynamics_evidence_blocks_shipping (test_windows_package.WindowsPackageTests.test_missing_or_changed_full_processor_dynamics_evidence_blocks_shipping) ... ok
+test_native_windows_provenance_paths_normalize_without_changing_hashes (test_windows_package.WindowsPackageTests.test_native_windows_provenance_paths_normalize_without_changing_hashes) ... ok
+test_package_is_deterministic (test_windows_package.WindowsPackageTests.test_package_is_deterministic) ... ok
+test_packaged_bat_launcher_native_windows_fixture_transaction (test_windows_package.WindowsPackageTests.test_packaged_bat_launcher_native_windows_fixture_transaction) ... ok
+test_packaged_installer_driver_protocol_with_fixture_payload (test_windows_package.WindowsPackageTests.test_packaged_installer_driver_protocol_with_fixture_payload) ... ok
+test_packaged_ps_entrypoint_accepts_private_recovery_directory (test_windows_package.WindowsPackageTests.test_packaged_ps_entrypoint_accepts_private_recovery_directory) ... ok
+test_required_test_must_exist_and_run_without_skip_or_failure (test_windows_package.WindowsPackageTests.test_required_test_must_exist_and_run_without_skip_or_failure) ... ok
+test_stale_or_failed_diagnostic_runner_cannot_ship (test_windows_package.WindowsPackageTests.test_stale_or_failed_diagnostic_runner_cannot_ship) ... ok
+test_tampered_or_extra_binary_bundle_file_blocks_package (test_windows_package.WindowsPackageTests.test_tampered_or_extra_binary_bundle_file_blocks_package) ... ok
+test_truncated_or_nonfinite_full_matrix_cannot_be_hidden_by_fresh_checksum (test_windows_package.WindowsPackageTests.test_truncated_or_nonfinite_full_matrix_cannot_be_hidden_by_fresh_checksum) ... ok
+test_unsafe_windows_paths_are_rejected (test_windows_package.WindowsPackageTests.test_unsafe_windows_paths_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 198 tests in 40.950s
+
+OK (skipped=1)
+Published Windows delivery state: running 04c1de074e3a14209d6721e9fe6ccd238092ee7c
+Published Windows delivery state: failed 22a156bccd575809c9ac9e969e4ed240b5914296
+Published Windows delivery state: failed 750f1a73ecd6f083d8b61d058f0a778da6a4ad3d
+Published Windows delivery state: completed 86f6bbd1515b6af5d514971ad75c36d57e031414
+Published Windows delivery state: failed bc74e2701b49d1e93fba60055f4661a91e8e561c
+Windows audio diagnostic measurements completed:729+621+414 configurations. Musical errors remain reported; no live latency certification.
+PASS PowerShell installer: Unicode, hashes, first install, replace, backup, unrelated plugin, failed rename rollback, tamper rejection
+Flysnapper source: e891c2eef2f85e87138d22bbec8165e2b44f4c25
+FLYSNAPPER MIDI 0.4.0 | 2026.11.07-midi-only-native-validation
+Logg: D:\a\_temp\Olav L�greid\Flysnapper\logs\build-20261107-144508-967426.log
+
+> C:\hostedtoolcache\windows\Python\3.12.10\x64\python.exe -m unittest discover -s "D:\a\_temp\Olav L�greid\Flysnapper\Tests" -p test_builder*.py -v
+test_cache_changes_with_sdk_and_toolchain (test_builder.EnvironmentFixTests.test_cache_changes_with_sdk_and_toolchain) ... ok
+test_checked_project_never_uses_vs_instance_generator (test_builder.EnvironmentFixTests.test_checked_project_never_uses_vs_instance_generator) ... ok
+test_correct_child_environment_does_not_modify_parent (test_builder.EnvironmentFixTests.test_correct_child_environment_does_not_modify_parent) ... ok
+test_explicit_rc_and_mt_forwarded_to_cmake (test_builder.EnvironmentFixTests.test_explicit_rc_and_mt_forwarded_to_cmake) ... ok
+test_installed_ninja_preferred (test_builder.EnvironmentFixTests.test_installed_ninja_preferred) ... MSVC x64: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpxbmcudrk\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpxbmcudrk\sdk
+Ressurskompilator: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpxbmcudrk\sdk\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpxbmcudrk\sdk\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+ok
+test_setup_recovers_after_exact_reported_rc_error (test_builder.EnvironmentFixTests.test_setup_recovers_after_exact_reported_rc_error) ... Microsofts automatiske miljooppsett var ufullstendig. Kontrollerer verkt�y og SDK-filer direkte.
+VsDevCmd.bat: Windows SDK-verkt�yet rc.exe er ikke tilgjengelig i byggemiljoet.
+MSVC x64: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpbao62vda\BuildTools\VC\Tools\MSVC\14.51.36231
+Windows SDK: 10.0.26100.0 | D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpbao62vda\Windows Kits\10
+Ressurskompilator: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpbao62vda\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpbao62vda\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: NMake Makefiles (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+ok
+test_build_command_contains_current_targets_only (test_builder.FlysnapperSafetyTests.test_build_command_contains_current_targets_only) ... ok
+test_changed_resource_or_binary_blocks_install (test_builder.FlysnapperSafetyTests.test_changed_resource_or_binary_blocks_install) ... ok
+test_copy_failure_restores_old_installation (test_builder.FlysnapperSafetyTests.test_copy_failure_restores_old_installation) ... ok
+test_ctest_failure_exit_propagates (test_builder.FlysnapperSafetyTests.test_ctest_failure_exit_propagates) ... ok
+test_current_complete_result_passes (test_builder.FlysnapperSafetyTests.test_current_complete_result_passes) ... ok
+test_default_does_not_install (test_builder.FlysnapperSafetyTests.test_default_does_not_install) ... ok
+test_failed_tests_or_native_manifest_blocks_install (test_builder.FlysnapperSafetyTests.test_failed_tests_or_native_manifest_blocks_install) ... ok
+test_install_fixture_in_actual_builder_temporary_context (test_builder.FlysnapperSafetyTests.test_install_fixture_in_actual_builder_temporary_context) ... INSTALLERT: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpg333hkqd\Plugins\Flysnapper.vst3
+ok
+test_invalid_destination_does_not_implicitly_install (test_builder.FlysnapperSafetyTests.test_invalid_destination_does_not_implicitly_install) ... usage: python.exe -m unittest [-h] [--native] [--juce-dir JUCE_DIR]
+                              [--jobs JOBS] [--install-sdk]
+                              [--install | --install-only]
+                              [--choose-install-dir | --install-dir INSTALL_DIR]
+python.exe -m unittest: error: installation destination requires --install or --install-only
+ok
+test_missing_current_results_cannot_reuse_old_file (test_builder.FlysnapperSafetyTests.test_missing_current_results_cannot_reuse_old_file) ... ok
+test_native_cannot_install_windows_bundle (test_builder.FlysnapperSafetyTests.test_native_cannot_install_windows_bundle) ... usage: python.exe -m unittest [-h] [--native] [--juce-dir JUCE_DIR]
+                              [--jobs JOBS] [--install-sdk]
+                              [--install | --install-only]
+                              [--choose-install-dir | --install-dir INSTALL_DIR]
+python.exe -m unittest: error: --native is Linux validation only and cannot install
+ok
+test_replaces_only_flysnapper_and_keeps_recovery_outside_scan (test_builder.FlysnapperSafetyTests.test_replaces_only_flysnapper_and_keeps_recovery_outside_scan) ... INSTALLERT: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpm73v1e1_\Plugins\Flysnapper.vst3
+Forrige versjon for gjenoppretting: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpm73v1e1_\dist\previous-installations\20261107-144509-123677\Flysnapper.vst3
+ok
+test_skipped_required_test_fails_readiness (test_builder.FlysnapperSafetyTests.test_skipped_required_test_fails_readiness) ... ok
+test_stale_staging_is_preserved (test_builder.FlysnapperSafetyTests.test_stale_staging_is_preserved) ... ok
+test_test_inventory_must_contain_required_tests (test_builder.FlysnapperSafetyTests.test_test_inventory_must_contain_required_tests) ... ok
+test_installer_exit_failure_or_restart_never_reported_as_ready (test_builder.InstallSafetyTests.test_installer_exit_failure_or_restart_never_reported_as_ready) ... Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpfjvh2jty\sdk-install-20261107-144509.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpyta9e9db\sdk-install-20261107-144509.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpg33uepr4\sdk-install-20261107-144509.log
+ok
+test_installer_only_selects_x64_and_never_reboots (test_builder.InstallSafetyTests.test_installer_only_selects_x64_and_never_reboots) ... Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: D:\a\_temp\Olav L�greid\Flysnapper\build\temp\tmpyhihzrsr\sdk-install-20261107-144509.log
+Microsofts SDK-installasjon er ferdig. Kontrollerer filene pa nytt.
+ok
+test_never_installs_when_sdk_exists_even_with_permission_flag (test_builder.InstallSafetyTests.test_never_installs_when_sdk_exists_even_with_permission_flag) ... ok
+test_no_download_or_install_without_explicit_flag (test_builder.InstallSafetyTests.test_no_download_or_install_without_explicit_flag) ... ok
+test_only_https_microsoft_download_host_allowed (test_builder.InstallSafetyTests.test_only_https_microsoft_download_host_allowed) ... ok
+test_rechecks_files_after_installer_and_calls_only_once (test_builder.InstallSafetyTests.test_rechecks_files_after_installer_and_calls_only_once) ... missing
+ok
+test_redirect_to_other_host_rejected_before_following (test_builder.InstallSafetyTests.test_redirect_to_other_host_rejected_before_following) ... ok
+test_signature_check_requires_success_marker (test_builder.InstallSafetyTests.test_signature_check_requires_success_marker) ... ok
+test_signature_command_requires_valid_microsoft_publisher (test_builder.InstallSafetyTests.test_signature_command_requires_valid_microsoft_publisher) ... ok
+test_success_exit_does_not_hide_still_missing_sdk (test_builder.InstallSafetyTests.test_success_exit_does_not_hide_still_missing_sdk) ... missing
+ok
+test_crlf_input_is_supported (test_builder.PatchTests.test_crlf_input_is_supported) ... ok
+test_non_windows_keeps_utf8_entry (test_builder.PatchTests.test_non_windows_keeps_utf8_entry) ... ok
+test_preserves_descriptive_juce_file_failures (test_builder.PatchTests.test_preserves_descriptive_juce_file_failures) ... ok
+test_refuses_double_patching (test_builder.PatchTests.test_refuses_double_patching) ... ok
+test_rejects_unknown_missing_or_duplicate_patterns (test_builder.PatchTests.test_rejects_unknown_missing_or_duplicate_patterns) ... ok
+test_source_payload_is_not_silently_reinterpreted (test_builder.PatchTests.test_source_payload_is_not_silently_reinterpreted) ... ok
+test_wide_entry_and_direct_wide_string_on_windows (test_builder.PatchTests.test_wide_entry_and_direct_wide_string_on_windows) ... ok
+test_compile_failure_does_not_run_the_test_executable (test_builder.PreflightTests.test_compile_failure_does_not_run_the_test_executable) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+ok
+test_no_false_positive_if_build_created_no_executable (test_builder.PreflightTests.test_no_false_positive_if_build_created_no_executable) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+ok
+test_no_false_positive_if_executable_returns_wrong_output (test_builder.PreflightTests.test_no_false_positive_if_executable_returns_wrong_output) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+ok
+test_requires_actual_executable_and_success_output (test_builder.PreflightTests.test_requires_actual_executable_and_success_output) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+FLYSNAPPER_TOOLCHAIN_OK
+ok
+test_actual_output_required_and_unicode_arguments_kept (test_builder.ResourceProbeTests.test_actual_output_required_and_unicode_arguments_kept) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+ok
+test_empty_or_invalid_resource_rejected (test_builder.ResourceProbeTests.test_empty_or_invalid_resource_rejected) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_helper_failure_stops_before_rc (test_builder.ResourceProbeTests.test_helper_failure_stops_before_rc) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_missing_helper_rejected (test_builder.ResourceProbeTests.test_missing_helper_rejected) ... ok
+test_missing_info_rejected (test_builder.ResourceProbeTests.test_missing_info_rejected) ... ok
+test_new_cmake_cache_leaves_old_cache_unchanged (test_builder.ResourceProbeTests.test_new_cmake_cache_leaves_old_cache_unchanged) ... ok
+test_old_resource_does_not_mask_new_failure (test_builder.ResourceProbeTests.test_old_resource_does_not_mask_new_failure) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_resource_compiler_failure_is_propagated (test_builder.ResourceProbeTests.test_resource_compiler_failure_is_propagated) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_resource_compiler_must_create_nonempty_output (test_builder.ResourceProbeTests.test_resource_compiler_must_create_nonempty_output) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_absent_sdk_reports_all_checked_locations_and_install_option (test_builder.SdkDiscoveryTests.test_absent_sdk_reports_all_checked_locations_and_install_option) ... ok
+test_compiler_exe_alone_is_rejected (test_builder.SdkDiscoveryTests.test_compiler_exe_alone_is_rejected) ... ok
+test_complete_older_sdk_beats_partial_newer_one (test_builder.SdkDiscoveryTests.test_complete_older_sdk_beats_partial_newer_one) ... ok
+test_environment_registry_default_and_path_roots_are_considered (test_builder.SdkDiscoveryTests.test_environment_registry_default_and_path_roots_are_considered) ... ok
+test_latest_complete_msvc_selected (test_builder.SdkDiscoveryTests.test_latest_complete_msvc_selected) ... ok
+test_missing_rc_or_mt_is_rejected (test_builder.SdkDiscoveryTests.test_missing_rc_or_mt_is_rejected) ... ok
+test_never_combines_incomplete_sdk_versions (test_builder.SdkDiscoveryTests.test_never_combines_incomplete_sdk_versions) ... ok
+test_no_recursive_scan_of_entire_drive (test_builder.SdkDiscoveryTests.test_no_recursive_scan_of_entire_drive) ... ok
+test_numeric_version_order (test_builder.SdkDiscoveryTests.test_numeric_version_order) ... ok
+test_sdk_found_when_rc_not_on_path (test_builder.SdkDiscoveryTests.test_sdk_found_when_rc_not_on_path) ... ok
+test_tools_without_headers_are_not_a_complete_sdk (test_builder.SdkDiscoveryTests.test_tools_without_headers_are_not_a_complete_sdk) ... ok
+test_ucrt_static_library_is_required (test_builder.SdkDiscoveryTests.test_ucrt_static_library_is_required) ... ok
+test_x86_resource_tools_are_supported_with_x64_libraries (test_builder.SdkDiscoveryTests.test_x86_resource_tools_are_supported_with_x64_libraries) ... ok
+test_copy_changes_only_juceaide_and_keeps_original_clean (test_builder.SnapshotTests.test_copy_changes_only_juceaide_and_keeps_original_clean) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_different_source_gets_separate_copy (test_builder.SnapshotTests.test_different_source_gets_separate_copy) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_external_symlinks_rejected (test_builder.SnapshotTests.test_external_symlinks_rejected) ... skipped 'symlink creation can require privilege on Windows'
+test_incomplete_source_is_rejected (test_builder.SnapshotTests.test_incomplete_source_is_rejected) ... ok
+test_missing_manifest_is_not_trusted (test_builder.SnapshotTests.test_missing_manifest_is_not_trusted) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_modified_build_copy_is_not_trusted_or_overwritten (test_builder.SnapshotTests.test_modified_build_copy_is_not_trusted_or_overwritten) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_partial_copy_failure_is_not_published (test_builder.SnapshotTests.test_partial_copy_failure_is_not_published) ... ok
+test_repeat_uses_verified_copy_without_rewriting (test_builder.SnapshotTests.test_repeat_uses_verified_copy_without_rewriting) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+Kontrollert JUCE-byggekopi med Windows Unicode-rettelse brukes pa nytt.
+ok
+test_cp1252_console_keeps_full_unicode_in_log (test_builder_encoding.BuilderEncodingTests.test_cp1252_console_keeps_full_unicode_in_log) ... ok
+test_nonzero_child_preserves_exit_status_under_cp1252 (test_builder_encoding.BuilderEncodingTests.test_nonzero_child_preserves_exit_status_under_cp1252) ... ok
+test_python_child_utf8_response_and_caller_environment_preserved (test_builder_encoding.BuilderEncodingTests.test_python_child_utf8_response_and_caller_environment_preserved) ... ok
+test_actual_cmake_generation_hashes_the_long_object_path (test_builder_paths.ObjectPathTests.test_actual_cmake_generation_hashes_the_long_object_path) ... ok
+test_configure_compacts_only_generated_paths_and_preserves_unicode_source (test_builder_paths.ObjectPathTests.test_configure_compacts_only_generated_paths_and_preserves_unicode_source) ... ok
+test_exact_reported_ci_object_crosses_max_path_and_new_namespace_fits (test_builder_paths.ObjectPathTests.test_exact_reported_ci_object_crosses_max_path_and_new_namespace_fits) ... ok
+test_impossibly_deep_developer_checkout_stops_before_compiler (test_builder_paths.ObjectPathTests.test_impossibly_deep_developer_checkout_stops_before_compiler) ... ok
+
+----------------------------------------------------------------------
+Ran 79 tests in 0.547s
+
+OK (skipped=1)
+
+> "C:\Program Files\CMake\bin\cmake.EXE" --version
+cmake version 3.31.6
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+> "C:\Program Files\Git\bin\git.EXE" --version
+git version 2.56.0.windows.4
+
+> "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -all -prerelease -products * -format json -utf8
+
+> "C:\Program Files\CMake\bin\cmake.EXE" -E capabilities
+Klargjor Microsofts x64-kommandolinjemiljo: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat
+Direkte x64-kompilator: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe
+MSVC x64: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.44.35207
+Windows SDK: 10.0.26100.0 | C:\Program Files (x86)\Windows Kits\10
+Ressurskompilator: C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe
+Manifestverktoy: C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kj�ring.
+
+> "C:\Program Files\CMake\bin\cmake.EXE" -S "D:\a\_temp\Olav L�greid\Flysnapper\build\x64-sdk-check-fix4-49fe0dde4775\source" -B "D:\a\_temp\Olav L�greid\Flysnapper\build\x64-sdk-check-fix4-49fe0dde4775" -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_OBJECT_PATH_MAX=220 "-DCMAKE_C_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe" "-DCMAKE_CXX_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe" "-DCMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe" "-DCMAKE_MT:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe" "-DCMAKE_LINKER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe" "-DCMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe" "-DCMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$<$<CONFIG:Debug>:Debug>
+-- The C compiler identification is MSVC 19.44.35229.0
+-- The CXX compiler identification is MSVC 19.44.35229.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (8.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/a/_temp/Olav L�greid/Flysnapper/build/x64-sdk-check-fix4-49fe0dde4775
+
+> "C:\Program Files\CMake\bin\cmake.EXE" --build "D:\a\_temp\Olav L�greid\Flysnapper\build\x64-sdk-check-fix4-49fe0dde4775" --config Release --target FlysnapperToolchainCheck
+[1/3] Building RC object CMakeFiles\FlysnapperToolchainCheck.dir\probe.rc.res
+[2/3] Building CXX object CMakeFiles\FlysnapperToolchainCheck.dir\probe.cpp.obj
+[3/3] Linking CXX executable FlysnapperToolchainCheck.exe
+
+> "D:\a\_temp\Olav L�greid\Flysnapper\build\x64-sdk-check-fix4-49fe0dde4775\FlysnapperToolchainCheck.exe"
+FLYSNAPPER_TOOLCHAIN_OK: C++17, CRT, Windows SDK, RC and linker
+
+> "C:\Program Files\Git\bin\git.EXE" -c core.longpaths=true clone --depth 1 --branch 8.0.16-security https://github.com/juce-framework/JUCE.git "D:\a\_temp\Olav L�greid\Flysnapper\deps\JUCE"
+Cloning into 'D:\a\_temp\Olav L�greid\Flysnapper\deps\JUCE'...
+warning: refs/tags/8.0.16-security a74b024c188339fdfe07b73088e6f6961ff66709 is not a commit!
+Note: switching to 'ea77444750de45e036e0279bb0291144bf8e3688'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+
+> "C:\Program Files\Git\bin\git.EXE" -C "D:\a\_temp\Olav L�greid\Flysnapper\deps\JUCE" config core.longpaths true
+
+> "C:\Program Files\Git\bin\git.EXE" -C "D:\a\_temp\Olav L�greid\Flysnapper\deps\JUCE" rev-parse HEAD
+
+> "C:\Program Files\Git\bin\git.EXE" -C "D:\a\_temp\Olav L�greid\Flysnapper\deps\JUCE" status --porcelain
+
+> "C:\Program Files\Git\bin\git.EXE" -C "D:\a\_temp\Olav L�greid\Flysnapper\deps\JUCE" rev-parse HEAD
+JUCE 8.0.16-security kontrollert: ea77444750de45e036e0279bb0291144bf8e3688
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+
+> "C:\Program Files\CMake\bin\cmake.EXE" -S "D:\a\_temp\Olav L�greid\Flysnapper" -B "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356" -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_OBJECT_PATH_MAX=220 "-DCMAKE_C_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe" "-DCMAKE_CXX_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe" "-DCMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe" "-DCMAKE_MT:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe" "-DCMAKE_LINKER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe" "-DCMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe" "-DCMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Enterprise/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$<$<CONFIG:Debug>:Debug> "-DJUCE_DIR=D:\a\_temp\Olav L�greid\Flysnapper\build\j\u-cf9b7be454ab0ea072d7" -DFLYSNAPPER_CORE_ONLY=OFF -DFLYSNAPPER_BUILD_TESTS=ON
+-- The C compiler identification is MSVC 19.44.35229.0
+-- The CXX compiler identification is MSVC 19.44.35229.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring juceaide
+-- Building juceaide
+-- Exporting juceaide
+-- Testing juceaide
+-- Finished setting up juceaide
+-- Configuring done (57.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+
+> "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\juce\tools\extras\Build\juceaide\juceaide_artefacts\Custom\juceaide.exe" rcfile "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\juceaide-unicode-check\Olav L�greid\Info ���.txt" "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\juceaide-unicode-check\Olav L�greid\Flysnapper ���.rc"
+
+> "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" /nologo /fo "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\juceaide-unicode-check\Olav L�greid\Flysnapper ���.res" "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\juceaide-unicode-check\Olav L�greid\Flysnapper ���.rc"
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+
+> "C:\Program Files\CMake\bin\cmake.EXE" --build "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356" --config Release --target Flysnapper_VST3 FlysnapperCoreTests FlysnapperPluginTests FlysnapperMidiOnlyProcessorTests FlysnapperVst3HostTests --parallel 2
+[0/2] Re-checking globbed directories...
+[1/105] Building CXX object CMakeFiles\FlysnapperCore.dir\Source\Core\MidiEngine.cpp.obj
+[2/105] Building CXX object CMakeFiles\FlysnapperCore.dir\Source\Core\MusicData.cpp.obj
+[3/105] Linking CXX static library FlysnapperCore.lib
+[4/105] Building CXX object CMakeFiles\Flysnapper.dir\Source\PluginProcessor.cpp.obj
+[5/105] Building CXX object CMakeFiles\Flysnapper.dir\Source\PluginEditor.cpp.obj
+[6/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors\juce_audio_processors.cpp.obj
+[7/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_extra\juce_gui_extra.cpp.obj
+[8/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_2.cpp.obj
+[9/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics.cpp.obj
+[10/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_3.cpp.obj
+[11/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_4.cpp.obj
+[12/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_5.cpp.obj
+[13/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics.cpp.obj
+[14/105] Building C object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Sheenbidi.c.obj
+[15/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_events\juce_events.cpp.obj
+[16/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Harfbuzz.cpp.obj
+[17/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_core\juce_core_CompilationTime.cpp.obj
+[18/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_data_structures\juce_data_structures.cpp.obj
+[19/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_core\juce_core.cpp.obj
+[20/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_ara.cpp.obj
+[21/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_lv2_libs.cpp.obj
+[22/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless.cpp.obj
+[23/105] Building CXX object CMakeFiles\Flysnapper.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_basics\juce_audio_basics.cpp.obj
+[24/105] Generating Flysnapper_artefacts/JuceLibraryCode/Flysnapper_resources.rc
+[25/105] Linking CXX static library "Flysnapper_artefacts\Release\Flysnapper MIDI_SharedCode.lib"
+[26/105] Building VST3 manifest helper for Flysnapper
+-- The CXX compiler identification is MSVC 19.44.35229.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356/vst3_helpers/Flysnapper
+[1/2] Building CXX object CMakeFiles\vst3_helper.dir\D_\a\_temp\Olav_L�greid\Flysnapper\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\VST3\juce_VST3ManifestHelper.cpp.obj
+
+[2/2] Linking CXX executable vst3_helper.exe
+
+[27/105] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_AAX.cpp.obj
+[28/105] Building RC object CMakeFiles\Flysnapper_rc_lib.dir\Flysnapper_artefacts\JuceLibraryCode\Flysnapper_resources.rc.res
+[29/105] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_AAX_utils.cpp.obj
+[30/105] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_ARA.cpp.obj
+[31/105] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_LV2.cpp.obj
+[32/105] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_Standalone.cpp.obj
+[33/105] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_Unity.cpp.obj
+[34/105] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_VST2.cpp.obj
+[35/105] Generating FlysnapperPluginTests_artefacts/JuceLibraryCode/FlysnapperPluginTests_resources.rc
+[36/105] Generating FlysnapperMidiOnlyProcessorTests_artefacts/JuceLibraryCode/FlysnapperMidiOnlyProcessorTests_resources.rc
+[37/105] Generating FlysnapperVst3HostTests_artefacts/JuceLibraryCode/FlysnapperVst3HostTests_resources.rc
+[38/105] Building CXX object CMakeFiles\FlysnapperCoreTests.dir\Tests\CoreTests.cpp.obj
+[39/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\Tests\PluginTests.cpp.obj
+[40/105] Building CXX object CMakeFiles\Flysnapper_VST3.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_plugin_client\juce_audio_plugin_client_VST3.cpp.obj
+[41/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors\juce_audio_processors.cpp.obj
+[42/105] Linking CXX shared module "Flysnapper_artefacts\Release\VST3\Flysnapper MIDI.vst3\Contents\x86_64-win\Flysnapper MIDI.vst3"
+removing moduleinfo.json
+creating D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356/Flysnapper_artefacts/Release/VST3/Flysnapper MIDI.vst3/Contents/Resources/moduleinfo.json
+[43/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_extra\juce_gui_extra.cpp.obj
+[44/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_2.cpp.obj
+[45/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics.cpp.obj
+[46/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_3.cpp.obj
+[47/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_4.cpp.obj
+[48/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_5.cpp.obj
+[49/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics.cpp.obj
+[50/105] Building C object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Sheenbidi.c.obj
+[51/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_events\juce_events.cpp.obj
+[52/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Harfbuzz.cpp.obj
+[53/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_core\juce_core_CompilationTime.cpp.obj
+[54/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_data_structures\juce_data_structures.cpp.obj
+[55/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_core\juce_core.cpp.obj
+[56/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_ara.cpp.obj
+[57/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_lv2_libs.cpp.obj
+[58/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless.cpp.obj
+[59/105] Building RC object CMakeFiles\FlysnapperPluginTests_rc_lib.dir\FlysnapperPluginTests_artefacts\JuceLibraryCode\FlysnapperPluginTests_resources.rc.res
+[60/105] Building CXX object CMakeFiles\FlysnapperPluginTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_basics\juce_audio_basics.cpp.obj
+[61/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\Tests\MidiOnlyProcessorTests.cpp.obj
+[62/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors\juce_audio_processors.cpp.obj
+[63/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_extra\juce_gui_extra.cpp.obj
+[64/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_2.cpp.obj
+[65/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics.cpp.obj
+[66/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_3.cpp.obj
+[67/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_4.cpp.obj
+[68/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_5.cpp.obj
+[69/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics.cpp.obj
+[70/105] Building C object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Sheenbidi.c.obj
+[71/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_events\juce_events.cpp.obj
+[72/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Harfbuzz.cpp.obj
+[73/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_core\juce_core_CompilationTime.cpp.obj
+[74/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_data_structures\juce_data_structures.cpp.obj
+[75/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_core\juce_core.cpp.obj
+[76/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_ara.cpp.obj
+[77/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_lv2_libs.cpp.obj
+[78/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless.cpp.obj
+[79/105] Building RC object CMakeFiles\FlysnapperMidiOnlyProcessorTests_rc_lib.dir\3bdd426b29483240574dbcc43bf3aaee\JuceLibraryCode\FlysnapperMidiOnlyProcessorTests_resources.rc.res
+[80/105] Building CXX object CMakeFiles\FlysnapperMidiOnlyProcessorTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_basics\juce_audio_basics.cpp.obj
+[81/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\Tests\Vst3HostTests.cpp.obj
+[82/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_extra\juce_gui_extra.cpp.obj
+[83/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors\juce_audio_processors.cpp.obj
+[84/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_2.cpp.obj
+[85/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics.cpp.obj
+[86/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_3.cpp.obj
+[87/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_4.cpp.obj
+[88/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_gui_basics\juce_gui_basics_5.cpp.obj
+[89/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics.cpp.obj
+[90/105] Building C object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Sheenbidi.c.obj
+[91/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_events\juce_events.cpp.obj
+[92/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_graphics\juce_graphics_Harfbuzz.cpp.obj
+[93/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_core\juce_core_CompilationTime.cpp.obj
+[94/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_data_structures\juce_data_structures.cpp.obj
+[95/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_core\juce_core.cpp.obj
+[96/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_ara.cpp.obj
+[97/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless_lv2_libs.cpp.obj
+[98/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_processors_headless\juce_audio_processors_headless.cpp.obj
+[99/105] Building RC object CMakeFiles\FlysnapperVst3HostTests_rc_lib.dir\FlysnapperVst3HostTests_artefacts\JuceLibraryCode\FlysnapperVst3HostTests_resources.rc.res
+[100/105] Building CXX object CMakeFiles\FlysnapperVst3HostTests.dir\build\j\u-cf9b7be454ab0ea072d7\modules\juce_audio_basics\juce_audio_basics.cpp.obj
+[101/105] Linking CXX executable FlysnapperCoreTests.exe
+[102/105] Linking CXX executable FlysnapperPluginTests_artefacts\Release\FlysnapperPluginTests.exe
+[103/105] Linking CXX executable FlysnapperMidiOnlyProcessorTests_artefacts\Release\FlysnapperMidiOnlyProcessorTests.exe
+[104/105] Linking CXX executable FlysnapperVst3HostTests_artefacts\Release\FlysnapperVst3HostTests.exe
+
+> "C:\Program Files\CMake\bin\ctest.EXE" --test-dir "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356" -C Release --show-only=json-v1
+
+> "C:\Program Files\CMake\bin\ctest.EXE" --test-dir "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356" -C Release --no-tests=error --verbose --output-on-failure --output-junit "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\flysnapper-ctest.xml"
+Internal ctest changing into directory: D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356
+UpdateCTestConfiguration  from :D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356/DartConfiguration.tcl
+UpdateCTestConfiguration  from :D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356/DartConfiguration.tcl
+Test project D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: FlysnapperCore
+
+1: Test command: "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\FlysnapperCoreTests.exe"
+1: Working Directory: D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356
+1: Test timeout computed to be: 120
+1: Flysnapper core: 6 suites passed, 2142807 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+1/4 Test #1: FlysnapperCore ...................   Passed    0.07 sec
+test 2
+    Start 2: FlysnapperPluginSmoke
+
+2: Test command: "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\FlysnapperPluginTests_artefacts\Release\FlysnapperPluginTests.exe"
+2: Working Directory: D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356
+2: Test timeout computed to be: 180
+2: PASS MIDI-only parameters,52x31 state choices, stable IDs, independent copies and legacy XML payloads
+2: PASS warmed processBlock C++ new check (host wrapper and malloc/realloc excluded)
+2: PASS scale/root/correction preview before prepareToPlay or processBlock
+2: PASS actual MIDI-only editor,52x31 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs
+2: FlysnapperPluginSmoke: PASS (20021 assertions; not Ableton validation)
+2/4 Test #2: FlysnapperPluginSmoke ............   Passed    0.45 sec
+test 3
+    Start 3: FlysnapperMidiOnlyProcessor
+
+3: Test command: "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\FlysnapperMidiOnlyProcessorTests_artefacts\Release\FlysnapperMidiOnlyProcessorTests.exe"
+3: Working Directory: D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356
+3: Test timeout computed to be: 180
+3: FlysnapperMidiOnlyProcessor: PASS (87182 checks, 12 cases; no Ableton verification).
+3/4 Test #3: FlysnapperMidiOnlyProcessor ......   Passed    0.13 sec
+test 4
+    Start 4: FlysnapperActualVst3
+
+4: Test command: "D:\a\_temp\Olav L�greid\Flysnapper\build\w-a40571ed5356\FlysnapperVst3HostTests_artefacts\Release\FlysnapperVst3HostTests.exe" "D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356/Flysnapper_artefacts/Release/VST3/Flysnapper MIDI.vst3"
+4: Working Directory: D:/a/_temp/Olav L�greid/Flysnapper/build/w-a40571ed5356
+4: Test timeout computed to be: 180
+4: PASS module_contract
+4: PASS routing_44100_32
+4: PASS routing_44100_128
+4: PASS routing_44100_257
+4: PASS routing_48000_32
+4: PASS routing_48000_128
+4: PASS routing_48000_257
+4: PASS routing_96000_32
+4: PASS routing_96000_128
+4: PASS routing_96000_257
+4: PASS all_31_scale_indices
+4: PASS internal_correction_off_held_chord
+4: PASS new_sharp_eleventh_chord_mappings
+4: PASS serial_instances_and_two_active_corrections
+4: PASS non_ch1_notes_and_expression
+4: PASS channel1_sustain_and_latch_reset
+4: PASS overlapping_input_bindings
+4: PASS instance_state
+4: PASS transport_reset
+4: PASS generated_midi_routing
+4: PASS host_invoked_bypass_callback
+4: RESULT actual VST3 host tests passed (4293 assertions).
+4: PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
+4: NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.
+4/4 Test #4: FlysnapperActualVst3 .............   Passed    0.45 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   1.10 sec
+BYGG OG AUTOMATISKE TESTER BESTATT: D:\a\_temp\Olav L�greid\Flysnapper\dist\Flysnapper MIDI.vst3
+Ableton Live og fysisk end-to-end-latency er ikke verifisert av byggeskriptet.
+Ingen installasjon utf�rt. Windows: bruk --install eller --install-only naar du onsker installasjon.
+Verified Windows installation package: D:\a\ChatGPT\ChatGPT\artifacts\Flysnapper-Windows-x64.zip
+SHA256: f0d2296037fa403a661f9fc807c9087f3a1649e780b6c776758e1277c9714e78
+Actual Windows installation and installed-VST3 validation passed: 4293 assertions
+Proof: artifacts\installation-validation.json
