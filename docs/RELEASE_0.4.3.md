@@ -48,7 +48,17 @@ parameter-/tilstands-ID-er og MIDI-ruting er uendret. Brukeren har
 bekreftet at 0.4.2-rutingen fungerer; dette er ikke en påstand om at
 den nye binærfilen allerede er kjørt i brukerens Live-oppsett.
 
-Ferske tester skal dekke faktiske staccato-/legatostrømmer over
-blokkgrenser, de opprinnelige tie-break-eksemplene, separate kilder,
-ordnede Note Off/On-par, slipperekkefølge, sustain og opprydding.
-Bygg-/installasjonsstatus registreres etter kjøring.
+Alle fire native testgrupper bestod på Linux og Windows fra runtime-kilde
+`1abedf68cfcfe08038246210bd5fa6c3d124c0b6`. Kjerne:2194622 assertions;
+GUI:21516; prosessor:318633 kontroller/21 tilfeller; kompilert VST3:
+22060 rapportkontroller/30 tilfeller. Staccato/legato, rå tie-tabell,
+ordnede Off/On-par, slippbindinger, sustain, akkordfallback og transport
+inngår. Windows Python:200 bestått og én forventet skip av201 totalt.
+
+Windows CI42421340311 bestod også faktisk PS/BAT-installasjon,
+erstatning/gjenoppretting og innlasting av installert modul. Den eksakte
+CI-pakken ble publisert uten ny bygging. HTTP 200,38777911 byte og SHA256
+`af22cef16f2d88d0642c7dfe21a7da93828b7070e425c7e84448b097ea8360d0`
+er kontrollert mot den publiserte nedlastingen. Se
+[Windows-bevis og lenke](validation/midi-articulation-0.4.3/windows/README.md)
+og [Linux-bevis](validation/midi-articulation-0.4.3/linux/README.md).

@@ -1,30 +1,22 @@
 # Flysnapper MIDI 0.4.3
 
-0.4.3 bruker instrumentkategorien med en stille stereo lydutgang og MIDI
-inn/ut. Dette er brukerens valgte neste prøve etter at Live 12.4.6 avviste
-0.4.0 som audioeffekt uten audioinngang. Se
-[diagnosen](docs/validation/live-open-failure-2026-11-07/README.md).
+0.4.3 beholder retningshistorikken ved legato, gir nytt anslag ved samme
+korrigerte tone og bruker Chromatic ved ukjent akkord eller eksplisitt
+stoppet transport. Enkeltnoter merkes `(single note)`, durtreklanger `Major`.
+Baksiden har fire kompakte kolonner med 14 + 12 + 12 + 14 akkordtyper.
 
-Flysnapper MIDI behandler bare MIDI og korrigerer etter skalaer
-eller et akkordspor. Den stille instrumentutgangen endrer vertsrollen;
-ingen audioinngang eller pitchgjenkjenning er lagt til. Ombyggingen følger brukerens bestilling
-7. november 2026. De to nye Excel-rettelsene er C7#9 til Half Whole
-Diminished og C7b13 til Mixolydian b6. Etter siste presisering får C13#9
-og C13add#9 Chromatic som fabrikkvalg. Alle 52 akkordtyper og 38 skalaer
-beholdes. Vanlig kommentering og farger er uendret.
-0.4.3 retter retningshistorikk ved vanlig legato og sørger for nytt anslag
-ved samme korrigerte tone. Den avtalte tie-tabellen beholdes, men
-historikken slettes ikke lenger av sekvensiell overlapp. Nye spilleanslag
-sender Note Off/On på samme sample når måltonen allerede klinger;
-gamle slippbindinger og sustain beholdes.
-Uidentifiserte akkorder og eksplisitt stoppet transport gir kromatisk
-gjennomslipp. Enkeltnoter merkes `(single note)`, durtreklanger `Major`.
-Baksiden bruker fire kompakte kolonner med 14 + 12 + 12 + 14 akkordtyper.
+Flysnapper MIDI korrigerer MIDI etter skalaer eller et akkordspor. Den
+bruker VST3-instrumentrollen med stille stereoutgang, uten audioinngang
+eller pitchgjenkjenning. Rutingen brukeren bekreftet i 0.4.2 beholdes.
+Alle 52 akkordtyper,38 skalaer, stabile ID-er og endelige fabrikkvalg beholdes.
 
-Ferske tester og en ny Windows-pakke klargjøres for denne rettelsen.
-Ruting er bekreftet av brukeren i 0.4.2 og endres ikke. Alle fabrikkvalg,
-52 akkordtyper og 38 skalaer beholdes. Tidligere pakker er historiske
-kontrollpunkt, ikke leveransen av denne feilrettelsen.
+Windows-pakken er bygget, testet, installert i testmiljø og publisert.
+[Last ned ferdig 0.4.3-installasjonspakke](https://github.com/monotomas/ChatGPT/raw/660d673c4358c20ad4ba09d32cab8dc1d699ec1f/downloads/Flysnapper-Windows-x64.zip).
+Lukk Live, pakk ut hele ZIP-filen og kjør `INSTALL_FLYSNAPPER.bat`.
+Ingen kompilator, Python eller bygging kreves til installasjon.
+Nedlastingen er kontrollert med HTTP 200, full lengde og SHA256.
+Se [Windows-bevisene](docs/validation/midi-articulation-0.4.3/windows/README.md).
+Automatiske testverter erstatter ikke praktisk prøving av den nye binærfilen i Live.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
 [versjonsnotatet](docs/RELEASE_0.4.3.md) og
@@ -112,9 +104,9 @@ Den aktuelle MIDI-utgaven har egne kjerne-, GUI-, prosessor- og faktiske
 VST3-testvertprøver. Windows-pakking krever dessuten kilde-/modulbundet
 bevis, PE-/Unicode-kontroller og reelle installasjons-/gjenopprettingsprøver.
 En generisk testvert dokumenterer ikke faktisk Ableton-atferd.
-Se [det aktuelle kontrollpunktet](docs/validation/midi-factory-2026-11-07/README.md).
+Se [det aktuelle kontrollpunktet](docs/validation/midi-articulation-0.4.3/README.md).
 Kildepakken beholder all aktuell kode og testdata; historiske DSP-arkiver
-finnes i repositoriet og er utelatt fra den kompakte 0.4.0-kildepakken.
+finnes i repositoriet og er utelatt fra den kompakte MIDI-kildepakken.
 
 JUCE 8.0.16-security er låst til
 `ea77444750de45e036e0279bb0291144bf8e3688`.

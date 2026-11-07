@@ -67,6 +67,11 @@ installasjonskontroller. Tidligere 0.4.0-resultater brukes ikke som bevis. Fakti
 korrekt MIDI-utgang og mottakerspor i Live ble siden bekreftet av brukeren
 for 0.4.2. Nye funksjoner kontrolleres separat i 0.4.3.
 
+0.4.3 bestod deretter alle fire native grupper på Linux og Windows, samt
+faktisk Windows-installasjon og innlasting av installert modul. Den eksakte
+pakken er publisert og lastet ned med kontrollert lengde/hash. Se
+[kontrollpunktet](validation/midi-articulation-0.4.3/README.md).
+
 En ferdig Windows x64-installasjonspakke er leveransemålet. Brukeren skal
 kunne installere uten Python, CMake, Visual Studio eller kildeendringer.
 Generisk VST3-innlasting og Windows-/installasjonsbevis skal skilles fra

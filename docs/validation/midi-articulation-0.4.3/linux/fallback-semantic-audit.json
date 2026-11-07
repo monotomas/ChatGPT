@@ -1,0 +1,356 @@
+{
+  "FlysnapperMidiOnlyProcessor": {
+    "streams_verified": 9,
+    "note_events_verified": 216,
+    "unknown_chord_cases": [
+      {
+        "mode": 0,
+        "fixture": "empty",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 0,
+        "fixture": "single_G",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 0,
+        "fixture": "unrecognized_C_Db",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 1,
+        "fixture": "empty",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 1,
+        "fixture": "single_G",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 1,
+        "fixture": "unrecognized_C_Db",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      }
+    ],
+    "stopped_selected_modes_verified": [
+      0,
+      1,
+      2
+    ],
+    "stop_releases_corrected_voice_once": true,
+    "restart_keeps_original_chromatic_off_before_correcting_new_attacks": true,
+    "raw_file_order_preserved": true,
+    "context_scope": {
+      "direct_processor_unknown_position_cases": [
+        "missing_playhead",
+        "missing_PositionInfo",
+        "nonfinite_seconds"
+      ],
+      "direct_processor_unknown_position_output_note": 64,
+      "scope": "Direct processor fixtures; no assertion about a JUCE VST3 host bridge translating upstream playhead absence."
+    },
+    "streams": [
+      {
+        "stream": "unknown_chord_mode0_0",
+        "logical_case": "unknown_chord_mode0_0",
+        "note_events": 30,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unknown_chord_mode0_1",
+        "logical_case": "unknown_chord_mode0_1",
+        "note_events": 30,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unknown_chord_mode0_2",
+        "logical_case": "unknown_chord_mode0_2",
+        "note_events": 30,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unknown_chord_mode1_0",
+        "logical_case": "unknown_chord_mode1_0",
+        "note_events": 30,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unknown_chord_mode1_1",
+        "logical_case": "unknown_chord_mode1_1",
+        "note_events": 30,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unknown_chord_mode1_2",
+        "logical_case": "unknown_chord_mode1_2",
+        "note_events": 30,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "transport_chromatic_runtime_mode0",
+        "logical_case": "transport_chromatic_runtime_mode0",
+        "note_events": 12,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "transport_chromatic_runtime_mode1",
+        "logical_case": "transport_chromatic_runtime_mode1",
+        "note_events": 12,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "transport_chromatic_runtime_mode2",
+        "logical_case": "transport_chromatic_runtime_mode2",
+        "note_events": 12,
+        "absolute_sample_base": 64,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      }
+    ],
+    "limitation": "Saved parameter/state retention is asserted by the compiled native fixture; CSV wire verification independently checks its audible MIDI consequences. No new Ableton execution claim."
+  },
+  "FlysnapperActualVst3": {
+    "streams_verified": 19,
+    "note_events_verified": 230,
+    "unknown_chord_cases": [
+      {
+        "mode": 0,
+        "fixture": "empty",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 0,
+        "fixture": "single_G",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 0,
+        "fixture": "unrecognized_C_Db",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 1,
+        "fixture": "empty",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 1,
+        "fixture": "single_G",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      },
+      {
+        "mode": 1,
+        "fixture": "unrecognized_C_Db",
+        "all12_pitch_classes_unchanged": true,
+        "recognized_chord_restores_correction": true,
+        "original_corrected_off_survives_chord_loss": true,
+        "recognized_power_dyad_does_not_fall_back": true
+      }
+    ],
+    "stopped_selected_modes_verified": [
+      0,
+      1,
+      2
+    ],
+    "stop_releases_corrected_voice_once": true,
+    "restart_keeps_original_chromatic_off_before_correcting_new_attacks": true,
+    "raw_file_order_preserved": true,
+    "context_scope": {
+      "actual_sdk_context_sequence": [
+        "nullptr",
+        "explicit_stopped",
+        "explicit_playing",
+        "nullptr"
+      ],
+      "actual_sdk_output_notes": [
+        62,
+        61,
+        62,
+        62
+      ],
+      "juce_host_bridge_absent_upstream_playhead": "Synthesizes a valid explicit stopped SDK context; its Chromatic result does not prove an absent SDK context.",
+      "genuinely_absent_sdk_context_verified_by": "Direct IAudioProcessor::process calls with ProcessData.processContext=nullptr only."
+    },
+    "streams": [
+      {
+        "stream": "unrecognized_chord_mode0_fixture0",
+        "logical_case": "unrecognized_chord_chromatic_fallback",
+        "note_events": 30,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unrecognized_chord_mode0_fixture1",
+        "logical_case": "unrecognized_chord_chromatic_fallback",
+        "note_events": 30,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unrecognized_chord_mode0_fixture2",
+        "logical_case": "unrecognized_chord_chromatic_fallback",
+        "note_events": 30,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unrecognized_chord_mode1_fixture0",
+        "logical_case": "unrecognized_chord_chromatic_fallback",
+        "note_events": 30,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unrecognized_chord_mode1_fixture1",
+        "logical_case": "unrecognized_chord_chromatic_fallback",
+        "note_events": 30,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "unrecognized_chord_mode1_fixture2",
+        "logical_case": "unrecognized_chord_chromatic_fallback",
+        "note_events": 30,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "stopped_chromatic_mode0",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 8,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "stopped_saved_mode0",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "host_bridge_synthesizes_stopped_mode0_no_position",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "host_bridge_synthesizes_stopped_mode0_no_head",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "stopped_chromatic_mode1",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 8,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "stopped_saved_mode1",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "host_bridge_synthesizes_stopped_mode1_no_position",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "host_bridge_synthesizes_stopped_mode1_no_head",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "stopped_chromatic_mode2",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 8,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "stopped_saved_mode2",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "host_bridge_synthesizes_stopped_mode2_no_position",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "host_bridge_synthesizes_stopped_mode2_no_head",
+        "logical_case": "stopped_transport_chromatic_fallback",
+        "note_events": 2,
+        "absolute_sample_base": 0,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      },
+      {
+        "stream": "actual_sdk_optional_process_context",
+        "logical_case": "actual_sdk_optional_process_context",
+        "note_events": 8,
+        "absolute_sample_base": 128,
+        "exact_order_offsets_velocities_and_off_pitches": true
+      }
+    ],
+    "limitation": "Saved parameter/state retention is asserted by the compiled native fixture; CSV wire verification independently checks its audible MIDI consequences. No new Ableton execution claim."
+  },
+  "status": "passed",
+  "source_commit": "1abedf68cfcfe08038246210bd5fa6c3d124c0b6",
+  "changed_raw_pitch_rejected_for_both_report_types": true
+}

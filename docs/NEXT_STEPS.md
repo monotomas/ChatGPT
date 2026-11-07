@@ -1,4 +1,4 @@
-# Gjeldende arbeid: 0.4.3 korreksjon og fire kolonner
+# Fullført: 0.4.3 korreksjon og fire kolonner
 
 Brukeren bekreftet fungerende ruting i 0.4.2, men meldte tapt legatoretning
 og undertrykte nye anslag ved samme korrigerte tone. Se
@@ -28,9 +28,15 @@ same_pitch_rearticulation, unrecognized_chord_chromatic_fallback og
 stopped_transport_chromatic_fallback. Oppdater gamle sammenslåingsforventninger,
 men behold urelaterte regresjoner.
 
-Etter lokal kontroll: bygg ny Windows-versjon, kontroller faktisk
-PS/BAT-installasjon og eksakt kilde-/pakke-/modul-/hendelsesbinding,
-publiser samme kontrollerte bytes og verifiser HTTP-nedlasting. Eksisterende
-uttrykkelige godkjenning dekker GitHub-kode, Excel-grunnlag og byggelogger;
-ikke be om samme tillatelse igjen. Fulle private Live-logger omfattes
-ikke. Ingen ny faktisk Live-kjøring påstås fra testvertene.
+Alle fire native testgrupper bestod på Linux og Windows. Den faktiske
+Windows-pakken bestod PS/BAT-installasjon, erstatning, gjenoppretting og
+innlasting av installert modul. Den eksakte CI-pakken er publisert og
+nedlastingen kontrollert med HTTP200, lengde og SHA256. Se
+[Windows-resultatene](validation/midi-articulation-0.4.3/windows/README.md).
+Ingen utviklings-/byggjobb gjenstår. Fortsett med brukerens neste resultat
+eller bestilling; ikke kjør brede suiter på nytt uten ny kode eller
+uavklarte feil. Faktisk ny Live-prøve er ikke utført av testvertene.
+
+Tidligere uttrykkelig godkjenning dekker GitHub-kode, Excel-grunnlag og
+byggelogger. Ikke be om samme tillatelse igjen innenfor denne leveransen.
+Fulle private Live-logger er fortsatt ikke godkjent for publisering.
