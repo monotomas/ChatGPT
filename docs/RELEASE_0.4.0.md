@@ -5,10 +5,13 @@ og samtlige fabrikkvalg fra den utfylte Excel-filen. 20 tilordninger er
 endret og 32 beholdt. Alle valg er innarbeidet nøyaktig, også de fire
 valgte skalaene som utelater nominelle akkordtoner.
 
-Ferske Linux-kontroller består: 4/4 native-grupper og 196 av 198 Python-
-tester, med to forventede native Windows-BAT-hopp. Den nye Windows-pakken
-må ha sin egen faktiske bygg-/installasjonskontroll før levering. Generisk
-VST3-verifikasjon er ikke en utført Ableton Live-kjøring.
+Ferske Linux- og Windows-kontroller består: 4/4 native-grupper på begge
+plattformer. Python har 196 bestått / 2 BAT-hopp på Linux og 197 bestått /
+1 symlink-hopp på Windows, av 198 tester. Faktisk PS/BAT-installasjon,
+erstatning, gjenoppretting og innlastet installert VST3 består. Pakken er
+publisert som leveringscommit c12c6c4588f9fd0b8e4b8f08d40f1683d17d7dde,
+og en faktisk HTTP-nedlasting har samme bytes/hash. Generisk VST3-
+verifikasjon er ikke en utført Ableton Live-kjøring.
 
 Audio-/pitchmotor, sidechain, input dynamics, Learn og generert bending/MPE
 er fjernet. Den nye modulen annonserer MIDI inn/ut og null audiobusser.

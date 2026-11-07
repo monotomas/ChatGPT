@@ -4,17 +4,14 @@ Pitch-to-MIDI er avsluttet. Ikke gjenoppta DSP-utvikling. Produktet er
 Flysnapper MIDI med 38 skalaer, 52 akkordtyper og brukerens 52 valg fra
 den opplastede Excel-filen. De 20 endringene er innarbeidet nøyaktig.
 
-Ferske Linux-/kjerne-/GUI-/prosessor-/faktiske VST3-kontroller består.
-Den nye fabrikkilden skal få tilsvarende egen Windows-verifikasjon,
-faktisk PS/BAT-installasjon, erstatning, gjenoppretting og innlasting av
-installert modul. Hele pakken, tilhørende kilde og installasjonsbevis må
-bindes til nøyaktig kildecommit, workbook- og mappinghash.
-
-Når dette er bestått, publiseres den eksakte verifiserte pakken manuelt
-for nedlasting. Brukeren har allerede bedt om en ferdig installasjonspakke
-uten mellomliggende testversjoner eller feilsøkingsoppgaver. Ingen ny
-bekreftelse trengs for denne leveringen. Ikke omdøp en eldre pakke eller
-endre kilde etter bygging og kall den samme leveranse.
+Ferske Linux- og Windows-kontroller består for kilde7323545. Faktisk
+PS/BAT-installasjon, erstatning, gjenoppretting og innlasting av installert
+VST3 er prøvd. Pakke/kilde/brukerfil/mapping/modul/installasjonsbevis er
+bundet og etterkontrollert. Den eksakte pakken er manuelt publisert som
+c12c6c4588f9fd0b8e4b8f08d40f1683d17d7dde, uten ombygging. En faktisk HTTP-
+nedlasting har riktig lengde og SHA-256. Ingen utviklings-/byggejobber
+fortsetter etter denne leveringen. Videre arbeid styres av brukerens neste
+forespørsel eller feilrapport.
 
 Faktisk Ableton Live 12.4.6-plassering og Track In-kanalbevaring er ikke
 kjørt her. Dette opplyses som en konkret verifikasjonsgrense; generiske

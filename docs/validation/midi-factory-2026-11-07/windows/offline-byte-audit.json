@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "kind": "WindowsResearchCheckpointOfflineByteAudit",
+  "status": "passed",
+  "source_commit": "7323545b2eda5a877a16a42248fea5c4e6cdc953",
+  "checkpoint_commit": "dcf66fdd2a31da595c1013a4431c14cfad2833e6",
+  "run_id": "42398359144",
+  "artifact": {
+    "path": "artifacts/Flysnapper-MIDI-Windows-x64.zip",
+    "sha256": "aefa9ece3fcb0194c04f0729085285dce890611a030b8b2f6e08c1ebe830ee47",
+    "bytes": 39302326
+  },
+  "evaluation_scope": {
+    "feature_set": "midi-to-midi-only",
+    "audio_processing": false,
+    "pitch_to_midi": false,
+    "scales": 38,
+    "chord_types": 52,
+    "host_scope": "native-processor-and-compiled-vst3-test-host",
+    "ableton_verified": false
+  },
+  "user_factory_binding": {
+    "workbook_sha256": "2df3afd9c7757469d8d7bf524efc3e2e09eb03824452ecbeb97294e3fafcc231",
+    "assignments_json_sha256": "6f95810ca4834673aeafff54ae1a269cc04f14ed1708e3bb62079d37843285f6",
+    "canonical_mapping_sha256": "146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814",
+    "mapping_rows": 52,
+    "changed_assignments": 20
+  },
+  "vst3_sha256": "f4567bc474dca5e857cd2286046689ba34219d527cd2eb944c557fa5c5e14b34",
+  "selected_project_inputs_verified": 21,
+  "reports": {
+    "FlysnapperMidiOnlyProcessor": {
+      "checks": 109494,
+      "cases": 14,
+      "events_rows": 2379
+    },
+    "FlysnapperActualVst3": {
+      "checks": 5373,
+      "cases": 22,
+      "events_rows": 1120
+    }
+  },
+  "host_assertions": 5374,
+  "installer_exit_code": 0,
+  "installed_host_exit_code": 0,
+  "bat_launcher_exit_code": 0,
+  "unicode_paths_verified": true,
+  "legacy_instrument_preserved": true,
+  "unrelated_plugin_preserved": true,
+  "build_manifest_serialization": "External Windows manifest has CRLF; packaged manifest has LF. Parsed objects are equal and replacing CRLF with LF makes the entire bytes equal. Each original byte hash is retained separately.",
+  "verified_features": [
+    "ZIP inventory and every member checksum",
+    "embedded complete source ZIP inventory and every source checksum",
+    "selected21 inputs exactly match committed Git blobs and native proof",
+    "native raw reports/events and CTest bindings",
+    "Windows x64 DLL and moduleinfo identity/category bytes",
+    "PS/BAT install,replace,recovery and installed DLL inventories/log bindings",
+    "installed actual-host completion and executable hash record",
+    "explicit omitted native-executable inventory"
+  ],
+  "native_executables_rehashed_offline": false,
+  "limitation": "Two native test executables were deliberately omitted from research Git. Their recorded hashes/lengths/report bindings match; this offline audit cannot rehash or rerun omitted executables. CI rehashed both before packaging/publication. Native Windows/compiled-host proof does not verify Ableton Live routing or MIDI-effect placement.",
+  "ableton_verified": false,
+  "files_sha256": {
+    "status.json": "1d62bd08a1f0ea974c734623228eaf6cbb5d29ed58e255bf67c6ab514c5fa610",
+    "final-web-step-status.json": "a6e76625bcc86a612b689b1b27f10772b5f49d4e36eb92acc15a5eb355ce7b02",
+    "artifacts/Flysnapper-MIDI-Windows-x64.zip": "aefa9ece3fcb0194c04f0729085285dce890611a030b8b2f6e08c1ebe830ee47",
+    "logs/windows-7323545b2eda5a877a16a42248fea5c4e6cdc953.txt": "b8665c6dbf656a1a1622ffc1bcbc963659c72f1d3ddc23ff514108758480d115",
+    "Source/Flysnapper-Source.zip": "ea9f3cc60df0eeab0a02b93c232933788cf3ef601051408ed4fc92391ea6237f",
+    "validation/windows-build-manifest.json": "fbfa49064a060970e2a74fcd63465994cd17cc57b549dc0d42685d069007ba30",
+    "validation/omitted-executables.json": "5958726b91db1415cc3d35c0b79355ec909513fe206542bafc376d74e445dbb0",
+    "validation/installation-powershell.txt": "2ea8dd40e8c9b9b6bee2e215f993c0b18e9b34d97612656ee56d36ca72646f37",
+    "validation/installed-vst3-host.txt": "fe511b747a4afb9b109ae3de0e7d3b3c32877966b5b13da5132843fa4c8ac1f1",
+    "validation/windows-installation.json": "be3d83dc7262fea049a45ca8a01225d612e833e7b024c081882b17a3bfee3e96",
+    "validation/installation-launcher.txt": "6f67d27b0443491aa85f5c12a175772442093792d80f035d3dac6ea1b353e105",
+    "package-validation/test-results.xml": "7fcb722eab82fbc9896bcc8d68c764caeb149cfcccdcdecf80c0f667e84e9e95",
+    "package-validation/automated-tests.txt": "020e59fcb1569feb7e42200e294b8170fd3b57c9917b87b9ec4db927b35720bf",
+    "package-validation/build-manifest.json": "c27d3300cb2be2301536300f4576cd4dabbc536c58c0f515a39c8bc2a2554d89",
+    "package-validation/midi-validation/Flysnapper-midi-vst3-evaluation.json": "3a7a1370ea735cfc16bc0d783ca20c9fa2f3c92da61d1984bb64e28f14492039",
+    "package-validation/midi-validation/report-manifest.json": "6fe0f0664ab1dbac12aca5d7690a87f9f7a311f8bc7d5aa9caa2b08ed6e6b223",
+    "package-validation/midi-validation/Flysnapper-midi-processor-events.csv": "59a92c03571f05d0a0bd0a629d98b4f02947d15bdd88284995597bd0ced8b6ef",
+    "package-validation/midi-validation/Flysnapper-midi-vst3-events.csv": "db6b538d3708d70467c2241a1710c28ac135df87c5b0d98d257fc5216a6862c5",
+    "package-validation/midi-validation/Flysnapper-midi-processor-evaluation.json": "59fae34ead53fb16f89727cb9daf06ebdfc77ab701b94793655c388f20402ffd"
+  }
+}

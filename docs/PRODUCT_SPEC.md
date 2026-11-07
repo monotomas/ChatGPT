@@ -6,8 +6,8 @@ går foran teksten nedenfor. Den omfatter 38 skalaer, nytt skalameny-/tabellopps
 Excel-redigerbare fabrikkvalg og seriekoblede instanser med kanal 16-kontroll.
 VST3 er fortsatt ønsket format; praktisk plassering/kjeding i Live er ikke
 verifisert. MIDI-only-koden med 38 skalaer og 52 typer består alle 4 native-grupper på
-Linux for de nye fabrikkvalgene. En tilsvarende fersk Windows-pakke skal
-verifiseres og leveres. Brukerens Excel-fil er mottatt og de 52 valgene
+Linux og Windows for de nye fabrikkvalgene. Pakken er faktisk installert
+og innlastet i Windows-testverten, publisert og HTTP-nedlastingen kontrollert. Brukerens Excel-fil er mottatt og de 52 valgene
 er innarbeidet, med 20 endringer fra malen.
 
 **Tillegg samme dag:** Totalt 52 akkordtyper etter brukerens to nye #11-typer:

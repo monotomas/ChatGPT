@@ -46,10 +46,11 @@ filhashene identifiserer de faktiske inngangene. Dette er ikke full
 kompilator-/systemheader-/JUCE-lukning. Binærfiler er hashkontrollert, men
 ikke duplisert i dette Git-arkivet.
 
-Fersk Windows-bygging, faktisk PS/BAT-installasjon og innlasting av installert
-modul skal gjelde samme nye fabrikkilde før pakken leveres. Deretter kan
-den eksakte verifiserte pakken publiseres manuelt for nedlasting, uten
-omkompilering eller omdøping av gamle forskningspakker. Brukeren har bedt
-om en ferdig installasjonspakke uten mellomliggende feilsøkingsoppgaver.
-En faktisk Ableton Live-kjøring er fortsatt ikke utført her, og må ikke
-utledes fra den generiske VST3-testverten.
+[Fersk Windows-bygging og faktisk installasjon](windows/README.md) består
+for kilde7323545: 4/4 native-grupper og 197 av 198 Python-tester med ett
+privilegierelatert symlink-hopp. PS/BAT-installasjon/erstatning/gjenoppretting
+og innlastet installert modul består. Pakke-/kilde-/brukerdata-/modul-/logg-
+bindinger er etterkontrollert. Den eksakte pakken er manuelt publisert som
+c12c6c4588f9fd0b8e4b8f08d40f1683d17d7dde, uten nytt bygg. Faktisk HTTP200-
+nedlasting har samme lengde og SHA-256. Ingen faktisk Ableton Live-kjøring
+er utført her, og må ikke utledes fra testverten.

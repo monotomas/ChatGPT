@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-11-07T18:05:19.503288+00:00",
+  "promotion_origin": "Manual promotion of the exact verified CI package; no rebuild. GITHUB metadata identifies the actual source build run, not a new CI execution.",
+  "source_commit": "7323545b2eda5a877a16a42248fea5c4e6cdc953",
+  "ci_run_id": "42398359144",
+  "research_checkpoint": "dcf66fdd2a31da595c1013a4431c14cfad2833e6",
+  "official_branch": "downloads/flysnapper-complete",
+  "official_delivery_commit": "c12c6c4588f9fd0b8e4b8f08d40f1683d17d7dde",
+  "download_url": "https://github.com/monotomas/ChatGPT/raw/c12c6c4588f9fd0b8e4b8f08d40f1683d17d7dde/downloads/Flysnapper-Windows-x64.zip",
+  "download_http_status": 200,
+  "download_bytes": 39302326,
+  "download_sha256": "aefa9ece3fcb0194c04f0729085285dce890611a030b8b2f6e08c1ebe830ee47",
+  "user_factory_binding": {
+    "workbook_sha256": "2df3afd9c7757469d8d7bf524efc3e2e09eb03824452ecbeb97294e3fafcc231",
+    "assignments_json_sha256": "6f95810ca4834673aeafff54ae1a269cc04f14ed1708e3bb62079d37843285f6",
+    "canonical_mapping_sha256": "146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814",
+    "mapping_rows": 52,
+    "changed_assignments": 20
+  },
+  "windows_vst3_sha256": "f4567bc474dca5e857cd2286046689ba34219d527cd2eb944c557fa5c5e14b34",
+  "ableton_verified": false,
+  "scope": "Published and HTTP-downloaded exact Windows package; actual installer/module tests in CI, no actual Ableton run."
+}

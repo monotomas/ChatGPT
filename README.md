@@ -4,10 +4,15 @@ Flysnapper MIDI er en ren VST3-prosessor for MIDI-korreksjon etter skalaer
 eller et akkordspor. MIDI-only-ombyggingen følger brukerens bestilling
 7. november 2026. Brukerens utfylte Excel-fil er innarbeidet: alle 52
 fabrikkvalg følger filen, med 20 endringer fra malen. 38 skalaer beholdes.
-Den ferske fabrikkutgaven består 4/4 native-grupper på Linux og 196 av
-198 Python-tester, med to forventede native Windows-BAT-hopp. Fersk
-Windows-/installasjonskontroll må gjelde samme fabrikkilde før levering.
+Den ferske fabrikkutgaven består 4/4 native-grupper på Linux og Windows.
+Python har 198 tester: Linux 196 bestått / 2 native BAT-hopp, Windows
+197 bestått / 1 symlink-hopp. Faktisk Windows-installasjon, erstatning,
+gjenoppretting og innlasting av installert VST3 består.
 Tidligere foreløpige pakker og testbevis er bevart som egne kontrollpunkt.
+
+[Last ned ferdig Windows x64-pakke](https://github.com/monotomas/ChatGPT/raw/c12c6c4588f9fd0b8e4b8f08d40f1683d17d7dde/downloads/Flysnapper-Windows-x64.zip).
+Pakk ut hele ZIP-filen og kjør INSTALL_FLYSNAPPER.bat. Velg Flysnapper MIDI
+i verten. Nedlastingen er kontrollert mot den bygde og installerte pakken.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
 [versjonsnotatet](docs/RELEASE_0.4.0.md) og

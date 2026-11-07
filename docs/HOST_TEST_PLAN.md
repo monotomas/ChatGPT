@@ -35,9 +35,10 @@ utvalgte prosjektinnganger og full ekstern kompilator-/headerlukning.
 
 ## Windows-pakke og installert modul
 
-Tidligere 38-skala-/52-typekontroll er bevart separat. Den nye fabrikkilden
-skal ha egen Windows-/installasjonskontroll med samme brukerdatahash og
-52 faktiske standardverdier. Punktene nedenfor beskriver kravene.
+Tidligere foreløpige kontroller er bevart separat. Fabrikkilde7323545 har
+[egen bestått Windows-/installasjonskontroll](validation/midi-factory-2026-11-07/windows/README.md)
+med brukerdatahash og 52 faktiske standardverdier. Punktene nedenfor
+beskriver kravene som ble kontrollert.
 
 CI skal bygge i Unicode-sti, kjøre de aktuelle native-/Python-testene og
 pakke den nøyaktige bygde bundlen. Den utpakkede pakken skal installeres
