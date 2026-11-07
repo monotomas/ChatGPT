@@ -1,5 +1,12 @@
-# Flysnapper MIDI — confirmed Ableton load rejection
+# Flysnapper MIDI Windows x64 VST3-instrument
 
-The user Live12.4.6 log confirms that the processor loads, then Live rejects it: “plugin has an effect category, but no valid audio input bus.” The current zero-audio Fx package is not usable in this reported Live configuration. Only an anonymized three-line excerpt is retained; raw user logs are private.
+[Last ned MIDI-installasjonspakken](downloads/Flysnapper-Windows-x64.zip?raw=1)
 
-An audio-input adapter changes the host-facing device contract and does not prove native MIDI-effect placement/chaining. A format/topology decision is pending. No replacement binary has been published. Existing ZIP/source and Windows/generic-host validation facts are retained unchanged for identification, not as Ableton acceptance proof.
+Pakk ut hele ZIP-filen og kjor INSTALL_FLYSNAPPER.bat. Ingen kompilator eller Python kreves.
+Flysnapper MIDI.vst3 beholder komponentidentiteten fra 0.4.0 og erstatter denne installasjonen.
+Den eldre Flysnapper.vst3 fra 0.3 berøres ikke.
+Flysnapper MIDI er et VST3-instrument med stille stereo-audioutgang og uten audioinngang eller pitchgjenkjenning.
+MIDI rutes fra pluginens eget uttak til et mottakerspor med lydinstrument.
+
+status.json identifiserer kildecommit, Windows-bygg, native MIDI-/VST3-tester og faktisk installasjon/erstatning/gjenoppretting.
+Dette dokumenterer testverten og installerpakken; en praktisk Ableton Live-test er ikke utfort av CI.
