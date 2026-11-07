@@ -72,7 +72,7 @@ Påbegynte toner retunes ikke ved et senere akkord-/skala-/modusbytte.
 
 ## Baksiden og skalaene
 
-Baksiden har 50 uavhengige akkordtyper vist i C. Akkordformelen og den valgte
+Baksiden har 52 uavhengige akkordtyper vist i C. Akkordformelen og den valgte
 skalaens toner vises med navn. Den valgte skalatypen transponeres til den
 faktiske innkommende akkordens grunntone.
 
@@ -86,9 +86,10 @@ Melodisk moll brukes stigende også ved nedadgående spill. Tonene i
 akkordtypeformlene inkluderer nominelle toner som gjenkjenningen kan
 akseptere utelatt. Enharmoniske navn kan betegne samme tonehøyde.
 
-**Reset all 50 to factory** gjelder bare denne instansen. Nye fabrikkvalg
+**Reset all 52 to factory** gjelder bare denne instansen. Nye fabrikkvalg
 skal komme fra brukerens utfylte Excel-fil; ved dette punktet er de
-opprinnelige tilordningene beholdt. Kopiering av instanser kopierer deres
+opprinnelige 50 tilordningene beholdt, med foreløpig Lydian på de to nye
+#11-typene. Kopiering av instanser kopierer deres
 musikalske innstillinger, og senere endringer er uavhengige.
 
 ## Hjelp og opprydding

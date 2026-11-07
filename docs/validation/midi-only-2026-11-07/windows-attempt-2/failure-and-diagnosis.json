@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "kind": "Historical50ChordWindowsCiFailure",
+  "source_commit": "0a6772598a44609f2612b99c653217890efcf1ee",
+  "run_id": "42381382145",
+  "checkpoint_commit": "c660e7d3b847ace9c6e7653719a68283f1daa401",
+  "scope": "50-chord candidate, does not validate new52 revision",
+  "checkpoint_publication": "passed typed-array fix; initial and failure states retained",
+  "observed_python_summary": "Ran197 tests; FAILED(failures=6,skipped=1). Six assertion failure instances share a Windows long-path/8.3-alias mismatch in historical audio gate protocol fixture.",
+  "native_build_executed": false,
+  "diagnosis": "Mocked verifier assertion compared canonical production path against uncanonicalized equivalent temporary alias. Test-only correction resolves both paths; production gate and audio policy unchanged.",
+  "follow_up_test": "Actual directory alias regression plus intentional old-comparison mutation; see build/audio-gate-path-regression/mutation-result.json. Native52 validation is separately collected.",
+  "files_sha256": {
+    "status.json": "d5f654792d7dd03fd4cdb2171728f8dd582b44432865be60758b28941fb414c7",
+    "windows-ci.txt": "98e38de24d737548c56a2bca024edcf9b80869f57536ea394184b54479f0982d"
+  },
+  "ableton_verified": false
+}

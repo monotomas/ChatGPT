@@ -33,7 +33,7 @@ class MidiWindowsPackageTests(unittest.TestCase):
    release=json.loads(z.read(prefix+'release-manifest.json'));self.assertEqual(release['bundle_name'],evidence.BUNDLE)
  def test_legacy_bundle_audio_or_false_ableton_claim_cannot_masquerade_as_midi(self):
   original=self.f.manifest.copy()
-  for key,value in [('bundle_name','Flysnapper.vst3'),('product','Flysnapper'),('pitch_detection_implemented',True),('audio_processing_implemented',True),('ableton_verified',True),('stage','complete')]:
+  for key,value in [('bundle_name','Flysnapper.vst3'),('product','Flysnapper'),('pitch_detection_implemented',True),('audio_processing_implemented',True),('ableton_verified',True),('stage','complete'),('evaluation_scope',{**evidence.SCOPE,'chord_types':50})]:
    with self.subTest(key=key):
     self.f.manifest={**original,key:value};fixture.save(self.f)
     with self.assertRaises(ValueError):self.package()

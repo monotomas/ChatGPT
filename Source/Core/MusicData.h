@@ -5,7 +5,7 @@
 #include <string>
 
 namespace flysnapper {
-constexpr int scaleCount = 31, chordTypeCount = 50;
+constexpr int scaleCount = 31, chordTypeCount = 52;
 // Array position is the persisted parameter value. Display order is separate:
 // the original nineteen positions/IDs must remain stable across upgrades.
 struct ScaleDefinition {

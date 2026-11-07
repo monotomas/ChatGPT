@@ -6,7 +6,7 @@ og målematerialet beholdes som sporbarhet.
 
 Gjennomfør egne kontroller av MIDI-kjernen, grensesnittet, den faktiske
 VST3-modulen og Windows-installasjon. Nåværende produkt skal ha null
-audiobusser, 31 skalaer, 50 uavhengige kart og korrekt kanal 1/16-behandling.
+audiobusser, 31 skalaer, 52 uavhengige kart og korrekt kanal 1/16-behandling.
 Ikke svekk MIDI-testene eller presenter bortfalte audiokrav som bestått.
 
 Før en ferdig brukerleveranse må følgende være avklart:

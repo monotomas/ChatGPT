@@ -1,9 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-// Numeric lookup adapted from Buffkiller's audited ChordNames.h recognition.
+// Numeric lookup adapted from Buffkiller's audited fifty-type recognition.
+// Two user-requested Flysnapper extensions are appended separately below;
+// the original Buffkiller reference data is not changed.
 #include "MusicData.h"
 #include "Reference/ChordNames.h"
 #include <algorithm>
+#include <cstdlib>
 #include <limits>
+#include <utility>
+#include <vector>
 
 namespace flysnapper {
 namespace {
@@ -64,8 +69,22 @@ constexpr std::array<ChordType,chordTypeCount> types{{
  {"major_thirteenth","Maj13",1},{"minor_major_thirteenth","mMaj13",4},
  {"thirteenth_flat9","13b9",13},{"thirteenth_sharp9","13#9",13},
  {"thirteenth_sus4","13sus4",8},{"thirteenth_sus4_flat9","13sus4b9",17},
- {"minor_thirteenth","m13",5},{"thirteenth_add_sharp9","13add#9",13},{"minor_thirteenth_flat5","m13b5",9}
+ {"minor_thirteenth","m13",5},{"thirteenth_add_sharp9","13add#9",13},{"minor_thirteenth_flat5","m13b5",9},
+ // User-requested Flysnapper extensions. Lydian is a provisional compatible
+ // default; these do not rename or repurpose any of the original fifty IDs.
+ {"major_thirteenth_sharp11","Maj13#11",7},{"major_ninth_sharp11","Maj9#11",7}
 }};
+constexpr auto patterns=[] {
+    std::array<buffkiller::ChordPattern,chordTypeCount> result{};
+    for(size_t i=0;i<buffkiller::correctedChordPatterns.size();++i)
+        result[i]=buffkiller::correctedChordPatterns[i];
+    // Root/third/fifth bass policy is unchanged. Only the perfect fifth may
+    // be explicitly omitted; ninth, #11, thirteenth and major seventh retain
+    // the identity the user specified. Full nominal formulas drive menus.
+    result[50]={"Maj13#11",bits({0,2,4,6,7,9,11}),bits({0,4,7}),0,0,bits({7})};
+    result[51]={"Maj9#11",bits({0,2,4,6,7,11}),bits({0,4,7}),0,0,bits({7})};
+    return result;
+}();
 struct Entry { ChordMatch match; int primary=100000, secondary=100000; };
 using Lookup=std::array<Entry,4096*12>;
 const Lookup& lookup() {
@@ -76,7 +95,7 @@ const Lookup& lookup() {
     static const bool initialised=[] {
         auto& result=table;
         int type=0;
-        for(const auto& p:buffkiller::correctedChordPatterns) {
+        for(const auto& p:patterns) {
             const auto removable=uint16_t(p.omittable|p.optional);
             for(uint16_t missing=removable;;missing=uint16_t((missing-1)&removable)) {
                 const auto relative=uint16_t(p.intervals&~missing);
@@ -115,6 +134,83 @@ const Lookup& lookup() {
     (void)initialised;
     return table;
 }
+const std::array<std::vector<buffkiller::ChordCandidate>,4096>& namedLookup() {
+    // GUI-only extension of the unchanged reference's named candidates.
+    // Recognition on the processing thread still uses the numeric table.
+    static const auto table=[] {
+        auto result=buffkiller::chordLookup();
+        for(int type=50;type<chordTypeCount;++type) {
+            const auto& pattern=patterns[size_t(type)];
+            for(uint16_t missing=pattern.omittable;;missing=uint16_t((missing-1)&pattern.omittable)) {
+                const auto relative=uint16_t(pattern.intervals&~missing);
+                for(int root=0;root<12;++root) {
+                    buffkiller::ChordCandidate candidate;
+                    candidate.name=std::string(buffkiller::chordRootNames[root])+pattern.suffix+buffkiller::omissionText(missing);
+                    candidate.mask=rotateMask(relative,root);candidate.relative=relative;
+                    candidate.root=root;candidate.patternIndex=type;
+                    candidate.bassRoles=uint16_t(pattern.bassRoles&relative);
+                    candidate.omitted=missing;candidate.omittedFifth=(missing&(1u<<7))!=0;
+                    candidate.rank=100*buffkiller::chordBitCount(missing);
+                    result[size_t(candidate.mask)].push_back(std::move(candidate));
+                }
+                if(missing==0)break;
+            }
+        }
+        return result;
+    }();
+    return table;
+}
+std::array<std::string,12> extensionSpelling(const buffkiller::ChordCandidate& candidate) {
+    std::array<std::string,12> names{};
+    for(int pc=0;pc<12;++pc)names[size_t(pc)]=buffkiller::chordRootNames[pc];
+    constexpr int degree[]{0,-1,1,-1,2,-1,3,4,-1,5,-1,6};
+    constexpr int natural[]{0,2,4,5,7,9,11};
+    const std::string letters="CDEFGAB";
+    const int rootLetter=int(letters.find(buffkiller::chordRootNames[candidate.root][0]));
+    for(int pc=0;pc<12;++pc)if(candidate.mask&(1u<<pc)) {
+        const int offset=degree[(pc-candidate.root+12)%12];
+        if(offset<0)continue;
+        const int letter=(rootLetter+offset)%7;
+        int accidental=(pc-natural[letter]+12)%12;if(accidental>6)accidental-=12;
+        if(std::abs(accidental)<=1)
+            names[size_t(pc)]=std::string(1,letters[size_t(letter)])+(accidental>0?"#":accidental<0?"b":"");
+    }
+    return names;
+}
+buffkiller::ChordDescription describeChord(uint16_t mask,int bass) {
+    const auto input=buffkiller::chordInputFromMask(mask,bass);
+    auto reference=buffkiller::describeChord(input);
+    if(input.mask==0)return reference;
+    auto result=reference;result.candidates.clear();int best=100000;
+    for(auto candidate:namedLookup()[size_t(input.mask)]) {
+        const int interval=(input.bassClass()-candidate.root+12)%12;
+        if(!(candidate.bassRoles&(1u<<interval)))continue;
+        if(candidate.rank<best){best=candidate.rank;result.candidates.clear();}
+        if(candidate.rank==best) {
+            candidate.rank+=interval==0?0:((interval==3||interval==4)?1:2);
+            result.candidates.push_back(std::move(candidate));
+        }
+    }
+    // Preserve the reference's exact formatting for sets whose best names
+    // are unchanged, including all fallback/unsupported-bass descriptions.
+    if(std::none_of(result.candidates.begin(),result.candidates.end(),[](const auto& candidate){return candidate.patternIndex>=50;}))
+        return reference;
+    std::stable_sort(result.candidates.begin(),result.candidates.end(),[](const auto& a,const auto& b){return a.rank<b.rank;});
+    result.fallback=false;result.shortName.clear();result.detail.clear();
+    const auto& first=result.candidates.front();
+    result.noteNames=first.patternIndex<50?buffkiller::chordSpelling(first):extensionSpelling(first);
+    result.spelledNotes=buffkiller::soundingNoteList(input,result.noteNames);
+    for(size_t i=0;i<result.candidates.size();++i) {
+        if(i<2){if(i)result.shortName+=" | ";result.shortName+=result.candidates[i].name;}
+        if(i)result.detail+=" | ";
+        result.detail+=result.candidates[i].name;
+    }
+    if(result.candidates.size()>2)result.shortName+=" (+"+std::to_string(result.candidates.size()-2)+")";
+    result.detail="Recognised chord definitions: "+result.detail+". Notes: "+result.spelledNotes+
+        ". Bass: "+result.noteNames[size_t(input.bassClass())]+
+        ". Bass must be root, third or fifth of each candidate. Named omissions are explicit; no incoming tones or absent roots are hidden. Note spelling follows the first candidate. This field does not change the MIDI.";
+    return result;
+}
 }
 const std::array<ScaleDefinition,scaleCount>& scaleDefinitions() noexcept {return scales;}
 const std::array<ChordType,chordTypeCount>& chordTypes() noexcept {return types;}
@@ -131,7 +227,7 @@ int chordIndexFromId(const std::string& id) noexcept {
 }
 uint16_t chordToneMask(int typeIndex) noexcept {
     if(typeIndex<0||typeIndex>=chordTypeCount)return 0;
-    return buffkiller::correctedChordPatterns[size_t(typeIndex)].intervals;
+    return patterns[size_t(typeIndex)].intervals;
 }
 bool scaleContainsChord(int scaleIndex,uint16_t chordMask) noexcept {
     if(scaleIndex<0||scaleIndex>=scaleCount)return false;
@@ -161,6 +257,6 @@ ChordMatch recogniseChord(uint16_t mask,int bass) noexcept {
     if(bass<0||bass>=12||!(mask&(1u<<bass)))return {};
     return lookup()[size_t(mask&0xfff)*12+size_t(bass)].match;
 }
-std::string chordName(uint16_t mask,int bass){return buffkiller::describeChord(mask,bass).shortName;}
-std::string chordDetail(uint16_t mask,int bass){return buffkiller::describeChord(mask,bass).detail;}
+std::string chordName(uint16_t mask,int bass){return describeChord(mask,bass).shortName;}
+std::string chordDetail(uint16_t mask,int bass){return describeChord(mask,bass).detail;}
 }

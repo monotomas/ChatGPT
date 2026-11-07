@@ -58,7 +58,8 @@ class PackagingTests(unittest.TestCase):
             "docs/validation/old-guitar/archive.bin": b"historical retained only in Git",
             "docs/validation/old-summary.json": b"historical aggregate",
             "docs/research/old-model/notes.txt": b"historical research retained only in Git",
-            "docs/validation/midi-only-2026-11-07/report.json": b"current MIDI proof",
+            "docs/validation/midi-only-2026-11-07/report.json": b"historical 50-chord MIDI proof",
+            "docs/validation/midi-only-52-2026-11-07/report.json": b"current 52-chord MIDI proof",
             "docs/handover/Original.zip": b"original user attachment",
         }
         for name,data in files.items():
@@ -66,9 +67,9 @@ class PackagingTests(unittest.TestCase):
         package.build_package(self.root,self.output)
         with ZipFile(self.output) as z:
             names=set(z.namelist());prefix=package.PACKAGE_ROOT+"/"
-            for name in ("docs/validation/midi-only-2026-11-07/report.json","docs/handover/Original.zip"):
+            for name in ("docs/validation/midi-only-52-2026-11-07/report.json","docs/handover/Original.zip"):
                 self.assertIn(prefix+name,names)
-            for name in ("docs/validation/old-guitar/archive.bin","docs/validation/old-summary.json","docs/research/old-model/notes.txt"):
+            for name in ("docs/validation/old-guitar/archive.bin","docs/validation/old-summary.json","docs/validation/midi-only-2026-11-07/report.json","docs/research/old-model/notes.txt"):
                 self.assertNotIn(prefix+name,names)
             for name in files:self.assertEqual((self.root/name).read_bytes(),files[name])
 

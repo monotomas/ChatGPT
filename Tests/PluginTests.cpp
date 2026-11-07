@@ -55,6 +55,7 @@ void settleGuiTimers(const std::function<bool()>& ready){
 }
 void parametersAndState(){
     FlysnapperProcessor a,b;
+    check(flysnapper::chordTypeCount==52&&flysnapper::chordTypes().size()==52,"requested chord catalog must contain all52 types");
     check(a.acceptsMidi()&&a.producesMidi()&&a.isMidiEffect(),"MIDI-only role declarations");
     check(a.getTotalNumInputChannels()==0&&a.getTotalNumOutputChannels()==0,"MIDI-only processor advertises audio channels");
     check(a.getBusCount(true)==0&&a.getBusCount(false)==0,"MIDI-only processor advertises audio buses");
@@ -63,24 +64,24 @@ void parametersAndState(){
     const auto defaults=flysnapper::factoryDefaults();
     auto* modes=dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter("mode"));
     check(modes&&modes->choices[0]=="Chord Tones Only"&&modes->choices[1]=="Chord-Scale Assignment","correction mode terminology incorrect");
-    for(int i=0;i<50;++i){
+    for(int i=0;i<flysnapper::chordTypeCount;++i){
         const auto id=FlysnapperProcessor::mappingParameterId(i);check(id==juce::String("map_")+flysnapper::chordTypes()[size_t(i)].id,"mapping ID changed");
         auto* choice=dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter(id));check(choice&&choice->choices.size()==flysnapper::scaleCount,"mapping must expose all31 scales");check(get(a,id)==float(defaults[size_t(i)]),"factory mapping changed without user assignment file");
     }
     for(int scale=0;scale<flysnapper::scaleCount;++scale){
-        for(int i=0;i<50;++i)set(a,FlysnapperProcessor::mappingParameterId(i),float(scale));
+        for(int i=0;i<flysnapper::chordTypeCount;++i)set(a,FlysnapperProcessor::mappingParameterId(i),float(scale));
         set(a,"mode",2);set(a,"root",float(scale%12));set(a,"scale",float(scale));saveLoad(a,b);
-        for(int i=0;i<50;++i)check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(scale),"50x31 mapping roundtrip failed");
+        for(int i=0;i<flysnapper::chordTypeCount;++i)check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(scale),"52x31 mapping roundtrip failed");
         check(get(b,"scale")==scale&&get(b,"root")==scale%12&&get(b,"mode")==2,"fixed-scale state roundtrip failed");
     }
-    for(int i=0;i<50;++i)set(a,FlysnapperProcessor::mappingParameterId(i),float((i*7+3)%flysnapper::scaleCount));
+    for(int i=0;i<flysnapper::chordTypeCount;++i)set(a,FlysnapperProcessor::mappingParameterId(i),float((i*7+3)%flysnapper::scaleCount));
     set(a,"chordThru",1);set(a,"help",0);saveLoad(a,b);
     check(get(b,"chordThru")==1&&get(b,"help")==0,"MIDI routing/help state lost");
     set(a,FlysnapperProcessor::mappingParameterId(0),0);check(get(b,FlysnapperProcessor::mappingParameterId(0))==3,"instances share assignment storage");
     auto xml=stateXml(a);check(xml!=nullptr,"state XML unavailable");auto* values=xml->getChildByName("FLYSNAPPER_PARAMETERS");check(values!=nullptr,"state parameter tree missing");
     for(auto* child:values->getChildIterator())if(child->getStringAttribute("id").startsWith("map_"))child->setAttribute("value",30);
     loadXml(b,*xml);
-    for(int i=0;i<50;++i)check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(i==0?0:(i*7+3)%flysnapper::scaleCount),"stable scale IDs did not override numeric caches");
+    for(int i=0;i<flysnapper::chordTypeCount;++i)check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(i==0?0:(i*7+3)%flysnapper::scaleCount),"stable scale IDs did not override numeric caches");
     auto* table=xml->getChildByName("ChordScales");check(table!=nullptr,"stable chord mapping table missing");table->getFirstChildElement()->setAttribute("scale","unknown_future_scale");loadXml(b,*xml);
     check(get(b,FlysnapperProcessor::mappingParameterId(0))==defaults[0],"unknown scale did not restore row's factory choice");
     // Legacy payload fields are tolerated, but must not restore removed audio controls.
@@ -92,7 +93,7 @@ void parametersAndState(){
     const char invalid[]{'b','a','d','\0'};b.setStateInformation(invalid,4);check(get(b,"root")==previous,"invalid state changed parameters");
     set(a,"routingTest",1);saveLoad(a,b);check(get(b,"routingTest")==0,"state load armed transient routing pulse");
     a.prepareToPlay(48000,128);set(a,"correction",0);process(a,128,{{0,on(60)}});saveLoad(a,b);b.prepareToPlay(48000,128);check(process(b,128).empty(),"state load restored active playing notes");
-    std::cout<<"PASS MIDI-only parameters,50x31 state choices, stable IDs, independent copies and legacy XML payloads\n";
+    std::cout<<"PASS MIDI-only parameters,52x31 state choices, stable IDs, independent copies and legacy XML payloads\n";
 }
 void realtimeNewCheck(){
     FlysnapperProcessor p;p.prepareToPlay(48000,128);set(p,"mode",2);set(p,"scale",1);
@@ -162,11 +163,12 @@ void gui(){
     editor->setSize(1500,1100);check(firstName->getWidth()==chordWidth,"chord-name column expands with window width");editor->setSize(1040,760);
     auto* description=dynamic_cast<juce::Label*>(find(*editor,"backDescription"));auto* tip=dynamic_cast<juce::Label*>(find(*editor,"assignmentTip"));
     check(description&&tip&&description->getFont().isBold()&&!tip->getFont().isBold(),"back description/tip weight mismatch");
-    check(description->getText()==juce::String::fromUTF8("50 chord types, here assigned to root C. Your chosen scale type applies in the actual chord\xe2\x80\x99s root and is auto-saved with this instance."),"back description does not match requested text");
+    check(description->getText()==juce::String::fromUTF8("52 chord types, here assigned to root C. Your chosen scale type applies in the actual chord\xe2\x80\x99s root and is auto-saved with this instance."),"back description does not match requested text");
     check(tip->getText().contains("Note Correction")&&tip->getText().contains("When routing chord MIDI directly"),"assignment tip omits conditional routing/correction guidance");
     auto* flip=dynamic_cast<juce::TextButton*>(find(*editor,"flip"));auto* viewport=dynamic_cast<juce::Viewport*>(find(*editor,"mappingViewport"));auto* reset=dynamic_cast<juce::TextButton*>(find(*editor,"resetMappings"));
     check(flip&&viewport&&reset,"front/back controls absent");check(!viewport->isVisible(),"mapping view should start hidden");
-    reset->onClick();const auto defaults=flysnapper::factoryDefaults();for(int type=0;type<50;++type)check(get(p,FlysnapperProcessor::mappingParameterId(type))==defaults[size_t(type)],"reset did not restore instance factory assignments");
+    check(viewport->getViewedComponent()&&viewport->getViewedComponent()->getHeight()==flysnapper::chordTypeCount*FlysnapperMappingTable::rowHeight,"mapping viewport does not include every chord row");
+    reset->onClick();const auto defaults=flysnapper::factoryDefaults();for(int type=0;type<flysnapper::chordTypeCount;++type)check(get(p,FlysnapperProcessor::mappingParameterId(type))==defaults[size_t(type)],"reset did not restore instance factory assignments");
     // A controlled reference remains stable when the user later edits factory
     // choices: C major assigned explicitly to Ionian must correct Db upward.
     const auto major=flysnapper::chordIndexFromId("major"),ionian=flysnapper::scaleIndexFromId("ionian");
@@ -187,13 +189,13 @@ void gui(){
     check(!guideText->getText().containsIgnoreCase("hysteresis")&&!guideText->getText().containsIgnoreCase("compressor"),"old audio guide remained");
     check(process(p,128).empty()&&p.getSnapshot().allowedMask==before.allowedMask,"opening guide changed MIDI/allowed notes");screenshot(*editor,"Flysnapper-guide.png");guideClose->onClick();check(!panel->isVisible(),"guide failed to close");
     flip->onClick();check(viewport->isVisible(),"flip failed to show mapping rows");check(process(p,128).empty(),"flip interrupted a held note");screenshot(*editor,"Flysnapper-back.png");
-    viewport->setViewPosition(0,49*FlysnapperMappingTable::rowHeight);screenshot(*editor,"Flysnapper-back-last.png");viewport->setViewPosition(0,0);
+    viewport->setViewPosition(0,(flysnapper::chordTypeCount-1)*FlysnapperMappingTable::rowHeight);screenshot(*editor,"Flysnapper-back-last.png");viewport->setViewPosition(0,0);
     flip->onClick();check(!viewport->isVisible(),"flip failed to return");screenshot(*editor,"Flysnapper-front.png");
     check(process(p,128).empty(),"return flip interrupted held note");const auto mask=p.getSnapshot().allowedMask;editor.reset();check(process(p,128).empty()&&p.getSnapshot().allowedMask==mask,"editor close changed active correction");
     const auto released=process(p,128,{{19,off(61)}});check(released.size()==1&&released[0].second.isNoteOff()&&released[0].second.getNoteNumber()==held[0].second.getNoteNumber(),"GUI lifecycle lost playing-note binding");
     editor.reset(p.createEditor());editor->setSize(1210,900);editor.reset();editor.reset(p.createEditor());
     check(editor->getWidth()==1040&&editor->getHeight()==760,"new editor default size differs after closing a resized view");
-    std::cout<<"PASS actual MIDI-only editor,50x31 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs\n";
+    std::cout<<"PASS actual MIDI-only editor,52x31 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs\n";
 }
 }
 int main(){

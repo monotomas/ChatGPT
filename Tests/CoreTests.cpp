@@ -52,7 +52,10 @@ void scaleCatalogAndMenus() {
         1,2,1,1,11,8,1,5,1,8,1,5,4,9,14,8,17,15,16,17,16,15,16,16,16,
         16,16,4,3,7,8,1,5,4,8,15,8,1,5,9,8,1,4,13,13,8,17,5,13,9
     }};
-    CHECK(factoryDefaults()==legacyDefaults);
+    for(size_t i=0;i<legacyDefaults.size();++i)CHECK(factoryDefaults()[i]==legacyDefaults[i]);
+    CHECK(factoryDefaults()[50]==7&&factoryDefaults()[51]==7);
+    CHECK(chordIndexFromId("major_thirteenth_sharp11")==50);
+    CHECK(chordIndexFromId("major_ninth_sharp11")==51);
     const auto& definitions=scaleDefinitions();
     const auto checkModes=[&](int family,const std::array<int,7>& parent){
         std::array<bool,7> found{};int count=0;
@@ -107,10 +110,13 @@ void scaleCatalogAndMenus() {
     }};
     const auto global=orderedScaleIndices();
     for(size_t i=0;i<global.size();++i)CHECK(std::string(definitions[size_t(global[i])].id)==globalIds[i]);
-    CHECK(chordToneMask(-1)==0&&chordToneMask(50)==0);
+    CHECK(chordToneMask(-1)==0&&chordToneMask(chordTypeCount)==0);
+    CHECK(chordToneMask(50)==buffkiller::chordBits({0,2,4,6,7,9,11}));
+    CHECK(chordToneMask(51)==buffkiller::chordBits({0,2,4,6,7,11}));
     CHECK(!scaleContainsChord(-1,0)&&!scaleContainsChord(scaleCount,0));
     for(int type=0;type<chordTypeCount;++type){
-        const auto mask=chordToneMask(type);CHECK(mask==buffkiller::correctedChordPatterns[size_t(type)].intervals);
+        const auto mask=chordToneMask(type);
+        if(type<50)CHECK(mask==buffkiller::correctedChordPatterns[size_t(type)].intervals);
         const auto actual=orderedScaleIndices(mask);std::array<int,scaleCount> expected{};size_t at=0;
         // Stable filtering of the independently specified parent/mode order
         // must produce both selectable groups, not remove incompatible scales.
@@ -141,11 +147,12 @@ void scaleCatalogAndMenus() {
 }
 void dataAndRecognition() {
     scaleCatalogAndMenus();
-    CHECK(scaleDefinitions().size()==31);CHECK(chordTypes().size()==50);
+    CHECK(scaleDefinitions().size()==31);CHECK(chordTypes().size()==52);
+    CHECK(buffkiller::correctedChordPatterns.size()==50); // Reference provenance is unchanged.
     std::set<std::string> ids;
     for(int i=0;i<scaleCount;++i){CHECK(ids.insert(scaleDefinitions()[size_t(i)].id).second);CHECK(scaleIndexFromId(scaleDefinitions()[size_t(i)].id)==i);}
     ids.clear();
-    for(int i=0;i<50;++i){CHECK(ids.insert(chordTypes()[size_t(i)].id).second);CHECK(chordIndexFromId(chordTypes()[size_t(i)].id)==i);CHECK(factoryDefaults()[size_t(i)]>=0&&factoryDefaults()[size_t(i)]<19);}
+    for(int i=0;i<chordTypeCount;++i){CHECK(ids.insert(chordTypes()[size_t(i)].id).second);CHECK(chordIndexFromId(chordTypes()[size_t(i)].id)==i);CHECK(factoryDefaults()[size_t(i)]>=0&&factoryDefaults()[size_t(i)]<19);}
     CHECK(scaleIndexFromId("missing")==-1);CHECK(chordIndexFromId("missing")==-1);
     CHECK(scaleDefinitions()[0].mask==0xfff);
     for(const auto& s:scaleDefinitions())for(int root=0;root<12;++root) {
@@ -154,16 +161,36 @@ void dataAndRecognition() {
         for(int pc=0;pc<12;++pc)CHECK(bool(rotated&(1u<<((pc+root)%12)))==bool(s.mask&(1u<<pc)));
     }
     initialiseMusicData();
-    // Exhaustive parity with the audited reference, including every supported
-    // omission/additional ninth, invalid bass, ambiguity and first candidate.
+    // Exhaustive parity with the unchanged fifty-type reference plus an
+    // independent oracle for the two requested formulas and explicit no5.
+    // No masks are skipped merely because an extension changes the result.
+    size_t extendedSets=0;
     for(int mask=0;mask<4096;++mask)for(int bass=0;bass<12;++bass) {
         const auto ref=buffkiller::describeChord(uint16_t(mask),bass);
         if(!(mask&(1u<<bass)))continue; // reference picks a replacement bass
         const auto match=recogniseChord(uint16_t(mask),bass);
-        CHECK(match.candidateCount==int(ref.candidates.size()));
-        if(ref.candidates.empty()){CHECK(match.typeIndex==-1);CHECK(match.root==-1);}
-        else {CHECK(match.typeIndex==ref.candidates.front().patternIndex);CHECK(match.root==ref.candidates.front().root);}
+        ChordMatch expected{};int primary=100000,secondary=100000;
+        const auto bassPenalty=[&](int root){const int interval=(bass-root+12)%12;return interval==0?0:(interval==3||interval==4)?1:2;};
+        if(!ref.candidates.empty()) {
+            const auto& first=ref.candidates.front();primary=first.rank-bassPenalty(first.root);secondary=first.rank;
+            expected={first.root,first.patternIndex,int(ref.candidates.size())};
+        }
+        for(int type=50;type<52;++type)for(bool omittedFifth:{false,true})for(int root=0;root<12;++root) {
+            const auto formula=type==50?buffkiller::chordBits({0,2,4,6,7,9,11}):buffkiller::chordBits({0,2,4,6,7,11});
+            const auto voiced=omittedFifth?uint16_t(formula&~(1u<<7)):formula;
+            if(rotateMask(voiced,root)!=mask)continue;
+            const int interval=(bass-root+12)%12;
+            const bool validBass=interval==0||interval==4||(!omittedFifth&&interval==7);
+            if(!validBass)continue;
+            const int candidatePrimary=omittedFifth?100:0,candidateSecondary=candidatePrimary+bassPenalty(root);
+            if(candidatePrimary<primary){primary=candidatePrimary;secondary=candidateSecondary;expected={root,type,1};}
+            else if(candidatePrimary==primary){++expected.candidateCount;if(candidateSecondary<secondary){secondary=candidateSecondary;expected.root=root;expected.typeIndex=type;}}
+        }
+        CHECK(match.candidateCount==expected.candidateCount);
+        CHECK(match.typeIndex==expected.typeIndex);CHECK(match.root==expected.root);
+        if(expected.typeIndex>=50||expected.candidateCount!=int(ref.candidates.size()))++extendedSets;
     }
+    CHECK(extendedSets>0);
     CHECK(chordName(buffkiller::chordBits({0,7}),0)=="C5");
     CHECK(chordName(buffkiller::chordBits({0,7,10}),0)=="C5/7");
     CHECK(chordName(buffkiller::chordBits({0,4,7,11}),0).find("CMaj7")!=std::string::npos);
@@ -174,6 +201,43 @@ void dataAndRecognition() {
     regression({11,4,7,2,6,9,1,8},11,"E13add#9");
     regression({11,2,6,9,1,4,8,3},11,"B13add#9");
     regression({6,0,4,9,3,8},6,"F#m13b5");
+    // Full Lydian pitch classes also describe Am13 with its third in bass.
+    // The exact root-C extension wins the existing bass ranking, while the
+    // equally complete alternative remains visible rather than disappearing.
+    const auto lydian=recogniseChord(buffkiller::chordBits({0,2,4,6,7,9,11}),0);
+    CHECK(lydian.typeIndex==50&&lydian.root==0&&lydian.candidateCount>=2);
+    const auto label=chordName(buffkiller::chordBits({0,2,4,6,7,9,11}),0);
+    CHECK(label.rfind("CMaj13#11",0)==0&&label.find("Am13")!=std::string::npos);
+    CHECK(chordDetail(buffkiller::chordBits({0,2,4,6,7,9,11}),0).find("F#")!=std::string::npos);
+    // The explicit ninth label outranks the legacy Maj7#11-plus-added9 case.
+    const auto ninth=recogniseChord(buffkiller::chordBits({0,2,4,6,7,11}),0);
+    CHECK(ninth.typeIndex==51&&ninth.root==0);
+    CHECK(chordName(buffkiller::chordBits({0,2,4,6,7,11}),0).rfind("CMaj9#11",0)==0);
+    for(int type=50;type<52;++type)for(int root=0;root<12;++root) {
+        const auto full=rotateMask(chordToneMask(type),root);
+        for(int degree:{0,4,7}) {
+            const auto named=recogniseChord(full,(root+degree)%12);
+            const auto text=chordName(full,(root+degree)%12);
+            const auto requestedName=std::string(buffkiller::chordRootNames[root])+chordTypes()[size_t(type)].suffix;
+            if(type==50&&degree==7) {
+                // C-Lydian/G is also G-major-thirteenth in root position.
+                // Preserve that legitimate first interpretation; the new
+                // C-major-13#11 name remains an equally complete alternative.
+                CHECK(named.typeIndex==41&&named.root==(root+7)%12&&named.candidateCount==2);
+                CHECK(text.find(" | "+requestedName)!=std::string::npos);
+            } else {
+                CHECK(named.typeIndex==type&&named.root==root);
+                CHECK(text.rfind(requestedName,0)==0);
+            }
+        }
+        const auto noFifth=rotateMask(uint16_t(chordToneMask(type)&~(1u<<7)),root);
+        const auto named=recogniseChord(noFifth,root);CHECK(named.typeIndex==type&&named.root==root);
+        CHECK(chordName(noFifth,root).find("(no 5)")!=std::string::npos);
+        const auto packed=unpackSnapshot(packSnapshot({full,0,root,type,1,root}));
+        CHECK(packed.typeIndex==type&&packed.root==root); // New IDs fit the six-bit field.
+    }
+    // Ninth/#11/thirteenth bass is not newly allowed for the C extensions.
+    for(int degree:{2,6,9})CHECK(recogniseChord(chordToneMask(50),degree).typeIndex!=50);
 }
 void correction() {
     const auto cm=scaleDefinitions()[1].mask;
@@ -217,8 +281,8 @@ void chordControlAndScales() {
     // Every chord type has its independent scale selection. A recognised
     // candidate (including ambiguities) uses precisely that type's rule.
     Settings s=e.settings();s.mode=Mode::ChordScale;
-    for(int type=0;type<50;++type)for(int root=0;root<12;++root) {
-        const auto mask=rotateMask(buffkiller::correctedChordPatterns[size_t(type)].intervals,root);
+    for(int type=0;type<chordTypeCount;++type)for(int root=0;root<12;++root) {
+        const auto mask=rotateMask(chordToneMask(type),root);
         e.clearChord();
         for(int pc=0;pc<12;++pc)if(mask&(1u<<pc))e.chordNoteOn(pc==root?36+pc:60+pc);
         e.refreshChord();const auto match=e.snapshot();CHECK(match.typeIndex>=0);

@@ -5,9 +5,19 @@ er gjeldende. Pitch-to-MIDI-arbeidet avsluttes. Hele audio-/pitchmodulen skal
 fjernes fra produktet, med sine kontroller og kalibrering. Gamle resultater
 beholdes som historie; ingen videre pitchforskning er bestilt.
 
+Senere samme dag utvidet brukeren til **52 akkordtyper** og ba om skalatoner
+i parentes etter alle skalatypenavn i Excel-valgene. Se
+[tilleggsbestillingen](handover/Request_Chord_Additions_2026-11-07.txt) og
+[den nye 52-raders arbeidsboken](factory-settings/2026-11-07-revision-2/README.md).
+De to nye stabile typene er `major_thirteenth_sharp11` / CMaj13#11
+(C D E F# G A B) og `major_ninth_sharp11` / CMaj9#11 (C D E F# G B).
+De opprinnelige 50 ID-ene og tilordningene beholdes; de to nye får Lydian
+som et foreløpig, redigerbart utgangspunkt. Skalanavn og tonenavn kan
+fortsatt vises separat i pluginens grensesnitt.
+
 Behold MIDI-to-MIDI: spille-MIDI på 1, akkordkontroll på 16, holdte akkordtoner,
 fast skala eller akkordstyring og de eksisterende korreksjonsreglene. Behold
-50 akkordtyper, uavhengig skalatilordning og lagring per instans.
+52 akkordtyper, uavhengig skalatilordning og lagring per instans.
 
 - Bruk termene **Chord Tones Only** og **Chord-Scale Assignment**.
 - Utvid til 31 skalaer: kromatisk; 7 diatoniske; 7 melodisk-mollmoduser; 3
@@ -19,7 +29,7 @@ fast skala eller akkordstyring og de eksisterende korreksjonsreglene. Behold
   Sorter innen hver del etter parentfamilie og deretter modusnummer.
 - Vis akkordtoner og skalatoner med navn. Lås akkordkolonnen til passende
   bredde; la den ikke vokse med hele vinduet.
-- Ny tekst med fet skrift: «50 chord types, here assigned to root C. Your
+- Ny tekst med fet skrift: «52 chord types, here assigned to root C. Your
   chosen scale type applies in the actual chord’s root and is auto-saved
   with this instance.»
 - Følg med vanlig skrift: «Tool tip: If different assignments are required
@@ -27,8 +37,8 @@ fast skala eller akkordstyring og de eksisterende korreksjonsreglene. Behold
   Flysnapper to your track and automate each one on/off».
 
 Brukeren vil endre factory assignments i Excel. En verifisert arbeidsbok med
-50 stabile akkord-ID-er, navn/toner i C, eksisterende fabrikkvalg og 31
-skalaalternativer er i [factory-settings](factory-settings/2026-11-07/README.md).
+52 stabile akkord-ID-er, navn/toner i C, foreløpige fabrikkvalg og 31
+skalaalternativer er i [factory-settings](factory-settings/2026-11-07-revision-2/README.md).
 Dette er en redigeringsmal. De nye skalaene og MIDI-grensesnittet er nå
 implementert og har bestått den samlede native-kontrollen.
 Ikke finn på nye fabrikktilordninger før brukerens redigerte fil foreligger.
@@ -66,12 +76,13 @@ MIDI-til-audio, men beviser ikke den ønskede tredjepartsplasseringen.
 Brukeren ba uttrykkelig om rask tilbakemelding før videre koding dersom
 denne instans-/rutingsformen ikke er enkel å få til. Dette er meldt tilbake.
 Ved det opprinnelige kontrollpunktet `d65f2bc` var ingen programkode endret.
-MIDI-only-ombyggingen er deretter implementert i kildecommit
+Den første 50-type MIDI-only-ombyggingen er implementert i kildecommit
 `98b98f08ee5d561c013357784193e3be28319699`. Den gamle aktive Pitch-koden er
 fjernet. Alle 4 aktuelle native-grupper består. Den siste Python-kontrollen
-har 197 tester: 195 består og 2 native Windows-BAT-prøver hoppes over.
+har 198 tester: 196 består og 2 native Windows-BAT-prøver hoppes over.
 Windows-/installasjonskontrollen følger separat; dette er fortsatt ikke
-en utført Live-test eller brukerleveranse.
+en utført Live-test eller brukerleveranse. De nye 52-typekildene har
+[ferske native-bevis](validation/midi-only-52-2026-11-07/README.md).
 
 Brukeren har siden oppgitt Live 12.4.6 og korrigert en viktig slutning:
 Device Activator-bypass i sporets vanlige kjede beviser ikke omdirigering

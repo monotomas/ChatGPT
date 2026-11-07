@@ -120,7 +120,7 @@ function Get-FlysnapperVerifiedPackage([string]$Root) {
             $build.pitch_detection_implemented -ne $false -or $build.audio_processing_implemented -ne $false -or
             $build.stage -ne 'midi-only-native-validation' -or $build.ableton_verified -ne $false -or
             $build.evaluation_scope.feature_set -ne 'midi-to-midi-only' -or
-            $build.evaluation_scope.scales -ne 31 -or $build.evaluation_scope.chord_types -ne 50) {
+            $build.evaluation_scope.scales -ne 31 -or $build.evaluation_scope.chord_types -ne 52) {
             throw 'MIDI-only product identity or validation scope differs.'
         }
         if ($build.midi_only_evidence.path -ne 'midi-validation/report-manifest.json' -or

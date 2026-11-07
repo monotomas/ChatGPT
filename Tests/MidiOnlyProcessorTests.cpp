@@ -180,8 +180,8 @@ void declarationsAndState() {
     check(get(a, "chordThru") == 0, "A fresh last/single instance leaks chord controls");
     auto* mode = dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter("mode"));
     check(mode && mode->choices[0] == "Chord Tones Only" && mode->choices[1] == "Chord-Scale Assignment", "New mode terminology missing");
-    check(flysnapper::scaleCount == 31 && flysnapper::chordTypeCount == 50, "Wrong MIDI-only data dimensions");
-    for (int i = 0; i < 50; ++i) {
+    check(flysnapper::scaleCount == 31 && flysnapper::chordTypeCount == 52, "Wrong MIDI-only data dimensions");
+    for (int i = 0; i < flysnapper::chordTypeCount; ++i) {
         auto* p = dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter(FlysnapperProcessor::mappingParameterId(i)));
         check(p && p->choices.size() == 31, "A mapping does not offer all31 scales");
         const int expected = flysnapper::factoryDefaults()[size_t(i)];
@@ -190,13 +190,13 @@ void declarationsAndState() {
     }
     feature("zero_audio_buses");
     for (int s = 0; s < 31; ++s) {
-        for (int i = 0; i < 50; ++i) set(a, FlysnapperProcessor::mappingParameterId(i), float((i + s) % 31));
+        for (int i = 0; i < flysnapper::chordTypeCount; ++i) set(a, FlysnapperProcessor::mappingParameterId(i), float((i + s) % 31));
         set(a, "mode", 2); set(a, "scale", float(s)); set(a, "root", float(s % 12)); set(a, "chordThru", float(s % 2));
         juce::MemoryBlock state;
         a.getStateInformation(state);
         b.setStateInformation(state.getData(), int(state.getSize()));
-        for (int i = 0; i < 50; ++i)
-            check(get(b, FlysnapperProcessor::mappingParameterId(i)) == float((i + s) % 31), "Per-instance50x31 mapping roundtrip failed");
+        for (int i = 0; i < flysnapper::chordTypeCount; ++i)
+            check(get(b, FlysnapperProcessor::mappingParameterId(i)) == float((i + s) % 31), "Per-instance52x31 mapping roundtrip failed");
         check(get(b, "scale") == s && get(b, "root") == s % 12 && get(b, "chordThru") == s % 2, "Instance routing/fixed choice was lost");
     }
     const auto independent = get(b, FlysnapperProcessor::mappingParameterId(0));
@@ -219,7 +219,7 @@ void declarationsAndState() {
     juce::MemoryBlock legacyBytes;
     juce::AudioProcessor::copyXmlToBinary(*xml, legacyBytes);
     b.setStateInformation(legacyBytes.getData(), int(legacyBytes.getSize()));
-    for (int i = 0; i < 50; ++i)
+    for (int i = 0; i < flysnapper::chordTypeCount; ++i)
         check(get(b, FlysnapperProcessor::mappingParameterId(i)) == get(a, FlysnapperProcessor::mappingParameterId(i)), "Stable scale/type IDs did not override the numeric cache");
     check(b.parameters.getParameter("pitchEnabled") == nullptr, "Legacy audio state resurrected a removed parameter");
     b.getStateInformation(saved);
@@ -228,13 +228,36 @@ void declarationsAndState() {
     for (auto* child : clean->getChildByName("FLYSNAPPER_PARAMETERS")->getChildIterator())
         check(!child->getStringAttribute("id").contains("pitchEnabled") && child->getStringAttribute("id") != "dynamicsEnabled"
               && child->getStringAttribute("id") != "monoBend", "Resaved MIDI-only state retained removed audio controls");
+    // A genuine older50-type payload cannot contain the appended IDs. Its
+    // original choices must survive, and the two absent new rows use defaults.
+    juce::XmlElement originalFifty(*xml);
+    auto* oldTable = originalFifty.getChildByName("ChordScales");
+    auto* oldParams = originalFifty.getChildByName("FLYSNAPPER_PARAMETERS");
+    check(oldTable && oldParams, "Missing structures for original50-type state import");
+    for (int i = 50; i < flysnapper::chordTypeCount; ++i) {
+        const auto id = juce::String(flysnapper::chordTypes()[size_t(i)].id);
+        for (int j = oldTable->getNumChildElements(); --j >= 0;)
+            if (oldTable->getChildElement(j)->getStringAttribute("chord") == id)
+                oldTable->removeChildElement(oldTable->getChildElement(j), true);
+        for (int j = oldParams->getNumChildElements(); --j >= 0;)
+            if (oldParams->getChildElement(j)->getStringAttribute("id") == FlysnapperProcessor::mappingParameterId(i))
+                oldParams->removeChildElement(oldParams->getChildElement(j), true);
+    }
+    juce::AudioProcessor::copyXmlToBinary(originalFifty, legacyBytes);
+    b.setStateInformation(legacyBytes.getData(), int(legacyBytes.getSize()));
+    for (int i = 0; i < 50; ++i)
+        check(get(b,FlysnapperProcessor::mappingParameterId(i)) == get(a,FlysnapperProcessor::mappingParameterId(i)),
+              "A preserved original50 assignment changed during52-type import");
+    for (int i = 50; i < flysnapper::chordTypeCount; ++i)
+        check(get(b,FlysnapperProcessor::mappingParameterId(i)) == flysnapper::factoryDefaults()[size_t(i)],
+              "An absent new chord row did not receive its declared factory default");
     const auto previousRoot = get(b, "root");
     xml->setAttribute("schema", 999);
     juce::AudioProcessor::copyXmlToBinary(*xml, legacyBytes);
     b.setStateInformation(legacyBytes.getData(), int(legacyBytes.getSize()));
     check(get(b, "root") == previousRoot, "Unknown schema changed instance state");
     feature("instance_state");
-    passed("zero_audio_and_independent_50x31_state", "Processor declarations, all scale choices and stable-ID preset/instance copies; no DAW placement claim");
+    passed("zero_audio_and_independent_52x31_state", "Processor declarations, all52 chord mappings/all31 scale choices and stable-ID preset/instance copies; no DAW placement claim");
 }
 
 void normalisedChoiceCoverage() {
@@ -303,6 +326,50 @@ void chordControlAndInternalBypass() {
     h.released();
     feature("chord_channel_16"); feature("chord_filter"); feature("internal_correction_bypass");
     passed("chord_tracking_during_internal_off", "MIDI delivered to callbacks: channel16, same-sample priority and held notes; re-enable mid-chord needs no new chord event");
+}
+
+void newSharpEleventhChordTypes() {
+    struct Reference {
+        const char* id;
+        Stream input;
+        uint16_t mask;
+        int typeIndex,scale,inputNote,outputNote;
+    };
+    const std::array<Reference,2> references{{
+        {"major_thirteenth_sharp11",chord({48,50,52,54,55,57,59},true,7),0xad5,50,7,61,62},
+        {"major_ninth_sharp11",chord({48,50,52,54,55,59},true,7),0x8d5,51,11,66,67}
+    }};
+    for (const auto& reference : references) {
+        const int type = flysnapper::chordIndexFromId(reference.id);
+        check(type == reference.typeIndex, "The two new chord IDs were not appended after the original50");
+        Harness h(std::string("new_chord_") + reference.id);
+        auto& p = *h.processor;
+        set(p,"mode",0);
+        auto input = reference.input;
+        input.emplace_back(23,on(65));
+        // Both new C-root chords include F# and exclude F. This is an
+        // externally specified chord-tone decision, not a lookup-derived oracle.
+        expectNote(h.process(128,input),true,66,23);
+        auto snapshot = p.getSnapshot();
+        check(snapshot.typeIndex == type && snapshot.root == 0 && snapshot.chordMask == reference.mask,
+              "The actual processor did not recognise the new full C-root chord");
+        expectNote(h.process(128,{{41,off(65)}}),false,66,41);
+        set(p,FlysnapperProcessor::mappingParameterId(type),float(reference.scale));
+        set(p,"mode",1);
+        expectNote(h.process(128,{{29,on(reference.inputNote)}}),true,reference.outputNote,29);
+        snapshot = p.getSnapshot();
+        check(snapshot.typeIndex == type && snapshot.effectiveScale == reference.scale && snapshot.effectiveRoot == 0,
+              "The new chord type did not select its independent assignment");
+        expectNote(h.process(128,{{43,off(reference.inputNote)}}),false,reference.outputNote,43);
+        set(p,"correction",0);
+        expectNote(h.process(128,{{17,on(65)}}),true,65,17);
+        expectNote(h.process(128,{{37,off(65)}}),false,65,37);
+        check(p.getSnapshot().typeIndex == type && p.getSnapshot().chordMask == reference.mask,
+              "Internal correction-off lost the new held chord type");
+        p.requestPanic();h.process(128);h.released();
+    }
+    feature("new_sharp_eleventh_chords");
+    passed("new_major_thirteenth_and_ninth_sharp11", "Two appended types through channel16 recognition, explicit F-to-F# chord-tone correction, independent chord-scale assignment and internal-off continuation; no Live routing claim");
 }
 
 void threeStageChain() {
@@ -540,7 +607,7 @@ int main() {
     csv << "case,rate,block,sample,offset,type,channel,note,value,bytes\n";
     try {
         juce::ScopedJuceInitialiser_GUI runtime;
-        declarationsAndState(); normalisedChoiceCoverage(); chordControlAndInternalBypass(); threeStageChain(); chordTimeAndHeldBindings();
+        declarationsAndState(); normalisedChoiceCoverage(); chordControlAndInternalBypass(); newSharpEleventhChordTypes(); threeStageChain(); chordTimeAndHeldBindings();
         relayChangesAndConditionalBypass(); rawMessagesSustainAndPanic(); transportLimitsAndRealtime(); routingPulseDoesNotOwnExternalNote();
         writeEvidence("passed");
         std::cout << "FlysnapperMidiOnlyProcessor: PASS (" << checks << " checks, " << cases.size() << " cases; no Ableton verification).\n";

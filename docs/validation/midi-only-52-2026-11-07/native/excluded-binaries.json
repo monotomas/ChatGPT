@@ -1,0 +1,19 @@
+{
+  "scope": "Hash identities checked after the fresh run; binaries are not duplicated in this archive",
+  "module": {
+    "sha256": "35ab3698b22c2709e964dd91797c6a3bc9153fe6bebf258792237bd31e136707",
+    "bytes": 11684224
+  },
+  "test_executables": {
+    "FlysnapperMidiOnlyProcessor": {
+      "binary": "build/native-release/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests",
+      "binary_sha256": "e220795348f0e37f6ddc19fccf132e9684db81998618c28599af2fceaaec2f5f",
+      "binary_bytes": 11085376
+    },
+    "FlysnapperActualVst3": {
+      "binary": "build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests",
+      "binary_sha256": "464bafe899018ece1ec52b609172ca5fd12396c0818f1a937a51c0678b1bb1bd",
+      "binary_bytes": 10558464
+    }
+  }
+}

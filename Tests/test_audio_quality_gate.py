@@ -119,7 +119,8 @@ class AudioQualityGateTests(unittest.TestCase):
         def fake_run(command, **kwargs):
             invocations.append((command, kwargs))
             if Path(command[0]).resolve() == Path(sys.executable).resolve():
-                self.assertEqual(Path(command[1]), self.gate_root / "Tools/audio_validation_verify.py")
+                self.assertEqual(Path(command[1]).resolve(),
+                                 (self.gate_root / "Tools/audio_validation_verify.py").resolve())
                 self.assertEqual(Path(command[2]), fixtures.resolve())
                 self.assertTrue(kwargs.get("check"), "Fixture verification must fail closed")
                 if verifier_exit:
@@ -164,6 +165,48 @@ class AudioQualityGateTests(unittest.TestCase):
         summary = result.output / "summary.json"
         if summary.exists():
             self.assertNotEqual(json.loads(summary.read_text())["status"], "passed")
+
+    def test_fixture_verifier_path_accepts_real_directory_alias(self):
+        original = self.gate_root.resolve()
+        if sys.platform == "win32":
+            # Exercise a real 8.3 alias without requiring symlink privileges.
+            # Some Windows volumes disable short names, so report that limit
+            # rather than substituting a fabricated non-existent path.
+            import ctypes
+            from ctypes import wintypes
+
+            get_short_path = ctypes.WinDLL("kernel32", use_last_error=True).GetShortPathNameW
+            get_short_path.argtypes = (wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD)
+            get_short_path.restype = wintypes.DWORD
+            needed = get_short_path(str(original), None, 0)
+            if not needed:
+                self.skipTest("Windows did not provide an existing 8.3 directory alias")
+            buffer = ctypes.create_unicode_buffer(needed)
+            written = get_short_path(str(original), buffer, len(buffer))
+            if not written or written >= len(buffer):
+                self.skipTest("Windows 8.3 directory alias could not be read")
+            alias = Path(buffer.value)
+            if alias == original:
+                self.skipTest("This Windows volume has no distinct 8.3 alias for the fixture")
+        else:
+            alias = self.base / "gate directory alias"
+            try:
+                alias.symlink_to(original, target_is_directory=True)
+            except OSError as error:
+                self.skipTest(f"Directory aliases are unavailable: {error}")
+
+        self.assertEqual(alias.resolve(), original)
+        self.gate_root = alias
+        self.gate = alias / "Tools/audio_quality_gate.py"
+        result = self.run_gate()
+        self.assertEqual(result.code, 0, result.stderr)
+        self.assertEqual(len(result.calls), 2)
+        # The production gate canonicalises __file__. The mock must compare
+        # identity, not reject the equivalent caller's spelling of that path.
+        verifier = Path(result.calls[0][0][1])
+        expected = alias / "Tools/audio_validation_verify.py"
+        self.assertNotEqual(verifier, expected, "Alias regression did not exercise differing paths")
+        self.assertEqual(verifier.resolve(), expected.resolve())
 
     def test_all_valid_metrics_pass_with_exact_boundary_values(self):
         rows = self.valid_rows()

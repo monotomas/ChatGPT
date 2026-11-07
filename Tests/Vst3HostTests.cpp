@@ -144,6 +144,20 @@ template <typename Fn> void runCase(const juce::String& name, Fn&& fn) {
     cases.add(juce::var(item)); std::cout << "PASS " << name << '\n';
 }
 
+// Persisted IDs: retain the original fifty, then append the two requested
+// sharp-eleventh major types. This fixture also checks actual VST3 ParamIDs.
+constexpr std::array<const char*, 52> chordIds{{
+    "major", "minor", "sus2", "sus4", "power", "power_seventh", "major_sixth", "minor_sixth", "six_nine",
+    "dominant_seventh", "major_seventh", "minor_seventh", "minor_major_seventh", "half_diminished", "diminished_seventh",
+    "dominant_sus4", "dominant_sus4_flat9", "dominant_flat5", "dominant_sharp5", "dominant_flat9", "dominant_sharp9",
+    "dominant_sharp11", "dominant_flat13", "dominant_flat5_flat9", "dominant_flat5_sharp9", "dominant_sharp5_flat9",
+    "dominant_sharp5_sharp9", "major_seventh_sharp5", "major_seventh_sharp9", "major_seventh_sharp11", "dominant_ninth",
+    "major_ninth", "minor_ninth", "minor_major_ninth", "ninth_sus4", "ninth_sharp11", "dominant_eleventh",
+    "major_eleventh", "minor_eleventh", "minor_eleventh_flat5", "dominant_thirteenth", "major_thirteenth",
+    "minor_major_thirteenth", "thirteenth_flat9", "thirteenth_sharp9", "thirteenth_sus4", "thirteenth_sus4_flat9",
+    "minor_thirteenth", "thirteenth_add_sharp9", "minor_thirteenth_flat5", "major_thirteenth_sharp11", "major_ninth_sharp11"
+}};
+
 void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     check(!d.isInstrument, "Actual VST3 must be classified as an effect");
     check(d.version == "0.4.0", "Actual VST3 must report version 0.4.0");
@@ -183,13 +197,29 @@ void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescr
           && parameter(p, "Mode").getText(.5f, 128) == "Chord-Scale Assignment"
           && parameter(p, "Mode").getText(1, 128) == "Fixed Scale", "Actual VST3 mode labels changed");
     check(parameter(p, "Chord MIDI Through").getValue() == 0, "Chord relay must default off");
-    int maps = 0;
-    for (auto* item : p.getParameters()) if (item->getName(128).startsWith("Map ")) {
-        ++maps; check(item->getNumSteps() == 31, "Chord mapping must expose all 31 scales");
+    int maps = 0, publicParameters = 0;
+    for (auto* item : p.getParameters()) {
+        const auto name = item->getName(128);
+        // JUCE's VST3 host exposes wrapper bypass and MIDI-controller
+        // transport parameters in addition to the product's parameters.
+        if (item != p.getBypassParameter() && !name.startsWith("MIDI CC ")) ++publicParameters;
+        if (name.startsWith("Map ")) {
+            ++maps; check(item->getNumSteps() == 31, "Chord mapping must expose all 31 scales");
+        }
     }
-    check(maps == 50, "Actual VST3 must expose 50 chord mappings");
+    check(maps == 52 && publicParameters == 59, "Actual VST3 must expose seven controls and 52 chord mappings");
+    for (const auto* id : chordIds) {
+        auto& mapping = parameter(p, "Map " + juce::String(id));
+        auto* hosted = dynamic_cast<juce::HostedAudioProcessorParameter*>(&mapping);
+        const auto expectedId = juce::uint32(("map_" + juce::String(id)).hashCode()) & 0x7fffffffu;
+        check(hosted != nullptr && hosted->getParameterID() == juce::String(expectedId),
+              "Actual VST3 mapping ParamID changed: " + std::string(id));
+    }
+    for (const auto* id : {"major_thirteenth_sharp11", "major_ninth_sharp11"})
+        check(std::lround(parameter(p, "Map " + juce::String(id)).getValue() * 30) == 7,
+              "New chord mapping must default to Lydian");
     features.add("zero_audio_buses"); features.add("sdk_midi_event_buses"); features.add("effect_metadata");
-    features.add("editor"); features.add("removed_pitch_parameters");
+    features.add("editor"); features.add("removed_pitch_parameters"); features.add("stable_mapping_parameter_ids");
 }
 void testRouting(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d, double rate, int block) {
     Session s(formats, d, "routing_" + juce::String(rate, 0) + "_" + juce::String(block), rate, block);
@@ -286,6 +316,29 @@ void testInternalCorrection(juce::AudioPluginFormatManager& formats, const juce:
     out = s.process(midi); check(out.size() == 3, "Correction change cut an existing binding");
     expectNote(out, 0, false, 67, 7); expectNote(out, 1, true, 66, 13); expectNote(out, 2, false, 66, 19);
     features.add("internal_correction_bypass"); features.add("held_note_off_bindings");
+}
+void testNewChordMappings(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    for (int type = 50; type < 52; ++type) {
+        Session s(formats, d, "new_chord_" + juce::String(chordIds[size_t(type)]));
+        // Every other assignment is chromatic, so selecting the wrong
+        // recognized type cannot accidentally produce the expected correction.
+        for (const auto* id : chordIds) setChoice(*s.plugin, "Map " + juce::String(id), 0);
+        setChoice(*s.plugin, "Map " + juce::String(chordIds[size_t(type)]), type == 50 ? 10 : 11);
+        juce::MidiBuffer midi;
+        if (type == 50) chord(midi, true, {48, 50, 52, 54, 55, 57, 59}, 7);
+        else chord(midi, true, {48, 50, 52, 54, 55, 59}, 7);
+        midi.addEvent(juce::MidiMessage::noteOn(1, 65, juce::uint8(90)), 23);
+        midi.addEvent(juce::MidiMessage::noteOff(1, 65), 41);
+        auto out = s.process(midi); check(out.size() == 2, "New chord-tone lifecycle missing");
+        expectNote(out, 0, true, 66, 23); expectNote(out, 1, false, 66, 41);
+        setChoice(*s.plugin, "Mode", 1);
+        const int input = type == 50 ? 69 : 66, output = type == 50 ? 70 : 67;
+        midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, input, juce::uint8(91)), 29);
+        midi.addEvent(juce::MidiMessage::noteOff(1, input), 43);
+        out = s.process(midi); check(out.size() == 2, "New independent assignment lifecycle missing");
+        expectNote(out, 0, true, output, 29, 1, 91); expectNote(out, 1, false, output, 43);
+    }
+    features.add("new_52_chord_mappings");
 }
 void testSerial(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     Session first(formats, d, "serial_first"), middle(formats, d, "serial_middle_off"), last(formats, d, "serial_last");
@@ -403,7 +456,7 @@ void testState(juce::AudioPluginFormatManager& formats, const juce::PluginDescri
         const float value = float((index++ * 7 + 1) % steps) / float(steps - 1); item->setValueNotifyingHost(value);
         expected.push_back({name, value, parameter(*independent.plugin, name).getValue()}); if (name.startsWith("Map ")) ++maps;
     }
-    check(expected.size() == 56 && maps == 50, "State must cover six MIDI/UI controls and 50 assignments");
+    check(expected.size() == 58 && maps == 52, "State must cover six MIDI/UI controls and 52 assignments");
     original.flushControls(); juce::MemoryBlock state; original.plugin->getStateInformation(state);
     check(state.getSize() > 0, "Actual VST3 state empty");
     restored.plugin->setStateInformation(state.getData(), int(state.getSize())); restored.flushControls();
@@ -522,7 +575,8 @@ void writeEvidence(const juce::File& directory, bool passed, const juce::String&
     object->setProperty("ableton_verified", false); object->setProperty("pitch_detection_implemented", false);
     object->setProperty("audio_input_channels", 0); object->setProperty("audio_output_channels", 0);
     object->setProperty("audio_input_buses", 0); object->setProperty("audio_output_buses", 0);
-    object->setProperty("declared_latency_samples", 0); object->setProperty("scale_count", 31); object->setProperty("chord_type_count", 50);
+    object->setProperty("declared_latency_samples", 0); object->setProperty("scale_count", 31); object->setProperty("chord_type_count", 52);
+    object->setProperty("public_parameter_count", 59);
     object->setProperty("cases", juce::var(cases)); object->setProperty("verified_features", juce::var(features));
     object->setProperty("events_file", events.getFileName()); object->setProperty("events_rows", eventRows);
     object->setProperty("limitations", "No Ableton Live 12.4.6 execution; no claim about Device Activator scheduling, direct endpoint fan-out, held-chord replay or downstream instruments. Bypass case invokes the callback explicitly.");
@@ -546,6 +600,7 @@ int run(int argc, const juce::String& path, const juce::String& output) {
         features.add("note_sample_offsets");
         runCase("all_31_scale_indices", [&] { testScales(formats, d); });
         runCase("internal_correction_off_held_chord", [&] { testInternalCorrection(formats, d); });
+        runCase("new_sharp_eleventh_chord_mappings", [&] { testNewChordMappings(formats, d); });
         runCase("serial_instances_and_two_active_corrections", [&] { testSerial(formats, d); });
         runCase("non_ch1_notes_and_expression", [&] { testExpression(formats, d); });
         runCase("channel1_sustain_and_latch_reset", [&] { testPedals(formats, d); });

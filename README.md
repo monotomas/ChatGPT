@@ -4,8 +4,9 @@ Flysnapper MIDI er en ren VST3-prosessor for MIDI-korreksjon etter skalaer
 eller et akkordspor. MIDI-only-ombyggingen følger brukerens bestilling
 7. november 2026. Den er under teknisk verifikasjon; det er ennå ingen
 publisert, praktisk Live-godkjent 0.4.0-leveranse. Den samlede Linux-native-
-kontrollen består 4/4 grupper. Python-kontrollen har 197 tester: 195
-består og 2 Windows-spesifikke BAT-prøver hoppes over på Linux. Windows- og Live-resultater må dokumenteres separat.
+kontrollen for 52-typeutgaven består 4/4 grupper. Python-kontrollen har
+198 tester: 196 består og 2 Windows-spesifikke BAT-prøver hoppes over på
+Linux. Windows- og Live-resultater må dokumenteres separat.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
 [versjonsnotatet](docs/RELEASE_0.4.0.md) og
@@ -19,7 +20,7 @@ Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
 - **Chord Tones Only** bruker de holdte akkordtonene. **Chord-Scale
   Assignment** bruker skalaen som er tilordnet den gjenkjente akkordtypen.
   **Fixed Scale** bruker valgt grunntone og skala uavhengig av akkordsporet.
-- Buffkillers 50 korrigerte akkordtyper og de eksisterende melodiske
+- Buffkillers 50 korrigerte typer, to brukerbestilte #11-tillegg og de melodiske
   retningsreglene er beholdt. Holdte noter følger med ved akkordskift.
 - **Note Correction** av gir uendrede tonehøyder for nye spilletoner, mens
   akkordanalysen fortsetter. Påbegynte notebindinger, FIFO, kollisjons- og
@@ -35,16 +36,18 @@ tre bebopskalaer; syv moduser av harmonisk moll; to diminished; heltone;
 durpentatonisk; mollpentatonisk; minor blues. Melodisk moll bruker samme
 stigende tonemengde i begge retninger.
 
-På baksiden viser hver av 50 rader akkordtoner og skalatoner med tonenavn.
+På baksiden viser hver av 52 rader akkordtoner og skalatoner med tonenavn.
 Skalamenyen deler kompatible valg fra valg som utelater akkordtoner, med
 overskriftene **Scales with all chord tones** og **Chord tones outside
 scale**. Begge grupper følger parentfamilie og modusnummer. Uforenlige
 valg er merket og navngir manglende toner; de er fortsatt valgbare.
 
-[Excel-malen](docs/factory-settings/2026-11-07/README.md) har alle 50 stabile
+[Excel-malen](docs/factory-settings/2026-11-07-revision-2/README.md) har alle 52 stabile
 akkord-ID-er og 31 skalaalternativer. Nåværende fabrikkvalg beholdes inntil
 brukerens redigerte fil er mottatt og kontrollert. Hver instans lagrer sine
-egne tilordninger med prosjekttilstanden.
+egne tilordninger med prosjekttilstanden. De to nye typene har Lydian som
+foreløpig utgangspunkt. I Excel viser skalavalgene tonenavn i parentes;
+i pluginen vises skalanavn og skalatoner separat.
 
 ## Format og vertsstatus
 
@@ -86,7 +89,7 @@ Den aktuelle MIDI-utgaven har egne kjerne-, GUI-, prosessor- og faktiske
 VST3-testvertprøver. Windows-pakking krever dessuten kilde-/modulbundet
 bevis, PE-/Unicode-kontroller og reelle installasjons-/gjenopprettingsprøver.
 En generisk testvert dokumenterer ikke faktisk Ableton-atferd.
-Se [det aktuelle kontrollpunktet](docs/validation/midi-only-2026-11-07/README.md).
+Se [det aktuelle kontrollpunktet](docs/validation/midi-only-52-2026-11-07/README.md).
 Kildepakken beholder all aktuell kode og testdata; historiske DSP-arkiver
 finnes i repositoriet og er utelatt fra den kompakte 0.4.0-kildepakken.
 

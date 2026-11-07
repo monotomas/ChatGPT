@@ -5,9 +5,16 @@ fjernes og ikke utvikles videre. [Den nye bestillingen](MIDI_ONLY_REQUEST_2026-1
 går foran teksten nedenfor. Den omfatter 31 skalaer, nytt skalameny-/tabelloppsett,
 Excel-redigerbare fabrikkvalg og seriekoblede instanser med kanal 16-kontroll.
 VST3 er fortsatt ønsket format; praktisk plassering/kjeding i Live er ikke
-verifisert. MIDI-only-koden er bygget om og består alle 4 aktuelle native-
+verifisert. MIDI-only-koden med 52 typer er bygget om og består alle 4 aktuelle native-
 testgrupper. Windows-/installasjonskontrollen følger separat. Nye
 fabrikktilordninger venter på brukerens redigerte Excel-fil.
+
+**Tillegg samme dag:** Totalt 52 akkordtyper etter brukerens to nye #11-typer:
+CMaj13#11 = C D E F# G A B og CMaj9#11 = C D E F# G B. Excel-valgene skal
+vise alle 31 skalatypene med skalatonene i parentes etter navnet. Den
+[nye malen](factory-settings/2026-11-07-revision-2/README.md) erstatter
+50-raders redigeringsmalen. Nye native-/Windows-resultater må gjelde
+52-typekoden; tidligere 50-typebevis er et separat kontrollpunkt.
 
 ## Historisk oppdrag 3.–6. november
 

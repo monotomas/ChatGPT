@@ -3,6 +3,7 @@
 #pragma once
 #include <juce_audio_processors/juce_audio_processors.h>
 #include <juce_gui_extra/juce_gui_extra.h>
+#include "Core/MusicData.h"
 #include <array>
 #include <functional>
 #include <memory>
@@ -39,9 +40,9 @@ public:
     static constexpr int rowHeight=86, chordColumnWidth=276;
 private:
     void updateRow(size_t);
-    std::array<juce::Label,50> names,chordTones,scaleTones,defaults;
-    std::array<juce::ComboBox,50> choices;
-    std::array<std::unique_ptr<FlysnapperScaleAttachment>,50> attachments;
+    std::array<juce::Label,flysnapper::chordTypeCount> names,chordTones,scaleTones,defaults;
+    std::array<juce::ComboBox,flysnapper::chordTypeCount> choices;
+    std::array<std::unique_ptr<FlysnapperScaleAttachment>,flysnapper::chordTypeCount> attachments;
     bool helpEnabled=true;
 };
 
@@ -71,7 +72,7 @@ private:
     juce::ComboBox mode,root,scale;
     juce::ToggleButton correction{"Note Correction"},chordThru{"Chord MIDI Through"},help{"Help"};
     juce::TextButton flip{"Chord / scale setup"},panic{"Panic"},routingHelp{"MIDI routing"};
-    juce::TextButton guide{"Guide"},guideClose{"Back to controls"},restore{"Reset all 50 to factory"};
+    juce::TextButton guide{"Guide"},guideClose{"Back to controls"},restore{"Reset all 52 to factory"};
     juce::TextEditor guideText;
     juce::Viewport viewport;
     FlysnapperMappingTable mappingTable;

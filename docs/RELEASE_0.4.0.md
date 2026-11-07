@@ -2,14 +2,14 @@
 
 Dette er ombyggingen til MIDI-only som brukeren bestilte 7. november 2026.
 Den samlede Linux-native-kontrollen består 4/4 grupper. Python-kontrollen
-har 197 tester: 195 består og 2 Windows-spesifikke BAT-prøver hoppes over
+har 198 tester: 196 består og 2 Windows-spesifikke BAT-prøver hoppes over
 på Linux. Windows-verifikasjonen følger separat; dette er ikke en
 publisert eller Live-godkjent leveranse.
 
 Audio-/pitchmotor, sidechain, input dynamics, Learn og generert bending/MPE
 er fjernet. Den nye modulen annonserer MIDI inn/ut og null audiobusser.
-MIDI-korreksjon, akkordbiblioteket med 50 typer og melodiske retningsregler
-beholdes. Eksternt uttrykk videresendes etter MIDI-kanalrollene.
+MIDI-korreksjon og melodiske retningsregler beholdes. De opprinnelige
+50 akkordtypene er utvidet med CMaj13#11 og CMaj9#11 etter brukerens tillegg. Eksternt uttrykk videresendes etter MIDI-kanalrollene.
 
 Skalakatalogen har 31 valg. Menyene deler skalaer som inneholder alle
 nominelle akkordtoner fra skalaer som utelater noen av dem. Begge grupper er
@@ -31,11 +31,12 @@ interne indeksene er bevart. Musikalsk XML-tilstand kan tolkes etter stabile
 ID-er; det er ikke en garanti for automatisk overføring av gamle
 prosjekters pluginautomasjon til den nye komponenten.
 
-Fabrikktilordningene er foreløpig uendret. Den
-[utfyllbare Excel-malen](factory-settings/2026-11-07/README.md) er gitt til
+De opprinnelige 50 fabrikktilordningene er uendret; de to nye typene har
+Lydian som foreløpig valg. Den
+[utfyllbare Excel-malen](factory-settings/2026-11-07-revision-2/README.md) er gitt til
 brukeren; ny fabrikkdata venter på den redigerte filen. Ikke oppgi dette
 som ferdig innarbeidede nye brukerbestemte fabrikkvalg.
 
 Kontrollresultater og faktisk kilde-/modulbinding legges i
-`docs/validation/midi-only-2026-11-07/`. Historiske audiofeil er beholdt som
+`docs/validation/midi-only-52-2026-11-07/`. Historiske audiofeil er beholdt som
 historie og er ikke omtolket til beståtte MIDI-resultater.

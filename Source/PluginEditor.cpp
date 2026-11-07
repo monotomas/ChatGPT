@@ -117,7 +117,7 @@ void FlysnapperMappingTable::updateRow(size_t row){
     choices[row].setTooltip(helpEnabled?tip:juce::String{});
     chordTones[row].setTooltip(helpEnabled?"Nominal chord-type formula in C. Recognition can allow some tones to be omitted; the formula itself is not editable.":juce::String{});
     scaleTones[row].setTooltip(helpEnabled?description:juce::String{});
-    defaults[row].setTooltip(helpEnabled?"Reset all 50 restores these factory assignments in this instance only.":juce::String{});
+    defaults[row].setTooltip(helpEnabled?"Reset all 52 restores these factory assignments in this instance only.":juce::String{});
 }
 void FlysnapperMappingTable::setHelp(bool enabled){helpEnabled=enabled;for(size_t i=0;i<choices.size();++i)updateRow(i);}
 void FlysnapperMappingTable::resized(){
@@ -159,9 +159,9 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(
     label(warning,"Note Correction off keeps chord analysis active.",12.f,muted);
     label(footer,"AGPL-3.0-or-later  /  See LICENSE.txt",11.f,muted);
     label(backTitle,"CHORD / SCALE SETUP",23.f,text,true);
-    label(backDescription,"50 chord types, here assigned to root C. Your chosen scale type applies in the actual chord's root and is auto-saved with this instance.",14.f,text,true);
+    label(backDescription,"52 chord types, here assigned to root C. Your chosen scale type applies in the actual chord's root and is auto-saved with this instance.",14.f,text,true);
     // Use the typographic apostrophe required by the supplied UI wording.
-    backDescription.setText(juce::String::fromUTF8("50 chord types, here assigned to root C. Your chosen scale type applies in the actual chord\xe2\x80\x99s root and is auto-saved with this instance."),juce::dontSendNotification);
+    backDescription.setText(juce::String::fromUTF8("52 chord types, here assigned to root C. Your chosen scale type applies in the actual chord\xe2\x80\x99s root and is auto-saved with this instance."),juce::dontSendNotification);
     backDescription.setComponentID("backDescription");backDescription.setJustificationType(juce::Justification::topLeft);
     label(backTip,assignmentTip,13.f,muted);backTip.setComponentID("assignmentTip");backTip.setJustificationType(juce::Justification::topLeft);
     label(guideTitle,"FLYSNAPPER GUIDE",23.f,text,true);
@@ -201,7 +201,7 @@ All 31 scales remain selectable. Each chord-type menu first lists Scales with al
 Chord-type and mapping scale tones on the back are displayed relative to C. The selected scale type transposes to the actual incoming chord root. Melodic Minor uses its ascending form in both directions. Pitch-class names may have enharmonic equivalents.
 
 PRESETS AND INSTANCES
-Every instance saves its own 50 assignments, fixed scale and controls. Copying a device copies its saved settings; subsequent edits remain independent. Reset all 50 restores this instance's factory assignments. It does not reset another instance.
+Every instance saves its own 52 assignments, fixed scale and controls. Copying a device copies its saved settings; subsequent edits remain independent. Reset all 52 restores this instance's factory assignments. It does not reset another instance.
 
 HELP, PANIC AND TIMING
 Help enables contextual tooltips. Guide and front/back changes do not alter MIDI. Panic releases tracked playing notes and clears chord analysis. The MIDI routing test sends a brief C note; it is a routing check, not a played performance.
@@ -224,9 +224,9 @@ Flysnapper adds no intentional note-analysis delay. Host buffers, routing and th
     addTip(scale,"All 31 fixed scales, ordered by parent family and mode. The selection is saved with this instance.");
     addTip(correction,"Automate this control to enable or disable note correction while continuing to receive chord changes. Existing held notes retain their original output binding.");
     addTip(chordThru,"Forward channel-16 chord control unchanged to a following Flysnapper. Enable on intermediate instances; leave off on the last instance to keep chord-control notes out of the receiving instrument.");
-    addTip(flip,"Flip to all 50 independent chord/scale assignments. Editing the view itself does not change MIDI.");
+    addTip(flip,"Flip to all 52 independent chord/scale assignments. Editing the view itself does not change MIDI.");
     addTip(panic,"Release tracked notes and pedals and clear the current chord. Use this if playback was interrupted.");
-    addTip(restore,"Restore all 50 factory choices in this instance only.");
+    addTip(restore,"Restore all 52 factory choices in this instance only.");
     addTip(routingHelp,"Read MIDI routing guidance and the distinction between track-input routing, direct-device routing and device activation.");
     addTip(help,"Enable or disable contextual tooltips. The built-in guide remains available.");addTip(guide,"Open the built-in MIDI-only guide.");addTip(guideClose,"Return to the previous controls.");
     for(auto& n:notes)addTip(n,"Allowed pitch classes for new corrected notes in the current mode.");
@@ -321,6 +321,6 @@ void FlysnapperEditor::resized(){
     activity.setBounds(48,h-118,220,22);eventStatus.setBounds(294,h-118,w-342,22);
     backTitle.setBounds(24,109,w-290,33);restore.setBounds(w-254,110,230,31);
     backDescription.setBounds(24,154,w-48,43);backTip.setBounds(24,205,w-48,66);
-    viewport.setBounds(24,282,w-48,h-352);mappingTable.setSize(viewport.getWidth()-viewport.getScrollBarThickness(),50*FlysnapperMappingTable::rowHeight);
+    viewport.setBounds(24,282,w-48,h-352);mappingTable.setSize(viewport.getWidth()-viewport.getScrollBarThickness(),flysnapper::chordTypeCount*FlysnapperMappingTable::rowHeight);
     guidePanel.setBounds(24,105,w-48,h-175);guideTitle.setBounds(24,15,w-350,34);guideClose.setBounds(w-278,17,206,31);guideText.setBounds(24,66,w-96,h-266);
 }
