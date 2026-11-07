@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "kind": "DeliveredVst3ReadOnlyLoaderAudit",
+  "status": "static_audit_complete_no_new_PE_dependency_defect_found",
+  "user_error": "This VST3 plug-in could not be opened. (browser visible; generic Live error, not a retrieved scanner log)",
+  "delivered": {
+    "zip_sha256": "aefa9ece3fcb0194c04f0729085285dce890611a030b8b2f6e08c1ebe830ee47",
+    "zip_bytes": 39302326,
+    "source_commit": "7323545b2eda5a877a16a42248fea5c4e6cdc953",
+    "version": "0.4.0",
+    "module_member": "Flysnapper-0.4.0-Windows-x64/Flysnapper MIDI.vst3/Contents/x86_64-win/Flysnapper MIDI.vst3",
+    "module_sha256": "f4567bc474dca5e857cd2286046689ba34219d527cd2eb944c557fa5c5e14b34",
+    "module_bytes": 4840448,
+    "machine": "0x8664",
+    "optional_header_magic": "0x20b",
+    "os_version": [
+      6,
+      0
+    ],
+    "subsystem_version": [
+      6,
+      0
+    ],
+    "dll_characteristics": "0x160",
+    "linker_version": [
+      14,
+      44
+    ],
+    "module_classes": [
+      {
+        "CID": "ABCDEF019182FAEB466C797346736D31",
+        "Category": "Audio Module Class",
+        "Name": "Flysnapper MIDI",
+        "Version": "0.4.0",
+        "Sub Categories": [
+          "Fx",
+          "Tools"
+        ]
+      },
+      {
+        "CID": "ABCDEF011234ABCD466C797346736D31",
+        "Category": "Component Controller Class",
+        "Name": "Flysnapper MIDI",
+        "Version": "0.4.0",
+        "Sub Categories": [
+          "Fx",
+          "Tools"
+        ]
+      }
+    ],
+    "bundle_members": {
+      "Flysnapper MIDI.vst3/Contents/Resources/moduleinfo.json": 1094,
+      "Flysnapper MIDI.vst3/Contents/x86_64-win/Flysnapper MIDI.vst3": 4840448
+    }
+  },
+  "working_predecessor": {
+    "zip_sha256": "3d33f6341193cddbd5f9cac49419e9797a6e047c889080a7d48a919154149f5d",
+    "zip_bytes": 65700496,
+    "source_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
+    "version": "0.3.0",
+    "module_member": "Flysnapper-0.3.0-Windows-x64/Flysnapper.vst3/Contents/x86_64-win/Flysnapper.vst3",
+    "module_sha256": "8f6963e803a32fa020d4496d6f76cfaac5b881f11a1dc9a093079fdaca575087",
+    "module_bytes": 5126144,
+    "machine": "0x8664",
+    "optional_header_magic": "0x20b",
+    "os_version": [
+      6,
+      0
+    ],
+    "subsystem_version": [
+      6,
+      0
+    ],
+    "dll_characteristics": "0x160",
+    "linker_version": [
+      14,
+      44
+    ],
+    "module_classes": [
+      {
+        "CID": "ABCDEF019182FAEB466C797346736E31",
+        "Category": "Audio Module Class",
+        "Name": "Flysnapper",
+        "Version": "0.3.0",
+        "Sub Categories": [
+          "Instrument",
+          "Tools"
+        ]
+      },
+      {
+        "CID": "ABCDEF011234ABCD466C797346736E31",
+        "Category": "Component Controller Class",
+        "Name": "Flysnapper",
+        "Version": "0.3.0",
+        "Sub Categories": [
+          "Instrument",
+          "Tools"
+        ]
+      }
+    ],
+    "bundle_members": {
+      "Flysnapper.vst3/Contents/Resources/moduleinfo.json": 1095,
+      "Flysnapper.vst3/Contents/x86_64-win/Flysnapper.vst3": 5126144
+    }
+  },
+  "imports_equal_named_and_ordinal": true,
+  "imported_dlls": 14,
+  "named_imports": 269,
+  "ordinal_imports": 7,
+  "load_time_crt_dll_imports": [],
+  "crt_evidence": "No VCRUNTIME/MSVCP/UCRT/debug-CRT import. Checked source builder explicitly requests CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded (static release CRT). No delayed import directory. This does not enumerate every optional LoadLibrary call.",
+  "cpu_architecture": "AMD64 PE32+; not x86 or ARM64. Project and retained configure log contain no /arch:AVX/AVX2 or -march=native flags. PE headers do not encode a definitive minimum instruction-set requirement; no stronger CPU compatibility claim is made.",
+  "os_requirement_limit": "PE header OS/subsystem6.0 is not the complete minimum OS. Imports include GetDpiForMonitor,SetProcessDpiAwareness,CreateDXGIFactory2 and desktop graphics APIs. Exact imports match working0.3, so no new OS API dependency was introduced.",
+  "stack_evidence": "Unwind static-frame survey: final max16488B, predecessor max51592B; no new megabyte static frame found. Test hosts reserve8MiB, but static survey is not call-chain/dynamic-stack proof for Live.",
+  "bundle_evidence": "Both use matching-name .vst3 bundle/Contents/x86_64-win/module.vst3 plus Contents/Resources/moduleinfo.json. Final bundle names contain spaces but match exactly. Standard exports GetPluginFactory/InitDll/ExitDll present. No missing secondary DLL listed in archive/import comparison.",
+  "actual_sdk_contract": {
+    "source_commit": "7323545b2eda5a877a16a42248fea5c4e6cdc953",
+    "audio_input_bus_count": 0,
+    "audio_output_bus_count": 0,
+    "event_input_bus_count": 1,
+    "event_output_bus_count": 1,
+    "event_bus_channels": 16,
+    "effect_categories": [
+      "Fx",
+      "Tools"
+    ],
+    "scope": "Checked via actual SDK component in the retained Windows JUCE test-host execution, not via Ableton Live. moduleinfo itself does not store bus counts."
+  },
+  "material_host_contract_difference": "Old0.3 advertises Instrument/Synth and audio buses. New0.4 advertises Fx/Tools and strictly rejects every positive audio-bus layout. Whether Live accepts this exact zero-audio contract remains unresolved; generic Windows/JUCE-host success does not prove it.",
+  "conclusion": "No concrete new PE dependency, architecture, export or bundle-layout defect found in the exact delivered artifact. Actual Live scanner/load log is needed to distinguish host contract rejection from another user-machine load/init failure. Do not change buses or ship a speculative rebuild from this static evidence.",
+  "ableton_verified": false,
+  "code_changed": false,
+  "builds_run": false,
+  "files_sha256": {
+    "final-pe.txt": "04e6944d89f4159e903568165ece89601cb9a5f40a9ca1a172c2891c4eed093a",
+    "old03-pe.txt": "edcb52265b6fdfd6e084ee4dfe5d215b933e6c73589006046c6f794fdf5f7a10",
+    "stack-unwind.json": "f520ffb25c55881552732b1eb87874118e5158a02e87329396cee5cf35c08f45",
+    "imports.json": "0a62bf24c4eeaabbb8c5fa52c87aa474ac706984713876711c8a0a7d8d737f1a"
+  }
+}

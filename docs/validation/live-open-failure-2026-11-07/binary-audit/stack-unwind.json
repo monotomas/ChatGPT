@@ -1,0 +1,94 @@
+{
+  "module0.dll": {
+    "unwind_functions": 10930,
+    "largest_static_stack_frames": [
+      [
+        16488,
+        "0x26d9b0",
+        "0x26dc3e"
+      ],
+      [
+        16440,
+        "0x26c930",
+        "0x26cf9d"
+      ],
+      [
+        8552,
+        "0x1a22e0",
+        "0x1a2c54"
+      ],
+      [
+        8552,
+        "0x1a1790",
+        "0x1a22df"
+      ],
+      [
+        8552,
+        "0x162b00",
+        "0x1631bf"
+      ],
+      [
+        8280,
+        "0x46d60",
+        "0x46da8"
+      ],
+      [
+        6952,
+        "0x188c30",
+        "0x189421"
+      ],
+      [
+        6008,
+        "0x268a50",
+        "0x269d75"
+      ]
+    ],
+    "limitation": "Single-frame unwind allocation, not maximum call-chain, recursion or dynamic alloca stack use"
+  },
+  "old03.dll": {
+    "unwind_functions": 11360,
+    "largest_static_stack_frames": [
+      [
+        51592,
+        "0x2719c0",
+        "0x271a77"
+      ],
+      [
+        26088,
+        "0x293720",
+        "0x29551a"
+      ],
+      [
+        17048,
+        "0x28c530",
+        "0x28ce1f"
+      ],
+      [
+        16600,
+        "0x2992c0",
+        "0x2995f1"
+      ],
+      [
+        16568,
+        "0x297b10",
+        "0x297c9d"
+      ],
+      [
+        16488,
+        "0x2a3760",
+        "0x2a39f1"
+      ],
+      [
+        16440,
+        "0x2a2720",
+        "0x2a2d8d"
+      ],
+      [
+        14520,
+        "0x289510",
+        "0x289b1b"
+      ]
+    ],
+    "limitation": "Single-frame unwind allocation, not maximum call-chain, recursion or dynamic alloca stack use"
+  }
+}

@@ -1,5 +1,9 @@
 # Flysnapper MIDI 0.4.0
 
+**Rapportert vertsfeil:** Ableton Live12.4.6 viser pluginen, men avviser
+innlasting. Årsaken undersøkes; gjeldende pakke skal ikke omtales som
+bekreftet brukbar i Live. Se [undersøkelsen](docs/validation/live-open-failure-2026-11-07/README.md).
+
 Flysnapper MIDI er en ren VST3-prosessor for MIDI-korreksjon etter skalaer
 eller et akkordspor. MIDI-only-ombyggingen følger brukerens bestilling
 7. november 2026. Brukerens utfylte Excel-fil er innarbeidet: alle 52

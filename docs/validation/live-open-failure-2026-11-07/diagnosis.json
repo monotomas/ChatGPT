@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-11-07T18:22:17.731119+00:00",
+  "affected_source_commit": "7323545b2eda5a877a16a42248fea5c4e6cdc953",
+  "affected_delivery_commit": "c12c6c4588f9fd0b8e4b8f08d40f1683d17d7dde",
+  "user_reported_host": "Ableton Live12.4.6",
+  "user_report": "Plugin visible in Live browser, rejected when opening",
+  "exact_error": "This VST3 plug-in could not be opened.",
+  "actual_ableton_load_status": "user-reported failure",
+  "confirmed_cause": null,
+  "leading_hypothesis": "Strict zero-audio-bus topology. Pinned JUCE MIDI Logger adds an output for Live; ours rejects any positive audio-bus request. Actual Live negotiation is not observed.",
+  "primary_framework_evidence": {
+    "path": "deps/JUCE/examples/Plugins/MidiLoggerPluginDemo.h",
+    "commit": "ea77444750de45e036e0279bb0291144bf8e3688",
+    "lines": "341-347",
+    "short_quote": "Live and Cakewalk don't like to load midi-only plugins, so we add an audio output there.",
+    "url": "https://github.com/juce-framework/JUCE/blob/ea77444750de45e036e0279bb0291144bf8e3688/examples/Plugins/MidiLoggerPluginDemo.h#L341-L347"
+  },
+  "public_corroboration": [
+    {
+      "url": "https://github.com/dusk-audio/dusk-audio-plugins/issues/61#issuecomment-4270020493",
+      "scope": "2026 maintainer ships instrument variant for Ableton, MIDI-only variant for other hosts; not this exact Live version/load trace"
+    },
+    {
+      "url": "https://github.com/vsicurella/everytone-tuner/issues/6#issuecomment-1082001326",
+      "scope": "Historical Live11 report; not12.4.6 proof"
+    }
+  ],
+  "missing_evidence": "Live Log.txt from the failed load; no access to user machine or actual Live locally",
+  "changes_made_to_runtime": false,
+  "new_builds_issued": false,
+  "data_preserved": "All52 user factory assignments/38scales remain unchanged",
+  "privacy_note": "If user uploads LiveLog, keep raw log local/private; do not publish full user logs to GitHub without explicit authorization."
+}
