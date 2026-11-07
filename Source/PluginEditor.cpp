@@ -146,7 +146,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(
 #ifdef JucePlugin_VersionString
     label(version,JucePlugin_VersionString,12.f,muted);
 #else
-    label(version,"0.4.2",12.f,muted);
+    label(version,"0.4.3",12.f,muted);
 #endif
     label(chord,"No chord input",42.f,text,true);chord.setComponentID("chordDisplay");chord.setMinimumHorizontalScale(.75f);
     label(activeScale,"Chromatic",18.f,green);activeScale.setComponentID("activeScale");
@@ -189,14 +189,16 @@ On the receiving track, set the upper MIDI From selector to Flysnapper's track. 
 Playing notes arrive at Flysnapper on channel 1. Route the chord track to Flysnapper on channel 16. Other channels pass without note correction. Chord MIDI Through forwards channel-16 chord control to the plugin's MIDI output when enabled. Leave it off when the output feeds a sounding instrument, so chord-control notes do not also play that instrument.
 
 NOTE CORRECTION AND DEVICE ACTIVATION
-Automating Note Correction on/off preserves this instance's chord analysis. With correction off, playing notes pass unchanged while chord-control messages are still followed. Already-held playing notes keep the output binding with which they began, so later Note Offs release the correct notes.
+Automating Note Correction on/off preserves this instance's chord analysis. With correction off, playing pitches pass unchanged while chord-control messages are still followed. Already-held playing notes keep the output binding with which they began, so later Note Offs release the correct notes.
 
 Leave the Flysnapper device enabled in Live while automating Note Correction. Live's Device Activator may stop the plugin's processing entirely. A disabled device cannot be assumed to follow chord changes or produce corrected MIDI, and a direct route to it is not automatically redirected to another instance.
 
 CORRECTION MODES
 Chord Tones Only corrects to the received chord's held pitch classes. Chord-Scale Assignment uses the scale assigned to the recognised chord type on the back. Fixed Scale uses the selected root and scale independently of chord input.
 
-The nearest allowed MIDI note is selected without waiting for future notes. Equidistant choices follow the established melodic-direction rules, with upward correction as the fallback. Chord changes affect new notes; held playing-note bindings remain stable. Empty or unrecognised chord input cannot supply an invented scale.
+The nearest allowed MIDI note is selected without waiting for future notes. For equally close choices, direction comes from the two preceding raw input notes in the same source/channel stream, excluding the current note. Sequential legato overlap keeps this history. Multiple Note Ons at the same sample position in one stream use upward fallback, as does unavailable direction. No lookahead is added.
+
+A new playing Note On rearticulates an already active output pitch with Note Off then Note On at the same sample position, using the new velocity. Held bindings, final-release counts and sustain handling are preserved. Chord changes affect new notes; held bindings remain stable. Empty or unrecognised chord input cannot supply an invented scale.
 
 CHOOSING SCALES
 All 38 scales remain selectable. Each chord-type menu first lists Scales with all chord tones, then Chord tones outside scale. Within each section the requested parent-family and mode order is retained. Harmonic Major modes follow Harmonic Minor modes and precede Diminished. An exclamation mark identifies a scale that omits nominal chord tones; the row names the missing tones. The choice is allowed and no hidden chord/scale union is added.

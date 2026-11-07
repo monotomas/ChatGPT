@@ -16,7 +16,7 @@ import struct
 import xml.etree.ElementTree as ET
 
 COMPILED_INPUTS = 'flysnapper-midi-compiled-inputs.json'
-VERSION = '0.4.2'
+VERSION = '0.4.3'
 DIRECTORY = 'midi-validation'
 MANIFEST = 'report-manifest.json'
 STAGE = 'midi-only-native-validation'
@@ -39,7 +39,8 @@ SPECS = (
      'FlysnapperMidiOnlyVst3'),
 )
 FEATURES = frozenset({'silent_stereo_audio_output','chord_channel_16','chord_relay',
-                      'serial_correction','internal_correction_bypass','instance_state'})
+                      'serial_correction','internal_correction_bypass','instance_state',
+                      'legato_directional_ties','same_pitch_rearticulation'})
 EXTRA_INPUTS = ('CMakeLists.txt','dependencies.lock.json','build_plugin.py',
                 'Tests/CoreTests.cpp','Tests/PluginTests.cpp',
                 'Tests/MidiOnlyProcessorTests.cpp','Tests/Vst3HostTests.cpp',

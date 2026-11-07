@@ -24,19 +24,19 @@ class MidiWindowsPackageTests(unittest.TestCase):
  def test_midi_package_uses_new_identity_and_only_relevant_evidence(self):
   self.package();shipping.verify_package(self.f.output)
   with ZipFile(self.f.output) as z:
-   prefix='Flysnapper-0.4.2-Windows-x64/'
+   prefix='Flysnapper-0.4.3-Windows-x64/'
    self.assertIn(prefix+evidence.BUNDLE+'/'+evidence.WINDOWS_BINARY,z.namelist())
    self.assertNotIn(prefix+'Flysnapper.vst3/'+shipping.BINARY,z.namelist())
    self.assertIn(prefix+'Validation/midi-validation/report-manifest.json',z.namelist())
    self.assertFalse(any('audio-validation/' in n or 'input-dynamics/' in n or n.endswith('INPUT_DYNAMICS.md') for n in z.namelist()))
    text=z.read(prefix+'LES_MEG.txt').decode('utf-8-sig');self.assertIn('VST3-instrument',text);self.assertNotIn('ingen audiobusser',text);self.assertNotIn('Learn / 20 seconds',text)
-   release=json.loads(z.read(prefix+'release-manifest.json'));self.assertEqual(release['bundle_name'],evidence.BUNDLE);self.assertEqual(release['version'],'0.4.2')
+   release=json.loads(z.read(prefix+'release-manifest.json'));self.assertEqual(release['bundle_name'],evidence.BUNDLE);self.assertEqual(release['version'],'0.4.3')
    self.assertEqual(release['evaluation_scope']['chord_types'],52);self.assertEqual(release['evaluation_scope']['scales'],38)
    info=json.loads(z.read(prefix+evidence.BUNDLE+'/Contents/Resources/moduleinfo.json'))
-   self.assertEqual(info['Classes'][0]['Version'],'0.4.2');self.assertEqual(info['Classes'][0]['Sub Categories'],['Instrument'])
+   self.assertEqual(info['Classes'][0]['Version'],'0.4.3');self.assertEqual(info['Classes'][0]['Sub Categories'],['Instrument'])
  def test_legacy_bundle_audio_or_false_ableton_claim_cannot_masquerade_as_midi(self):
   original=self.f.manifest.copy()
-  for key,value in [('version','0.4.0'),('version','0.4.1'),('bundle_name','Flysnapper.vst3'),('product','Flysnapper'),('pitch_detection_implemented',True),('audio_processing_implemented',True),('ableton_verified',True),('stage','complete'),('evaluation_scope',{**evidence.SCOPE,'chord_types':50}),('evaluation_scope',{**evidence.SCOPE,'scales':31}),('evaluation_scope',{**evidence.SCOPE,'host_device_role':'effect'}),('evaluation_scope',{**evidence.SCOPE,'silent_audio_output':False})]:
+  for key,value in [('version','0.4.0'),('version','0.4.1'),('version','0.4.2'),('bundle_name','Flysnapper.vst3'),('product','Flysnapper'),('pitch_detection_implemented',True),('audio_processing_implemented',True),('ableton_verified',True),('stage','complete'),('evaluation_scope',{**evidence.SCOPE,'chord_types':50}),('evaluation_scope',{**evidence.SCOPE,'scales':31}),('evaluation_scope',{**evidence.SCOPE,'host_device_role':'effect'}),('evaluation_scope',{**evidence.SCOPE,'silent_audio_output':False})]:
    with self.subTest(key=key):
     self.f.manifest={**original,key:value};fixture.save(self.f)
     with self.assertRaises(ValueError):self.package()
@@ -53,6 +53,14 @@ class MidiWindowsPackageTests(unittest.TestCase):
   p=self.f.dist/evidence.DIRECTORY/evidence.SPECS[1][2];r=json.loads(p.read_text());r['audio_output_channels']=0;p.write_text(json.dumps(r))
   proof=json.loads((self.f.dist/evidence.DIRECTORY/evidence.MANIFEST).read_text());proof['executions'][evidence.SPECS[1][0]]['report_sha256']=evidence.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
   with self.assertRaises(ValueError):self.package()
+ def test_rebound_reports_without_legato_or_rearticulation_cannot_ship(self):
+  for spec in evidence.SPECS:
+   for feature in ('legato_directional_ties','same_pitch_rearticulation'):
+    with self.subTest(report=spec[0],missing=feature):
+     p=self.f.dist/evidence.DIRECTORY/spec[2];before=p.read_bytes();r=json.loads(before);r['verified_features'].remove(feature);p.write_text(json.dumps(r))
+     proof=json.loads((self.f.dist/evidence.DIRECTORY/evidence.MANIFEST).read_text());proof['executions'][spec[0]]['report_sha256']=evidence.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
+     with self.assertRaisesRegex(ValueError,'missing required native feature checks'):self.package()
+     p.write_bytes(before);proof['executions'][spec[0]]['report_sha256']=evidence.sha(before);fixture.rebind_proof(self.f,proof)
  def test_actual_powershell_entrypoint_replaces_only_midi_and_preserves_old_instrument(self):
   shell=shutil.which('powershell.exe') if os.name=='nt' else shutil.which('pwsh')
   if not shell and Path('/workspace/.flysnapper-tools/powershell/pwsh').is_file():shell='/workspace/.flysnapper-tools/powershell/pwsh'

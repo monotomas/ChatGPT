@@ -34,7 +34,7 @@ using namespace flysnapper;
 #define CHECK(x) do{++assertions;if(!(x)){std::cerr<<"FAIL "<<__FILE__<<":"<<__LINE__<<" " #x <<"\n";std::exit(1);}}while(false)
 void major(Engine& engine) {auto s=engine.settings();s.mode=Mode::FixedScale;s.root=0;s.scale=1;engine.setSettings(s);}
 void on(Engine& e,int n,Output& out,int t=0,Source src=Source::External,int channel=1) {
-    e.beginTimestamp(1);e.noteOn(src,channel,n,100,t,out);
+    e.beginTimestamp(src,channel,1);e.noteOn(src,channel,n,100,t,out);
 }
 void off(Engine& e,int n,Output& out,int t=0,Source src=Source::External,int channel=1){e.noteOff(src,channel,n,0,t,out);}
 void chord(Engine& e,std::initializer_list<int> notes){e.clearChord();for(auto n:notes)e.chordNoteOn(n);e.refreshChord();}
@@ -280,6 +280,83 @@ void dataAndRecognition() {
     // Ninth/#11/thirteenth bass is not newly allowed for the C extensions.
     for(int degree:{2,6,9})CHECK(recogniseChord(chordToneMask(50),degree).typeIndex!=50);
 }
+void directionHistory() {
+    Output o;
+    struct Run {std::array<int,3> input;int expected;};
+    constexpr std::array<Run,6> runs{{
+        {{{65,67,68}},69},{{{65,64,63}},62},{{{67,65,68}},67},
+        {{{67,67,66}},65},{{{67,67,68}},69},{{{62,61,63}},62}
+    }};
+    // The original prior-two-input table must be identical with all keys
+    // overlapping and with detached playing. The last case distinguishes raw
+    // descending62,61 from its two equal corrected destinations62,62.
+    for(const bool legato:{false,true})for(const auto& run:runs) {
+        Engine e;major(e);
+        for(size_t i=0;i<run.input.size();++i) {
+            o.clear();on(e,run.input[i],o,int(i)*10);
+            CHECK(o.size>0&&o.events[o.size-1].type==EventType::NoteOn);
+            if(i+1==run.input.size())CHECK(o.events[o.size-1].note==run.expected);
+            if(!legato)off(e,run.input[i],o,int(i)*10+5);
+        }
+        CHECK(e.activeVoices()==(legato?3u:0u));o.clear();e.panic(40,o);
+    }
+    // Other streams have their own attack histories, even on the same output
+    // channel. Note Off, sustain release and identical settings retain history.
+    for(int action=0;action<10;++action) {
+        Engine e;major(e);o.clear();on(e,67,o);on(e,65,o,10);
+        switch(action) {
+        case 0:on(e,60,o,11,Source::Generated);on(e,64,o,12,Source::Generated);break;
+        case 1:on(e,60,o,11,Source::External,2);on(e,64,o,12,Source::External,2);break;
+        case 2:e.stopSource(Source::Generated,12,o);break;
+        case 3:e.controller(Source::Generated,1,123,0,12,o);break;
+        case 4:e.controller(Source::External,2,120,0,12,o);break;
+        case 5:off(e,67,o,11);off(e,65,o,12);break;
+        case 6:e.controller(Source::External,1,64,127,11,o);off(e,67,o,12);off(e,65,o,13);e.controller(Source::External,1,64,0,14,o);break;
+        case 7:e.setSettings(e.settings());break;
+        case 8:e.beginTimestamp(Source::Generated,1,2);break;
+        case 9:e.beginTimestamp(Source::External,2,2);break;
+        }
+        o.clear();on(e,68,o,20);CHECK(o.events[o.size-1].note==67);
+    }
+    // Actual settings changes, own-source stop, own-channel all-notes-off and
+    // global panic clear history, so the next ambiguous distance goes upward.
+    for(int action=0;action<4;++action) {
+        Engine e;major(e);o.clear();on(e,67,o);on(e,65,o,10);
+        if(action==0){auto s=e.settings();s.root=1;e.setSettings(s);s.root=0;e.setSettings(s);}
+        if(action==1)e.stopSource(Source::External,12,o);
+        if(action==2)e.controller(Source::External,1,123,0,12,o);
+        if(action==3)e.panic(12,o);
+        o.clear();on(e,68,o,20);CHECK(o.events[o.size-1].note==69);
+    }
+    // One stream's simultaneous group cannot use event order as a melody or
+    // overwrite another source's established descending history.
+    for(const bool reverse:{false,true}) {
+        Engine e;major(e);o.clear();on(e,67,o);on(e,65,o,10);
+        on(e,67,o,11,Source::Generated);on(e,65,o,12,Source::Generated);
+        o.clear();e.beginTimestamp(Source::External,1,2);
+        e.noteOn(Source::External,1,reverse?68:66,90,20,o);
+        e.noteOn(Source::External,1,reverse?66:68,91,20,o);
+        std::array<int,2> attacks{};size_t count=0;
+        for(size_t i=0;i<o.size;++i)if(o.events[i].type==EventType::NoteOn){CHECK(count<attacks.size());attacks[count++]=o.events[i].note;}
+        CHECK(count==2);std::sort(attacks.begin(),attacks.end());CHECK(attacks[0]==67&&attacks[1]==69);
+        o.clear();on(e,68,o,21,Source::Generated);CHECK(o.events[o.size-1].note==67);
+        o.clear();on(e,63,o,22);CHECK(o.events[o.size-1].note==64); // Group seeded neither history entry.
+    }
+    {
+        Engine e;major(e);o.clear();on(e,69,o);on(e,67,o,10);
+        e.beginTimestamp(Source::External,1,2);
+        e.noteOn(Source::External,1,67,90,20,o);e.noteOn(Source::External,1,67,91,20,o);
+        o.clear();on(e,66,o,30);CHECK(o.events[o.size-1].note==67); // Duplicates are conservatively ambiguous too.
+    }
+    {
+        Engine e;major(e);o.clear();on(e,67,o);on(e,65,o,10);o.clear();
+        for(const auto invalid:{Source(-1),Source(3)}) {
+            e.beginTimestamp(invalid,1,2);e.noteOn(invalid,1,60,100,12,o);
+            e.noteOff(invalid,1,67,0,12,o);e.controller(invalid,1,64,127,12,o);e.stopSource(invalid,12,o);
+        }
+        CHECK(o.size==0&&e.activeVoices()==2);on(e,68,o,20);CHECK(o.events[o.size-1].note==67);
+    }
+}
 void correction() {
     const auto cm=scaleDefinitions()[1].mask;
     CHECK(Engine::nearest(68,cm,67,65)==69);
@@ -307,8 +384,9 @@ void correction() {
     CHECK(o.events[0].note==69);
     // Polyphonic timestamps use the documented upper-candidate fallback.
     o.clear();on(e,67,o);off(e,67,o);on(e,65,o);off(e,65,o);o.clear();
-    e.beginTimestamp(2);e.noteOn(Source::External,1,68,90,100,o);e.noteOn(Source::Generated,1,70,90,100,o);
+    e.beginTimestamp(2);e.noteOn(Source::External,1,68,90,100,o);e.noteOn(Source::External,1,70,90,100,o);
     CHECK(o.events[0].note==69);CHECK(o.events[0].offset==100);
+    directionHistory();
 }
 void snapshotPacking() {
     // Exercise the new high scale bit alongside every other status field.
@@ -402,6 +480,76 @@ void chordControlAndScales() {
     const auto bypass=unpackSnapshot(packSnapshot(e.snapshot()));
     CHECK(!bypass.correctionEnabled&&bypass.allowedMask==0xfff&&bypass.effectiveScale==-1);
 }
+void reattackLifecycle() {
+    Output o;
+    // Two different inputs sharing a corrected destination retain BOTH
+    // bindings, while each new attack carries its own velocity and timing.
+    for(const bool releaseNewestFirst:{false,true}) {
+        Engine e;major(e);o.clear();on(e,61,o,4);
+        e.beginTimestamp(Source::External,1,1);e.noteOn(Source::External,1,62,73,9,o);
+        CHECK(o.size==3&&e.activeVoices()==2);
+        CHECK(o.events[0].type==EventType::NoteOn&&o.events[0].note==62&&o.events[0].offset==4);
+        CHECK(o.events[1].type==EventType::NoteOff&&o.events[1].note==62&&o.events[1].value==0&&o.events[1].offset==9);
+        CHECK(o.events[2].type==EventType::NoteOn&&o.events[2].note==62&&o.events[2].value==73&&o.events[2].offset==9);
+        off(e,releaseNewestFirst?62:61,o,12);CHECK(o.size==3&&e.activeVoices()==1);
+        off(e,releaseNewestFirst?61:62,o,15);CHECK(o.size==4&&e.activeVoices()==0);
+        CHECK(o.events[3].type==EventType::NoteOff&&o.events[3].note==62&&o.events[3].offset==15);
+    }
+    {
+        Engine e;major(e);o.clear();on(e,61,o,1);on(e,61,o,2);
+        CHECK(o.size==3&&e.activeVoices()==2);
+        off(e,61,o,3);CHECK(o.size==3&&e.activeVoices()==1); // Same-input FIFO.
+        off(e,61,o,4);CHECK(o.size==4&&e.activeVoices()==0);
+    }
+    // Diagnostic collisions remain nonintrusive but own a reference. A real
+    // playing note must still reattack a destination started by diagnostics.
+    {
+        Engine e;major(e);o.clear();on(e,61,o,1);
+        on(e,62,o,2,Source::Diagnostic);CHECK(o.size==1&&e.activeVoices()==2);
+        e.stopSource(Source::Diagnostic,3,o);CHECK(o.size==1&&e.activeVoices()==1);
+        off(e,61,o,4);CHECK(o.size==2&&e.activeVoices()==0);
+        o.clear();on(e,61,o,5,Source::Diagnostic);on(e,62,o,6);
+        CHECK(o.size==3&&o.events[1].type==EventType::NoteOff&&o.events[2].type==EventType::NoteOn);
+        e.stopSource(Source::Diagnostic,7,o);CHECK(o.size==3&&e.activeVoices()==1);
+        off(e,62,o,8);CHECK(o.size==4&&e.activeVoices()==0);
+    }
+    {
+        Engine e;major(e);o.clear();on(e,61,o,1);
+        on(e,62,o,2,Source::Generated);CHECK(o.size==3);
+        e.stopSource(Source::External,3,o);CHECK(o.size==3&&e.activeVoices()==1);
+        e.stopSource(Source::Generated,4,o);CHECK(o.size==4&&e.activeVoices()==0);
+    }
+    {
+        Engine e;major(e);o.clear();on(e,61,o,1);
+        e.controller(Source::External,1,64,127,2,o);off(e,61,o,3);
+        on(e,62,o,4);CHECK(o.size==3&&e.activeVoices()==2);
+        e.controller(Source::External,1,64,0,5,o);CHECK(o.size==3&&e.activeVoices()==1);
+        off(e,62,o,6);CHECK(o.size==4&&e.activeVoices()==0);
+        o.clear();on(e,61,o,7);on(e,62,o,8);o.clear();e.panic(9,o);
+        CHECK(o.size==1&&o.events[0].type==EventType::NoteOff&&o.events[0].note==62&&e.activeVoices()==0);
+    }
+    // Reserving both slots prevents a capacity boundary from emitting only
+    // half a retrigger. Exact-fit succeeds; one free slot triggers fail-closed
+    // cleanup before creating any new binding, with no partial attack left.
+    {
+        Engine e;major(e);o.clear();on(e,61,o);o.size=o.events.size()-2;
+        on(e,62,o,11);CHECK(!o.overflow&&!e.overloaded()&&o.size==o.events.size()&&e.activeVoices()==2);
+        CHECK(o.events[o.size-2].type==EventType::NoteOff&&o.events[o.size-2].value==0);
+        CHECK(o.events[o.size-1].type==EventType::NoteOn&&o.events[o.size-1].offset==11);
+        o.clear();off(e,61,o,12);CHECK(o.size==0);off(e,62,o,13);CHECK(o.size==1);
+        o.clear();on(e,61,o);o.size=o.events.size()-1;on(e,62,o,14);
+        CHECK(o.overflow&&e.overloaded()&&e.activeVoices()==0&&o.size==32);
+        for(size_t i=0;i<o.size;++i)CHECK(o.events[i].type==EventType::Controller&&o.events[i].offset==14);
+        o.clear();off(e,61,o,15);off(e,62,o,16);on(e,60,o,17);CHECK(o.size==0);
+        e.panic(18,o);o.clear();on(e,60,o,19);CHECK(o.size==1&&!e.overloaded());
+    }
+    {
+        Engine e;major(e);o.clear();on(e,61,o);o.size=o.events.size();
+        on(e,62,o,1,Source::Diagnostic);CHECK(!e.overloaded()&&!o.overflow&&e.activeVoices()==2);
+        o.clear();e.stopSource(Source::Diagnostic,2,o);CHECK(o.size==0&&e.activeVoices()==1);
+        off(e,61,o,3);CHECK(o.size==1&&e.activeVoices()==0);
+    }
+}
 void noteLifecycle() {
     Engine e;major(e);Output o;
     on(e,61,o,5);CHECK(o.size==1&&o.events[0].note==62&&o.events[0].value==100);
@@ -409,11 +557,11 @@ void noteLifecycle() {
     on(e,61,o,7);CHECK(o.size==2&&o.events[1].note==61);
     off(e,61,o,11);CHECK(o.size==3&&o.events[2].note==62); // FIFO, original mapping
     off(e,61,o,13);CHECK(o.size==4&&o.events[3].note==61);CHECK(e.activeVoices()==0);
-    major(e);o.clear();on(e,61,o);on(e,62,o);CHECK(o.size==1);off(e,61,o);CHECK(o.size==1);off(e,62,o);CHECK(o.size==2&&o.events[1].type==EventType::NoteOff);
-    o.clear();on(e,61,o);on(e,61,o,0,Source::Generated);CHECK(o.size==1);
-    e.stopSource(Source::Generated,9,o);CHECK(o.size==1&&e.activeVoices()==1);
-    off(e,61,o,10);CHECK(o.size==2&&o.events[1].offset==10);
-    o.clear();on(e,61,o);s=e.settings();s.correctionEnabled=false;e.setSettings(s);off(e,61,o);CHECK(o.events[1].note==62);
+    major(e);o.clear();on(e,61,o);on(e,62,o);CHECK(o.size==3);off(e,61,o);CHECK(o.size==3);off(e,62,o);CHECK(o.size==4&&o.events[3].type==EventType::NoteOff);
+    o.clear();on(e,61,o);on(e,61,o,0,Source::Generated);CHECK(o.size==3);
+    e.stopSource(Source::Generated,9,o);CHECK(o.size==3&&e.activeVoices()==1);
+    off(e,61,o,10);CHECK(o.size==4&&o.events[3].offset==10);
+    o.clear();on(e,61,o);const int boundBeforeBypass=o.events[0].note;s=e.settings();s.correctionEnabled=false;e.setSettings(s);off(e,61,o);CHECK(o.events[1].note==boundBeforeBypass);
     o.clear();on(e,61,o);CHECK(o.events[0].note==61);e.noteOn(Source::External,1,61,0,12,o);CHECK(o.size==2&&o.events[1].type==EventType::NoteOff);CHECK(e.activeVoices()==0);
     o.clear();on(e,61,o);on(e,61,o,0,Source::External,2);CHECK(o.size==2);off(e,61,o);CHECK(e.activeVoices()==1);off(e,61,o,0,Source::External,2);CHECK(e.activeVoices()==0);
     o.clear();off(e,99,o);CHECK(o.size==0);
@@ -425,15 +573,16 @@ void noteLifecycle() {
     chord(suppressed,{60,64,67});on(suppressed,61,o);CHECK(o.size==1);
     off(suppressed,61,o);CHECK(o.size==1&&suppressed.activeVoices()==1);
     off(suppressed,61,o);CHECK(o.size==2&&suppressed.activeVoices()==0);
+    reattackLifecycle();
 }
 void sustainAndControllers() {
     Engine e;major(e);Output o;
     on(e,61,o);e.controller(Source::External,1,64,127,1,o);off(e,61,o,2);CHECK(o.size==1&&e.activeVoices()==1);
     e.controller(Source::External,1,64,0,3,o);CHECK(o.size==2&&o.events[1].offset==3&&e.activeVoices()==0);
-    o.clear();on(e,61,o);e.controller(Source::External,1,64,127,0,o);off(e,61,o);on(e,61,o);off(e,61,o);CHECK(o.size==1&&e.activeVoices()==2);
-    e.controller(Source::External,1,64,0,4,o);CHECK(o.size==2&&e.activeVoices()==0);
+    o.clear();on(e,61,o);e.controller(Source::External,1,64,127,0,o);off(e,61,o);on(e,61,o);off(e,61,o);CHECK(o.size==3&&e.activeVoices()==2);
+    e.controller(Source::External,1,64,0,4,o);CHECK(o.size==4&&e.activeVoices()==0);
     o.clear();on(e,61,o);e.controller(Source::External,1,64,127,0,o);off(e,61,o);e.controller(Source::External,1,121,0,6,o);CHECK(o.size==3&&e.activeVoices()==0);CHECK(o.events[2].type==EventType::Controller&&o.events[2].note==121);
-    o.clear();on(e,61,o);on(e,61,o,0,Source::Generated);e.controller(Source::External,1,123,0,7,o);CHECK(o.size==1&&e.activeVoices()==1);e.stopSource(Source::Generated,8,o);CHECK(o.size==2);
+    o.clear();on(e,61,o);on(e,61,o,0,Source::Generated);e.controller(Source::External,1,123,0,7,o);CHECK(o.size==3&&e.activeVoices()==1);e.stopSource(Source::Generated,8,o);CHECK(o.size==4);
     o.clear();e.controller(Source::External,2,1,73,19,o);CHECK(o.size==1&&o.events[0].note==1&&o.events[0].value==73&&o.events[0].channel==2&&o.events[0].offset==19);
     // Forwarded hold pedals can sustain receiver notes after core bindings
     // disappear. Global panic must release those pedals with no active voices.

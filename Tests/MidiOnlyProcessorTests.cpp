@@ -179,6 +179,167 @@ struct Harness {
     }
 };
 
+// Feed the same absolute musical timeline through independently chosen
+// callback boundaries; collect offsets relative to the start of that timeline.
+Stream timeline(Harness& h,int block,int duration,const Stream& input) {
+    Stream result;
+    for(int start=0;start<duration;start+=block) {
+        const int count=std::min(block,duration-start);Stream part;
+        for(const auto& event:input)if(event.first>=start&&event.first<start+count)
+            part.emplace_back(event.first-start,event.second);
+        for(const auto& event:h.process(count,part))result.emplace_back(start+event.first,event.second);
+    }
+    return result;
+}
+void fixedMajor(Harness& h) {set(*h.processor,"mode",2);set(*h.processor,"root",0);set(*h.processor,"scale",1);}
+void descendingHistory(Harness& h) {
+    expectNote(h.process(128,{{5,on(71)}}),true,71,5);expectNote(h.process(128,{{17,off(71)}}),false,71,17);
+    expectNote(h.process(128,{{5,on(69)}}),true,69,5);expectNote(h.process(128,{{17,off(69)}}),false,69,17);
+}
+
+void directionalArticulationTimelines() {
+    struct Reference {const char* name;std::array<int,3> input,output;};
+    const std::array<Reference,5> references{{
+        {"ascending",{{65,67,68}},{{65,67,69}}},
+        {"descending",{{71,69,68}},{{71,69,67}}},
+        {"previous_two_over_current_jump",{{67,65,68}},{{67,65,67}}},
+        {"raw_ascending",{{61,62,61}},{{62,62,62}}},
+        {"raw_descending",{{62,61,63}},{{62,62,62}}}
+    }};
+    for(int block:{32,128,257})for(bool legato:{false,true})for(const auto& reference:references) {
+        Harness h(std::string("direction_")+reference.name+"_"+std::to_string(block)+(legato?"_legato":"_staccato"));fixedMajor(h);
+        Stream input,expected;
+        for(int i=0;i<3;++i) {
+            input.emplace_back(5+i*4800,on(reference.input[size_t(i)],1,71+i*11));
+            input.emplace_back(legato?(i==2?14405:5285+i*4800):2405+i*4800,off(reference.input[size_t(i)]));
+        }
+        if(legato&&reference.output[0]==reference.output[1]&&reference.output[1]==reference.output[2]) {
+            // One wire voice is rearticulated twice while three FIFO input
+            // bindings overlap in pairs. Earlier releases cannot cut it.
+            expected={{5,on(62,1,71)},{4805,off(62)},{4805,on(62,1,82)},
+                      {9605,off(62)},{9605,on(62,1,93)},{14405,off(62)}};
+        } else {
+            for(int i=0;i<3;++i) {
+                expected.emplace_back(5+i*4800,on(reference.output[size_t(i)],1,71+i*11));
+                expected.emplace_back(legato?(i==2?14405:5285+i*4800):2405+i*4800,off(reference.output[size_t(i)]));
+            }
+            std::stable_sort(expected.begin(),expected.end(),[](const Event& a,const Event& b){return a.first<b.first;});
+        }
+        sameStream(timeline(h,block,15000,input),expected,"Human staccato/10ms legato changed raw-note direction or articulation at callback boundaries");h.released();
+    }
+    // A longer preceding run must not preserve stale direction after its last
+    // two raw inputs reverse. The current tied note is not part of that pair.
+    for(bool rising:{false,true}) {
+        Harness h(rising?"direction_reverse_up":"direction_reverse_down");fixedMajor(h);
+        const std::vector<int> input=rising?std::vector<int>{71,69,67,65,67,68}:std::vector<int>{60,62,64,65,67,65,68};
+        for(size_t i=0;i<input.size();++i) {
+            const int expected=i+1==input.size()?(rising?69:67):input[i];
+            expectNote(h.process(128,{{7,on(input[i])}}),true,expected,7);
+            expectNote(h.process(128,{{97,off(input[i])}}),false,expected,97);
+        }
+        h.released();
+    }
+    for(int current:{66,68}) {
+        Harness h("direction_equal_previous_"+std::to_string(current));fixedMajor(h);
+        for(int i=0;i<2;++i){expectNote(h.process(128,{{7,on(67)}}),true,67,7);expectNote(h.process(128,{{97,off(67)}}),false,67,97);}
+        expectNote(h.process(128,{{7,on(current)}}),true,current==66?65:69,7);
+        expectNote(h.process(128,{{97,off(current)}}),false,current==66?65:69,97);h.released();
+    }
+    feature("legato_directional_ties");
+    passed("staccato_legato_raw_direction_and_reversals", "Actual callbacks:100ms raw onsets with staccato/10ms overlap across32/128/257-sample boundaries; exact two previous raw inputs, established reversals, equal-note special cases, velocities and causal offsets");
+}
+
+void simultaneousDirectionAndDiagnosticIsolation() {
+    for(bool reverse:{false,true}) {
+        Harness h(reverse?"poly_ties_reverse":"poly_ties_forward");fixedMajor(h);descendingHistory(h);
+        const int first=reverse?68:66,second=reverse?66:68;
+        Stream input{{23,on(first,1,81)},{23,on(second,1,99)},{47,off(first)},{61,off(second)},{73,on(70)},{97,off(70)}};
+        Stream expected{{23,on(first+1,1,81)},{23,on(second+1,1,99)},{47,off(first+1)},{61,off(second+1)},{73,on(71)},{97,off(71)}};
+        sameStream(h.process(128,input),expected,"Simultaneous polyphonic ties depended on event order or seeded later direction");h.released();
+    }
+    {
+        Harness h("simultaneous_duplicate_ons_have_no_direction_seed");fixedMajor(h);descendingHistory(h);
+        const Stream input{{23,on(67,1,81)},{23,on(67,1,99)},{47,off(67)},{61,off(67)},{73,on(66)},{97,off(66)}};
+        const Stream expected{{23,on(67,1,81)},{23,off(67)},{23,on(67,1,99)},{61,off(67)},{73,on(67)},{97,off(67)}};
+        sameStream(h.process(128,input),expected,"Duplicate same-sample attacks failed rearticulation or incorrectly established equal-note direction");h.released();
+    }
+    {
+        Harness h("future_poly_events_do_not_change_earlier_tie");fixedMajor(h);descendingHistory(h);
+        const Stream input{{7,on(68)},{9,off(68)},{19,on(66)},{19,on(70)},{31,off(66)},{37,off(70)}};
+        const Stream expected{{7,on(67)},{9,off(67)},{19,on(67)},{19,on(71)},{31,off(67)},{37,off(71)}};
+        sameStream(h.process(128,input),expected,"A future polyphonic timestamp changed an earlier monophonic decision");h.released();
+    }
+    {
+        Harness h("other_channels_do_not_erase_playing_direction");fixedMajor(h);descendingHistory(h);
+        const Stream input{{23,on(60,2)},{23,on(64,3)},{23,on(68)},{47,off(60,2)},{61,off(64,3)},{73,off(68)}};
+        const Stream expected{{23,on(60,2)},{23,on(64,3)},{23,on(67)},{47,off(60,2)},{61,off(64,3)},{73,off(67)}};
+        sameStream(h.process(128,input),expected,"Raw channels2/3 incorrectly counted as polyphonic playing-channel onsets");h.released();
+    }
+    for(bool offFirst:{false,true}) {
+        Harness h(offFirst?"legato_handoff_off_before_on":"legato_handoff_on_before_off");fixedMajor(h);
+        expectNote(h.process(128,{{5,on(71)}}),true,71,5);expectNote(h.process(128,{{17,off(71)}}),false,71,17);
+        expectNote(h.process(128,{{5,on(69)}}),true,69,5);
+        const Stream input=offFirst?Stream{{23,off(69)},{23,on(68)},{97,off(68)}}:Stream{{23,on(68)},{23,off(69)},{97,off(68)}};
+        const Stream expected=offFirst?Stream{{23,off(69)},{23,on(67)},{97,off(67)}}:Stream{{23,on(67)},{23,off(69)},{97,off(67)}};
+        sameStream(h.process(128,input),expected,"Same-sample old-off/new-on ordering changed the established descending direction");h.released();
+    }
+    for(bool simultaneous:{false,true}) {
+        Harness h(simultaneous?"diagnostic_same_sample_preserves_external_history":"diagnostic_between_external_raw_notes");fixedMajor(h);
+        expectNote(h.process(128,{{5,on(71)}}),true,71,5);expectNote(h.process(128,{{17,off(71)}}),false,71,17);
+        if(simultaneous) {
+            expectNote(h.process(128,{{5,on(69)}}),true,69,5);expectNote(h.process(128,{{17,off(69)}}),false,69,17);
+            h.processor->requestTestNote();const auto output=h.process(128,{{0,on(68)},{37,off(68)}});
+            check(output.size()==3,"Same-sample diagnostic/performer test lost a lifecycle");
+            const auto played=std::find_if(output.begin(),output.end(),[](const Event& e){return e.second.isNoteOn()&&e.second.getNoteNumber()==67;});
+            check(played!=output.end()&&played->first==0,"Diagnostic onset incorrectly made the external timestamp polyphonic");
+            check(notes(output,false).size()==1&&notes(output,false)[0].second.getNoteNumber()==67,"External off lost its diagnostic-isolated mapping");
+        } else {
+            h.processor->requestTestNote();const auto withDiagnostic=h.process(128,{{5,on(69)},{17,off(69)}});
+            check(withDiagnostic.size()==3,"Diagnostic-separated direction setup lost MIDI");
+            expectNote(h.process(128,{{23,on(68)}}),true,67,23);expectNote(h.process(128,{{41,off(68)}}),false,67,41);
+        }
+        const auto expiry=h.process(6000);check(notes(expiry,true).empty()&&notes(expiry,false).size()==1
+            &&notes(expiry,false)[0].second.getNoteNumber()==60,"Diagnostic expiry did not release its independent test note");h.released();
+    }
+    passed("simultaneous_fallback_causality_and_source_history", "Actual callbacks:permuted same-sample polyphony/duplicate onsets use upper fallback without seeding history; future timestamps, raw channels and diagnostic events do not corrupt external raw-note direction");
+}
+
+void samePitchRearticulation() {
+    for(int block:{32,128,257})for(bool duplicate:{false,true})for(bool newerEndsFirst:{false,true}) {
+        Harness h("rearticulation_"+std::to_string(block)+(duplicate?"_duplicate":"_collision")+(newerEndsFirst?"_newer_off_first":"_older_off_first"));fixedMajor(h);
+        const int second=duplicate?61:62;
+        Stream input{{5,on(61,1,71)},{4805,on(second,1,95)},
+                     {5285,off(newerEndsFirst&&!duplicate?second:61)},
+                     {9605,off(newerEndsFirst&&!duplicate?61:second)}};
+        const Stream expected{{5,on(62,1,71)},{4805,off(62)},{4805,on(62,1,95)},{9605,off(62)}};
+        sameStream(timeline(h,block,10000,input),expected,"A corrected collision failed Off-before-On rearticulation or a nonfinal FIFO release cut the remaining voice");h.released();
+    }
+    {
+        Harness h("pedalled_pitch_rearticulates_without_early_release");fixedMajor(h);
+        const Stream input{{5,on(61,1,71)},{101,juce::MidiMessage::controllerEvent(1,64,127)},{201,off(61)},
+                           {4805,on(62,1,95)},{5285,off(62)},{9605,juce::MidiMessage::controllerEvent(1,64,0)}};
+        const Stream expected{{5,on(62,1,71)},{4805,off(62)},{4805,on(62,1,95)},{9605,off(62)}};
+        sameStream(timeline(h,257,10000,input),expected,"A new attack failed to rearticulate a sustain-held output or pedal release emitted duplicate/early offs");h.released();
+    }
+    {
+        Harness h("colliding_bindings_survive_correction_automation");fixedMajor(h);
+        sameStream(h.process(128,{{5,on(61,1,71)},{23,on(62,1,95)}}),
+                   {{5,on(62,1,71)},{23,off(62)},{23,on(62,1,95)}},"Held collision setup lost articulation");
+        set(*h.processor,"correction",0);set(*h.processor,"scale",0);
+        check(h.process(128,{{17,off(61)}}).empty(),"Automation caused an old binding to kill the remaining corrected voice");
+        expectNote(h.process(128,{{37,on(62,1,0)}}),false,62,37);h.released();
+    }
+    {
+        Harness h("external_attack_rearticulates_diagnostic_voice");set(*h.processor,"mode",2);set(*h.processor,"scale",0);
+        h.processor->requestTestNote();expectNote(h.process(128),true,60,0);
+        sameStream(h.process(128,{{7,on(60,1,91)}}),{{7,off(60)},{7,on(60,1,91)}},"External attack was swallowed by an already sounding diagnostic note");
+        check(h.process(6000).empty(),"Diagnostic expiry cut a still-held external retrigger");
+        expectNote(h.process(128,{{37,off(60)}}),false,60,37);h.released();
+    }
+    feature("same_pitch_rearticulation");
+    passed("same_pitch_attacks_fifo_sustain_and_source_isolation", "Actual callbacks:each external same-output/repeated-input attack emits Off0 then fresh-velocity On at the original sample; only final logical release emits Off, including release-order permutations, sustain, automation and diagnostic expiry");
+}
+
 void declarationsAndState() {
     Harness h("parameters_and_instance_state");
     auto& a = *h.processor;
@@ -683,6 +844,27 @@ public:
         PositionInfo p; p.setIsPlaying(playing); p.setTimeInSamples(sample); return p;
     }
 };
+void rearticulationCleanup() {
+    for(int reason=0;reason<4;++reason) {
+        Harness h("rearticulation_cleanup_"+std::to_string(reason));fixedMajor(h);Position head;
+        h.processor->setPlayHead(&head);
+        sameStream(h.process(128,{{5,on(61,1,71)},{23,on(62,1,95)}}),
+                   {{5,on(62,1,71)},{23,off(62)},{23,on(62,1,95)}},"Cleanup setup failed to rearticulate colliding bindings");
+        Stream incoming;
+        if(reason==0)h.processor->requestPanic();
+        else if(reason==1){head.sample=128;head.playing=false;}
+        else if(reason==2)head.sample=4096;
+        else {head.sample=128;for(int n=0;n<2050;++n)incoming.emplace_back(n%127,on(n%128,2));}
+        const auto output=h.process(128,incoming);
+        check(notes(output,true).empty(),"Rearticulation cleanup generated a fresh attack");
+        if(reason<3)expectNote(notes(output,false),false,62,0);
+        else check(h.processor->capacityFault(),"Overflow after a rearticulation failed to enter capacity cleanup");
+        h.released();h.processor->setPlayHead(nullptr);
+        if(reason==3){h.processor->requestPanic();h.process(128);check(!h.processor->capacityFault(),"Panic failed to recover the rearticulated overflow case");}
+        check(h.process(128,{{17,off(61)},{37,off(62)}}).empty(),"Old FIFO input offs escaped after reset/panic/transport/fault cleanup");h.released();
+    }
+    passed("rearticulation_panic_transport_and_overflow_cleanup", "Two logical bindings sharing a rearticulated wire pitch terminate exactly once on Panic/stop/seek, or bounded controller cleanup on overflow; later original offs remain harmless");
+}
 void transportLimitsAndRealtime() {
     Harness h("transport_and_limits");
     auto& p = *h.processor;
@@ -746,7 +928,7 @@ void routingPulseDoesNotOwnExternalNote() {
 void writeEvidence(const char* status, const juce::String& error = {}) {
     auto* object = new juce::DynamicObject;
     object->setProperty("schema", 1); object->setProperty("kind", "FlysnapperMidiOnlyProcessor");
-    object->setProperty("version","0.4.2");object->setProperty("factory_mapping_sha256",factoryMappingSha256);
+    object->setProperty("version","0.4.3");object->setProperty("factory_mapping_sha256",factoryMappingSha256);
     object->setProperty("status", status); object->setProperty("checks", int(checks)); object->setProperty("cases", cases);
     object->setProperty("events_file", "Flysnapper-midi-processor-events.csv"); object->setProperty("events_rows", juce::int64(eventRows));
     juce::Array<juce::var> rawCases;
@@ -778,6 +960,7 @@ int main() {
     try {
         juce::ScopedJuceInitialiser_GUI runtime;
         declarationsAndState(); normalisedChoiceCoverage(); freshConstructorChoiceRounding(); harmonicMajorCallbackCoverage();
+        directionalArticulationTimelines(); simultaneousDirectionAndDiagnosticIsolation(); samePitchRearticulation(); rearticulationCleanup();
         chordControlAndInternalBypass(); revisedFactoryChoices(); newSharpEleventhChordTypes(); threeStageChain(); chordTimeAndHeldBindings();
         relayChangesAndConditionalBypass(); rawMessagesSustainAndPanic(); transportLimitsAndRealtime(); routingPulseDoesNotOwnExternalNote();
         writeEvidence("passed");

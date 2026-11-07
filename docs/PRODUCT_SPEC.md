@@ -1,15 +1,15 @@
-# Flysnapper MIDI – gjeldende produktoppdrag 0.4.2
+# Flysnapper MIDI – gjeldende produktoppdrag 0.4.3
 
 Brukeren har valgt å prøve den eksisterende Flysnapper som **VST3
 Instrument med audioutgang** før videre arbeid med en ren MIDI-effekt
 eller alternative formater. Denne presiseringen går foran tidligere
 påstander om null audiobusser eller samme-spor-kjeding i Live. Se
-[versjonsnotatet](RELEASE_0.4.2.md) og
+[versjonsnotatet](RELEASE_0.4.3.md) og
 [brukerveiledningen](BRUKERVEILEDNING.md).
 
 ## Gjeldende leveranse
 
-0.4.2 heter Flysnapper MIDI og beholder Fsm1-identiteten og bundlen
+0.4.3 heter Flysnapper MIDI og beholder Fsm1-identiteten og bundlen
 `Flysnapper MIDI.vst3` fra 0.4.0. Vertskategorien er Instrument, med ingen
 audioinngang og én stille stereo audioutgang. Audioutgangen er en
 vertsadapter; pluginen inneholder ingen synthesizer, pitchdetektor,
@@ -67,6 +67,12 @@ instrumentadapteren prøves. Pitch-to-MIDI/DSP-utvikling er avsluttet.
 Historiske [0.4.0-notater](RELEASE_0.4.0.md), bestillinger og tidligere
 valideringsarkiver beholdes uendret. Teksten nedenfor gjelder det
 historiske gitaroppdraget og er ikke aktive krav til 0.4.1.
+
+0.4.3 retter retningshistorikk ved legato og gir nytt anslag ved samme
+korrigerte tone. Den opprinnelige to-foregående-råtoner-regelen beholdes;
+samtidige anslag i samme strøm bruker reserve oppover uten lookahead.
+Note Off/On ved nytt anslag beholdes sammen med opprinnelige bindinger
+og siste-referanse-slipp. Routing er bekreftet av brukeren i 0.4.2.
 
 ## Historisk oppdrag 3.–6. november
 

@@ -68,8 +68,13 @@ void Engine::updateAllowed() noexcept {
     }
 }
 void Engine::beginTimestamp(int noteOnCount) noexcept {
-    ambiguous=noteOnCount>1;
-    if(ambiguous)resetHistory();
+    beginTimestamp(Source::External,1,noteOnCount);
+}
+void Engine::beginTimestamp(Source source,int channel,int noteOnCount) noexcept {
+    if(!validSource(source)||channel<1||channel>16)return;
+    auto& history=histories[size_t(source)][size_t(channel-1)];
+    history.ambiguous=noteOnCount>1;
+    if(history.ambiguous)history.previous=history.beforePrevious=-1;
 }
 int Engine::nearest(int note,uint16_t allowed,int prev,int before) noexcept {
     if(note<0||note>127||!(allowed&0xfff))return -1;
@@ -113,20 +118,28 @@ void Engine::failSafe(int offset,Output& out) noexcept {
 }
 void Engine::noteOn(Source source,int channel,int note,int velocity,int offset,Output& out) noexcept {
     if(velocity<=0){noteOff(source,channel,note,0,offset,out);return;}
-    if(fault||channel<1||channel>16||note<0||note>127)return;
+    if(fault||!validSource(source)||channel<1||channel>16||note<0||note>127)return;
     auto found=std::find_if(voices.begin(),voices.end(),[](const Voice& v){return !v.active;});
     if(found==voices.end()){failSafe(offset,out);return;}
-    // A second overlapping input is polyphonic unless the same-note FIFO case
-    // can retain direction. Ambiguity never adds lookahead or buffering.
-    const bool overlap=std::any_of(voices.begin(),voices.end(),[&](const Voice& v){return v.active&&!v.released&&(v.source!=source||v.input!=note);});
-    if(overlap)resetHistory();
-    const int output=nearest(note,view.allowedMask,ambiguous?-1:previous,ambiguous?-1:beforePrevious);
+    // History follows attacks, not key releases. Ordinary legato and sustain
+    // tails therefore preserve the same direction as detached playing.
+    auto& history=histories[size_t(source)][size_t(channel-1)];
+    const int output=nearest(note,view.allowedMask,history.ambiguous?-1:history.previous,history.ambiguous?-1:history.beforePrevious);
+    const bool alreadySounding=output>=0&&outputRefs[size_t(channel-1)][size_t(output)]>0;
+    const bool retrigger=alreadySounding&&source!=Source::Diagnostic;
+    const bool attack=output>=0&&(!alreadySounding||retrigger);
+    const size_t required=size_t(attack)+size_t(retrigger);
+    // A retrigger is one atomic Off/On pair. Check both slots before creating
+    // a binding or changing reference counts; failSafe discards pending output.
+    if(out.size>out.events.size()||required>out.events.size()-out.size){failSafe(offset,out);return;}
     *found={++serial,note,output,channel,source,true,false};
     if(output>=0){
         auto& refs=outputRefs[size_t(channel-1)][size_t(output)];
-        if(refs++==0&&!emit({EventType::NoteOn,channel,output,std::clamp(velocity,1,127),offset},out))return;
+        ++refs;
+        if(retrigger&&!emit({EventType::NoteOff,channel,output,0,offset},out))return;
+        if(attack&&!emit({EventType::NoteOn,channel,output,std::clamp(velocity,1,127),offset},out))return;
     }
-    if(!ambiguous){beforePrevious=previous;previous=note;}
+    if(!history.ambiguous){history.beforePrevious=history.previous;history.previous=note;}
 }
 void Engine::release(Voice& v,int velocity,int offset,Output& out) noexcept {
     if(!v.active)return;
@@ -138,7 +151,7 @@ void Engine::release(Voice& v,int velocity,int offset,Output& out) noexcept {
     }
 }
 void Engine::noteOff(Source source,int channel,int note,int velocity,int offset,Output& out) noexcept {
-    if(channel<1||channel>16||note<0||note>127)return;
+    if(!validSource(source)||channel<1||channel>16||note<0||note>127)return;
     Voice* found=nullptr;
     for(auto& v:voices)if(v.active&&!v.released&&v.source==source&&v.channel==channel&&v.input==note)
         if(!found||v.serial<found->serial)found=&v;
@@ -147,7 +160,7 @@ void Engine::noteOff(Source source,int channel,int note,int velocity,int offset,
     else release(*found,velocity,offset,out);
 }
 void Engine::controller(Source source,int channel,int cc,int value,int offset,Output& out) noexcept {
-    if(fault||channel<1||channel>16||cc<0||cc>127||value<0||value>127)return;
+    if(fault||!validSource(source)||channel<1||channel>16||cc<0||cc>127||value<0||value>127)return;
     if(cc==64){
         pedal[size_t(source)][size_t(channel-1)]=value>=64;
         if(value<64)for(auto& v:voices)if(v.active&&v.released&&v.source==source&&v.channel==channel)release(v,0,offset,out);
@@ -155,7 +168,7 @@ void Engine::controller(Source source,int channel,int cc,int value,int offset,Ou
     }
     if(cc==120||cc==123){
         for(auto& v:voices)if(v.active&&v.source==source&&v.channel==channel)release(v,0,offset,out);
-        pedal[size_t(source)][size_t(channel-1)]=false;resetHistory();return;
+        pedal[size_t(source)][size_t(channel-1)]=false;histories[size_t(source)][size_t(channel-1)]={};return;
     }
     if(cc==121){
         pedal[size_t(source)][size_t(channel-1)]=false;
@@ -171,8 +184,9 @@ void Engine::controller(Source source,int channel,int cc,int value,int offset,Ou
     }
 }
 void Engine::stopSource(Source source,int offset,Output& out) noexcept {
+    if(!validSource(source))return;
     for(auto& v:voices)if(v.active&&v.source==source)release(v,0,offset,out);
-    pedal[size_t(source)]={};resetHistory();
+    pedal[size_t(source)]={};histories[size_t(source)]={};
 }
 void Engine::panic(int offset,Output& out) noexcept {
     for(auto& v:voices)if(v.active)release(v,0,offset,out);

@@ -1,26 +1,28 @@
-# Levert: Flysnapper MIDI 0.4.2
+# Gjeldende arbeid: 0.4.3 retning og anslag
 
-Alle 52 akkordtyper og 38 skalaer beholdes. C7#9 bruker Half Whole
-Diminished, C7b13 bruker Mixolydian b6, og C13#9/C13add#9 bruker
-Chromatic. Vanlig kommentering beholdes; fargeunntak er kansellert.
-Nye instanser eller Reset all 52 to factory bruker verdiene. Lagret
-instanstilstand beholder sine egne valg.
+Brukeren bekreftet fungerende ruting i 0.4.2, men meldte tapt legatoretning
+og undertrykte nye anslag ved samme korrigerte tone. Se
+[bestillingen](ARTICULATION_REQUEST_2026-11-07.md) og
+[versjonsnotatet](RELEASE_0.4.3.md).
 
-Byggekilde52698899fb3aa9d4f9ebe14860f12eb7183811bd, Windows-run
-42411267938, kontrollpunktf501059f12990605de0dc097aa0d6c2a9a274453.
-Native og Windows4/4, Python199 (Linux197+2hopp, Windows198+1hopp),
-faktisk PS/BAT-installasjon og offline bindingaudit er bestått.
-Se [kontrollbevis](validation/midi-factory-final-2026-11-07/windows/README.md).
+Opprinnelig to-foregående-råtoner-regel beholdes. Historiestrømmer er
+separate; vanlig overlapp sletter ikke melodihistorien. Samtidige flere
+anslag i samme strøm bruker reserve oppover uten lookahead. Nye
+spilleanslag reartikulerer allerede aktiv måltone med Off/On samme
+sample/ny velocity, mens gamle bindinger/FIFO/siste slipp beholdes.
+Diagnostic-kollisjoner beholder lav prioritet.
 
-Eksakt pakke er publisert som2444f6264f29f923d2fa9b4a96a72c350b85832d
-og HTTP200-nedlastet med riktig størrelse/SHA-256. Brukerens uttrykkelige
-godkjenning dekker GitHub-kode, Excel-grunnlag og byggelogger. Tidligere
-avvisning av denne brede publiseringen er dermed avklart; ikke be om
-samme tillatelse på nytt innenfor dette oppdraget. Fulle private Live-
-logger omfattes ikke og skal fortsatt holdes private.
+Alle 52 akkordtyper/38 skalaer, fabrikkhash8372..., instrumentrolle,
+Fsm1, parametre/lagring og vertsruting beholdes. Krev ferske Core-,
+prosessor- og faktisk VST3-prøver av legato/staccato over blokkgrenser,
+rå tie-tabell, flere kilder, nytt anslag, slipperekkefølger, sustain og
+reset/overløp. Begge rapporter må bevise legato_directional_ties og
+same_pitch_rearticulation. Oppdater gamle sammenslåingsforventninger,
+men behold urelaterte regresjoner.
 
-Ingen bygg-/utviklingsjobber gjenstår. Neste steg er brukerens praktiske
-Live-resultat eller nye bestilling. Ikke gjeninnfør kansellert51-bibliotek,
-særfarge/tekst, Pitch-to-MIDI, wrapper, CLAP eller Max-utvikling.
-Instrumentrolle, stille stereo og pluginens MIDI-uttak til mottakerspor
-beholdes. Ikke påstå faktisk Live-/lydkortmåling fra testvertene.
+Etter lokal kontroll: bygg ny Windows-versjon, kontroller faktisk
+PS/BAT-installasjon og eksakt kilde-/pakke-/modul-/hendelsesbinding,
+publiser samme kontrollerte bytes og verifiser HTTP-nedlasting. Eksisterende
+uttrykkelige godkjenning dekker GitHub-kode, Excel-grunnlag og byggelogger;
+ikke be om samme tillatelse igjen. Fulle private Live-logger omfattes
+ikke. Ingen ny faktisk Live-kjøring påstås fra testvertene.

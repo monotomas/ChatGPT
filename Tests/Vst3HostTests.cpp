@@ -152,6 +152,39 @@ template <typename Fn> void runCase(const juce::String& name, Fn&& fn) {
     }
     cases.add(juce::var(item)); std::cout << "PASS " << name << '\n';
 }
+using ScheduledMidi = std::vector<std::pair<int, juce::MidiMessage>>;
+std::vector<Note> deliverSchedule(Session& s, const ScheduledMidi& input, int block, int lastSample) {
+    std::vector<Note> output;
+    // Schedule time zero follows the control-only setup callback. Only events
+    // inside the current block are delivered; later fixture data is not made
+    // visible to the component before its actual callback.
+    for (int start = 0; start <= lastSample; start += block) {
+        juce::MidiBuffer midi;
+        for (const auto& event : input)
+            if (event.first >= start && event.first < start + block)
+                midi.addEvent(event.second, event.first - start);
+        for (auto event : s.process(midi, block)) { event.offset += start; output.push_back(event); }
+    }
+    return output;
+}
+void expectNotes(const std::vector<Note>& actual, const std::vector<Note>& expected, const char* context) {
+    check(actual.size() == expected.size(), std::string(context) + ": wrong note/attack/release count");
+    for (size_t i = 0; i < expected.size(); ++i) {
+        const auto& e = expected[i]; expectNote(actual, i, e.on, e.pitch, e.offset, e.channel, e.velocity);
+    }
+}
+void selectCMajor(Session& s, int mode = 2) {
+    setChoice(*s.plugin, "Mode", mode);
+    juce::MidiBuffer controls;
+    if (mode == 2) { setChoice(*s.plugin, "Root", 0); setChoice(*s.plugin, "Scale", 1); }
+    else if (mode == 1) {
+        setChoice(*s.plugin, "Map major", 1); chord(controls, true, {48, 52, 55}, 0);
+    } else {
+        // A full G13 supplies exactly C D E F G A B to Chord Tones Only.
+        chord(controls, true, {43, 47, 50, 53, 57, 60, 64}, 0);
+    }
+    check(s.process(controls).empty(), "Direction setup leaked chord controls or generated playing MIDI");
+}
 
 // Persisted IDs: retain the original fifty, then append the two requested
 // sharp-eleventh major types. This fixture also checks actual VST3 ParamIDs.
@@ -189,7 +222,7 @@ void expectUserFactoryChoices(juce::AudioPluginInstance& p, bool declaredDefault
 
 void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     check(d.isInstrument, "Actual VST3 must be classified as an instrument");
-    check(d.version == "0.4.2", "Actual VST3 must report version 0.4.2");
+    check(d.version == "0.4.3", "Actual VST3 must report version 0.4.3");
     const auto categories = juce::StringArray::fromTokens(d.category, "|", "");
     check(categories.size()==1 && categories.contains("Instrument"),
           "Actual VST3 metadata must contain exactly Instrument, without Fx/Tools");
@@ -554,16 +587,138 @@ void testOverlappingBindings(juce::AudioPluginFormatManager& formats, const juce
     midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(81)), 3);
     midi.addEvent(juce::MidiMessage::noteOn(1, 60, juce::uint8(95)), 7);
     midi.addEvent(juce::MidiMessage::noteOff(1, 61), 11); midi.addEvent(juce::MidiMessage::noteOff(1, 60), 19);
-    auto out = s.process(midi); check(out.size() == 2, "Shared corrected output lost reference ownership");
-    expectNote(out, 0, true, 60, 3, 1, 81); expectNote(out, 1, false, 60, 19);
+    auto out = s.process(midi); check(out.size() == 4, "Shared corrected output lost an attack or reference ownership");
+    expectNote(out, 0, true, 60, 3, 1, 81); expectNote(out, 1, false, 60, 7, 1, 0);
+    expectNote(out, 2, true, 60, 7, 1, 95); expectNote(out, 3, false, 60, 19);
     midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(82)), 5);
     midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(92)), 9);
     midi.addEvent(juce::MidiMessage::noteOff(1, 61), 17); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 29);
-    out = s.process(midi); check(out.size() == 2, "Repeated input FIFO lost corrected output ownership");
-    expectNote(out, 0, true, 60, 5, 1, 82); expectNote(out, 1, false, 60, 29);
+    out = s.process(midi); check(out.size() == 4, "Repeated input FIFO lost an attack or corrected output ownership");
+    expectNote(out, 0, true, 60, 5, 1, 82); expectNote(out, 1, false, 60, 9, 1, 0);
+    expectNote(out, 2, true, 60, 9, 1, 92); expectNote(out, 3, false, 60, 29);
     midi.clear(); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 31); out = s.process(midi);
     check(out.empty(), "Unmatched note release generated a spurious output");
-    features.add("overlapping_note_bindings");
+    features.add("overlapping_note_bindings"); features.add("same_pitch_rearticulation");
+}
+juce::MidiMessage midiOn(int pitch, int velocity = 90, int channel = 1) {
+    return juce::MidiMessage::noteOn(channel, pitch, juce::uint8(velocity));
+}
+juce::MidiMessage midiOff(int pitch, int channel = 1) { return juce::MidiMessage::noteOff(channel, pitch); }
+void testDirectionalTimelines(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    struct Reference { const char* name; std::array<int, 3> input, output; };
+    const std::array<Reference, 5> references{{
+        {"ascending", {{65,67,68}}, {{65,67,69}}},
+        {"descending", {{71,69,68}}, {{71,69,67}}},
+        {"previous_two_raw_notes", {{67,65,68}}, {{67,65,67}}},
+        {"raw_ascending", {{61,62,61}}, {{62,62,62}}},
+        {"raw_descending", {{62,61,63}}, {{62,62,62}}}
+    }};
+    for (int block : {32,128,257}) for (bool legato : {false,true}) for (const auto& r : references) {
+        Session s(formats,d,"direction_"+juce::String(r.name)+"_"+juce::String(block)+(legato?"_legato":"_staccato"),48000,block);
+        selectCMajor(s); ScheduledMidi input; std::vector<Note> expected;
+        for (int i=0;i<3;++i) {
+            input.emplace_back(5+i*4800,midiOn(r.input[size_t(i)],71+i*11));
+            input.emplace_back(legato?(i==2?14405:5285+i*4800):2405+i*4800,midiOff(r.input[size_t(i)]));
+        }
+        if (legato && r.output[0]==r.output[1] && r.output[1]==r.output[2]) {
+            expected={{true,1,62,71,5},{false,1,62,0,4805},{true,1,62,82,4805},
+                      {false,1,62,0,9605},{true,1,62,93,9605},{false,1,62,0,14405}};
+        } else {
+            for (int i=0;i<3;++i) {
+                expected.push_back({true,1,r.output[size_t(i)],71+i*11,5+i*4800});
+                expected.push_back({false,1,r.output[size_t(i)],0,legato?(i==2?14405:5285+i*4800):2405+i*4800});
+            }
+            std::stable_sort(expected.begin(),expected.end(),[](const Note& a,const Note& b){return a.offset<b.offset;});
+        }
+        expectNotes(deliverSchedule(s,input,block,15000),expected,"Staccato/10ms legato raw-note direction, attack or callback timing");
+        juce::MidiBuffer empty; check(s.process(empty).empty(),"Finished directional timeline left an extra output release");
+    }
+    features.add("legato_directional_ties");
+}
+void testTimestampDirection(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    const ScheduledMidi prefix{{3,midiOn(71)},{7,midiOff(71)},{11,midiOn(69)},{15,midiOff(69)}};
+    const std::vector<Note> prefixOutput{{true,1,71,90,3},{false,1,71,0,7},{true,1,69,90,11},{false,1,69,0,15}};
+    for (bool reverse : {false,true}) for (bool duplicate : {false,true}) {
+        Session s(formats,d,"same_timestamp_"+juce::String(reverse?"reverse":"forward")+(duplicate?"_duplicate":"_poly"));selectCMajor(s);
+        auto input=prefix; auto expected=prefixOutput;
+        const int first=duplicate?67:(reverse?68:66),second=duplicate?67:(reverse?66:68);
+        input.insert(input.end(),{{23,midiOn(first,81)},{23,midiOn(second,99)},
+            {47,midiOff(first)},{61,midiOff(second)},{73,midiOn(66)},{97,midiOff(66)}});
+        expected.push_back({true,1,duplicate?67:first+1,81,23});
+        if(duplicate)expected.push_back({false,1,67,0,23});
+        expected.push_back({true,1,duplicate?67:second+1,99,23});
+        if(!duplicate)expected.push_back({false,1,first+1,0,47});
+        expected.push_back({false,1,duplicate?67:second+1,0,61});
+        expected.push_back({true,1,67,90,73});expected.push_back({false,1,67,0,97});
+        expectNotes(deliverSchedule(s,input,128,127),expected,"Same-sample polyphony/duplicates must use upper fallback without seeding direction");
+    }
+    for(bool offFirst:{false,true}) {
+        Session s(formats,d,offFirst?"handoff_off_first":"handoff_on_first");selectCMajor(s);
+        ScheduledMidi input{{3,midiOn(71)},{7,midiOff(71)},{11,midiOn(69)}};
+        std::vector<Note> expected{{true,1,71,90,3},{false,1,71,0,7},{true,1,69,90,11}};
+        if(offFirst) {
+            input.insert(input.end(),{{23,midiOff(69)},{23,midiOn(68)}});
+            expected.insert(expected.end(),{{false,1,69,0,23},{true,1,67,90,23}});
+        } else {
+            input.insert(input.end(),{{23,midiOn(68)},{23,midiOff(69)}});
+            expected.insert(expected.end(),{{true,1,67,90,23},{false,1,69,0,23}});
+        }
+        input.emplace_back(97,midiOff(68));expected.push_back({false,1,67,0,97});
+        expectNotes(deliverSchedule(s,input,128,127),expected,"Same-sample handoff changed raw descending direction");
+    }
+    {
+        Session s(formats,d,"future_events_do_not_change_an_earlier_tie");selectCMajor(s);
+        auto input=prefix;auto expected=prefixOutput;
+        input.insert(input.end(),{{23,midiOn(68)},{25,midiOn(66)},{25,midiOn(70)},
+                                  {27,midiOff(68)},{31,midiOff(66)},{37,midiOff(70)}});
+        expected.insert(expected.end(),{{true,1,67,90,23},{false,1,67,0,25},{true,1,67,90,25},
+                                       {true,1,71,90,25},{false,1,67,0,31},{false,1,71,0,37}});
+        expectNotes(deliverSchedule(s,input,128,127),expected,"A later simultaneous batch changed an earlier descending tie or ownership");
+    }
+    {
+        Session s(formats,d,"channel_two_isolated_from_raw_playing_history");selectCMajor(s);
+        auto input=prefix;auto expected=prefixOutput;
+        input.insert(input.end(),{{23,midiOn(60,87,2)},{23,midiOn(68)},
+                                  {47,midiOff(60,2)},{61,midiOff(68)}});
+        expected.insert(expected.end(),{{true,2,60,87,23},{true,1,67,90,23},
+                                       {false,2,60,0,47},{false,1,67,0,61}});
+        expectNotes(deliverSchedule(s,input,128,127),expected,"Channel two changed channel-one direction or same-sample classification");
+    }
+}
+void testDiagnosticIsolationAndSustain(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    for(bool simultaneous:{false,true}) {
+        Session s(formats,d,simultaneous?"diagnostic_same_sample_direction":"diagnostic_between_playing_notes");selectCMajor(s);
+        juce::MidiBuffer midi;midi.addEvent(midiOn(71),3);midi.addEvent(midiOff(71),7);
+        if(simultaneous){midi.addEvent(midiOn(69),11);midi.addEvent(midiOff(69),15);}
+        check(s.process(midi).size()==(simultaneous?4u:2u),"Diagnostic history setup lost notes");
+        setNormalised(*s.plugin,"Routing Test",1);midi.clear();
+        midi.addEvent(midiOn(simultaneous?68:69),simultaneous?0:11);midi.addEvent(midiOff(simultaneous?68:69),31);
+        auto out=s.process(midi);check(out.size()==3,"Diagnostic and external source lifecycle missing");
+        const auto playing=std::find_if(out.begin(),out.end(),[&](const Note& n){return n.on&&n.pitch==(simultaneous?67:69);});
+        check(playing!=out.end()&&playing->offset==(simultaneous?0:11),"Diagnostic source corrupted external history or same-sample count");
+        if(!simultaneous){midi.clear();midi.addEvent(midiOn(68),13);midi.addEvent(midiOff(68),21);
+            expectNotes(s.process(midi),{{true,1,67,90,13},{false,1,67,0,21}},"Diagnostic between raw notes changed direction");}
+        setNormalised(*s.plugin,"Routing Test",0);midi.clear();expectNotes(s.process(midi),{{false,1,60,0,0}},"Diagnostic stop did not isolate its own voice");
+    }
+    for(bool diagnosticFirst:{false,true}) {
+        Session s(formats,d,diagnosticFirst?"external_rearticulates_diagnostic":"diagnostic_preserves_external_attack");selectCMajor(s);
+        juce::MidiBuffer midi;
+        if(diagnosticFirst){setNormalised(*s.plugin,"Routing Test",1);expectNotes(s.process(midi),{{true,1,60,100,0}},"Diagnostic onset");}
+        midi.clear();midi.addEvent(midiOn(60,97),11);
+        expectNotes(s.process(midi),diagnosticFirst?std::vector<Note>{{false,1,60,0,11},{true,1,60,97,11}}:
+            std::vector<Note>{{true,1,60,97,11}},"External attack must retrigger an existing diagnostic output");
+        if(!diagnosticFirst){setNormalised(*s.plugin,"Routing Test",1);midi.clear();check(s.process(midi).empty(),"Diagnostic pulse retriggered an externally held note");}
+        for(int i=0;i<40;++i){midi.clear();check(s.process(midi).empty(),"Diagnostic expiry cut an external pitch owner");}
+        midi.clear();midi.addEvent(midiOff(60),17);expectNotes(s.process(midi),{{false,1,60,0,17}},"External final release lost shared ownership");
+    }
+    {
+        Session s(formats,d,"sustain_rearticulates_then_keeps_the_newer_held_note");selectCMajor(s);juce::MidiBuffer midi;
+        midi.addEvent(juce::MidiMessage::controllerEvent(1,64,127),0);
+        midi.addEvent(midiOn(61,81),3);midi.addEvent(midiOff(61),7);midi.addEvent(midiOn(62,95),11);
+        midi.addEvent(juce::MidiMessage::controllerEvent(1,64,0),19);midi.addEvent(midiOff(62),27);
+        expectNotes(s.process(midi),{{true,1,62,81,3},{false,1,62,0,11},{true,1,62,95,11},{false,1,62,0,27}},
+            "Sustain-held output lost a new attack or pedal-up cut its newer held owner");
+    }
 }
 void testState(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     Session original(formats, d, "state_original"), restored(formats, d, "state_clone"), independent(formats, d, "state_independent");
@@ -692,7 +847,7 @@ void writeEvidence(const juce::File& directory, bool passed, const juce::String&
     check(events.replaceWithText(csv), "Could not write VST3 MIDI events");
     auto* object = new juce::DynamicObject;
     object->setProperty("schema", 1); object->setProperty("kind", "FlysnapperMidiOnlyVst3");
-    object->setProperty("version", "0.4.2");
+    object->setProperty("version", "0.4.3");
     object->setProperty("status", passed ? "passed" : "failed"); object->setProperty("checks", assertions);
     object->setProperty("scope", "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver");
     object->setProperty("ableton_verified", false); object->setProperty("pitch_detection_implemented", false);
@@ -735,6 +890,9 @@ int run(int argc, const juce::String& path, const juce::String& output) {
         runCase("non_ch1_notes_and_expression", [&] { testExpression(formats, d); });
         runCase("channel1_sustain_and_latch_reset", [&] { testPedals(formats, d); });
         runCase("overlapping_input_bindings", [&] { testOverlappingBindings(formats, d); });
+        runCase("staccato_legato_raw_direction_across_callback_sizes", [&] { testDirectionalTimelines(formats, d); });
+        runCase("same_sample_fallback_causality_and_channel_isolation", [&] { testTimestampDirection(formats, d); });
+        runCase("diagnostic_source_and_sustain_rearticulation", [&] { testDiagnosticIsolationAndSustain(formats, d); });
         runCase("instance_state", [&] { testState(formats, d); });
         runCase("transport_reset", [&] { testTransport(formats, d); });
         runCase("generated_midi_routing", [&] { testGeneratedRouting(formats, d); });

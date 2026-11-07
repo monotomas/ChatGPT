@@ -1,6 +1,6 @@
-# Flysnapper MIDI 0.4.2 – brukerveiledning
+# Flysnapper MIDI 0.4.3 – brukerveiledning
 
-0.4.2 er en VST3-instrumentadapter som skal prøves i Ableton Live. Den har
+0.4.3 er en VST3-instrumentadapter som skal prøves i Ableton Live. Den har
 ingen audioinngang og sender bare stillhet på sin stereo audioutgang.
 Selve funksjonen er MIDI-til-MIDI: 52 akkordtyper, 38 skalaer og brukerens
 52 fabrikkvalg fra den utfylte Excel-filen. Pitch-to-MIDI og lydanalyse er
@@ -9,21 +9,21 @@ fjernet.
 Korrigert MIDI hentes fra Flysnapper til et separat instrumentspor.
 Denne utgaven er ikke dokumentert som en MIDI-effekt som kan seriekobles
 foran et annet instrument på samme Live-spor. Se
-[versjonsnotatet for 0.4.2](RELEASE_0.4.2.md) for gjeldende kontrollstatus.
+[versjonsnotatet for 0.4.3](RELEASE_0.4.3.md) for gjeldende kontrollstatus.
 Innlasting og ruting i brukerens Live 12.4.6 er fortsatt ikke bekreftet.
 
 ## Installasjon og pluginidentitet
 
-Bruk Windows-pakken merket 0.4.2. Pakk ut hele ZIP-filen, lukk
+Bruk Windows-pakken merket 0.4.3. Pakk ut hele ZIP-filen, lukk
 pluginvertene og kjør `INSTALL_FLYSNAPPER.bat`. Python, CMake og Visual
 Studio trengs ikke til normal installasjon. Ved manuell installasjon skal
 hele `Flysnapper MIDI.vst3`-bundlen kopieres, ikke bare filen inne i
 Contents. En Linux-modul kan ikke brukes som Windows-plugin.
 
-0.4.2 beholder navnet **Flysnapper MIDI** og samme Fsm1-komponentidentitet
+0.4.3 beholder navnet **Flysnapper MIDI** og samme Fsm1-komponentidentitet
 som 0.4.0. Den oppdaterer derfor denne bundlen. Gammel `Flysnapper.vst3`
 0.3.0 har en annen identitet og blir ikke overskrevet. Velg Flysnapper MIDI
-og kontroller versjon 0.4.2 ved utprøvingen.
+og kontroller versjon 0.4.3 ved utprøvingen.
 
 Musikalsk XML-tilstand bruker stabile akkord-/skala-ID-er. Dette er ikke et
 løfte om automatisk migrering av gamle prosjekter eller normalisert
@@ -92,8 +92,12 @@ akkordgrunnlag skaper ikke en oppdiktet skala.
 
 **Fixed Scale** bruker valgt grunntone og skala uten å la akkordsporet
 bestemme korreksjonen. Nye instanser starter i Fixed Scale/Chromatic.
-Nærmeste tillatte tone velges med de avtalte retningsreglene ved lik
-avstand. Påbegynte toner retunes ikke ved akkord-/skala-/modusbytte.
+Nærmeste tillatte tone velges. Ved lik avstand brukes de to foregående
+ukorrigerte spilletonene, uten den aktuelle tonen. Vanlig legatooverlapp
+beholder historikken; samtidige anslag i samme strøm bruker reservevalg
+oppover. Et nytt anslag på samme korrigerte tone sender Note Off og ny
+Note On på samme sample med ny velocity. Eldre Note Off-bindinger
+beholdes, slik at de ikke avbryter en nyere tone som fortsatt holdes. Påbegynte toner retunes ikke ved akkord-/skala-/modusbytte.
 Flysnapper venter ikke på framtidige noter.
 
 ## Baksiden og fabrikkvalgene
@@ -128,5 +132,5 @@ En plugin kan ikke sende oppryddingshendelser etter at verten har fjernet den.
 Pluginen rapporterer null kompensasjonslatency og bruker ikke et
 analysevindu. Vertens buffere, ruting og mottakerinstrument kan likevel gi
 hørbar forsinkelse. Generiske VST3-tester og Windows-installasjonskontroller
-er ikke en praktisk Ableton-godkjenning. 0.4.2 skal vurderes i Live før
+er ikke en praktisk Ableton-godkjenning. 0.4.3 skal vurderes i Live før
 videre format- eller kjedeutvikling.

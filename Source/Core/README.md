@@ -27,8 +27,12 @@ scale and chord tones.
 - An empty chord set suppresses new notes in chord modes, recording a zero-output
   binding so later repeated input notes still get correct FIFO Note Offs.
 - Repeated identical input notes match oldest still-held input first (FIFO).
-- Different input voices on the same output channel/note are reference counted:
-  first on and last off only. There is no collision retrigger.
+- Playing input voices on the same output channel/note retain separate
+  bindings and reference counts. Every new playing attack rearticulates with
+  Note Off then Note On at the same offset when the destination is active;
+  the last remaining binding releases it. Diagnostic collisions alone keep
+  their non-intrusive coalescing behavior. The pair is capacity-checked before
+  binding/reference mutation.
 - Generated/external sources use the same correction rule. Source termination
   drops only that source's references, preserving another source's shared note.
 - CC64 sustain is implemented internally per source/channel. It is consumed;
@@ -44,12 +48,17 @@ scale and chord tones.
   are added when those controls were not forwarded down. Source-scoped stops
   preserve this shared-channel expression; release the pedal or use global
   Panic when the receiver should also release pedal-held notes immediately.
-- Run history uses uncorrected notes, resets on settings change, panic and source
-  termination. Multiple Note Ons at one timestamp and overlapping different
-  input notes invalidate direction. There is no lookahead. Chord updates alone
-  do not erase otherwise usable run history.
+- Run history uses the two preceding uncorrected inputs in each internal
+  source/channel stream, excluding the current note. Ordinary held-note or
+  sustain overlap does not erase history. Settings change/panic/failSafe reset
+  all streams; source termination and CC120/123 reset only their own scope.
+  Multiple positive Note Ons at one timestamp in the same stream (including
+  duplicates) invalidate its direction and seed no new history. The adapter
+  preclassifies each stream before dispatch. Other sources cannot erase a
+  player's history. No lookahead is added; chord updates keep usable history.
 - The adapter must batch chord events first at each timestamp, call
-  `refreshChord`, then `beginTimestamp` with the number of performer Note Ons,
+  `refreshChord`, then `beginTimestamp(source,channel,count)` for each source
+  with the number of its validated positive playing Note Ons at that sample,
   then process performer events. Offsets are carried through unchanged.
 - There are 512 input bindings and 4096 output slots. Capacity overflow discards
   pending output, sends CC120/123 on every output channel, clears bindings and

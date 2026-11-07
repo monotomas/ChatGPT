@@ -1,6 +1,6 @@
-# Flysnapper MIDI 0.4.2
+# Flysnapper MIDI 0.4.3
 
-0.4.2 bruker instrumentkategorien med en stille stereo lydutgang og MIDI
+0.4.3 bruker instrumentkategorien med en stille stereo lydutgang og MIDI
 inn/ut. Dette er brukerens valgte neste prøve etter at Live 12.4.6 avviste
 0.4.0 som audioeffekt uten audioinngang. Se
 [diagnosen](docs/validation/live-open-failure-2026-11-07/README.md).
@@ -12,19 +12,19 @@ ingen audioinngang eller pitchgjenkjenning er lagt til. Ombyggingen følger bruk
 Diminished og C7b13 til Mixolydian b6. Etter siste presisering får C13#9
 og C13add#9 Chromatic som fabrikkvalg. Alle 52 akkordtyper og 38 skalaer
 beholdes. Vanlig kommentering og farger er uendret.
-[Last ned Windows x64-installasjonspakken](https://github.com/monotomas/ChatGPT/raw/2444f6264f29f923d2fa9b4a96a72c350b85832d/downloads/Flysnapper-Windows-x64.zip).
-Lukk Live, pakk ut hele ZIP-filen og kjør INSTALL_FLYSNAPPER.bat. Nye
-instanser bruker fabrikkvalgene; eksisterende instanser kan bruke
-Reset all 52 to factory. Ingen bygging kreves hos brukeren.
+0.4.3 retter retningshistorikk ved vanlig legato og sørger for nytt anslag
+ved samme korrigerte tone. Den avtalte tie-tabellen beholdes, men
+historikken slettes ikke lenger av sekvensiell overlapp. Nye spilleanslag
+sender Note Off/On på samme sample når måltonen allerede klinger;
+gamle slippbindinger og sustain beholdes.
 
-Windows-bygg og native 4/4 grupper, faktiske PS/BAT-installasjonsprøver
-og offline pakke-/kilde-/mappingaudit er bestått.
-[Kontrollbevis](docs/validation/midi-factory-final-2026-11-07/windows/README.md)
-identifiserer eksakte bytes og byggekilde5269889. Praktisk aksept i Ableton
-gjenstår til brukerens prøve. Tidligere pakker og bevis beholdes som historie.
+Ferske tester og en ny Windows-pakke klargjøres for denne rettelsen.
+Ruting er bekreftet av brukeren i 0.4.2 og endres ikke. Alle fabrikkvalg,
+52 akkordtyper og 38 skalaer beholdes. Tidligere pakker er historiske
+kontrollpunkt, ikke leveransen av denne feilrettelsen.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
-[versjonsnotatet](docs/RELEASE_0.4.2.md) og
+[versjonsnotatet](docs/RELEASE_0.4.3.md) og
 [brukerveiledningen](docs/BRUKERVEILEDNING.md) beskriver gjeldende løsning.
 Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
 
@@ -77,7 +77,7 @@ På et annet MIDI-/instrumentspor velges Flysnapper-sporet i øverste
 **MIDI From**, og den pluginspesifikke **Flysnapper MIDI**-oppføringen i
 feltet under. Mottakersporet trenger Monitor In, eller Auto med opptaksarm.
 Dette er samme type MIDI-utgangsruting som brukeren tidligere fikk til.
-0.4.2 er ikke en native MIDI-effekt som kan plasseres foran et annet
+0.4.3 er ikke en native MIDI-effekt som kan plasseres foran et annet
 instrument på samme spor. Ingen Live-installasjon er tilgjengelig her;
 den nye binærfilens praktiske Live-aksept gjenstår til brukerprøven.
 CLAP, Max for Live og flere interne prosessorer er utsatt. Help og Guide

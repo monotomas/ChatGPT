@@ -181,7 +181,10 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
         });
         for(size_t i=0;i<count&&!ioFault;) {
             size_t end=i+1;while(end<count&&inputs[end].offset==inputs[i].offset)++end;
-            int ons=0;
+            // Playing onsets sharing this exact sample are classified within
+            // their own source. A routing-test pulse cannot erase the player's
+            // melodic history. Other MIDI channels do not enter this engine.
+            std::array<int,3> ons{};
             for(size_t j=i;j<end;++j) {
                 const auto& e=inputs[j];const int status=e.data[0]&0xf0;
                 if(e.source==flysnapper::Source::External&&e.data[0]>=0x80&&e.data[0]<0xf0&&(e.data[0]&15)==15) {
@@ -199,10 +202,12 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
                     }
                     if(through)raw(e.data,e.length,e.offset);
                 } else if(e.data[0]>=0x80&&e.data[0]<0xf0&&validChannelMessage(e)
-                    &&status==0x90&&(e.data[0]&15)==0&&e.data[2]>0)++ons;
+                    &&status==0x90&&(e.data[0]&15)==0&&e.data[2]>0)++ons[size_t(e.source)];
             }
             if(ioFault)break;
-            engine.refreshChord();engine.beginTimestamp(ons);
+            engine.refreshChord();
+            for(size_t stream=0;stream<ons.size();++stream)
+                engine.beginTimestamp(static_cast<flysnapper::Source>(stream),1,ons[stream]);
             for(size_t j=i;j<end&&!ioFault;++j) {
                 const auto& e=inputs[j];const int status=e.data[0]&0xf0;
                 const bool channel=e.data[0]>=0x80&&e.data[0]<0xf0;const int ch=(e.data[0]&15)+1;

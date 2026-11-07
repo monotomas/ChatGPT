@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BINARY='Contents/x86_64-win/Flysnapper.vst3'  # Legacy 0.3 package identity.
 MIDI_BUNDLE='Flysnapper MIDI.vst3'
 MIDI_BINARY='Contents/x86_64-win/Flysnapper MIDI.vst3'
-MIDI_VERSIONS=('0.4.0','0.4.1','0.4.2')  # Fixed identity, including archived releases.
+MIDI_VERSIONS=('0.4.0','0.4.1','0.4.2','0.4.3')  # Fixed identity, including archived releases.
 
 def dynamics_evidence_module():
     spec=importlib.util.spec_from_file_location('flysnapper_input_dynamics_evidence',Path(__file__).with_name('input_dynamics_evidence.py'))

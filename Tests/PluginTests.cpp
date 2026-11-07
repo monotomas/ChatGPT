@@ -244,6 +244,10 @@ void gui(){
     guide->onClick();check(panel->isVisible()&&guideText->isReadOnly(),"guide failed to open read-only");
     check(guideText->getText().contains("Chord MIDI Through")&&guideText->getText().contains("Device Activator")&&guideText->getText().contains("38 scales"),"guide lacks MIDI-only routing/scale guidance");
     check(guideText->getText().containsIgnoreCase("silent stereo")&&guideText->getText().contains("MIDI From"),"guide omits silent instrument output and receiver routing");
+    check(guideText->getText().contains("two preceding raw input notes")
+          &&guideText->getText().contains("Sequential legato overlap keeps this history")
+          &&guideText->getText().contains("Note Off then Note On at the same sample position"),
+          "guide omits corrected legato direction and rearticulation behavior");
     check(!guideText->getText().containsIgnoreCase("hysteresis")&&!guideText->getText().containsIgnoreCase("compressor"),"old audio guide remained");
     check(process(p,128).empty()&&p.getSnapshot().allowedMask==before.allowedMask,"opening guide changed MIDI/allowed notes");screenshot(*editor,"Flysnapper-guide.png");guideClose->onClick();check(!panel->isVisible(),"guide failed to close");
     flip->onClick();check(viewport->isVisible(),"flip failed to show mapping rows");check(process(p,128).empty(),"flip interrupted a held note");screenshot(*editor,"Flysnapper-back.png");

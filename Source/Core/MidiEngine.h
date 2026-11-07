@@ -33,9 +33,10 @@ std::string formatChord(const Snapshot&); // GUI ONLY
 
 // Deterministic policies: retain held
 // mappings across changes; suppress new notes for empty/unknown chord scale;
-// same-input FIFO; same-output reference counting (no retrigger); sustain is
-// handled internally per source/channel; history uses uncorrected notes and
-// resets after panic, source stop, settings changes and polyphonic ambiguity.
+// same-input FIFO; each playing Note On reattacks a shared output, while
+// reference counting retains it until the last binding ends. Diagnostic
+// collisions remain nonintrusive. Sustain and raw-note history are separate
+// per source/channel; overlapping legato does not erase melodic direction.
 class Engine {
 public:
     static constexpr size_t voiceCapacity=512;
@@ -47,6 +48,7 @@ public:
     void clearChord() noexcept;
     void refreshChord() noexcept;
     void beginTimestamp(int noteOnCount) noexcept;
+    void beginTimestamp(Source,int channel,int noteOnCount) noexcept;
     void noteOn(Source,int channel,int note,int velocity,int offset,Output&) noexcept;
     void noteOff(Source,int channel,int note,int velocity,int offset,Output&) noexcept;
     void controller(Source,int channel,int cc,int value,int offset,Output&) noexcept;
@@ -63,24 +65,29 @@ private:
         Source source=Source::External;
         bool active=false,released=false;
     };
+    struct History {
+        int previous=-1,beforePrevious=-1;
+        bool ambiguous=false;
+    };
     Settings config;
     Snapshot view;
     std::array<uint16_t,128> chordHeld{};
     std::array<Voice,voiceCapacity> voices{};
     std::array<std::array<uint16_t,128>,16> outputRefs{};
     std::array<std::array<bool,16>,3> pedal{};
+    std::array<std::array<History,16>,3> histories{};
     // Sostenuto/Hold 2 remain forwarded performance expression, but explicit
     // global panic must release their receiver state even after Note Offs have
     // removed every core binding. These flags are output-channel scoped.
     std::array<uint8_t,16> forwardedHolds{};
     uint64_t serial=0;
-    int previous=-1,beforePrevious=-1;
-    bool ambiguous=false,fault=false;
+    bool fault=false;
     void release(Voice&,int velocity,int offset,Output&) noexcept;
     bool emit(const Event&,Output&) noexcept;
     void failSafe(int offset,Output&) noexcept;
     void releaseForwardedHolds(int offset,Output&) noexcept;
-    void resetHistory() noexcept {previous=beforePrevious=-1;}
+    static bool validSource(Source s) noexcept {return int(s)>=0&&int(s)<3;}
+    void resetHistory() noexcept {histories={};}
     void updateAllowed() noexcept;
 };
 }

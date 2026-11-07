@@ -30,7 +30,7 @@ def installed_package_proof(path: Path | None,source: str,artifact_sha: str,buil
         raise ValueError('Installed/recovery bundle hashes differ from the Windows build')
     if proof.get('unicode_paths_verified') is not True or proof.get('unrelated_plugin_preserved') is not True:
         raise ValueError('Installation isolation and Unicode checks are incomplete')
-    if build.get('version') in ('0.4.0','0.4.1','0.4.2'):
+    if build.get('version') in ('0.4.0','0.4.1','0.4.2','0.4.3'):
         if proof.get('bundle_name')!='Flysnapper MIDI.vst3' or proof.get('legacy_instrument_preserved') is not True:
             raise ValueError('MIDI-only installation identity/legacy preservation proof is missing')
     launcher_required=build.get('version')!='0.2.0' or proof.get('bat_launcher_verified') is True
@@ -99,7 +99,7 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
             dynamics=dynamics_evidence_module()
             if build.get('stage')!=dynamics.EVALUATION_STAGE or build.get('evaluation_scope')!=dynamics.EVALUATION_SCOPE:
                 raise ValueError('Flysnapper 0.3.0 is missing its qualified real-guitar evaluation scope')
-        if build.get('version') in ('0.4.0','0.4.1','0.4.2'):
+        if build.get('version') in ('0.4.0','0.4.1','0.4.2','0.4.3'):
             midi=midi_evidence_module()
             if (build.get('version')!=midi.VERSION or build.get('stage')!=midi.STAGE or build.get('evaluation_scope')!=midi.SCOPE
                     or build.get('bundle_name')!=midi.BUNDLE or build.get('pitch_detection_implemented') is not False
@@ -129,14 +129,14 @@ def publish(root: Path,result: str,artifact: Path | None,log: Path | None,build_
                 '[Last ned Flysnapper 0.3.0 for gitarprøve]')
             text+='\nDenne leveransen er klargjort for praktisk gitarprøve etter de automatiske kontrollene for kravene av 5. november. Poly sender definerte halvtoner uten polyfonisk bending; mono har fortsatt valgfri bending. Begynn med den veiledede 20-sekunders spilleprøven i Input dynamics og juster kontrollene ved behov. De målte begrensningene følger pakken.\n'
             members['README.md']=text.encode('utf-8')
-        if build.get('version') in ('0.4.1','0.4.2'):
-            members['README.md']=('''# Flysnapper MIDI Windows x64 VST3-instrument
+        if build.get('version') in ('0.4.1','0.4.2','0.4.3'):
+            members['README.md']=(f'''# Flysnapper MIDI {build['version']} Windows x64 VST3-instrument
 
 [Last ned MIDI-installasjonspakken](downloads/Flysnapper-Windows-x64.zip?raw=1)
 
 Pakk ut hele ZIP-filen og kjor INSTALL_FLYSNAPPER.bat. Ingen kompilator eller Python kreves.
-Flysnapper MIDI.vst3 beholder komponentidentiteten fra 0.4.0 og erstatter denne installasjonen.
-Den eldre Flysnapper.vst3 fra 0.3 berøres ikke.
+Flysnapper MIDI.vst3 beholder MIDI-utgavens komponentidentitet og erstatter denne installasjonen.
+Den eldre Flysnapper.vst3 berøres ikke.
 Flysnapper MIDI er et VST3-instrument med stille stereo-audioutgang og uten audioinngang eller pitchgjenkjenning.
 MIDI rutes fra pluginens eget uttak til et mottakerspor med lydinstrument.
 
@@ -149,7 +149,7 @@ Dette dokumenterer testverten og installerpakken; en praktisk Ableton Live-test 
                 for member in archive.namelist():
                     if member.startswith(prefix+'Validation/'):
                         members['validation/package/'+member[len(prefix+'Validation/'):]]=archive.read(member)
-            if build.get('version') in ('0.4.1','0.4.2'):
+            if build.get('version') in ('0.4.1','0.4.2','0.4.3'):
                 proof=json.loads(members['validation/package/midi-validation/report-manifest.json'])
                 omitted={'schema':1,'kind':'OmittedWindowsTestExecutables','source_commit':source,
                          'scope':'Native executables rehashed in CI before packaging, intentionally omitted from research Git; offline audits cannot independently rehash omitted binaries',
