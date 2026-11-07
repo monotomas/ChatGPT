@@ -7,7 +7,7 @@
     "feature_set": "midi-to-midi-only",
     "audio_processing": false,
     "pitch_to_midi": false,
-    "scales": 31,
+    "scales": 38,
     "chord_types": 52,
     "host_scope": "native-processor-and-compiled-vst3-test-host",
     "ableton_verified": false
@@ -15,13 +15,13 @@
   "builder_revision": "2026.11.07-midi-only-native-validation",
   "platform": "Windows-x64",
   "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
-  "built_at": "2026-11-07T14:51:14.794616+00:00",
+  "built_at": "2026-11-07T16:37:41.943243+00:00",
   "python": "3.12.10",
-  "source_commit": "e891c2eef2f85e87138d22bbec8165e2b44f4c25",
-  "vst3_sha256": "931199be09a20bf0d145bb96aad7120b33d3b48ef474a4269f7c0ce1a9a4f9f6",
+  "source_commit": "76490afdb2971ef3de9860f1bb11c80070fb91ef",
+  "vst3_sha256": "088385150d9405d91fbe305e9e7be1c87bc3de87525518745a38fb09c3e8477e",
   "bundle_sha256": {
     "Contents/Resources/moduleinfo.json": "3c13c87f6e21a7b6c09cd81287e28468b36beef310186dc77b5b504586d55df5",
-    "Contents/x86_64-win/Flysnapper MIDI.vst3": "931199be09a20bf0d145bb96aad7120b33d3b48ef474a4269f7c0ce1a9a4f9f6"
+    "Contents/x86_64-win/Flysnapper MIDI.vst3": "088385150d9405d91fbe305e9e7be1c87bc3de87525518745a38fb09c3e8477e"
   },
   "tests": "passed",
   "required_test_names": [
@@ -41,6 +41,6 @@
   "windows_verified": true,
   "midi_only_evidence": {
     "path": "midi-validation/report-manifest.json",
-    "sha256": "152cdaae0e27bffe92926719096a280627de05e81be9ec1dfc5d2ba6110de815"
+    "sha256": "90749d147852c90634875a3926d03f34c4d009d2329980c808b6c4f9ca27894d"
   }
 }
