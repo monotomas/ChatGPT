@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "execution_platform": "Linux-x86_64",
+  "observed_at_utc": "2026-11-07T14:23:17.335208+00:00",
+  "parent_commit": "98b98f08ee5d561c013357784193e3be28319699",
+  "source_commit": null,
+  "total_tests": 197,
+  "passed_tests": 195,
+  "skipped_tests": 2,
+  "failed_tests": 0,
+  "seconds": 19.522,
+  "log": "python-regressions.txt",
+  "log_sha256": "2036921dfb88da4ec3ba5e3fe1dd3b906e9e9fcb561fd284cf188dc5a2135be3",
+  "changed_inputs_sha256": {
+    ".github/workflows/windows.yml": "e32f1c1fb54fe3fd4c3d216888ca8408b4614ea3c7a8b531a4b2a02eb79bd729",
+    "Tests/test_midi_windows_package.py": "38af25c4803986634c7c707a4f197a282b31f402d215c36e39552f55f93a9bc5"
+  },
+  "native_selected_inputs_changed": false,
+  "scope": "Full local Python suite including executed portable PowerShell workflow argument regression; two native Windows BAT cases skipped. No new native rebuild or Windows run claimed."
+}

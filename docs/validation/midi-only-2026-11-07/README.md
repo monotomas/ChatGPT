@@ -17,9 +17,16 @@ ny brukerbestemt data venter på den redigerte Excel-filen.
 - [Samlet native-bygg](native/README.md): alle4 aktuelle CTest-grupper
   består. Den faktiske prosessoren har82,633 kontroller i11 grupper;
   den innlastede VST3-modulen har4,084 rapporterte kontroller i20 tilfeller.
-- [Python-/pakkekontroller](python/unittest.txt):196 tester består, med2
-  forventede BAT-prøver hoppet over på Linux. Portable PowerShell-
-  transaksjoner, komponentisolasjon og pakke-/bevisavvisning er med.
+- [Første Python-/pakkekontroll](python/unittest.txt): 196 tester totalt,
+  194 består og 2 native BAT-prøver hoppes over på Linux. Portable
+  PowerShell-transaksjoner, komponentisolasjon og pakke-/bevisavvisning er med.
+- [Ny Python-kontroll](windows-attempt-1/python-regressions.json): 197 tester
+  totalt, 195 består og de samme 2 BAT-prøvene hoppes over. Den inkluderer
+  den faktisk kjørte PowerShell-regresjonen for CI-argumentfeilen.
+- [Første Windows-CI-forsøk](windows-attempt-1/README.md) stoppet i
+  publiseringssteget før bygging; dette er ikke et Windows-byggresultat.
+- [Uavhengig byte-/datarevisjon](independent-audit-binding.json) bekrefter
+  kildeinput, rapportbindinger og uendrede Excel-fabrikkvalg.
 - [Skjermbilder](screenshots/) viser den aktuelle MIDI-only-forsiden,
   baksiden med siste rad og den innebygde veiledningen.
 

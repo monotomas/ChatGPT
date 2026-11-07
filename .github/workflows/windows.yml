@@ -25,7 +25,7 @@ jobs:
       - name: Record running state through Git
         shell: pwsh
         run: |
-          $publication = if ($env:GITHUB_REF -eq 'refs/heads/release/full-flysnapper') { @() } else { @('--research') }
+          [string[]] $publication = if ($env:GITHUB_REF -eq 'refs/heads/release/full-flysnapper') { @() } else { @('--research') }
           python Tools/publish_windows_delivery.py --result running @publication
           exit $LASTEXITCODE
       - name: Python and Windows PowerShell installer regressions
@@ -72,7 +72,7 @@ jobs:
           JOB_STATUS: ${{ job.status }}
         run: |
           $state = if ($env:BUILD_OUTCOME -eq 'success' -and $env:INSTALL_OUTCOME -eq 'success' -and $env:JOB_STATUS -eq 'success') { 'completed' } else { 'failed' }
-          $publication = if ($env:GITHUB_REF -eq 'refs/heads/release/full-flysnapper') { @() } else { @('--research') }
+          [string[]] $publication = if ($env:GITHUB_REF -eq 'refs/heads/release/full-flysnapper') { @() } else { @('--research') }
           python Tools/publish_windows_delivery.py --result $state --artifact artifacts/Flysnapper-Windows-x64.zip --log "$env:DELIVERY_LOG" --build-manifest dist/build-manifest.json --test-results dist/test-results.xml --installation-proof artifacts/installation-validation.json @publication
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4

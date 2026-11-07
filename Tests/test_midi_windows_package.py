@@ -91,6 +91,31 @@ class MidiWindowsPackageTests(unittest.TestCase):
   self.assertIn('--installation-proof artifacts/installation-validation.json @publication',text)
   self.assertNotIn('python Tools/windows_audio_diagnostics.py',text)
 
+ def test_actual_workflow_powershell_splat_preserves_argument_boundaries(self):
+  shell=shutil.which('pwsh') or shutil.which('powershell.exe')
+  portable=Path('/workspace/.flysnapper-tools/powershell/pwsh')
+  if not shell and portable.is_file():shell=str(portable)
+  if not shell:self.skipTest('PowerShell unavailable; Windows CI executes its workflow shell')
+  # Execute both production selection statements in PowerShell. A one-item
+  # pipeline result otherwise becomes a string and splats --research as chars.
+  lines=[line.strip() for line in (ROOT/'.github/workflows/windows.yml').read_text().splitlines()
+         if '$publication =' in line]
+  self.assertEqual(len(lines),2)
+  arguments=self.base/'workflow-arguments.py'
+  arguments.write_text('import json,sys; print(json.dumps(sys.argv[1:]))\n',encoding='utf-8')
+  env=os.environ.copy();env.update(FLYSNAPPER_WORKFLOW_PYTHON=sys.executable,FLYSNAPPER_WORKFLOW_ARGUMENTS=str(arguments))
+  if os.name!='nt':env.update(XDG_CACHE_HOME=str(self.base/'cache'),XDG_CONFIG_HOME=str(self.base/'config'),XDG_DATA_HOME=str(self.base/'data'))
+  for index,line in enumerate(lines):
+   script=self.base/('workflow-splat-'+str(index)+'.ps1')
+   script.write_text(line+'\n& $env:FLYSNAPPER_WORKFLOW_PYTHON $env:FLYSNAPPER_WORKFLOW_ARGUMENTS --result running @publication\nexit $LASTEXITCODE\n',encoding='utf-8-sig')
+   for branch,expected in [('refs/heads/research/midi-only',['--result','running','--research']),
+                           ('refs/heads/release/full-flysnapper',['--result','running'])]:
+    with self.subTest(statement=index,branch=branch):
+     env['GITHUB_REF']=branch
+     result=subprocess.run([shell,'-NoLogo','-NoProfile','-File',str(script)],env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=30)
+     self.assertEqual(result.returncode,0,result.stdout.decode('utf-8',errors='replace'))
+     self.assertEqual(json.loads(result.stdout.decode('utf-8-sig')),expected)
+
  def test_research_git_checkpoint_never_changes_user_delivery_branch(self):
   remote=self.base/'remote.git';subprocess.run(['git','init','--quiet','--bare',str(remote)],check=True)
   def git(*args):return subprocess.check_output(['git','-C',str(self.f.root),*map(str,args)],stderr=subprocess.STDOUT)

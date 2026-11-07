@@ -12,5 +12,22 @@
   "user_reported_version": "12.4.6",
   "user_reports_vst3_midi_chain_support": true,
   "official_current_fetch": "Earlier attempt failed at proxyCONNECT403, not originHTTP evidence",
-  "conclusion_scope": "Ordinary chain bypass does not prove rerouting of a feed addressed directly to one device; parallel fanout/channel preservation/held-note replay not established."
+  "conclusion_scope": "Ordinary chain bypass does not prove rerouting of a feed addressed directly to one device; parallel fanout/channel preservation/held-note replay not established.",
+  "additional_sections": [
+    {
+      "section": "16.5.2.4 Several MIDI Tracks Playing the Same Instrument",
+      "retained_line": 6363,
+      "paraphrase": "Track In enters the receiving track input/recording stream; directly selecting the instrument bypasses recording and monitoring."
+    },
+    {
+      "section": "16.5.2.6 Using Multi-Timbral Plug-In Instruments",
+      "retained_line": 6396,
+      "paraphrase": "Direct plugin destinations can include a MIDI channel selector; this does not establish equivalent channel preservation at Track In."
+    },
+    {
+      "section": "16.3 External MIDI In/Out",
+      "retained_line": 6066,
+      "paraphrase": "All Channels is described as merged input. Original-channel preservation or remapping through Track In is not specified."
+    }
+  ]
 }

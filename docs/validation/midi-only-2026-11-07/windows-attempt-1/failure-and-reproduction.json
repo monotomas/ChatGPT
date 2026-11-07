@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "kind": "WindowsCiInitialPublicationFailure",
+  "source_commit": "98b98f08ee5d561c013357784193e3be28319699",
+  "run_id": "42380307622",
+  "job_id": "128426345513",
+  "run_url": "https://github.com/monotomas/ChatGPT/actions/runs/42380307622",
+  "observed_started_at": "2026-11-07T14:10:04Z",
+  "observed_duration": "22s",
+  "observed_conclusion": "failure",
+  "failed_steps": [
+    "Record running state through Git",
+    "Publish verified Windows ZIP or failure proof through Git"
+  ],
+  "native_build_executed": false,
+  "python_regressions_executed": false,
+  "checkpoint_published": false,
+  "web_logs_access": "Job page required sign in; detailed step log fragment returned404. Generic exit1 annotations only.",
+  "root_cause_evidence": "Actual portable PowerShell execution reproduces scalar string splatted as characters; typed string array preserves --research as one argument. Exact Windows stderr unavailable, so this is a proved matching invocation defect, not a claimed retrieved Windows argparse log.",
+  "reproduction_platform": "Linux portable PowerShell (same pwsh shell family as workflow)",
+  "observed_argv_before": [
+    "--result",
+    "running",
+    "-",
+    "-",
+    "r",
+    "e",
+    "s",
+    "e",
+    "a",
+    "r",
+    "c",
+    "h"
+  ],
+  "observed_argv_after": [
+    "--result",
+    "running",
+    "--research"
+  ],
+  "reproduction_command": [
+    "/workspace/.flysnapper-tools/powershell/pwsh",
+    "-NoLogo",
+    "-NoProfile",
+    "-File",
+    "/workspace/ChatGPT/build/windows-midi-attempt1/reproduce-publication-splat.ps1"
+  ],
+  "files_sha256": {
+    "argv-probe.py": "774686197de5de273b0a9a8f8dbed5d98c7625fbc0ec87f481b811c04eda9379",
+    "reproduce-publication-splat.ps1": "bd83b83927e14d7d71eabd9526765e4afdceaac33784199bf5717ffbedf4466b",
+    "reproduction.txt": "60bf53cf7db9dba502c4d2746c8b30463ff78d992b009223b5287760397dd087"
+  },
+  "web_capture_sha256": {
+    "flysnapper-actions-web.html": "2bbfbcc640618f89df5b33b8d5b844dd368b6f821681939cf45af7e2ac1553ab",
+    "flysnapper-ci-run-42380307622.html": "5e171b012985ce3f2c96e171cc8640e605e0e96f0d392574948161b8052e4266",
+    "flysnapper-ci-job-128426345513.html": "020629f521fce2712276aea06234257189e432db9441d05d93b58f8aa4b34370"
+  },
+  "ableton_verified": false
+}

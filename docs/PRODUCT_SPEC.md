@@ -2,11 +2,12 @@
 
 **7. november 2026: Oppdraget er endret til MIDI-only.** Pitch-to-MIDI skal
 fjernes og ikke utvikles videre. [Den nye bestillingen](MIDI_ONLY_REQUEST_2026-11-07.md)
-går foran teksten nedenfor. Den omfatter31 skalaer, nytt skalameny-/tabelloppsett,
-Excel-redigerbare fabrikkvalg og seriekoblede instanser med kanal16-kontroll.
+går foran teksten nedenfor. Den omfatter 31 skalaer, nytt skalameny-/tabelloppsett,
+Excel-redigerbare fabrikkvalg og seriekoblede instanser med kanal 16-kontroll.
 VST3 er fortsatt ønsket format; praktisk plassering/kjeding i Live er ikke
-verifisert. Foreløpig er bestilling og arbeidsdata lagret; programkoden er
-ennå ikke bygget om.
+verifisert. MIDI-only-koden er bygget om og består alle 4 aktuelle native-
+testgrupper. Windows-/installasjonskontrollen følger separat. Nye
+fabrikktilordninger venter på brukerens redigerte Excel-fil.
 
 ## Historisk oppdrag 3.–6. november
 
