@@ -172,9 +172,16 @@ std::vector<Note> deliverSchedule(Session& s, const ScheduledMidi& input, int bl
     return output;
 }
 void expectNotes(const std::vector<Note>& actual, const std::vector<Note>& expected, const char* context) {
-    check(actual.size() == expected.size(), std::string(context) + ": wrong note/attack/release count");
+    check(actual.size() == expected.size(), std::string(context) + ": wrong note/attack/release count (actual "
+          + std::to_string(actual.size()) + ", expected " + std::to_string(expected.size()) + ")");
     for (size_t i = 0; i < expected.size(); ++i) {
-        const auto& e = expected[i]; expectNote(actual, i, e.on, e.pitch, e.offset, e.channel, e.velocity);
+        const auto& e = expected[i];
+        try { expectNote(actual, i, e.on, e.pitch, e.offset, e.channel, e.velocity); }
+        catch(const std::exception& failure) {
+            throw std::runtime_error(std::string(context)+"; output index "+std::to_string(i)
+                +", expected "+(e.on?"on ":"off ")+std::to_string(e.pitch)+" @ "+std::to_string(e.offset)
+                +": "+failure.what());
+        }
     }
 }
 void selectCMajor(Session& s, int mode = 2) {
@@ -699,22 +706,30 @@ void testCleanupWithinSimultaneousBatch(juce::AudioPluginFormatManager& formats,
         const auto cleanup=juce::MidiMessage::controllerEvent(1,cc,0);
         if(position==0)input.emplace_back(23,cleanup);
         input.emplace_back(23,midiOn(first,81));expected.push_back({true,1,first,81,23});
-        if(position==1){input.emplace_back(23,cleanup);expected.push_back({false,1,first,0,23});}
+        if(position==1)input.emplace_back(23,cleanup);
         input.emplace_back(23,midiOn(second,99));expected.push_back({true,1,second,99,23});
-        if(position==2){input.emplace_back(23,cleanup);expected.push_back({false,1,first,0,23});expected.push_back({false,1,second,0,23});}
+        if(position==2)input.emplace_back(23,cleanup);
         input.insert(input.end(),{{24,midiOn(68,93)},{31,midiOff(first)},{37,midiOff(second)},{47,midiOff(68)}});
-        // Neither ordering of this two-onset timestamp can seed a raw-note
-        // melody, even when a cleanup controller resets notes midway through.
+        // This repository's JUCE VST3 host maps CCs into parameter queues
+        // (juce_VST3PluginFormatImpl.h, associateWith(MidiBuffer&)). Its VST3
+        // wrapper processes those queues before importing the note EventList
+        // (juce_audio_plugin_client_VST3.cpp, process()). Consequently every
+        // requested cross-domain order here reaches the processor as CC first
+        // at sample23. Exact raw before/between/after order is tested directly
+        // in MidiOnlyProcessorTests; the actual-host oracle asserts the bridge
+        // ordering, balanced ownership, and no direction seed from both Ons.
         expected.push_back({true,1,69,93,24});
-        if(position==0)expected.push_back({false,1,first,0,31});
-        if(position!=2)expected.push_back({false,1,second,0,37});
+        expected.push_back({false,1,first,0,31});
+        expected.push_back({false,1,second,0,37});
         expected.push_back({false,1,69,0,47});
         juce::MidiBuffer midi;for(const auto& event:input)midi.addEvent(event.second,event.first);
         const auto output=s.process(midi);
-        check(midi.getNumEvents()==int(output.size()),"Channel-one cleanup controllers must be consumed internally");
-        expectNotes(output,expected,"CC120/123 within a simultaneous batch erased its ambiguity or broke balanced note cleanup");
-        juce::MidiBuffer empty;check(s.process(empty).empty(),"Same-timestamp controller cleanup left a pending note release");
+        const auto context=s.caseName.toStdString()+": JUCE controller queue must precede same-sample note EventList";
+        check(midi.getNumEvents()==int(output.size()),context+"; cleanup controller was not consumed internally");
+        expectNotes(output,expected,context.c_str());
+        juce::MidiBuffer empty;check(s.process(empty).empty(),context+"; cleanup left a pending note release");
     }
+    features.add("host_controller_queue_same_sample_order");
 }
 void testDiagnosticIsolationAndSustain(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     for(bool simultaneous:{false,true}) {
