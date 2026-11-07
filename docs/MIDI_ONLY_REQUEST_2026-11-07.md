@@ -8,20 +8,27 @@ beholdes som historie; ingen videre pitchforskning er bestilt.
 Senere samme dag utvidet brukeren til **52 akkordtyper** og ba om skalatoner
 i parentes etter alle skalatypenavn i Excel-valgene. Se
 [tilleggsbestillingen](handover/Request_Chord_Additions_2026-11-07.txt) og
-[den nye 52-raders arbeidsboken](factory-settings/2026-11-07-revision-2/README.md).
+[den nye 52-raders arbeidsboken](factory-settings/2026-11-07-revision-3/README.md).
 De to nye stabile typene er `major_thirteenth_sharp11` / CMaj13#11
 (C D E F# G A B) og `major_ninth_sharp11` / CMaj9#11 (C D E F# G B).
 De opprinnelige 50 ID-ene og tilordningene beholdes; de to nye får Lydian
 som et foreløpig, redigerbart utgangspunkt. Skalanavn og tonenavn kan
 fortsatt vises separat i pluginens grensesnitt.
 
+**Seneste bestilling:** Harmonisk dur og alle sju moduser utvider katalogen
+til 38 skalaer. Parentsettet er 0, 2, 4, 5, 7, 8, 11; navnene følger
+[tillegget](handover/Request_Harmonic_Major_2026-11-07.txt) nøyaktig.
+[Excel-revisjon 3](factory-settings/2026-11-07-revision-3/README.md) har
+52 akkordrader og 38 valg med tonenavn i parentes. Tidligere 31 råindekser,
+ID-er og alle fabrikkvalg beholdes; de nye modusene er indeks 31–37.
+
 Behold MIDI-to-MIDI: spille-MIDI på 1, akkordkontroll på 16, holdte akkordtoner,
 fast skala eller akkordstyring og de eksisterende korreksjonsreglene. Behold
 52 akkordtyper, uavhengig skalatilordning og lagring per instans.
 
 - Bruk termene **Chord Tones Only** og **Chord-Scale Assignment**.
-- Utvid til 31 skalaer: kromatisk; 7 diatoniske; 7 melodisk-mollmoduser; 3
-  eksplisitt definerte bebopskalaer; 7 harmonisk-mollmoduser; 2 diminished;
+- Utvid til 38 skalaer: kromatisk; 7 diatoniske; 7 melodisk-mollmoduser; 3
+  eksplisitt definerte bebopskalaer; 7 harmonisk-mollmoduser; 7 harmonisk-durmoduser; 2 diminished;
   heltone;durpentatonisk;mollpentatonisk;minor blues. Bruk navnene og
   rekkefølgen i originalbestillingen.
 - Del hver akkordtypes skalameny i «Scales with all chord tones» og
@@ -38,8 +45,8 @@ fast skala eller akkordstyring og de eksisterende korreksjonsreglene. Behold
   pluginruting; det skal ikke framstilles som et krav i alle Track In-oppsett.
 
 Brukeren vil endre factory assignments i Excel. En verifisert arbeidsbok med
-52 stabile akkord-ID-er, navn/toner i C, foreløpige fabrikkvalg og 31
-skalaalternativer er i [factory-settings](factory-settings/2026-11-07-revision-2/README.md).
+52 stabile akkord-ID-er, navn/toner i C, foreløpige fabrikkvalg og 38
+skalaalternativer er i [factory-settings](factory-settings/2026-11-07-revision-3/README.md).
 Dette er en redigeringsmal. De nye skalaene og MIDI-grensesnittet er nå
 implementert og har bestått den samlede native-kontrollen.
 Ikke finn på nye fabrikktilordninger før brukerens redigerte fil foreligger.
@@ -93,3 +100,7 @@ kanal 16 til sporets inngang dersom denne kanalidentiteten bevares. Ikke lås
 hjelpen til alltid aktiv første instans i alle oppsett; gjør forutsetningen
 om direkte pluginruting tydelig. Se
 [det avgrensede rutingsgrunnlaget](validation/midi-only-2026-11-07/host-routing/README.md).
+
+38-skala-koden har [egne ferske bevis](validation/midi-only-38-scales-2026-11-07/README.md).
+Tidligere 31-skalaresultater, inkludert Windows-pakken fra e891c2e, er
+historikk. De skal ikke brukes som attestasjon av den nye kilde-/pakkeutgaven.

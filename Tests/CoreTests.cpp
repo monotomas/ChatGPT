@@ -39,12 +39,15 @@ void on(Engine& e,int n,Output& out,int t=0,Source src=Source::External,int chan
 void off(Engine& e,int n,Output& out,int t=0,Source src=Source::External,int channel=1){e.noteOff(src,channel,n,0,t,out);}
 void chord(Engine& e,std::initializer_list<int> notes){e.clearChord();for(auto n:notes)e.chordNoteOn(n);e.refreshChord();}
 void scaleCatalogAndMenus() {
-    static_assert(scaleCount<=31,"Packed snapshots reserve five bits for scale index plus one");
-    constexpr std::array<const char*,19> legacyIds{{
+    static_assert(scaleCount<=63,"Packed snapshots reserve six bits for scale index plus one");
+    constexpr std::array<const char*,31> legacyIds{{
         "chromatic","ionian","aeolian","harmonic_minor","melodic_minor",
         "dorian","phrygian","lydian","mixolydian","locrian","whole_tone",
         "major_pentatonic","minor_pentatonic","diminished_half_whole",
-        "diminished_whole_half","lydian_dominant","altered","phrygian_dominant","minor_blues"
+        "diminished_whole_half","lydian_dominant","altered","phrygian_dominant","minor_blues",
+        "melodic_minor_2","melodic_minor_3","melodic_minor_5","melodic_minor_6",
+        "harmonic_minor_2","harmonic_minor_3","harmonic_minor_4","harmonic_minor_6",
+        "harmonic_minor_7","bebop_dominant","bebop_major","bebop_dorian"
     }};
     // These are the original parameter values, not positions in a new menu.
     for(size_t i=0;i<legacyIds.size();++i)CHECK(scaleIndexFromId(legacyIds[i])==int(i));
@@ -70,6 +73,7 @@ void scaleCatalogAndMenus() {
     checkModes(1,{{0,2,4,5,7,9,11}});
     checkModes(2,{{0,2,3,5,7,9,11}}); // Jazz melodic minor, same both directions.
     checkModes(4,{{0,2,3,5,7,8,11}});
+    checkModes(5,{{0,2,4,5,7,8,11}});
     const auto exact=[&](const char* id,std::initializer_list<int> tones){
         const int index=scaleIndexFromId(id);CHECK(index>=0);
         CHECK(definitions[size_t(index)].mask==buffkiller::chordBits(tones));
@@ -84,6 +88,13 @@ void scaleCatalogAndMenus() {
     exact("major_pentatonic",{0,2,4,7,9});
     exact("minor_pentatonic",{0,3,5,7,10});
     exact("minor_blues",{0,3,5,6,7,10});
+    exact("harmonic_major",{0,2,4,5,7,8,11});
+    exact("harmonic_major_mode2",{0,2,3,5,6,9,10});
+    exact("harmonic_major_mode3",{0,1,3,4,7,8,10});
+    exact("harmonic_major_mode4",{0,2,3,6,7,9,11});
+    exact("harmonic_major_mode5",{0,1,4,5,7,9,10});
+    exact("harmonic_major_mode6",{0,3,4,6,8,9,11});
+    exact("harmonic_major_mode7",{0,1,3,5,6,8,9});
     constexpr std::array<const char*,7> melodicNames{{
         "Melodic Minor 1","Mel. Min. 2: Dorian ♭2 (Phrygian ♮6)",
         "Mel. Min. 3: Lydian Augmented (Lydian ♯5)","Mel. Min. 4: Lydian Dominant",
@@ -93,18 +104,32 @@ void scaleCatalogAndMenus() {
     }};
     for(const auto& definition:definitions){
         CHECK(definition.mask>0&&definition.mask<=0xfff&&(definition.mask&1));
-        CHECK(definition.familyOrder>=0&&definition.familyOrder<=9);
+        CHECK(definition.familyOrder>=0&&definition.familyOrder<=10);
         if(definition.familyOrder==2)CHECK(std::string(definition.name)==melodicNames[size_t(definition.modeOrder-1)]);
     }
     // The requested display contract is explicit and independent of persisted
     // array order. This also checks ordering between scale parent families.
-    constexpr std::array<const char*,31> globalIds{{
+    constexpr std::array<const char*,7> harmonicMajorNames{{
+        "Harmonic Major 1","Harmonic Major 2 (Dorian b5)",
+        "Harmonic Major 3 (Phrygian b4)","Harmonic Major 4 (Lydian b3)",
+        "Harmonic Major 5 (Mixolydian b2)","Harmonic Major 6 (Lydian Augmented #2)",
+        "Harmonic Major 7 (Locrian bb7)"
+    }};
+    for(int mode=0;mode<7;++mode){
+        const auto& definition=definitions[size_t(31+mode)];
+        CHECK(definition.familyOrder==5&&definition.modeOrder==mode+1);
+        CHECK(std::string(definition.name)==harmonicMajorNames[size_t(mode)]);
+        CHECK(scaleIndexFromId(mode==0?"harmonic_major":"harmonic_major_mode"+std::to_string(mode+1))==31+mode);
+    }
+    constexpr std::array<const char*,38> globalIds{{
         "chromatic","ionian","dorian","phrygian","lydian","mixolydian","aeolian","locrian",
         "melodic_minor","melodic_minor_2","melodic_minor_3","lydian_dominant",
         "melodic_minor_5","melodic_minor_6","altered",
         "bebop_dominant","bebop_major","bebop_dorian",
         "harmonic_minor","harmonic_minor_2","harmonic_minor_3","harmonic_minor_4",
         "phrygian_dominant","harmonic_minor_6","harmonic_minor_7",
+        "harmonic_major","harmonic_major_mode2","harmonic_major_mode3","harmonic_major_mode4",
+        "harmonic_major_mode5","harmonic_major_mode6","harmonic_major_mode7",
         "diminished_half_whole","diminished_whole_half","whole_tone",
         "major_pentatonic","minor_pentatonic","minor_blues"
     }};
@@ -147,7 +172,7 @@ void scaleCatalogAndMenus() {
 }
 void dataAndRecognition() {
     scaleCatalogAndMenus();
-    CHECK(scaleDefinitions().size()==31);CHECK(chordTypes().size()==52);
+    CHECK(scaleDefinitions().size()==38);CHECK(chordTypes().size()==52);
     CHECK(buffkiller::correctedChordPatterns.size()==50); // Reference provenance is unchanged.
     std::set<std::string> ids;
     for(int i=0;i<scaleCount;++i){CHECK(ids.insert(scaleDefinitions()[size_t(i)].id).second);CHECK(scaleIndexFromId(scaleDefinitions()[size_t(i)].id)==i);}
@@ -269,7 +294,33 @@ void correction() {
     e.beginTimestamp(2);e.noteOn(Source::External,1,68,90,100,o);e.noteOn(Source::Generated,1,70,90,100,o);
     CHECK(o.events[0].note==69);CHECK(o.events[0].offset==100);
 }
+void snapshotPacking() {
+    // Exercise the new high scale bit alongside every other status field.
+    // Existing words retain their exact original layout; unused high bits
+    // remain ignored. None of this word is part of saved XML/preset state.
+    for(int scale=-1;scale<scaleCount;++scale)for(int root=-1;root<12;++root)
+        for(int mode=0;mode<3;++mode)for(bool enabled:{false,true}) {
+            Snapshot expected{0xad5,0x8d5,root,root<0?-1:51,255,root,scale,root,mode,enabled};
+            const auto packed=packSnapshot(expected);
+            const auto verify=[&](const Snapshot& actual){
+                CHECK(actual.chordMask==expected.chordMask&&actual.allowedMask==expected.allowedMask);
+                CHECK(actual.root==expected.root&&actual.typeIndex==expected.typeIndex);
+                CHECK(actual.candidateCount==expected.candidateCount&&actual.bass==expected.bass);
+                CHECK(actual.effectiveScale==expected.effectiveScale&&actual.effectiveRoot==expected.effectiveRoot);
+                CHECK(actual.mode==expected.mode&&actual.correctionEnabled==expected.correctionEnabled);
+            };
+            verify(unpackSnapshot(packed));verify(unpackSnapshot(packed|(uint64_t(31)<<59)));
+            const auto legacy=uint64_t(expected.chordMask)|(uint64_t(expected.allowedMask)<<12)
+                |(uint64_t(root+1)<<24)|(uint64_t(expected.typeIndex+1)<<28)
+                |(uint64_t(255)<<34)|(uint64_t(root+1)<<42)
+                |(uint64_t((scale+1)&31)<<46)|(uint64_t(root+1)<<51)
+                |(uint64_t(mode)<<55)|(uint64_t(enabled)<<57);
+            CHECK(packed==(scale<31?legacy:legacy|(uint64_t(1)<<58)));
+            CHECK((packed>>59)==0);
+        }
+}
 void chordControlAndScales() {
+    snapshotPacking();
     Engine e;Output o;
     chord(e,{36,48,64,67});CHECK(e.snapshot().chordMask==0x091);CHECK(e.snapshot().root==0);CHECK(e.snapshot().typeIndex==0);
     e.chordNoteOff(36);e.refreshChord();CHECK(e.snapshot().chordMask==0x091);
@@ -312,7 +363,7 @@ void chordControlAndScales() {
     CHECK(fixed.effectiveScale==18&&fixed.effectiveRoot==11&&fixed.mode==2&&fixed.correctionEnabled);
     CHECK(fixed.allowedMask==rotateMask(scaleDefinitions()[18].mask,11));
     // Every appended scale survives settings, transposition and the packed
-    // GUI snapshot, including index30 which fills the five-bit field.
+    // GUI snapshot, including index37 which uses the new sixth scale bit.
     for(int scale=0;scale<scaleCount;++scale)for(int root=0;root<12;++root){
         s.scale=scale;s.root=root;e.setSettings(s);
         const auto expanded=unpackSnapshot(packSnapshot(e.snapshot()));

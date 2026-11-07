@@ -180,27 +180,27 @@ void declarationsAndState() {
     check(get(a, "chordThru") == 0, "A fresh last/single instance leaks chord controls");
     auto* mode = dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter("mode"));
     check(mode && mode->choices[0] == "Chord Tones Only" && mode->choices[1] == "Chord-Scale Assignment", "New mode terminology missing");
-    check(flysnapper::scaleCount == 31 && flysnapper::chordTypeCount == 52, "Wrong MIDI-only data dimensions");
+    check(flysnapper::scaleCount == 38 && flysnapper::chordTypeCount == 52, "Wrong MIDI-only data dimensions");
     for (int i = 0; i < flysnapper::chordTypeCount; ++i) {
         auto* p = dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter(FlysnapperProcessor::mappingParameterId(i)));
-        check(p && p->choices.size() == 31, "A mapping does not offer all31 scales");
+        check(p && p->choices.size() == flysnapper::scaleCount, "A mapping does not offer all38 scales");
         const int expected = flysnapper::factoryDefaults()[size_t(i)];
-        check(p->getIndex() == expected && get(a, FlysnapperProcessor::mappingParameterId(i)) == float(expected),
-              "Initial raw factory choice differs from its discrete parameter index");
+        check(p->getIndex() == expected && juce::roundToInt(get(a, FlysnapperProcessor::mappingParameterId(i))) == expected,
+              "Initial raw factory choice rounds to a different discrete parameter index");
     }
     feature("zero_audio_buses");
-    for (int s = 0; s < 31; ++s) {
-        for (int i = 0; i < flysnapper::chordTypeCount; ++i) set(a, FlysnapperProcessor::mappingParameterId(i), float((i + s) % 31));
+    for (int s = 0; s < flysnapper::scaleCount; ++s) {
+        for (int i = 0; i < flysnapper::chordTypeCount; ++i) set(a, FlysnapperProcessor::mappingParameterId(i), float((i + s) % flysnapper::scaleCount));
         set(a, "mode", 2); set(a, "scale", float(s)); set(a, "root", float(s % 12)); set(a, "chordThru", float(s % 2));
         juce::MemoryBlock state;
         a.getStateInformation(state);
         b.setStateInformation(state.getData(), int(state.getSize()));
         for (int i = 0; i < flysnapper::chordTypeCount; ++i)
-            check(get(b, FlysnapperProcessor::mappingParameterId(i)) == float((i + s) % 31), "Per-instance52x31 mapping roundtrip failed");
+            check(get(b, FlysnapperProcessor::mappingParameterId(i)) == float((i + s) % flysnapper::scaleCount), "Per-instance52x38 mapping roundtrip failed");
         check(get(b, "scale") == s && get(b, "root") == s % 12 && get(b, "chordThru") == s % 2, "Instance routing/fixed choice was lost");
     }
     const auto independent = get(b, FlysnapperProcessor::mappingParameterId(0));
-    set(a, FlysnapperProcessor::mappingParameterId(0), float((int(independent) + 1) % 31));
+    set(a, FlysnapperProcessor::mappingParameterId(0), float((int(independent) + 1) % flysnapper::scaleCount));
     check(get(b, FlysnapperProcessor::mappingParameterId(0)) == independent, "Instances share assignment state");
 
     juce::MemoryBlock saved;
@@ -257,7 +257,26 @@ void declarationsAndState() {
     b.setStateInformation(legacyBytes.getData(), int(legacyBytes.getSize()));
     check(get(b, "root") == previousRoot, "Unknown schema changed instance state");
     feature("instance_state");
-    passed("zero_audio_and_independent_52x31_state", "Processor declarations, all52 chord mappings/all31 scale choices and stable-ID preset/instance copies; no DAW placement claim");
+    // Reconstruct the immediately preceding31-scale state vocabulary. It
+    // contains no harmonic-major IDs, but retains all52 chord types.
+    juce::XmlElement oldThirtyOne("FLYSNAPPER_STATE");oldThirtyOne.setAttribute("schema",1);
+    oldThirtyOne.setAttribute("fixedScale",flysnapper::scaleDefinitions()[30].id);
+    auto* oldChoices=oldThirtyOne.createNewChildElement("ChordScales");
+    auto* oldValues=oldThirtyOne.createNewChildElement("FLYSNAPPER_PARAMETERS");
+    const auto addOldValue=[&](const juce::String& id,int value) {
+        auto* child=oldValues->createNewChildElement("PARAM");child->setAttribute("id",id);child->setAttribute("value",value);
+    };
+    addOldValue("mode",2);addOldValue("root",11);addOldValue("scale",30);
+    for(int i=0;i<flysnapper::chordTypeCount;++i) {
+        addOldValue(FlysnapperProcessor::mappingParameterId(i),i%31);
+        auto* choice=oldChoices->createNewChildElement("Choice");choice->setAttribute("chord",flysnapper::chordTypes()[size_t(i)].id);
+        choice->setAttribute("scale",flysnapper::scaleDefinitions()[size_t(i%31)].id);
+    }
+    juce::AudioProcessor::copyXmlToBinary(oldThirtyOne,legacyBytes);b.setStateInformation(legacyBytes.getData(),int(legacyBytes.getSize()));
+    check(get(b,"scale")==30&&get(b,"root")==11,"The preceding31-scale fixed state changed during import");
+    for(int i=0;i<flysnapper::chordTypeCount;++i)
+        check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(i%31),"The preceding31-scale assignment vocabulary changed during import");
+    passed("zero_audio_and_independent_52x38_state", "Processor declarations, all52 chord mappings/all38 scale choices, old50-type and old31-scale ID payloads, independent copies; not old normalised-host-automation compatibility or DAW placement");
 }
 
 void normalisedChoiceCoverage() {
@@ -300,7 +319,75 @@ void normalisedChoiceCoverage() {
     }
     h.process(128, chord({48, 52, 55}, false));h.released();
     feature("normalised_choice_values");
-    passed("normalised_choice_coverage", "Actual processor:31 normalised scale choices across12 roots, all3 modes,31 chord assignments and initial raw factory defaults; no synthetic fractional raw-cache injection");
+    passed("normalised_choice_coverage", "Actual processor:38 normalised scale choices across12 roots, all3 modes,38 chord assignments and initial factory defaults; no synthetic fractional raw-cache injection");
+}
+
+void freshConstructorChoiceRounding() {
+    Harness h("fresh_constructor_choice_rounding");auto& p=*h.processor;
+    const int type=flysnapper::chordIndexFromId("major_seventh_sharp9");
+    check(type>=0&&flysnapper::factoryDefaults()[size_t(type)]==3,"The declared existing factory reference changed");
+    const auto id=FlysnapperProcessor::mappingParameterId(type);
+    const float rawDefault=get(p,id);
+    auto* parameter=dynamic_cast<juce::AudioParameterChoice*>(p.parameters.getParameter(id));
+    check(parameter&&parameter->getIndex()==3&&juce::roundToInt(rawDefault)==3,
+          "Fresh factory choice does not denote Harmonic Minor");
+    // No setter is called for this mapping: APVTS may still expose its
+    // unsnapped constructor value3/37*37, which can be2.999999762f.
+    juce::MemoryBlock saved;p.getStateInformation(saved);
+    auto xml=juce::AudioProcessor::getXmlFromBinary(saved.getData(),int(saved.getSize()));
+    auto* table=xml?xml->getChildByName("ChordScales"):nullptr;check(table!=nullptr,"Cannot inspect fresh constructor state");
+    bool correctID=false;
+    for(auto* choice:table->getChildIterator())
+        if(choice->getStringAttribute("chord")=="major_seventh_sharp9")
+            correctID=choice->getStringAttribute("scale")=="harmonic_minor";
+    check(correctID,"Fresh state export truncated the raw default into another scale ID");
+    set(p,"mode",1);auto input=chord({48,51,52,55,59},true,5);input.emplace_back(17,on(70));
+    expectNote(h.process(128,input),true,71,17);
+    const auto snapshot=p.getSnapshot();
+    check(snapshot.typeIndex==type&&snapshot.effectiveScale==3&&(snapshot.allowedMask&(1u<<11))!=0
+          &&(snapshot.allowedMask&(1u<<10))==0,"Fresh processor read truncated Harmonic Minor into Natural Minor");
+    expectNote(h.process(128,{{37,off(70)}}),false,71,37);p.requestPanic();h.process(128);h.released();
+    passed("fresh_constructor_discrete_choice_rounding", "No mapping setter: declared factory index3 is used for state IDs and actual Bb-to-B correction despite an unsnapped APVTS default; this is the new38-choice range, not the previous31-choice host-oracle typo");
+    auto* row=cases.getLast().getDynamicObject();row->setProperty("initial_raw_value",double(rawDefault));
+    row->setProperty("discrete_index",3);row->setProperty("saved_scale_id","harmonic_minor");
+}
+
+void harmonicMajorCallbackCoverage() {
+    // Independent explicit modal interval references for Harmonic Major,
+    // derived from its user-requested1,2,3,4,5,b6,7 parent definition.
+    constexpr std::array<std::array<int,7>,7> reference{{
+        {{0,2,4,5,7,8,11}},{{0,2,3,5,6,9,10}},{{0,1,3,4,7,8,10}},
+        {{0,2,3,6,7,9,11}},{{0,1,4,5,7,9,10}},{{0,3,4,6,8,9,11}},{{0,1,3,5,6,8,9}}
+    }};
+    constexpr std::array<const char*,7> ids{{"harmonic_major","harmonic_major_mode2","harmonic_major_mode3",
+        "harmonic_major_mode4","harmonic_major_mode5","harmonic_major_mode6","harmonic_major_mode7"}};
+    Harness h("harmonic_major_all_modes_roots_and_pitch_classes");auto& p=*h.processor;set(p,"mode",2);
+    for(int m=0;m<7;++m) {
+        const int index=31+m;check(flysnapper::scaleIndexFromId(ids[size_t(m)])==index,"A Harmonic Major mode was not appended after the original31 choices");
+        set(p,"scale",float(index));
+        for(int r=0;r<12;++r) {
+            set(p,"root",float(r));uint16_t mask=0;
+            for(int degree:reference[size_t(m)])mask=uint16_t(mask|(1u<<((degree+r)%12)));
+            for(int pc=0;pc<12;++pc) {
+                const int played=60+r+pc;
+                const auto allowed=[&](int note){return std::find(reference[size_t(m)].begin(),reference[size_t(m)].end(),(note-r+1200)%12)!=reference[size_t(m)].end();};
+                int expected=-1;
+                for(int distance=0;distance<=12;++distance) {
+                    // Ascending input establishes the same upward tie policy
+                    // as the fallback. Every On is released before the next.
+                    if(allowed(played+distance)){expected=played+distance;break;}
+                    if(allowed(played-distance)){expected=played-distance;break;}
+                }
+                expectNote(h.process(128,{{7,on(played)}}),true,expected,7);
+                const auto snapshot=p.getSnapshot();
+                check(snapshot.effectiveScale==index&&snapshot.effectiveRoot==r&&snapshot.allowedMask==mask,
+                      "A Harmonic Major callback lost its scale index/root/tone set, including packed indices above30");
+                expectNote(h.process(128,{{97,off(played)}}),false,expected,97);
+            }
+        }
+    }
+    h.released();feature("harmonic_major_modes");
+    passed("harmonic_major_all_modes_roots_and_pitch_classes", "Actual callbacks:7 appended Harmonic Major modes x12 roots x12 ascending pitch classes with independent interval references, upward ties, exact offsets and balanced releases; no Live claim");
 }
 
 void chordControlAndInternalBypass() {
@@ -607,7 +694,8 @@ int main() {
     csv << "case,rate,block,sample,offset,type,channel,note,value,bytes\n";
     try {
         juce::ScopedJuceInitialiser_GUI runtime;
-        declarationsAndState(); normalisedChoiceCoverage(); chordControlAndInternalBypass(); newSharpEleventhChordTypes(); threeStageChain(); chordTimeAndHeldBindings();
+        declarationsAndState(); normalisedChoiceCoverage(); freshConstructorChoiceRounding(); harmonicMajorCallbackCoverage();
+        chordControlAndInternalBypass(); newSharpEleventhChordTypes(); threeStageChain(); chordTimeAndHeldBindings();
         relayChangesAndConditionalBypass(); rawMessagesSustainAndPanic(); transportLimitsAndRealtime(); routingPulseDoesNotOwnExternalNote();
         writeEvidence("passed");
         std::cout << "FlysnapperMidiOnlyProcessor: PASS (" << checks << " checks, " << cases.size() << " cases; no Ableton verification).\n";

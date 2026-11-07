@@ -5,17 +5,22 @@
 #include <limits>
 
 namespace flysnapper {
+static_assert(scaleCount<=63,"Packed GUI status supports at most63 scales plus its empty sentinel");
 uint64_t packSnapshot(const Snapshot& s) noexcept {
+    // The sixth scale bit uses previously unused bit58. Existing fields and
+    // all status words for the original31 scales retain their bit positions.
+    // This is transient GUI status, not the XML/preset serialization format.
     return uint64_t(s.chordMask&0xfff)|(uint64_t(s.allowedMask&0xfff)<<12)
         |(uint64_t((s.root+1)&15)<<24)|(uint64_t((s.typeIndex+1)&63)<<28)
         |(uint64_t(std::clamp(s.candidateCount,0,255))<<34)|(uint64_t((s.bass+1)&15)<<42)
         |(uint64_t((s.effectiveScale+1)&31)<<46)|(uint64_t((s.effectiveRoot+1)&15)<<51)
-        |(uint64_t(s.mode&3)<<55)|(uint64_t(s.correctionEnabled)<<57);
+        |(uint64_t(s.mode&3)<<55)|(uint64_t(s.correctionEnabled)<<57)
+        |(uint64_t((s.effectiveScale+1)&32)<<53);
 }
 Snapshot unpackSnapshot(uint64_t s) noexcept {
     return {uint16_t(s&0xfff),uint16_t((s>>12)&0xfff),int((s>>24)&15)-1,
         int((s>>28)&63)-1,int((s>>34)&255),int((s>>42)&15)-1,
-        int((s>>46)&31)-1,int((s>>51)&15)-1,int((s>>55)&3),bool((s>>57)&1)};
+        int(((s>>46)&31)|((s>>53)&32))-1,int((s>>51)&15)-1,int((s>>55)&3),bool((s>>57)&1)};
 }
 std::string formatChord(const Snapshot& s){return chordName(s.chordMask,s.bass);}
 Engine::Engine(){initialiseMusicData();refreshChord();}

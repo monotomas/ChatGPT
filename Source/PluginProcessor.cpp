@@ -4,6 +4,17 @@
 #include <algorithm>
 #include <cmath>
 
+namespace {
+int discreteChoice(float value,int last) noexcept {
+    // APVTS deliberately leaves its initial raw default unsnapped. With38
+    // choices, e.g.3/37*37 can be2.999999762f even though the parameter's
+    // discrete choice is3. Host changes normally snap, but initial reads and
+    // ID-based state export must use the same nearest-choice interpretation.
+    if(!std::isfinite(value))return 0;
+    return juce::roundToInt(std::clamp(value,0.0f,float(last)));
+}
+}
+
 juce::String FlysnapperProcessor::mappingParameterId(int type) {
     return "map_"+juce::String(flysnapper::chordTypes()[size_t(type)].id);
 }
@@ -102,9 +113,11 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     }
     flysnapper::Settings settings;
     settings.correctionEnabled=correction->load(std::memory_order_relaxed)>=.5f&&!bypassed;
-    settings.mode=static_cast<flysnapper::Mode>(int(mode->load(std::memory_order_relaxed)));
-    settings.root=int(root->load(std::memory_order_relaxed));settings.scale=int(scale->load(std::memory_order_relaxed));
-    for(int i=0;i<flysnapper::chordTypeCount;++i)settings.chordScales[size_t(i)]=int(mapValues[size_t(i)]->load(std::memory_order_relaxed));
+    settings.mode=static_cast<flysnapper::Mode>(discreteChoice(mode->load(std::memory_order_relaxed),2));
+    settings.root=discreteChoice(root->load(std::memory_order_relaxed),11);
+    settings.scale=discreteChoice(scale->load(std::memory_order_relaxed),flysnapper::scaleCount-1);
+    for(int i=0;i<flysnapper::chordTypeCount;++i)
+        settings.chordScales[size_t(i)]=discreteChoice(mapValues[size_t(i)]->load(std::memory_order_relaxed),flysnapper::scaleCount-1);
     engine.setSettings(settings);
     const bool through=chordThru->load(std::memory_order_relaxed)>=.5f;
     if(through!=previousChordThru) {
@@ -240,7 +253,7 @@ void FlysnapperProcessor::getStateInformation(juce::MemoryBlock& destination) {
     const auto savedScale=[&](const juce::String& id,int fallback) {
         for(auto child:values)if(child.getProperty("id").toString()==id) {
             const float value=float(child.getProperty("value"));
-            if(std::isfinite(value))return std::clamp(int(value),0,flysnapper::scaleCount-1);
+            if(std::isfinite(value))return discreteChoice(value,flysnapper::scaleCount-1);
         }
         return fallback;
     };

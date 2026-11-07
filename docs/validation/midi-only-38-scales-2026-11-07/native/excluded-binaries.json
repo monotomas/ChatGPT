@@ -1,0 +1,19 @@
+{
+  "scope": "Native binaries checked after this fresh run, omitted from Git evidence copy",
+  "module": {
+    "sha256": "1ed8aac9b162652123e79be86b8896fd6007132e203b118a5850200c2bc6c679",
+    "bytes": 11688320
+  },
+  "test_executables": {
+    "FlysnapperMidiOnlyProcessor": {
+      "binary": "build/native-release/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests",
+      "binary_sha256": "13a42218eaa74fcb38f1863985e9d16d9d52f2f6355a04d5532db4508bf1ad97",
+      "binary_bytes": 11098248
+    },
+    "FlysnapperActualVst3": {
+      "binary": "build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests",
+      "binary_sha256": "e558fad6afd49429c4e7373899a363715c5087649662bf68bf4b535c3390b888",
+      "binary_bytes": 10562560
+    }
+  }
+}

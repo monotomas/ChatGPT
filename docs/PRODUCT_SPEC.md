@@ -2,11 +2,11 @@
 
 **7. november 2026: Oppdraget er endret til MIDI-only.** Pitch-to-MIDI skal
 fjernes og ikke utvikles videre. [Den nye bestillingen](MIDI_ONLY_REQUEST_2026-11-07.md)
-går foran teksten nedenfor. Den omfatter 31 skalaer, nytt skalameny-/tabelloppsett,
+går foran teksten nedenfor. Den omfatter 38 skalaer, nytt skalameny-/tabelloppsett,
 Excel-redigerbare fabrikkvalg og seriekoblede instanser med kanal 16-kontroll.
 VST3 er fortsatt ønsket format; praktisk plassering/kjeding i Live er ikke
-verifisert. MIDI-only-koden med 52 typer er bygget om og består alle 4 aktuelle native-
-testgrupper på Linux og Windows. Windows-/installasjonskontrollen består. Nye
+verifisert. MIDI-only-koden med 38 skalaer og 52 typer består alle 4 native-grupper på
+Linux. En ny Windows-/installasjonskontroll følger for samme 38-skala-kilde. Nye
 fabrikktilordninger venter på brukerens redigerte Excel-fil.
 
 **Tillegg samme dag:** Totalt 52 akkordtyper etter brukerens to nye #11-typer:
@@ -15,6 +15,12 @@ vise alle 31 skalatypene med skalatonene i parentes etter navnet. Den
 [nye malen](factory-settings/2026-11-07-revision-2/README.md) erstatter
 50-raders redigeringsmalen. Nye native-/Windows-resultater må gjelde
 52-typekoden; tidligere 50-typebevis er et separat kontrollpunkt.
+
+**Seneste skalatillegg:** Harmonisk dur, parentsett 0, 2, 4, 5, 7, 8, 11,
+og alle sju moduser med brukerens eksakte navn er implementert. Se
+[bestillingen](handover/Request_Harmonic_Major_2026-11-07.txt) og
+[38-skala-arbeidsboken](factory-settings/2026-11-07-revision-3/README.md).
+De tidligere 31 ID-ene/tonemaskene og alle 52 fabrikkvalg beholdes.
 
 ## Historisk oppdrag 3.–6. november
 

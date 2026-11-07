@@ -16,7 +16,7 @@ constexpr uint16_t bits(std::initializer_list<int> notes) {
     uint16_t m=0; for(auto n:notes) m=uint16_t(m|(1u<<n)); return m;
 }
 constexpr std::array<ScaleDefinition,scaleCount> scales{{
- // Keep the original nineteen indices stable for old state and automation.
+ // Preserve the existing thirty-one indices/IDs; presentation order is separate.
  {"chromatic","Chromatic",0xfff,0,1},
  {"ionian","Ionian (Major)",bits({0,2,4,5,7,9,11}),1,1},
  {"aeolian","Aeolian (Minor)",bits({0,2,3,5,7,8,10}),1,6},
@@ -27,15 +27,15 @@ constexpr std::array<ScaleDefinition,scaleCount> scales{{
  {"lydian","Lydian",bits({0,2,4,6,7,9,11}),1,4},
  {"mixolydian","Mixolydian",bits({0,2,4,5,7,9,10}),1,5},
  {"locrian","Locrian",bits({0,1,3,5,6,8,10}),1,7},
- {"whole_tone","Whole Tone",bits({0,2,4,6,8,10}),6,1},
- {"major_pentatonic","Major Pentatonic",bits({0,2,4,7,9}),7,1},
- {"minor_pentatonic","Minor Pentatonic",bits({0,3,5,7,10}),8,1},
- {"diminished_half_whole","Half Whole Diminished",bits({0,1,3,4,6,7,9,10}),5,1},
- {"diminished_whole_half","Whole Half Diminished",bits({0,2,3,5,6,8,9,11}),5,2},
+ {"whole_tone","Whole Tone",bits({0,2,4,6,8,10}),7,1},
+ {"major_pentatonic","Major Pentatonic",bits({0,2,4,7,9}),8,1},
+ {"minor_pentatonic","Minor Pentatonic",bits({0,3,5,7,10}),9,1},
+ {"diminished_half_whole","Half Whole Diminished",bits({0,1,3,4,6,7,9,10}),6,1},
+ {"diminished_whole_half","Whole Half Diminished",bits({0,2,3,5,6,8,9,11}),6,2},
  {"lydian_dominant","Mel. Min. 4: Lydian Dominant",bits({0,2,4,6,7,9,10}),2,4},
  {"altered","Mel. Min. 7: Altered (Super Locrian)",bits({0,1,3,4,6,8,10}),2,7},
  {"phrygian_dominant","Harm. Min. 5: Phrygian Dominant",bits({0,1,4,5,7,8,10}),4,5},
- {"minor_blues","Minor Blues",bits({0,3,5,6,7,10}),9,1},
+ {"minor_blues","Minor Blues",bits({0,3,5,6,7,10}),10,1},
  // New modes and bebop scales are appended; menus use metadata below.
  {"melodic_minor_2","Mel. Min. 2: Dorian ♭2 (Phrygian ♮6)",bits({0,1,3,5,7,9,10}),2,2},
  {"melodic_minor_3","Mel. Min. 3: Lydian Augmented (Lydian ♯5)",bits({0,2,4,6,8,9,11}),2,3},
@@ -48,7 +48,15 @@ constexpr std::array<ScaleDefinition,scaleCount> scales{{
  {"harmonic_minor_7","Harm. Min. 7: Ultralocrian",bits({0,1,3,4,6,8,9}),4,7},
  {"bebop_dominant","Dominant Bebop Scale",bits({0,2,4,5,7,9,10,11}),3,1},
  {"bebop_major","Major Bebop Scale",bits({0,2,4,5,7,8,9,11}),3,2},
- {"bebop_dorian","Minor / Dorian Bebop Scale",bits({0,2,3,5,7,9,10,11}),3,3}
+ {"bebop_dorian","Minor / Dorian Bebop Scale",bits({0,2,3,5,7,9,10,11}),3,3},
+ // Harmonic-major modes append new values without remapping prior choices.
+ {"harmonic_major","Harmonic Major 1",bits({0,2,4,5,7,8,11}),5,1},
+ {"harmonic_major_mode2","Harmonic Major 2 (Dorian b5)",bits({0,2,3,5,6,9,10}),5,2},
+ {"harmonic_major_mode3","Harmonic Major 3 (Phrygian b4)",bits({0,1,3,4,7,8,10}),5,3},
+ {"harmonic_major_mode4","Harmonic Major 4 (Lydian b3)",bits({0,2,3,6,7,9,11}),5,4},
+ {"harmonic_major_mode5","Harmonic Major 5 (Mixolydian b2)",bits({0,1,4,5,7,9,10}),5,5},
+ {"harmonic_major_mode6","Harmonic Major 6 (Lydian Augmented #2)",bits({0,3,4,6,8,9,11}),5,6},
+ {"harmonic_major_mode7","Harmonic Major 7 (Locrian bb7)",bits({0,1,3,5,6,8,9}),5,7}
 }};
 constexpr std::array<ChordType,chordTypeCount> types{{
  {"major","",1},{"minor","m",2},{"sus2","sus2",1},{"sus4","sus4",1},

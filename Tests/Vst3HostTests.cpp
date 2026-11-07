@@ -13,6 +13,7 @@
 #include <vector>
 
 namespace {
+constexpr int expectedScaleCount = 38;
 int assertions = 0, eventRows = 0;
 juce::Array<juce::var> cases;
 juce::StringArray features;
@@ -191,7 +192,7 @@ void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescr
                             "Input Gain", "Gate Open Threshold", "Gate Hysteresis", "Gate Attack", "Gate Hold",
                             "Gate Release", "Compressor Threshold", "Compressor Ratio", "Limiter Ceiling"})
         check(findParameter(p, name) == nullptr, std::string("Obsolete audio parameter exposed: ") + name);
-    check(parameter(p, "Scale").getNumSteps() == 31, "Actual VST3 must expose 31 scales");
+    check(parameter(p, "Scale").getNumSteps() == expectedScaleCount, "Actual VST3 must expose 38 scales");
     check(parameter(p, "Mode").getNumSteps() == 3, "Mode indices must remain 0/1/2");
     check(parameter(p, "Mode").getText(0, 128) == "Chord Tones Only"
           && parameter(p, "Mode").getText(.5f, 128) == "Chord-Scale Assignment"
@@ -204,7 +205,7 @@ void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescr
         // transport parameters in addition to the product's parameters.
         if (item != p.getBypassParameter() && !name.startsWith("MIDI CC ")) ++publicParameters;
         if (name.startsWith("Map ")) {
-            ++maps; check(item->getNumSteps() == 31, "Chord mapping must expose all 31 scales");
+            ++maps; check(item->getNumSteps() == expectedScaleCount, "Chord mapping must expose all 38 scales");
         }
     }
     check(maps == 52 && publicParameters == 59, "Actual VST3 must expose seven controls and 52 chord mappings");
@@ -216,7 +217,7 @@ void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescr
               "Actual VST3 mapping ParamID changed: " + std::string(id));
     }
     for (const auto* id : {"major_thirteenth_sharp11", "major_ninth_sharp11"})
-        check(std::lround(parameter(p, "Map " + juce::String(id)).getValue() * 30) == 7,
+        check(std::lround(parameter(p, "Map " + juce::String(id)).getValue() * (expectedScaleCount - 1)) == 7,
               "New chord mapping must default to Lydian");
     features.add("zero_audio_buses"); features.add("sdk_midi_event_buses"); features.add("effect_metadata");
     features.add("editor"); features.add("removed_pitch_parameters"); features.add("stable_mapping_parameter_ids");
@@ -250,8 +251,9 @@ void testRouting(juce::AudioPluginFormatManager& formats, const juce::PluginDesc
 constexpr unsigned mask(std::initializer_list<int> pcs) {
     unsigned result = 0; for (int pc : pcs) result |= 1u << pc; return result;
 }
-// Expected formulas in automation order; indices 0..18 retain the old scales.
-constexpr std::array<unsigned, 31> scaleMasks{{
+// Expected formulas in parameter order. Existing indices 0..30 are retained;
+// the seven Harmonic Major modes are appended at 31..37.
+constexpr std::array<unsigned, expectedScaleCount> scaleMasks{{
     0xfff, mask({0,2,4,5,7,9,11}), mask({0,2,3,5,7,8,10}), mask({0,2,3,5,7,8,11}),
     mask({0,2,3,5,7,9,11}), mask({0,2,3,5,7,9,10}), mask({0,1,3,5,7,8,10}), mask({0,2,4,6,7,9,11}),
     mask({0,2,4,5,7,9,10}), mask({0,1,3,5,6,8,10}), mask({0,2,4,6,8,10}), mask({0,2,4,7,9}),
@@ -261,21 +263,35 @@ constexpr std::array<unsigned, 31> scaleMasks{{
     // Harmonic Minor mode 4: subtract its fourth degree (5) from
     // {0,2,3,5,7,8,11}, modulo 12 -> {0,2,3,6,7,9,10} (Dorian #4).
     mask({0,1,3,5,6,9,10}), mask({0,2,4,5,8,9,11}), mask({0,2,3,6,7,9,10}), mask({0,3,4,6,7,9,11}),
-    mask({0,1,3,4,6,8,9}), mask({0,2,4,5,7,9,10,11}), mask({0,2,4,5,7,8,9,11}), mask({0,2,3,5,7,9,10,11})
+    mask({0,1,3,4,6,8,9}), mask({0,2,4,5,7,9,10,11}), mask({0,2,4,5,7,8,9,11}), mask({0,2,3,5,7,9,10,11}),
+    mask({0,2,4,5,7,8,11}), mask({0,2,3,5,6,9,10}), mask({0,1,3,4,7,8,10}), mask({0,2,3,6,7,9,11}),
+    mask({0,1,4,5,7,9,10}), mask({0,3,4,6,8,9,11}), mask({0,1,3,5,6,8,9})
 }};
+constexpr bool harmonicMajorModesMatchParent() {
+    // Independently derive all seven modes from Harmonic Major (major b6),
+    // subtracting each successive parent degree and reducing modulo twelve.
+    constexpr int parent[]{0, 2, 4, 5, 7, 8, 11};
+    for (int mode = 0; mode < 7; ++mode) {
+        unsigned derived = 0;
+        for (int pc : parent) derived |= 1u << ((pc - parent[mode] + 12) % 12);
+        if (scaleMasks[size_t(31 + mode)] != derived) return false;
+    }
+    return true;
+}
+static_assert(harmonicMajorModesMatchParent(), "Host Harmonic Major expectations must match the parent-scale derivation");
 void testScales(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
-    Session s(formats, d, "all_31_scale_indices"); setChoice(*s.plugin, "Mode", 2);
-    for (int scale = 0; scale < 31; ++scale) {
+    Session s(formats, d, "all_38_scale_indices"); setChoice(*s.plugin, "Mode", 2);
+    for (int scale = 0; scale < expectedScaleCount; ++scale) {
         setChoice(*s.plugin, "Scale", scale); juce::MidiBuffer midi;
         auto& choice = parameter(*s.plugin, "Scale");
-        check(std::lround(choice.getValue() * 30) == scale,
+        check(std::lround(choice.getValue() * (expectedScaleCount - 1)) == scale,
               "Actual VST3 host did not accept scale index " + std::to_string(scale));
         for (int pc = 0; pc < 12; ++pc) {
             midi.addEvent(juce::MidiMessage::noteOn(1, 60 + pc, juce::uint8(80 + pc)), pc * 4);
             midi.addEvent(juce::MidiMessage::noteOff(1, 60 + pc), pc * 4 + 1);
         }
         const auto out = s.process(midi); check(out.size() == 24, "Scale fixture lost a note lifecycle");
-        check(std::lround(choice.getValue() * 30) == scale,
+        check(std::lround(choice.getValue() * (expectedScaleCount - 1)) == scale,
               "Actual VST3 host scale changed during processing");
         for (int pc = 0; pc < 12; ++pc) {
             const auto& on = out[size_t(pc * 2)];
@@ -295,7 +311,8 @@ void testScales(juce::AudioPluginFormatManager& formats, const juce::PluginDescr
             expectNote(out, size_t(pc * 2 + 1), false, on.pitch, pc * 4 + 1);
         }
     }
-    features.add("all_31_scales"); features.add("legacy_19_scale_indices");
+    features.add("all_38_scales"); features.add("legacy_31_scale_indices");
+    features.add("legacy_19_scale_indices"); features.add("harmonic_major_modes");
 }
 void testInternalCorrection(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     Session s(formats, d, "internal_correction_off_held_chord"); setNormalised(*s.plugin, "Note Correction", 0);
@@ -452,8 +469,10 @@ void testState(juce::AudioPluginFormatManager& formats, const juce::PluginDescri
         const auto name = item->getName(128);
         if (name != "Note Correction" && name != "Mode" && name != "Root" && name != "Scale"
             && name != "Chord MIDI Through" && name != "Context Help" && !name.startsWith("Map ")) continue;
-        const int steps = item->getNumSteps(); check(steps >= 2 && steps <= 31, "Unexpected saved MIDI parameter range");
-        const float value = float((index++ * 7 + 1) % steps) / float(steps - 1); item->setValueNotifyingHost(value);
+        const int steps = item->getNumSteps(); check(steps >= 2 && steps <= expectedScaleCount, "Unexpected saved MIDI parameter range");
+        const float varied = float((index++ * 7 + 1) % steps) / float(steps - 1);
+        // The fixed-scale state must also carry the newly appended last mode.
+        const float value = name == "Scale" ? 1.0f : varied; item->setValueNotifyingHost(value);
         expected.push_back({name, value, parameter(*independent.plugin, name).getValue()}); if (name.startsWith("Map ")) ++maps;
     }
     check(expected.size() == 58 && maps == 52, "State must cover six MIDI/UI controls and 52 assignments");
@@ -467,13 +486,13 @@ void testState(juce::AudioPluginFormatManager& formats, const juce::PluginDescri
     }
     const auto map = std::find_if(expected.begin(), expected.end(), [](const Saved& s) { return s.name == "Map major"; });
     check(map != expected.end(), "Major chord mapping missing");
-    setChoice(*original.plugin, "Map major", map->value == 0 ? 30 : 0);
+    setChoice(*original.plugin, "Map major", map->value == 0 ? expectedScaleCount - 1 : 0);
     check(std::abs(parameter(*restored.plugin, "Map major").getValue() - map->value) < .00001f, "Cloned assignment changed with source instance");
     // Also exercise a newly appended scale through the actual assignment
-    // path. A copied C-major assignment remains Dorian Bebop after the source
-    // instance switches that assignment to Ionian.
+    // path. A copied C-major assignment remains Harmonic Major mode 7 after
+    // the source instance switches that assignment to Ionian.
     setChoice(*original.plugin, "Mode", 1); setNormalised(*original.plugin, "Note Correction", 1);
-    setNormalised(*original.plugin, "Chord MIDI Through", 0); setChoice(*original.plugin, "Map major", 30);
+    setNormalised(*original.plugin, "Chord MIDI Through", 0); setChoice(*original.plugin, "Map major", 37);
     original.flushControls(); original.plugin->getStateInformation(state);
     restored.plugin->setStateInformation(state.getData(), int(state.getSize())); restored.flushControls();
     setChoice(*original.plugin, "Map major", 1);
@@ -575,7 +594,7 @@ void writeEvidence(const juce::File& directory, bool passed, const juce::String&
     object->setProperty("ableton_verified", false); object->setProperty("pitch_detection_implemented", false);
     object->setProperty("audio_input_channels", 0); object->setProperty("audio_output_channels", 0);
     object->setProperty("audio_input_buses", 0); object->setProperty("audio_output_buses", 0);
-    object->setProperty("declared_latency_samples", 0); object->setProperty("scale_count", 31); object->setProperty("chord_type_count", 52);
+    object->setProperty("declared_latency_samples", 0); object->setProperty("scale_count", expectedScaleCount); object->setProperty("chord_type_count", 52);
     object->setProperty("public_parameter_count", 59);
     object->setProperty("cases", juce::var(cases)); object->setProperty("verified_features", juce::var(features));
     object->setProperty("events_file", events.getFileName()); object->setProperty("events_rows", eventRows);
@@ -598,7 +617,7 @@ int run(int argc, const juce::String& path, const juce::String& output) {
         for (double rate : {44100., 48000., 96000.}) for (int block : {32, 128, 257})
             runCase("routing_" + juce::String(rate, 0) + "_" + juce::String(block), [&] { testRouting(formats, d, rate, block); });
         features.add("note_sample_offsets");
-        runCase("all_31_scale_indices", [&] { testScales(formats, d); });
+        runCase("all_38_scale_indices", [&] { testScales(formats, d); });
         runCase("internal_correction_off_held_chord", [&] { testInternalCorrection(formats, d); });
         runCase("new_sharp_eleventh_chord_mappings", [&] { testNewChordMappings(formats, d); });
         runCase("serial_instances_and_two_active_corrections", [&] { testSerial(formats, d); });

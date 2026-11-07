@@ -22,7 +22,7 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
         path=self.f.dist/e.DIRECTORY/e.SPECS[0][3];path.write_bytes(path.read_bytes()+b'changed')
         with self.assertRaises(ValueError):self.verify()
     def test_rebound_false_host_claim_and_missing_feature_are_rejected(self):
-        for key,value in [('ableton_verified',True),('verified_features',[]),('scale_count',19),('chord_type_count',50),('audio_output_channels',2)]:
+        for key,value in [('ableton_verified',True),('verified_features',[]),('scale_count',19),('scale_count',31),('chord_type_count',50),('audio_output_channels',2)]:
             with self.subTest(key=key):
                 p=self.f.dist/e.DIRECTORY/e.SPECS[0][2];before=p.read_bytes();r=json.loads(before);r[key]=value;p.write_text(json.dumps(r))
                 proof=json.loads((self.f.dist/e.DIRECTORY/e.MANIFEST).read_text());proof['executions'][e.SPECS[0][0]]['report_sha256']=e.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)

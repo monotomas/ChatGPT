@@ -14,7 +14,7 @@ faktiske kompilerte modulen må lastes og bestå følgende kontroller:
    Fx/Tools, null SDK-audiobusser og MIDI-eventbusser med16 kanaler inn/ut.
 2. Kanal1 som spille-MIDI og16 som akkordkontroll. Ved felles sampleoffset
    behandles akkorddata før spilletoner uavhengig av innsettingsrekkefølge.
-3. Alle 31 skalavalg, grunntoner, korreksjonsmodi og 52 map-parametre med
+3. Alle 38 skalavalg, grunntoner, korreksjonsmodi og 52 map-parametre med
    stabile ID-er. Visuell menyrekkefølge må ikke bli parameterindeks.
 4. Flere eksplisitt sammenkoblede instanser: kanal16 går gjennom mellom-
    instanser og konsumeres av siste. Flere aktive korreksjoner skal faktisk
@@ -25,7 +25,7 @@ faktiske kompilerte modulen må lastes og bestå følgende kontroller:
    beholder sin opprinnelige Note Off-binding ved parameterendring.
 6. Uttrykksdata, andre spillekanaler, pedaler, reset/transport, kopiering
    av instanstilstand, overbelastning og avgrenset opprydding.
-7. GUI foran/bak/Guide, alle 52×31 menykoblinger, vertens parameterendringer,
+7. GUI foran/bak/Guide, alle 52×38 menykoblinger, vertens parameterendringer,
    skalavarsler/tonenavn, lesbarhet og ingen MIDI-endring bare ved GUI-bruk.
 
 Bevar kildehashes, modul-/eksekverbarhashes, faktisk rå MIDI og rapporter.
@@ -35,9 +35,9 @@ utvalgte prosjektinnganger og full ekstern kompilator-/headerlukning.
 
 ## Windows-pakke og installert modul
 
-Denne kontrollen er utført og består for 52-typekilde e891c2e; se
-[den bevarte Windows-kjøringen](validation/midi-only-52-2026-11-07/windows/README.md).
-Punktene nedenfor beskriver kravene som ble kontrollert.
+Den tidligere 31-skala-/52-typekontrollen er bevart separat. Ny 38-skala-
+kilde skal få en egen tilsvarende Windows-/installasjonskontroll. Punktene
+nedenfor beskriver kravene.
 
 CI skal bygge i Unicode-sti, kjøre de aktuelle native-/Python-testene og
 pakke den nøyaktige bygde bundlen. Den utpakkede pakken skal installeres

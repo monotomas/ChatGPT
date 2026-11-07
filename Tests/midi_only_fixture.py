@@ -37,7 +37,7 @@ def make(base, repository):
         name='synthetic_protocol_fixture_'+target
         report={'schema':1,'kind':kind,'status':'passed','checks':123,'cases':[{'name':name,'status':'passed'}],
                 'ableton_verified':False,'pitch_detection_implemented':False,'audio_input_channels':0,'audio_output_channels':0,
-                'scale_count':31,'chord_type_count':52,'verified_features':sorted(evidence.FEATURES|{'chord_filter'}),
+                'scale_count':38,'chord_type_count':52,'verified_features':sorted(evidence.FEATURES|{'chord_filter'}),
                 'events_file':event_name,'events_rows':2}
         events='case,rate,block,sample,type,channel,note,value\n'+name+',48000,64,3,N,1,60,100\n'+name+',48000,64,31,F,1,60,0\n'
         (build/report_name).write_text(json.dumps(report));(build/event_name).write_text(events)

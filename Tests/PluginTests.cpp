@@ -24,7 +24,12 @@ namespace {
 unsigned assertions=0;
 void check(bool value,const char* message){++assertions;if(!value)throw std::runtime_error(message);}
 void set(FlysnapperProcessor& p,const juce::String& id,float value){auto* parameter=p.parameters.getParameter(id);check(parameter!=nullptr,"missing parameter");parameter->setValueNotifyingHost(parameter->convertTo0to1(value));}
-float get(FlysnapperProcessor& p,const juce::String& id){auto* value=p.parameters.getRawParameterValue(id);check(value!=nullptr,"missing raw parameter");return value->load();}
+float get(FlysnapperProcessor& p,const juce::String& id){
+    // Choice indices are discrete. APVTS's constructor cache is deliberately
+    // unsnapped and may be just below an integer after float normalisation.
+    if(auto* choice=dynamic_cast<juce::AudioParameterChoice*>(p.parameters.getParameter(id)))return float(choice->getIndex());
+    auto* value=p.parameters.getRawParameterValue(id);check(value!=nullptr,"missing raw parameter");return value->load();
+}
 using Midi=std::vector<std::pair<int,juce::MidiMessage>>;
 Midi process(FlysnapperProcessor& p,int samples,const Midi& input={},bool bypass=false){
     juce::AudioBuffer<float> audio(0,samples);juce::MidiBuffer midi;
@@ -56,6 +61,7 @@ void settleGuiTimers(const std::function<bool()>& ready){
 void parametersAndState(){
     FlysnapperProcessor a,b;
     check(flysnapper::chordTypeCount==52&&flysnapper::chordTypes().size()==52,"requested chord catalog must contain all52 types");
+    check(flysnapper::scaleCount==38&&flysnapper::scaleDefinitions().size()==38,"requested scale catalog must include all38 scales");
     check(a.acceptsMidi()&&a.producesMidi()&&a.isMidiEffect(),"MIDI-only role declarations");
     check(a.getTotalNumInputChannels()==0&&a.getTotalNumOutputChannels()==0,"MIDI-only processor advertises audio channels");
     check(a.getBusCount(true)==0&&a.getBusCount(false)==0,"MIDI-only processor advertises audio buses");
@@ -66,12 +72,12 @@ void parametersAndState(){
     check(modes&&modes->choices[0]=="Chord Tones Only"&&modes->choices[1]=="Chord-Scale Assignment","correction mode terminology incorrect");
     for(int i=0;i<flysnapper::chordTypeCount;++i){
         const auto id=FlysnapperProcessor::mappingParameterId(i);check(id==juce::String("map_")+flysnapper::chordTypes()[size_t(i)].id,"mapping ID changed");
-        auto* choice=dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter(id));check(choice&&choice->choices.size()==flysnapper::scaleCount,"mapping must expose all31 scales");check(get(a,id)==float(defaults[size_t(i)]),"factory mapping changed without user assignment file");
+        auto* choice=dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter(id));check(choice&&choice->choices.size()==flysnapper::scaleCount,"mapping must expose all38 scales");check(get(a,id)==float(defaults[size_t(i)]),"factory mapping changed without user assignment file");
     }
     for(int scale=0;scale<flysnapper::scaleCount;++scale){
         for(int i=0;i<flysnapper::chordTypeCount;++i)set(a,FlysnapperProcessor::mappingParameterId(i),float(scale));
         set(a,"mode",2);set(a,"root",float(scale%12));set(a,"scale",float(scale));saveLoad(a,b);
-        for(int i=0;i<flysnapper::chordTypeCount;++i)check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(scale),"52x31 mapping roundtrip failed");
+        for(int i=0;i<flysnapper::chordTypeCount;++i)check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(scale),"52x38 mapping roundtrip failed");
         check(get(b,"scale")==scale&&get(b,"root")==scale%12&&get(b,"mode")==2,"fixed-scale state roundtrip failed");
     }
     for(int i=0;i<flysnapper::chordTypeCount;++i)set(a,FlysnapperProcessor::mappingParameterId(i),float((i*7+3)%flysnapper::scaleCount));
@@ -79,7 +85,7 @@ void parametersAndState(){
     check(get(b,"chordThru")==1&&get(b,"help")==0,"MIDI routing/help state lost");
     set(a,FlysnapperProcessor::mappingParameterId(0),0);check(get(b,FlysnapperProcessor::mappingParameterId(0))==3,"instances share assignment storage");
     auto xml=stateXml(a);check(xml!=nullptr,"state XML unavailable");auto* values=xml->getChildByName("FLYSNAPPER_PARAMETERS");check(values!=nullptr,"state parameter tree missing");
-    for(auto* child:values->getChildIterator())if(child->getStringAttribute("id").startsWith("map_"))child->setAttribute("value",30);
+    for(auto* child:values->getChildIterator())if(child->getStringAttribute("id").startsWith("map_"))child->setAttribute("value",flysnapper::scaleCount-1);
     loadXml(b,*xml);
     for(int i=0;i<flysnapper::chordTypeCount;++i)check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(i==0?0:(i*7+3)%flysnapper::scaleCount),"stable scale IDs did not override numeric caches");
     auto* table=xml->getChildByName("ChordScales");check(table!=nullptr,"stable chord mapping table missing");table->getFirstChildElement()->setAttribute("scale","unknown_future_scale");loadXml(b,*xml);
@@ -93,7 +99,7 @@ void parametersAndState(){
     const char invalid[]{'b','a','d','\0'};b.setStateInformation(invalid,4);check(get(b,"root")==previous,"invalid state changed parameters");
     set(a,"routingTest",1);saveLoad(a,b);check(get(b,"routingTest")==0,"state load armed transient routing pulse");
     a.prepareToPlay(48000,128);set(a,"correction",0);process(a,128,{{0,on(60)}});saveLoad(a,b);b.prepareToPlay(48000,128);check(process(b,128).empty(),"state load restored active playing notes");
-    std::cout<<"PASS MIDI-only parameters,52x31 state choices, stable IDs, independent copies and legacy XML payloads\n";
+    std::cout<<"PASS MIDI-only parameters,52x38 state choices, stable IDs, independent copies and legacy XML payloads\n";
 }
 void realtimeNewCheck(){
     FlysnapperProcessor p;p.prepareToPlay(48000,128);set(p,"mode",2);set(p,"scale",1);
@@ -105,17 +111,32 @@ void realtimeNewCheck(){
     std::cout<<"PASS warmed processBlock C++ new check (host wrapper and malloc/realloc excluded)\n";
 }
 void guiBeforeProcessing(){
-    FlysnapperProcessor p;set(p,"mode",2);set(p,"root",2);set(p,"scale",30);
+    FlysnapperProcessor p;set(p,"mode",2);set(p,"root",2);set(p,"scale",float(flysnapper::scaleCount-1));
     std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditor());
     auto* active=dynamic_cast<juce::Label*>(find(*editor,"activeScale"));
     auto* tones=dynamic_cast<juce::Label*>(find(*editor,"fixedScaleTones"));
     auto* chord=dynamic_cast<juce::Label*>(find(*editor,"chordDisplay"));
     check(chord&&chord->getText()=="No chord input","new editor does not clearly show absence of chord input");
-    check(active&&active->getText().contains("Root D")&&active->getText().contains(juce::String::fromUTF8(flysnapper::scaleDefinitions()[30].name)),"stopped/new editor shows stale processed scale instead of current controls");
+    check(active&&active->getText().contains("Root D")&&active->getText().contains(juce::String::fromUTF8(flysnapper::scaleDefinitions().back().name)),"stopped/new editor shows stale processed scale instead of current controls");
     check(tones&&tones->getText().contains("D"),"stopped/new editor does not preview transposed tone names");
     set(p,"scale",1);check(active->getText().contains("Ionian"),"stopped scale edit does not refresh configured scale");
     editor.reset();set(p,"correction",0);editor.reset(p.createEditor());active=dynamic_cast<juce::Label*>(find(*editor,"activeScale"));
     check(active&&active->getText()=="Note Correction off","new editor does not reflect correction-off before processing");
+    // Fresh default index3 is one of the constructor values whose raw float
+    // cache lies just below its integer with the new 38-choice range.
+    editor.reset();
+    {
+        FlysnapperProcessor fresh;fresh.prepareToPlay(48000,128);set(fresh,"mode",1);
+        const int sharpNinth=flysnapper::chordIndexFromId("major_seventh_sharp9");
+        check(flysnapper::factoryDefaults()[size_t(sharpNinth)]==3,"fresh default3 regression is no longer configured");
+        process(fresh,128,{{0,on(48,16)},{0,on(51,16)},{0,on(52,16)},{0,on(55,16)},{0,on(59,16)}});
+        check(fresh.getSnapshot().typeIndex==sharpNinth&&fresh.getSnapshot().effectiveScale==3,"fresh constructor mapping index3 was truncated before active preview");
+        std::unique_ptr<juce::AudioProcessorEditor> freshEditor(fresh.createEditor());
+        active=dynamic_cast<juce::Label*>(find(*freshEditor,"activeScale"));
+        auto* mapping=dynamic_cast<juce::ComboBox*>(find(*freshEditor,"mapping_major_seventh_sharp9"));
+        check(mapping&&mapping->getSelectedId()==4,"fresh mapping menu truncated constructor choice3");
+        check(active&&active->getText().contains("Harm. Min. 1: Harmonic Minor"),"active mapping preview truncated fresh choice3 to a neighbouring scale");
+    }
     std::cout<<"PASS scale/root/correction preview before prepareToPlay or processBlock\n";
 }
 void gui(){
@@ -130,6 +151,9 @@ void gui(){
     set(p,"mode",2);editor.reset();editor.reset(p.createEditor());fixed=dynamic_cast<juce::ComboBox*>(find(*editor,"fixedScale"));check(fixed&&fixed->isEnabled(),"Fixed Scale menu not enabled in fixed mode");
     check(fixed->getNumItems()==flysnapper::scaleCount,"fixed scale menu missing choices");
     const auto fixedOrder=flysnapper::orderedScaleIndices();
+    juce::StringArray families;
+    for(juce::PopupMenu::MenuItemIterator it(*fixed->getRootMenu());it.next();)if(it.getItem().isSectionHeader)families.add(it.getItem().text);
+    check(families.size()==11&&families[4]=="Harmonic Minor modes"&&families[5]=="Harmonic Major modes"&&families[6]=="Diminished"&&families[10]=="Minor Blues","Harmonic Major family is missing or incorrectly positioned");
     for(int visible=0;visible<flysnapper::scaleCount;++visible)check(fixed->getItemId(visible)==fixedOrder[size_t(visible)]+1,"fixed menu family/mode order wrong");
     for(int index=0;index<flysnapper::scaleCount;++index){fixed->setSelectedId(index+1,juce::sendNotificationSync);check(get(p,"scale")==index,"fixed visible-order/index mixup");set(p,"scale",float((index+7)%flysnapper::scaleCount));check(fixed->getSelectedId()==(index+7)%flysnapper::scaleCount+1,"fixed host automation selected wrong scale ID");}
     bool sawIncompatible=false;bool sawReordered=false;
@@ -138,7 +162,7 @@ void gui(){
         auto* box=dynamic_cast<juce::ComboBox*>(find(*editor,"mapping_"+id));auto* name=dynamic_cast<juce::Label*>(find(*editor,"chordName_"+id));
         auto* chordNotes=dynamic_cast<juce::Label*>(find(*editor,"chordTones_"+id));auto* scaleNotes=dynamic_cast<juce::Label*>(find(*editor,"scaleTones_"+id));
         check(box&&name&&chordNotes&&scaleNotes,"mapping row lacks chord/scale tone names");check(!chordNotes->isEditable()&&!scaleNotes->isEditable(),"tone explanation became editable");
-        check(chordNotes->getText().contains("C"),"chord formula is not shown relative to C");check(box->getNumItems()==flysnapper::scaleCount,"mapping does not offer all31 scales");
+        check(chordNotes->getText().contains("C"),"chord formula is not shown relative to C");check(box->getNumItems()==flysnapper::scaleCount,"mapping does not offer all38 scales");
         const auto mask=flysnapper::chordToneMask(type);
         const auto order=flysnapper::orderedScaleIndices(mask);
         bool topHeader=false,bottomHeader=false;
@@ -159,6 +183,18 @@ void gui(){
         }
     }
     check(sawIncompatible&&sawReordered,"GUI test failed to exercise incompatible/reordered choices");
+    // Harmonic Major mode2 in C is C D Eb F Gb A Bb: it contains Cm7b5,
+    // but omits the E and G of C major. Both menu choices remain selectable.
+    const int harmonicMajor2=flysnapper::scaleIndexFromId("harmonic_major_mode2");
+    check(harmonicMajor2==32,"new Harmonic Major mode2 did not retain its appended index");
+    auto* halfDim=dynamic_cast<juce::ComboBox*>(find(*editor,"mapping_half_diminished"));
+    auto* majorBox=dynamic_cast<juce::ComboBox*>(find(*editor,"mapping_major"));
+    auto* majorTones=dynamic_cast<juce::Label*>(find(*editor,"scaleTones_major"));
+    check(halfDim&&majorBox&&majorTones,"Harmonic Major compatibility test rows are missing");
+    halfDim->setSelectedId(harmonicMajor2+1,juce::sendNotificationSync);
+    check(!halfDim->getText().startsWith("! "),"Harmonic Major2 incorrectly marked outside Cm7b5");
+    majorBox->setSelectedId(harmonicMajor2+1,juce::sendNotificationSync);
+    check(majorBox->getText().startsWith("! ")&&majorTones->getText().endsWith("Outside scale: E  G"),"Harmonic Major2 did not warn about C-major tones E and G");
     auto* firstName=find(*editor,"chordName_major");check(firstName!=nullptr,"first chord-name column missing");const int chordWidth=firstName->getWidth();
     editor->setSize(1500,1100);check(firstName->getWidth()==chordWidth,"chord-name column expands with window width");editor->setSize(1040,760);
     auto* description=dynamic_cast<juce::Label*>(find(*editor,"backDescription"));auto* tip=dynamic_cast<juce::Label*>(find(*editor,"assignmentTip"));
@@ -185,7 +221,7 @@ void gui(){
     help->setToggleState(false,juce::sendNotificationSync);help->onClick();check(get(p,"help")==0&&box->getTooltip().isEmpty(),"help off did not clear mapping tooltip");
     help->setToggleState(true,juce::sendNotificationSync);help->onClick();check(get(p,"help")==1&&box->getTooltip().isNotEmpty(),"help on did not restore mapping tooltip");
     guide->onClick();check(panel->isVisible()&&guideText->isReadOnly(),"guide failed to open read-only");
-    check(guideText->getText().contains("Chord MIDI Through")&&guideText->getText().contains("Device Activator")&&guideText->getText().contains("31 scales"),"guide lacks MIDI-only routing/scale guidance");
+    check(guideText->getText().contains("Chord MIDI Through")&&guideText->getText().contains("Device Activator")&&guideText->getText().contains("38 scales"),"guide lacks MIDI-only routing/scale guidance");
     check(!guideText->getText().containsIgnoreCase("hysteresis")&&!guideText->getText().containsIgnoreCase("compressor"),"old audio guide remained");
     check(process(p,128).empty()&&p.getSnapshot().allowedMask==before.allowedMask,"opening guide changed MIDI/allowed notes");screenshot(*editor,"Flysnapper-guide.png");guideClose->onClick();check(!panel->isVisible(),"guide failed to close");
     flip->onClick();check(viewport->isVisible(),"flip failed to show mapping rows");check(process(p,128).empty(),"flip interrupted a held note");screenshot(*editor,"Flysnapper-back.png");
@@ -195,7 +231,7 @@ void gui(){
     const auto released=process(p,128,{{19,off(61)}});check(released.size()==1&&released[0].second.isNoteOff()&&released[0].second.getNoteNumber()==held[0].second.getNoteNumber(),"GUI lifecycle lost playing-note binding");
     editor.reset(p.createEditor());editor->setSize(1210,900);editor.reset();editor.reset(p.createEditor());
     check(editor->getWidth()==1040&&editor->getHeight()==760,"new editor default size differs after closing a resized view");
-    std::cout<<"PASS actual MIDI-only editor,52x31 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs\n";
+    std::cout<<"PASS actual MIDI-only editor,52x38 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs\n";
 }
 }
 int main(){

@@ -3,11 +3,10 @@
 Flysnapper MIDI er en ren VST3-prosessor for MIDI-korreksjon etter skalaer
 eller et akkordspor. MIDI-only-ombyggingen følger brukerens bestilling
 7. november 2026. Det er ennå ingen publisert, praktisk Live-godkjent
-0.4.0-leveranse. Både Linux- og Windows-kontrollen for 52-typeutgaven består
-4/4 native-grupper. Python har 198 tester: Linux 196 bestått / 2 BAT-hopp,
-Windows 197 bestått / 1 symlink-hopp. Faktisk Windows-installasjon,
-erstatning, gjenoppretting og innlasting av installert VST3 er kontrollert.
-Dette er egne resultater, som ikke dokumenterer faktisk Ableton-adferd.
+0.4.0-leveranse. Den nye 38-skala-/52-typeutgaven består 4/4 native-grupper
+på Linux. Python har 198 tester: 196 består og 2 native Windows-BAT-prøver
+hoppes over på Linux. Den nye Windows-kjøringen følger separat; tidligere
+31-skalaresultater er bevart som eget kontrollpunkt.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
 [versjonsnotatet](docs/RELEASE_0.4.0.md) og
@@ -32,8 +31,8 @@ Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
 
 ## Skalaer og fabrikkvalg
 
-31 skalaer: kromatisk; syv diatoniske moduser; syv moduser av melodisk moll;
-tre bebopskalaer; syv moduser av harmonisk moll; to diminished; heltone;
+38 skalaer: kromatisk; syv diatoniske moduser; syv moduser av melodisk moll;
+tre bebopskalaer; syv moduser av harmonisk moll; syv moduser av harmonisk dur; to diminished; heltone;
 durpentatonisk; mollpentatonisk; minor blues. Melodisk moll bruker samme
 stigende tonemengde i begge retninger.
 
@@ -43,8 +42,8 @@ overskriftene **Scales with all chord tones** og **Chord tones outside
 scale**. Begge grupper følger parentfamilie og modusnummer. Uforenlige
 valg er merket og navngir manglende toner; de er fortsatt valgbare.
 
-[Excel-malen](docs/factory-settings/2026-11-07-revision-2/README.md) har alle 52 stabile
-akkord-ID-er og 31 skalaalternativer. Nåværende fabrikkvalg beholdes inntil
+[Excel-malen](docs/factory-settings/2026-11-07-revision-3/README.md) har alle 52 stabile
+akkord-ID-er og 38 skalaalternativer. Nåværende fabrikkvalg beholdes inntil
 brukerens redigerte fil er mottatt og kontrollert. Hver instans lagrer sine
 egne tilordninger med prosjekttilstanden. De to nye typene har Lydian som
 foreløpig utgangspunkt. I Excel viser skalavalgene tonenavn i parentes;
@@ -56,7 +55,7 @@ Den nye komponenten heter **Flysnapper MIDI** og bruker bundle
 `Flysnapper MIDI.vst3`, med MIDI inn/ut og null audiobusser. Egen
 pluginidentitet gjør at den gamle 0.3.0-komponenten og dens eksisterende
 prosjekt-/automasjonsdata ikke blir erstattet. Gamle normaliserte
-skalaparametre med 19 valg kan ikke uten videre brukes som 31-valgsautomasjon.
+skalaparametre med 19 valg kan ikke uten videre brukes som 38-valgsautomasjon.
 
 Brukeren oppgir Live 12.4.6 og støtte for VST3-MIDI-kjeder. Det er ikke utført
 en faktisk Live-test i dette miljøet. Direkte ruting til én plugin,
@@ -90,7 +89,7 @@ Den aktuelle MIDI-utgaven har egne kjerne-, GUI-, prosessor- og faktiske
 VST3-testvertprøver. Windows-pakking krever dessuten kilde-/modulbundet
 bevis, PE-/Unicode-kontroller og reelle installasjons-/gjenopprettingsprøver.
 En generisk testvert dokumenterer ikke faktisk Ableton-atferd.
-Se [det aktuelle kontrollpunktet](docs/validation/midi-only-52-2026-11-07/README.md).
+Se [det aktuelle kontrollpunktet](docs/validation/midi-only-38-scales-2026-11-07/README.md).
 Kildepakken beholder all aktuell kode og testdata; historiske DSP-arkiver
 finnes i repositoriet og er utelatt fra den kompakte 0.4.0-kildepakken.
 

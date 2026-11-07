@@ -1,7 +1,7 @@
 # Flysnapper MIDI 0.4.0 – brukerveiledning for utviklingskandidaten
 
-Dette dokumentet gjelder MIDI-only-utgaven med 52 akkordtyper. Native
-Windows-bygg, faktisk installasjon og innlasting i VST3-testverten består.
+Dette dokumentet gjelder MIDI-only-utgaven med 52 akkordtyper. Alle 38 skalavalg består native-kontroll på Linux. Den nye Windows-
+kontrollen skal bygge og verifisere samme 38-skala-kilde separat.
 Fabrikkvalgene venter på brukerens Excel-fil, og praktisk Live 12.4.6-
 ruting er ikke verifisert i dette miljøet. Ingen ny brukerleveranse er publisert.
 
@@ -17,7 +17,7 @@ manuell installasjon brukes, ikke bare filen inne i Contents. Den nye
 komponenten har egen identitet; gammel `Flysnapper.vst3` 0.3.0 blir ikke
 overskrevet. Velg **Flysnapper MIDI** når du legger inn den nye utgaven.
 Gamle prosjekter og normalisert 19-valgsautomasjon er ikke automatisk
-migrert til den nye 31-valgskomponenten.
+migrert til den nye 38-valgskomponenten.
 
 ## Kanalroller og flere instanser
 
@@ -78,12 +78,14 @@ skalaens toner vises med navn. Den valgte skalatypen transponeres til den
 faktiske innkommende akkordens grunntone.
 
 Hver meny har først **Scales with all chord tones**, deretter **Chord tones
-outside scale**. Alle 31 valg beholdes. Innen begge deler følger sorteringen
+outside scale**. Alle 38 valg beholdes. Innen begge deler følger sorteringen
 parentfamilie og modusnummer. Et utropstegn og teksten Outside scale viser
 at valget utelater navngitte akkordtoner. Det legges ikke til skjulte toner
 for å gjøre valget kompatibelt.
 
-Melodisk moll brukes stigende også ved nedadgående spill. Tonene i
+Harmonisk dur og alle sju modusene er med. De følger etter harmonisk moll
+og før diminished i menyrekkefølgen. Melodisk moll brukes stigende også ved
+nedadgående spill. Tonene i
 akkordtypeformlene inkluderer nominelle toner som gjenkjenningen kan
 akseptere utelatt. Enharmoniske navn kan betegne samme tonehøyde.
 

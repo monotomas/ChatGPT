@@ -11,7 +11,8 @@ const juce::Colour text{0xffedf2f5},muted{0xff9badbb},orange{0xffffb15d};
 const juce::Colour blue{0xff5daeff},green{0xff58d7bb};
 constexpr const char* noteNames[]{"C","Db","D","Eb","E","F","F#","G","Ab","A","Bb","B"};
 constexpr const char* familyNames[]{"Chromatic","Diatonic modes","Melodic Minor modes","Bebop",
-    "Harmonic Minor modes","Diminished","Whole Tone","Major Pentatonic","Minor Pentatonic","Minor Blues"};
+    "Harmonic Minor modes","Harmonic Major modes","Diminished","Whole Tone","Major Pentatonic","Minor Pentatonic","Minor Blues"};
+constexpr int familyCount=int(sizeof(familyNames)/sizeof(familyNames[0]));
 constexpr const char* assignmentTip="Tool tip: If different assignments are required for different parts of the tune, insert extra instances of Flysnapper to your track and automate Note Correction on/off. Chord MIDI must reach the chain on channel 16. Enable Chord MIDI Through on every instance except the last. When routing chord MIDI directly to the first instance, leave that instance enabled in Live.";
 void label(juce::Label& l,const juce::String& s,float size=14,juce::Colour colour=text,bool bold=false){
     l.setText(s,juce::dontSendNotification);
@@ -34,7 +35,7 @@ void populateScales(juce::ComboBox& box,uint16_t chordMask){
             if(first||compatible!=previousCompatible)
                 box.addSectionHeading(compatible?"Scales with all chord tones":"Chord tones outside scale");
         }else if(definition.familyOrder!=previousFamily){
-            const int family=std::clamp(definition.familyOrder,0,9);box.addSectionHeading(familyNames[family]);
+            const int family=std::clamp(definition.familyOrder,0,familyCount-1);box.addSectionHeading(familyNames[family]);
         }
         box.addItem((compatible?juce::String{}:juce::String("! "))+juce::String::fromUTF8(definition.name),index+1);
         previousCompatible=compatible;previousFamily=definition.familyOrder;first=false;
@@ -196,7 +197,7 @@ Chord Tones Only corrects to the received chord's held pitch classes. Chord-Scal
 The nearest allowed MIDI note is selected without waiting for future notes. Equidistant choices follow the established melodic-direction rules, with upward correction as the fallback. Chord changes affect new notes; held playing-note bindings remain stable. Empty or unrecognised chord input cannot supply an invented scale.
 
 CHOOSING SCALES
-All 31 scales remain selectable. Each chord-type menu first lists Scales with all chord tones, then Chord tones outside scale. Within each section the requested parent-family and mode order is retained. An exclamation mark identifies a scale that omits nominal chord tones; the row names the missing tones. The choice is allowed and no hidden chord/scale union is added.
+All 38 scales remain selectable. Each chord-type menu first lists Scales with all chord tones, then Chord tones outside scale. Within each section the requested parent-family and mode order is retained. Harmonic Major modes follow Harmonic Minor modes and precede Diminished. An exclamation mark identifies a scale that omits nominal chord tones; the row names the missing tones. The choice is allowed and no hidden chord/scale union is added.
 
 Chord-type and mapping scale tones on the back are displayed relative to C. The selected scale type transposes to the actual incoming chord root. Melodic Minor uses its ascending form in both directions. Pitch-class names may have enharmonic equivalents.
 
@@ -221,7 +222,7 @@ Flysnapper adds no intentional note-analysis delay. Host buffers, routing and th
     routingHelp.onClick=[this]{showRoutingHelp();};guide.onClick=[this]{setGuideVisible(!guideVisible);};guideClose.onClick=[this]{setGuideVisible(false);};help.onClick=[this]{setHelp(help.getToggleState());};
     addTip(mode,"Chord Tones Only uses held chord tones. Chord-Scale Assignment uses the mapping for the recognised chord type. Fixed Scale ignores chord input when choosing allowed notes.");
     addTip(root,"Root of Fixed Scale. Chord-dependent modes use the received chord's root.");
-    addTip(scale,"All 31 fixed scales, ordered by parent family and mode. The selection is saved with this instance.");
+    addTip(scale,"All 38 fixed scales, ordered by parent family and mode. The selection is saved with this instance.");
     addTip(correction,"Automate this control to enable or disable note correction while continuing to receive chord changes. Existing held notes retain their original output binding.");
     addTip(chordThru,"Forward channel-16 chord control unchanged to a following Flysnapper. Enable on intermediate instances; leave off on the last instance to keep chord-control notes out of the receiving instrument.");
     addTip(flip,"Flip to all 52 independent chord/scale assignments. Editing the view itself does not change MIDI.");

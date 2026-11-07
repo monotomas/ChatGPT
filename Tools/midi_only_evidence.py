@@ -20,7 +20,7 @@ DIRECTORY = 'midi-validation'
 MANIFEST = 'report-manifest.json'
 STAGE = 'midi-only-native-validation'
 SCOPE = {'feature_set':'midi-to-midi-only', 'audio_processing':False,
-         'pitch_to_midi':False, 'scales':31, 'chord_types':52,
+         'pitch_to_midi':False, 'scales':38, 'chord_types':52,
          'host_scope':'native-processor-and-compiled-vst3-test-host',
          'ableton_verified':False}
 BUNDLE = 'Flysnapper MIDI.vst3'
@@ -125,7 +125,7 @@ def check_report(report_data, event_data, kind, event_filename):
     require(r.get('ableton_verified') is False and r.get('pitch_detection_implemented') is False,
             'incorrect DAW/audio scope claim')
     require(r.get('audio_input_channels')==0 and r.get('audio_output_channels')==0
-            and r.get('scale_count')==31 and r.get('chord_type_count')==52,
+            and r.get('scale_count')==38 and r.get('chord_type_count')==52,
             'MIDI-only bus/music scope differs')
     features=r.get('verified_features')
     require(isinstance(features,list) and len(features)==len(set(features))
