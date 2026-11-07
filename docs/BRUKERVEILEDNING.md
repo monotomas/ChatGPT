@@ -1,7 +1,8 @@
 # Flysnapper MIDI 0.4.0 – brukerveiledning for utviklingskandidaten
 
-Dette dokumentet gjelder MIDI-only-utgaven med 52 akkordtyper. Alle 38 skalavalg består native-kontroll på Linux. Den nye Windows-
-kontrollen skal bygge og verifisere samme 38-skala-kilde separat.
+Dette dokumentet gjelder MIDI-only-utgaven med 38 skalaer og 52 akkordtyper.
+Alle native-grupper består på Linux og Windows. Faktisk PS/BAT-installasjon
+og innlasting av den installerte VST3-filen består i Windows-testverten.
 Fabrikkvalgene venter på brukerens Excel-fil, og praktisk Live 12.4.6-
 ruting er ikke verifisert i dette miljøet. Ingen ny brukerleveranse er publisert.
 

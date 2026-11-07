@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "kind": "BoundedIndependent38ScaleDeltaReview",
+  "observed_at_utc": "2026-11-07T16:33:04.278797+00:00",
+  "source_commit": "76490afdb2971ef3de9860f1bb11c80070fb91ef",
+  "source_sha256": {
+    "Source/Core/MidiEngine.cpp": "a0187595aff787b954b90cf56cabc6b9aff534f9605ea5d88d3fda959ba76be2",
+    "Source/PluginProcessor.cpp": "d7bbaa784487d3bea9ed5bb42ea10a71c8813ff9a16a64d2643aef488aa64579",
+    "Source/Core/MusicData.cpp": "3aefcbbe8ce585bbea3ee7524262c0b8a2fcd8683e63214293e61e8d9fddd1d2"
+  },
+  "result": "No concrete bug found",
+  "checks": [
+    "Snapshot sixth scale bit58 and inverse preserve oldwords/sentinel and adjacent fields",
+    "Finite/clamped/rounded choice reads match actual AudioParameterChoice semantics",
+    "Processing and stable-ID state export use the same bounded allocation-free helper",
+    "All seven Harmonic Major formulas/names match parent rotations and old31 IDs/masks remain intact"
+  ],
+  "float32_default_examples": {
+    "3": 2.99999976158,
+    "6": 5.99999952316,
+    "12": 11.9999990463,
+    "24": 23.99999809265
+  },
+  "scope": "Bounded read-only peer review; no edits or new broad test executions; not full code or host certification."
+}

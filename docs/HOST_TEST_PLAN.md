@@ -35,9 +35,10 @@ utvalgte prosjektinnganger og full ekstern kompilator-/headerlukning.
 
 ## Windows-pakke og installert modul
 
-Den tidligere 31-skala-/52-typekontrollen er bevart separat. Ny 38-skala-
-kilde skal få en egen tilsvarende Windows-/installasjonskontroll. Punktene
-nedenfor beskriver kravene.
+Den nye 38-skala-/52-typekontrollen består for kilde76490af; se
+[den faktiske Windows-kjøringen](validation/midi-only-38-scales-2026-11-07/windows/README.md).
+Tidligere 31-skala-resultater er bevart separat. Punktene nedenfor beskriver
+kravene som ble kontrollert.
 
 CI skal bygge i Unicode-sti, kjøre de aktuelle native-/Python-testene og
 pakke den nøyaktige bygde bundlen. Den utpakkede pakken skal installeres

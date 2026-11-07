@@ -1,0 +1,94 @@
+Start testing: Nov 07 16:37 Coordinated Universal Time
+----------------------------------------------------------
+1/4 Testing: FlysnapperCore
+1/4 Test: FlysnapperCore
+Command: "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/FlysnapperCoreTests.exe"
+Directory: D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356
+"FlysnapperCore" start time: Nov 07 16:37 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+Flysnapper core: 6 suites passed, 2191245 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperCore" end time: Nov 07 16:37 Coordinated Universal Time
+"FlysnapperCore" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: FlysnapperPluginSmoke
+2/4 Test: FlysnapperPluginSmoke
+Command: "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests.exe"
+Directory: D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356
+"FlysnapperPluginSmoke" start time: Nov 07 16:37 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+PASS MIDI-only parameters,52x38 state choices, stable IDs, independent copies and legacy XML payloads
+PASS warmed processBlock C++ new check (host wrapper and malloc/realloc excluded)
+PASS scale/root/correction preview before prepareToPlay or processBlock
+PASS actual MIDI-only editor,52x38 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs
+FlysnapperPluginSmoke: PASS (20135 assertions; not Ableton validation)
+<end of output>
+Test time =   0.50 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperPluginSmoke" end time: Nov 07 16:37 Coordinated Universal Time
+"FlysnapperPluginSmoke" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: FlysnapperMidiOnlyProcessor
+3/4 Test: FlysnapperMidiOnlyProcessor
+Command: "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests.exe"
+Directory: D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356
+"FlysnapperMidiOnlyProcessor" start time: Nov 07 16:37 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+FlysnapperMidiOnlyProcessor: PASS (107320 checks, 14 cases; no Ableton verification).
+<end of output>
+Test time =   0.17 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperMidiOnlyProcessor" end time: Nov 07 16:37 Coordinated Universal Time
+"FlysnapperMidiOnlyProcessor" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: FlysnapperActualVst3
+4/4 Test: FlysnapperActualVst3
+Command: "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe" "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/Flysnapper_artefacts/Release/VST3/Flysnapper MIDI.vst3"
+Directory: D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356
+"FlysnapperActualVst3" start time: Nov 07 16:37 Coordinated Universal Time
+Output:
+----------------------------------------------------------
+PASS module_contract
+PASS routing_44100_32
+PASS routing_44100_128
+PASS routing_44100_257
+PASS routing_48000_32
+PASS routing_48000_128
+PASS routing_48000_257
+PASS routing_96000_32
+PASS routing_96000_128
+PASS routing_96000_257
+PASS all_38_scale_indices
+PASS internal_correction_off_held_chord
+PASS new_sharp_eleventh_chord_mappings
+PASS serial_instances_and_two_active_corrections
+PASS non_ch1_notes_and_expression
+PASS channel1_sustain_and_latch_reset
+PASS overlapping_input_bindings
+PASS instance_state
+PASS transport_reset
+PASS generated_midi_routing
+PASS host_invoked_bypass_callback
+RESULT actual VST3 host tests passed (4965 assertions).
+PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
+NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.
+<end of output>
+Test time =   0.50 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperActualVst3" end time: Nov 07 16:37 Coordinated Universal Time
+"FlysnapperActualVst3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 07 16:37 Coordinated Universal Time

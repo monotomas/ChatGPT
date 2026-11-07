@@ -51,7 +51,10 @@ filhashes identifiserer inngangene. Dette er ikke full kompilator-/system-
 header-/JUCE-lukning. Core-resultatets hashes er registrert etter kjøringen.
 Binærfiler er hashkontrollert og utelatt fra Git-arkivet.
 
-Windows-pakken skal ha sin egen ferske 38/52-verifikasjon. Ingen faktisk
+[Windows-pakken](windows/README.md) har egen fersk 38/52-verifikasjon fra
+76490af: alle 4 native-grupper og faktisk PS/BAT-installasjon/innlastet VST3
+består. Python har 197 bestått / ett symlink-hopp av 198 tester. Alle
+pakke-/kilde-/modul-/installasjonsbindinger er etterkontrollert. Ingen faktisk
 Ableton Live-kjøring er utført her; testvertens eksplisitte kjede beviser
 ikke Lives plassering, kanalbevaring eller Device Activator-ruting.
 Fabrikkvalg avventer fortsatt brukerens redigerte Excel-fil.

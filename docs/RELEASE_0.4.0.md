@@ -3,10 +3,10 @@
 Dette er ombyggingen til MIDI-only som brukeren bestilte 7. november 2026.
 Den samlede Linux-native-kontrollen består 4/4 grupper. Python-kontrollen
 har 198 tester: 196 består og 2 Windows-spesifikke BAT-prøver hoppes over
-på Linux. Dette gjelder den nye utgaven med 38 skalaer. Windows skal ha
-sin egen ferske 38/52-kontroll; de tidligere 31-skalaresultatene gjelder
-et separat kildepunkt. Ingen ny brukerleveranse eller Live-godkjenning
-er publisert.
+på Linux. Dette gjelder den nye utgaven med 38 skalaer. Windows har
+egen fersk 38/52-verifikasjon: 4/4 native-grupper, 197 av 198 Python-tester
+med ett symlink-hopp og faktisk PS/BAT-installasjon/innlastet VST3 består.
+Ingen ny brukerleveranse eller Live-godkjenning er publisert.
 
 Audio-/pitchmotor, sidechain, input dynamics, Learn og generert bending/MPE
 er fjernet. Den nye modulen annonserer MIDI inn/ut og null audiobusser.

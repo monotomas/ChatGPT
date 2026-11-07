@@ -4,8 +4,9 @@ Brukerens [bestilling 7. november](MIDI_ONLY_REQUEST_2026-11-07.md) overstyrer
 alle tidligere pitchmål. Ikke gjenoppta DSP-utvikling. Det gamle forsknings-
 og målematerialet beholdes som sporbarhet.
 
-MIDI-kjernen, grensesnittet, den faktiske VST3-modulen og Windows-installasjon
-har ferske beståtte Linux-kontroller for 38 skalaer / 52 typer. Nåværende produkt har null
+MIDI-kjernen, grensesnittet og den faktiske VST3-modulen har ferske
+beståtte Linux-/Windows-kontroller for 38 skalaer / 52 typer, inkludert
+faktisk Windows-installasjon. Nåværende produkt har null
 audiobusser, 38 skalaer, 52 uavhengige kart og korrekt kanal 1/16-behandling
 i testverten.
 Ikke svekk MIDI-testene eller presenter bortfalte audiokrav som bestått.
@@ -19,8 +20,7 @@ Før en ferdig brukerleveranse må følgende være avklart:
   reaktivering under en holdt akkord. Generiske VST3-tester er ikke Live.
 - Hele native-/Python-/Windows-/installerkontrollen må passe til nøyaktig
   kildecommit og ny modulidentitet, også erstattings-/gjenopprettingsprøver.
-  Tidligere 31-skala-pakke e891c2e består separat. Ny 38-skala-kilde og
-  senere fabrikkendringer må få tilsvarende egen
+  38-skala-pakke76490af består. Senere fabrikkendringer må få tilsvarende egen
   kilde-/pakkebinding før endelig levering; ikke omdøp den foreløpige pakken.
 
 Forskningsbygg kan lagres på en separat valideringsgren. Den offisielle
