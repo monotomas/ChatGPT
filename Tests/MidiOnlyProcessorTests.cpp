@@ -1008,7 +1008,7 @@ void routingPulseDoesNotOwnExternalNote() {
 void writeEvidence(const char* status, const juce::String& error = {}) {
     auto* object = new juce::DynamicObject;
     object->setProperty("schema", 1); object->setProperty("kind", "FlysnapperMidiOnlyProcessor");
-    object->setProperty("version","0.4.3");object->setProperty("factory_mapping_sha256",factoryMappingSha256);
+    object->setProperty("version","0.4.4");object->setProperty("factory_mapping_sha256",factoryMappingSha256);
     object->setProperty("status", status); object->setProperty("checks", int(checks)); object->setProperty("cases", cases);
     object->setProperty("events_file", "Flysnapper-midi-processor-events.csv"); object->setProperty("events_rows", juce::int64(eventRows));
     juce::Array<juce::var> rawCases;

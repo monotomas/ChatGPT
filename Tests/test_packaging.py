@@ -28,9 +28,9 @@ class PackagingTests(unittest.TestCase):
         self.output = Path(self.temp.name) / "delivery.zip"
 
     def test_complete_safe_extract_and_all_hashes(self):
-        self.assertEqual(package.VERSION,"0.4.3")
-        self.assertEqual(package.PACKAGE_ROOT,"Flysnapper-0.4.3")
-        self.assertIn("docs/RELEASE_0.4.3.md",package.REQUIRED_FILES)
+        self.assertEqual(package.VERSION,"0.4.4")
+        self.assertEqual(package.PACKAGE_ROOT,"Flysnapper-0.4.4")
+        self.assertIn("docs/RELEASE_0.4.4.md",package.REQUIRED_FILES)
         extra = self.root / "docs/handover/Original.zip"
         extra.parent.mkdir(parents=True)
         extra.write_bytes(b"unchanged original handover")
@@ -67,7 +67,8 @@ class PackagingTests(unittest.TestCase):
             "docs/validation/midi-factory-2026-11-07/report.json": b"historical zero-audio user-factory MIDI proof",
             "docs/validation/midi-instrument-2026-11-07/report.json": b"historical instrument-adapter MIDI proof",
             "docs/validation/midi-factory-final-2026-11-07/report.json": b"historical final-factory instrument-adapter MIDI proof",
-            "docs/validation/midi-articulation-0.4.3/report.json": b"current legato and rearticulation instrument-adapter MIDI proof",
+            "docs/validation/midi-articulation-0.4.3/report.json": b"historical legato and rearticulation instrument-adapter MIDI proof",
+            "docs/validation/midi-chord-display-0.4.4/report.json": b"current root-position chord-tone display proof",
             "docs/factory-settings/2026-11-07-user-values/Flysnapper_factory_assignments_user.xlsx": b"historical original user workbook bytes",
             "docs/factory-settings/2026-11-07-user-values/assignments.json": b"historical original user assignments",
             "docs/factory-settings/2026-11-07-user-values-final/Flysnapper_factory_assignments_user.xlsx": b"current uploaded 52-row workbook bytes preserved",
@@ -79,10 +80,10 @@ class PackagingTests(unittest.TestCase):
         package.build_package(self.root,self.output)
         with ZipFile(self.output) as z:
             names=set(z.namelist());prefix=package.PACKAGE_ROOT+"/"
-            for name in ("docs/validation/midi-articulation-0.4.3/report.json","docs/factory-settings/2026-11-07-user-values/Flysnapper_factory_assignments_user.xlsx","docs/factory-settings/2026-11-07-user-values/assignments.json","docs/factory-settings/2026-11-07-user-values-final/Flysnapper_factory_assignments_user.xlsx","docs/factory-settings/2026-11-07-user-values-final/assignments.json","docs/handover/Original.zip"):
+            for name in ("docs/validation/midi-chord-display-0.4.4/report.json","docs/factory-settings/2026-11-07-user-values/Flysnapper_factory_assignments_user.xlsx","docs/factory-settings/2026-11-07-user-values/assignments.json","docs/factory-settings/2026-11-07-user-values-final/Flysnapper_factory_assignments_user.xlsx","docs/factory-settings/2026-11-07-user-values-final/assignments.json","docs/handover/Original.zip"):
                 self.assertIn(prefix+name,names)
                 self.assertEqual(z.read(prefix+name),files[name])
-            for name in ("docs/validation/old-guitar/archive.bin","docs/validation/old-summary.json","docs/validation/midi-only-2026-11-07/report.json","docs/validation/midi-only-52-2026-11-07/report.json","docs/validation/midi-only-38-scales-2026-11-07/report.json","docs/validation/midi-factory-2026-11-07/report.json","docs/validation/midi-instrument-2026-11-07/report.json","docs/validation/midi-factory-final-2026-11-07/report.json","docs/research/old-model/notes.txt"):
+            for name in ("docs/validation/midi-articulation-0.4.3/report.json","docs/validation/old-guitar/archive.bin","docs/validation/old-summary.json","docs/validation/midi-only-2026-11-07/report.json","docs/validation/midi-only-52-2026-11-07/report.json","docs/validation/midi-only-38-scales-2026-11-07/report.json","docs/validation/midi-factory-2026-11-07/report.json","docs/validation/midi-instrument-2026-11-07/report.json","docs/validation/midi-factory-final-2026-11-07/report.json","docs/research/old-model/notes.txt"):
                 self.assertNotIn(prefix+name,names)
             for name in files:self.assertEqual((self.root/name).read_bytes(),files[name])
 

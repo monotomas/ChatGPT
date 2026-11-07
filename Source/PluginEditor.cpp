@@ -207,7 +207,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(
 #ifdef JucePlugin_VersionString
     label(version,JucePlugin_VersionString,12.f,muted);
 #else
-    label(version,"0.4.3",12.f,muted);
+    label(version,"0.4.4",12.f,muted);
 #endif
     label(chord,"No chord input",42.f,text,true);chord.setComponentID("chordDisplay");chord.setMinimumHorizontalScale(.75f);
     label(activeScale,"Chromatic",18.f,green);activeScale.setComponentID("activeScale");
@@ -264,6 +264,8 @@ A new playing Note On rearticulates an already active output pitch with Note Off
 CHOOSING SCALES
 All 38 scales remain selectable. Each chord-type menu first lists Scales with all chord tones, then Chord tones outside scale. Within each section the requested parent-family and mode order is retained. Harmonic Major modes follow Harmonic Minor modes and precede Diminished. An exclamation mark identifies a scale that omits nominal chord tones; the row names the missing tones. The choice is allowed and no hidden chord/scale union is added.
 
+The playing view lists recognised chord tones in root position: root, third (or suspension), fifth, sixth where applicable, seventh, ninth, eleventh and thirteenth. Inversions do not put the bass first. Only received tones are listed; omitted tones are not added. With alternative chord names, the order follows the first recognised interpretation. Unrecognised note sets keep their pitch-class listing.
+
 The back groups all 52 chord types into Major, Dominant 1, Dominant 2 and Minor columns. Scroll vertically to see the remaining rows. Each scale menu spans its column; the popup and tooltip show full scale names. Chord-type and mapping scale tones are displayed relative to C. The selected scale type transposes to the actual incoming chord root. Melodic Minor uses its ascending form in both directions. Pitch-class names may have enharmonic equivalents.
 
 PRESETS AND INSTANCES
@@ -289,6 +291,7 @@ Flysnapper adds no intentional note-analysis delay. Host buffers, routing and th
     addTip(root,"Root of Fixed Scale. Chord-dependent modes use the received chord's root.");
     addTip(scale,"All 38 fixed scales, ordered by parent family and mode. The selection is saved with this instance.");
     addTip(correction,"Automate this control to enable or disable note correction while continuing to receive chord changes. Existing held notes retain their original output binding.");
+    addTip(chordTones,"Received chord tones in root position: root, third (or suspension), fifth, sixth, seventh, ninth, eleventh and thirteenth. Only sounding pitch classes are listed. The order follows the first recognised chord interpretation, regardless of inversion.");
     addTip(chordThru,"Forward channel-16 chord control unchanged to the plugin's MIDI output. Leave off when routing to a sounding instrument; enable only when a following MIDI processor needs the chord-control messages.");
     addTip(flip,"Flip to all 52 independent chord/scale assignments. Editing the view itself does not change MIDI.");
     addTip(panic,"Release tracked notes and pedals and clear the current chord. Use this if playback was interrupted.");
@@ -329,7 +332,7 @@ void FlysnapperEditor::timerCallback(){
     const auto snapshot=processor.getSnapshot();
     const auto chordText=flysnapper::formatChord(snapshot);
     chord.setText(snapshot.chordMask==0?juce::String("No chord input"):chordText.empty()?juce::String("Unrecognised chord"):juce::String::fromUTF8(chordText.c_str()),juce::dontSendNotification);
-    chordTones.setText("Chord tones: "+namesFor(snapshot.chordMask),juce::dontSendNotification);
+    chordTones.setText("Chord tones: "+juce::String::fromUTF8(flysnapper::chordToneNamesInRootPosition(snapshot.chordMask,snapshot.root,snapshot.typeIndex).c_str()),juce::dontSendNotification);
     const int currentMode=std::clamp(juce::roundToInt(parameter("mode")),0,2);
     const int selected=std::clamp(juce::roundToInt(parameter("scale")),0,flysnapper::scaleCount-1);
     const int selectedRoot=std::clamp(juce::roundToInt(parameter("root")),0,11);

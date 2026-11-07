@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a deterministic, complete Flysnapper MIDI 0.4.3 source delivery ZIP.
+"""Create a deterministic, complete Flysnapper MIDI 0.4.4 source delivery ZIP.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 JUCE is deliberately acquired by the checked builder using dependencies.lock.json;
@@ -16,7 +16,7 @@ import stat
 import tempfile
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
-VERSION = "0.4.3"
+VERSION = "0.4.4"
 PACKAGE_ROOT = f"Flysnapper-{VERSION}"
 FIXED_TIMESTAMP = (2026, 11, 3, 0, 0, 0)
 ROOT_FILES = frozenset({
@@ -39,6 +39,7 @@ REQUIRED_FILES = frozenset({
     "docs/INSTRUMENT_ADAPTER_REQUEST_2026-11-07.md", "docs/RELEASE_0.4.1.md",
     "docs/RELEASE_0.4.2.md",
     "docs/RELEASE_0.4.3.md",
+    "docs/RELEASE_0.4.4.md",
     ".github/workflows/windows.yml",
 })
 
@@ -98,7 +99,7 @@ def collect_files(root: Path, output: Path) -> dict[str, bytes]:
             if relative_current == "docs":
                 directories[:] = [d for d in directories if d != "research"]
             elif relative_current == "docs/validation":
-                directories[:] = [d for d in directories if d == "midi-articulation-0.4.3"]
+                directories[:] = [d for d in directories if d == "midi-chord-display-0.4.4"]
                 # Old aggregate/root evidence is historical too. The complete
                 # records remain in the source repository, outside this ZIP.
                 continue
@@ -177,7 +178,7 @@ def verify_package(path: Path) -> None:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, help="Delivery ZIP path; default dist/Flysnapper-0.4.3-Source.zip")
+    parser.add_argument("--output", type=Path, help="Delivery ZIP path; default dist/Flysnapper-0.4.4-Source.zip")
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parent.parent
     output = args.output or root / "dist" / f"Flysnapper-{VERSION}-Source.zip"

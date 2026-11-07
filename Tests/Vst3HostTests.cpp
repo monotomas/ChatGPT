@@ -233,7 +233,7 @@ void expectUserFactoryChoices(juce::AudioPluginInstance& p, bool declaredDefault
 
 void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     check(d.isInstrument, "Actual VST3 must be classified as an instrument");
-    check(d.version == "0.4.3", "Actual VST3 must report version 0.4.3");
+    check(d.version == "0.4.4", "Actual VST3 must report version 0.4.4");
     const auto categories = juce::StringArray::fromTokens(d.category, "|", "");
     check(categories.size()==1 && categories.contains("Instrument"),
           "Actual VST3 metadata must contain exactly Instrument, without Fx/Tools");
@@ -1026,7 +1026,7 @@ void writeEvidence(const juce::File& directory, bool passed, const juce::String&
     check(events.replaceWithText(csv), "Could not write VST3 MIDI events");
     auto* object = new juce::DynamicObject;
     object->setProperty("schema", 1); object->setProperty("kind", "FlysnapperMidiOnlyVst3");
-    object->setProperty("version", "0.4.3");
+    object->setProperty("version", "0.4.4");
     object->setProperty("status", passed ? "passed" : "failed"); object->setProperty("checks", assertions);
     object->setProperty("scope", "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver");
     object->setProperty("ableton_verified", false); object->setProperty("pitch_detection_implemented", false);

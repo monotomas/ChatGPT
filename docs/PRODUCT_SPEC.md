@@ -1,4 +1,4 @@
-# Flysnapper MIDI – gjeldende produktoppdrag 0.4.3
+# Flysnapper MIDI – gjeldende produktoppdrag 0.4.4
 
 Brukeren har valgt å prøve den eksisterende Flysnapper som **VST3
 Instrument med audioutgang** før videre arbeid med en ren MIDI-effekt
@@ -6,6 +6,14 @@ eller alternative formater. Denne presiseringen går foran tidligere
 påstander om null audiobusser eller samme-spor-kjeding i Live. Se
 [versjonsnotatet](RELEASE_0.4.3.md) og
 [brukerveiledningen](BRUKERVEILEDNING.md).
+
+## Tillegg i 0.4.4
+
+Spillevinduets «Chord tones» skal følge grunnstilling fra gjenkjent rot:
+rot, ters/sus, kvint, eventuell sekst, septim, none,11,13. G13 vises
+G B D F A C E. Bare faktiske toneklasser vises, uavhengig av omvending;
+utelatte toner legges ikke til. Dette er GUI-visning uten endret MIDI.
+Alle øvrige krav fra0.4.3 nedenfor beholdes. Se [0.4.4](RELEASE_0.4.4.md).
 
 ## Gjeldende leveranse
 

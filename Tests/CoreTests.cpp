@@ -7,6 +7,7 @@
 #include <iostream>
 #include <new>
 #include <set>
+#include <sstream>
 #include <string>
 
 namespace {bool countAllocations=false;size_t allocationCount=0;size_t assertions=0;}
@@ -186,6 +187,99 @@ void scaleCatalogAndMenus() {
     // passing tone; no scale is silently aliased to another catalog entry.
     CHECK(scaleIndexFromId("bebop_dominant")!=scaleIndexFromId("bebop_major"));
 }
+void chordTonePresentation() {
+    // Literal musical-role examples distinguish root position from either
+    // absolute C-first ordering or a simple root-rotated pitch-class sort.
+    const auto display=[](const char* id,const char* expected) {
+        const int type=chordIndexFromId(id);CHECK(type>=0);
+        CHECK(chordToneNamesInRootPosition(chordToneMask(type),0,type)==expected);
+    };
+    display("major","C  E  G");
+    display("minor","C  Eb  G");
+    display("sus2","C  D  G");
+    display("sus4","C  F  G");
+    display("power","C  G");
+    display("power_seventh","C  G  Bb");
+    display("major_sixth","C  E  G  A");
+    display("minor_sixth","C  Eb  G  A");
+    display("six_nine","C  E  G  A  D");
+    display("dominant_flat5","C  E  Gb  Bb");
+    display("dominant_sharp5","C  E  G#  Bb");
+    display("dominant_flat9","C  E  G  Bb  Db");
+    display("dominant_sharp9","C  E  G  Bb  D#");
+    display("dominant_sharp11","C  E  G  Bb  F#");
+    display("dominant_flat13","C  E  G  Bb  Ab");
+    display("dominant_sharp5_sharp9","C  E  G#  Bb  D#");
+    display("dominant_ninth","C  E  G  Bb  D");
+    display("ninth_sus4","C  F  G  Bb  D");
+    display("dominant_eleventh","C  E  G  Bb  D  F");
+    display("minor_eleventh_flat5","C  Eb  Gb  Bb  D  F");
+    display("dominant_thirteenth","C  E  G  Bb  D  F  A");
+    display("major_thirteenth","C  E  G  B  D  F  A");
+    display("minor_major_thirteenth","C  Eb  G  B  D  F  A");
+    display("thirteenth_sharp9","C  E  G  Bb  D#  F  A");
+    display("thirteenth_add_sharp9","C  E  G  Bb  D  D#  F  A");
+    display("thirteenth_sus4","C  F  G  Bb  D  A");
+    display("minor_thirteenth_flat5","C  Eb  Gb  Bb  D  F  A");
+    display("major_thirteenth_sharp11","C  E  G  B  D  F#  A");
+    display("major_ninth_sharp11","C  E  G  B  D  F#");
+    // Retain the existing readable spelling for diminished seventh (A is
+    // enharmonic Bbb); it still occupies the seventh role, not a sixth/13th.
+    display("diminished_seventh","C  Eb  Gb  A");
+
+    constexpr std::array<const char*,12> majorNames{{
+        "C  E  G","Db  F  Ab","D  F#  A","Eb  G  Bb","E  G#  B","F  A  C",
+        "F#  A#  C#","G  B  D","Ab  C  Eb","A  C#  E","Bb  D  F","B  D#  F#"
+    }};
+    for(int root=0;root<12;++root) {
+        const auto mask=rotateMask(buffkiller::chordBits({0,4,7}),root);
+        // The actual recognized root, rather than the played bass, controls
+        // the order in all three inversions, including G/B and Eb/G.
+        for(int degree:{0,4,7}) {
+            const auto match=recogniseChord(mask,(root+degree)%12);
+            CHECK(match.root==root&&match.typeIndex==0);
+            CHECK(chordToneNamesInRootPosition(mask,match.root,match.typeIndex)==majorNames[size_t(root)]);
+        }
+    }
+    const int sharpEleventh=chordIndexFromId("dominant_sharp11");
+    CHECK(chordToneNamesInRootPosition(buffkiller::chordBits({0,2,4,6,7,10}),0,sharpEleventh)=="C  E  G  Bb  D  F#");
+    const int majorSharpEleventh=chordIndexFromId("major_seventh_sharp11");
+    CHECK(chordToneNamesInRootPosition(buffkiller::chordBits({0,2,4,6,7,11}),0,majorSharpEleventh)=="C  E  G  B  D  F#");
+    // Actual sounding tones remain authoritative: never fill an omitted
+    // fifth from the nominal formula or discard a recognized added ninth.
+    const int lydian=chordIndexFromId("major_thirteenth_sharp11");
+    CHECK(chordToneNamesInRootPosition(buffkiller::chordBits({0,2,4,6,9,11}),0,lydian)=="C  E  B  D  F#  A");
+    CHECK(chordToneNamesInRootPosition(buffkiller::chordBits({2,4,6,9,11}),0,lydian)=="D  E  F#  A  B");
+
+    const auto pitchClass=[](const std::string& token) {
+        const std::string letters="CDEFGAB";constexpr int naturals[]{0,2,4,5,7,9,11};
+        const auto at=letters.find(token[0]);CHECK(at!=std::string::npos);
+        int pitch=naturals[at];
+        for(size_t i=1;i<token.size();++i){CHECK(token[i]=='#'||token[i]=='b');pitch+=token[i]=='#'?1:-1;}
+        return (pitch%12+12)%12;
+    };
+    // Every full catalog formula in every root must preserve each received
+    // pitch class exactly once and lead with the root. This invariant does
+    // not duplicate the implementation's harmonic-role sorting algorithm.
+    for(int type=0;type<chordTypeCount;++type)for(int root=0;root<12;++root) {
+        const auto mask=rotateMask(chordToneMask(type),root);
+        std::istringstream text(chordToneNamesInRootPosition(mask,root,type));
+        std::string token;uint16_t seen=0;int count=0;
+        while(text>>token) {
+            const int pc=pitchClass(token);
+            if(count==0)CHECK(pc==root);
+            CHECK(!(seen&(1u<<pc)));seen=uint16_t(seen|(1u<<pc));++count;
+        }
+        CHECK(seen==mask&&count==buffkiller::chordBitCount(mask));
+    }
+    CHECK(chordToneNamesInRootPosition(0,-1,-1)=="none");
+    CHECK(chordToneNamesInRootPosition(0,0,0)=="none");
+    CHECK(chordToneNamesInRootPosition(uint16_t(1u<<7),-1,-1)=="G");
+    CHECK(chordToneNamesInRootPosition(buffkiller::chordBits({0,1,7}),-1,-1)=="C  Db  G");
+    CHECK(chordToneNamesInRootPosition(buffkiller::chordBits({2,7,11}),7,-1)=="D  G  B");
+    CHECK(chordToneNamesInRootPosition(buffkiller::chordBits({2,7,11}),12,0)=="D  G  B");
+    CHECK(chordToneNamesInRootPosition(uint16_t(0x8000|(1u<<7)),-1,-1)=="G");
+}
 void dataAndRecognition() {
     scaleCatalogAndMenus();
     CHECK(scaleDefinitions().size()==38);CHECK(chordTypes().size()==52);
@@ -202,6 +296,7 @@ void dataAndRecognition() {
         for(int pc=0;pc<12;++pc)CHECK(bool(rotated&(1u<<((pc+root)%12)))==bool(s.mask&(1u<<pc)));
     }
     initialiseMusicData();
+    chordTonePresentation();
     // Exhaustive parity with the unchanged fifty-type reference plus an
     // independent oracle for the two requested formulas and explicit no5.
     // No masks are skipped merely because an extension changes the result.

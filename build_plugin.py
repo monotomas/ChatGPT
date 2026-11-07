@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build/test Flysnapper MIDI 0.4.3 instrument adapter. Standard library only.
+"""Build/test Flysnapper MIDI 0.4.4 instrument adapter. Standard library only.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 Windows tool discovery and Unicode patch adapted from Buffkiller 1.0.0.
@@ -337,7 +337,7 @@ def install_bundle(install_dir: Path | None = None) -> None:
     if not manifest_path.is_file():
         raise RuntimeError("Byggemanifest mangler. Kjor full bygging forst.")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    midi_only = manifest.get("version") in ("0.4.0", "0.4.1", "0.4.2", "0.4.3")
+    midi_only = manifest.get("version") in ("0.4.0", "0.4.1", "0.4.2", "0.4.3", "0.4.4")
     bundle_name = midi_only_evidence.BUNDLE if midi_only else "Flysnapper.vst3"
     suffix = midi_only_evidence.WINDOWS_BINARY if midi_only else "Contents/x86_64-win/Flysnapper.vst3"
     if midi_only and manifest.get("bundle_name") != bundle_name:

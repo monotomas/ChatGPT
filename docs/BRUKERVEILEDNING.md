@@ -1,6 +1,6 @@
-# Flysnapper MIDI 0.4.3 – brukerveiledning
+# Flysnapper MIDI 0.4.4 – brukerveiledning
 
-0.4.3 er en VST3-instrumentadapter som skal prøves i Ableton Live. Den har
+0.4.4 er en VST3-instrumentadapter som skal prøves i Ableton Live. Den har
 ingen audioinngang og sender bare stillhet på sin stereo audioutgang.
 Selve funksjonen er MIDI-til-MIDI: 52 akkordtyper, 38 skalaer og brukerens
 52 fabrikkvalg fra den utfylte Excel-filen. Pitch-to-MIDI og lydanalyse er
@@ -9,21 +9,21 @@ fjernet.
 Korrigert MIDI hentes fra Flysnapper til et separat instrumentspor.
 Denne utgaven er ikke dokumentert som en MIDI-effekt som kan seriekobles
 foran et annet instrument på samme Live-spor. Se
-[versjonsnotatet for 0.4.3](RELEASE_0.4.3.md) for gjeldende kontrollstatus.
-Brukeren har bekreftet rutingen i 0.4.2; den beholdes i 0.4.3.
+[versjonsnotatet for 0.4.4](RELEASE_0.4.4.md) for gjeldende kontrollstatus.
+Brukeren har bekreftet rutingen i 0.4.2; den beholdes i 0.4.4.
 
 ## Installasjon og pluginidentitet
 
-Bruk Windows-pakken merket 0.4.3. Pakk ut hele ZIP-filen, lukk
+Bruk Windows-pakken merket 0.4.4. Pakk ut hele ZIP-filen, lukk
 pluginvertene og kjør `INSTALL_FLYSNAPPER.bat`. Python, CMake og Visual
 Studio trengs ikke til normal installasjon. Ved manuell installasjon skal
 hele `Flysnapper MIDI.vst3`-bundlen kopieres, ikke bare filen inne i
 Contents. En Linux-modul kan ikke brukes som Windows-plugin.
 
-0.4.3 beholder navnet **Flysnapper MIDI** og samme Fsm1-komponentidentitet
+0.4.4 beholder navnet **Flysnapper MIDI** og samme Fsm1-komponentidentitet
 som 0.4.0. Den oppdaterer derfor denne bundlen. Gammel `Flysnapper.vst3`
 0.3.0 har en annen identitet og blir ikke overskrevet. Velg Flysnapper MIDI
-og kontroller versjon 0.4.3 ved utprøvingen.
+og kontroller versjon 0.4.4 ved utprøvingen.
 
 Musikalsk XML-tilstand bruker stabile akkord-/skala-ID-er. Dette er ikke et
 løfte om automatisk migrering av gamle prosjekter eller normalisert
@@ -93,6 +93,12 @@ spilletoner beholde tonehøyden. Dette gjelder også tomt akkordinput og én
 unik tone. Enkeltnoter vises som for eksempel **G (single note)**;
 G B D vises som **G Major**.
 
+**Chord tones** i spillevinduet viser tonene i grunnstilling: grunntone,
+ters eller sus-tone, kvint, eventuell sekst, septim, none, 11 og 13.
+G13 vises dermed **G B D F A C E**, uavhengig av omvendingen som spilles.
+Listen følger den første gjenkjente akkordtolkningen og viser bare
+mottatte toner. Utelatte toner legges ikke til.
+
 **Fixed Scale** bruker valgt grunntone og skala uten å la akkordsporet
 bestemme korreksjonen. Nye instanser starter i Fixed Scale/Chromatic.
 Når verten uttrykkelig melder stoppet transport, brukes **Chromatic** i
@@ -145,5 +151,5 @@ En plugin kan ikke sende oppryddingshendelser etter at verten har fjernet den.
 Pluginen rapporterer null kompensasjonslatency og bruker ikke et
 analysevindu. Vertens buffere, ruting og mottakerinstrument kan likevel gi
 hørbar forsinkelse. Generiske VST3-tester og Windows-installasjonskontroller
-er ikke en praktisk Ableton-godkjenning. 0.4.3 skal vurderes i Live før
+er ikke en praktisk Ableton-godkjenning. 0.4.4 skal vurderes i Live før
 videre format- eller kjedeutvikling.

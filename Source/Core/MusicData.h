@@ -41,4 +41,9 @@ void initialiseMusicData();
 ChordMatch recogniseChord(uint16_t mask, int bass) noexcept;
 std::string chordName(uint16_t mask, int bass); // GUI ONLY, allocates
 std::string chordDetail(uint16_t mask, int bass); // GUI ONLY, allocates
+// GUI ONLY, allocates. List the actual received tones in the recognised
+// chord's root-position degree order, not pitch-class or inversion order.
+// Unknown/invalid roots or types use the existing C-first pitch-class names.
+// Uses double spaces between names; an empty mask returns "none".
+std::string chordToneNamesInRootPosition(uint16_t mask, int root, int typeIndex);
 }

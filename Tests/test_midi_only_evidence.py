@@ -12,7 +12,7 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
     def verify(self):return e.verify(self.f.root,self.f.dist,self.f.manifest)
     def test_exact_fixture_bindings_pass_without_claiming_native_execution(self):
         self.assertEqual(set(self.verify()),{e.MANIFEST}|{n for s in e.SPECS for n in s[2:4]})
-        self.assertEqual(e.VERSION,'0.4.3')
+        self.assertEqual(e.VERSION,'0.4.4')
         self.assertEqual(e.SCOPE['scales'],38)
         self.assertEqual(e.SCOPE['chord_types'],52)
         self.assertEqual(e.SCOPE['host_device_role'],'instrument')
@@ -25,7 +25,7 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
         self.assertNotIn('zero_audio_buses',e.FEATURES)
         info=json.loads((self.f.bundle/'Contents/Resources/moduleinfo.json').read_text())
         self.assertEqual(info['Classes'][0]['Sub Categories'],['Instrument'])
-        self.assertEqual(info['Classes'][0]['Version'],'0.4.3')
+        self.assertEqual(info['Classes'][0]['Version'],'0.4.4')
     def test_source_mutation_and_extra_source_are_rejected(self):
         p=self.f.root/'Source/Core/MidiEngine.cpp';p.write_text('changed source')
         with self.assertRaisesRegex(ValueError,'source differs'):self.verify()

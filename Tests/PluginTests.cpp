@@ -128,6 +128,41 @@ void guiFallbacks(){
     check(!p.transportStopped(),"missing playhead retained a stale stopped GUI state");
     std::cout<<"PASS actual GUI single-note/Major labels and Chromatic fallback/transport previews\n";
 }
+void guiChordToneOrder(){
+    struct Example {std::vector<int> pitches;const char* tones;};
+    const std::vector<Example> examples{
+        {{55,59,62},"G  B  D"},{{47,50,55},"G  B  D"},{{50,55,59},"G  B  D"},
+        {{51,55,58},"Eb  G  Bb"},
+        {{48,52,55,58,62,65,69},"C  E  G  Bb  D  F  A"},
+        {{43,47,50,53,57,60,64},"G  B  D  F  A  C  E"},
+        {{48,52,55,58,63},"C  E  G  Bb  D#"},
+        {{48,52,55,58,66},"C  E  G  Bb  F#"},
+        {{48,52,56,58},"C  E  G#  Bb"},
+        {{48,52,55,58,68},"C  E  G  Bb  Ab"},
+        {{48,52,55,57},"C  E  G  A"},
+        {{48,52,55,57,62},"C  E  G  A  D"},
+        {{48,52,55,59,62,66,69},"C  E  G  B  D  F#  A"},
+        {{48,52,55,58,62,63,65,69},"C  E  G  Bb  D  D#  F  A"},
+        {{48,52,58,62,65,69},"C  E  Bb  D  F  A"},
+        {{48,50,55},"C  D  G"},{{48,53,55},"C  F  G"},
+        {{55},"G"},{{49,52},"Db  E"},{{},"none"}
+    };
+    FlysnapperProcessor p;p.prepareToPlay(48000,128);
+    std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditor());
+    auto* label=dynamic_cast<juce::Label*>(find(*editor,"receivedChordTones"));
+    check(label!=nullptr,"playing-view chord tones label missing");
+    check(label->getTooltip().contains("root position"),"chord tones tooltip omits the display order");
+    for(const auto& example:examples){
+        p.requestPanic();process(p,128);Midi input;
+        for(int pitch:example.pitches)input.emplace_back(0,on(pitch,16));
+        check(process(p,128,input).empty(),"chord-tone display emitted MIDI from consumed chord control");
+        const juce::String expected="Chord tones: "+juce::String(example.tones);
+        settleGuiTimers([&]{return label->getText()==expected;});
+        check(label->getText()==expected,"playing view does not list actual chord tones in root-position harmonic order");
+        if(example.pitches==std::vector<int>{43,47,50,53,57,60,64})screenshot(*editor,"Flysnapper-chord-tones-G13.png");
+    }
+    std::cout<<"PASS actual playing-view root-position chord tones, inversions, altered extensions and omissions\n";
+}
 void parametersAndState(){
     FlysnapperProcessor a,b;
     check(flysnapper::chordTypeCount==52&&flysnapper::chordTypes().size()==52,"requested chord catalog must contain all52 types");
@@ -330,6 +365,6 @@ void gui(){
 }
 }
 int main(){
-    try{juce::ScopedJuceInitialiser_GUI runtime;parametersAndState();realtimeNewCheck();guiBeforeProcessing();guiFallbacks();gui();std::cout<<"FlysnapperPluginSmoke: PASS ("<<assertions<<" assertions; not Ableton validation)\n";return 0;}
+    try{juce::ScopedJuceInitialiser_GUI runtime;parametersAndState();realtimeNewCheck();guiBeforeProcessing();guiFallbacks();guiChordToneOrder();gui();std::cout<<"FlysnapperPluginSmoke: PASS ("<<assertions<<" assertions; not Ableton validation)\n";return 0;}
     catch(const std::exception& error){countNew=false;std::cerr<<"FlysnapperPluginSmoke: FAIL: "<<error.what()<<'\n';return 1;}
 }

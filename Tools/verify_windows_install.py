@@ -123,7 +123,7 @@ def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host
             if actual!=expected or saved!=expected or install.get('installed_files_sha256')!=expected or install.get('recovery_files_sha256')!=expected:
                 raise ValueError('Installed or recovery Windows bundle differs from the verified package')
             if install.get('unrelated_plugin_preserved') is not True:raise ValueError('Unrelated plugin preservation was not verified')
-            if build.get('version') in ('0.4.0','0.4.1','0.4.2','0.4.3'):
+            if build.get('version') in ('0.4.0','0.4.1','0.4.2','0.4.3','0.4.4'):
                 legacy=target/'Flysnapper.vst3/legacy-instrument-control.txt'
                 if install.get('bundle_name')!=bundle_name or install.get('legacy_instrument_preserved') is not True or legacy.read_text()!='legacy audio instrument must remain untouched':
                     raise ValueError('MIDI-only installation did not preserve the old instrument')
@@ -147,7 +147,7 @@ def verify(artifact: Path,source_root: Path,output: Path,source_commit: str,host
                 launcher_recovery=created[0]/bundle_name;launcher_saved=hashes(launcher_recovery)
                 if hashes(installed)!=expected or launcher_saved!=expected:raise ValueError('BAT-installed/recovery payload differs from the package')
                 if (target/'Buffkiller.vst3/installation-control.txt').read_text()!='unrelated installation control':raise ValueError('BAT replacement changed another plugin')
-                if build.get('version') in ('0.4.0','0.4.1','0.4.2','0.4.3') and (target/'Flysnapper.vst3/legacy-instrument-control.txt').read_text()!='legacy audio instrument must remain untouched':
+                if build.get('version') in ('0.4.0','0.4.1','0.4.2','0.4.3','0.4.4') and (target/'Flysnapper.vst3/legacy-instrument-control.txt').read_text()!='legacy audio instrument must remain untouched':
                     raise ValueError('BAT MIDI installation touched the legacy instrument')
                 proof.update(bat_launcher_verified=True,bat_launcher_marker=marker.decode('ascii'),launcher_recovery_files_sha256=launcher_saved,launcher_recovery_bundle_path=str(launcher_recovery))
             command=[str(host),str(installed)];proof['installed_host_command']=command

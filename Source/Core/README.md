@@ -91,3 +91,10 @@ The assignment table presents four columns of 14/12/12/14 types. Presentation
 order is separate from the immutable registry indices. C5 appears just after
 Cm; the dominant group splits between C7b13 and C7sus4. All columns fit the
 minimum editor width. No layout choice changes parameters, defaults or state.
+
+## Playing-view chord-tone order (0.4.4)
+
+`chordToneNamesInRootPosition` is GUI-only. It uses the snapshot's recognized
+root/type to sort actual incoming pitch classes by harmonic degree, including
+sixths and altered ninths/elevenths/thirteenths. It does not reorder MIDI or
+change recognition. Unknown sets retain the neutral pitch-class listing.

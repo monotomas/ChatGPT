@@ -302,4 +302,55 @@ ChordMatch recogniseChord(uint16_t mask,int bass) noexcept {
 }
 std::string chordName(uint16_t mask,int bass){return describeChord(mask,bass).shortName;}
 std::string chordDetail(uint16_t mask,int bass){return describeChord(mask,bass).detail;}
+std::string chordToneNamesInRootPosition(uint16_t mask,int root,int typeIndex) {
+    mask&=0xfff;
+    if(mask==0)return "none";
+    const auto append=[](std::string& out,const std::string& name) {
+        if(!out.empty())out+="  ";out+=name;
+    };
+    if(root<0||root>=12||typeIndex<0||typeIndex>=chordTypeCount||!(mask&(1u<<root))) {
+        // With no recognised root/type, retain the previous neutral display
+        // and do not imply a chord interpretation that recognition rejected.
+        std::string out;
+        for(int pc=0;pc<12;++pc)if(mask&(1u<<pc))append(out,buffkiller::chordRootNames[pc]);
+        return out;
+    }
+    const std::string suffix=types[size_t(typeIndex)].suffix;
+    const bool minor=suffix.rfind("m",0)==0,dim=suffix.rfind("dim",0)==0;
+    const bool sus2=suffix=="sus2",sus4=suffix.find("sus4")!=std::string::npos;
+    const bool sixth=suffix=="6"||suffix=="m6"||suffix=="6/9";
+    const auto degree=[&](int interval) {
+        // A rotated pitch-class sort would put ninths before thirds and
+        // thirteenths before sevenths. Chord roles instead distinguish the
+        // same semitone used as b5/#11, #5/b13, minor third/#9 or sixth/13.
+        switch(interval) {
+        case 0:return 1;
+        case 1:return 9;
+        case 2:return sus2?2:9;
+        case 3:return minor||dim?3:9;
+        case 4:return 3;
+        case 5:return sus4?4:11;
+        case 6:return dim||suffix.find("b5")!=std::string::npos?5:11;
+        case 7:return 5;
+        case 8:return suffix.find("#5")!=std::string::npos?5:13;
+        case 9:return dim?7:sixth?6:13;
+        default:return 7;
+        }
+    };
+    struct Tone {int pc,interval,degree;};
+    std::array<Tone,12> tones{};size_t count=0;
+    for(int pc=0;pc<12;++pc)if(mask&(1u<<pc)) {
+        const int interval=(pc-root+12)%12;
+        tones[count++]={pc,interval,degree(interval)};
+    }
+    std::sort(tones.begin(),tones.begin()+std::ptrdiff_t(count),[](const Tone& a,const Tone& b) {
+        return a.degree<b.degree||(a.degree==b.degree&&a.interval<b.interval);
+    });
+    buffkiller::ChordCandidate candidate;
+    candidate.mask=mask;candidate.root=root;candidate.patternIndex=typeIndex;
+    const auto names=typeIndex<50?buffkiller::chordSpelling(candidate):extensionSpelling(candidate);
+    std::string out;
+    for(size_t i=0;i<count;++i)append(out,names[size_t(tones[i].pc)]);
+    return out;
+}
 }

@@ -1,8 +1,9 @@
-# Flysnapper MIDI 0.4.3
+# Flysnapper MIDI 0.4.4
 
-0.4.3 beholder retningshistorikken ved legato, gir nytt anslag ved samme
-korrigerte tone og bruker Chromatic ved ukjent akkord eller eksplisitt
-stoppet transport. Enkeltnoter merkes `(single note)`, durtreklanger `Major`.
+0.4.4 viser «Chord tones» i spillevinduet i akkordens grunnstilling,
+for eksempel G13 som G B D F A C E. Se [versjonsnotatet](docs/RELEASE_0.4.4.md).
+Retningshistorikk ved legato, nye anslag ved samme korrigerte tone og
+Chromatic ved ukjent akkord eller eksplisitt stoppet transport beholdes. Enkeltnoter merkes `(single note)`, durtreklanger `Major`.
 Baksiden har fire kompakte kolonner med 14 + 12 + 12 + 14 akkordtyper.
 
 Flysnapper MIDI korrigerer MIDI etter skalaer eller et akkordspor. Den
@@ -10,7 +11,8 @@ bruker VST3-instrumentrollen med stille stereoutgang, uten audioinngang
 eller pitchgjenkjenning. Rutingen brukeren bekreftet i 0.4.2 beholdes.
 Alle 52 akkordtyper,38 skalaer, stabile ID-er og endelige fabrikkvalg beholdes.
 
-Windows-pakken er bygget, testet, installert i testmiljø og publisert.
+Den tidligere 0.4.3-pakken er bygget, testet, installert i testmiljø og publisert.
+En oppdatert 0.4.4-pakke klargjøres med den nye visningsrekkefølgen.
 [Last ned ferdig 0.4.3-installasjonspakke](https://github.com/monotomas/ChatGPT/raw/660d673c4358c20ad4ba09d32cab8dc1d699ec1f/downloads/Flysnapper-Windows-x64.zip).
 Lukk Live, pakk ut hele ZIP-filen og kjør `INSTALL_FLYSNAPPER.bat`.
 Ingen kompilator, Python eller bygging kreves til installasjon.
@@ -19,7 +21,7 @@ Se [Windows-bevisene](docs/validation/midi-articulation-0.4.3/windows/README.md)
 Automatiske testverter erstatter ikke praktisk prøving av den nye binærfilen i Live.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
-[versjonsnotatet](docs/RELEASE_0.4.3.md) og
+[versjonsnotatet](docs/RELEASE_0.4.4.md) og
 [brukerveiledningen](docs/BRUKERVEILEDNING.md) beskriver gjeldende løsning.
 Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
 
