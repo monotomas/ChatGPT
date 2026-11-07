@@ -6,7 +6,7 @@ går foran teksten nedenfor. Den omfatter 31 skalaer, nytt skalameny-/tabellopps
 Excel-redigerbare fabrikkvalg og seriekoblede instanser med kanal 16-kontroll.
 VST3 er fortsatt ønsket format; praktisk plassering/kjeding i Live er ikke
 verifisert. MIDI-only-koden med 52 typer er bygget om og består alle 4 aktuelle native-
-testgrupper. Windows-/installasjonskontrollen følger separat. Nye
+testgrupper på Linux og Windows. Windows-/installasjonskontrollen består. Nye
 fabrikktilordninger venter på brukerens redigerte Excel-fil.
 
 **Tillegg samme dag:** Totalt 52 akkordtyper etter brukerens to nye #11-typer:

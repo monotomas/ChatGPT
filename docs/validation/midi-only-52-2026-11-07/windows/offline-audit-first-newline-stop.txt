@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/ChatGPT/build/windows-midi-attempt3/audit_checkpoint.py", line 91, in <module>
+    if __name__=='__main__':run(sys.argv[1])
+                            ^^^^^^^^^^^^^^^^
+  File "/workspace/ChatGPT/build/windows-midi-attempt3/audit_checkpoint.py", line 47, in run
+    require(blob(checkpoint,'validation/windows-build-manifest.json')==raw['build-manifest.json'],'External build manifest differs')
+  File "/workspace/ChatGPT/build/windows-midi-attempt3/audit_checkpoint.py", line 14, in require
+    if not condition:raise ValueError(message)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: External build manifest differs

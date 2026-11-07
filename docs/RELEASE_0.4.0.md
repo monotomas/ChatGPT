@@ -3,13 +3,16 @@
 Dette er ombyggingen til MIDI-only som brukeren bestilte 7. november 2026.
 Den samlede Linux-native-kontrollen består 4/4 grupper. Python-kontrollen
 har 198 tester: 196 består og 2 Windows-spesifikke BAT-prøver hoppes over
-på Linux. Windows-verifikasjonen følger separat; dette er ikke en
-publisert eller Live-godkjent leveranse.
+på Linux. Windows består de samme 4 native-gruppene og 197 av 198 Python-
+tester, med ett forventet symlink-hopp. Faktisk PS/BAT-installasjon og
+innlastet installert VST3 består. Dette er fortsatt ikke en publisert
+eller Live-godkjent brukerleveranse; se [Windows-bevisene](validation/midi-only-52-2026-11-07/windows/README.md).
 
 Audio-/pitchmotor, sidechain, input dynamics, Learn og generert bending/MPE
 er fjernet. Den nye modulen annonserer MIDI inn/ut og null audiobusser.
 MIDI-korreksjon og melodiske retningsregler beholdes. De opprinnelige
-50 akkordtypene er utvidet med CMaj13#11 og CMaj9#11 etter brukerens tillegg. Eksternt uttrykk videresendes etter MIDI-kanalrollene.
+50 akkordtypene er utvidet med CMaj13#11 og CMaj9#11 etter brukerens tillegg.
+Eksternt uttrykk videresendes etter MIDI-kanalrollene.
 
 Skalakatalogen har 31 valg. Menyene deler skalaer som inneholder alle
 nominelle akkordtoner fra skalaer som utelater noen av dem. Begge grupper er

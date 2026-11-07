@@ -48,8 +48,12 @@ Samme skript ble deretter kjørt via bash uten kodeendring, og dette er det
 komplette beståtte løpet. Ingen kompilering eller tester ble rapportert fra
 det mislykkede startkallet.
 
-Windows-kjøringen må bygge og installere sin egen 52-typepakke. Tidligere
-Windows-forsøk stoppet før native-bygg og er ikke Windows-verifikasjon.
+Den [faktiske Windows-kjøringen](windows/README.md) har nå bygget og installert
+sin egen 52-typepakke fra e891c2e: 4/4 native-grupper og faktisk PS/BAT-
+installasjon/erstatning/gjenoppretting består. Python har 197 bestått og ett
+forventet symlink-hopp av 198 tester. Pakkens eksakte bytes og kilde-/modul-/
+installasjonsbindinger er etterkontrollert. Tidligere mislykkede 50-type-
+Windows-forsøk er bevart som separate forsøk.
 Ingen faktisk Ableton Live 12.4.6-kjøring er utført her. Sporinngang,
 kanalbevaring, direkte pluginruting og Device Activator kan ikke utledes fra
 den eksplisitte testvertkjeden. Se det bevarte

@@ -1,8 +1,9 @@
 # Flysnapper MIDI 0.4.0 – brukerveiledning for utviklingskandidaten
 
-Dette dokumentet gjelder MIDI-only-utgaven. Den tekniske Windows-/verts-
-verifikasjonen må være ferdig før en installasjonspakke kalles godkjent.
-Praktisk Live 12.4.6-ruting er ikke verifisert i dette miljøet.
+Dette dokumentet gjelder MIDI-only-utgaven med 52 akkordtyper. Native
+Windows-bygg, faktisk installasjon og innlasting i VST3-testverten består.
+Fabrikkvalgene venter på brukerens Excel-fil, og praktisk Live 12.4.6-
+ruting er ikke verifisert i dette miljøet. Ingen ny brukerleveranse er publisert.
 
 ## Installasjon og eldre versjon
 

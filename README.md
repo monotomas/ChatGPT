@@ -2,11 +2,12 @@
 
 Flysnapper MIDI er en ren VST3-prosessor for MIDI-korreksjon etter skalaer
 eller et akkordspor. MIDI-only-ombyggingen følger brukerens bestilling
-7. november 2026. Den er under teknisk verifikasjon; det er ennå ingen
-publisert, praktisk Live-godkjent 0.4.0-leveranse. Den samlede Linux-native-
-kontrollen for 52-typeutgaven består 4/4 grupper. Python-kontrollen har
-198 tester: 196 består og 2 Windows-spesifikke BAT-prøver hoppes over på
-Linux. Windows- og Live-resultater må dokumenteres separat.
+7. november 2026. Det er ennå ingen publisert, praktisk Live-godkjent
+0.4.0-leveranse. Både Linux- og Windows-kontrollen for 52-typeutgaven består
+4/4 native-grupper. Python har 198 tester: Linux 196 bestått / 2 BAT-hopp,
+Windows 197 bestått / 1 symlink-hopp. Faktisk Windows-installasjon,
+erstatning, gjenoppretting og innlasting av installert VST3 er kontrollert.
+Dette er egne resultater, som ikke dokumenterer faktisk Ableton-adferd.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
 [versjonsnotatet](docs/RELEASE_0.4.0.md) og

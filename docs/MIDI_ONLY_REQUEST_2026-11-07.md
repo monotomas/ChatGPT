@@ -32,9 +32,10 @@ fast skala eller akkordstyring og de eksisterende korreksjonsreglene. Behold
 - Ny tekst med fet skrift: «52 chord types, here assigned to root C. Your
   chosen scale type applies in the actual chord’s root and is auto-saved
   with this instance.»
-- Følg med vanlig skrift: «Tool tip: If different assignments are required
-  for different parts of the tune, save and copy/paste extra instances of
-  Flysnapper to your track and automate each one on/off».
+- Hjelpeteksten følger brukerens senere rutingspresisering: automatér intern
+  **Note Correction**, videresend kanal 16 i mellominstansene og konsumer
+  den i siste instans. Kravet om aktiv første instans gjelder ved direkte
+  pluginruting; det skal ikke framstilles som et krav i alle Track In-oppsett.
 
 Brukeren vil endre factory assignments i Excel. En verifisert arbeidsbok med
 52 stabile akkord-ID-er, navn/toner i C, foreløpige fabrikkvalg og 31
@@ -57,7 +58,7 @@ Ved det opprinnelige kontrollpunktet annonserte pluginen Instrument Tools
 med audioutgang og konsumerte kanal 16 før MIDI-utgang, også ved bypass.
 Den nye komponenten annonserer Fx/Tools uten audiobusser. Chord MIDI Through
 videresender kanal 16 mellom instansene, og akkordlytting fortsetter når
-intern korreksjon er av. Dette krever ikke 50 nye akkordkanaler.
+intern korreksjon er av. Dette krever ingen egen akkordkanal per instans.
 
 Skillet mellom intern Correction on/off og vertens Device Activator må
 håndteres: en vert som stopper prosesseringen, kan også stoppe akkord-
@@ -78,11 +79,12 @@ denne instans-/rutingsformen ikke er enkel å få til. Dette er meldt tilbake.
 Ved det opprinnelige kontrollpunktet `d65f2bc` var ingen programkode endret.
 Den første 50-type MIDI-only-ombyggingen er implementert i kildecommit
 `98b98f08ee5d561c013357784193e3be28319699`. Den gamle aktive Pitch-koden er
-fjernet. Alle 4 aktuelle native-grupper består. Den siste Python-kontrollen
-har 198 tester: 196 består og 2 native Windows-BAT-prøver hoppes over.
-Windows-/installasjonskontrollen følger separat; dette er fortsatt ikke
-en utført Live-test eller brukerleveranse. De nye 52-typekildene har
-[ferske native-bevis](validation/midi-only-52-2026-11-07/README.md).
+fjernet. 52-typeutvidelsen er lagret i e891c2e og har
+[ferske bevis](validation/midi-only-52-2026-11-07/README.md): alle 4 native-
+grupper består på Linux og Windows. Python har 198 tester, med 196 bestått /
+2 BAT-hopp på Linux og 197 bestått / 1 symlink-hopp på Windows. Faktisk
+Windows-installasjon og innlasting av installert VST3 består. Dette er
+fortsatt ikke en utført Live-test eller ferdig brukerleveranse.
 
 Brukeren har siden oppgitt Live 12.4.6 og korrigert en viktig slutning:
 Device Activator-bypass i sporets vanlige kjede beviser ikke omdirigering
