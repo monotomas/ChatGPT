@@ -1,0 +1,788 @@
+{
+  "status": "52-chord worksheet revision; base names/IDs unchanged; tones added to Excel display labels",
+  "scales": [
+    {
+      "family": "Chromatic",
+      "mode": 1,
+      "id": "chromatic",
+      "name": "Chromatic",
+      "semitones": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "D",
+        "Eb",
+        "E",
+        "F",
+        "F#",
+        "G",
+        "Ab",
+        "A",
+        "Bb",
+        "B"
+      ],
+      "display_name": "Chromatic (C Db D Eb E F F# G Ab A Bb B)"
+    },
+    {
+      "family": "Diatonic",
+      "mode": 1,
+      "id": "ionian",
+      "name": "Ionian (Major)",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "A",
+        "B"
+      ],
+      "display_name": "Ionian (Major) (C D E F G A B)"
+    },
+    {
+      "family": "Diatonic",
+      "mode": 2,
+      "id": "dorian",
+      "name": "Dorian",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "Eb",
+        "F",
+        "G",
+        "A",
+        "Bb"
+      ],
+      "display_name": "Dorian (C D Eb F G A Bb)"
+    },
+    {
+      "family": "Diatonic",
+      "mode": 3,
+      "id": "phrygian",
+      "name": "Phrygian",
+      "semitones": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        8,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "Eb",
+        "F",
+        "G",
+        "Ab",
+        "Bb"
+      ],
+      "display_name": "Phrygian (C Db Eb F G Ab Bb)"
+    },
+    {
+      "family": "Diatonic",
+      "mode": 4,
+      "id": "lydian",
+      "name": "Lydian",
+      "semitones": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        9,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F#",
+        "G",
+        "A",
+        "B"
+      ],
+      "display_name": "Lydian (C D E F# G A B)"
+    },
+    {
+      "family": "Diatonic",
+      "mode": 5,
+      "id": "mixolydian",
+      "name": "Mixolydian",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "A",
+        "Bb"
+      ],
+      "display_name": "Mixolydian (C D E F G A Bb)"
+    },
+    {
+      "family": "Diatonic",
+      "mode": 6,
+      "id": "aeolian",
+      "name": "Aeolian (Minor)",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "Eb",
+        "F",
+        "G",
+        "Ab",
+        "Bb"
+      ],
+      "display_name": "Aeolian (Minor) (C D Eb F G Ab Bb)"
+    },
+    {
+      "family": "Diatonic",
+      "mode": 7,
+      "id": "locrian",
+      "name": "Locrian",
+      "semitones": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        8,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "Eb",
+        "F",
+        "F#",
+        "Ab",
+        "Bb"
+      ],
+      "display_name": "Locrian (C Db Eb F F# Ab Bb)"
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 1,
+      "id": "melodic_minor",
+      "name": "Melodic Minor 1",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "Eb",
+        "F",
+        "G",
+        "A",
+        "B"
+      ],
+      "display_name": "Melodic Minor 1 (C D Eb F G A B)"
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 2,
+      "id": "melodic_minor_2",
+      "name": "Mel. Min. 2: Dorian ♭2 (Phrygian ♮6)",
+      "semitones": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        9,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "Eb",
+        "F",
+        "G",
+        "A",
+        "Bb"
+      ],
+      "display_name": "Mel. Min. 2: Dorian ♭2 (Phrygian ♮6) (C Db Eb F G A Bb)"
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 3,
+      "id": "melodic_minor_3",
+      "name": "Mel. Min. 3: Lydian Augmented (Lydian ♯5)",
+      "semitones": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        9,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F#",
+        "Ab",
+        "A",
+        "B"
+      ],
+      "display_name": "Mel. Min. 3: Lydian Augmented (Lydian ♯5) (C D E F# Ab A B)"
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 4,
+      "id": "lydian_dominant",
+      "name": "Mel. Min. 4: Lydian Dominant",
+      "semitones": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F#",
+        "G",
+        "A",
+        "Bb"
+      ],
+      "display_name": "Mel. Min. 4: Lydian Dominant (C D E F# G A Bb)"
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 5,
+      "id": "melodic_minor_5",
+      "name": "Mel. Min. 5: Mixolydian ♭6 (Hindu)",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "Ab",
+        "Bb"
+      ],
+      "display_name": "Mel. Min. 5: Mixolydian ♭6 (Hindu) (C D E F G Ab Bb)"
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 6,
+      "id": "melodic_minor_6",
+      "name": "Mel. Min. 6: Aeolian ♭5 (Locrian ♮2 / Half Dim.)",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "Eb",
+        "F",
+        "F#",
+        "Ab",
+        "Bb"
+      ],
+      "display_name": "Mel. Min. 6: Aeolian ♭5 (Locrian ♮2 / Half Dim.) (C D Eb F F# Ab Bb)"
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 7,
+      "id": "altered",
+      "name": "Mel. Min. 7: Altered (Super Locrian)",
+      "semitones": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        8,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "Eb",
+        "E",
+        "F#",
+        "Ab",
+        "Bb"
+      ],
+      "display_name": "Mel. Min. 7: Altered (Super Locrian) (C Db Eb E F# Ab Bb)"
+    },
+    {
+      "family": "Bebop",
+      "mode": 1,
+      "id": "bebop_dominant",
+      "name": "Dominant Bebop Scale",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "A",
+        "Bb",
+        "B"
+      ],
+      "display_name": "Dominant Bebop Scale (C D E F G A Bb B)"
+    },
+    {
+      "family": "Bebop",
+      "mode": 2,
+      "id": "bebop_major",
+      "name": "Major Bebop Scale",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "Ab",
+        "A",
+        "B"
+      ],
+      "display_name": "Major Bebop Scale (C D E F G Ab A B)"
+    },
+    {
+      "family": "Bebop",
+      "mode": 3,
+      "id": "bebop_dorian",
+      "name": "Minor / Dorian Bebop Scale",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "Eb",
+        "F",
+        "G",
+        "A",
+        "Bb",
+        "B"
+      ],
+      "display_name": "Minor / Dorian Bebop Scale (C D Eb F G A Bb B)"
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 1,
+      "id": "harmonic_minor",
+      "name": "Harm. Min. 1: Harmonic Minor",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        8,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "Eb",
+        "F",
+        "G",
+        "Ab",
+        "B"
+      ],
+      "display_name": "Harm. Min. 1: Harmonic Minor (C D Eb F G Ab B)"
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 2,
+      "id": "harmonic_minor_2",
+      "name": "Harm. Min. 2: Locrian ♮6",
+      "semitones": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        9,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "Eb",
+        "F",
+        "F#",
+        "A",
+        "Bb"
+      ],
+      "display_name": "Harm. Min. 2: Locrian ♮6 (C Db Eb F F# A Bb)"
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 3,
+      "id": "harmonic_minor_3",
+      "name": "Harm. Min. 3: Ionian ♯5",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        8,
+        9,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "Ab",
+        "A",
+        "B"
+      ],
+      "display_name": "Harm. Min. 3: Ionian ♯5 (C D E F Ab A B)"
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 4,
+      "id": "harmonic_minor_4",
+      "name": "Harm. Min. 4: Dorian ♯4",
+      "semitones": [
+        0,
+        2,
+        3,
+        6,
+        7,
+        9,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "Eb",
+        "F#",
+        "G",
+        "A",
+        "Bb"
+      ],
+      "display_name": "Harm. Min. 4: Dorian ♯4 (C D Eb F# G A Bb)"
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 5,
+      "id": "phrygian_dominant",
+      "name": "Harm. Min. 5: Phrygian Dominant",
+      "semitones": [
+        0,
+        1,
+        4,
+        5,
+        7,
+        8,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "E",
+        "F",
+        "G",
+        "Ab",
+        "Bb"
+      ],
+      "display_name": "Harm. Min. 5: Phrygian Dominant (C Db E F G Ab Bb)"
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 6,
+      "id": "harmonic_minor_6",
+      "name": "Harm. Min. 6: Lydian ♯2",
+      "semitones": [
+        0,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Eb",
+        "E",
+        "F#",
+        "G",
+        "A",
+        "B"
+      ],
+      "display_name": "Harm. Min. 6: Lydian ♯2 (C Eb E F# G A B)"
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 7,
+      "id": "harmonic_minor_7",
+      "name": "Harm. Min. 7: Ultralocrian",
+      "semitones": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        8,
+        9
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "Eb",
+        "E",
+        "F#",
+        "Ab",
+        "A"
+      ],
+      "display_name": "Harm. Min. 7: Ultralocrian (C Db Eb E F# Ab A)"
+    },
+    {
+      "family": "Diminished",
+      "mode": 1,
+      "id": "diminished_half_whole",
+      "name": "Half Whole Diminished",
+      "semitones": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Db",
+        "Eb",
+        "E",
+        "F#",
+        "G",
+        "A",
+        "Bb"
+      ],
+      "display_name": "Half Whole Diminished (C Db Eb E F# G A Bb)"
+    },
+    {
+      "family": "Diminished",
+      "mode": 2,
+      "id": "diminished_whole_half",
+      "name": "Whole Half Diminished",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        11
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "Eb",
+        "F",
+        "F#",
+        "Ab",
+        "A",
+        "B"
+      ],
+      "display_name": "Whole Half Diminished (C D Eb F F# Ab A B)"
+    },
+    {
+      "family": "Whole Tone",
+      "mode": 1,
+      "id": "whole_tone",
+      "name": "Whole Tone",
+      "semitones": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "F#",
+        "Ab",
+        "Bb"
+      ],
+      "display_name": "Whole Tone (C D E F# Ab Bb)"
+    },
+    {
+      "family": "Major Pentatonic",
+      "mode": 1,
+      "id": "major_pentatonic",
+      "name": "Major Pentatonic",
+      "semitones": [
+        0,
+        2,
+        4,
+        7,
+        9
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "D",
+        "E",
+        "G",
+        "A"
+      ],
+      "display_name": "Major Pentatonic (C D E G A)"
+    },
+    {
+      "family": "Minor Pentatonic",
+      "mode": 1,
+      "id": "minor_pentatonic",
+      "name": "Minor Pentatonic",
+      "semitones": [
+        0,
+        3,
+        5,
+        7,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Eb",
+        "F",
+        "G",
+        "Bb"
+      ],
+      "display_name": "Minor Pentatonic (C Eb F G Bb)"
+    },
+    {
+      "family": "Minor Blues",
+      "mode": 1,
+      "id": "minor_blues",
+      "name": "Minor Blues",
+      "semitones": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        10
+      ],
+      "pitch_classes_in_c": [
+        "C",
+        "Eb",
+        "F",
+        "F#",
+        "G",
+        "Bb"
+      ],
+      "display_name": "Minor Blues (C Eb F F# G Bb)"
+    }
+  ]
+}
