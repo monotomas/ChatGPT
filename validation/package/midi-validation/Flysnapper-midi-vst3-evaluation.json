@@ -3,7 +3,7 @@
   "kind": "FlysnapperMidiOnlyVst3",
   "version": "0.4.3",
   "status": "passed",
-  "checks": 20193,
+  "checks": 22060,
   "scope": "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver",
   "ableton_verified": false,
   "pitch_detection_implemented": false,
@@ -13,7 +13,7 @@
   "audio_output_buses": 1,
   "host_device_role": "instrument",
   "audio_output_silent": true,
-  "silent_output_samples_checked": 1004380,
+  "silent_output_samples_checked": 1026652,
   "bypass_silence_callbacks": 2,
   "declared_latency_samples": 0,
   "scale_count": 38,
@@ -106,6 +106,10 @@
       "status": "passed"
     },
     {
+      "name": "cc120_123_preserve_same_sample_ambiguity",
+      "status": "passed"
+    },
+    {
       "name": "diagnostic_source_and_sustain_rearticulation",
       "status": "passed"
     },
@@ -115,6 +119,18 @@
     },
     {
       "name": "transport_reset",
+      "status": "passed"
+    },
+    {
+      "name": "unrecognized_chord_chromatic_fallback",
+      "status": "passed"
+    },
+    {
+      "name": "stopped_transport_chromatic_fallback",
+      "status": "passed"
+    },
+    {
+      "name": "actual_sdk_optional_process_context",
       "status": "passed"
     },
     {
@@ -155,12 +171,16 @@
     "overlapping_note_bindings",
     "same_pitch_rearticulation",
     "legato_directional_ties",
+    "host_controller_queue_same_sample_order",
     "instance_state",
     "transport_reset",
+    "unrecognized_chord_chromatic_fallback",
+    "stopped_transport_chromatic_fallback",
+    "sdk_optional_process_context",
     "generated_midi_routing",
     "host_invoked_bypass_callback_only"
   ],
   "events_file": "Flysnapper-midi-vst3-events.csv",
-  "events_rows": 1408,
+  "events_rows": 1762,
   "limitations": "No Ableton Live12.4.6 execution or loading/placement claim. This is an instrument-role plugin, not a native MIDI effect. Serial tests explicitly connect instances in this driver, not a same-track Live chain or internal rack. Bypass callbacks are invoked explicitly; no Device Activator scheduling, direct-endpoint fan-out, held-chord replay or downstream-instrument claim."
 }

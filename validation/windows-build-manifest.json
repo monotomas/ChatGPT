@@ -17,13 +17,13 @@
   "builder_revision": "2026.11.07-midi-instrument-adapter",
   "platform": "Windows-x64",
   "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
-  "built_at": "2026-11-07T21:47:15.882370+00:00",
+  "built_at": "2026-11-07T22:47:56.297676+00:00",
   "python": "3.12.10",
-  "source_commit": "b01ef1666d720190931eb933af26c21e1e4e077e",
-  "vst3_sha256": "61979a242ac96d736f1a3941b4a09713b20c5a6185e1dc8d47f34a694466a166",
+  "source_commit": "1abedf68cfcfe08038246210bd5fa6c3d124c0b6",
+  "vst3_sha256": "6d3ada2464a72b8ca656a409206fc4be90732ea930df8e630e2ec6ce8b0df70d",
   "bundle_sha256": {
     "Contents/Resources/moduleinfo.json": "1555c112de8b05979c443be6833fecf5259318939b198e775e0344b75e621e19",
-    "Contents/x86_64-win/Flysnapper MIDI.vst3": "61979a242ac96d736f1a3941b4a09713b20c5a6185e1dc8d47f34a694466a166"
+    "Contents/x86_64-win/Flysnapper MIDI.vst3": "6d3ada2464a72b8ca656a409206fc4be90732ea930df8e630e2ec6ce8b0df70d"
   },
   "tests": "passed",
   "required_test_names": [
@@ -43,6 +43,6 @@
   "windows_verified": true,
   "midi_only_evidence": {
     "path": "midi-validation/report-manifest.json",
-    "sha256": "315ee9c33d6a61514f04a5a3295c28c9c48a4f7fd717072134a5b67d67553564"
+    "sha256": "0f65f3ccfac8cd4b39c1bc979579fd8dd7cf064664d8225122eb08a4eb289872"
   }
 }

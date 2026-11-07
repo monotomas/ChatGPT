@@ -1,26 +1,26 @@
 {
   "schema": 1,
   "kind": "OmittedWindowsTestExecutables",
-  "source_commit": "b01ef1666d720190931eb933af26c21e1e4e077e",
+  "source_commit": "1abedf68cfcfe08038246210bd5fa6c3d124c0b6",
   "scope": "Native executables rehashed in CI before packaging, intentionally omitted from research Git; offline audits cannot independently rehash omitted binaries",
   "source_proof": "validation/package/midi-validation/report-manifest.json",
   "executables": [
     {
       "role": "FlysnapperActualVst3",
       "compiled_path": "build/w-a40571ed5356/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe",
-      "sha256": "204d8e4b6f1c37e04e1cb6e98361169b1adc69275e9bbab66c3c9cd87f60a890",
-      "bytes": 3847680,
-      "report_sha256": "c33570bcc0fb099277fda47468630bbd5def30cfdf848dc9ceaf7c50a5056afa",
-      "events_sha256": "98bee9a2a7b718e7766c1795978dc4fadeceddbb8f76b164e47675317f1ebb76",
+      "sha256": "2410f3675f093f73f0f13894d9cf6c4cc1900397679e90263566f5580802ee21",
+      "bytes": 3881472,
+      "report_sha256": "66a48773c24579125750f236641aef7f9d07630bd9e8713245bb3125211b2a2f",
+      "events_sha256": "56b751999df27f4a40356a60236216492a17c7e26eac0f99c31801696099a38d",
       "source_binding": "source_sha256 in validation/package/midi-validation/report-manifest.json"
     },
     {
       "role": "FlysnapperMidiOnlyProcessor",
       "compiled_path": "build/w-a40571ed5356/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests.exe",
-      "sha256": "e3eb4ba160ac4016514c639494e8a42f9edaebfe8d72e5f4dc9d1bdaa2399dc0",
-      "bytes": 4876288,
-      "report_sha256": "d748c13cbdbff8b661029ade17348fc2f37b129fc3c490a88b1020d5556ae999",
-      "events_sha256": "68577cb7355c196cf690319d1a55433def89a2f9960a2d8a8425022942e8b702",
+      "sha256": "4a9ed58216813eb25adaa4279273d2828baf1e133bcb99afa62795f683b0069a",
+      "bytes": 4916736,
+      "report_sha256": "22dd575a918a1a4e99f03f01fec3e70d8021189c134cca4ce1cb5c014c711718",
+      "events_sha256": "43a2000a2f02e4852fa974d01600c41e68843327fe26fb80846a0b3d50650695",
       "source_binding": "source_sha256 in validation/package/midi-validation/report-manifest.json"
     }
   ]
