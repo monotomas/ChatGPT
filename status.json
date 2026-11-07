@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "source_commit": "52698899fb3aa9d4f9ebe14860f12eb7183811bd",
+  "source_commit": "1abedf68cfcfe08038246210bd5fa6c3d124c0b6",
   "status": "completed",
-  "run_id": "42411267938",
+  "run_id": "42421340311",
   "run_attempt": "1",
   "repository": "monotomas/ChatGPT",
-  "updated_at": "2026-11-07T20:39:23.853168+00:00",
+  "updated_at": "2026-11-07T22:49:14.138235+00:00",
   "artifact": {
     "path": "downloads/Flysnapper-Windows-x64.zip",
-    "sha256": "e73bf9a128b3fed476cd181e025226f2cb59c66cfa20178f25be3294563bd05e",
-    "bytes": 39347979
+    "sha256": "af22cef16f2d88d0642c7dfe21a7da93828b7070e425c7e84448b097ea8360d0",
+    "bytes": 38777911
   },
-  "log": "logs/windows-52698899fb3aa9d4f9ebe14860f12eb7183811bd.txt",
+  "log": "logs/windows-1abedf68cfcfe08038246210bd5fa6c3d124c0b6.txt",
   "stage": "midi-only-native-validation",
   "evaluation_scope": {
     "feature_set": "midi-to-midi-only",
@@ -26,6 +26,6 @@
   },
   "installation_validation": {
     "path": "validation/windows-installation.json",
-    "sha256": "68bd47a1625fc1ffc977a642d42350e570d4366808dbca5abd9fc99509125c02"
+    "sha256": "685cabb901439e9bbce173de298c27fc376767ce36d186934aac934f157ec460"
   }
 }

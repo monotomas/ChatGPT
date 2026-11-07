@@ -3,14 +3,14 @@
   "status": "passed",
   "execution_platform": "Windows",
   "execution_architecture": "AMD64",
-  "source_commit": "52698899fb3aa9d4f9ebe14860f12eb7183811bd",
-  "artifact_sha256": "e73bf9a128b3fed476cd181e025226f2cb59c66cfa20178f25be3294563bd05e",
-  "artifact_bytes": 39347979,
-  "recorded_at_utc": "2026-11-07T20:37:12.143670+00:00",
+  "source_commit": "1abedf68cfcfe08038246210bd5fa6c3d124c0b6",
+  "artifact_sha256": "af22cef16f2d88d0642c7dfe21a7da93828b7070e425c7e84448b097ea8360d0",
+  "artifact_bytes": 38777911,
+  "recorded_at_utc": "2026-11-07T22:48:02.541493+00:00",
   "installer_exit_code": 0,
   "installed_host_exit_code": 0,
-  "host_assertions": 5643,
-  "host_binary_sha256": "50afc31211f7ef9756569f3bde349cecff71a28cf51a1f8757b090f8704a5c97",
+  "host_assertions": 22061,
+  "host_binary_sha256": "2410f3675f093f73f0f13894d9cf6c4cc1900397679e90263566f5580802ee21",
   "ableton_verified": false,
   "bat_launcher_verified": true,
   "bat_launcher_exit_code": 0,
@@ -18,31 +18,31 @@
   "bundle_name": "Flysnapper MIDI.vst3",
   "legacy_instrument_preserved": true,
   "installed_files_sha256": {
-    "Contents/Resources/moduleinfo.json": "f528fa949d6d75c7ab92ac382c7e3b6140416e4a8c3524788eb5762a5687798f",
-    "Contents/x86_64-win/Flysnapper MIDI.vst3": "9d4ab216ac5381eb921703b595b7a786a3b0f6693b074fdc4aec499bbf3311f5"
+    "Contents/Resources/moduleinfo.json": "1555c112de8b05979c443be6833fecf5259318939b198e775e0344b75e621e19",
+    "Contents/x86_64-win/Flysnapper MIDI.vst3": "6d3ada2464a72b8ca656a409206fc4be90732ea930df8e630e2ec6ce8b0df70d"
   },
   "recovery_files_sha256": {
-    "Contents/Resources/moduleinfo.json": "f528fa949d6d75c7ab92ac382c7e3b6140416e4a8c3524788eb5762a5687798f",
-    "Contents/x86_64-win/Flysnapper MIDI.vst3": "9d4ab216ac5381eb921703b595b7a786a3b0f6693b074fdc4aec499bbf3311f5"
+    "Contents/Resources/moduleinfo.json": "1555c112de8b05979c443be6833fecf5259318939b198e775e0344b75e621e19",
+    "Contents/x86_64-win/Flysnapper MIDI.vst3": "6d3ada2464a72b8ca656a409206fc4be90732ea930df8e630e2ec6ce8b0df70d"
   },
   "unrelated_plugin_preserved": true,
-  "extraction_path": "D:\\a\\_temp\\flysnapper-install-krss_ull\\Olav Lægreid (test) & routing\\Utpakket\\Flysnapper-0.4.2-Windows-x64",
-  "installed_bundle_path": "D:\\a\\_temp\\flysnapper-install-krss_ull\\Olav Lægreid (test) & routing\\Separate VST3\\Flysnapper MIDI.vst3",
-  "recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-krss_ull\\Olav Lægreid (test) & routing\\Recovery outside scan\\20261107-203712-8595933-15f07b411f974a17b3ef1d0ebf2571ad\\Flysnapper MIDI.vst3",
+  "extraction_path": "D:\\a\\_temp\\flysnapper-install-lgp4pc1z\\Olav Lægreid (test) & routing\\Utpakket\\Flysnapper-0.4.3-Windows-x64",
+  "installed_bundle_path": "D:\\a\\_temp\\flysnapper-install-lgp4pc1z\\Olav Lægreid (test) & routing\\Separate VST3\\Flysnapper MIDI.vst3",
+  "recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-lgp4pc1z\\Olav Lægreid (test) & routing\\Recovery outside scan\\20261107-224803-2144798-7f513a38e82a4b28bfa1fdb2e50dd797\\Flysnapper MIDI.vst3",
   "unicode_paths_verified": true,
-  "bat_launcher_command": "\"C:\\Windows\\System32\\cmd.exe\" /d /s /c \"\"D:\\a\\_temp\\flysnapper-install-krss_ull\\Olav Lægreid (test) & routing\\Utpakket\\Flysnapper-0.4.2-Windows-x64\\INSTALL_FLYSNAPPER.bat\" -NoUI -Destination \"D:\\a\\_temp\\flysnapper-install-krss_ull\\Olav Lægreid (test) & routing\\Separate VST3\" -BackupDirectory \"D:\\a\\_temp\\flysnapper-install-krss_ull\\Olav Lægreid (test) & routing\\Recovery outside scan\"\"",
+  "bat_launcher_command": "\"C:\\Windows\\System32\\cmd.exe\" /d /s /c \"\"D:\\a\\_temp\\flysnapper-install-lgp4pc1z\\Olav Lægreid (test) & routing\\Utpakket\\Flysnapper-0.4.3-Windows-x64\\INSTALL_FLYSNAPPER.bat\" -NoUI -Destination \"D:\\a\\_temp\\flysnapper-install-lgp4pc1z\\Olav Lægreid (test) & routing\\Separate VST3\" -BackupDirectory \"D:\\a\\_temp\\flysnapper-install-lgp4pc1z\\Olav Lægreid (test) & routing\\Recovery outside scan\"\"",
   "bat_launcher_sha256": "48ffcfb31c0713e26bdb45780586c7b7f9776c9714ec61712f9102c44ff2895a",
-  "bat_launcher_marker": "Installed Flysnapper 0.4.2:",
+  "bat_launcher_marker": "Installed Flysnapper 0.4.3:",
   "launcher_recovery_files_sha256": {
-    "Contents/Resources/moduleinfo.json": "f528fa949d6d75c7ab92ac382c7e3b6140416e4a8c3524788eb5762a5687798f",
-    "Contents/x86_64-win/Flysnapper MIDI.vst3": "9d4ab216ac5381eb921703b595b7a786a3b0f6693b074fdc4aec499bbf3311f5"
+    "Contents/Resources/moduleinfo.json": "1555c112de8b05979c443be6833fecf5259318939b198e775e0344b75e621e19",
+    "Contents/x86_64-win/Flysnapper MIDI.vst3": "6d3ada2464a72b8ca656a409206fc4be90732ea930df8e630e2ec6ce8b0df70d"
   },
-  "launcher_recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-krss_ull\\Olav Lægreid (test) & routing\\Recovery outside scan\\20261107-203713-4252278-768d2448ccc541aeb919a2cf53d9b6e5\\Flysnapper MIDI.vst3",
+  "launcher_recovery_bundle_path": "D:\\a\\_temp\\flysnapper-install-lgp4pc1z\\Olav Lægreid (test) & routing\\Recovery outside scan\\20261107-224803-8239604-1e1086afd30b440fafcd9d7bcfdc630f\\Flysnapper MIDI.vst3",
   "installed_host_command": [
     "D:\\a\\_temp\\Olav Lægreid\\Flysnapper\\build\\w-a40571ed5356\\FlysnapperVst3HostTests_artefacts\\Release\\FlysnapperVst3HostTests.exe",
-    "D:\\a\\_temp\\flysnapper-install-krss_ull\\Olav Lægreid (test) & routing\\Separate VST3\\Flysnapper MIDI.vst3"
+    "D:\\a\\_temp\\flysnapper-install-lgp4pc1z\\Olav Lægreid (test) & routing\\Separate VST3\\Flysnapper MIDI.vst3"
   ],
   "powershell_log_sha256": "2ea8dd40e8c9b9b6bee2e215f993c0b18e9b34d97612656ee56d36ca72646f37",
-  "host_log_sha256": "ce00823d56060bb849814fdea02edb527572ae26e0196e292c321ce5e9f667ed",
-  "launcher_log_sha256": "60f2de18bd1e0d15d9bf2cf722b2d72876e76fc776f4fe0e0780fb966c6b2bf1"
+  "host_log_sha256": "3d4bbf3d97ccdd61a5cb917d9f0861d0cca0e31e202638119ac21d5b22bc225b",
+  "launcher_log_sha256": "8b22c37596f7dd141a039a1aa90ab6966abb9ee8a75f7260987d1fc3945c450d"
 }
