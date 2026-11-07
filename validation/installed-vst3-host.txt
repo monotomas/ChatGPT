@@ -17,10 +17,13 @@ PASS serial_instances_and_two_active_corrections
 PASS non_ch1_notes_and_expression
 PASS channel1_sustain_and_latch_reset
 PASS overlapping_input_bindings
+PASS staccato_legato_raw_direction_across_callback_sizes
+PASS same_sample_fallback_causality_and_channel_isolation
+PASS diagnostic_source_and_sustain_rearticulation
 PASS instance_state
 PASS transport_reset
 PASS generated_midi_routing
 PASS host_invoked_bypass_callback
-RESULT actual VST3 host tests passed (5643 assertions).
+RESULT actual VST3 host tests passed (20194 assertions).
 PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
 NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.

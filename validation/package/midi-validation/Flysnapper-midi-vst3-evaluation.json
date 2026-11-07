@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "kind": "FlysnapperMidiOnlyVst3",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "status": "passed",
-  "checks": 5642,
+  "checks": 20193,
   "scope": "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver",
   "ableton_verified": false,
   "pitch_detection_implemented": false,
@@ -13,7 +13,7 @@
   "audio_output_buses": 1,
   "host_device_role": "instrument",
   "audio_output_silent": true,
-  "silent_output_samples_checked": 52760,
+  "silent_output_samples_checked": 1004380,
   "bypass_silence_callbacks": 2,
   "declared_latency_samples": 0,
   "scale_count": 38,
@@ -98,6 +98,18 @@
       "status": "passed"
     },
     {
+      "name": "staccato_legato_raw_direction_across_callback_sizes",
+      "status": "passed"
+    },
+    {
+      "name": "same_sample_fallback_causality_and_channel_isolation",
+      "status": "passed"
+    },
+    {
+      "name": "diagnostic_source_and_sustain_rearticulation",
+      "status": "passed"
+    },
+    {
       "name": "instance_state",
       "status": "passed"
     },
@@ -141,12 +153,14 @@
     "expression_offsets",
     "channel1_pedals",
     "overlapping_note_bindings",
+    "same_pitch_rearticulation",
+    "legato_directional_ties",
     "instance_state",
     "transport_reset",
     "generated_midi_routing",
     "host_invoked_bypass_callback_only"
   ],
   "events_file": "Flysnapper-midi-vst3-events.csv",
-  "events_rows": 1128,
+  "events_rows": 1408,
   "limitations": "No Ableton Live12.4.6 execution or loading/placement claim. This is an instrument-role plugin, not a native MIDI effect. Serial tests explicitly connect instances in this driver, not a same-track Live chain or internal rack. Bypass callbacks are invoked explicitly; no Device Activator scheduling, direct-endpoint fan-out, held-chord replay or downstream-instrument claim."
 }

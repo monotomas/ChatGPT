@@ -14,36 +14,36 @@
     "ableton_verified": false
   },
   "platform": "Windows-x64",
-  "source_commit": "52698899fb3aa9d4f9ebe14860f12eb7183811bd",
+  "source_commit": "b01ef1666d720190931eb933af26c21e1e4e077e",
   "source_sha256": {
-    "build_plugin.py": "c086917070031acc7590a78d583a80a4694ef24a69fb8e3a8f937315a3042d40",
-    "CMakeLists.txt": "318d60a218f07f26e2fc8cb6590603db521b0e8d5d46d0dacd30aa49d3c9fdbb",
-    "dependencies.lock.json": "718bf94a4c59ea8bab61360e38e8c957dc1db7eb2b9dda1575c69f0788cb5bf2",
-    "Source/Core/MidiEngine.cpp": "a0187595aff787b954b90cf56cabc6b9aff534f9605ea5d88d3fda959ba76be2",
-    "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+    "build_plugin.py": "e3c0e599631c823706cef7e3184188421ef8eac1d6f58f12aed6a31cd6786a36",
+    "CMakeLists.txt": "ad2b7b67acbd94097d55f38bb477c2f4eac7be30bb8f6e73c8005162ec8def6b",
+    "dependencies.lock.json": "f53cb5df089d520c3b9c3ac2a666d854f5e6feeb765be1154fc034b7cf1aaf2b",
+    "Source/Core/MidiEngine.cpp": "26a93362975bf5a1622564eb2f44b30469370ccac2ebb82b27a810ff6817d5a4",
+    "Source/Core/MidiEngine.h": "5bc821f8d74f37a2c71a350fcee0e6cf1063beb3fe840dc9d0efe218ab0ee277",
     "Source/Core/MusicData.cpp": "b99c07735f060603fea9f68c2aceef3ceafc74e3cae4c1ab16bcdffed32e462c",
     "Source/Core/MusicData.h": "2e3fdb87aa51360a67aeb11aa87d841b51b834717fc9c4b12053f350c60e40b7",
     "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
     "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
     "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
-    "Source/PluginEditor.cpp": "fd73457811582692d04ae1fb349258ada450494df2be2f24af6412abff6e9eda",
+    "Source/PluginEditor.cpp": "928d4e7ba3cdd3068b7c343744039a9daa412dcd34633701e72394a0c45eeacb",
     "Source/PluginEditor.h": "1cab2cd6c9b3c0b284a87aa4419f71945b77a740ad1900653f88cf6266a323e5",
-    "Source/PluginProcessor.cpp": "5f6c80cdee3fa1e23d3b089642ce6882805bc6bc8b543c9b68c9dcd2bebdad36",
+    "Source/PluginProcessor.cpp": "f2814f9aae4c3cb70679957b8327e72d3fe234ec5c6385b4d3811d0fc78e5e15",
     "Source/PluginProcessor.h": "141500a225057717725a488205911b4b16981252a7cdea44f2ca7c06b6135436",
-    "Tests/CoreTests.cpp": "a628825e36ec458fd8ed28639402e270d9009e124521e610b9e1ab5f59ee78e6",
-    "Tests/MidiOnlyProcessorTests.cpp": "42d4d26ac6b629832f7e36e6c49a6856a464296a171f383e3a54f014bc2775bf",
-    "Tests/PluginTests.cpp": "39dcb9559e694005711a40d013f6779b224c2c199020ab06709058a061490949",
-    "Tests/Vst3HostTests.cpp": "1de4f3d8d590070f6aadfdedd512bd9db2f00144a7ee0c2000f9a4e25f22ebdd",
-    "Tools/midi_only_evidence.py": "b7f5dde9b26ce78b8227ed826ac829c4999ca8fc7eac96a646a0701deb084725",
-    "Tools/package_source.py": "61cbdbd1d9f7a31d20d5bb0ef4e48e76729881a102c66d4a2eb33dcc82e7e0ee",
-    "Tools/package_windows.py": "8de22282b1cd9e81a5f74c2c6fdda283b495c554c15503738f2725c4f673e794"
+    "Tests/CoreTests.cpp": "279d980bcf291a7917c9856a03c9a0c5c467bc6349d094aaa04a372c4123e222",
+    "Tests/MidiOnlyProcessorTests.cpp": "93d30b08cd174c8b07eb331ca03c8662257f39a0e73e11de0a2ec51f3083d91a",
+    "Tests/PluginTests.cpp": "a3ce847442dad6276a7861e1038f8a774662d0027e18f76baa4b69ca58721747",
+    "Tests/Vst3HostTests.cpp": "6fc11dcf31e8e811495bde5e2cf8e7a7b245654eb17b0ac7fd79abf6769d3856",
+    "Tools/midi_only_evidence.py": "69e1cfd262a047bda4957af0d26c6e3a20bdee6de69167fc6dcf0ecc6434fa08",
+    "Tools/package_source.py": "da71e3725aab27ea09cb54acf326016f7c31e07ac020639e355b3f6fd49ad4cc",
+    "Tools/package_windows.py": "d61be999cfc2e60c995e42b0e33689301609ca2006535a6eae294cc3ebccf18a"
   },
-  "ctest_sha256": "e01106d171ee5b118014a9c087ca61debe3ed9e05bf101693d10fbe65e8a205b",
-  "vst3_sha256": "9d4ab216ac5381eb921703b595b7a786a3b0f6693b074fdc4aec499bbf3311f5",
-  "moduleinfo_sha256": "f528fa949d6d75c7ab92ac382c7e3b6140416e4a8c3524788eb5762a5687798f",
+  "ctest_sha256": "06a9a9bf0bf448d154a9b46e433366ef943f71a5577d3348c398c5a88eaa732e",
+  "vst3_sha256": "61979a242ac96d736f1a3941b4a09713b20c5a6185e1dc8d47f34a694466a166",
+  "moduleinfo_sha256": "1555c112de8b05979c443be6833fecf5259318939b198e775e0344b75e621e19",
   "module": {
     "name": "Flysnapper MIDI",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "component_cid": "ABCDEF019182FAEB466C797346736D31",
     "sub_categories": [
       "Instrument"
@@ -53,22 +53,22 @@
     "FlysnapperMidiOnlyProcessor": {
       "target": "FlysnapperMidiOnlyProcessorTests",
       "binary": "build/w-a40571ed5356/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests.exe",
-      "binary_sha256": "b00a210f99ff41a9d835556853c3a82875db6579a4243e6e7daa37e95a2105da",
-      "binary_bytes": 4823552,
-      "report_sha256": "52affe49b0cf9cbc7e5eb5ceb2944e56dfc345a52c457f24fb64ccddb55f20cc",
-      "events_sha256": "70b995eeb480f72a46c05a66174dedbc343fcf0e0ec217d20a3da8889a760545",
-      "checks": 120459,
-      "events_rows": 2387
+      "binary_sha256": "e3eb4ba160ac4016514c639494e8a42f9edaebfe8d72e5f4dc9d1bdaa2399dc0",
+      "binary_bytes": 4876288,
+      "report_sha256": "d748c13cbdbff8b661029ade17348fc2f37b129fc3c490a88b1020d5556ae999",
+      "events_sha256": "68577cb7355c196cf690319d1a55433def89a2f9960a2d8a8425022942e8b702",
+      "checks": 273892,
+      "events_rows": 2833
     },
     "FlysnapperActualVst3": {
       "target": "FlysnapperVst3HostTests",
       "binary": "build/w-a40571ed5356/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe",
-      "binary_sha256": "50afc31211f7ef9756569f3bde349cecff71a28cf51a1f8757b090f8704a5c97",
-      "binary_bytes": 3811328,
-      "report_sha256": "e9e02a7f8eb9b3c7d369cf9b8b4cdf74716c6f0d90c091249ce102ed94c12ab4",
-      "events_sha256": "8a90589fb557913d3df53d3d5496d9a42990ac411680d11e6c1f91264a1fc532",
-      "checks": 5642,
-      "events_rows": 1128
+      "binary_sha256": "204d8e4b6f1c37e04e1cb6e98361169b1adc69275e9bbab66c3c9cd87f60a890",
+      "binary_bytes": 3847680,
+      "report_sha256": "c33570bcc0fb099277fda47468630bbd5def30cfdf848dc9ceaf7c50a5056afa",
+      "events_sha256": "98bee9a2a7b718e7766c1795978dc4fadeceddbb8f76b164e47675317f1ebb76",
+      "checks": 20193,
+      "events_rows": 1408
     }
   }
 }
