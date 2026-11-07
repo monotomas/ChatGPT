@@ -1,18 +1,18 @@
-Start testing: Nov 07 19:08 Coordinated Universal Time
+Start testing: Nov 07 20:37 Coordinated Universal Time
 ----------------------------------------------------------
 1/4 Testing: FlysnapperCore
 1/4 Test: FlysnapperCore
 Command: "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/FlysnapperCoreTests.exe"
 Directory: D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356
-"FlysnapperCore" start time: Nov 07 19:08 Coordinated Universal Time
+"FlysnapperCore" start time: Nov 07 20:37 Coordinated Universal Time
 Output:
 ----------------------------------------------------------
-Flysnapper core: 6 suites passed, 2191256 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+Flysnapper core: 6 suites passed, 2191398 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
 <end of output>
-Test time =   0.07 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"FlysnapperCore" end time: Nov 07 19:08 Coordinated Universal Time
+"FlysnapperCore" end time: Nov 07 20:37 Coordinated Universal Time
 "FlysnapperCore" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -20,19 +20,19 @@ Test Passed.
 2/4 Test: FlysnapperPluginSmoke
 Command: "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests.exe"
 Directory: D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356
-"FlysnapperPluginSmoke" start time: Nov 07 19:08 Coordinated Universal Time
+"FlysnapperPluginSmoke" start time: Nov 07 20:37 Coordinated Universal Time
 Output:
 ----------------------------------------------------------
 PASS MIDI-only parameters,52x38 state choices, stable IDs, independent copies and legacy XML payloads
 PASS warmed processBlock C++ new check (host wrapper and malloc/realloc excluded)
 PASS scale/root/correction preview before prepareToPlay or processBlock
 PASS actual MIDI-only editor,52x38 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs
-FlysnapperPluginSmoke: PASS (20306 assertions; not Ableton validation)
+FlysnapperPluginSmoke: PASS (20315 assertions; not Ableton validation)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.50 sec
 ----------------------------------------------------------
 Test Passed.
-"FlysnapperPluginSmoke" end time: Nov 07 19:08 Coordinated Universal Time
+"FlysnapperPluginSmoke" end time: Nov 07 20:37 Coordinated Universal Time
 "FlysnapperPluginSmoke" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -40,15 +40,15 @@ Test Passed.
 3/4 Test: FlysnapperMidiOnlyProcessor
 Command: "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests.exe"
 Directory: D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356
-"FlysnapperMidiOnlyProcessor" start time: Nov 07 19:08 Coordinated Universal Time
+"FlysnapperMidiOnlyProcessor" start time: Nov 07 20:37 Coordinated Universal Time
 Output:
 ----------------------------------------------------------
-FlysnapperMidiOnlyProcessor: PASS (112175 checks, 14 cases; no Ableton verification).
+FlysnapperMidiOnlyProcessor: PASS (120459 checks, 15 cases; no Ableton verification).
 <end of output>
-Test time =   0.16 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
 Test Passed.
-"FlysnapperMidiOnlyProcessor" end time: Nov 07 19:08 Coordinated Universal Time
+"FlysnapperMidiOnlyProcessor" end time: Nov 07 20:37 Coordinated Universal Time
 "FlysnapperMidiOnlyProcessor" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -56,11 +56,12 @@ Test Passed.
 4/4 Test: FlysnapperActualVst3
 Command: "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe" "D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356/Flysnapper_artefacts/Release/VST3/Flysnapper MIDI.vst3"
 Directory: D:/a/_temp/Olav Lægreid/Flysnapper/build/w-a40571ed5356
-"FlysnapperActualVst3" start time: Nov 07 19:08 Coordinated Universal Time
+"FlysnapperActualVst3" start time: Nov 07 20:37 Coordinated Universal Time
 Output:
 ----------------------------------------------------------
 PASS module_contract
 PASS user_factory_defaults_and_fresh_state
+PASS four_revised_factory_assignments
 PASS routing_44100_32
 PASS routing_44100_128
 PASS routing_44100_257
@@ -81,15 +82,15 @@ PASS instance_state
 PASS transport_reset
 PASS generated_midi_routing
 PASS host_invoked_bypass_callback
-RESULT actual VST3 host tests passed (5571 assertions).
+RESULT actual VST3 host tests passed (5643 assertions).
 PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
 NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.
 <end of output>
-Test time =   0.47 sec
+Test time =   0.50 sec
 ----------------------------------------------------------
 Test Passed.
-"FlysnapperActualVst3" end time: Nov 07 19:08 Coordinated Universal Time
+"FlysnapperActualVst3" end time: Nov 07 20:37 Coordinated Universal Time
 "FlysnapperActualVst3" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 07 19:08 Coordinated Universal Time
+End testing: Nov 07 20:37 Coordinated Universal Time

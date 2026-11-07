@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "kind": "FlysnapperMidiOnlyVst3",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "status": "passed",
-  "checks": 5570,
+  "checks": 5642,
   "scope": "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver",
   "ableton_verified": false,
   "pitch_detection_implemented": false,
@@ -13,13 +13,13 @@
   "audio_output_buses": 1,
   "host_device_role": "instrument",
   "audio_output_silent": true,
-  "silent_output_samples_checked": 49688,
+  "silent_output_samples_checked": 52760,
   "bypass_silence_callbacks": 2,
   "declared_latency_samples": 0,
   "scale_count": 38,
   "chord_type_count": 52,
   "public_parameter_count": 59,
-  "factory_mapping_sha256": "146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814",
+  "factory_mapping_sha256": "8372f68334a1ed37e09500c0b527151a73fa6c18988fd0a972bf933bc3fd779e",
   "cases": [
     {
       "name": "module_contract",
@@ -27,6 +27,10 @@
     },
     {
       "name": "user_factory_defaults_and_fresh_state",
+      "status": "passed"
+    },
+    {
+      "name": "four_revised_factory_assignments",
       "status": "passed"
     },
     {
@@ -118,6 +122,10 @@
     "removed_pitch_parameters",
     "stable_mapping_parameter_ids",
     "user_factory_defaults",
+    "revised_factory_7sharp9_half_whole",
+    "revised_factory_7flat13_melodic_minor5",
+    "revised_factory_13sharp9_chromatic",
+    "revised_factory_13addsharp9_chromatic",
     "note_sample_offsets",
     "all_38_scales",
     "legacy_31_scale_indices",
@@ -139,6 +147,6 @@
     "host_invoked_bypass_callback_only"
   ],
   "events_file": "Flysnapper-midi-vst3-events.csv",
-  "events_rows": 1120,
+  "events_rows": 1128,
   "limitations": "No Ableton Live12.4.6 execution or loading/placement claim. This is an instrument-role plugin, not a native MIDI effect. Serial tests explicitly connect instances in this driver, not a same-track Live chain or internal rack. Bypass callbacks are invoked explicitly; no Device Activator scheduling, direct-endpoint fan-out, held-chord replay or downstream-instrument claim."
 }
