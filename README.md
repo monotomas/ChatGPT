@@ -12,12 +12,16 @@ ingen audioinngang eller pitchgjenkjenning er lagt til. Ombyggingen følger bruk
 Diminished og C7b13 til Mixolydian b6. Etter siste presisering får C13#9
 og C13add#9 Chromatic som fabrikkvalg. Alle 52 akkordtyper og 38 skalaer
 beholdes. Vanlig kommentering og farger er uendret.
-Tidligere pakker og testbevis er bevart som egne kontrollpunkt. Den nye
-instrumentrollen må kontrolleres i generisk VST3-vert og Windows-installasjon
-før publisering. Praktisk aksept i Ableton gjenstår til brukerens prøve.
+[Last ned Windows x64-installasjonspakken](https://github.com/monotomas/ChatGPT/raw/2444f6264f29f923d2fa9b4a96a72c350b85832d/downloads/Flysnapper-Windows-x64.zip).
+Lukk Live, pakk ut hele ZIP-filen og kjør INSTALL_FLYSNAPPER.bat. Nye
+instanser bruker fabrikkvalgene; eksisterende instanser kan bruke
+Reset all 52 to factory. Ingen bygging kreves hos brukeren.
 
-En ny Windows-pakke publiseres etter kontrollene; den gamle 0.4.0-pakken
-har den bekreftede Live-feilen og er beholdt som historikk.
+Windows-bygg og native 4/4 grupper, faktiske PS/BAT-installasjonsprøver
+og offline pakke-/kilde-/mappingaudit er bestått.
+[Kontrollbevis](docs/validation/midi-factory-final-2026-11-07/windows/README.md)
+identifiserer eksakte bytes og byggekilde5269889. Praktisk aksept i Ableton
+gjenstår til brukerens prøve. Tidligere pakker og bevis beholdes som historie.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
 [versjonsnotatet](docs/RELEASE_0.4.2.md) og

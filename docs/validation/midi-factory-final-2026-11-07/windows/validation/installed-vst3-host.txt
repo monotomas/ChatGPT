@@ -1,0 +1,26 @@
+PASS module_contract
+PASS user_factory_defaults_and_fresh_state
+PASS four_revised_factory_assignments
+PASS routing_44100_32
+PASS routing_44100_128
+PASS routing_44100_257
+PASS routing_48000_32
+PASS routing_48000_128
+PASS routing_48000_257
+PASS routing_96000_32
+PASS routing_96000_128
+PASS routing_96000_257
+PASS all_38_scale_indices
+PASS internal_correction_off_held_chord
+PASS new_sharp_eleventh_chord_mappings
+PASS serial_instances_and_two_active_corrections
+PASS non_ch1_notes_and_expression
+PASS channel1_sustain_and_latch_reset
+PASS overlapping_input_bindings
+PASS instance_state
+PASS transport_reset
+PASS generated_midi_routing
+PASS host_invoked_bypass_callback
+RESULT actual VST3 host tests passed (5643 assertions).
+PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
+NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.

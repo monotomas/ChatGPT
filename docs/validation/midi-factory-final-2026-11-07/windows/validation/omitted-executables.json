@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "OmittedWindowsTestExecutables",
+  "source_commit": "52698899fb3aa9d4f9ebe14860f12eb7183811bd",
+  "scope": "Native executables rehashed in CI before packaging, intentionally omitted from research Git; offline audits cannot independently rehash omitted binaries",
+  "source_proof": "validation/package/midi-validation/report-manifest.json",
+  "executables": [
+    {
+      "role": "FlysnapperActualVst3",
+      "compiled_path": "build/w-a40571ed5356/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe",
+      "sha256": "50afc31211f7ef9756569f3bde349cecff71a28cf51a1f8757b090f8704a5c97",
+      "bytes": 3811328,
+      "report_sha256": "e9e02a7f8eb9b3c7d369cf9b8b4cdf74716c6f0d90c091249ce102ed94c12ab4",
+      "events_sha256": "8a90589fb557913d3df53d3d5496d9a42990ac411680d11e6c1f91264a1fc532",
+      "source_binding": "source_sha256 in validation/package/midi-validation/report-manifest.json"
+    },
+    {
+      "role": "FlysnapperMidiOnlyProcessor",
+      "compiled_path": "build/w-a40571ed5356/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests.exe",
+      "sha256": "b00a210f99ff41a9d835556853c3a82875db6579a4243e6e7daa37e95a2105da",
+      "bytes": 4823552,
+      "report_sha256": "52affe49b0cf9cbc7e5eb5ceb2944e56dfc345a52c457f24fb64ccddb55f20cc",
+      "events_sha256": "70b995eeb480f72a46c05a66174dedbc343fcf0e0ec217d20a3da8889a760545",
+      "source_binding": "source_sha256 in validation/package/midi-validation/report-manifest.json"
+    }
+  ]
+}

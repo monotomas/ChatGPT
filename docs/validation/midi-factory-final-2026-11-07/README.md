@@ -24,7 +24,8 @@ Skjermbildene er visuelt kontrollert; C13add#9 viser Factory:Chromatic,
 vanlig grønn tonetekst og ingen særforklaring. Begge C13-rader er også
 kontrollert direkte av GUI-testen.
 
-Ingen ny Windows0.4.2-bygging/installasjon eller faktisk Ableton-kjøring
-er utført. Tidligere avvisning av bred ekstern publisering skal respekteres;
-ny GitHub-bygging/publisering venter på avklart tillatelse. Avbrutt51-
-bibliotek og fargeunntak er lokale historiske forsøk, ikke aktive krav.
+Ferske [Windows-/installasjonskontroller](windows/README.md) og offline
+pakkeaudit er nå bestått, og den eksakte pakken er publisert. Brukeren
+har uttrykkelig godkjent GitHub-kode, Excel-grunnlag og byggelogger.
+Ingen faktisk Ableton-kjøring er utført her. Avbrutt 51-bibliotek og
+fargeunntak er lokale historiske forsøk, ikke aktive krav.

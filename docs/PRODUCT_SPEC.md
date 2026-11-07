@@ -49,9 +49,9 @@ koblede moduler, ikke for plassering/kjeding i Live.
 ## Kontroll og videre avgrensning
 
 0.4.0 ble avvist i brukerens Live ved valideringen av en effekt uten valid
-audioinngang. 0.4.1 endrer vertskategori og audioutgang etter brukerens
-instruks. Den må få nye bygg-, modul- og installasjonskontroller; tidligere
-0.4.0-resultater beviser ikke den endrede adapteren. Faktisk innlasting,
+audioinngang. 0.4.1 endret vertskategori og audioutgang etter brukerens
+instruks. 0.4.2 beholder rollen og har ferske beståtte Windows-, modul- og
+installasjonskontroller. Tidligere 0.4.0-resultater brukes ikke som bevis. Faktisk innlasting,
 korrekt MIDI-utgang og mottakerspor i Live er fortsatt egne,
 uavklarte akseptpunkter.
 

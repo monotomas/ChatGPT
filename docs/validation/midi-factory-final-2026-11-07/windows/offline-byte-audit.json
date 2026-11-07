@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "kind": "WindowsResearchCheckpointOfflineByteAudit",
+  "status": "passed",
+  "source_commit": "52698899fb3aa9d4f9ebe14860f12eb7183811bd",
+  "checkpoint_commit": "f501059f12990605de0dc097aa0d6c2a9a274453",
+  "run_id": "42411267938",
+  "artifact": {
+    "path": "artifacts/Flysnapper-MIDI-Windows-x64.zip",
+    "sha256": "e73bf9a128b3fed476cd181e025226f2cb59c66cfa20178f25be3294563bd05e",
+    "bytes": 39347979
+  },
+  "evaluation_scope": {
+    "feature_set": "midi-to-midi-only",
+    "audio_processing": false,
+    "pitch_to_midi": false,
+    "scales": 38,
+    "chord_types": 52,
+    "host_device_role": "instrument",
+    "silent_audio_output": true,
+    "host_scope": "native-processor-and-compiled-vst3-test-host",
+    "ableton_verified": false
+  },
+  "user_factory_binding": {
+    "workbook_sha256": "794a9941e128aaa3c1bc6f176c7d76a16e0dfc0344abf5624afac5654d0bb43c",
+    "assignments_json_sha256": "9f93d5f814feafa749c8358319f3644c9bbd9785e0275dc529c144dd39e9a6fe",
+    "canonical_mapping_sha256": "8372f68334a1ed37e09500c0b527151a73fa6c18988fd0a972bf933bc3fd779e",
+    "mapping_rows": 52,
+    "changed_assignments": 4,
+    "worksheet_changed_assignments": 2,
+    "effective_workbook_sha256": "3c3d613e174c14bd0de4aa6a180be5abe2a8ef9b93c42b1a7dc2fc07862d2e53"
+  },
+  "vst3_sha256": "9d4ab216ac5381eb921703b595b7a786a3b0f6693b074fdc4aec499bbf3311f5",
+  "selected_project_inputs_verified": 21,
+  "reports": {
+    "FlysnapperMidiOnlyProcessor": {
+      "checks": 120459,
+      "events_rows": 2387,
+      "audio_input_channels": 0,
+      "audio_output_channels": 2,
+      "audio_input_buses": 0,
+      "audio_output_buses": 1,
+      "host_device_role": "instrument",
+      "audio_output_silent": true,
+      "silent_output_samples_checked": 692992,
+      "bypass_silence_callbacks": 1,
+      "cases": 15,
+      "four_revised_factory_probes": [
+        {
+          "chord_id": "dominant_sharp9",
+          "output_note": 67,
+          "note_on_offset": 23,
+          "note_off_offset": 41,
+          "balanced_channel1_pair": true
+        },
+        {
+          "chord_id": "dominant_flat13",
+          "output_note": 62,
+          "note_on_offset": 23,
+          "note_off_offset": 41,
+          "balanced_channel1_pair": true
+        },
+        {
+          "chord_id": "thirteenth_sharp9",
+          "output_note": 63,
+          "note_on_offset": 23,
+          "note_off_offset": 41,
+          "balanced_channel1_pair": true
+        },
+        {
+          "chord_id": "thirteenth_add_sharp9",
+          "output_note": 63,
+          "note_on_offset": 23,
+          "note_off_offset": 41,
+          "balanced_channel1_pair": true
+        }
+      ]
+    },
+    "FlysnapperActualVst3": {
+      "checks": 5642,
+      "events_rows": 1128,
+      "audio_input_channels": 0,
+      "audio_output_channels": 2,
+      "audio_input_buses": 0,
+      "audio_output_buses": 1,
+      "host_device_role": "instrument",
+      "audio_output_silent": true,
+      "silent_output_samples_checked": 52760,
+      "bypass_silence_callbacks": 2,
+      "cases": 23,
+      "four_revised_factory_probes": [
+        {
+          "chord_id": "dominant_sharp9",
+          "output_note": 67,
+          "note_on_offset": 23,
+          "note_off_offset": 47,
+          "balanced_channel1_pair": true
+        },
+        {
+          "chord_id": "dominant_flat13",
+          "output_note": 62,
+          "note_on_offset": 23,
+          "note_off_offset": 47,
+          "balanced_channel1_pair": true
+        },
+        {
+          "chord_id": "thirteenth_sharp9",
+          "output_note": 63,
+          "note_on_offset": 23,
+          "note_off_offset": 47,
+          "balanced_channel1_pair": true
+        },
+        {
+          "chord_id": "thirteenth_add_sharp9",
+          "output_note": 63,
+          "note_on_offset": 23,
+          "note_off_offset": 47,
+          "balanced_channel1_pair": true
+        }
+      ]
+    }
+  },
+  "host_assertions": 5643,
+  "installer_exit_code": 0,
+  "installed_host_exit_code": 0,
+  "bat_launcher_exit_code": 0,
+  "unicode_paths_verified": true,
+  "legacy_instrument_preserved": true,
+  "unrelated_plugin_preserved": true,
+  "build_manifest_serialization": "External Windows manifest has CRLF; packaged manifest has LF. Parsed objects are equal and replacing CRLF with LF makes the entire bytes equal. Each original byte hash is retained separately.",
+  "verified_features": [
+    "ZIP inventory and every member checksum",
+    "embedded complete source ZIP inventory and every source checksum",
+    "selected21 inputs exactly match committed Git blobs and native proof",
+    "native raw reports/events and CTest bindings",
+    "Windows x64 DLL, exactInstrument0.4.2 metadata and retainedFsm1 identity bytes",
+    "measured silent stereo output on ordinary and bypass callbacks",
+    "PS/BAT install,replace,recovery and installed DLL inventories/log bindings",
+    "installed actual-host completion and executable hash record",
+    "explicit omitted native-executable inventory"
+  ],
+  "known_full_private_live_log_absent": true,
+  "native_executables_rehashed_offline": false,
+  "limitation": "Two native test executables were deliberately omitted from research Git. Their recorded hashes/lengths/report bindings match; this offline audit cannot rehash or rerun omitted executables. CI rehashed both before packaging/publication. Native Windows/compiled-host proof does not establish Ableton Live acceptance of this0.4.2 instrument adapter or its MIDI routing; an actual Live result remains separate.",
+  "ableton_verified": false,
+  "files_sha256": {
+    "status.json": "4215118cf08d7c366a21cdf7b49dedab5b41e52c03c7b34e4d4c6a8010d57058",
+    "artifacts/Flysnapper-MIDI-Windows-x64.zip": "e73bf9a128b3fed476cd181e025226f2cb59c66cfa20178f25be3294563bd05e",
+    "logs/windows-52698899fb3aa9d4f9ebe14860f12eb7183811bd.txt": "2da56cf31775210679523bde4e8944c59c50cfb93e13afe1249c5f8c748a7956",
+    "Source/Flysnapper-Source.zip": "6cf722317be418f5f53d8e56080b2e4ca9836994b07bf6c4f0f504dd9a9517a8",
+    "validation/windows-build-manifest.json": "3feb09de7e82afaab434f5d698dcf886ff20bbd69d3a9dd71ab2b5dbabc3c95e",
+    "validation/omitted-executables.json": "4b46041c52326f219f04394f764e9c372d7ae4a3c0b30710f1862467863df66a",
+    "validation/installation-powershell.txt": "2ea8dd40e8c9b9b6bee2e215f993c0b18e9b34d97612656ee56d36ca72646f37",
+    "validation/installed-vst3-host.txt": "ce00823d56060bb849814fdea02edb527572ae26e0196e292c321ce5e9f667ed",
+    "validation/windows-installation.json": "68bd47a1625fc1ffc977a642d42350e570d4366808dbca5abd9fc99509125c02",
+    "validation/installation-launcher.txt": "60f2de18bd1e0d15d9bf2cf722b2d72876e76fc776f4fe0e0780fb966c6b2bf1",
+    "package-validation/test-results.xml": "e01106d171ee5b118014a9c087ca61debe3ed9e05bf101693d10fbe65e8a205b",
+    "package-validation/automated-tests.txt": "bcad21557514ac2f194cddeaecf3c184b9be7cc220a4cf8ee18a2238de574e6a",
+    "package-validation/build-manifest.json": "a5178c9a7b811f77add04843b996eca8345c6067d2af707d0a0fd173815ea85c",
+    "package-validation/midi-validation/Flysnapper-midi-vst3-evaluation.json": "e9e02a7f8eb9b3c7d369cf9b8b4cdf74716c6f0d90c091249ce102ed94c12ab4",
+    "package-validation/midi-validation/report-manifest.json": "231f97bde4b8444b56712604a6e1d088996c437b101b9f41b55bc2b55331c177",
+    "package-validation/midi-validation/Flysnapper-midi-processor-events.csv": "70b995eeb480f72a46c05a66174dedbc343fcf0e0ec217d20a3da8889a760545",
+    "package-validation/midi-validation/Flysnapper-midi-vst3-events.csv": "8a90589fb557913d3df53d3d5496d9a42990ac411680d11e6c1f91264a1fc532",
+    "package-validation/midi-validation/Flysnapper-midi-processor-evaluation.json": "52affe49b0cf9cbc7e5eb5ceb2944e56dfc345a52c457f24fb64ccddb55f20cc"
+  }
+}

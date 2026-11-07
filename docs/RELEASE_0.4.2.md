@@ -24,6 +24,8 @@ audioinngang og stille stereoutgang. Produktnavn og Fsm1-identitet er
 uendret. Ingen audioanalyse, wrapper eller nytt pluginformat er innført.
 
 [Brukerfil, senere valg og effektiv arbeidsbok](factory-settings/2026-11-07-user-values-final/README.md)
-er bevart separat fra de tidligere fabrikkoppsettene. Bygg- og kontrollbevis
-for 0.4.2 skal knyttes til den nye koden. Praktisk Ableton-kjøring er ikke
-utført i skymiljøet.
+er bevart separat fra de tidligere fabrikkoppsettene. Ferske
+[Windows-/installasjonskontroller](validation/midi-factory-final-2026-11-07/windows/README.md)
+er bestått for kilde5269889. Den eksakte pakken er publisert uten ny
+kompilering; faktisk nedlasting er kontrollert. Praktisk Ableton-kjøring
+er ikke utført i skymiljøet.
