@@ -1,4 +1,14 @@
-# Flysnapper – arbeid etter gitarprøven av 0.3.0
+# Flysnapper – MIDI-only-bestilling 7. november 2026
+
+Pitch-to-MIDI-arbeidet er avsluttet etter brukerens nye bestilling. Neste
+produkt skal være en ren MIDI-prosessor med31 skalaer og forbedret
+akkord-/skalaoppsett. [Gjeldende bestilling](docs/MIDI_ONLY_REQUEST_2026-11-07.md)
+overstyrer det historiske audiooppdraget nedenfor. En
+[Excel-mal for alle50 fabrikktilordningene](docs/factory-settings/2026-11-07/README.md)
+er klar. Programkoden er ennå ikke bygget om; VST3-plassering som seriekoblede
+MIDI-effekter i Live er et uavklart vertsspørsmål, ikke en utført praktisk test.
+
+## Historisk arbeid etter gitarprøven av 0.3.0
 
 Brukerens prøve 6. november viser at 0.3.0 fortsatt har for mye
 dobbelttrigging, utelatte toner, falske lavere oktaver og forsinkelse.

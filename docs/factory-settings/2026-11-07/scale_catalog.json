@@ -1,0 +1,474 @@
+{
+  "status": "Requested MIDI-only catalog; not yet implemented in the plugin",
+  "scales": [
+    {
+      "family": "Chromatic",
+      "mode": 1,
+      "id": "chromatic",
+      "name": "Chromatic",
+      "semitones": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "family": "Diatonic",
+      "mode": 1,
+      "id": "ionian",
+      "name": "Ionian (Major)",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        11
+      ]
+    },
+    {
+      "family": "Diatonic",
+      "mode": 2,
+      "id": "dorian",
+      "name": "Dorian",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10
+      ]
+    },
+    {
+      "family": "Diatonic",
+      "mode": 3,
+      "id": "phrygian",
+      "name": "Phrygian",
+      "semitones": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        8,
+        10
+      ]
+    },
+    {
+      "family": "Diatonic",
+      "mode": 4,
+      "id": "lydian",
+      "name": "Lydian",
+      "semitones": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        9,
+        11
+      ]
+    },
+    {
+      "family": "Diatonic",
+      "mode": 5,
+      "id": "mixolydian",
+      "name": "Mixolydian",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10
+      ]
+    },
+    {
+      "family": "Diatonic",
+      "mode": 6,
+      "id": "aeolian",
+      "name": "Aeolian (Minor)",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10
+      ]
+    },
+    {
+      "family": "Diatonic",
+      "mode": 7,
+      "id": "locrian",
+      "name": "Locrian",
+      "semitones": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        8,
+        10
+      ]
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 1,
+      "id": "melodic_minor",
+      "name": "Melodic Minor 1",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        9,
+        11
+      ]
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 2,
+      "id": "melodic_minor_2",
+      "name": "Mel. Min. 2: Dorian ♭2 (Phrygian ♮6)",
+      "semitones": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        9,
+        10
+      ]
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 3,
+      "id": "melodic_minor_3",
+      "name": "Mel. Min. 3: Lydian Augmented (Lydian ♯5)",
+      "semitones": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        9,
+        11
+      ]
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 4,
+      "id": "lydian_dominant",
+      "name": "Mel. Min. 4: Lydian Dominant",
+      "semitones": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10
+      ]
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 5,
+      "id": "melodic_minor_5",
+      "name": "Mel. Min. 5: Mixolydian ♭6 (Hindu)",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10
+      ]
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 6,
+      "id": "melodic_minor_6",
+      "name": "Mel. Min. 6: Aeolian ♭5 (Locrian ♮2 / Half Dim.)",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10
+      ]
+    },
+    {
+      "family": "Melodic Minor",
+      "mode": 7,
+      "id": "altered",
+      "name": "Mel. Min. 7: Altered (Super Locrian)",
+      "semitones": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        8,
+        10
+      ]
+    },
+    {
+      "family": "Bebop",
+      "mode": 1,
+      "id": "bebop_dominant",
+      "name": "Dominant Bebop Scale",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "family": "Bebop",
+      "mode": 2,
+      "id": "bebop_major",
+      "name": "Major Bebop Scale",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11
+      ]
+    },
+    {
+      "family": "Bebop",
+      "mode": 3,
+      "id": "bebop_dorian",
+      "name": "Minor / Dorian Bebop Scale",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 1,
+      "id": "harmonic_minor",
+      "name": "Harm. Min. 1: Harmonic Minor",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        8,
+        11
+      ]
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 2,
+      "id": "harmonic_minor_2",
+      "name": "Harm. Min. 2: Locrian ♮6",
+      "semitones": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        9,
+        10
+      ]
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 3,
+      "id": "harmonic_minor_3",
+      "name": "Harm. Min. 3: Ionian ♯5",
+      "semitones": [
+        0,
+        2,
+        4,
+        5,
+        8,
+        9,
+        11
+      ]
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 4,
+      "id": "harmonic_minor_4",
+      "name": "Harm. Min. 4: Dorian ♯4",
+      "semitones": [
+        0,
+        2,
+        3,
+        6,
+        7,
+        9,
+        10
+      ]
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 5,
+      "id": "phrygian_dominant",
+      "name": "Harm. Min. 5: Phrygian Dominant",
+      "semitones": [
+        0,
+        1,
+        4,
+        5,
+        7,
+        8,
+        10
+      ]
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 6,
+      "id": "harmonic_minor_6",
+      "name": "Harm. Min. 6: Lydian ♯2",
+      "semitones": [
+        0,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11
+      ]
+    },
+    {
+      "family": "Harmonic Minor",
+      "mode": 7,
+      "id": "harmonic_minor_7",
+      "name": "Harm. Min. 7: Ultralocrian",
+      "semitones": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "family": "Diminished",
+      "mode": 1,
+      "id": "diminished_half_whole",
+      "name": "Half Whole Diminished",
+      "semitones": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10
+      ]
+    },
+    {
+      "family": "Diminished",
+      "mode": 2,
+      "id": "diminished_whole_half",
+      "name": "Whole Half Diminished",
+      "semitones": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        11
+      ]
+    },
+    {
+      "family": "Whole Tone",
+      "mode": 1,
+      "id": "whole_tone",
+      "name": "Whole Tone",
+      "semitones": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10
+      ]
+    },
+    {
+      "family": "Major Pentatonic",
+      "mode": 1,
+      "id": "major_pentatonic",
+      "name": "Major Pentatonic",
+      "semitones": [
+        0,
+        2,
+        4,
+        7,
+        9
+      ]
+    },
+    {
+      "family": "Minor Pentatonic",
+      "mode": 1,
+      "id": "minor_pentatonic",
+      "name": "Minor Pentatonic",
+      "semitones": [
+        0,
+        3,
+        5,
+        7,
+        10
+      ]
+    },
+    {
+      "family": "Minor Blues",
+      "mode": 1,
+      "id": "minor_blues",
+      "name": "Minor Blues",
+      "semitones": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        10
+      ]
+    }
+  ]
+}

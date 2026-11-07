@@ -1,0 +1,94 @@
+Da er jeg klar til å fortsette utviklingen av Flysnapper.
+
+Pitch-to-MIDI var mislykket. Vi skal derfor avslutte arbeidet med denne, og vi tar bort denne modulen fra løsningen. Den skal altså fjernes fra Flysnapper, og vi fortsetter utviklingen av Flysnapper uten funksjonalitet for Pitch-to-MIDI.
+
+Fungerende del av løsningen er MIDI-to-MIDI, hvor Flysnapper greier  følgende:
+
+-	Å motta MIDI fra akkordsporet på separat MIDI-kanal (kanal 16)
+-	Å tilordne akkorder til skalaer, via menyen på baksiden
+-	Å motta spille-MIDI i kanal 1 og korrigere denne i henhold til akkorder og eventuelt tilordnede skalaer
+-	Å korrigere spille-MIDI fra kanal 1 til en skala valgt av brukeren (selvstendig valg, som deaktiverer bruk av innkommende MIDI fra akkordsporet)
+-	Når akkord-MIDI fra kanal 16 benyttes: Mulighet til å slå av og på tilordning av akkorder til skalaer, dvs. mulighet til at spille-MIDI kun korrigeres til akkordtoner, eller korrigeres til skalatoner. Dette er valgbart ved å velge mellom «Chord Notes» og «Chord Scale». 
+
+Dette skal vi beholde og utvikle videre.
+
+En liten rettelse: Grensesnittet skal benytte terminologien «Chord Tones Only», ikke «Chord Notes». «Chord Scale» skal hete «Chord-Scale Assignment». Dette er mer presise termer for brukeren.
+
+En litt større rettelse er at jeg ønsker å redigere factory settings for hver akkordtype. Jeg trenger derfor en mulighet til å laste opp en Excel-fil til deg. Det enkleste er at du kan presentere meg for en liste med alle akkordtypene her i chatten, så kan jeg lime dem inn i et Excel-ark, arbeide med det, og laste opp en Excel-fil med tilordningene.
+
+Videre ønsker jeg at Flysnapper i nedtrekksmenyen for valg av skalaer skal markere skalaer som ikke inneholder alle tonene i akkorden, slik at brukeren er oppmerksom på sine valg mht. å velge skalaer utenfor akkorden.  
+
+Videre må Flysnapper rangere skalaene slik at skalaer som inneholder alle akkordtonene kommer øverst for hver akkordtype, og skalaer som ikke inneholder alle akkordtonene kommer nederst. 
+
+Skillet mellom skalaer som inneholder alle akkordtonene og de som ikke gjør det, må markeres med overskrifter: «Scales with all chord tones» og «Chord tones outside scale».
+
+Innenfor hver gruppe skal skalene sorteres etter hvilken modus de er av the parent scale. Første modus først, deretter 2. modus, 3. modus osv. For kirketoneartene betyr det at sorteringen blir Ionian (Major), Dorian, Phrygian, Lydian, Mixolydian, Aeolian (Minor), Locrian. Noen moduser vil inneholde alle akkordtonene, andre vil ikke. Den interne sorteringen blir da den samme innenfor hver gruppe. Hvis en modus inneholder alle akkordtonene i Ionisk, Lydisk og Mixolydisk, kommer disse tre skalaene rett etter hverandre. Hvis den samme akkordtypen har toner utenfor Dorisk, Frygisk og Lokrisk, kommer disse i den rekkefølgen, i den nederste kategorien (under markeringen med overskrift, «Chord tones outside scale»).
+
+Det er plass i grensesnittet til å spesifisere hvilke toner en akkord inneholder (med tonenavn, ikke MIDI-verdier). Det er også plass til å spesifisere i grensesnittet hvilke toner en skala inneholder. Det vil bli lettere for brukeren å velge skalaer til akkordtypene dersom dette framgår av grensesnittet. Dette må derfor inntas i grensesnittet.
+
+Feltet med akkordtype utvider seg i bredden når man utvider størrelsen på grensesnittet i Flysnapper. Dette er ikke nødvendig. Når det blir behov for plass til mer tekst, kan bredden på denne kolonnen være låst til en passende bredde i forhold til det lengste navnet på en akkordtype. Lengden her (og dermed bredden på kolonnen) vil bli litt større enn etter dagens behov, som følge av at akkordtonene skal spesifiseres i tekst (ikke redigerbar for brukeren).
+
+Antall skalaer er for lite, og jeg ønsker et mer fullstendig sett:
+
+-	Alle kirketoneartene
+-	Alle syv moduser av melodisk moll (ascending benyttes også for descending, som i jazz)
+-	Alle syv moduser av harmonisk moll
+-	Heltone
+-	Half Whole Diminished 
+-	Whole Half Diminished
+-	Kromatisk
+-	Bebop (tre typer, se forklaring nedenfor)
+-	Major Pentatonic
+-	Minor Pentatonic
+-	Minor Blues
+
+Skalatypene skal på overordnet nivå rangeres i henhold til parent scale, slik:
+
+-	Kromatisk
+-	Kirketonearter 
+-	Moduser av melodisk moll
+-	Bebop
+-	Moduser av harmonisk moll
+-	Diminished
+-	Heltone
+-	Major Pentatonic
+-	Minor Pentatonic
+-	Minor Blues
+
+
+Bebop-skalaene er følgende:
+
+
+1. Dominant Bebop Scale
+
+Formel: 1 – 2 – 3 – 4 – 5 – 6 – ♭7 – ♮7 
+MIDI: 0, 2, 4, 5, 7, 9, 10, 11
+
+2. Major Bebop Scale
+
+Formel: 1 – 2 – 3 – 4 – 5 – ♭6 – 6 – 7
+MIDI: 0, 2, 4, 5, 7, 8, 9, 11
+
+3. Minor / Dorian Bebop Scale
+
+Formel: 1 – 2 – ♭3 – 4 – 5 – 6 – ♭7 – ♮7
+MIDI: 0, 2, 3, 5, 7, 9, 10, 11
+
+Når det gjelder navngiving av moduser av melodisk moll, ønsker jeg at også modus 1 markeres som Melodic Minor 1. Øvrige moduser av melodisk moll navngis slik:
+
+Mel. Min. 2: Dorian ♭2 (Phrygian ♮6)
+Mel. Min. 3: Lydian Augmented (Lydian ♯5)
+Mel. Min. 4: Lydian Dominant
+Mel. Min. 5: Mixolydian ♭6 (Hindu)
+Mel. Min. 6: Aeolian ♭5 (Locrian ♮2 / Half Dim.)
+Mel. Min. 7: Altered (Super Locrian)
+
+Følgende tekst må endres «50 chord types. Your chosen scale applies in every root and is saved with this instance.»
+
+Her skal det stå, med fet skrift: «50 chord types, here assigned to root C. Your chosen scale type applies in the actual chord’s root and is auto-saved with this instance.»
+
+Det må legges til litt tekst etter «Your chosen scale type applies in the actual chord’s root and is auto-saved with this instance.» Her skal det stå, med vanlig skrift: «Tool tip: If different assignments are required for different parts of the tune, save and copy/paste extra instances of Flysnapper to your track and automate each one on/off».
+
+For å gjøre denne sistnevnte funksjonaliteten mulig, må flere instanser av Flysnapper kunne kopieres og limes inn på ett og samme MIDI-spor. Det er ikke mulig i dagens versjon, men det kan tenkes at det skyldes at den p.t. er en Pitch-to-MIDI-enhet i tillegg. Som en ren MIDI-enhet vil den trolig kunne kopieres og limes inn flere ganger. Du må imidlertid undersøke om dette fordrer endringer av routingen fra akkordsporet, herunder om koden må skrives om slik at dataene mottas av den eller de Flysnapper-instansene som til enhver tid er slått på, uten at det er nødvendig å tilordne hver av dem til en separat kanal for akkord-MIDI. Dersom det er tilfelle og det ikke er enkelt å løse det, må du gi meg en rask tilbakemelding før du går videre med kodingen.
+
+Merk forøvrig at dersom mer enn én Flysnapper-instans er slått på og de ligger på samme spor, skal korrigert spille-MIDI ut av den første instansen være innkommende spille-midi på den neste. Dersom en av instansene er slått av, skal innkommende spille-MIDI passere uten korreksjon. Du må teste at dette fungerer i praksis, før du leverer ny versjon av Flysnapper.
