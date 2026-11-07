@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "product": "Flysnapper MIDI",
   "bundle_name": "Flysnapper MIDI.vst3",
   "stage": "midi-only-native-validation",
@@ -9,19 +9,21 @@
     "pitch_to_midi": false,
     "scales": 38,
     "chord_types": 52,
+    "host_device_role": "instrument",
+    "silent_audio_output": true,
     "host_scope": "native-processor-and-compiled-vst3-test-host",
     "ableton_verified": false
   },
-  "builder_revision": "2026.11.07-midi-only-native-validation",
+  "builder_revision": "2026.11.07-midi-instrument-adapter",
   "platform": "Windows-x64",
   "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
-  "built_at": "2026-11-07T18:00:02.869713+00:00",
+  "built_at": "2026-11-07T19:08:39.957111+00:00",
   "python": "3.12.10",
-  "source_commit": "7323545b2eda5a877a16a42248fea5c4e6cdc953",
-  "vst3_sha256": "f4567bc474dca5e857cd2286046689ba34219d527cd2eb944c557fa5c5e14b34",
+  "source_commit": "85fd2c5762626c1df5d5a98d3c52741b496af687",
+  "vst3_sha256": "6584e007841c484c66d164d1806f5f22e0610b58b06eac4b8e32a6e002823684",
   "bundle_sha256": {
-    "Contents/Resources/moduleinfo.json": "3c13c87f6e21a7b6c09cd81287e28468b36beef310186dc77b5b504586d55df5",
-    "Contents/x86_64-win/Flysnapper MIDI.vst3": "f4567bc474dca5e857cd2286046689ba34219d527cd2eb944c557fa5c5e14b34"
+    "Contents/Resources/moduleinfo.json": "f1b01fd641f44836417d57cafdddbf9f18cc1c30a8c5de0ee02aea32d0512c2c",
+    "Contents/x86_64-win/Flysnapper MIDI.vst3": "6584e007841c484c66d164d1806f5f22e0610b58b06eac4b8e32a6e002823684"
   },
   "tests": "passed",
   "required_test_names": [
@@ -41,6 +43,6 @@
   "windows_verified": true,
   "midi_only_evidence": {
     "path": "midi-validation/report-manifest.json",
-    "sha256": "6fe0f0664ab1dbac12aca5d7690a87f9f7a311f8bc7d5aa9caa2b08ed6e6b223"
+    "sha256": "d7a19767a18505bb7e07e6f42f773e376f8b9be98a3ff5b0a72a5b111abfe206"
   }
 }

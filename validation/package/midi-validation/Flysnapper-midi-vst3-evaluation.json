@@ -1,16 +1,20 @@
 {
   "schema": 1,
   "kind": "FlysnapperMidiOnlyVst3",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "status": "passed",
-  "checks": 5373,
-  "scope": "Compiled VST3 module executed by the JUCE VST3 test host; no DAW or audio driver",
+  "checks": 5570,
+  "scope": "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver",
   "ableton_verified": false,
   "pitch_detection_implemented": false,
   "audio_input_channels": 0,
-  "audio_output_channels": 0,
+  "audio_output_channels": 2,
   "audio_input_buses": 0,
-  "audio_output_buses": 0,
+  "audio_output_buses": 1,
+  "host_device_role": "instrument",
+  "audio_output_silent": true,
+  "silent_output_samples_checked": 49688,
+  "bypass_silence_callbacks": 2,
   "declared_latency_samples": 0,
   "scale_count": 38,
   "chord_type_count": 52,
@@ -107,9 +111,9 @@
     }
   ],
   "verified_features": [
-    "zero_audio_buses",
+    "silent_stereo_audio_output",
     "sdk_midi_event_buses",
-    "effect_metadata",
+    "instrument_metadata",
     "editor",
     "removed_pitch_parameters",
     "stable_mapping_parameter_ids",
@@ -136,5 +140,5 @@
   ],
   "events_file": "Flysnapper-midi-vst3-events.csv",
   "events_rows": 1120,
-  "limitations": "No Ableton Live 12.4.6 execution; no claim about Device Activator scheduling, direct endpoint fan-out, held-chord replay or downstream instruments. Bypass case invokes the callback explicitly."
+  "limitations": "No Ableton Live12.4.6 execution or loading/placement claim. This is an instrument-role plugin, not a native MIDI effect. Serial tests explicitly connect instances in this driver, not a same-track Live chain or internal rack. Bypass callbacks are invoked explicitly; no Device Activator scheduling, direct-endpoint fan-out, held-chord replay or downstream-instrument claim."
 }
