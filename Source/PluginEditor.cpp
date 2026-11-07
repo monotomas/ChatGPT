@@ -4,6 +4,7 @@
 #include "Core/MusicData.h"
 #include <algorithm>
 #include <cmath>
+#include <string_view>
 
 namespace {
 const juce::Colour background{0xff141b22},panel{0xff1d2731},border{0xff344351};
@@ -13,6 +14,21 @@ constexpr const char* noteNames[]{"C","Db","D","Eb","E","F","F#","G","Ab","A","B
 constexpr const char* familyNames[]{"Chromatic","Diatonic modes","Melodic Minor modes","Bebop",
     "Harmonic Minor modes","Harmonic Major modes","Diminished","Whole Tone","Major Pentatonic","Minor Pentatonic","Minor Blues"};
 constexpr int familyCount=int(sizeof(familyNames)/sizeof(familyNames[0]));
+constexpr const char* mappingOrder[4][14]{
+    {"major","sus2","sus4","major_sixth","six_nine","major_seventh","major_seventh_sharp5",
+     "major_seventh_sharp9","major_seventh_sharp11","major_ninth","major_ninth_sharp11",
+     "major_eleventh","major_thirteenth","major_thirteenth_sharp11"},
+    {"dominant_seventh","power_seventh","dominant_sharp5","dominant_sharp5_sharp9",
+     "dominant_sharp5_flat9","dominant_sharp9","dominant_sharp11","dominant_flat5",
+     "dominant_flat5_sharp9","dominant_flat5_flat9","dominant_flat9","dominant_flat13"},
+    {"dominant_sus4","dominant_sus4_flat9","dominant_ninth","ninth_sharp11","ninth_sus4",
+     "dominant_eleventh","dominant_thirteenth","thirteenth_sharp9","thirteenth_add_sharp9",
+     "thirteenth_flat9","thirteenth_sus4","thirteenth_sus4_flat9"},
+    {"minor","power","minor_sixth","minor_seventh","half_diminished","minor_ninth",
+     "minor_eleventh","minor_eleventh_flat5","minor_thirteenth","minor_thirteenth_flat5",
+     "minor_major_seventh","minor_major_ninth","minor_major_thirteenth","diminished_seventh"}
+};
+constexpr const char* mappingHeadings[]{"MAJOR","DOMINANT 1","DOMINANT 2","MINOR"};
 constexpr const char* assignmentTip="Tool tip: This VST3 loads as an instrument. On a receiving MIDI track, set MIDI From to Flysnapper's track, then choose Flysnapper in the lower selector. Put the destination instrument there and enable monitoring. Automate Note Correction on/off while leaving the Flysnapper device enabled in Live.";
 void label(juce::Label& l,const juce::String& s,float size=14,juce::Colour colour=text,bool bold=false){
     l.setText(s,juce::dontSendNotification);
@@ -69,6 +85,10 @@ void FlysnapperLook::drawToggleButton(juce::Graphics& g,juce::ToggleButton& butt
     g.setFont(juce::Font(juce::FontOptions(14.f)));
     g.drawText(button.getButtonText(),26,0,button.getWidth()-26,button.getHeight(),juce::Justification::centredLeft);
 }
+juce::Font FlysnapperLook::getComboBoxFont(juce::ComboBox& box){
+    return box.getProperties().getWithDefault("compactScaleMenu",false)
+        ?juce::Font(juce::FontOptions(13.f)):juce::LookAndFeel_V4::getComboBoxFont(box);
+}
 
 FlysnapperScaleAttachment::FlysnapperScaleAttachment(juce::RangedAudioParameter& parameter,juce::ComboBox& control,std::function<void()> onChange)
     :box(control),changed(std::move(onChange)),attachment(parameter,[this](float value){
@@ -83,24 +103,56 @@ void FlysnapperScaleAttachment::comboBoxChanged(juce::ComboBox*){
     if(index>=0&&index<flysnapper::scaleCount)attachment.setValueAsCompleteGesture(float(index));
 }
 
+int FlysnapperMappingTable::typeAt(int column,int row) noexcept {
+    if(column<0||column>=columnCount||row<0||row>=columnRows[size_t(column)])return -1;
+    const auto id=std::string_view(mappingOrder[column][row]);
+    const auto& types=flysnapper::chordTypes();
+    for(size_t i=0;i<types.size();++i)if(id==types[i].id)return int(i);
+    return -1;
+}
+int FlysnapperMappingTable::columnForType(int type) noexcept {
+    if(type<0||type>=flysnapper::chordTypeCount)return -1;
+    for(int column=0;column<columnCount;++column)
+        for(int row=0;row<columnRows[size_t(column)];++row)if(typeAt(column,row)==type)return column;
+    return -1;
+}
+int FlysnapperMappingTable::rowForType(int type) noexcept {
+    if(type<0||type>=flysnapper::chordTypeCount)return -1;
+    for(int column=0;column<columnCount;++column)
+        for(int row=0;row<columnRows[size_t(column)];++row)if(typeAt(column,row)==type)return row;
+    return -1;
+}
+juce::Rectangle<int> FlysnapperMappingTable::columnBounds(int column) const noexcept {
+    if(column<0||column>=columnCount)return {};
+    constexpr int outside=8,gap=12;
+    const int width=std::max(1,(getWidth()-2*outside-(columnCount-1)*gap)/columnCount);
+    const int x=outside+column*(width+gap);
+    return {x,0,column==columnCount-1?std::max(1,getWidth()-outside-x):width,getHeight()};
+}
 FlysnapperMappingTable::FlysnapperMappingTable(FlysnapperProcessor& processor){
+    for(int column=0;column<columnCount;++column){
+        label(columnHeaders[size_t(column)],mappingHeadings[column],13.f,orange,true);
+        columnHeaders[size_t(column)].setComponentID("mappingColumn_"+juce::String(column));
+        addAndMakeVisible(columnHeaders[size_t(column)]);
+    }
     const auto& types=flysnapper::chordTypes();
     for(size_t i=0;i<types.size();++i){
         const auto& type=types[i];const auto id=juce::String(type.id);
-        label(names[i],juce::String("C")+type.suffix,16.f,text,true);names[i].setComponentID("chordName_"+id);
-        label(chordTones[i],"Chord tones: "+namesFor(flysnapper::chordToneMask(int(i))),13.f,muted);
+        label(names[i],juce::String::fromUTF8(flysnapper::chordTypeDisplayNameInC(int(i)).c_str()),15.f,text,true);names[i].setComponentID("chordName_"+id);
+        label(chordTones[i],"Chord tones: "+namesFor(flysnapper::chordToneMask(int(i))),11.f,muted);
         chordTones[i].setComponentID("chordTones_"+id);chordTones[i].setJustificationType(juce::Justification::topLeft);
-        label(scaleTones[i],{},13.f,green);scaleTones[i].setComponentID("scaleTones_"+id);
-        label(defaults[i],"Factory: "+juce::String::fromUTF8(flysnapper::scaleDefinitions()[size_t(type.defaultScale)].name),11.5f,muted);
+        label(scaleTones[i],{},11.5f,green);scaleTones[i].setComponentID("scaleTones_"+id);scaleTones[i].setJustificationType(juce::Justification::topLeft);
+        label(defaults[i],"Factory: "+juce::String::fromUTF8(flysnapper::scaleDefinitions()[size_t(type.defaultScale)].name),10.5f,muted);defaults[i].setJustificationType(juce::Justification::topLeft);
         defaults[i].setComponentID("factory_"+id);choices[i].setComponentID("mapping_"+id);
         populateScales(choices[i],flysnapper::chordToneMask(int(i)));
+        choices[i].getProperties().set("compactScaleMenu",true);
         addAndMakeVisible(names[i]);addAndMakeVisible(chordTones[i]);addAndMakeVisible(choices[i]);
         addAndMakeVisible(scaleTones[i]);addAndMakeVisible(defaults[i]);
         if(auto* parameter=processor.parameters.getParameter(FlysnapperProcessor::mappingParameterId(int(i))))
             attachments[i]=std::make_unique<FlysnapperScaleAttachment>(*parameter,choices[i],[this,i]{updateRow(i);});
         updateRow(i);
     }
-    setSize(1000,int(types.size())*rowHeight);
+    setSize(1000,contentHeight);
 }
 void FlysnapperMappingTable::updateRow(size_t row){
     const int selected=choices[row].getSelectedId()-1;
@@ -113,35 +165,44 @@ void FlysnapperMappingTable::updateRow(size_t row){
     scaleTones[row].setText(description,juce::dontSendNotification);
     scaleTones[row].setColour(juce::Label::textColourId,missing?orange:green);
     juce::String tip="This scale type applies in the actual chord's root and is saved with this instance.\n";
-    tip+="Chord tones in C: "+namesFor(chordMask)+"\n"+description;
+    tip+="Selected scale: "+juce::String::fromUTF8(selectedScale.name)+"\nChord tones in C: "+namesFor(chordMask)+"\n"+description;
     tip+=missing?"\n! This scale omits chord tones. The choice remains available.":"\nThis scale contains all nominal chord tones.";
     choices[row].setTooltip(helpEnabled?tip:juce::String{});
     chordTones[row].setTooltip(helpEnabled?"Nominal chord-type formula in C. Recognition can allow some tones to be omitted; the formula itself is not editable.":juce::String{});
     scaleTones[row].setTooltip(helpEnabled?description:juce::String{});
-    defaults[row].setTooltip(helpEnabled?"Reset all 52 restores these factory assignments in this instance only.":juce::String{});
+    defaults[row].setTooltip(helpEnabled?defaults[row].getText()+"\nReset all 52 restores these factory assignments in this instance only.":juce::String{});
 }
 void FlysnapperMappingTable::setHelp(bool enabled){helpEnabled=enabled;for(size_t i=0;i<choices.size();++i)updateRow(i);}
 void FlysnapperMappingTable::resized(){
-    const int choiceX=chordColumnWidth+18,choiceWidth=std::max(240,getWidth()-choiceX-18);
-    for(size_t i=0;i<names.size();++i){
-        const int y=int(i)*rowHeight;
-        names[i].setBounds(16,y+10,chordColumnWidth-24,24);
-        chordTones[i].setBounds(16,y+38,chordColumnWidth-24,36);
-        choices[i].setBounds(choiceX,y+9,choiceWidth,31);
-        scaleTones[i].setBounds(choiceX,y+44,choiceWidth,19);
-        defaults[i].setBounds(choiceX,y+66,choiceWidth,16);
+    for(int column=0;column<columnCount;++column){
+        const auto bounds=columnBounds(column);
+        const int x=bounds.getX()+8,width=std::max(1,bounds.getWidth()-16);
+        columnHeaders[size_t(column)].setBounds(x,4,width,22);
+        for(int row=0;row<columnRows[size_t(column)];++row){
+            const int type=typeAt(column,row);if(type<0)continue;const auto i=size_t(type);
+            const int y=headerHeight+row*rowHeight;
+            names[i].setBounds(x,y+3,width,19);
+            chordTones[i].setBounds(x,y+24,width,14);
+            choices[i].setBounds(x,y+41,width,24);
+            scaleTones[i].setBounds(x,y+69,width,27);
+            defaults[i].setBounds(x,y+99,width,22);
+        }
     }
 }
 void FlysnapperMappingTable::paint(juce::Graphics& g){
     g.fillAll(panel);
-    for(size_t i=0;i<names.size();++i){
-        if(i%2==0){g.setColour(background.withAlpha(.35f));g.fillRect(0,int(i)*rowHeight,getWidth(),rowHeight);}
-        g.setColour(border.withAlpha(.5f));g.drawHorizontalLine((int(i)+1)*rowHeight-1,12.f,float(getWidth()-12));
+    for(int column=0;column<columnCount;++column){
+        const auto bounds=columnBounds(column);
+        for(int row=0;row<columnRows[size_t(column)];++row){
+            const int y=headerHeight+row*rowHeight;
+            if(row%2==0){g.setColour(background.withAlpha(.35f));g.fillRect(bounds.getX(),y,bounds.getWidth(),rowHeight);}
+            g.setColour(border.withAlpha(.5f));g.drawHorizontalLine(y+rowHeight-1,float(bounds.getX()+4),float(bounds.getRight()-4));
+        }
     }
 }
 
 FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(p),processor(p),mappingTable(p){
-    setLookAndFeel(&look);setOpaque(true);setResizable(true,true);setResizeLimits(1000,720,1600,1300);
+    setLookAndFeel(&look);setOpaque(true);setResizable(true,true);setResizeLimits(1040,760,1600,1300);
     label(title,"FLYSNAPPER",31.f,text,true);label(byline,juce::String::fromUTF8("by Olav L\xc3\xa6greid"),13.f,muted);
 #ifdef JucePlugin_VersionString
     label(version,JucePlugin_VersionString,12.f,muted);
@@ -151,7 +212,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(
     label(chord,"No chord input",42.f,text,true);chord.setComponentID("chordDisplay");chord.setMinimumHorizontalScale(.75f);
     label(activeScale,"Chromatic",18.f,green);activeScale.setComponentID("activeScale");
     label(chordTones,"Chord tones: none",14.f,muted);chordTones.setComponentID("receivedChordTones");
-    label(chordStatus,"Chord control: channel 16",13.f,muted);label(allowedTitle,"ALLOWED NOTES",12.f,muted,true);
+    label(chordStatus,"Chord control: channel 16",13.f,muted);chordStatus.setComponentID("chordStatus");label(allowedTitle,"ALLOWED NOTES",12.f,muted,true);
     label(midiTitle,"MIDI TO MIDI",16.f,orange,true);label(modeTitle,"MODE",12.f,muted,true);
     label(rootTitle,"FIXED ROOT",12.f,muted,true);label(scaleTitle,"FIXED SCALE",12.f,muted,true);
     label(fixedScaleTones,{},14.f,green);fixedScaleTones.setComponentID("fixedScaleTones");
@@ -175,8 +236,8 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(
     guide.setComponentID("guide");guideClose.setComponentID("guideClose");guidePanel.setComponentID("guidePanel");guideText.setComponentID("guideText");
     addAndMakeVisible(front);
     for(auto* c:std::initializer_list<juce::Component*>{&chord,&activeScale,&chordTones,&chordStatus,&allowedTitle,&midiTitle,&modeTitle,&rootTitle,&scaleTitle,&fixedScaleTones,&midiRouting,&activity,&eventStatus,&mode,&root,&scale,&correction,&chordThru})front.addAndMakeVisible(c);
-    for(int n=0;n<12;++n){label(notes[size_t(n)],noteNames[n],13.f,muted,true);notes[size_t(n)].setJustificationType(juce::Justification::centred);front.addAndMakeVisible(notes[size_t(n)]);}
-    viewport.setViewedComponent(&mappingTable,false);addChildComponent(viewport);addChildComponent(backTitle);addChildComponent(backDescription);addChildComponent(backTip);addChildComponent(restore);
+    for(int n=0;n<12;++n){label(notes[size_t(n)],noteNames[n],13.f,muted,true);notes[size_t(n)].setComponentID("allowedNote_"+juce::String(n));notes[size_t(n)].setJustificationType(juce::Justification::centred);front.addAndMakeVisible(notes[size_t(n)]);}
+    viewport.setViewedComponent(&mappingTable,false);viewport.setScrollBarsShown(true,false);addChildComponent(viewport);addChildComponent(backTitle);addChildComponent(backDescription);addChildComponent(backTip);addChildComponent(restore);
     addChildComponent(guidePanel);guidePanel.addAndMakeVisible(guideTitle);guidePanel.addAndMakeVisible(guideClose);guidePanel.addAndMakeVisible(guideText);
     guideText.setMultiLine(true);guideText.setReadOnly(true);guideText.setScrollbarsShown(true);guideText.setCaretVisible(false);guideText.setPopupMenuEnabled(false);
     guideText.setColour(juce::TextEditor::backgroundColourId,panel);guideText.setColour(juce::TextEditor::textColourId,text);guideText.setColour(juce::TextEditor::outlineColourId,border);
@@ -198,12 +259,12 @@ Chord Tones Only corrects to the received chord's held pitch classes. Chord-Scal
 
 The nearest allowed MIDI note is selected without waiting for future notes. For equally close choices, direction comes from the two preceding raw input notes in the same source/channel stream, excluding the current note. Sequential legato overlap keeps this history. Multiple Note Ons at the same sample position in one stream use upward fallback, as does unavailable direction. No lookahead is added.
 
-A new playing Note On rearticulates an already active output pitch with Note Off then Note On at the same sample position, using the new velocity. Held bindings, final-release counts and sustain handling are preserved. Chord changes affect new notes; held bindings remain stable. Empty or unrecognised chord input cannot supply an invented scale.
+A new playing Note On rearticulates an already active output pitch with Note Off then Note On at the same sample position, using the new velocity. Held bindings, final-release counts and sustain handling are preserved. Chord changes affect new notes; held bindings remain stable. Empty or unrecognised chord input uses Chromatic passthrough in both chord-dependent modes. When the host explicitly reports stopped transport, all three modes use Chromatic passthrough. The saved mode, root and scale settings stay unchanged.
 
 CHOOSING SCALES
 All 38 scales remain selectable. Each chord-type menu first lists Scales with all chord tones, then Chord tones outside scale. Within each section the requested parent-family and mode order is retained. Harmonic Major modes follow Harmonic Minor modes and precede Diminished. An exclamation mark identifies a scale that omits nominal chord tones; the row names the missing tones. The choice is allowed and no hidden chord/scale union is added.
 
-Chord-type and mapping scale tones on the back are displayed relative to C. The selected scale type transposes to the actual incoming chord root. Melodic Minor uses its ascending form in both directions. Pitch-class names may have enharmonic equivalents.
+The back groups all 52 chord types into Major, Dominant 1, Dominant 2 and Minor columns. Scroll vertically to see the remaining rows. Each scale menu spans its column; the popup and tooltip show full scale names. Chord-type and mapping scale tones are displayed relative to C. The selected scale type transposes to the actual incoming chord root. Melodic Minor uses its ascending form in both directions. Pitch-class names may have enharmonic equivalents.
 
 PRESETS AND INSTANCES
 Every instance saves its own 52 assignments, fixed scale and controls. Copying a device copies its saved settings; subsequent edits remain independent. Reset all 52 restores this instance's factory assignments. It does not reset another instance.
@@ -224,7 +285,7 @@ Flysnapper adds no intentional note-analysis delay. Host buffers, routing and th
     if(auto* parameter=processor.parameters.getParameter("scale"))scaleAttachment=std::make_unique<FlysnapperScaleAttachment>(*parameter,scale,[this]{timerCallback();});
     flip.onClick=[this]{setBackVisible(!backVisible);};panic.onClick=[this]{processor.requestPanic();};restore.onClick=[this]{resetMappings();};
     routingHelp.onClick=[this]{showRoutingHelp();};guide.onClick=[this]{setGuideVisible(!guideVisible);};guideClose.onClick=[this]{setGuideVisible(false);};help.onClick=[this]{setHelp(help.getToggleState());};
-    addTip(mode,"Chord Tones Only uses held chord tones. Chord-Scale Assignment uses the mapping for the recognised chord type. Fixed Scale ignores chord input when choosing allowed notes.");
+    addTip(mode,"Chord Tones Only uses held chord tones. Chord-Scale Assignment uses the mapping for the recognised chord type. Fixed Scale ignores chord input when choosing allowed notes. Chord-dependent modes use Chromatic passthrough with empty or unrecognised chord input. Explicitly stopped host transport uses Chromatic passthrough in all three modes.");
     addTip(root,"Root of Fixed Scale. Chord-dependent modes use the received chord's root.");
     addTip(scale,"All 38 fixed scales, ordered by parent family and mode. The selection is saved with this instance.");
     addTip(correction,"Automate this control to enable or disable note correction while continuing to receive chord changes. Existing held notes retain their original output binding.");
@@ -273,25 +334,31 @@ void FlysnapperEditor::timerCallback(){
     const int selected=std::clamp(juce::roundToInt(parameter("scale")),0,flysnapper::scaleCount-1);
     const int selectedRoot=std::clamp(juce::roundToInt(parameter("root")),0,11);
     const bool fixed=currentMode==2;root.setEnabled(fixed);scale.setEnabled(fixed);rootTitle.setEnabled(fixed);scaleTitle.setEnabled(fixed);
+    const bool stopped=processor.transportStopped();
+    const bool chromaticFallback=stopped||(!fixed&&snapshot.typeIndex<0);
+    const bool singleNote=snapshot.chordMask!=0&&(snapshot.chordMask&(snapshot.chordMask-1))==0;
     // Preview the current controls even while the host is stopped and has not
     // processed a block. Recognition still comes from the last input snapshot.
-    int effectiveScale=fixed?selected:-1,effectiveRoot=fixed?selectedRoot:snapshot.root;
-    if(currentMode==1&&snapshot.typeIndex>=0&&snapshot.typeIndex<flysnapper::chordTypeCount)
+    int effectiveScale=chromaticFallback?0:fixed?selected:-1;
+    int effectiveRoot=chromaticFallback?0:fixed?selectedRoot:snapshot.root;
+    if(!chromaticFallback&&currentMode==1&&snapshot.typeIndex>=0&&snapshot.typeIndex<flysnapper::chordTypeCount)
         if(auto* value=processor.parameters.getParameter(FlysnapperProcessor::mappingParameterId(snapshot.typeIndex)))
             effectiveScale=std::clamp(juce::roundToInt(value->convertFrom0to1(value->getValue())),0,flysnapper::scaleCount-1);
     const bool enabled=parameter("correction")>=.5f;
     juce::String scaleText;
     if(!enabled)scaleText="Note Correction off";
+    else if(chromaticFallback)scaleText="Chromatic  /  "+juce::String(stopped?"Transport stopped":snapshot.chordMask==0?"No chord input":singleNote?"Single note":"Unrecognised chord");
     else if(currentMode==0)scaleText="Chord Tones Only";
     else if(effectiveScale>=0&&effectiveRoot>=0){
         scaleText=juce::String::fromUTF8(flysnapper::scaleDefinitions()[size_t(effectiveScale)].name);
         scaleText="Root "+juce::String(noteNames[effectiveRoot%12])+"  /  "+scaleText;
-    }else scaleText="Waiting for a recognised chord";
+    }else scaleText="Chromatic";
     activeScale.setText(scaleText,juce::dontSendNotification);
     fixedScaleTones.setText("Fixed scale tones: "+namesFor(flysnapper::rotateMask(flysnapper::scaleDefinitions()[size_t(selected)].mask,selectedRoot)),juce::dontSendNotification);
-    fixedScaleTones.setColour(juce::Label::textColourId,fixed?green:muted);
-    chordStatus.setText("Chord control: channel 16  /  "+juce::String(snapshot.candidateCount>1?"recognition has alternatives":snapshot.typeIndex>=0?"recognised":"awaiting chord")+(parameter("chordThru")>=.5f?"  /  forwarded":"  /  consumed here"),juce::dontSendNotification);
-    uint16_t previewMask=!enabled?0xfff:currentMode==0?snapshot.chordMask:0;
+    fixedScaleTones.setColour(juce::Label::textColourId,fixed&&!stopped?green:muted);
+    const juce::String recognition=snapshot.typeIndex>=0?(snapshot.candidateCount>1?"recognition has alternatives":"recognised"):snapshot.chordMask==0?"no chord input":singleNote?"single note":"unrecognised chord";
+    chordStatus.setText("Chord control: channel 16  /  "+recognition+(stopped?"  /  transport stopped":"")+(parameter("chordThru")>=.5f?"  /  forwarded":"  /  consumed here"),juce::dontSendNotification);
+    uint16_t previewMask=!enabled||chromaticFallback?0xfff:currentMode==0?snapshot.chordMask:0;
     if(enabled&&effectiveScale>=0&&effectiveRoot>=0)
         previewMask=flysnapper::rotateMask(flysnapper::scaleDefinitions()[size_t(effectiveScale)].mask,effectiveRoot);
     for(int n=0;n<12;++n){const bool allowed=(previewMask&(1u<<n))!=0;notes[size_t(n)].setColour(juce::Label::textColourId,allowed?background:muted);notes[size_t(n)].setColour(juce::Label::backgroundColourId,allowed?green:background);}
@@ -325,7 +392,7 @@ void FlysnapperEditor::resized(){
     fixedScaleTones.setBounds(48,545,w-96,23);midiRouting.setBounds(48,575,w-96,23);
     activity.setBounds(48,h-118,220,22);eventStatus.setBounds(294,h-118,w-342,22);
     backTitle.setBounds(24,109,w-290,33);restore.setBounds(w-254,110,230,31);
-    backDescription.setBounds(24,154,w-48,43);backTip.setBounds(24,205,w-48,66);
-    viewport.setBounds(24,282,w-48,h-352);mappingTable.setSize(viewport.getWidth()-viewport.getScrollBarThickness(),flysnapper::chordTypeCount*FlysnapperMappingTable::rowHeight);
+    backDescription.setBounds(24,150,w-48,34);backTip.setBounds(24,190,w-48,46);
+    viewport.setBounds(24,246,w-48,h-316);mappingTable.setSize(viewport.getWidth()-viewport.getScrollBarThickness(),FlysnapperMappingTable::contentHeight);
     guidePanel.setBounds(24,105,w-48,h-175);guideTitle.setBounds(24,15,w-350,34);guideClose.setBounds(w-278,17,206,31);guideText.setBounds(24,66,w-96,h-266);
 }

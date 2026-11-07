@@ -58,6 +58,7 @@ void FlysnapperProcessor::prepareToPlay(double rate,int) {
     sampleRate=std::isfinite(rate)&&rate>=8000&&rate<=384000?rate:48000;
     result.ensureSize(262144);needsReset.store(true,std::memory_order_release);
     testRemaining=-1;testWasHigh=false;wasPlaying=false;havePosition=false;
+    stopped.store(false,std::memory_order_release);
 }
 void FlysnapperProcessor::releaseResources() {needsReset.store(true,std::memory_order_release);testRemaining=-1;}
 void FlysnapperProcessor::processBlock(juce::AudioBuffer<float>& audio,juce::MidiBuffer& midi){process(audio,midi,false);}
@@ -100,14 +101,28 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     };
     bool relayClearedThisBlock=false;
     bool resetNow=needsReset.exchange(false,std::memory_order_acq_rel);
+    bool explicitlyStopped=false,positionKnown=false;
     if(auto* head=getPlayHead())if(auto position=head->getPosition()) {
-        const bool playing=position->getIsPlaying();if(wasPlaying&&!playing)resetNow=true;
-        if(auto time=position->getTimeInSamples()) {
-            if(playing&&wasPlaying&&havePosition&&*time!=expectedPosition)resetNow=true;
-            expectedPosition=*time+samples;havePosition=true;
-        } else havePosition=false;
-        wasPlaying=playing;
+        // JUCE's VST3 wrapper materializes a PositionInfo even for a null
+        // SDK ProcessContext: its zero sample rate yields non-finite seconds.
+        // That does not establish a stopped transport. Omitted seconds are
+        // valid for other playheads that explicitly supply the playing flag.
+        const auto seconds=position->getTimeInSeconds();
+        if(!seconds||std::isfinite(*seconds)) {
+            positionKnown=true;
+            const bool playing=position->getIsPlaying();if(wasPlaying&&!playing)resetNow=true;
+            explicitlyStopped=!playing;
+            if(auto time=position->getTimeInSamples()) {
+                if(playing&&wasPlaying&&havePosition&&*time!=expectedPosition)resetNow=true;
+                expectedPosition=*time+samples;havePosition=true;
+            } else havePosition=false;
+            wasPlaying=playing;
+        }
     }
+    if(!positionKnown){wasPlaying=false;havePosition=false;}
+    // A missing playhead/position is unknown, rather than an instruction to
+    // bypass correction. Only an explicit stopped transport is chromatic.
+    stopped.store(explicitlyStopped,std::memory_order_release);
     if(resetNow) {
         engine.panic(0,output);drain();clearPassthrough(0);clearChord(0,previousChordThru);
         relayClearedThisBlock=previousChordThru;
@@ -120,6 +135,11 @@ void FlysnapperProcessor::process(juce::AudioBuffer<float>& audio,juce::MidiBuff
     settings.scale=discreteChoice(scale->load(std::memory_order_relaxed),flysnapper::scaleCount-1);
     for(int i=0;i<flysnapper::chordTypeCount;++i)
         settings.chordScales[size_t(i)]=discreteChoice(mapValues[size_t(i)]->load(std::memory_order_relaxed),flysnapper::scaleCount-1);
+    if(explicitlyStopped) {
+        // This is a runtime override; saved/automated user choices remain
+        // intact and resume when transport plays or its state is unknown.
+        settings.mode=flysnapper::Mode::FixedScale;settings.root=0;settings.scale=0;
+    }
     engine.setSettings(settings);
     const bool through=chordThru->load(std::memory_order_relaxed)>=.5f;
     if(through!=previousChordThru) {

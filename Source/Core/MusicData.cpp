@@ -185,7 +185,7 @@ std::array<std::string,12> extensionSpelling(const buffkiller::ChordCandidate& c
     }
     return names;
 }
-buffkiller::ChordDescription describeChord(uint16_t mask,int bass) {
+buffkiller::ChordDescription describeChordWithExtensions(uint16_t mask,int bass) {
     const auto input=buffkiller::chordInputFromMask(mask,bass);
     auto reference=buffkiller::describeChord(input);
     if(input.mask==0)return reference;
@@ -219,9 +219,44 @@ buffkiller::ChordDescription describeChord(uint16_t mask,int bass) {
         ". Bass must be root, third or fifth of each candidate. Named omissions are explicit; no incoming tones or absent roots are hidden. Note spelling follows the first candidate. This field does not change the MIDI.";
     return result;
 }
+buffkiller::ChordDescription describeChord(uint16_t mask,int bass) {
+    auto result=describeChordWithExtensions(mask,bass);
+    const auto input=buffkiller::chordInputFromMask(mask,bass);
+    if(buffkiller::chordBitCount(input.mask)==1) {
+        // The mask already combines octave duplicates into one pitch class.
+        // A single incoming note must not look like an unnamed major triad.
+        result.shortName=result.spelledNotes+" (single note)";
+        result.detail=result.shortName+". Notes: "+result.spelledNotes+
+            ". One distinct incoming pitch class; octave duplicates remain a single note class. This field does not change the MIDI.";
+        return result;
+    }
+    const bool hasMajor=std::any_of(result.candidates.begin(),result.candidates.end(),
+        [](const auto& candidate){return candidate.patternIndex==0;});
+    if(!hasMajor)return result;
+    std::string names;result.shortName.clear();
+    for(size_t i=0;i<result.candidates.size();++i) {
+        auto& candidate=result.candidates[i];
+        if(candidate.patternIndex==0)
+            candidate.name=std::string(buffkiller::chordRootNames[candidate.root])+" Major"+buffkiller::omissionText(candidate.omitted);
+        if(i<2){if(i)result.shortName+=" | ";result.shortName+=candidate.name;}
+        if(i)names+=" | ";names+=candidate.name;
+    }
+    if(result.candidates.size()>2)result.shortName+=" (+"+std::to_string(result.candidates.size()-2)+")";
+    // Both reference and extension descriptions delimit the candidate list
+    // this way. Keep their note spelling and explanations verbatim.
+    const auto first=result.detail.find(": ");
+    const auto last=result.detail.find(". Notes: ");
+    if(first!=std::string::npos&&last!=std::string::npos&&first+2<=last)
+        result.detail.replace(first+2,last-first-2,names);
+    return result;
+}
 }
 const std::array<ScaleDefinition,scaleCount>& scaleDefinitions() noexcept {return scales;}
 const std::array<ChordType,chordTypeCount>& chordTypes() noexcept {return types;}
+std::string chordTypeDisplayNameInC(int typeIndex) {
+    if(typeIndex<0||typeIndex>=chordTypeCount)return {};
+    return typeIndex==0?"C Major":std::string("C")+types[size_t(typeIndex)].suffix;
+}
 std::array<int,chordTypeCount> factoryDefaults() noexcept {
     std::array<int,chordTypeCount> a{};for(size_t i=0;i<a.size();++i)a[i]=types[i].defaultScale;return a;
 }

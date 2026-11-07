@@ -1,4 +1,11 @@
-# Flysnapper – note- og overgangsregler
+# Historiske note- og overgangsregler
+
+> Historisk dokument fra det tidligere kombinerte audio-/MIDI-oppdraget.
+> Gjeldende MIDI-regler står i [Core-veiledningen](../Source/Core/README.md),
+> [produktoppdraget](PRODUCT_SPEC.md) og [0.4.3-notatet](RELEASE_0.4.3.md).
+> Fra 0.4.3 beholdes historikk ved vanlig legatooverlapp, og nye spilleanslag
+> reartikulerer samme ut-tone. De eldre sammenslåings- og overlappsreglene
+> nedenfor, samt gamle antall/lydmodulbeskrivelser, er ikke aktive krav.
 
 Denne filens historiske navn er beholdt for eldre lenker. Gjeldende regler er
 implementeringsvalgene for den samlede Flysnapper, etter brukerens presisering

@@ -18,6 +18,9 @@ struct ScaleDefinition {
 struct ChordType { const char* id; const char* suffix; int defaultScale; };
 const std::array<ScaleDefinition, scaleCount>& scaleDefinitions() noexcept;
 const std::array<ChordType, chordTypeCount>& chordTypes() noexcept;
+// GUI-only label in root C. Presentation is separate from stable IDs/suffixes:
+// type zero is "C Major"; invalid indices return an empty string. Allocates.
+std::string chordTypeDisplayNameInC(int typeIndex);
 std::array<int, chordTypeCount> factoryDefaults() noexcept;
 int scaleIndexFromId(const std::string& id) noexcept;
 int chordIndexFromId(const std::string& id) noexcept;

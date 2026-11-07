@@ -40,7 +40,9 @@ SPECS = (
 )
 FEATURES = frozenset({'silent_stereo_audio_output','chord_channel_16','chord_relay',
                       'serial_correction','internal_correction_bypass','instance_state',
-                      'legato_directional_ties','same_pitch_rearticulation'})
+                      'legato_directional_ties','same_pitch_rearticulation',
+                      'unrecognized_chord_chromatic_fallback',
+                      'stopped_transport_chromatic_fallback'})
 EXTRA_INPUTS = ('CMakeLists.txt','dependencies.lock.json','build_plugin.py',
                 'Tests/CoreTests.cpp','Tests/PluginTests.cpp',
                 'Tests/MidiOnlyProcessorTests.cpp','Tests/Vst3HostTests.cpp',

@@ -32,7 +32,7 @@ Snapshot unpackSnapshot(uint64_t) noexcept;
 std::string formatChord(const Snapshot&); // GUI ONLY
 
 // Deterministic policies: retain held
-// mappings across changes; suppress new notes for empty/unknown chord scale;
+// mappings across changes; chord modes pass chromatically if none is recognised;
 // same-input FIFO; each playing Note On reattacks a shared output, while
 // reference counting retains it until the last binding ends. Diagnostic
 // collisions remain nonintrusive. Sustain and raw-note history are separate

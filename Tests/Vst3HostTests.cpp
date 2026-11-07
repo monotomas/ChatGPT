@@ -4,6 +4,9 @@
 #include <juce_audio_processors/juce_audio_processors.h>
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <pluginterfaces/vst/ivstcomponent.h>
+#include <pluginterfaces/vst/ivstaudioprocessor.h>
+#include <pluginterfaces/vst/ivstevents.h>
+#include <pluginterfaces/vst/ivstprocesscontext.h>
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -92,8 +95,9 @@ class Timeline final : public juce::AudioPlayHead {
 public:
     int64_t sample = 0;
     double rate = 48000;
-    bool playing = true;
+    bool playing = true, known = true;
     juce::Optional<PositionInfo> getPosition() const override {
+        if (!known) return {};
         PositionInfo p; p.setIsPlaying(playing); p.setTimeInSamples(sample);
         p.setBpm(120); p.setPpqPosition(double(sample) * 2 / rate); return p;
     }
@@ -685,6 +689,33 @@ void testTimestampDirection(juce::AudioPluginFormatManager& formats, const juce:
         expectNotes(deliverSchedule(s,input,128,127),expected,"Channel two changed channel-one direction or same-sample classification");
     }
 }
+void testCleanupWithinSimultaneousBatch(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    for(int cc:{120,123})for(int position:{0,1,2})for(bool reverse:{false,true}) {
+        Session s(formats,d,"simultaneous_cleanup_cc"+juce::String(cc)+"_position"+juce::String(position)+(reverse?"_reverse":"_forward"));
+        selectCMajor(s);
+        const int first=reverse?65:67,second=reverse?67:65;
+        ScheduledMidi input{{3,midiOn(71)},{7,midiOff(71)},{11,midiOn(69)},{15,midiOff(69)}};
+        std::vector<Note> expected{{true,1,71,90,3},{false,1,71,0,7},{true,1,69,90,11},{false,1,69,0,15}};
+        const auto cleanup=juce::MidiMessage::controllerEvent(1,cc,0);
+        if(position==0)input.emplace_back(23,cleanup);
+        input.emplace_back(23,midiOn(first,81));expected.push_back({true,1,first,81,23});
+        if(position==1){input.emplace_back(23,cleanup);expected.push_back({false,1,first,0,23});}
+        input.emplace_back(23,midiOn(second,99));expected.push_back({true,1,second,99,23});
+        if(position==2){input.emplace_back(23,cleanup);expected.push_back({false,1,first,0,23});expected.push_back({false,1,second,0,23});}
+        input.insert(input.end(),{{24,midiOn(68,93)},{31,midiOff(first)},{37,midiOff(second)},{47,midiOff(68)}});
+        // Neither ordering of this two-onset timestamp can seed a raw-note
+        // melody, even when a cleanup controller resets notes midway through.
+        expected.push_back({true,1,69,93,24});
+        if(position==0)expected.push_back({false,1,first,0,31});
+        if(position!=2)expected.push_back({false,1,second,0,37});
+        expected.push_back({false,1,69,0,47});
+        juce::MidiBuffer midi;for(const auto& event:input)midi.addEvent(event.second,event.first);
+        const auto output=s.process(midi);
+        check(midi.getNumEvents()==int(output.size()),"Channel-one cleanup controllers must be consumed internally");
+        expectNotes(output,expected,"CC120/123 within a simultaneous batch erased its ambiguity or broke balanced note cleanup");
+        juce::MidiBuffer empty;check(s.process(empty).empty(),"Same-timestamp controller cleanup left a pending note release");
+    }
+}
 void testDiagnosticIsolationAndSustain(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     for(bool simultaneous:{false,true}) {
         Session s(formats,d,simultaneous?"diagnostic_same_sample_direction":"diagnostic_between_playing_notes");selectCMajor(s);
@@ -775,7 +806,9 @@ void testState(juce::AudioPluginFormatManager& formats, const juce::PluginDescri
     midi.clear(); midi.addEvent(juce::MidiMessage::noteOff(1, 61), 7); cloneOut = restored.process(midi);
     check(cloneOut.empty(), "State revived an active voice binding");
     midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(90)), 11); cloneOut = restored.process(midi);
-    check(cloneOut.empty(), "State revived held chord controls"); features.add("instance_state");
+    expectNotes(cloneOut,{{true,1,61,90,11}},"Restored state without held chord controls must use Chromatic fallback");
+    midi.clear();midi.addEvent(midiOff(61),37);expectNotes(restored.process(midi),{{false,1,61,0,37}},"Chromatic state-clone binding release");
+    features.add("instance_state");
 }
 void testTransport(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     Session s(formats, d, "transport_reset"); juce::MidiBuffer midi; chord(midi, true, {48, 52, 55}, 0);
@@ -783,14 +816,145 @@ void testTransport(juce::AudioPluginFormatManager& formats, const juce::PluginDe
     check(out.size() == 1, "Transport onset fixture failed");
     s.timeline.playing = false; midi.clear(); out = s.process(midi); check(out.size() == 1, "Stop failed to release held note");
     expectNote(out, 0, false, 60, 0);
-    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(80)), 1); out = s.process(midi);
-    check(out.empty(), "Stop retained stale chord controls");
+    midi.clear(); midi.addEvent(juce::MidiMessage::noteOn(1, 64, juce::uint8(80)), 1);
+    midi.addEvent(juce::MidiMessage::noteOff(1,64),7);out=s.process(midi);
+    expectNotes(out,{{true,1,64,80,1},{false,1,64,0,7}},"Stopped transport must permit Chromatic playing");
     s.timeline.playing = true; midi.clear(); chord(midi, true, {48, 52, 55}, 0);
     midi.addEvent(juce::MidiMessage::noteOn(1, 61, juce::uint8(80)), 17); out = s.process(midi);
     check(out.size() == 1, "Restart onset fixture failed");
     s.timeline.sample = 0; midi.clear(); out = s.process(midi); check(out.size() == 1, "Seek failed to release held note");
     expectNote(out, 0, false, 60, 0); midi.clear(); s.process(midi); check(midi.isEmpty(), "Seek repeated releases");
     features.add("transport_reset");
+}
+void testUnrecognizedChordFallback(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    for(int mode:{0,1})for(int fixture:{0,1,2}) {
+        Session s(formats,d,"unrecognized_chord_mode"+juce::String(mode)+"_fixture"+juce::String(fixture));
+        setChoice(*s.plugin,"Mode",mode);
+        // All assignments are nonchromatic. A spurious recognized type cannot
+        // hide behind one of the legitimate Chromatic factory assignments.
+        for(const auto* id:chordIds)setChoice(*s.plugin,"Map "+juce::String(id),10);
+        juce::MidiBuffer midi;
+        if(fixture==1)chord(midi,true,{55},0);
+        else if(fixture==2)chord(midi,true,{48,49},0); // Unknown minor-second dyad, mask0x003.
+        std::vector<Note> expected;
+        for(int pc=0;pc<12;++pc) {
+            midi.addEvent(midiOn(60+pc,80+pc),3+pc*8);midi.addEvent(midiOff(60+pc),7+pc*8);
+            expected.push_back({true,1,60+pc,80+pc,3+pc*8});expected.push_back({false,1,60+pc,0,7+pc*8});
+        }
+        expectNotes(s.process(midi),expected,"Empty/single/unknown chord must permit every playing pitch unchanged");
+        midi.clear();
+        if(fixture==1)chord(midi,false,{55},0);
+        else if(fixture==2)chord(midi,false,{48,49},0);
+        chord(midi,true,{48,52,55},0);midi.addEvent(midiOn(65,93),11);
+        const int corrected=mode==0?64:66;
+        expectNotes(s.process(midi),{{true,1,corrected,93,11}},"Recognized C major must restore the selected chord correction");
+        midi.clear();chord(midi,false,{48,52,55},0);chord(midi,true,{48,49},0);
+        midi.addEvent(midiOff(65),17);midi.addEvent(midiOn(65,97),23);midi.addEvent(midiOff(65),41);
+        expectNotes(s.process(midi),{{false,1,corrected,0,17},{true,1,65,97,23},{false,1,65,0,41}},
+            "Unknown-chord fallback must preserve original held-note release bindings");
+        midi.clear();chord(midi,false,{48,49},0);chord(midi,true,{48,55},0);
+        const int input=mode==0?64:61,output=mode==0?67:62;
+        midi.addEvent(midiOn(input,91),13);midi.addEvent(midiOff(input),37);
+        expectNotes(s.process(midi),{{true,1,output,91,13},{false,1,output,0,37}},
+            "Recognized power dyad must retain correction rather than unknown-chord fallback");
+    }
+    features.add("unrecognized_chord_chromatic_fallback");
+}
+void testStoppedTransportFallback(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    for(int mode:{0,1,2}) {
+        Session s(formats,d,"stopped_chromatic_mode"+juce::String(mode));s.timeline.playing=false;
+        setChoice(*s.plugin,"Mode",mode);setChoice(*s.plugin,"Root",2);setChoice(*s.plugin,"Scale",1);setChoice(*s.plugin,"Map major",1);
+        const std::array<juce::String,3> names{{"Mode","Root","Scale"}};
+        std::array<float,3> selected{};for(size_t i=0;i<names.size();++i)selected[i]=parameter(*s.plugin,names[i]).getValue();
+        const auto unchanged=[&]{for(size_t i=0;i<names.size();++i)check(parameter(*s.plugin,names[i]).getValue()==selected[i],"Transport override changed a saved/automated music parameter");};
+        juce::MidiBuffer midi;chord(midi,true,{48,52,55},0);midi.addEvent(midiOn(63,87),11);midi.addEvent(midiOff(63),31);
+        expectNotes(s.process(midi),{{true,1,63,87,11},{false,1,63,0,31}},"Explicit stopped transport must be Chromatic in every mode");unchanged();
+        juce::MemoryBlock state;s.plugin->getStateInformation(state);
+        Session clone(formats,d,"stopped_saved_mode"+juce::String(mode));clone.plugin->setStateInformation(state.getData(),int(state.getSize()));
+        for(size_t i=0;i<names.size();++i)check(parameter(*clone.plugin,names[i]).getValue()==selected[i],"Stopped runtime override leaked into serialized state");
+        midi.clear();chord(midi,true,{48,52,55},0);midi.addEvent(midiOn(63,89),13);midi.addEvent(midiOff(63),29);
+        expectNotes(clone.process(midi),{{true,1,64,89,13},{false,1,64,0,29}},"Saved stopped state must restore the selected running correction");
+        s.timeline.playing=true;midi.clear();midi.addEvent(midiOn(63,91),13);
+        expectNotes(s.process(midi),{{true,1,64,91,13}},"Transport start must restore the selected mode and retained chord");unchanged();
+        s.timeline.playing=false;midi.clear();midi.addEvent(midiOff(63),19);midi.addEvent(midiOn(63,95),23);
+        expectNotes(s.process(midi),{{false,1,64,0,0},{true,1,63,95,23}},"Stop must release the corrected voice once before permitting Chromatic input");unchanged();
+        s.timeline.playing=true;midi.clear();chord(midi,true,{48,52,55},0);
+        midi.addEvent(midiOff(63),7);midi.addEvent(midiOn(63,99),11);midi.addEvent(midiOff(63),31);
+        expectNotes(s.process(midi),{{false,1,63,0,7},{true,1,64,99,11},{false,1,64,0,31}},
+            "Restart must release the old Chromatic binding and correct only new playing attacks");unchanged();
+    }
+    for(int mode:{0,1,2})for(bool missingHead:{false,true}) {
+        Session s(formats,d,"host_bridge_synthesizes_stopped_mode"+juce::String(mode)+(missingHead?"_no_head":"_no_position"));
+        setChoice(*s.plugin,"Mode",mode);setChoice(*s.plugin,"Root",2);setChoice(*s.plugin,"Scale",1);setChoice(*s.plugin,"Map major",1);
+        if(missingHead)s.plugin->setPlayHead(nullptr);else s.timeline.known=false;
+        juce::MidiBuffer midi;chord(midi,true,{48,52,55},0);midi.addEvent(midiOn(63,91),11);midi.addEvent(midiOff(63),31);
+        // This JUCE host bridge supplies a valid-rate, stopped SDK context
+        // when its upstream playhead is absent. The direct SDK test below
+        // separately exercises a genuinely absent ProcessContext pointer.
+        expectNotes(s.process(midi),{{true,1,63,91,11},{false,1,63,0,31}},"JUCE host's synthesized explicit stopped context must be Chromatic");
+    }
+    features.add("stopped_transport_chromatic_fallback");
+}
+class SdkEventList final : public Steinberg::Vst::IEventList {
+public:
+    Steinberg::tresult PLUGIN_API queryInterface(const Steinberg::TUID,void** object) override {
+        if(object)*object=nullptr;return Steinberg::kNoInterface;
+    }
+    Steinberg::uint32 PLUGIN_API addRef() override{return ++references;}
+    Steinberg::uint32 PLUGIN_API release() override{return --references;}
+    Steinberg::int32 PLUGIN_API getEventCount() override{return Steinberg::int32(events.size());}
+    Steinberg::tresult PLUGIN_API getEvent(Steinberg::int32 index,Steinberg::Vst::Event& event) override {
+        if(index<0||size_t(index)>=events.size())return Steinberg::kInvalidArgument;
+        event=events[size_t(index)];return Steinberg::kResultOk;
+    }
+    Steinberg::tresult PLUGIN_API addEvent(Steinberg::Vst::Event& event) override {
+        events.push_back(event);return Steinberg::kResultOk;
+    }
+    std::vector<Steinberg::Vst::Event> events;
+private:
+    Steinberg::uint32 references=1;
+};
+void testSdkOptionalProcessContext(juce::AudioPluginFormatManager& formats,const juce::PluginDescription& d) {
+    Session s(formats,d,"actual_sdk_optional_process_context");selectCMajor(s);
+    auto* component=s.plugin->getVST3Client()->getIComponentPtr();void* queried=nullptr;
+    check(component->queryInterface(Steinberg::Vst::IAudioProcessor::iid,&queried)==Steinberg::kResultOk&&queried,
+          "Actual SDK IAudioProcessor query failed");
+    auto* processor=static_cast<Steinberg::Vst::IAudioProcessor*>(queried);
+    struct ScopedRelease {Steinberg::Vst::IAudioProcessor* p;~ScopedRelease(){p->release();}} release{processor};
+    for(int fixture:{0,1,2,3}) {
+        SdkEventList input,output;
+        Steinberg::Vst::Event on{};on.busIndex=0;on.sampleOffset=11;on.type=Steinberg::Vst::Event::kNoteOnEvent;
+        on.noteOn.channel=0;on.noteOn.pitch=61;on.noteOn.velocity=90.f/127.f;on.noteOn.noteId=-1;input.addEvent(on);
+        Steinberg::Vst::Event off{};off.busIndex=0;off.sampleOffset=31;off.type=Steinberg::Vst::Event::kNoteOffEvent;
+        off.noteOff.channel=0;off.noteOff.pitch=61;off.noteOff.noteId=-1;input.addEvent(off);
+        std::array<float,128> left,right;left.fill(.375f);right.fill(-.625f);float* channels[]{left.data(),right.data()};
+        Steinberg::Vst::AudioBusBuffers bus{};bus.numChannels=2;bus.channelBuffers32=channels;
+        Steinberg::Vst::ProcessContext context{};context.sampleRate=48000;
+        context.projectTimeSamples=s.timeline.sample;context.state=fixture==2?Steinberg::Vst::ProcessContext::kPlaying:0;
+        Steinberg::Vst::ProcessData data;data.processMode=Steinberg::Vst::kRealtime;
+        data.symbolicSampleSize=Steinberg::Vst::kSample32;data.numSamples=128;
+        data.numInputs=0;data.numOutputs=1;data.outputs=&bus;data.inputEvents=&input;data.outputEvents=&output;
+        // The SDK explicitly makes this pointer optional. Exercise nullptr
+        // directly, rather than relying on a host playhead abstraction.
+        data.processContext=(fixture==0||fixture==3)?nullptr:&context;
+        check(processor->process(data)==Steinberg::kResultOk,"Actual SDK process call failed");
+        check(std::all_of(left.begin(),left.end(),[](float sample){return sample==0.f;})
+              &&std::all_of(right.begin(),right.end(),[](float sample){return sample==0.f;}),
+              "Direct SDK callback failed to clear seeded stereo outputs");
+        silentOutputSamplesChecked+=256;juce::MidiBuffer midi;
+        for(const auto& event:output.events) {
+            if(event.type==Steinberg::Vst::Event::kNoteOnEvent)
+                midi.addEvent(midiOn(event.noteOn.pitch,juce::roundToInt(event.noteOn.velocity*127.f),event.noteOn.channel+1),event.sampleOffset);
+            else if(event.type==Steinberg::Vst::Event::kNoteOffEvent)
+                midi.addEvent(juce::MidiMessage::noteOff(event.noteOff.channel+1,event.noteOff.pitch,juce::uint8(juce::roundToInt(event.noteOff.velocity*127.f))),event.sampleOffset);
+            else check(false,"Unexpected non-note event from SDK context fixture");
+        }
+        record(s.caseName,48000,128,s.processedSamples,midi);s.processedSamples+=128;s.timeline.sample+=128;
+        const int expected=fixture==1?61:62;
+        expectNotes(notes(midi),{{true,1,expected,90,11},{false,1,expected,0,31}},
+            "Null SDK ProcessContext must retain correction; an explicit stopped context must be Chromatic");
+    }
+    features.add("sdk_optional_process_context");
 }
 void testGeneratedRouting(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     Session s(formats, d, "generated_midi_routing"), restored(formats, d, "generated_midi_state_clone");
@@ -892,9 +1056,13 @@ int run(int argc, const juce::String& path, const juce::String& output) {
         runCase("overlapping_input_bindings", [&] { testOverlappingBindings(formats, d); });
         runCase("staccato_legato_raw_direction_across_callback_sizes", [&] { testDirectionalTimelines(formats, d); });
         runCase("same_sample_fallback_causality_and_channel_isolation", [&] { testTimestampDirection(formats, d); });
+        runCase("cc120_123_preserve_same_sample_ambiguity", [&] { testCleanupWithinSimultaneousBatch(formats, d); });
         runCase("diagnostic_source_and_sustain_rearticulation", [&] { testDiagnosticIsolationAndSustain(formats, d); });
         runCase("instance_state", [&] { testState(formats, d); });
         runCase("transport_reset", [&] { testTransport(formats, d); });
+        runCase("unrecognized_chord_chromatic_fallback", [&] { testUnrecognizedChordFallback(formats, d); });
+        runCase("stopped_transport_chromatic_fallback", [&] { testStoppedTransportFallback(formats, d); });
+        runCase("actual_sdk_optional_process_context", [&] { testSdkOptionalProcessContext(formats, d); });
         runCase("generated_midi_routing", [&] { testGeneratedRouting(formats, d); });
         runCase("host_invoked_bypass_callback", [&] { testBypassCallback(formats, d); });
         writeEvidence(directory, true, {});

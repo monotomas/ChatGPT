@@ -57,11 +57,14 @@ void Engine::updateAllowed() noexcept {
     view.mode=int(config.mode);view.correctionEnabled=config.correctionEnabled;
     view.effectiveScale=-1;view.effectiveRoot=-1;
     if(!config.correctionEnabled){view.allowedMask=0xfff;return;}
+    if(config.mode!=Mode::FixedScale&&view.typeIndex<0) {
+        view.allowedMask=0xfff;view.effectiveScale=0;view.effectiveRoot=0;return;
+    }
     switch(config.mode) {
     case Mode::ChordNotes:view.allowedMask=view.chordMask;break;
     case Mode::ChordScale:
-        if(view.typeIndex>=0){view.effectiveScale=config.chordScales[size_t(view.typeIndex)];view.effectiveRoot=view.root;}
-        view.allowedMask=view.typeIndex>=0?rotateMask(scaleDefinitions()[size_t(config.chordScales[size_t(view.typeIndex)])].mask,view.root):0;break;
+        view.effectiveScale=config.chordScales[size_t(view.typeIndex)];view.effectiveRoot=view.root;
+        view.allowedMask=rotateMask(scaleDefinitions()[size_t(view.effectiveScale)].mask,view.root);break;
     case Mode::FixedScale:
         view.effectiveScale=config.scale;view.effectiveRoot=config.root;
         view.allowedMask=rotateMask(scaleDefinitions()[size_t(config.scale)].mask,config.root);break;
@@ -168,7 +171,11 @@ void Engine::controller(Source source,int channel,int cc,int value,int offset,Ou
     }
     if(cc==120||cc==123){
         for(auto& v:voices)if(v.active&&v.source==source&&v.channel==channel)release(v,0,offset,out);
-        pedal[size_t(source)][size_t(channel-1)]=false;histories[size_t(source)][size_t(channel-1)]={};return;
+        pedal[size_t(source)][size_t(channel-1)]=false;
+        auto& history=histories[size_t(source)][size_t(channel-1)];
+        // Cleanup within a simultaneous group cannot make its later attacks
+        // a newly ordered melody. beginTimestamp owns the ambiguity flag.
+        history.previous=history.beforePrevious=-1;return;
     }
     if(cc==121){
         pedal[size_t(source)][size_t(channel-1)]=false;
@@ -186,7 +193,8 @@ void Engine::controller(Source source,int channel,int cc,int value,int offset,Ou
 void Engine::stopSource(Source source,int offset,Output& out) noexcept {
     if(!validSource(source))return;
     for(auto& v:voices)if(v.active&&v.source==source)release(v,0,offset,out);
-    pedal[size_t(source)]={};histories[size_t(source)]={};
+    pedal[size_t(source)]={};
+    for(auto& history:histories[size_t(source)])history.previous=history.beforePrevious=-1;
 }
 void Engine::panic(int offset,Output& out) noexcept {
     for(auto& v:voices)if(v.active)release(v,0,offset,out);

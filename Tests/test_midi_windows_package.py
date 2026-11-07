@@ -53,9 +53,11 @@ class MidiWindowsPackageTests(unittest.TestCase):
   p=self.f.dist/evidence.DIRECTORY/evidence.SPECS[1][2];r=json.loads(p.read_text());r['audio_output_channels']=0;p.write_text(json.dumps(r))
   proof=json.loads((self.f.dist/evidence.DIRECTORY/evidence.MANIFEST).read_text());proof['executions'][evidence.SPECS[1][0]]['report_sha256']=evidence.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
   with self.assertRaises(ValueError):self.package()
- def test_rebound_reports_without_legato_or_rearticulation_cannot_ship(self):
+ def test_rebound_reports_without_articulation_or_chromatic_fallback_cannot_ship(self):
   for spec in evidence.SPECS:
-   for feature in ('legato_directional_ties','same_pitch_rearticulation'):
+   for feature in ('legato_directional_ties','same_pitch_rearticulation',
+                   'unrecognized_chord_chromatic_fallback',
+                   'stopped_transport_chromatic_fallback'):
     with self.subTest(report=spec[0],missing=feature):
      p=self.f.dist/evidence.DIRECTORY/spec[2];before=p.read_bytes();r=json.loads(before);r['verified_features'].remove(feature);p.write_text(json.dumps(r))
      proof=json.loads((self.f.dist/evidence.DIRECTORY/evidence.MANIFEST).read_text());proof['executions'][spec[0]]['report_sha256']=evidence.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)

@@ -20,6 +20,8 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
         self.assertIn('silent_stereo_audio_output',e.FEATURES)
         self.assertIn('legato_directional_ties',e.FEATURES)
         self.assertIn('same_pitch_rearticulation',e.FEATURES)
+        self.assertIn('unrecognized_chord_chromatic_fallback',e.FEATURES)
+        self.assertIn('stopped_transport_chromatic_fallback',e.FEATURES)
         self.assertNotIn('zero_audio_buses',e.FEATURES)
         info=json.loads((self.f.bundle/'Contents/Resources/moduleinfo.json').read_text())
         self.assertEqual(info['Classes'][0]['Sub Categories'],['Instrument'])
@@ -53,9 +55,11 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
                 proof=json.loads((self.f.dist/e.DIRECTORY/e.MANIFEST).read_text());proof['executions'][spec[0]]['report_sha256']=e.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
                 with self.assertRaises(ValueError):self.verify()
                 p.write_bytes(before);proof['executions'][spec[0]]['report_sha256']=e.sha(before);fixture.rebind_proof(self.f,proof)
-    def test_legato_and_rearticulation_checks_required_in_each_rebound_native_report(self):
+    def test_articulation_and_chromatic_fallback_checks_required_in_each_rebound_native_report(self):
         for spec in e.SPECS:
-            for feature in ('legato_directional_ties','same_pitch_rearticulation'):
+            for feature in ('legato_directional_ties','same_pitch_rearticulation',
+                            'unrecognized_chord_chromatic_fallback',
+                            'stopped_transport_chromatic_fallback'):
                 with self.subTest(report=spec[0],missing=feature):
                     p=self.f.dist/e.DIRECTORY/spec[2];before=p.read_bytes();r=json.loads(before);r['verified_features'].remove(feature);p.write_text(json.dumps(r))
                     proof=json.loads((self.f.dist/e.DIRECTORY/e.MANIFEST).read_text());proof['executions'][spec[0]]['report_sha256']=e.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)

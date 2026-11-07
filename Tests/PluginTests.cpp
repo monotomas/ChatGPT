@@ -60,6 +60,74 @@ void settleGuiTimers(const std::function<bool()>& ready){
     }
     check(false,"editor did not refresh its configured scale through GUI timers");
 }
+void mappingLayout(juce::AudioProcessorEditor& editor,juce::Viewport& viewport){
+    const std::vector<std::vector<const char*>> columns{
+        {"major","sus2","sus4","major_sixth","six_nine","major_seventh","major_seventh_sharp5","major_seventh_sharp9","major_seventh_sharp11","major_ninth","major_ninth_sharp11","major_eleventh","major_thirteenth","major_thirteenth_sharp11"},
+        {"dominant_seventh","power_seventh","dominant_sharp5","dominant_sharp5_sharp9","dominant_sharp5_flat9","dominant_sharp9","dominant_sharp11","dominant_flat5","dominant_flat5_sharp9","dominant_flat5_flat9","dominant_flat9","dominant_flat13"},
+        {"dominant_sus4","dominant_sus4_flat9","dominant_ninth","ninth_sharp11","ninth_sus4","dominant_eleventh","dominant_thirteenth","thirteenth_sharp9","thirteenth_add_sharp9","thirteenth_flat9","thirteenth_sus4","thirteenth_sus4_flat9"},
+        {"minor","power","minor_sixth","minor_seventh","half_diminished","minor_ninth","minor_eleventh","minor_eleventh_flat5","minor_thirteenth","minor_thirteenth_flat5","minor_major_seventh","minor_major_ninth","minor_major_thirteenth","diminished_seventh"}
+    };
+    auto* table=dynamic_cast<FlysnapperMappingTable*>(viewport.getViewedComponent());
+    check(table&&table->getHeight()==FlysnapperMappingTable::contentHeight,"mapping table height must cover the longest column");
+    check(table->getHeight()<52*86/2,"four-column table did not substantially reduce scrolling");
+    check(table->getWidth()<=viewport.getMaximumVisibleWidth()&&viewport.getViewPositionX()==0,"minimum editor requires horizontal scrolling");
+    std::array<bool,flysnapper::chordTypeCount> seen{};
+    int previousRight=0;
+    for(int column=0;column<4;++column){
+        const auto bounds=table->columnBounds(column);
+        check(bounds.getX()>=previousRight&&bounds.getRight()<=table->getWidth(),"mapping columns overlap or extend beyond the visible width");
+        previousRight=bounds.getRight();
+        check(int(columns[size_t(column)].size())==FlysnapperMappingTable::columnRows[size_t(column)],"approved column count changed");
+        auto* heading=find(editor,"mappingColumn_"+juce::String(column));
+        check(heading&&bounds.contains(heading->getBounds()),"mapping column heading is outside its column");
+        int lastBottom=FlysnapperMappingTable::headerHeight;
+        for(size_t row=0;row<columns[size_t(column)].size();++row){
+            const auto id=juce::String(columns[size_t(column)][row]);
+            const int type=flysnapper::chordIndexFromId(id.toStdString());
+            check(type>=0&&!seen[size_t(type)],"presentation duplicates or loses a stable chord ID");seen[size_t(type)]=true;
+            check(FlysnapperMappingTable::typeAt(column,int(row))==type&&FlysnapperMappingTable::columnForType(type)==column&&FlysnapperMappingTable::rowForType(type)==int(row),"approved chord order changed");
+            auto* name=find(editor,"chordName_"+id);auto* menu=find(editor,"mapping_"+id);
+            auto* tones=find(editor,"chordTones_"+id);auto* scaleTones=find(editor,"scaleTones_"+id);auto* factory=find(editor,"factory_"+id);
+            check(name&&menu&&tones&&scaleTones&&factory,"compact cell lost a control or tone/factory explanation");
+            for(auto* item:{name,tones,menu,scaleTones,factory})check(bounds.contains(item->getBounds()),"compact cell content clips outside its column");
+            check(name->getY()>=lastBottom&&tones->getY()>=name->getBottom()&&menu->getY()>=tones->getBottom()&&scaleTones->getY()>=menu->getBottom()&&factory->getY()>=scaleTones->getBottom(),"compact cell contents overlap");
+            check(menu->getX()==name->getX()&&menu->getWidth()==name->getWidth(),"scale menu does not use the full cell width");
+            lastBottom=factory->getBottom();
+        }
+        check(FlysnapperMappingTable::typeAt(column,int(columns[size_t(column)].size()))==-1,"column contains an unapproved extra row");
+    }
+    check(std::all_of(seen.begin(),seen.end(),[](bool value){return value;}),"four-column presentation omits a chord type");
+}
+class GuiTimeline final : public juce::AudioPlayHead {
+public:
+    bool playing=true;int64_t sample=0;
+    juce::Optional<PositionInfo> getPosition() const override {PositionInfo p;p.setIsPlaying(playing);p.setTimeInSamples(sample);return p;}
+};
+void guiFallbacks(){
+    for(int mode=0;mode<2;++mode)for(int kind=0;kind<3;++kind){
+        FlysnapperProcessor p;p.prepareToPlay(48000,128);set(p,"mode",float(mode));
+        Midi input;if(kind==1)input={{0,on(55,16)}};if(kind==2)input={{0,on(48,16)},{0,on(49,16)}};
+        process(p,128,input);check(p.getSnapshot().typeIndex<0,"GUI fallback fixture unexpectedly recognized a chord");
+        std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditor());
+        auto* active=dynamic_cast<juce::Label*>(find(*editor,"activeScale"));
+        check(active&&active->getText().contains("Chromatic"),"unknown chord GUI does not show the actual Chromatic fallback");
+        if(kind==1){auto* chord=dynamic_cast<juce::Label*>(find(*editor,"chordDisplay"));check(chord&&chord->getText()=="G (single note)","single-note GUI is confused with a major chord");}
+        for(int note=0;note<12;++note){auto* chip=dynamic_cast<juce::Label*>(find(*editor,"allowedNote_"+juce::String(note)));check(chip&&chip->findColour(juce::Label::backgroundColourId)==juce::Colour(0xff58d7bb),"unknown-chord preview does not allow all twelve pitch classes");}
+    }
+    FlysnapperProcessor p;GuiTimeline timeline;p.setPlayHead(&timeline);p.prepareToPlay(48000,128);set(p,"mode",2);set(p,"scale",1);
+    process(p,128,cChord());timeline.sample+=128;
+    std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditor());
+    auto* chord=dynamic_cast<juce::Label*>(find(*editor,"chordDisplay"));check(chord&&chord->getText()=="C Major","major triad GUI lacks the Major label");
+    auto* active=dynamic_cast<juce::Label*>(find(*editor,"activeScale"));
+    timeline.playing=false;process(p,128);timeline.sample+=128;
+    settleGuiTimers([&]{return active&&active->getText().contains("Chromatic")&&active->getText().containsIgnoreCase("transport stopped");});
+    check(get(p,"mode")==2&&get(p,"scale")==1,"stopped GUI changed saved controls");
+    for(int note=0;note<12;++note){auto* chip=dynamic_cast<juce::Label*>(find(*editor,"allowedNote_"+juce::String(note)));check(chip&&chip->findColour(juce::Label::backgroundColourId)==juce::Colour(0xff58d7bb),"stopped GUI fails to show Chromatic allowed notes");}
+    p.setPlayHead(nullptr);process(p,128);
+    settleGuiTimers([&]{return active->getText().contains("Ionian");});
+    check(!p.transportStopped(),"missing playhead retained a stale stopped GUI state");
+    std::cout<<"PASS actual GUI single-note/Major labels and Chromatic fallback/transport previews\n";
+}
 void parametersAndState(){
     FlysnapperProcessor a,b;
     check(flysnapper::chordTypeCount==52&&flysnapper::chordTypes().size()==52,"requested chord catalog must contain all52 types");
@@ -216,7 +284,7 @@ void gui(){
     majorBox->setSelectedId(harmonicMajor2+1,juce::sendNotificationSync);
     check(majorBox->getText().startsWith("! ")&&majorTones->getText().endsWith("Outside scale: E  G"),"Harmonic Major2 did not warn about C-major tones E and G");
     auto* firstName=find(*editor,"chordName_major");check(firstName!=nullptr,"first chord-name column missing");const int chordWidth=firstName->getWidth();
-    editor->setSize(1500,1100);check(firstName->getWidth()==chordWidth,"chord-name column expands with window width");editor->setSize(1040,760);
+    editor->setSize(1500,1100);check(firstName->getWidth()>chordWidth,"four-column cells do not use increased window width");editor->setSize(1040,760);
     auto* description=dynamic_cast<juce::Label*>(find(*editor,"backDescription"));auto* tip=dynamic_cast<juce::Label*>(find(*editor,"assignmentTip"));
     check(description&&tip&&description->getFont().isBold()&&!tip->getFont().isBold(),"back description/tip weight mismatch");
     check(description->getText()==juce::String::fromUTF8("52 chord types, here assigned to root C. Your chosen scale type applies in the actual chord\xe2\x80\x99s root and is auto-saved with this instance."),"back description does not match requested text");
@@ -224,7 +292,7 @@ void gui(){
           &&tip->getText().containsIgnoreCase("instrument"),"assignment tip omits instrument routing/correction guidance");
     auto* flip=dynamic_cast<juce::TextButton*>(find(*editor,"flip"));auto* viewport=dynamic_cast<juce::Viewport*>(find(*editor,"mappingViewport"));auto* reset=dynamic_cast<juce::TextButton*>(find(*editor,"resetMappings"));
     check(flip&&viewport&&reset,"front/back controls absent");check(!viewport->isVisible(),"mapping view should start hidden");
-    check(viewport->getViewedComponent()&&viewport->getViewedComponent()->getHeight()==flysnapper::chordTypeCount*FlysnapperMappingTable::rowHeight,"mapping viewport does not include every chord row");
+    check(viewport->getViewedComponent()&&viewport->getViewedComponent()->getHeight()==FlysnapperMappingTable::contentHeight,"mapping viewport does not include all four columns");
     reset->onClick();const auto defaults=flysnapper::factoryDefaults();for(int type=0;type<flysnapper::chordTypeCount;++type)check(get(p,FlysnapperProcessor::mappingParameterId(type))==defaults[size_t(type)],"reset did not restore instance factory assignments");
     // A controlled reference remains stable when the user later edits factory
     // choices: C major assigned explicitly to Ionian must correct Db upward.
@@ -250,17 +318,18 @@ void gui(){
           "guide omits corrected legato direction and rearticulation behavior");
     check(!guideText->getText().containsIgnoreCase("hysteresis")&&!guideText->getText().containsIgnoreCase("compressor"),"old audio guide remained");
     check(process(p,128).empty()&&p.getSnapshot().allowedMask==before.allowedMask,"opening guide changed MIDI/allowed notes");screenshot(*editor,"Flysnapper-guide.png");guideClose->onClick();check(!panel->isVisible(),"guide failed to close");
-    flip->onClick();check(viewport->isVisible(),"flip failed to show mapping rows");check(process(p,128).empty(),"flip interrupted a held note");screenshot(*editor,"Flysnapper-back.png");
-    viewport->setViewPosition(0,(flysnapper::chordTypeCount-1)*FlysnapperMappingTable::rowHeight);screenshot(*editor,"Flysnapper-back-last.png");viewport->setViewPosition(0,0);
+    flip->onClick();check(viewport->isVisible(),"flip failed to show mapping rows");check(process(p,128).empty(),"flip interrupted a held note");mappingLayout(*editor,*viewport);screenshot(*editor,"Flysnapper-back.png");
+    editor->setSize(1500,1100);mappingLayout(*editor,*viewport);screenshot(*editor,"Flysnapper-back-large.png");editor->setSize(1040,760);
+    viewport->setViewPosition(0,FlysnapperMappingTable::contentHeight);screenshot(*editor,"Flysnapper-back-last.png");viewport->setViewPosition(0,0);
     flip->onClick();check(!viewport->isVisible(),"flip failed to return");screenshot(*editor,"Flysnapper-front.png");
     check(process(p,128).empty(),"return flip interrupted held note");const auto mask=p.getSnapshot().allowedMask;editor.reset();check(process(p,128).empty()&&p.getSnapshot().allowedMask==mask,"editor close changed active correction");
     const auto released=process(p,128,{{19,off(61)}});check(released.size()==1&&released[0].second.isNoteOff()&&released[0].second.getNoteNumber()==held[0].second.getNoteNumber(),"GUI lifecycle lost playing-note binding");
     editor.reset(p.createEditor());editor->setSize(1210,900);editor.reset();editor.reset(p.createEditor());
     check(editor->getWidth()==1040&&editor->getHeight()==760,"new editor default size differs after closing a resized view");
-    std::cout<<"PASS actual MIDI-only editor,52x38 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs\n";
+    std::cout<<"PASS actual MIDI-only editor,52x38 ID-safe menu selections/automation, grouped warnings, four visible columns14/12/12/14, flip/help continuity and PNGs\n";
 }
 }
 int main(){
-    try{juce::ScopedJuceInitialiser_GUI runtime;parametersAndState();realtimeNewCheck();guiBeforeProcessing();gui();std::cout<<"FlysnapperPluginSmoke: PASS ("<<assertions<<" assertions; not Ableton validation)\n";return 0;}
+    try{juce::ScopedJuceInitialiser_GUI runtime;parametersAndState();realtimeNewCheck();guiBeforeProcessing();guiFallbacks();gui();std::cout<<"FlysnapperPluginSmoke: PASS ("<<assertions<<" assertions; not Ableton validation)\n";return 0;}
     catch(const std::exception& error){countNew=false;std::cerr<<"FlysnapperPluginSmoke: FAIL: "<<error.what()<<'\n';return 1;}
 }

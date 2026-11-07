@@ -232,6 +232,27 @@ void dataAndRecognition() {
         if(expected.typeIndex>=50||expected.candidateCount!=int(ref.candidates.size()))++extendedSets;
     }
     CHECK(extendedSets>0);
+    // Presentation explicitly distinguishes a lone pitch class from a major
+    // triad without changing numeric recognition, suffixes or stable IDs.
+    CHECK(std::string(chordTypes()[0].suffix).empty());
+    CHECK(chordTypeDisplayNameInC(-1).empty()&&chordTypeDisplayNameInC(chordTypeCount).empty());
+    for(int type=0;type<chordTypeCount;++type)
+        CHECK(chordTypeDisplayNameInC(type)==(type==0?"C Major":std::string("C")+chordTypes()[size_t(type)].suffix));
+    for(int root=0;root<12;++root) {
+        const auto single=uint16_t(1u<<root);
+        const auto singleLabel=std::string(buffkiller::chordRootNames[root])+" (single note)";
+        CHECK(recogniseChord(single,root).typeIndex==-1);
+        CHECK(chordName(single,root)==singleLabel);
+        CHECK(chordDetail(single,root).find(singleLabel)!=std::string::npos);
+        const auto majorMask=rotateMask(buffkiller::chordBits({0,4,7}),root);
+        const auto majorLabel=std::string(buffkiller::chordRootNames[root])+" Major";
+        for(int degree:{0,4,7}) {
+            const int bass=(root+degree)%12;
+            CHECK(recogniseChord(majorMask,bass).typeIndex==0);
+            CHECK(chordName(majorMask,bass)==majorLabel);
+            CHECK(chordDetail(majorMask,bass).find(majorLabel)!=std::string::npos);
+        }
+    }
     CHECK(chordName(buffkiller::chordBits({0,7}),0)=="C5");
     CHECK(chordName(buffkiller::chordBits({0,7,10}),0)=="C5/7");
     CHECK(chordName(buffkiller::chordBits({0,4,7,11}),0).find("CMaj7")!=std::string::npos);
@@ -348,6 +369,37 @@ void directionHistory() {
         e.noteOn(Source::External,1,67,90,20,o);e.noteOn(Source::External,1,67,91,20,o);
         o.clear();on(e,66,o,30);CHECK(o.events[o.size-1].note==67); // Duplicates are conservatively ambiguous too.
     }
+    // A cleanup message inside the current sample group clears pitch history,
+    // but cannot turn later simultaneous attacks into a sequential melody.
+    // Cover both On orders and cleanup before, between and after the attacks.
+    for(int cleanup=0;cleanup<3;++cleanup)for(int position=0;position<3;++position)
+        for(const bool reverse:{false,true})for(const bool descendingProbe:{false,true}) {
+        Engine e;major(e);o.clear();on(e,60,o);o.clear();
+        e.beginTimestamp(Source::External,1,2);
+        for(int step=0;step<3;++step) {
+            if(step==position) {
+                if(cleanup<2)e.controller(Source::External,1,cleanup==0?120:123,0,20,o);
+                else e.stopSource(Source::External,20,o);
+            }
+            if(step<2)e.noteOn(Source::External,1,step==0?(reverse?65:67):(reverse?67:65),90,20,o);
+        }
+        CHECK(e.activeVoices()==size_t(2-position));
+        size_t oldNoteOffs=0;
+        for(size_t i=0;i<o.size;++i)if(o.events[i].type==EventType::NoteOff&&o.events[i].note==60){++oldNoteOffs;CHECK(o.events[i].offset==20);}
+        CHECK(oldNoteOffs==1);
+        o.clear();on(e,descendingProbe?64:68,o,30);
+        CHECK(o.events[o.size-1].note==(descendingProbe?64:69));
+        if(descendingProbe) {
+            // Exposes even one incorrectly seeded group note after a cleanup
+            // between Ons: only64 should precede63, so fallback is upward64.
+            o.clear();on(e,63,o,31);CHECK(o.events[o.size-1].note==64);
+        }
+        for(int note:{60,65,67})off(e,note,o,32);
+        CHECK(e.activeVoices()==size_t(descendingProbe?2:1));
+        off(e,descendingProbe?64:68,o,33);
+        if(descendingProbe)off(e,63,o,34);
+        CHECK(e.activeVoices()==0);
+    }
     {
         Engine e;major(e);o.clear();on(e,67,o);on(e,65,o,10);o.clear();
         for(const auto invalid:{Source(-1),Source(3)}) {
@@ -413,8 +465,58 @@ void snapshotPacking() {
             CHECK((packed>>59)==0);
         }
 }
+void unknownChordFallback() {
+    Output o;
+    for(const auto mode:{Mode::ChordNotes,Mode::ChordScale}) {
+        Engine e;auto settings=e.settings();settings.mode=mode;settings.root=7;settings.scale=3;
+        settings.chordScales[51]=18;e.setSettings(settings);
+        for(int unknown=0;unknown<5;++unknown) {
+            switch(unknown) {
+            case 0:e.clearChord();break;
+            case 1:chord(e,{55});break;
+            case 2:chord(e,{43,55,67});break; // Octave duplicates remain one pitch class.
+            case 3:chord(e,{60,61});break;
+            case 4:chord(e,{60,61,62});break;
+            }
+            const auto snapshot=unpackSnapshot(packSnapshot(e.snapshot()));
+            CHECK(snapshot.typeIndex==-1&&snapshot.root==-1&&snapshot.allowedMask==0xfff);
+            CHECK(snapshot.effectiveScale==0&&snapshot.effectiveRoot==0&&snapshot.mode==int(mode)&&snapshot.correctionEnabled);
+            CHECK(e.settings().mode==settings.mode&&e.settings().root==7&&e.settings().scale==3&&e.settings().chordScales==settings.chordScales);
+            if(unknown==1||unknown==2)CHECK(formatChord(snapshot)=="G (single note)");
+            for(int note=0;note<128;++note) {
+                o.clear();on(e,note,o,10);CHECK(o.size==1&&o.events[0].type==EventType::NoteOn&&o.events[0].note==note);
+                off(e,note,o,11);CHECK(o.size==2&&o.events[1].type==EventType::NoteOff&&o.events[1].note==note);
+            }
+            CHECK(e.activeVoices()==0);
+        }
+        // A recognised two-pitch power chord still applies correction; the
+        // fallback depends on recognition, not merely a count of chord notes.
+        chord(e,{48,55});CHECK(e.snapshot().typeIndex==4&&e.snapshot().root==0);
+        const auto expectedMask=mode==Mode::ChordNotes?uint16_t(0x081):scaleDefinitions()[size_t(settings.chordScales[4])].mask;
+        CHECK(e.snapshot().allowedMask==expectedMask);
+        o.clear();on(e,61,o);CHECK(o.events[o.size-1].note==60);off(e,61,o);
+        // Re-entering a recognised chord corrects new attacks while existing
+        // chromatic/corrected bindings retain their original FIFO identities.
+        e.clearChord();o.clear();on(e,63,o,20);CHECK(o.size==1&&o.events[0].note==63);
+        chord(e,{48,52,55});on(e,63,o,21);CHECK(o.size==2&&o.events[1].note==64);
+        e.clearChord();on(e,63,o,22);CHECK(o.size==4&&o.events[2].type==EventType::NoteOff&&o.events[2].note==63&&o.events[3].note==63);
+        o.clear();off(e,63,o,23);CHECK(o.size==0&&e.activeVoices()==2);
+        off(e,63,o,24);CHECK(o.size==1&&o.events[0].note==64&&e.activeVoices()==1);
+        off(e,63,o,25);CHECK(o.size==2&&o.events[1].note==63&&e.activeVoices()==0);
+        CHECK(e.settings().chordScales==settings.chordScales&&e.settings().mode==mode);
+    }
+    // Unknown chord input never overrides the explicit fixed-scale choice.
+    Engine fixed;major(fixed);
+    for(const bool single:{false,true}) {
+        if(single)chord(fixed,{55});else fixed.clearChord();
+        CHECK(fixed.snapshot().typeIndex==-1&&fixed.snapshot().allowedMask==scaleDefinitions()[1].mask);
+        CHECK(fixed.snapshot().effectiveScale==1&&fixed.snapshot().effectiveRoot==0);
+        o.clear();on(fixed,61,o);CHECK(o.events[0].note==62);off(fixed,61,o);
+    }
+}
 void chordControlAndScales() {
     snapshotPacking();
+    unknownChordFallback();
     // Real new user defaults include high indices32/35 and the fractional-
     // normalization regression's index3. Test fresh core instances without
     // overriding their maps, including the packed GUI status high bit.
@@ -459,11 +561,11 @@ void chordControlAndScales() {
     s.chordScales[11]=0;e.setSettings(s);CHECK(e.snapshot().allowedMask==0xfff);
     CHECK(e.settings().chordScales[32]==factoryDefaults()[32]);
     Engine independent;CHECK(independent.settings().chordScales[11]==5);
-    e.clearChord();CHECK(e.snapshot().allowedMask==0);o.clear();on(e,60,o);CHECK(o.size==0);off(e,60,o);CHECK(e.activeVoices()==0);
-    chord(e,{60,61});CHECK(e.snapshot().typeIndex==-1);CHECK(e.snapshot().allowedMask==0);
+    e.clearChord();CHECK(e.snapshot().allowedMask==0xfff);o.clear();on(e,60,o);CHECK(o.size==1&&o.events[0].note==60);off(e,60,o);CHECK(o.size==2&&e.activeVoices()==0);
+    chord(e,{60,61});CHECK(e.snapshot().typeIndex==-1);CHECK(e.snapshot().allowedMask==0xfff);
     const auto pack=packSnapshot(e.snapshot());const auto unpack=unpackSnapshot(pack);
     CHECK(unpack.chordMask==e.snapshot().chordMask);CHECK(unpack.allowedMask==e.snapshot().allowedMask);CHECK(unpack.typeIndex==-1);
-    CHECK(unpack.effectiveScale==-1&&unpack.effectiveRoot==-1&&unpack.mode==1&&unpack.correctionEnabled);
+    CHECK(unpack.effectiveScale==0&&unpack.effectiveRoot==0&&unpack.mode==1&&unpack.correctionEnabled);
     s.mode=Mode::FixedScale;s.root=11;s.scale=18;e.setSettings(s);
     const auto fixed=unpackSnapshot(packSnapshot(e.snapshot()));
     CHECK(fixed.effectiveScale==18&&fixed.effectiveRoot==11&&fixed.mode==2&&fixed.correctionEnabled);
@@ -567,12 +669,12 @@ void noteLifecycle() {
     o.clear();off(e,99,o);CHECK(o.size==0);
     on(e,-1,o);on(e,128,o);on(e,60,o,0,Source::External,0);CHECK(o.size==0);
     chord(e,{60,64,67});on(e,61,o);e.panic(55,o);CHECK(e.activeVoices()==0&&e.snapshot().chordMask==0);CHECK(o.events[o.size-1].type==EventType::NoteOff);
-    // A suppressed note retains a zero-output binding. Repeating that input
-    // after chords arrive must not let the old off terminate the newer voice.
-    Engine suppressed;o.clear();on(suppressed,61,o);CHECK(o.size==0);
-    chord(suppressed,{60,64,67});on(suppressed,61,o);CHECK(o.size==1);
-    off(suppressed,61,o);CHECK(o.size==1&&suppressed.activeVoices()==1);
-    off(suppressed,61,o);CHECK(o.size==2&&suppressed.activeVoices()==0);
+    // Initial no-chord pass-through and later correction retain separate
+    // FIFO bindings; the old Off must release its original chromatic pitch.
+    Engine fallback;o.clear();on(fallback,61,o);CHECK(o.size==1&&o.events[0].note==61);
+    chord(fallback,{60,64,67});on(fallback,61,o);CHECK(o.size==2&&o.events[1].note==60);
+    off(fallback,61,o);CHECK(o.size==3&&o.events[2].note==61&&fallback.activeVoices()==1);
+    off(fallback,61,o);CHECK(o.size==4&&o.events[3].note==60&&fallback.activeVoices()==0);
     reattackLifecycle();
 }
 void sustainAndControllers() {

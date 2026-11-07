@@ -10,7 +10,7 @@ Korrigert MIDI hentes fra Flysnapper til et separat instrumentspor.
 Denne utgaven er ikke dokumentert som en MIDI-effekt som kan seriekobles
 foran et annet instrument på samme Live-spor. Se
 [versjonsnotatet for 0.4.3](RELEASE_0.4.3.md) for gjeldende kontrollstatus.
-Innlasting og ruting i brukerens Live 12.4.6 er fortsatt ikke bekreftet.
+Brukeren har bekreftet rutingen i 0.4.2; den beholdes i 0.4.3.
 
 ## Installasjon og pluginidentitet
 
@@ -83,15 +83,23 @@ ved vertsdeaktivering og reaktivering av denne instrumentadapteren.
 
 ## Korreksjonsmodi
 
-**Chord Tones Only** korrigerer til de holdte akkordtonene. Noter som
+**Chord Tones Only** korrigerer til de holdte tonene i en gjenkjent akkord. Noter som
 fortsetter over et akkordskift, blir med i analysen.
 
 **Chord-Scale Assignment** gjenkjenner akkorden og bruker denne typens
-valgte skala med akkordens faktiske grunntone. Tomt eller ukjent
-akkordgrunnlag skaper ikke en oppdiktet skala.
+valgte skala med akkordens faktiske grunntone. Når akkorden ikke
+gjenkjennes, bruker begge akkordmodusene **Chromatic** og lar nye
+spilletoner beholde tonehøyden. Dette gjelder også tomt akkordinput og én
+unik tone. Enkeltnoter vises som for eksempel **G (single note)**;
+G B D vises som **G Major**.
 
 **Fixed Scale** bruker valgt grunntone og skala uten å la akkordsporet
 bestemme korreksjonen. Nye instanser starter i Fixed Scale/Chromatic.
+Når verten uttrykkelig melder stoppet transport, brukes **Chromatic** i
+alle tre moduser. Modus, grunntone og skala i kontrollene beholdes og
+brukes igjen ved avspilling. Manglende transportinformasjon regnes ikke
+som stopp. Allerede påbegynte toner beholder sine Note Off-bindinger.
+
 Nærmeste tillatte tone velges. Ved lik avstand brukes de to foregående
 ukorrigerte spilletonene, uten den aktuelle tonen. Vanlig legatooverlapp
 beholder historikken; samtidige anslag i samme strøm bruker reservevalg
@@ -105,6 +113,11 @@ Flysnapper venter ikke på framtidige noter.
 Baksiden har 52 uavhengige akkordtyper vist i C, inkludert CMaj13#11 og
 CMaj9#11. Akkordformelen og den valgte skalaens toner vises med navn.
 Skalatypen transponeres til den faktiske innkommende akkordens grunntone.
+Oppsettet har fire kompakte kolonner: durgruppen (14), dominant første
+del (12), dominant andre del (12) og moll med C5 og dim7 (14).
+C5 står rett etter Cm. Dominantkolonnene deles mellom C7b13 og C7sus4.
+Alle fire er synlige i bredden ved minste vindusstørrelse; rull loddrett
+for å se resten av radene. Skalamenyen står under akkordnavnet.
 
 Hver meny har først **Scales with all chord tones**, deretter **Chord
 tones outside scale**. Alle 38 valg er tilgjengelige. Innen begge grupper
@@ -120,7 +133,7 @@ i denne instansen. Nye instanser starter med samme tilordninger. De fire
 valgene uten alle nominelle akkordtoner er beholdt som brukeren valgte dem.
 Lagrede instanser beholder sine egne innstillinger. Kopiering kopierer
 innstillingene; senere endringer er uavhengige. Se
-[det importerte fabrikkoppsettet](factory-settings/2026-11-07-user-values/README.md).
+[det endelige fabrikkoppsettet](factory-settings/2026-11-07-user-values-final/README.md).
 
 ## Hjelp og kontrollstatus
 

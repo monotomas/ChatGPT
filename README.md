@@ -17,6 +17,9 @@ ved samme korrigerte tone. Den avtalte tie-tabellen beholdes, men
 historikken slettes ikke lenger av sekvensiell overlapp. Nye spilleanslag
 sender Note Off/On på samme sample når måltonen allerede klinger;
 gamle slippbindinger og sustain beholdes.
+Uidentifiserte akkorder og eksplisitt stoppet transport gir kromatisk
+gjennomslipp. Enkeltnoter merkes `(single note)`, durtreklanger `Major`.
+Baksiden bruker fire kompakte kolonner med 14 + 12 + 12 + 14 akkordtyper.
 
 Ferske tester og en ny Windows-pakke klargjøres for denne rettelsen.
 Ruting er bekreftet av brukeren i 0.4.2 og endres ikke. Alle fabrikkvalg,
@@ -35,6 +38,8 @@ Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
 - **Chord Tones Only** bruker de holdte akkordtonene. **Chord-Scale
   Assignment** bruker skalaen som er tilordnet den gjenkjente akkordtypen.
   **Fixed Scale** bruker valgt grunntone og skala uavhengig av akkordsporet.
+  Ingen gjenkjent akkord gir Chromatic i begge akkordmodusene. Eksplisitt
+  stoppet transport gir Chromatic i alle tre, med lagrede valg beholdt.
 - Buffkillers 50 korrigerte typer, to brukerbestilte #11-tillegg og de melodiske
   retningsreglene er beholdt. Holdte noter følger med ved akkordskift.
 - **Note Correction** av gir uendrede tonehøyder for nye spilletoner, mens
@@ -52,6 +57,10 @@ durpentatonisk; mollpentatonisk; minor blues. Melodisk moll bruker samme
 stigende tonemengde i begge retninger.
 
 På baksiden viser hver av 52 rader akkordtoner og skalatoner med tonenavn.
+De fire kolonnene inneholder durgruppen (14), to deler av dominantgruppen
+(12 + 12) og mollgruppen med C5 og dim7 (14). C5 står rett etter Cm;
+dominantgruppen deles mellom C7b13 og C7sus4. Alle kolonnene er synlige
+i bredden ved minste vindusstørrelse; innholdet kan rulles loddrett.
 Skalamenyen deler kompatible valg fra valg som utelater akkordtoner, med
 overskriftene **Scales with all chord tones** og **Chord tones outside
 scale**. Begge grupper følger parentfamilie og modusnummer. Uforenlige

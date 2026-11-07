@@ -16,6 +16,7 @@ class FlysnapperLook final : public juce::LookAndFeel_V4 {
 public:
     FlysnapperLook();
     void drawToggleButton(juce::Graphics&,juce::ToggleButton&,bool,bool) override;
+    juce::Font getComboBoxFont(juce::ComboBox&) override;
 };
 
 // Scale menu order depends on the chord. Item IDs retain the parameter's
@@ -38,12 +39,19 @@ public:
     void setHelp(bool);
     void resized() override;
     void paint(juce::Graphics&) override;
-    static constexpr int rowHeight=86, chordColumnWidth=276;
+    static constexpr int columnCount=4,rowHeight=124,headerHeight=30,maximumRows=14;
+    static constexpr int contentHeight=headerHeight+maximumRows*rowHeight;
+    inline static constexpr std::array<int,columnCount> columnRows{14,12,12,14};
+    static int typeAt(int column,int row) noexcept;
+    static int columnForType(int type) noexcept;
+    static int rowForType(int type) noexcept;
+    juce::Rectangle<int> columnBounds(int column) const noexcept;
 private:
     void updateRow(size_t);
     std::array<juce::Label,flysnapper::chordTypeCount> names,chordTones,scaleTones,defaults;
     std::array<juce::ComboBox,flysnapper::chordTypeCount> choices;
     std::array<std::unique_ptr<FlysnapperScaleAttachment>,flysnapper::chordTypeCount> attachments;
+    std::array<juce::Label,columnCount> columnHeaders;
     bool helpEnabled=true;
 };
 

@@ -38,6 +38,7 @@ public:
     unsigned outputEvents() const {return emittedEvents.load(std::memory_order_relaxed);}
     bool capacityFault() const {return faulted.load(std::memory_order_relaxed);}
     unsigned droppedEvents() const {return dropped.load(std::memory_order_relaxed);}
+    bool transportStopped() const {return stopped.load(std::memory_order_acquire);}
     void requestTestNote() noexcept {testRequested.store(true,std::memory_order_release);}
     void requestPanic() noexcept {needsReset.store(true,std::memory_order_release);}
     juce::AudioProcessorValueTreeState parameters;
@@ -67,7 +68,7 @@ private:
     std::array<uint8_t,16> passthroughHolds{};
     unsigned passthroughHeldCount=0;
     std::atomic<uint64_t> display{0};
-    std::atomic<bool> needsReset{false},testRequested{false},faulted{false};
+    std::atomic<bool> needsReset{false},testRequested{false},faulted{false},stopped{false};
     std::atomic<unsigned> emitted{0},emittedEvents{0},dropped{0};
     int64_t testRemaining=-1,expectedPosition=0;
     double sampleRate=48000;

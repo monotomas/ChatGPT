@@ -30,14 +30,26 @@ Spille-MIDI mottas på kanal 1 og akkordkontroll på kanal 16. Korrigert MIDI
 hentes på et separat instrumentspor: øverste MIDI From velger
 Flysnapper-sporet, nederste felt velger pluginens eget MIDI-utgangspunkt.
 Mottakeren monitoreres og driver Kontakt eller et annet lydinstrument.
-Den faktiske Live-rutingen skal bekreftes; instrumentadapteren skal ikke
+Brukeren har bekreftet rutingen i 0.4.2. Instrumentadapteren skal ikke
 beskrives som en verifisert pre-instrument MIDI-effekt på samme spor.
 
 Chord Tones Only bruker holdte akkordtoner. Chord-Scale Assignment bruker
 den gjenkjente typens egen tilordning i akkordens grunntone. Fixed Scale
 bruker selvstendig grunntone/skala. Nærmeste tillatte tone og de avtalte
 retningsreglene beholdes, uten å vente på framtidige noter. Påbegynte
-noter beholder Note Off-bindingen ved innstillingsendringer.
+noter beholder Note Off-bindingen ved innstillingsendringer. Ingen
+gjenkjent akkord gir kromatisk gjennomslipp i begge akkordmodusene,
+inkludert tomt input og én unik tone. Eksplisitt stoppet transport gir
+kromatisk gjennomslipp i alle tre moduser uten å endre lagrede valg.
+Ukjent transportstatus skal ikke tolkes som stopp. En enkelt tone vises
+som `G (single note)`, en durtreklang som `G Major`.
+
+Baksiden skal ha fire kompakte kolonner med 14/12/12/14 akkordtyper.
+Durgruppen er først, dominant deles mellom `C7b13` og `C7sus4`, og
+mollgruppen med `C5` rett etter `Cm` og `dim7` til slutt er fjerde.
+Alle kolonnene skal være fullt synlige i bredden ved minste størrelse
+1040 × 760; loddrett rulling er tillatt. Visningsrekkefølgen endrer ikke
+typeindekser, parameter-ID-er, fabrikkverdier eller lagring.
 
 Intern Note Correction av beholder akkordlytting og lar nye tonehøyder
 være uendret. Kanal 16 konsumeres når Chord MIDI Through er av, som er
@@ -52,8 +64,8 @@ koblede moduler, ikke for plassering/kjeding i Live.
 audioinngang. 0.4.1 endret vertskategori og audioutgang etter brukerens
 instruks. 0.4.2 beholder rollen og har ferske beståtte Windows-, modul- og
 installasjonskontroller. Tidligere 0.4.0-resultater brukes ikke som bevis. Faktisk innlasting,
-korrekt MIDI-utgang og mottakerspor i Live er fortsatt egne,
-uavklarte akseptpunkter.
+korrekt MIDI-utgang og mottakerspor i Live ble siden bekreftet av brukeren
+for 0.4.2. Nye funksjoner kontrolleres separat i 0.4.3.
 
 En ferdig Windows x64-installasjonspakke er leveransemålet. Brukeren skal
 kunne installere uten Python, CMake, Visual Studio eller kildeendringer.

@@ -4,7 +4,9 @@ This implementation follows the user-approved combined-product behavior.
 Earlier routing gates and interim testing requirements in the original handover
 are superseded by docs/PRODUCT_SPEC.md.
 
-`MusicData` carries the common 19-scale list and the 50 independent chord types.
+`MusicData` carries 38 scales and 52 independent chord types. The original
+50 recognition patterns remain unchanged; two user-requested #11 types append
+to the catalog without remapping existing IDs.
 The copied `Reference` headers are AGPL-3.0-or-later Buffkiller source from the
 unaltered handover. They provide GUI naming/spelling; the realtime lookup is a
 numeric, precomputed equivalent. Exhaustive tests compare all 4096 masks and all
@@ -15,17 +17,22 @@ The GUI may show alternatives. Chord Scale uses the first candidate:
 2. Within that completeness class, prefer root bass, then third, then fifth.
 3. Remaining ties preserve the audited dictionary's type order and root order.
 
-An absent root is never invented. An unknown chord in Chord Scale suppresses new
-notes. In Chord Notes the actual received pitch classes remain authoritative,
-whether or not they can be named. There is no hidden union between a selected
-scale and chord tones.
+An absent root is never invented. Both chord-dependent modes use Chromatic
+(mask 0xfff, effective scale/root 0/0) when no chord is recognized: empty, single
+pitch class or unrecognized multi-note set. Recognized Chord Notes uses the
+actual held pitch classes; Chord Scale uses its assigned scale. There is no
+hidden union between that scale and chord tones. A single pitch class displays
+as `G (single note)`; a major triad as `G Major`. These are GUI names, not
+recognition or registry changes.
 
 ## Note and controller policies
 
 - Hold existing output mappings over chord, scale, table, correction bypass and
   mode changes. New Note Ons use the current set; Note Offs use their binding.
-- An empty chord set suppresses new notes in chord modes, recording a zero-output
-  binding so later repeated input notes still get correct FIFO Note Offs.
+- Empty/unrecognized chord sets pass playing pitches chromatically in both
+  chord modes. Existing bindings survive fallback transitions. Explicit stopped
+  transport overrides all three modes to Chromatic in the adapter without
+  changing saved parameters; absent/invalid transport information is unknown.
 - Repeated identical input notes match oldest still-held input first (FIFO).
 - Playing input voices on the same output channel/note retain separate
   bindings and reference counts. Every new playing attack rearticulates with
@@ -71,64 +78,16 @@ and `chordDetail` are GUI-only and allocate. Snapshot packs chord recognition,
 effective mask, effective scale/root, mode and bypass into a single atomic word.
 Active voices and chord input are never preset state.
 
-## Editable factory recommendations
+## Factory assignments and presentation
 
-These recommendations are starting values. Every row independently permits all
-19 scales, without compatibility filtering. Stable IDs in `MusicData.cpp` are
-the persistence keys; row numbers and display strings are not persistence IDs.
+All 52 starting assignments are defined by the preserved user workbook and two
+later Chromatic overrides, recorded in
+[the final factory record](../../docs/factory-settings/2026-11-07-user-values-final/README.md).
+Every row independently permits all 38 scales. Menus group compatible scales
+first while retaining stable IDs, and identify chord tones outside other
+choices. Scale compatibility is information, not a restriction.
 
-| Type | Starting scale |
-|---|---|
-| major | Major / Ionian |
-| m | Natural Minor / Aeolian |
-| sus2 | Major / Ionian |
-| sus4 | Major / Ionian |
-| 5 | Major Pentatonic |
-| 5/7 | Mixolydian |
-| 6 | Major / Ionian |
-| m6 | Dorian |
-| 6/9 | Major / Ionian |
-| 7 | Mixolydian |
-| Maj7 | Major / Ionian |
-| m7 | Dorian |
-| mMaj7 | Melodic Minor |
-| m7b5 | Locrian |
-| dim7 | Diminished Whole-Half |
-| 7sus4 | Mixolydian |
-| 7sus4b9 | Phrygian Dominant |
-| 7b5 | Lydian Dominant |
-| 7#5 | Altered |
-| 7b9 | Phrygian Dominant |
-| 7#9 | Altered |
-| 7#11 | Lydian Dominant |
-| 7b13 | Altered |
-| 7b5b9 | Altered |
-| 7b5#9 | Altered |
-| 7#5b9 | Altered |
-| 7#5#9 | Altered |
-| Maj7#5 | Melodic Minor |
-| Maj7#9 | Harmonic Minor |
-| Maj7#11 | Lydian |
-| 9 | Mixolydian |
-| Maj9 | Major / Ionian |
-| m9 | Dorian |
-| mMaj9 | Melodic Minor |
-| 9sus4 | Mixolydian |
-| 9#11 | Lydian Dominant |
-| 11 | Mixolydian |
-| Maj11 | Major / Ionian |
-| m11 | Dorian |
-| m11b5 | Locrian |
-| 13 | Mixolydian |
-| Maj13 | Major / Ionian |
-| mMaj13 | Melodic Minor |
-| 13b9 | Diminished Half-Whole |
-| 13#9 | Diminished Half-Whole |
-| 13sus4 | Mixolydian |
-| 13sus4b9 | Phrygian Dominant |
-| m13 | Dorian |
-| 13add#9 | Diminished Half-Whole |
-| m13b5 | Locrian |
-
-Unusual altered/extended voicings are one reason this table is editable. A
-recommendation need not contain every chord tone and is not a harmonic verdict.
+The assignment table presents four columns of 14/12/12/14 types. Presentation
+order is separate from the immutable registry indices. C5 appears just after
+Cm; the dominant group splits between C7b13 and C7sus4. All columns fit the
+minimum editor width. No layout choice changes parameters, defaults or state.

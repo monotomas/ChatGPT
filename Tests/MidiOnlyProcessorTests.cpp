@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
+#include <limits>
 #include <memory>
 #include <new>
 #include <sstream>
@@ -250,6 +251,21 @@ void directionalArticulationTimelines() {
 }
 
 void simultaneousDirectionAndDiagnosticIsolation() {
+    for(int cc:{120,123})for(int placement=0;placement<3;++placement)for(bool reverse:{false,true}) {
+        Harness h("poly_control_reset_"+std::to_string(cc)+"_"+std::to_string(placement)+(reverse?"_reverse":"_forward"));fixedMajor(h);descendingHistory(h);
+        const int first=reverse?65:67,second=reverse?67:65;
+        Stream input,expected;const Event control{23,juce::MidiMessage::controllerEvent(1,cc,0)};
+        if(placement==0)input.push_back(control);
+        input.emplace_back(23,on(first,1,81));expected.emplace_back(23,on(first,1,81));
+        if(placement==1){input.push_back(control);expected.emplace_back(23,off(first));}
+        input.emplace_back(23,on(second,1,99));expected.emplace_back(23,on(second,1,99));
+        if(placement==2){input.push_back(control);expected.emplace_back(23,off(first));expected.emplace_back(23,off(second));}
+        input.emplace_back(24,on(68));expected.emplace_back(24,on(69));
+        input.emplace_back(31,off(first));if(placement==0)expected.emplace_back(31,off(first));
+        input.emplace_back(37,off(second));if(placement<2)expected.emplace_back(37,off(second));
+        input.emplace_back(47,off(68));expected.emplace_back(47,off(69));
+        sameStream(h.process(128,input),expected,"CC120/123 inside an ambiguous timestamp seeded order-dependent direction or broke cleanup");h.released();
+    }
     for(bool reverse:{false,true}) {
         Harness h(reverse?"poly_ties_reverse":"poly_ties_forward");fixedMajor(h);descendingHistory(h);
         const int first=reverse?68:66,second=reverse?66:68;
@@ -301,7 +317,7 @@ void simultaneousDirectionAndDiagnosticIsolation() {
         const auto expiry=h.process(6000);check(notes(expiry,true).empty()&&notes(expiry,false).size()==1
             &&notes(expiry,false)[0].second.getNoteNumber()==60,"Diagnostic expiry did not release its independent test note");h.released();
     }
-    passed("simultaneous_fallback_causality_and_source_history", "Actual callbacks:permuted same-sample polyphony/duplicate onsets use upper fallback without seeding history; future timestamps, raw channels and diagnostic events do not corrupt external raw-note direction");
+    passed("simultaneous_fallback_causality_and_source_history", "Actual callbacks:permuted same-sample polyphony/duplicate onsets use upper fallback without seeding history, including CC120/123 before/between/after onsets; future timestamps, raw channels and diagnostic events do not corrupt external raw-note direction");
 }
 
 void samePitchRearticulation() {
@@ -728,8 +744,8 @@ void chordTimeAndHeldBindings() {
     auto& p = *h.processor; set(p, "mode", 0);
     Stream inside{{5, on(61)}};
     append(inside, chord({48, 52, 55}, true, 7)); inside.emplace_back(9, on(61));
-    expectNote(h.process(128, inside), true, 60, 9);
-    check(h.process(128, {{11, off(61)}}).empty(), "A suppressed note lost its FIFO binding");
+    sameStream(h.process(128,inside),{{5,on(61)},{9,on(60)}},"Chord lookahead incorrectly changed the earlier chromatic-fallback note");
+    expectNote(h.process(128,{{11,off(61)}}),false,61,11);
     expectNote(h.process(128, {{13, on(61, 1, 0)}}), false, 60, 13);
     expectNote(h.process(128, {{17, on(61)}}), true, 60, 17);
     auto change = chord({48, 52, 55}, false, 3);
@@ -745,7 +761,33 @@ void chordTimeAndHeldBindings() {
     set(p, "correction", 1); set(p, "mode", 2); set(p, "scale", 1);
     expectNote(h.process(128, {{41, off(61)}}), false, 61, 41);
     h.process(128, chord({50, 54, 57}, false)); h.released();
-    passed("no_chord_lookahead_and_stable_held_bindings", "A note before the chord remains suppressed; FIFO zero-velocity release and held notes survive chord, assignment, mode and correction changes");
+    passed("no_chord_lookahead_and_stable_held_bindings", "A note before the chord passes chromatically and retains its FIFO release; zero-velocity release and held notes survive chord, assignment, mode and correction changes");
+}
+
+void unrecognizedChordFallback() {
+    const std::array<Stream,3> controls{{{},chord({55},true,3),chord({48,49},true,3)}};
+    for(int mode:{0,1})for(int fixture=0;fixture<3;++fixture) {
+        Harness h("unknown_chord_mode"+std::to_string(mode)+"_"+std::to_string(fixture));auto& p=*h.processor;set(p,"mode",float(mode));
+        auto input=controls[size_t(fixture)];input.emplace_back(17,on(61,1,83));input.emplace_back(47,off(61));
+        sameStream(h.process(128,input),{{17,on(61,1,83)},{47,off(61)}},"Empty/single/unrecognized chord did not pass a musical note chromatically");
+        const auto unknown=p.getSnapshot();check(unknown.typeIndex<0&&unknown.allowedMask==0xfff&&unknown.effectiveScale==0&&unknown.effectiveRoot==0,
+              "Unrecognized chord fallback does not expose its effective chromatic scale");
+        for(int pc=0;pc<12;++pc) {
+            const Stream notesIn{{17,on(60+pc,1,80+pc)},{47,off(60+pc)}};
+            sameStream(h.process(128,notesIn),notesIn,"Unrecognized chord fallback changed one of the12 pitch classes");
+        }
+        Stream recognized{{3,juce::MidiMessage::controllerEvent(16,123,0)}};append(recognized,chord({48,52,55},true,3));recognized.emplace_back(17,on(61));
+        const int corrected=mode==0?60:62;expectNote(h.process(128,recognized),true,corrected,17);
+        check(p.getSnapshot().typeIndex==0&&p.getSnapshot().root==0,"Recognized C-major chord did not resume the selected mode");
+        expectNote(h.process(128,{{3,juce::MidiMessage::controllerEvent(16,123,0)},{47,off(61)}}),false,corrected,47);
+        Stream power=chord({48,55},true,3);power.emplace_back(17,on(62));
+        expectNote(h.process(128,power),true,mode==0?60:63,17);
+        check(p.getSnapshot().typeIndex==4&&p.getSnapshot().allowedMask!=0xfff,"Recognized C/G power dyad incorrectly fell back to chromatic");
+        expectNote(h.process(128,{{47,off(62)}}),false,mode==0?60:63,47);
+        p.requestPanic();h.process(128);h.released();
+    }
+    feature("unrecognized_chord_chromatic_fallback");
+    passed("empty_single_and_unknown_multi_chord_chromatic_fallback", "Both chord modes pass all12 pitch classes for empty, single G and genuinely unrecognized C/Db; recognized C major and C/G power dyad restore correction, with original Off bindings across chord loss");
 }
 
 void relayChangesAndConditionalBypass() {
@@ -839,11 +881,49 @@ void rawMessagesSustainAndPanic() {
 class Position final : public juce::AudioPlayHead {
 public:
     int64_t sample = 0;
-    bool playing = true;
+    bool playing = true,available = true,nonfiniteSeconds = false;
     juce::Optional<PositionInfo> getPosition() const override {
-        PositionInfo p; p.setIsPlaying(playing); p.setTimeInSamples(sample); return p;
+        if(!available)return {};
+        PositionInfo p; p.setIsPlaying(playing); p.setTimeInSamples(sample);
+        if(nonfiniteSeconds)p.setTimeInSeconds(std::numeric_limits<double>::quiet_NaN());
+        return p;
     }
 };
+void stoppedTransportFallback() {
+    for(int mode=0;mode<3;++mode) {
+        Harness h("transport_chromatic_runtime_mode"+std::to_string(mode));auto& p=*h.processor;Position head;p.setPlayHead(&head);
+        set(p,"mode",float(mode));set(p,"root",2);set(p,"scale",1);
+        auto initial=chord({48,52,55},true,3);initial.emplace_back(17,on(63));
+        expectNote(h.process(128,initial),true,64,17);check(!p.transportStopped(),"Playing transport was reported stopped");
+        head.sample=128;head.playing=false;auto stopped=chord({48,52,55},true,3);stopped.emplace_back(19,on(63,1,91));
+        sameStream(h.process(128,stopped),{{0,off(64)},{19,on(63,1,91)}},"Stop did not clean the old binding before chromatic live playing");
+        check(p.transportStopped()&&p.getSnapshot().effectiveScale==0&&p.getSnapshot().effectiveRoot==0&&p.getSnapshot().allowedMask==0xfff,
+              "Explicit stopped transport did not expose a chromatic runtime override");
+        check(get(p,"mode")==mode&&get(p,"root")==2&&get(p,"scale")==1,"Stopped runtime override changed persistent mode/root/scale controls");
+        juce::MemoryBlock state;p.getStateInformation(state);FlysnapperProcessor copy;copy.setStateInformation(state.getData(),int(state.getSize()));
+        check(get(copy,"mode")==mode&&get(copy,"root")==2&&get(copy,"scale")==1,"Saving while stopped persisted the chromatic override instead of the selected controls");
+        head.sample=256;head.playing=true;
+        sameStream(h.process(128,{{11,off(63)},{23,on(63)},{47,off(63)}}),{{11,off(63)},{23,on(64)},{47,off(64)}},
+                   "Restart changed the stopped note's Off binding or failed to restore selected correction");
+        check(!p.transportStopped(),"Restart left the stopped display flag active");
+        head.sample=384;head.playing=false;h.process(128,chord({48,52,55},true,3));
+        check(p.transportStopped(),"Second explicit stop did not update the display flag");
+        p.setPlayHead(nullptr);
+        sameStream(h.process(128,{{17,on(63)},{47,off(63)}}),{{17,on(64)},{47,off(64)}},"Missing playhead retained the stopped override instead of normal correction");
+        check(!p.transportStopped(),"Missing playhead was incorrectly presented as stopped");
+        p.setPlayHead(&head);head.sample=512;h.process(128);check(p.transportStopped(),"Reattached explicit stop was not observed");
+        head.available=false;
+        sameStream(h.process(128,{{17,on(63)},{47,off(63)}}),{{17,on(64)},{47,off(64)}},"Unavailable PositionInfo was incorrectly treated as stopped");
+        check(!p.transportStopped()&&get(p,"mode")==mode&&get(p,"root")==2&&get(p,"scale")==1,
+              "Unknown position changed saved controls or retained a stopped flag");
+        head.available=true;head.nonfiniteSeconds=true;
+        sameStream(h.process(128,{{17,on(63)},{47,off(63)}}),{{17,on(64)},{47,off(64)}},"Nonfinite wrapped position time incorrectly disabled correction");
+        check(!p.transportStopped(),"Unusable nonfinite PositionInfo was reported as an explicit stop");
+        p.setPlayHead(nullptr);p.requestPanic();h.process(128);h.released();
+    }
+    feature("stopped_transport_chromatic_fallback");
+    passed("known_stopped_chromatic_all_modes_and_unknown_transport", "All3 selected modes become chromatic only for explicit stopped transport, save original mode/root/scale, preserve live Off bindings across restart and restore correction when playing or when playhead/position is unavailable or has nonfinite seconds");
+}
 void rearticulationCleanup() {
     for(int reason=0;reason<4;++reason) {
         Harness h("rearticulation_cleanup_"+std::to_string(reason));fixedMajor(h);Position head;
@@ -961,7 +1041,7 @@ int main() {
         juce::ScopedJuceInitialiser_GUI runtime;
         declarationsAndState(); normalisedChoiceCoverage(); freshConstructorChoiceRounding(); harmonicMajorCallbackCoverage();
         directionalArticulationTimelines(); simultaneousDirectionAndDiagnosticIsolation(); samePitchRearticulation(); rearticulationCleanup();
-        chordControlAndInternalBypass(); revisedFactoryChoices(); newSharpEleventhChordTypes(); threeStageChain(); chordTimeAndHeldBindings();
+        chordControlAndInternalBypass(); revisedFactoryChoices(); newSharpEleventhChordTypes(); threeStageChain(); chordTimeAndHeldBindings(); unrecognizedChordFallback(); stoppedTransportFallback();
         relayChangesAndConditionalBypass(); rawMessagesSustainAndPanic(); transportLimitsAndRealtime(); routingPulseDoesNotOwnExternalNote();
         writeEvidence("passed");
         std::cout << "FlysnapperMidiOnlyProcessor: PASS (" << checks << " checks, " << cases.size() << " cases; no Ableton verification).\n";

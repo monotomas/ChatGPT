@@ -2,7 +2,8 @@
 
 0.4.2 mistet retningshistorikken når forskjellige spilletoner overlappet,
 og slo sammen nye anslag som ble korrigert til en allerede klingende tone.
-0.4.3 retter begge forholdene.
+0.4.3 retter begge forholdene, gir kromatisk gjennomslipp uten gjenkjent
+akkord og ved stopp, og samler akkordoppsettet i fire kompakte kolonner.
 
 Retningsregelen beholdes: ved lik avstand brukes de to foregående
 ukorrigerte spilletonene, uten å ta med den aktuelle tonen. Historikken
@@ -22,6 +23,24 @@ syntetiske note beholder sin tidligere lave prioritet ved kollisjon.
 Eksempel i C-dur: F–G–G# blir F–G–A også med legatooverlapp. B–A–G#
 blir B–A–G. C# som korrigeres til D, fulgt av et nytt D-anslag mens
 første tone holdes, gir et nytt D-anslag i stedet for én lang tone.
+
+Når ingen akkord gjenkjennes, bruker begge akkordmodusene Chromatic.
+Dette gjelder tomt akkordinput, én unik tone og uidentifiserte flertonersett.
+Gjentatte/holdte noter beholder sine korrekte slippbindinger. En enkelt
+tone vises som `G (single note)`; durtreklangen G B D som `G Major`.
+Gjenkjenning og lagrede akkord-ID-er er uendret.
+
+Eksplisitt stoppet transport gir Chromatic i alle tre moduser, mens lagret
+modus, grunntone og skala beholdes. Ved avspilling brukes de valgte
+innstillingene igjen. Manglende eller ugyldig transportinformasjon skal
+ikke tolkes som stopp. Påbegynte toner får fortsatt korrekt Note Off.
+
+Baksiden har fire kolonner: 14 durtyper, 12 dominanter, 12 dominanter og
+14 moll-/power-/dim-typer. C5 står rett etter Cm. Dominantkolonnene deles
+mellom C7b13 og C7sus4. Skalamenyen står under akkordnavnet, og alle
+kolonnene er synlige i bredden ved minste størrelse 1040 × 760. Loddrett
+rulling viser resten av radene. Toneforklaringer, fabrikkvalg og alle
+52 × 38 menyvalg beholdes; visningsrekkefølgen endrer ingen parameter-ID.
 
 Alle 52 akkordtyper, 38 skalaer og de endelige fabrikkvalgene fra 0.4.2
 beholdes. Vertskategori, stille stereoutgang, Fsm1-identitet,
