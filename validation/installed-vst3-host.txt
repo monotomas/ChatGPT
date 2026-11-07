@@ -1,32 +1,25 @@
-PASS actual VST3 discovery and instrument classification
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 32 samples
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 128 samples
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 44100 Hz / 257 samples
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 32 samples
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 128 samples
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 48000 Hz / 257 samples
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 32 samples
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 128 samples
-PASS actual VST3 MIDI/chord roles, register, velocity, original Note Off and offsets: 96000 Hz / 257 samples
-PASS actual VST3 named sidechain activation, audio, digital silence and deactivation
-PASS actual VST3 generated/external simultaneous events, 4800-sample test gate, source-only shutdown
-PASS actual VST3 all settings/table state roundtrip, instance isolation, no revived notes
-PASS actual VST3 stop/restart/seek flush, no stale chord or repeated note offs
-MEASURE actual VST3 Controller Modulation Wheel (coarse): 73 Channel 2 offset in=17 out=17
-MEASURE actual VST3 Pitch wheel 12345 Channel 2 offset in=17 out=17
-MEASURE actual VST3 Channel pressure 41 Channel 2 offset in=17 out=17
-MEASURE actual VST3 Program change 17 Channel 2 offset in=17 out=17
-PASS actual VST3 CC1, pitch bend, channel pressure and program-change values
-PASS actual VST3 forwarded CC66/CC69 released at transport stop without active core voices
-MEASURE actual VST3 audio first useful note 15.9792 ms (functional sample observation, excludes driver/Live/synth latency)
-PASS actual compiled VST3 mono/poly sidechain -> MIDI -> correction, simultaneous external/control MIDI and source-only shutdown
-MEASURE actual VST3 mono bend 44100 Hz, +/-2 semitones: 152 pitch updates, P95 error 4.30367 cents
-MEASURE actual VST3 mono bend 44100 Hz, +/-12 semitones: 152 pitch updates, P95 error 4.30367 cents
-MEASURE actual VST3 mono bend 48000 Hz, +/-2 semitones: 152 pitch updates, P95 error 4.30476 cents
-MEASURE actual VST3 mono bend 48000 Hz, +/-12 semitones: 152 pitch updates, P95 error 4.30476 cents
-MEASURE actual VST3 mono bend 96000 Hz, +/-2 semitones: 151 pitch updates, P95 error 4.31094 cents
-MEASURE actual VST3 mono bend 96000 Hz, +/-12 semitones: 151 pitch updates, P95 error 4.31094 cents
-PASS actual VST3 acoustic bend/vibrato, RPN range, generated channel isolation and wheel reset
-RESULT actual VST3 host tests passed (952498 assertions).
+PASS module_contract
+PASS user_factory_defaults_and_fresh_state
+PASS routing_44100_32
+PASS routing_44100_128
+PASS routing_44100_257
+PASS routing_48000_32
+PASS routing_48000_128
+PASS routing_48000_257
+PASS routing_96000_32
+PASS routing_96000_128
+PASS routing_96000_257
+PASS all_38_scale_indices
+PASS internal_correction_off_held_chord
+PASS new_sharp_eleventh_chord_mappings
+PASS serial_instances_and_two_active_corrections
+PASS non_ch1_notes_and_expression
+PASS channel1_sustain_and_latch_reset
+PASS overlapping_input_bindings
+PASS instance_state
+PASS transport_reset
+PASS generated_midi_routing
+PASS host_invoked_bypass_callback
+RESULT actual VST3 host tests passed (5374 assertions).
 PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
-NOT VERIFIED BY THIS TEST: Ableton Live, audio-driver/end-to-end latency or general musical accuracy.
+NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.

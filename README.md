@@ -1,9 +1,9 @@
-# Flysnapper Windows x64
+# Flysnapper MIDI Windows x64
 
-[Last ned Flysnapper 0.3.0 for gitarprøve](downloads/Flysnapper-Windows-x64.zip?raw=1)
+[Last ned MIDI-installasjonspakken](downloads/Flysnapper-Windows-x64.zip?raw=1)
 
-Pakk ut hele ZIP-filen og dobbeltklikk INSTALL_FLYSNAPPER.bat. Ingen Python, CMake eller Visual Studio kreves.
+Pakk ut hele ZIP-filen og kjor INSTALL_FLYSNAPPER.bat. Ingen kompilator eller Python kreves.
+Den nye Flysnapper MIDI.vst3 har egen komponentidentitet og erstatter ikke den eldre Flysnapper.vst3.
 
-status.json identifiserer kildecommit og den faktiske Windows-byggingen. Native automatiske tester og SHA256 er vedlagt. Målte audioegenskaper og eventuelle gjenværende begrensninger står i pakken; Windows-bygg er ikke i seg selv en Ableton-/lydkortmåling.
-
-Denne leveransen er klargjort for praktisk gitarprøve etter de automatiske kontrollene for kravene av 5. november. Poly sender definerte halvtoner uten polyfonisk bending; mono har fortsatt valgfri bending. Begynn med den veiledede 20-sekunders spilleprøven i Input dynamics og juster kontrollene ved behov. De målte begrensningene følger pakken.
+status.json identifiserer kildecommit, Windows-bygg, native MIDI-/VST3-tester og faktisk installasjon/erstatning/gjenoppretting.
+Dette dokumenterer testverten og installerpakken; en praktisk Ableton Live-test er ikke utfort av CI.

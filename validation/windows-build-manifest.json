@@ -1,55 +1,46 @@
 {
-  "version": "0.3.0",
-  "stage": "calibrated-input-guitar-evaluation",
+  "version": "0.4.0",
+  "product": "Flysnapper MIDI",
+  "bundle_name": "Flysnapper MIDI.vst3",
+  "stage": "midi-only-native-validation",
   "evaluation_scope": {
-    "revision_date": "2026-11-05",
-    "purpose": "real-guitar-evaluation",
-    "monophonic_bending": "optional",
-    "polyphonic_bending": false,
-    "polyphonic_output": "discrete-semitone-notes",
-    "latency": "optimized-and-reported-per-pitch",
-    "real_guitar_test_pending": true,
-    "physical_interface_latency_verified": false
+    "feature_set": "midi-to-midi-only",
+    "audio_processing": false,
+    "pitch_to_midi": false,
+    "scales": 38,
+    "chord_types": 52,
+    "host_scope": "native-processor-and-compiled-vst3-test-host",
+    "ableton_verified": false
   },
-  "builder_revision": "2026.11.05-calibrated-input-guitar-evaluation",
+  "builder_revision": "2026.11.07-midi-only-native-validation",
   "platform": "Windows-x64",
   "juce_commit": "ea77444750de45e036e0279bb0291144bf8e3688",
-  "built_at": "2026-11-05T04:10:10.122694+00:00",
+  "built_at": "2026-11-07T18:00:02.869713+00:00",
   "python": "3.12.10",
-  "source_commit": "e235c8a098dadce6e0a4b8bd6ca9de789a5d174d",
-  "vst3_sha256": "8f6963e803a32fa020d4496d6f76cfaac5b881f11a1dc9a093079fdaca575087",
+  "source_commit": "7323545b2eda5a877a16a42248fea5c4e6cdc953",
+  "vst3_sha256": "f4567bc474dca5e857cd2286046689ba34219d527cd2eb944c557fa5c5e14b34",
   "bundle_sha256": {
-    "Contents/Resources/moduleinfo.json": "1631c1225e22ef6afbb2ac1b7efa259987b4e73fa4e0a4bd8bd5dee6c9826a6b",
-    "Contents/x86_64-win/Flysnapper.vst3": "8f6963e803a32fa020d4496d6f76cfaac5b881f11a1dc9a093079fdaca575087"
+    "Contents/Resources/moduleinfo.json": "3c13c87f6e21a7b6c09cd81287e28468b36beef310186dc77b5b504586d55df5",
+    "Contents/x86_64-win/Flysnapper MIDI.vst3": "f4567bc474dca5e857cd2286046689ba34219d527cd2eb944c557fa5c5e14b34"
   },
   "tests": "passed",
   "required_test_names": [
     "FlysnapperActualVst3",
-    "FlysnapperAudioQuality",
-    "FlysnapperBendProcessor",
     "FlysnapperCore",
-    "FlysnapperDynamicsProcessor",
-    "FlysnapperGuitarQuality",
-    "FlysnapperInputDynamics",
-    "FlysnapperMpeActualVst3",
-    "FlysnapperMpeOutput",
-    "FlysnapperMpeProcessor",
-    "FlysnapperNoise",
-    "FlysnapperPitch",
-    "FlysnapperPluginSmoke",
-    "FlysnapperProcessorAudio",
-    "FlysnapperYin"
+    "FlysnapperMidiOnlyProcessor",
+    "FlysnapperPluginSmoke"
   ],
   "ableton_verified": false,
-  "pitch_detection_implemented": true,
+  "pitch_detection_implemented": false,
+  "audio_processing_implemented": false,
   "visual_studio_build_version": "17.14.37827.9",
   "windows_sdk_version": "10.0.26100.0",
   "toolchain_probe": "passed",
   "juceaide_unicode_probe": "passed",
   "juce_unicode_patch": "windows-wide-argv-v1",
   "windows_verified": true,
-  "input_dynamics_evidence": {
-    "path": "input-dynamics/report-manifest.json",
-    "sha256": "f333b0e62fc97418c9e677d2002eb409cc612805b4163425f4aa76c9602c4d4d"
+  "midi_only_evidence": {
+    "path": "midi-validation/report-manifest.json",
+    "sha256": "6fe0f0664ab1dbac12aca5d7690a87f9f7a311f8bc7d5aa9caa2b08ed6e6b223"
   }
 }
