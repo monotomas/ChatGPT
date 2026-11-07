@@ -51,12 +51,14 @@ void scaleCatalogAndMenus() {
     }};
     // These are the original parameter values, not positions in a new menu.
     for(size_t i=0;i<legacyIds.size();++i)CHECK(scaleIndexFromId(legacyIds[i])==int(i));
-    constexpr std::array<int,50> legacyDefaults{{
-        1,2,1,1,11,8,1,5,1,8,1,5,4,9,14,8,17,15,16,17,16,15,16,16,16,
-        16,16,4,3,7,8,1,5,4,8,15,8,1,5,9,8,1,4,13,13,8,17,5,13,9
+    // User's uploaded52-row worksheet, independently mapped by stable IDs.
+    // These intentionally replace old provisional choices, including scales
+    // outside the nominal chord; containment must not rewrite user choices.
+    constexpr std::array<int,52> userFactoryDefaults{{
+        1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,16,15,16,16,16,16,
+        16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,35,8,35,5,8,32,7,7
     }};
-    for(size_t i=0;i<legacyDefaults.size();++i)CHECK(factoryDefaults()[i]==legacyDefaults[i]);
-    CHECK(factoryDefaults()[50]==7&&factoryDefaults()[51]==7);
+    for(size_t i=0;i<userFactoryDefaults.size();++i)CHECK(factoryDefaults()[i]==userFactoryDefaults[i]);
     CHECK(chordIndexFromId("major_thirteenth_sharp11")==50);
     CHECK(chordIndexFromId("major_ninth_sharp11")==51);
     const auto& definitions=scaleDefinitions();
@@ -177,7 +179,7 @@ void dataAndRecognition() {
     std::set<std::string> ids;
     for(int i=0;i<scaleCount;++i){CHECK(ids.insert(scaleDefinitions()[size_t(i)].id).second);CHECK(scaleIndexFromId(scaleDefinitions()[size_t(i)].id)==i);}
     ids.clear();
-    for(int i=0;i<chordTypeCount;++i){CHECK(ids.insert(chordTypes()[size_t(i)].id).second);CHECK(chordIndexFromId(chordTypes()[size_t(i)].id)==i);CHECK(factoryDefaults()[size_t(i)]>=0&&factoryDefaults()[size_t(i)]<19);}
+    for(int i=0;i<chordTypeCount;++i){CHECK(ids.insert(chordTypes()[size_t(i)].id).second);CHECK(chordIndexFromId(chordTypes()[size_t(i)].id)==i);CHECK(factoryDefaults()[size_t(i)]>=0&&factoryDefaults()[size_t(i)]<scaleCount);}
     CHECK(scaleIndexFromId("missing")==-1);CHECK(chordIndexFromId("missing")==-1);
     CHECK(scaleDefinitions()[0].mask==0xfff);
     for(const auto& s:scaleDefinitions())for(int root=0;root<12;++root) {
@@ -321,6 +323,18 @@ void snapshotPacking() {
 }
 void chordControlAndScales() {
     snapshotPacking();
+    // Real new user defaults include high indices32/35 and the fractional-
+    // normalization regression's index3. Test fresh core instances without
+    // overriding their maps, including the packed GUI status high bit.
+    constexpr std::array<std::pair<int,int>,5> freshFactoryCases{{{43,35},{49,32},{33,3},{10,7},{31,7}}};
+    for(const auto& expected:freshFactoryCases){
+        Engine fresh;auto settings=fresh.settings();settings.mode=Mode::ChordScale;fresh.setSettings(settings);
+        const auto formula=chordToneMask(expected.first);
+        for(int pc=0;pc<12;++pc)if(formula&(1u<<pc))fresh.chordNoteOn(pc==0?36:60+pc);
+        fresh.refreshChord();const auto snapshot=unpackSnapshot(packSnapshot(fresh.snapshot()));
+        CHECK(snapshot.root==0&&snapshot.typeIndex==expected.first);
+        CHECK(snapshot.effectiveScale==expected.second&&snapshot.allowedMask==scaleDefinitions()[size_t(expected.second)].mask);
+    }
     Engine e;Output o;
     chord(e,{36,48,64,67});CHECK(e.snapshot().chordMask==0x091);CHECK(e.snapshot().root==0);CHECK(e.snapshot().typeIndex==0);
     e.chordNoteOff(36);e.refreshChord();CHECK(e.snapshot().chordMask==0x091);

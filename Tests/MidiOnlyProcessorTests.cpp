@@ -42,6 +42,14 @@ juce::StringArray verifiedFeatures;
 juce::StringArray eventCases;
 std::ostringstream csv;
 int64_t eventRows = 0;
+// Independently audited user workbook, canonical ordered mapping digest
+// 146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814.
+// This literal is an external factory-preset expectation, not a copy read
+// back from the runtime defaults under test.
+constexpr std::array<int,52> userFactoryChoices{{
+    1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,16,15,16,16,16,16,
+    16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,35,8,35,5,8,32,7,7
+}};
 
 void check(bool value, const std::string& message) {
     ++checks;
@@ -184,9 +192,16 @@ void declarationsAndState() {
     for (int i = 0; i < flysnapper::chordTypeCount; ++i) {
         auto* p = dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter(FlysnapperProcessor::mappingParameterId(i)));
         check(p && p->choices.size() == flysnapper::scaleCount, "A mapping does not offer all38 scales");
-        const int expected = flysnapper::factoryDefaults()[size_t(i)];
+        const int expected = userFactoryChoices[size_t(i)];
+        check(flysnapper::factoryDefaults()[size_t(i)] == expected,"Declared factory choices differ from the approved user workbook");
         check(p->getIndex() == expected && juce::roundToInt(get(a, FlysnapperProcessor::mappingParameterId(i))) == expected,
               "Initial raw factory choice rounds to a different discrete parameter index");
+    }
+    juce::MemoryBlock factoryState;a.getStateInformation(factoryState);
+    b.setStateInformation(factoryState.getData(),int(factoryState.getSize()));
+    for(int i=0;i<flysnapper::chordTypeCount;++i) {
+        auto* copied=dynamic_cast<juce::AudioParameterChoice*>(b.parameters.getParameter(FlysnapperProcessor::mappingParameterId(i)));
+        check(copied&&copied->getIndex()==userFactoryChoices[size_t(i)],"Copying a fresh instance changed a user factory choice");
     }
     feature("zero_audio_buses");
     for (int s = 0; s < flysnapper::scaleCount; ++s) {
@@ -323,33 +338,44 @@ void normalisedChoiceCoverage() {
 }
 
 void freshConstructorChoiceRounding() {
-    Harness h("fresh_constructor_choice_rounding");auto& p=*h.processor;
-    const int type=flysnapper::chordIndexFromId("major_seventh_sharp9");
-    check(type>=0&&flysnapper::factoryDefaults()[size_t(type)]==3,"The declared existing factory reference changed");
-    const auto id=FlysnapperProcessor::mappingParameterId(type);
-    const float rawDefault=get(p,id);
-    auto* parameter=dynamic_cast<juce::AudioParameterChoice*>(p.parameters.getParameter(id));
-    check(parameter&&parameter->getIndex()==3&&juce::roundToInt(rawDefault)==3,
-          "Fresh factory choice does not denote Harmonic Minor");
-    // No setter is called for this mapping: APVTS may still expose its
-    // unsnapped constructor value3/37*37, which can be2.999999762f.
-    juce::MemoryBlock saved;p.getStateInformation(saved);
-    auto xml=juce::AudioProcessor::getXmlFromBinary(saved.getData(),int(saved.getSize()));
-    auto* table=xml?xml->getChildByName("ChordScales"):nullptr;check(table!=nullptr,"Cannot inspect fresh constructor state");
-    bool correctID=false;
-    for(auto* choice:table->getChildIterator())
-        if(choice->getStringAttribute("chord")=="major_seventh_sharp9")
-            correctID=choice->getStringAttribute("scale")=="harmonic_minor";
-    check(correctID,"Fresh state export truncated the raw default into another scale ID");
-    set(p,"mode",1);auto input=chord({48,51,52,55,59},true,5);input.emplace_back(17,on(70));
-    expectNote(h.process(128,input),true,71,17);
-    const auto snapshot=p.getSnapshot();
-    check(snapshot.typeIndex==type&&snapshot.effectiveScale==3&&(snapshot.allowedMask&(1u<<11))!=0
-          &&(snapshot.allowedMask&(1u<<10))==0,"Fresh processor read truncated Harmonic Minor into Natural Minor");
-    expectNote(h.process(128,{{37,off(70)}}),false,71,37);p.requestPanic();h.process(128);h.released();
-    passed("fresh_constructor_discrete_choice_rounding", "No mapping setter: declared factory index3 is used for state IDs and actual Bb-to-B correction despite an unsnapped APVTS default; this is the new38-choice range, not the previous31-choice host-oracle typo");
-    auto* row=cases.getLast().getDynamicObject();row->setProperty("initial_raw_value",double(rawDefault));
-    row->setProperty("discrete_index",3);row->setProperty("saved_scale_id","harmonic_minor");
+    struct Reference {const char* chordID;const char* scaleID;int index;Stream chordInput;int played,expected;uint16_t allowedMask;};
+    const std::array<Reference,2> references{{
+        {"minor_major_ninth","harmonic_minor",3,chord({48,50,51,55,59},true,5),70,71,0x9ad},
+        {"power","minor_pentatonic",12,chord({48,55},true,5),64,65,0x4a9}
+    }};
+    juce::Array<juce::var> observations;
+    for(const auto& reference:references) {
+        Harness h(std::string("fresh_constructor_")+reference.chordID);auto& p=*h.processor;
+        const int type=flysnapper::chordIndexFromId(reference.chordID);
+        check(type>=0&&userFactoryChoices[size_t(type)]==reference.index
+              &&flysnapper::factoryDefaults()[size_t(type)]==reference.index,"A user-approved fresh constructor reference changed");
+        const auto id=FlysnapperProcessor::mappingParameterId(type);const float rawDefault=get(p,id);
+        auto* parameter=dynamic_cast<juce::AudioParameterChoice*>(p.parameters.getParameter(id));
+        check(parameter&&parameter->getIndex()==reference.index&&juce::roundToInt(rawDefault)==reference.index,
+              "Fresh factory choice differs from the user assignment");
+        // No setter is called for either mapping: these genuine user choices
+        // expose unsnapped constructor defaults3/37*37 and12/37*37.
+        juce::MemoryBlock saved;p.getStateInformation(saved);
+        auto xml=juce::AudioProcessor::getXmlFromBinary(saved.getData(),int(saved.getSize()));
+        auto* table=xml?xml->getChildByName("ChordScales"):nullptr;check(table!=nullptr,"Cannot inspect fresh constructor state");
+        bool correctID=false;
+        for(auto* choice:table->getChildIterator())
+            if(choice->getStringAttribute("chord")==reference.chordID)
+                correctID=choice->getStringAttribute("scale")==reference.scaleID;
+        check(correctID,"Fresh state export truncated a raw user default into another scale ID");
+        set(p,"mode",1);auto input=reference.chordInput;input.emplace_back(17,on(reference.played));
+        expectNote(h.process(128,input),true,reference.expected,17);
+        const auto snapshot=p.getSnapshot();
+        check(snapshot.typeIndex==type&&snapshot.effectiveScale==reference.index&&snapshot.allowedMask==reference.allowedMask,
+              "Fresh processor read truncated a user factory choice into the neighbouring scale");
+        expectNote(h.process(128,{{37,off(reference.played)}}),false,reference.expected,37);
+        p.requestPanic();h.process(128);h.released();
+        auto* observation=new juce::DynamicObject;observation->setProperty("chord_id",reference.chordID);
+        observation->setProperty("initial_raw_value",double(rawDefault));observation->setProperty("discrete_index",reference.index);
+        observation->setProperty("saved_scale_id",reference.scaleID);observations.add(juce::var(observation));
+    }
+    passed("fresh_constructor_discrete_choice_rounding", "Genuine user defaults, no mapping setters/overrides: CmMaj9 index3 exports Harmonic Minor and corrects Bb-to-B; C5 index12 exports Minor Pentatonic and corrects E-to-F despite unsnapped38-choice raw defaults");
+    cases.getLast().getDynamicObject()->setProperty("observations",observations);
 }
 
 void harmonicMajorCallbackCoverage() {

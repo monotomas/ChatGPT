@@ -95,7 +95,7 @@ def collect_files(root: Path, output: Path) -> dict[str, bytes]:
             if relative_current == "docs":
                 directories[:] = [d for d in directories if d != "research"]
             elif relative_current == "docs/validation":
-                directories[:] = [d for d in directories if d == "midi-only-38-scales-2026-11-07"]
+                directories[:] = [d for d in directories if d == "midi-factory-2026-11-07"]
                 # Old aggregate/root evidence is historical too. The complete
                 # records remain in the source repository, outside this ZIP.
                 continue

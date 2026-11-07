@@ -6,8 +6,9 @@ går foran teksten nedenfor. Den omfatter 38 skalaer, nytt skalameny-/tabellopps
 Excel-redigerbare fabrikkvalg og seriekoblede instanser med kanal 16-kontroll.
 VST3 er fortsatt ønsket format; praktisk plassering/kjeding i Live er ikke
 verifisert. MIDI-only-koden med 38 skalaer og 52 typer består alle 4 native-grupper på
-Linux og Windows. Faktisk installasjon og innlastet VST3 består også. Nye
-fabrikktilordninger venter på brukerens redigerte Excel-fil.
+Linux for de nye fabrikkvalgene. En tilsvarende fersk Windows-pakke skal
+verifiseres og leveres. Brukerens Excel-fil er mottatt og de 52 valgene
+er innarbeidet, med 20 endringer fra malen.
 
 **Tillegg samme dag:** Totalt 52 akkordtyper etter brukerens to nye #11-typer:
 CMaj13#11 = C D E F# G A B og CMaj9#11 = C D E F# G B. Excel-valgene skal
@@ -20,7 +21,9 @@ vise alle 31 skalatypene med skalatonene i parentes etter navnet. Den
 og alle sju moduser med brukerens eksakte navn er implementert. Se
 [bestillingen](handover/Request_Harmonic_Major_2026-11-07.txt) og
 [38-skala-arbeidsboken](factory-settings/2026-11-07-revision-3/README.md).
-De tidligere 31 ID-ene/tonemaskene og alle 52 fabrikkvalg beholdes.
+De tidligere 31 ID-ene/tonemaskene beholdes. Brukerens senere Excel-valg
+overstyrer de foreløpige fabrikktilordningene. Se
+[det importerte oppsettet](factory-settings/2026-11-07-user-values/README.md).
 
 ## Historisk oppdrag 3.–6. november
 

@@ -158,6 +158,25 @@ constexpr std::array<const char*, 52> chordIds{{
     "minor_major_thirteenth", "thirteenth_flat9", "thirteenth_sharp9", "thirteenth_sus4", "thirteenth_sus4_flat9",
     "minor_thirteenth", "thirteenth_add_sharp9", "minor_thirteenth_flat5", "major_thirteenth_sharp11", "major_ninth_sharp11"
 }};
+// External oracle from the user's edited workbook, in stable chord-ID order.
+// Canonical mapping SHA256 (not derived from the runtime Core defaults):
+constexpr const char* factoryMappingSha256 = "146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814";
+constexpr std::array<int, 52> userFactoryChoices{{
+    1,2,8,5,12,5,1,4,1,8,7,5,4,22,14,5,19,15,16,17,16,15,16,16,16,16,
+    16,20,26,7,15,7,5,3,8,15,8,1,5,22,8,1,4,35,35,8,35,5,8,32,7,7
+}};
+void expectUserFactoryChoices(juce::AudioPluginInstance& p, bool declaredDefaults) {
+    for (size_t i = 0; i < chordIds.size(); ++i) {
+        auto& mapping = parameter(p, "Map " + juce::String(chordIds[i]));
+        const auto expected = float(userFactoryChoices[i]) / float(expectedScaleCount - 1);
+        check(std::lround(mapping.getValue() * (expectedScaleCount - 1)) == userFactoryChoices[i]
+              && std::abs(mapping.getValue() - expected) < .000001f,
+              "Actual VST3 factory choice differs from the user workbook: " + std::string(chordIds[i]));
+        if (declaredDefaults)
+            check(std::abs(mapping.getDefaultValue() - expected) < .000001f,
+                  "Actual VST3 declared default differs from the user workbook: " + std::string(chordIds[i]));
+    }
+}
 
 void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
     check(!d.isInstrument, "Actual VST3 must be classified as an effect");
@@ -216,11 +235,46 @@ void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescr
         check(hosted != nullptr && hosted->getParameterID() == juce::String(expectedId),
               "Actual VST3 mapping ParamID changed: " + std::string(id));
     }
-    for (const auto* id : {"major_thirteenth_sharp11", "major_ninth_sharp11"})
-        check(std::lround(parameter(p, "Map " + juce::String(id)).getValue() * (expectedScaleCount - 1)) == 7,
-              "New chord mapping must default to Lydian");
+    expectUserFactoryChoices(p, true);
     features.add("zero_audio_buses"); features.add("sdk_midi_event_buses"); features.add("effect_metadata");
     features.add("editor"); features.add("removed_pitch_parameters"); features.add("stable_mapping_parameter_ids");
+}
+void testUserFactoryState(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
+    Session fresh(formats, d, "fresh_user_factory"), restored(formats, d, "restored_user_factory");
+    expectUserFactoryChoices(*fresh.plugin, true);
+    // Save before any processing or assignment setter on the source instance.
+    // Make every destination row wrong first, so defaults cannot hide a bad
+    // mixed-factory serialization or an ignored state restoration.
+    juce::MemoryBlock state; fresh.plugin->getStateInformation(state);
+    check(state.getSize() > 0, "Fresh mixed-factory VST3 state is empty");
+    for (size_t i = 0; i < chordIds.size(); ++i)
+        setChoice(*restored.plugin, "Map " + juce::String(chordIds[i]), (userFactoryChoices[i] + 1) % expectedScaleCount);
+    restored.flushControls();
+    restored.plugin->setStateInformation(state.getData(), int(state.getSize())); restored.flushControls();
+    expectUserFactoryChoices(*fresh.plugin, false); expectUserFactoryChoices(*restored.plugin, false);
+    setChoice(*fresh.plugin, "Mode", 1); setChoice(*restored.plugin, "Mode", 1);
+    // Untouched user assignments: Cm13b5 -> Harmonic Major 2 (index32),
+    // C13b9 -> Harmonic Major 5 (index35). Both are above the old five-bit
+    // status range; these assertions observe the compiled module's MIDI.
+    for (int fixture = 0; fixture < 2; ++fixture) {
+        juce::MidiBuffer midi;
+        if (fixture == 0) chord(midi, true, {48, 50, 51, 53, 54, 57, 58}, 7);
+        else chord(midi, true, {48, 49, 52, 53, 55, 57, 58}, 7);
+        const int input = fixture == 0 ? 68 : 62, output = fixture == 0 ? 69 : 61;
+        midi.addEvent(juce::MidiMessage::noteOn(1, input, juce::uint8(92 + fixture)), 23);
+        midi.addEvent(juce::MidiMessage::noteOff(1, input), 47);
+        juce::MidiBuffer copied(midi);
+        const auto a = fresh.process(midi), b = restored.process(copied);
+        check(a.size() == 2 && b.size() == 2, "Fresh/copied user factory chord lost a MIDI lifecycle");
+        expectNote(a, 0, true, output, 23, 1, 92 + fixture); expectNote(a, 1, false, output, 47);
+        expectNote(b, 0, true, output, 23, 1, 92 + fixture); expectNote(b, 1, false, output, 47);
+        midi.clear();
+        if (fixture == 0) chord(midi, false, {48, 50, 51, 53, 54, 57, 58}, 55);
+        else chord(midi, false, {48, 49, 52, 53, 55, 57, 58}, 55);
+        copied = midi; fresh.process(midi); restored.process(copied);
+        check(midi.isEmpty() && copied.isEmpty(), "Factory chord controls leaked to the instrument");
+    }
+    features.add("user_factory_defaults");
 }
 void testRouting(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d, double rate, int block) {
     Session s(formats, d, "routing_" + juce::String(rate, 0) + "_" + juce::String(block), rate, block);
@@ -596,6 +650,7 @@ void writeEvidence(const juce::File& directory, bool passed, const juce::String&
     object->setProperty("audio_input_buses", 0); object->setProperty("audio_output_buses", 0);
     object->setProperty("declared_latency_samples", 0); object->setProperty("scale_count", expectedScaleCount); object->setProperty("chord_type_count", 52);
     object->setProperty("public_parameter_count", 59);
+    object->setProperty("factory_mapping_sha256", factoryMappingSha256);
     object->setProperty("cases", juce::var(cases)); object->setProperty("verified_features", juce::var(features));
     object->setProperty("events_file", events.getFileName()); object->setProperty("events_rows", eventRows);
     object->setProperty("limitations", "No Ableton Live 12.4.6 execution; no claim about Device Activator scheduling, direct endpoint fan-out, held-chord replay or downstream instruments. Bypass case invokes the callback explicitly.");
@@ -614,6 +669,7 @@ int run(int argc, const juce::String& path, const juce::String& output) {
         format->findAllTypesForFile(descriptions, bundle.getFullPathName());
         check(descriptions.size() == 1 && descriptions[0]->name == "Flysnapper MIDI", "Actual discovery returned the wrong class");
         const auto& d = *descriptions[0]; runCase("module_contract", [&] { testModule(formats, d); });
+        runCase("user_factory_defaults_and_fresh_state", [&] { testUserFactoryState(formats, d); });
         for (double rate : {44100., 48000., 96000.}) for (int block : {32, 128, 257})
             runCase("routing_" + juce::String(rate, 0) + "_" + juce::String(block), [&] { testRouting(formats, d, rate, block); });
         features.add("note_sample_offsets");

@@ -1,34 +1,28 @@
-# Gjeldende videre arbeid: MIDI-only
+# Gjeldende levering: brukerens MIDI-fabrikkoppsett
 
-Brukerens [bestilling 7. november](MIDI_ONLY_REQUEST_2026-11-07.md) overstyrer
-alle tidligere pitchmål. Ikke gjenoppta DSP-utvikling. Det gamle forsknings-
-og målematerialet beholdes som sporbarhet.
+Pitch-to-MIDI er avsluttet. Ikke gjenoppta DSP-utvikling. Produktet er
+Flysnapper MIDI med 38 skalaer, 52 akkordtyper og brukerens 52 valg fra
+den opplastede Excel-filen. De 20 endringene er innarbeidet nøyaktig.
 
-MIDI-kjernen, grensesnittet og den faktiske VST3-modulen har ferske
-beståtte Linux-/Windows-kontroller for 38 skalaer / 52 typer, inkludert
-faktisk Windows-installasjon. Nåværende produkt har null
-audiobusser, 38 skalaer, 52 uavhengige kart og korrekt kanal 1/16-behandling
-i testverten.
-Ikke svekk MIDI-testene eller presenter bortfalte audiokrav som bestått.
+Ferske Linux-/kjerne-/GUI-/prosessor-/faktiske VST3-kontroller består.
+Den nye fabrikkilden skal få tilsvarende egen Windows-verifikasjon,
+faktisk PS/BAT-installasjon, erstatning, gjenoppretting og innlasting av
+installert modul. Hele pakken, tilhørende kilde og installasjonsbevis må
+bindes til nøyaktig kildecommit, workbook- og mappinghash.
 
-Før en ferdig brukerleveranse må følgende være avklart:
+Når dette er bestått, publiseres den eksakte verifiserte pakken manuelt
+for nedlasting. Brukeren har allerede bedt om en ferdig installasjonspakke
+uten mellomliggende testversjoner eller feilsøkingsoppgaver. Ingen ny
+bekreftelse trengs for denne leveringen. Ikke omdøp en eldre pakke eller
+endre kilde etter bygging og kall den samme leveranse.
 
-- Brukerens redigerte Excel-fil må valideres og eventuelle nye fabrikkvalg
-  innarbeides etter stabile akkord-/skala-ID-er.
-- Konkrete spor-/pluginrutingsegenskaper i Live 12.4.6 må dokumenteres:
-  kanalidentitet ved Track In, valg av direkte instansadresse, bypass og
-  reaktivering under en holdt akkord. Generiske VST3-tester er ikke Live.
-- Hele native-/Python-/Windows-/installerkontrollen må passe til nøyaktig
-  kildecommit og ny modulidentitet, også erstattings-/gjenopprettingsprøver.
-  38-skala-pakke76490af består. Senere fabrikkendringer må få tilsvarende egen
-  kilde-/pakkebinding før endelig levering; ikke omdøp den foreløpige pakken.
+Faktisk Ableton Live 12.4.6-plassering og Track In-kanalbevaring er ikke
+kjørt her. Dette opplyses som en konkret verifikasjonsgrense; generiske
+verter er ikke Ableton. Den dokumentasjonen skal ikke brukes til å
+påstå at utestet vertsatferd er bekreftet eller til å skjule en kjent feil.
 
-Forskningsbygg kan lagres på en separat valideringsgren. Den offisielle
-nedlastingsgrenen skal ikke oppdateres automatisk av et forskningsbygg.
-Brukeren skal ikke få kjente utilstrekkelige mellomversjoner eller måtte
-kompilere og feilsøke utviklerskript.
-
-Ved nye Excel-fabrikkvalg: respekter brukerens valgte verdier. Den ferske
-avrundingsregresjonen bruker foreløpig standardverdi 3 i Maj7#9-raden;
-tilpass en eventuell slik dataavhengighet uten å tvinge gamle fabrikkvalg
-tilbake. Bevar dekning av faktisk første-callback-/presetavrunding.
+Gamle foreløpige bevis og mislykkede lydforsøk beholdes som historie.
+Følg brukerens fabrikkvalg, også de fire valgene uten alle akkordtonene.
+Ved senere factory-endringer skal konstruktøravrundingsregresjoner fortsatt
+bruke faktiske relevante standardverdier, uten cacheinjeksjon eller
+tilbakeføring av brukerdata for å tilfredsstille gamle testforventninger.

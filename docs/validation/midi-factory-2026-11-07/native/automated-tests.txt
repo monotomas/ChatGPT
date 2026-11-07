@@ -1,0 +1,95 @@
+Start testing: Nov 07 17:44 UTC
+----------------------------------------------------------
+1/4 Testing: FlysnapperCore
+1/4 Test: FlysnapperCore
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperCoreTests"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperCore" start time: Nov 07 17:44 UTC
+Output:
+----------------------------------------------------------
+Flysnapper core: 6 suites passed, 2191256 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperCore" end time: Nov 07 17:44 UTC
+"FlysnapperCore" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: FlysnapperPluginSmoke
+2/4 Test: FlysnapperPluginSmoke
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperPluginSmoke" start time: Nov 07 17:44 UTC
+Output:
+----------------------------------------------------------
+PASS MIDI-only parameters,52x38 state choices, stable IDs, independent copies and legacy XML payloads
+PASS warmed processBlock C++ new check (host wrapper and malloc/realloc excluded)
+PASS scale/root/correction preview before prepareToPlay or processBlock
+PASS actual MIDI-only editor,52x38 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs
+FlysnapperPluginSmoke: PASS (20293 assertions; not Ableton validation)
+<end of output>
+Test time =   0.37 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperPluginSmoke" end time: Nov 07 17:44 UTC
+"FlysnapperPluginSmoke" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: FlysnapperMidiOnlyProcessor
+3/4 Test: FlysnapperMidiOnlyProcessor
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperMidiOnlyProcessor" start time: Nov 07 17:44 UTC
+Output:
+----------------------------------------------------------
+FlysnapperMidiOnlyProcessor: PASS (109494 checks, 14 cases; no Ableton verification).
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperMidiOnlyProcessor" end time: Nov 07 17:44 UTC
+"FlysnapperMidiOnlyProcessor" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: FlysnapperActualVst3
+4/4 Test: FlysnapperActualVst3
+Command: "/workspace/ChatGPT/build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests" "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper MIDI.vst3"
+Directory: /workspace/ChatGPT/build/native-release
+"FlysnapperActualVst3" start time: Nov 07 17:44 UTC
+Output:
+----------------------------------------------------------
+PASS module_contract
+PASS user_factory_defaults_and_fresh_state
+PASS routing_44100_32
+PASS routing_44100_128
+PASS routing_44100_257
+PASS routing_48000_32
+PASS routing_48000_128
+PASS routing_48000_257
+PASS routing_96000_32
+PASS routing_96000_128
+PASS routing_96000_257
+PASS all_38_scale_indices
+PASS internal_correction_off_held_chord
+PASS new_sharp_eleventh_chord_mappings
+PASS serial_instances_and_two_active_corrections
+PASS non_ch1_notes_and_expression
+PASS channel1_sustain_and_latch_reset
+PASS overlapping_input_bindings
+PASS instance_state
+PASS transport_reset
+PASS generated_midi_routing
+PASS host_invoked_bypass_callback
+RESULT actual VST3 host tests passed (5374 assertions).
+PLATFORM VERIFIED: native Linux VST3; Windows is a separate result.
+NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.
+<end of output>
+Test time =   0.49 sec
+----------------------------------------------------------
+Test Passed.
+"FlysnapperActualVst3" end time: Nov 07 17:44 UTC
+"FlysnapperActualVst3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 07 17:44 UTC

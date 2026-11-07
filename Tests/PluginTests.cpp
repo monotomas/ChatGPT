@@ -72,8 +72,10 @@ void parametersAndState(){
     check(modes&&modes->choices[0]=="Chord Tones Only"&&modes->choices[1]=="Chord-Scale Assignment","correction mode terminology incorrect");
     for(int i=0;i<flysnapper::chordTypeCount;++i){
         const auto id=FlysnapperProcessor::mappingParameterId(i);check(id==juce::String("map_")+flysnapper::chordTypes()[size_t(i)].id,"mapping ID changed");
-        auto* choice=dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter(id));check(choice&&choice->choices.size()==flysnapper::scaleCount,"mapping must expose all38 scales");check(get(a,id)==float(defaults[size_t(i)]),"factory mapping changed without user assignment file");
+        auto* choice=dynamic_cast<juce::AudioParameterChoice*>(a.parameters.getParameter(id));check(choice&&choice->choices.size()==flysnapper::scaleCount,"mapping must expose all38 scales");check(get(a,id)==float(defaults[size_t(i)]),"fresh mapping differs from current factory assignment");
     }
+    saveLoad(a,b);
+    for(int i=0;i<flysnapper::chordTypeCount;++i)check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(defaults[size_t(i)]),"mixed factory assignments did not survive state roundtrip");
     for(int scale=0;scale<flysnapper::scaleCount;++scale){
         for(int i=0;i<flysnapper::chordTypeCount;++i)set(a,FlysnapperProcessor::mappingParameterId(i),float(scale));
         set(a,"mode",2);set(a,"root",float(scale%12));set(a,"scale",float(scale));saveLoad(a,b);
@@ -127,14 +129,16 @@ void guiBeforeProcessing(){
     editor.reset();
     {
         FlysnapperProcessor fresh;fresh.prepareToPlay(48000,128);set(fresh,"mode",1);
-        const int sharpNinth=flysnapper::chordIndexFromId("major_seventh_sharp9");
-        check(flysnapper::factoryDefaults()[size_t(sharpNinth)]==3,"fresh default3 regression is no longer configured");
-        process(fresh,128,{{0,on(48,16)},{0,on(51,16)},{0,on(52,16)},{0,on(55,16)},{0,on(59,16)}});
-        check(fresh.getSnapshot().typeIndex==sharpNinth&&fresh.getSnapshot().effectiveScale==3,"fresh constructor mapping index3 was truncated before active preview");
+        const int minorMajorNinth=flysnapper::chordIndexFromId("minor_major_ninth");
+        check(flysnapper::factoryDefaults()[size_t(minorMajorNinth)]==3,"fresh default3 regression is no longer configured");
+        process(fresh,128,{{0,on(48,16)},{0,on(50,16)},{0,on(51,16)},{0,on(55,16)},{0,on(59,16)}});
+        check(fresh.getSnapshot().typeIndex==minorMajorNinth&&fresh.getSnapshot().effectiveScale==3,"fresh constructor mapping index3 was truncated before active preview");
         std::unique_ptr<juce::AudioProcessorEditor> freshEditor(fresh.createEditor());
         active=dynamic_cast<juce::Label*>(find(*freshEditor,"activeScale"));
-        auto* mapping=dynamic_cast<juce::ComboBox*>(find(*freshEditor,"mapping_major_seventh_sharp9"));
+        auto* mapping=dynamic_cast<juce::ComboBox*>(find(*freshEditor,"mapping_minor_major_ninth"));
         check(mapping&&mapping->getSelectedId()==4,"fresh mapping menu truncated constructor choice3");
+        auto* factory=dynamic_cast<juce::Label*>(find(*freshEditor,"factory_minor_major_ninth"));
+        check(factory&&factory->getText()=="Factory: Harm. Min. 1: Harmonic Minor","fresh CmMaj9 factory label does not match the user assignment");
         check(active&&active->getText().contains("Harm. Min. 1: Harmonic Minor"),"active mapping preview truncated fresh choice3 to a neighbouring scale");
     }
     std::cout<<"PASS scale/root/correction preview before prepareToPlay or processBlock\n";
@@ -161,7 +165,11 @@ void gui(){
         const auto& chordType=flysnapper::chordTypes()[size_t(type)];const auto id=juce::String(chordType.id);
         auto* box=dynamic_cast<juce::ComboBox*>(find(*editor,"mapping_"+id));auto* name=dynamic_cast<juce::Label*>(find(*editor,"chordName_"+id));
         auto* chordNotes=dynamic_cast<juce::Label*>(find(*editor,"chordTones_"+id));auto* scaleNotes=dynamic_cast<juce::Label*>(find(*editor,"scaleTones_"+id));
-        check(box&&name&&chordNotes&&scaleNotes,"mapping row lacks chord/scale tone names");check(!chordNotes->isEditable()&&!scaleNotes->isEditable(),"tone explanation became editable");
+        auto* factory=dynamic_cast<juce::Label*>(find(*editor,"factory_"+id));
+        check(box&&name&&chordNotes&&scaleNotes&&factory,"mapping row lacks chord/scale tone names or factory label");
+        const int initialScale=flysnapper::factoryDefaults()[size_t(type)];
+        check(box->getSelectedId()==initialScale+1,"initial mapping selection differs from the user factory assignment");
+        check(factory->getText()=="Factory: "+juce::String::fromUTF8(flysnapper::scaleDefinitions()[size_t(initialScale)].name),"displayed factory scale differs from the user factory assignment");check(!chordNotes->isEditable()&&!scaleNotes->isEditable(),"tone explanation became editable");
         check(chordNotes->getText().contains("C"),"chord formula is not shown relative to C");check(box->getNumItems()==flysnapper::scaleCount,"mapping does not offer all38 scales");
         const auto mask=flysnapper::chordToneMask(type);
         const auto order=flysnapper::orderedScaleIndices(mask);

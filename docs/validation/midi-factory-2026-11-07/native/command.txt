@@ -1,0 +1,3 @@
+source Tools/cloud_env.sh
+bash Tools/cloud_validate.sh
+# Script owns build/native-release/.flysnapper-build.lock and temporary Xvfb

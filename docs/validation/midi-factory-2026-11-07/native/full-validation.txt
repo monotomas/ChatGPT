@@ -1,0 +1,317 @@
+FLYSNAPPER MIDI 0.4.0 | 2026.11.07-midi-only-native-validation
+Logg: /workspace/ChatGPT/logs/build-20261107-174430-055682.log
+
+> /workspace/.flysnapper-tools/bin/python -m unittest discover -s /workspace/ChatGPT/Tests -p test_builder*.py -v
+test_cache_changes_with_sdk_and_toolchain (test_builder.EnvironmentFixTests.test_cache_changes_with_sdk_and_toolchain) ... ok
+test_checked_project_never_uses_vs_instance_generator (test_builder.EnvironmentFixTests.test_checked_project_never_uses_vs_instance_generator) ... ok
+test_correct_child_environment_does_not_modify_parent (test_builder.EnvironmentFixTests.test_correct_child_environment_does_not_modify_parent) ... ok
+test_explicit_rc_and_mt_forwarded_to_cmake (test_builder.EnvironmentFixTests.test_explicit_rc_and_mt_forwarded_to_cmake) ... ok
+test_installed_ninja_preferred (test_builder.EnvironmentFixTests.test_installed_ninja_preferred) ... MSVC x64: /workspace/ChatGPT/build/temp/tmpmq1dhlmr/BuildTools/VC/Tools/MSVC/14.51.36231
+Windows SDK: 10.0.26100.0 | /workspace/ChatGPT/build/temp/tmpmq1dhlmr/sdk
+Ressurskompilator: /workspace/ChatGPT/build/temp/tmpmq1dhlmr/sdk/bin/10.0.26100.0/x64/rc.exe
+Manifestverktoy: /workspace/ChatGPT/build/temp/tmpmq1dhlmr/sdk/bin/10.0.26100.0/x64/mt.exe
+Byggemetode: Ninja (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+ok
+test_setup_recovers_after_exact_reported_rc_error (test_builder.EnvironmentFixTests.test_setup_recovers_after_exact_reported_rc_error) ... Microsofts automatiske miljooppsett var ufullstendig. Kontrollerer verktøy og SDK-filer direkte.
+VsDevCmd.bat: Windows SDK-verktøyet rc.exe er ikke tilgjengelig i byggemiljoet.
+MSVC x64: /workspace/ChatGPT/build/temp/tmpxmoyrlxy/BuildTools/VC/Tools/MSVC/14.51.36231
+Windows SDK: 10.0.26100.0 | /workspace/ChatGPT/build/temp/tmpxmoyrlxy/Windows Kits/10
+Ressurskompilator: /workspace/ChatGPT/build/temp/tmpxmoyrlxy/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe
+Manifestverktoy: /workspace/ChatGPT/build/temp/tmpxmoyrlxy/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe
+Byggemetode: NMake Makefiles (direkte MSVC; ingen Visual Studio-instansregistrering kreves)
+ok
+test_build_command_contains_current_targets_only (test_builder.FlysnapperSafetyTests.test_build_command_contains_current_targets_only) ... ok
+test_changed_resource_or_binary_blocks_install (test_builder.FlysnapperSafetyTests.test_changed_resource_or_binary_blocks_install) ... ok
+test_copy_failure_restores_old_installation (test_builder.FlysnapperSafetyTests.test_copy_failure_restores_old_installation) ... ok
+test_ctest_failure_exit_propagates (test_builder.FlysnapperSafetyTests.test_ctest_failure_exit_propagates) ... ok
+test_current_complete_result_passes (test_builder.FlysnapperSafetyTests.test_current_complete_result_passes) ... ok
+test_default_does_not_install (test_builder.FlysnapperSafetyTests.test_default_does_not_install) ... ok
+test_failed_tests_or_native_manifest_blocks_install (test_builder.FlysnapperSafetyTests.test_failed_tests_or_native_manifest_blocks_install) ... ok
+test_install_fixture_in_actual_builder_temporary_context (test_builder.FlysnapperSafetyTests.test_install_fixture_in_actual_builder_temporary_context) ... INSTALLERT: /workspace/ChatGPT/build/temp/tmpenr08lay/Plugins/Flysnapper.vst3
+ok
+test_invalid_destination_does_not_implicitly_install (test_builder.FlysnapperSafetyTests.test_invalid_destination_does_not_implicitly_install) ... usage: python -m unittest [-h] [--native] [--juce-dir JUCE_DIR] [--jobs JOBS]
+                          [--install-sdk] [--install | --install-only]
+                          [--choose-install-dir | --install-dir INSTALL_DIR]
+python -m unittest: error: installation destination requires --install or --install-only
+ok
+test_missing_current_results_cannot_reuse_old_file (test_builder.FlysnapperSafetyTests.test_missing_current_results_cannot_reuse_old_file) ... ok
+test_native_cannot_install_windows_bundle (test_builder.FlysnapperSafetyTests.test_native_cannot_install_windows_bundle) ... usage: python -m unittest [-h] [--native] [--juce-dir JUCE_DIR] [--jobs JOBS]
+                          [--install-sdk] [--install | --install-only]
+                          [--choose-install-dir | --install-dir INSTALL_DIR]
+python -m unittest: error: --native is Linux validation only and cannot install
+ok
+test_replaces_only_flysnapper_and_keeps_recovery_outside_scan (test_builder.FlysnapperSafetyTests.test_replaces_only_flysnapper_and_keeps_recovery_outside_scan) ... INSTALLERT: /workspace/ChatGPT/build/temp/tmpx_8qg1z1/Plugins/Flysnapper.vst3
+Forrige versjon for gjenoppretting: /workspace/ChatGPT/build/temp/tmpx_8qg1z1/dist/previous-installations/20261107-174430-256158/Flysnapper.vst3
+ok
+test_skipped_required_test_fails_readiness (test_builder.FlysnapperSafetyTests.test_skipped_required_test_fails_readiness) ... ok
+test_stale_staging_is_preserved (test_builder.FlysnapperSafetyTests.test_stale_staging_is_preserved) ... ok
+test_test_inventory_must_contain_required_tests (test_builder.FlysnapperSafetyTests.test_test_inventory_must_contain_required_tests) ... ok
+test_installer_exit_failure_or_restart_never_reported_as_ready (test_builder.InstallSafetyTests.test_installer_exit_failure_or_restart_never_reported_as_ready) ... Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /workspace/ChatGPT/build/temp/tmpo5em6ese/sdk-install-20261107-174430.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /workspace/ChatGPT/build/temp/tmpxliueldo/sdk-install-20261107-174430.log
+Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /workspace/ChatGPT/build/temp/tmp2k3zd0m0/sdk-install-20261107-174430.log
+ok
+test_installer_only_selects_x64_and_never_reboots (test_builder.InstallSafetyTests.test_installer_only_selects_x64_and_never_reboots) ... Installerer bare Windows SDK-komponenten for Desktop C++ x64. Windows ber om godkjenning.
+Ingen automatisk omstart. Microsofts installasjonslogg: /workspace/ChatGPT/build/temp/tmp98evbvuh/sdk-install-20261107-174430.log
+Microsofts SDK-installasjon er ferdig. Kontrollerer filene pa nytt.
+ok
+test_never_installs_when_sdk_exists_even_with_permission_flag (test_builder.InstallSafetyTests.test_never_installs_when_sdk_exists_even_with_permission_flag) ... ok
+test_no_download_or_install_without_explicit_flag (test_builder.InstallSafetyTests.test_no_download_or_install_without_explicit_flag) ... ok
+test_only_https_microsoft_download_host_allowed (test_builder.InstallSafetyTests.test_only_https_microsoft_download_host_allowed) ... ok
+test_rechecks_files_after_installer_and_calls_only_once (test_builder.InstallSafetyTests.test_rechecks_files_after_installer_and_calls_only_once) ... missing
+ok
+test_redirect_to_other_host_rejected_before_following (test_builder.InstallSafetyTests.test_redirect_to_other_host_rejected_before_following) ... ok
+test_signature_check_requires_success_marker (test_builder.InstallSafetyTests.test_signature_check_requires_success_marker) ... ok
+test_signature_command_requires_valid_microsoft_publisher (test_builder.InstallSafetyTests.test_signature_command_requires_valid_microsoft_publisher) ... ok
+test_success_exit_does_not_hide_still_missing_sdk (test_builder.InstallSafetyTests.test_success_exit_does_not_hide_still_missing_sdk) ... missing
+ok
+test_crlf_input_is_supported (test_builder.PatchTests.test_crlf_input_is_supported) ... ok
+test_non_windows_keeps_utf8_entry (test_builder.PatchTests.test_non_windows_keeps_utf8_entry) ... ok
+test_preserves_descriptive_juce_file_failures (test_builder.PatchTests.test_preserves_descriptive_juce_file_failures) ... ok
+test_refuses_double_patching (test_builder.PatchTests.test_refuses_double_patching) ... ok
+test_rejects_unknown_missing_or_duplicate_patterns (test_builder.PatchTests.test_rejects_unknown_missing_or_duplicate_patterns) ... ok
+test_source_payload_is_not_silently_reinterpreted (test_builder.PatchTests.test_source_payload_is_not_silently_reinterpreted) ... ok
+test_wide_entry_and_direct_wide_string_on_windows (test_builder.PatchTests.test_wide_entry_and_direct_wide_string_on_windows) ... ok
+test_compile_failure_does_not_run_the_test_executable (test_builder.PreflightTests.test_compile_failure_does_not_run_the_test_executable) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_no_false_positive_if_build_created_no_executable (test_builder.PreflightTests.test_no_false_positive_if_build_created_no_executable) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_no_false_positive_if_executable_returns_wrong_output (test_builder.PreflightTests.test_no_false_positive_if_executable_returns_wrong_output) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+ok
+test_requires_actual_executable_and_success_output (test_builder.PreflightTests.test_requires_actual_executable_and_success_output) ... Kontrollerer byggemiljoet med faktisk C++- og ressurskompilering, linking og kjøring.
+FLYSNAPPER_TOOLCHAIN_OK
+ok
+test_actual_output_required_and_unicode_arguments_kept (test_builder.ResourceProbeTests.test_actual_output_required_and_unicode_arguments_kept) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+FLYSNAPPER_UNICODE_OK: JUCE-generering og RC-kompilering med norske filnavn bestatt.
+ok
+test_empty_or_invalid_resource_rejected (test_builder.ResourceProbeTests.test_empty_or_invalid_resource_rejected) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_helper_failure_stops_before_rc (test_builder.ResourceProbeTests.test_helper_failure_stops_before_rc) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_missing_helper_rejected (test_builder.ResourceProbeTests.test_missing_helper_rejected) ... ok
+test_missing_info_rejected (test_builder.ResourceProbeTests.test_missing_info_rejected) ... ok
+test_new_cmake_cache_leaves_old_cache_unchanged (test_builder.ResourceProbeTests.test_new_cmake_cache_leaves_old_cache_unchanged) ... ok
+test_old_resource_does_not_mask_new_failure (test_builder.ResourceProbeTests.test_old_resource_does_not_mask_new_failure) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_resource_compiler_failure_is_propagated (test_builder.ResourceProbeTests.test_resource_compiler_failure_is_propagated) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_resource_compiler_must_create_nonempty_output (test_builder.ResourceProbeTests.test_resource_compiler_must_create_nonempty_output) ... Kontrollerer JUCEs faktiske ressursgenerering med norske tegn i filbanene.
+ok
+test_absent_sdk_reports_all_checked_locations_and_install_option (test_builder.SdkDiscoveryTests.test_absent_sdk_reports_all_checked_locations_and_install_option) ... ok
+test_compiler_exe_alone_is_rejected (test_builder.SdkDiscoveryTests.test_compiler_exe_alone_is_rejected) ... ok
+test_complete_older_sdk_beats_partial_newer_one (test_builder.SdkDiscoveryTests.test_complete_older_sdk_beats_partial_newer_one) ... ok
+test_environment_registry_default_and_path_roots_are_considered (test_builder.SdkDiscoveryTests.test_environment_registry_default_and_path_roots_are_considered) ... ok
+test_latest_complete_msvc_selected (test_builder.SdkDiscoveryTests.test_latest_complete_msvc_selected) ... ok
+test_missing_rc_or_mt_is_rejected (test_builder.SdkDiscoveryTests.test_missing_rc_or_mt_is_rejected) ... ok
+test_never_combines_incomplete_sdk_versions (test_builder.SdkDiscoveryTests.test_never_combines_incomplete_sdk_versions) ... ok
+test_no_recursive_scan_of_entire_drive (test_builder.SdkDiscoveryTests.test_no_recursive_scan_of_entire_drive) ... ok
+test_numeric_version_order (test_builder.SdkDiscoveryTests.test_numeric_version_order) ... ok
+test_sdk_found_when_rc_not_on_path (test_builder.SdkDiscoveryTests.test_sdk_found_when_rc_not_on_path) ... ok
+test_tools_without_headers_are_not_a_complete_sdk (test_builder.SdkDiscoveryTests.test_tools_without_headers_are_not_a_complete_sdk) ... ok
+test_ucrt_static_library_is_required (test_builder.SdkDiscoveryTests.test_ucrt_static_library_is_required) ... ok
+test_x86_resource_tools_are_supported_with_x64_libraries (test_builder.SdkDiscoveryTests.test_x86_resource_tools_are_supported_with_x64_libraries) ... ok
+test_copy_changes_only_juceaide_and_keeps_original_clean (test_builder.SnapshotTests.test_copy_changes_only_juceaide_and_keeps_original_clean) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_different_source_gets_separate_copy (test_builder.SnapshotTests.test_different_source_gets_separate_copy) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_external_symlinks_rejected (test_builder.SnapshotTests.test_external_symlinks_rejected) ... ok
+test_incomplete_source_is_rejected (test_builder.SnapshotTests.test_incomplete_source_is_rejected) ... ok
+test_missing_manifest_is_not_trusted (test_builder.SnapshotTests.test_missing_manifest_is_not_trusted) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_modified_build_copy_is_not_trusted_or_overwritten (test_builder.SnapshotTests.test_modified_build_copy_is_not_trusted_or_overwritten) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+ok
+test_partial_copy_failure_is_not_published (test_builder.SnapshotTests.test_partial_copy_failure_is_not_published) ... ok
+test_repeat_uses_verified_copy_without_rewriting (test_builder.SnapshotTests.test_repeat_uses_verified_copy_without_rewriting) ... JUCE-hjelpeverktoyet er rettet for Unicode-filbaner i en separat byggekopi.
+Kontrollert JUCE-byggekopi med Windows Unicode-rettelse brukes pa nytt.
+ok
+test_cp1252_console_keeps_full_unicode_in_log (test_builder_encoding.BuilderEncodingTests.test_cp1252_console_keeps_full_unicode_in_log) ... ok
+test_nonzero_child_preserves_exit_status_under_cp1252 (test_builder_encoding.BuilderEncodingTests.test_nonzero_child_preserves_exit_status_under_cp1252) ... ok
+test_python_child_utf8_response_and_caller_environment_preserved (test_builder_encoding.BuilderEncodingTests.test_python_child_utf8_response_and_caller_environment_preserved) ... ok
+test_actual_cmake_generation_hashes_the_long_object_path (test_builder_paths.ObjectPathTests.test_actual_cmake_generation_hashes_the_long_object_path) ... ok
+test_configure_compacts_only_generated_paths_and_preserves_unicode_source (test_builder_paths.ObjectPathTests.test_configure_compacts_only_generated_paths_and_preserves_unicode_source) ... ok
+test_exact_reported_ci_object_crosses_max_path_and_new_namespace_fits (test_builder_paths.ObjectPathTests.test_exact_reported_ci_object_crosses_max_path_and_new_namespace_fits) ... ok
+test_impossibly_deep_developer_checkout_stops_before_compiler (test_builder_paths.ObjectPathTests.test_impossibly_deep_developer_checkout_stops_before_compiler) ... ok
+
+----------------------------------------------------------------------
+Ran 79 tests in 0.312s
+
+OK
+
+> /workspace/.flysnapper-tools/bin/cmake --version
+cmake version 4.4.4
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+> /usr/local/bin/git --version
+git version 2.52.0
+
+> /usr/local/bin/git -C /workspace/ChatGPT/deps/JUCE config core.longpaths true
+
+> /usr/local/bin/git -C /workspace/ChatGPT/deps/JUCE rev-parse HEAD
+
+> /usr/local/bin/git -C /workspace/ChatGPT/deps/JUCE status --porcelain
+
+> /usr/local/bin/git -C /workspace/ChatGPT/deps/JUCE rev-parse HEAD
+JUCE 8.0.16-security kontrollert: ea77444750de45e036e0279bb0291144bf8e3688
+
+> /workspace/.flysnapper-tools/bin/cmake -S /workspace/ChatGPT -B /workspace/ChatGPT/build/native-release -DCMAKE_BUILD_TYPE=Release -DJUCE_DIR=/workspace/ChatGPT/deps/JUCE -DFLYSNAPPER_CORE_ONLY=OFF -DFLYSNAPPER_BUILD_TESTS=ON
+-- Checking for modules 'webkit2gtk-4.0;gtk+-x11-3.0'
+--   Package 'webkit2gtk-4.0', required by 'virtual:world', not found
+--   Package 'gtk+-x11-3.0', required by 'virtual:world', not found
+-- Configuring juceaide
+-- Building juceaide
+-- Exporting juceaide
+-- Testing juceaide
+-- Finished setting up juceaide
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ChatGPT/build/native-release
+
+> /workspace/.flysnapper-tools/bin/cmake --build /workspace/ChatGPT/build/native-release --config Release --target Flysnapper_VST3 FlysnapperCoreTests FlysnapperPluginTests FlysnapperMidiOnlyProcessorTests FlysnapperVst3HostTests --parallel 3
+[0/2] Re-checking globbed directories...
+[1/13] Building VST3 manifest helper for Flysnapper
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/ChatGPT/build/native-release/vst3_helpers/Flysnapper
+ninja: no work to do.
+[2/13] Building CXX object CMakeFiles/FlysnapperCoreTests.dir/Tests/CoreTests.cpp.o
+[3/13] Building CXX object CMakeFiles/FlysnapperCore.dir/Source/Core/MusicData.cpp.o
+In file included from /workspace/ChatGPT/Source/Core/MusicData.cpp:6:
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h: In function ‘std::string buffkiller::omissionText(uint16_t)’:
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h:36:20: warning: loop variable ‘item’ creates a copy from type ‘const std::pair<int, const char*>’ [-Wrange-loop-construct]
+   36 |     for(const auto item:{std::pair<int,const char*>{7,"5"},{10,"7"},{11,"7"},{2,"9"},{5,"11"}})
+      |                    ^~~~
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h:36:20: note: use reference type to prevent copying
+   36 |     for(const auto item:{std::pair<int,const char*>{7,"5"},{10,"7"},{11,"7"},{2,"9"},{5,"11"}})
+      |                    ^~~~
+      |                    &
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h: In function ‘std::string buffkiller::soundingNoteList(const ChordInput&)’:
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h:92:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   92 |         if(!result.empty())result+=", ";result+=chordRootNames[c];seen=uint16_t(seen|(1u<<c));}
+      |         ^~
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h:92:41: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   92 |         if(!result.empty())result+=", ";result+=chordRootNames[c];seen=uint16_t(seen|(1u<<c));}
+      |                                         ^~~~~~
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h: In lambda function:
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h:131:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  131 |         if(!out.empty())out+=", ";out+=names[size_t(c)];seen=uint16_t(seen|(1u<<c));};
+      |         ^~
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h:131:35: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  131 |         if(!out.empty())out+=", ";out+=names[size_t(c)];seen=uint16_t(seen|(1u<<c));};
+      |                                   ^~~
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h: In function ‘buffkiller::ChordDescription buffkiller::describeChord(const ChordInput&)’:
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h:165:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  165 |         if(i)result.detail+=" | ";result.detail+=result.candidates[i].name;
+      |         ^~
+/workspace/ChatGPT/Source/Core/Reference/ChordNames.h:165:35: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  165 |         if(i)result.detail+=" | ";result.detail+=result.candidates[i].name;
+      |                                   ^~~~~~
+[4/13] Linking CXX static library libFlysnapperCore.a
+[5/13] Linking CXX shared module "Flysnapper_artefacts/Release/VST3/Flysnapper MIDI.vst3/Contents/x86_64-linux/Flysnapper MIDI.so"
+removing moduleinfo.json
+creating /workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper MIDI.vst3/Contents/Resources/moduleinfo.json
+[6/13] Building CXX object CMakeFiles/FlysnapperPluginTests.dir/Tests/PluginTests.cpp.o
+<command-line>: warning: "JUCE_STANDALONE_APPLICATION" redefined
+<command-line>: note: this is the location of the previous definition
+[7/13] Linking CXX executable FlysnapperCoreTests
+[8/13] Linking CXX executable FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests
+[9/13] Building CXX object CMakeFiles/FlysnapperMidiOnlyProcessorTests.dir/Tests/MidiOnlyProcessorTests.cpp.o
+<command-line>: warning: "JUCE_STANDALONE_APPLICATION" redefined
+<command-line>: note: this is the location of the previous definition
+[10/13] Linking CXX executable FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests
+[11/13] Building CXX object CMakeFiles/FlysnapperVst3HostTests.dir/Tests/Vst3HostTests.cpp.o
+/workspace/ChatGPT/Tests/Vst3HostTests.cpp: In function ‘void {anonymous}::testModule(juce::AudioPluginFormatManager&, const juce::PluginDescription&)’:
+/workspace/ChatGPT/Tests/Vst3HostTests.cpp:206:82: warning: ‘juce::AudioProcessorEditor* juce::AudioProcessor::createEditorIfNeeded()’ is deprecated: Prefer createEditorAndMakeActive() [-Wdeprecated-declarations]
+  206 |         std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditorIfNeeded());
+      |                                                            ~~~~~~~~~~~~~~~~~~~~~~^~
+In file included from /workspace/ChatGPT/deps/JUCE/modules/juce_audio_processors_headless/juce_audio_processors_headless.h:145,
+                 from /workspace/ChatGPT/deps/JUCE/modules/juce_audio_processors/juce_audio_processors.h:64,
+                 from /workspace/ChatGPT/Tests/Vst3HostTests.cpp:4:
+/workspace/ChatGPT/deps/JUCE/modules/juce_audio_processors_headless/processors/juce_AudioProcessor.h:1063:27: note: declared here
+ 1063 |     AudioProcessorEditor* createEditorIfNeeded() { return createEditorAndMakeActive(); }
+      |                           ^~~~~~~~~~~~~~~~~~~~
+[12/13] Linking CXX executable FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests
+
+> /workspace/.flysnapper-tools/bin/ctest --test-dir /workspace/ChatGPT/build/native-release -C Release --show-only=json-v1
+
+> /workspace/.flysnapper-tools/bin/ctest --test-dir /workspace/ChatGPT/build/native-release -C Release --no-tests=error --verbose --output-on-failure --output-junit /workspace/ChatGPT/build/native-release/flysnapper-ctest.xml
+UpdateCTestConfiguration  from :/workspace/ChatGPT/build/native-release/DartConfiguration.tcl
+Test project /workspace/ChatGPT/build/native-release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: FlysnapperCore
+
+1: Test command: /workspace/ChatGPT/build/native-release/FlysnapperCoreTests
+1: Working Directory: /workspace/ChatGPT/build/native-release
+1: Test timeout computed to be: 120
+1: Flysnapper core: 6 suites passed, 2191256 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+1/4 Test #1: FlysnapperCore ...................   Passed    0.06 sec
+test 2
+    Start 2: FlysnapperPluginSmoke
+
+2: Test command: /workspace/ChatGPT/build/native-release/FlysnapperPluginTests_artefacts/Release/FlysnapperPluginTests
+2: Working Directory: /workspace/ChatGPT/build/native-release
+2: Test timeout computed to be: 180
+2: PASS MIDI-only parameters,52x38 state choices, stable IDs, independent copies and legacy XML payloads
+2: PASS warmed processBlock C++ new check (host wrapper and malloc/realloc excluded)
+2: PASS scale/root/correction preview before prepareToPlay or processBlock
+2: PASS actual MIDI-only editor,52x38 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs
+2: FlysnapperPluginSmoke: PASS (20293 assertions; not Ableton validation)
+2/4 Test #2: FlysnapperPluginSmoke ............   Passed    0.37 sec
+test 3
+    Start 3: FlysnapperMidiOnlyProcessor
+
+3: Test command: /workspace/ChatGPT/build/native-release/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests
+3: Working Directory: /workspace/ChatGPT/build/native-release
+3: Test timeout computed to be: 180
+3: FlysnapperMidiOnlyProcessor: PASS (109494 checks, 14 cases; no Ableton verification).
+3/4 Test #3: FlysnapperMidiOnlyProcessor ......   Passed    0.10 sec
+test 4
+    Start 4: FlysnapperActualVst3
+
+4: Test command: /workspace/ChatGPT/build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests "/workspace/ChatGPT/build/native-release/Flysnapper_artefacts/Release/VST3/Flysnapper MIDI.vst3"
+4: Working Directory: /workspace/ChatGPT/build/native-release
+4: Test timeout computed to be: 180
+4: PASS module_contract
+4: PASS user_factory_defaults_and_fresh_state
+4: PASS routing_44100_32
+4: PASS routing_44100_128
+4: PASS routing_44100_257
+4: PASS routing_48000_32
+4: PASS routing_48000_128
+4: PASS routing_48000_257
+4: PASS routing_96000_32
+4: PASS routing_96000_128
+4: PASS routing_96000_257
+4: PASS all_38_scale_indices
+4: PASS internal_correction_off_held_chord
+4: PASS new_sharp_eleventh_chord_mappings
+4: PASS serial_instances_and_two_active_corrections
+4: PASS non_ch1_notes_and_expression
+4: PASS channel1_sustain_and_latch_reset
+4: PASS overlapping_input_bindings
+4: PASS instance_state
+4: PASS transport_reset
+4: PASS generated_midi_routing
+4: PASS host_invoked_bypass_callback
+4: RESULT actual VST3 host tests passed (5374 assertions).
+4: PLATFORM VERIFIED: native Linux VST3; Windows is a separate result.
+4: NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.
+4/4 Test #4: FlysnapperActualVst3 .............   Passed    0.49 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =   1.02 sec
+BYGG OG AUTOMATISKE TESTER BESTATT: /workspace/ChatGPT/dist/linux-validation/Flysnapper MIDI.vst3
+Ableton Live og fysisk end-to-end-latency er ikke verifisert av byggeskriptet.
+Ingen installasjon utført. Windows: bruk --install eller --install-only naar du onsker installasjon.

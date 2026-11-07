@@ -1,0 +1,148 @@
+{
+  "status": "passed",
+  "scope": "Standalone core validation after importing explicit user factory choices; not Windows/VST3/Live acceptance",
+  "base_commit": "fc4b8fb",
+  "suites": 6,
+  "assertions": 2191256,
+  "realtime_iterations": 10000,
+  "allocations": 0,
+  "compile_and_run_exit_code": 0,
+  "source_inputs_unchanged_during_compile_and_run": true,
+  "canonical_mapping_sha256": "146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814",
+  "user_xlsx_sha256": "2df3afd9c7757469d8d7bf524efc3e2e09eb03824452ecbeb97294e3fafcc231",
+  "manifest_sha256": "6f95810ca4834673aeafff54ae1a269cc04f14ed1708e3bb62079d37843285f6",
+  "assignment_count": 52,
+  "changed_defaults": [
+    {
+      "id": "sus2",
+      "old_index": 1,
+      "new_index": 8
+    },
+    {
+      "id": "sus4",
+      "old_index": 1,
+      "new_index": 5
+    },
+    {
+      "id": "power",
+      "old_index": 11,
+      "new_index": 12
+    },
+    {
+      "id": "power_seventh",
+      "old_index": 8,
+      "new_index": 5
+    },
+    {
+      "id": "minor_sixth",
+      "old_index": 5,
+      "new_index": 4
+    },
+    {
+      "id": "major_seventh",
+      "old_index": 1,
+      "new_index": 7
+    },
+    {
+      "id": "half_diminished",
+      "old_index": 9,
+      "new_index": 22
+    },
+    {
+      "id": "dominant_sus4",
+      "old_index": 8,
+      "new_index": 5
+    },
+    {
+      "id": "dominant_sus4_flat9",
+      "old_index": 17,
+      "new_index": 19
+    },
+    {
+      "id": "major_seventh_sharp5",
+      "old_index": 4,
+      "new_index": 20
+    },
+    {
+      "id": "major_seventh_sharp9",
+      "old_index": 3,
+      "new_index": 26
+    },
+    {
+      "id": "dominant_ninth",
+      "old_index": 8,
+      "new_index": 15
+    },
+    {
+      "id": "major_ninth",
+      "old_index": 1,
+      "new_index": 7
+    },
+    {
+      "id": "minor_major_ninth",
+      "old_index": 4,
+      "new_index": 3
+    },
+    {
+      "id": "minor_eleventh_flat5",
+      "old_index": 9,
+      "new_index": 22
+    },
+    {
+      "id": "thirteenth_flat9",
+      "old_index": 13,
+      "new_index": 35
+    },
+    {
+      "id": "thirteenth_sharp9",
+      "old_index": 13,
+      "new_index": 35
+    },
+    {
+      "id": "thirteenth_sus4_flat9",
+      "old_index": 17,
+      "new_index": 35
+    },
+    {
+      "id": "thirteenth_add_sharp9",
+      "old_index": 13,
+      "new_index": 8
+    },
+    {
+      "id": "minor_thirteenth_flat5",
+      "old_index": 9,
+      "new_index": 32
+    }
+  ],
+  "unchanged_default_count": 32,
+  "scale_definitions_ids_masks_and_families_unchanged": true,
+  "chord_ids_suffixes_formulas_recognition_and_gui_naming_unchanged": true,
+  "midi_engine_snapshot_policy_unchanged": true,
+  "tests_include_fresh_factory_indices": [
+    35,
+    32,
+    3,
+    7,
+    7
+  ],
+  "outside_chord_choices_retained": [
+    "thirteenth_sharp9",
+    "thirteenth_add_sharp9",
+    "dominant_sharp9",
+    "dominant_flat13"
+  ],
+  "selected_source_sha256": {
+    "Source/Core/MidiEngine.cpp": "a0187595aff787b954b90cf56cabc6b9aff534f9605ea5d88d3fda959ba76be2",
+    "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
+    "Source/Core/MusicData.cpp": "1e2bd6e0fad8b444077eb55ff0c506324bb07bb507c6329e8b7d2816295ee2ea",
+    "Source/Core/MusicData.h": "2e3fdb87aa51360a67aeb11aa87d841b51b834717fc9c4b12053f350c60e40b7",
+    "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
+    "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
+    "Source/Core/Reference/ChordNames.h": "b85167c7eb308a347a8dd918a22cde0ed5b85cb366e1742a746263070f48c5bc",
+    "Tests/CoreTests.cpp": "5ced1b48f8be9c63c51e0d1ed578ef357dd08cd50f9bdfb3cb9ebb46c2af2322"
+  },
+  "excluded_binary": {
+    "sha256": "a2438fee2892071918f157410f5629145094503f7ccc08fad81f9799a2f0c16a",
+    "bytes": 1195360
+  }
+}

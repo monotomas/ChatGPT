@@ -1,0 +1,60 @@
+In file included from Tests/CoreTests.cpp:3:
+Source/Core/Reference/ChordNames.h: In function ‘std::string buffkiller::omissionText(uint16_t)’:
+Source/Core/Reference/ChordNames.h:36:20: warning: loop variable ‘item’ creates a copy from type ‘const std::pair<int, const char*>’ [-Wrange-loop-construct]
+   36 |     for(const auto item:{std::pair<int,const char*>{7,"5"},{10,"7"},{11,"7"},{2,"9"},{5,"11"}})
+      |                    ^~~~
+Source/Core/Reference/ChordNames.h:36:20: note: use reference type to prevent copying
+   36 |     for(const auto item:{std::pair<int,const char*>{7,"5"},{10,"7"},{11,"7"},{2,"9"},{5,"11"}})
+      |                    ^~~~
+      |                    &
+Source/Core/Reference/ChordNames.h: In function ‘std::string buffkiller::soundingNoteList(const ChordInput&)’:
+Source/Core/Reference/ChordNames.h:92:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   92 |         if(!result.empty())result+=", ";result+=chordRootNames[c];seen=uint16_t(seen|(1u<<c));}
+      |         ^~
+Source/Core/Reference/ChordNames.h:92:41: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   92 |         if(!result.empty())result+=", ";result+=chordRootNames[c];seen=uint16_t(seen|(1u<<c));}
+      |                                         ^~~~~~
+Source/Core/Reference/ChordNames.h: In lambda function:
+Source/Core/Reference/ChordNames.h:131:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  131 |         if(!out.empty())out+=", ";out+=names[size_t(c)];seen=uint16_t(seen|(1u<<c));};
+      |         ^~
+Source/Core/Reference/ChordNames.h:131:35: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  131 |         if(!out.empty())out+=", ";out+=names[size_t(c)];seen=uint16_t(seen|(1u<<c));};
+      |                                   ^~~
+Source/Core/Reference/ChordNames.h: In function ‘buffkiller::ChordDescription buffkiller::describeChord(const ChordInput&)’:
+Source/Core/Reference/ChordNames.h:165:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  165 |         if(i)result.detail+=" | ";result.detail+=result.candidates[i].name;
+      |         ^~
+Source/Core/Reference/ChordNames.h:165:35: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  165 |         if(i)result.detail+=" | ";result.detail+=result.candidates[i].name;
+      |                                   ^~~~~~
+In file included from Source/Core/MusicData.cpp:6:
+Source/Core/Reference/ChordNames.h: In function ‘std::string buffkiller::omissionText(uint16_t)’:
+Source/Core/Reference/ChordNames.h:36:20: warning: loop variable ‘item’ creates a copy from type ‘const std::pair<int, const char*>’ [-Wrange-loop-construct]
+   36 |     for(const auto item:{std::pair<int,const char*>{7,"5"},{10,"7"},{11,"7"},{2,"9"},{5,"11"}})
+      |                    ^~~~
+Source/Core/Reference/ChordNames.h:36:20: note: use reference type to prevent copying
+   36 |     for(const auto item:{std::pair<int,const char*>{7,"5"},{10,"7"},{11,"7"},{2,"9"},{5,"11"}})
+      |                    ^~~~
+      |                    &
+Source/Core/Reference/ChordNames.h: In function ‘std::string buffkiller::soundingNoteList(const ChordInput&)’:
+Source/Core/Reference/ChordNames.h:92:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   92 |         if(!result.empty())result+=", ";result+=chordRootNames[c];seen=uint16_t(seen|(1u<<c));}
+      |         ^~
+Source/Core/Reference/ChordNames.h:92:41: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   92 |         if(!result.empty())result+=", ";result+=chordRootNames[c];seen=uint16_t(seen|(1u<<c));}
+      |                                         ^~~~~~
+Source/Core/Reference/ChordNames.h: In lambda function:
+Source/Core/Reference/ChordNames.h:131:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  131 |         if(!out.empty())out+=", ";out+=names[size_t(c)];seen=uint16_t(seen|(1u<<c));};
+      |         ^~
+Source/Core/Reference/ChordNames.h:131:35: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  131 |         if(!out.empty())out+=", ";out+=names[size_t(c)];seen=uint16_t(seen|(1u<<c));};
+      |                                   ^~~
+Source/Core/Reference/ChordNames.h: In function ‘buffkiller::ChordDescription buffkiller::describeChord(const ChordInput&)’:
+Source/Core/Reference/ChordNames.h:165:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  165 |         if(i)result.detail+=" | ";result.detail+=result.candidates[i].name;
+      |         ^~
+Source/Core/Reference/ChordNames.h:165:35: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  165 |         if(i)result.detail+=" | ";result.detail+=result.candidates[i].name;
+      |                                   ^~~~~~

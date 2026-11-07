@@ -1,12 +1,14 @@
-# Flysnapper MIDI 0.4.0 – utviklingskandidat
+# Flysnapper MIDI 0.4.0 – MIDI-utgaven med brukerens fabrikkvalg
 
-Dette er ombyggingen til MIDI-only som brukeren bestilte 7. november 2026.
-Den samlede Linux-native-kontrollen består 4/4 grupper. Python-kontrollen
-har 198 tester: 196 består og 2 Windows-spesifikke BAT-prøver hoppes over
-på Linux. Dette gjelder den nye utgaven med 38 skalaer. Windows har
-egen fersk 38/52-verifikasjon: 4/4 native-grupper, 197 av 198 Python-tester
-med ett symlink-hopp og faktisk PS/BAT-installasjon/innlastet VST3 består.
-Ingen ny brukerleveranse eller Live-godkjenning er publisert.
+Dette er MIDI-only-utgaven brukeren bestilte, med 38 skalaer, 52 akkordtyper
+og samtlige fabrikkvalg fra den utfylte Excel-filen. 20 tilordninger er
+endret og 32 beholdt. Alle valg er innarbeidet nøyaktig, også de fire
+valgte skalaene som utelater nominelle akkordtoner.
+
+Ferske Linux-kontroller består: 4/4 native-grupper og 196 av 198 Python-
+tester, med to forventede native Windows-BAT-hopp. Den nye Windows-pakken
+må ha sin egen faktiske bygg-/installasjonskontroll før levering. Generisk
+VST3-verifikasjon er ikke en utført Ableton Live-kjøring.
 
 Audio-/pitchmotor, sidechain, input dynamics, Learn og generert bending/MPE
 er fjernet. Den nye modulen annonserer MIDI inn/ut og null audiobusser.
@@ -35,14 +37,13 @@ interne indeksene er bevart. Musikalsk XML-tilstand kan tolkes etter stabile
 ID-er; det er ikke en garanti for automatisk overføring av gamle
 prosjekters pluginautomasjon til den nye komponenten.
 
-De opprinnelige 50 fabrikktilordningene er uendret; de to nye typene har
-Lydian som foreløpig valg. Den
-[utfyllbare Excel-malen](factory-settings/2026-11-07-revision-3/README.md) er gitt til
-brukeren; ny fabrikkdata venter på den redigerte filen. Ikke oppgi dette
-som ferdig innarbeidede nye brukerbestemte fabrikkvalg.
+[Brukerfilen](factory-settings/2026-11-07-user-values/README.md) er bevart
+byte-for-byte. Mappingen følger stabile akkord-/skala-ID-er uavhengig av
+Excel-sortering. Nye instanser og Reset all 52 to factory bruker disse
+valgene; eksisterende lagrede instanser beholder sine egne innstillinger.
 
 Kontrollresultater og faktisk kilde-/modulbinding legges i
-`docs/validation/midi-only-38-scales-2026-11-07/`. Historiske audiofeil er beholdt som
+`docs/validation/midi-factory-2026-11-07/`. Historiske audiofeil er beholdt som
 historie og er ikke omtolket til beståtte MIDI-resultater.
 
 De eksisterende 31 råindeksene og stabile ID-ene er bevart, med nye valg

@@ -1,0 +1,274 @@
+{
+  "status": "PASS",
+  "scope": "Independent read-only import audit; no source/default edits or workbook formula evaluation",
+  "uploaded_file": "/workspace/attachments/4ca3f12d-fdd9-463b-8e09-6677d0a9d6ab/Flysnapper_factory_assignments_52_chords_38_scales.xlsx",
+  "uploaded_bytes": 18622,
+  "uploaded_sha256": "2df3afd9c7757469d8d7bf524efc3e2e09eb03824452ecbeb97294e3fafcc231",
+  "baseline_catalog_sha256": "cdb852b931c5ce4176f6f721a07e23d7f8798a649582aaff68fd9bc4bd5d7394",
+  "baseline_xlsx_sha256": "b4ac8ded45bd9fe9bf3472cc7f84052483b819898bbd06a940af548809f71a35",
+  "chord_ids": 52,
+  "valid_choices": 52,
+  "changed_assignments": 20,
+  "unchanged_assignments": 32,
+  "changes": [
+    {
+      "row": 5,
+      "chord_index": 44,
+      "chord_id": "thirteenth_sharp9",
+      "chord_in_C": "C13#9",
+      "old_scale_id": "diminished_half_whole",
+      "old_index": 13,
+      "new_scale_id": "harmonic_major_mode5",
+      "new_index": 35,
+      "display_name": "Harmonic Major 5 (Mixolydian b2) (C Db E F G A Bb)"
+    },
+    {
+      "row": 6,
+      "chord_index": 48,
+      "chord_id": "thirteenth_add_sharp9",
+      "chord_in_C": "C13add#9",
+      "old_scale_id": "diminished_half_whole",
+      "old_index": 13,
+      "new_scale_id": "mixolydian",
+      "new_index": 8,
+      "display_name": "Mixolydian (C D E F G A Bb)"
+    },
+    {
+      "row": 7,
+      "chord_index": 43,
+      "chord_id": "thirteenth_flat9",
+      "chord_in_C": "C13b9",
+      "old_scale_id": "diminished_half_whole",
+      "old_index": 13,
+      "new_scale_id": "harmonic_major_mode5",
+      "new_index": 35,
+      "display_name": "Harmonic Major 5 (Mixolydian b2) (C Db E F G A Bb)"
+    },
+    {
+      "row": 9,
+      "chord_index": 46,
+      "chord_id": "thirteenth_sus4_flat9",
+      "chord_in_C": "C13sus4b9",
+      "old_scale_id": "phrygian_dominant",
+      "old_index": 17,
+      "new_scale_id": "harmonic_major_mode5",
+      "new_index": 35,
+      "display_name": "Harmonic Major 5 (Mixolydian b2) (C Db E F G A Bb)"
+    },
+    {
+      "row": 10,
+      "chord_index": 4,
+      "chord_id": "power",
+      "chord_in_C": "C5",
+      "old_scale_id": "major_pentatonic",
+      "old_index": 11,
+      "new_scale_id": "minor_pentatonic",
+      "new_index": 12,
+      "display_name": "Minor Pentatonic (C Eb F G Bb)"
+    },
+    {
+      "row": 11,
+      "chord_index": 5,
+      "chord_id": "power_seventh",
+      "chord_in_C": "C5/7",
+      "old_scale_id": "mixolydian",
+      "old_index": 8,
+      "new_scale_id": "dorian",
+      "new_index": 5,
+      "display_name": "Dorian (C D Eb F G A Bb)"
+    },
+    {
+      "row": 25,
+      "chord_index": 15,
+      "chord_id": "dominant_sus4",
+      "chord_in_C": "C7sus4",
+      "old_scale_id": "mixolydian",
+      "old_index": 8,
+      "new_scale_id": "dorian",
+      "new_index": 5,
+      "display_name": "Dorian (C D Eb F G A Bb)"
+    },
+    {
+      "row": 26,
+      "chord_index": 16,
+      "chord_id": "dominant_sus4_flat9",
+      "chord_in_C": "C7sus4b9",
+      "old_scale_id": "phrygian_dominant",
+      "old_index": 17,
+      "new_scale_id": "melodic_minor_2",
+      "new_index": 19,
+      "display_name": "Mel. Min. 2: Dorian ♭2 (Phrygian ♮6) (C Db Eb F G A Bb)"
+    },
+    {
+      "row": 27,
+      "chord_index": 30,
+      "chord_id": "dominant_ninth",
+      "chord_in_C": "C9",
+      "old_scale_id": "mixolydian",
+      "old_index": 8,
+      "new_scale_id": "lydian_dominant",
+      "new_index": 15,
+      "display_name": "Mel. Min. 4: Lydian Dominant (C D E F# G A Bb)"
+    },
+    {
+      "row": 33,
+      "chord_index": 39,
+      "chord_id": "minor_eleventh_flat5",
+      "chord_in_C": "Cm11b5",
+      "old_scale_id": "locrian",
+      "old_index": 9,
+      "new_scale_id": "melodic_minor_6",
+      "new_index": 22,
+      "display_name": "Mel. Min. 6: Aeolian ♭5 (Locrian ♮2 / Half Dim.) (C D Eb F F# Ab Bb)"
+    },
+    {
+      "row": 35,
+      "chord_index": 49,
+      "chord_id": "minor_thirteenth_flat5",
+      "chord_in_C": "Cm13b5",
+      "old_scale_id": "locrian",
+      "old_index": 9,
+      "new_scale_id": "harmonic_major_mode2",
+      "new_index": 32,
+      "display_name": "Harmonic Major 2 (Dorian b5) (C D Eb F Gb A Bb)"
+    },
+    {
+      "row": 36,
+      "chord_index": 7,
+      "chord_id": "minor_sixth",
+      "chord_in_C": "Cm6",
+      "old_scale_id": "dorian",
+      "old_index": 5,
+      "new_scale_id": "melodic_minor",
+      "new_index": 4,
+      "display_name": "Melodic Minor 1 (C D Eb F G A B)"
+    },
+    {
+      "row": 38,
+      "chord_index": 13,
+      "chord_id": "half_diminished",
+      "chord_in_C": "Cm7b5",
+      "old_scale_id": "locrian",
+      "old_index": 9,
+      "new_scale_id": "melodic_minor_6",
+      "new_index": 22,
+      "display_name": "Mel. Min. 6: Aeolian ♭5 (Locrian ♮2 / Half Dim.) (C D Eb F F# Ab Bb)"
+    },
+    {
+      "row": 43,
+      "chord_index": 10,
+      "chord_id": "major_seventh",
+      "chord_in_C": "CMaj7",
+      "old_scale_id": "ionian",
+      "old_index": 1,
+      "new_scale_id": "lydian",
+      "new_index": 7,
+      "display_name": "Lydian (C D E F# G A B)"
+    },
+    {
+      "row": 45,
+      "chord_index": 27,
+      "chord_id": "major_seventh_sharp5",
+      "chord_in_C": "CMaj7#5",
+      "old_scale_id": "melodic_minor",
+      "old_index": 4,
+      "new_scale_id": "melodic_minor_3",
+      "new_index": 20,
+      "display_name": "Mel. Min. 3: Lydian Augmented (Lydian ♯5) (C D E F# Ab A B)"
+    },
+    {
+      "row": 46,
+      "chord_index": 28,
+      "chord_id": "major_seventh_sharp9",
+      "chord_in_C": "CMaj7#9",
+      "old_scale_id": "harmonic_minor",
+      "old_index": 3,
+      "new_scale_id": "harmonic_minor_6",
+      "new_index": 26,
+      "display_name": "Harm. Min. 6: Lydian ♯2 (C Eb E F# G A B)"
+    },
+    {
+      "row": 47,
+      "chord_index": 31,
+      "chord_id": "major_ninth",
+      "chord_in_C": "CMaj9",
+      "old_scale_id": "ionian",
+      "old_index": 1,
+      "new_scale_id": "lydian",
+      "new_index": 7,
+      "display_name": "Lydian (C D E F# G A B)"
+    },
+    {
+      "row": 51,
+      "chord_index": 33,
+      "chord_id": "minor_major_ninth",
+      "chord_in_C": "CmMaj9",
+      "old_scale_id": "melodic_minor",
+      "old_index": 4,
+      "new_scale_id": "harmonic_minor",
+      "new_index": 3,
+      "display_name": "Harm. Min. 1: Harmonic Minor (C D Eb F G Ab B)"
+    },
+    {
+      "row": 52,
+      "chord_index": 2,
+      "chord_id": "sus2",
+      "chord_in_C": "Csus2",
+      "old_scale_id": "ionian",
+      "old_index": 1,
+      "new_scale_id": "mixolydian",
+      "new_index": 8,
+      "display_name": "Mixolydian (C D E F G A Bb)"
+    },
+    {
+      "row": 53,
+      "chord_index": 3,
+      "chord_id": "sus4",
+      "chord_in_C": "Csus4",
+      "old_scale_id": "ionian",
+      "old_index": 1,
+      "new_scale_id": "dorian",
+      "new_index": 5,
+      "display_name": "Dorian (C D Eb F G A Bb)"
+    }
+  ],
+  "column_D_changes": [],
+  "formula_cells": [],
+  "other_sheet_value_changes": [],
+  "blank_choices": 0,
+  "exact_display_name_matches": 52,
+  "canonical_mapping_json_sha256": "146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814",
+  "canonical_mapping_hash_encoding": "JSON sorted keys, no whitespace, ASCII stable IDs, no trailing newline",
+  "canonical_mapping_file_sha256": "54c6e69c2b886fabc7eabc53fd93925223e16eb60fb31dc71048578ee7645672",
+  "outside_chord_choices_informational": [
+    {
+      "chord_id": "thirteenth_sharp9",
+      "scale_id": "harmonic_major_mode5",
+      "missing_chord_pitch_classes": [
+        3
+      ]
+    },
+    {
+      "chord_id": "thirteenth_add_sharp9",
+      "scale_id": "mixolydian",
+      "missing_chord_pitch_classes": [
+        3
+      ]
+    },
+    {
+      "chord_id": "dominant_sharp9",
+      "scale_id": "altered",
+      "missing_chord_pitch_classes": [
+        7
+      ]
+    },
+    {
+      "chord_id": "dominant_flat13",
+      "scale_id": "altered",
+      "missing_chord_pitch_classes": [
+        7
+      ]
+    }
+  ],
+  "errors": []
+}

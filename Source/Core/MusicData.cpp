@@ -59,27 +59,27 @@ constexpr std::array<ScaleDefinition,scaleCount> scales{{
  {"harmonic_major_mode7","Harmonic Major 7 (Locrian bb7)",bits({0,1,3,5,6,8,9}),5,7}
 }};
 constexpr std::array<ChordType,chordTypeCount> types{{
- {"major","",1},{"minor","m",2},{"sus2","sus2",1},{"sus4","sus4",1},
- {"power","5",11},{"power_seventh","5/7",8},{"major_sixth","6",1},{"minor_sixth","m6",5},
- {"six_nine","6/9",1},{"dominant_seventh","7",8},{"major_seventh","Maj7",1},{"minor_seventh","m7",5},
- {"minor_major_seventh","mMaj7",4},{"half_diminished","m7b5",9},{"diminished_seventh","dim7",14},
- {"dominant_sus4","7sus4",8},{"dominant_sus4_flat9","7sus4b9",17},
+ {"major","",1},{"minor","m",2},{"sus2","sus2",8},{"sus4","sus4",5},
+ {"power","5",12},{"power_seventh","5/7",5},{"major_sixth","6",1},{"minor_sixth","m6",4},
+ {"six_nine","6/9",1},{"dominant_seventh","7",8},{"major_seventh","Maj7",7},{"minor_seventh","m7",5},
+ {"minor_major_seventh","mMaj7",4},{"half_diminished","m7b5",22},{"diminished_seventh","dim7",14},
+ {"dominant_sus4","7sus4",5},{"dominant_sus4_flat9","7sus4b9",19},
  {"dominant_flat5","7b5",15},{"dominant_sharp5","7#5",16},
  {"dominant_flat9","7b9",17},{"dominant_sharp9","7#9",16},{"dominant_sharp11","7#11",15},
  {"dominant_flat13","7b13",16},{"dominant_flat5_flat9","7b5b9",16},
  {"dominant_flat5_sharp9","7b5#9",16},{"dominant_sharp5_flat9","7#5b9",16},
- {"dominant_sharp5_sharp9","7#5#9",16},{"major_seventh_sharp5","Maj7#5",4},
- {"major_seventh_sharp9","Maj7#9",3},{"major_seventh_sharp11","Maj7#11",7},
- {"dominant_ninth","9",8},{"major_ninth","Maj9",1},{"minor_ninth","m9",5},
- {"minor_major_ninth","mMaj9",4},{"ninth_sus4","9sus4",8},{"ninth_sharp11","9#11",15},
+ {"dominant_sharp5_sharp9","7#5#9",16},{"major_seventh_sharp5","Maj7#5",20},
+ {"major_seventh_sharp9","Maj7#9",26},{"major_seventh_sharp11","Maj7#11",7},
+ {"dominant_ninth","9",15},{"major_ninth","Maj9",7},{"minor_ninth","m9",5},
+ {"minor_major_ninth","mMaj9",3},{"ninth_sus4","9sus4",8},{"ninth_sharp11","9#11",15},
  {"dominant_eleventh","11",8},{"major_eleventh","Maj11",1},{"minor_eleventh","m11",5},
- {"minor_eleventh_flat5","m11b5",9},{"dominant_thirteenth","13",8},
+ {"minor_eleventh_flat5","m11b5",22},{"dominant_thirteenth","13",8},
  {"major_thirteenth","Maj13",1},{"minor_major_thirteenth","mMaj13",4},
- {"thirteenth_flat9","13b9",13},{"thirteenth_sharp9","13#9",13},
- {"thirteenth_sus4","13sus4",8},{"thirteenth_sus4_flat9","13sus4b9",17},
- {"minor_thirteenth","m13",5},{"thirteenth_add_sharp9","13add#9",13},{"minor_thirteenth_flat5","m13b5",9},
- // User-requested Flysnapper extensions. Lydian is a provisional compatible
- // default; these do not rename or repurpose any of the original fifty IDs.
+ {"thirteenth_flat9","13b9",35},{"thirteenth_sharp9","13#9",35},
+ {"thirteenth_sus4","13sus4",8},{"thirteenth_sus4_flat9","13sus4b9",35},
+ {"minor_thirteenth","m13",5},{"thirteenth_add_sharp9","13add#9",8},{"minor_thirteenth_flat5","m13b5",32},
+ // User-requested Flysnapper extensions. Factory assignments follow the
+ // uploaded worksheet; no original chord IDs are renamed or repurposed.
  {"major_thirteenth_sharp11","Maj13#11",7},{"major_ninth_sharp11","Maj9#11",7}
 }};
 constexpr auto patterns=[] {

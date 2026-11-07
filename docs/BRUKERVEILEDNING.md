@@ -1,14 +1,13 @@
-# Flysnapper MIDI 0.4.0 – brukerveiledning for utviklingskandidaten
+# Flysnapper MIDI 0.4.0 – brukerveiledning
 
-Dette dokumentet gjelder MIDI-only-utgaven med 38 skalaer og 52 akkordtyper.
-Alle native-grupper består på Linux og Windows. Faktisk PS/BAT-installasjon
-og innlasting av den installerte VST3-filen består i Windows-testverten.
-Fabrikkvalgene venter på brukerens Excel-fil, og praktisk Live 12.4.6-
-ruting er ikke verifisert i dette miljøet. Ingen ny brukerleveranse er publisert.
+Flysnapper MIDI har 38 skalaer og 52 akkordtyper. Fabrikktilordningene
+følger brukerens utfylte Excel-fil. Pakkens konkrete kilde-/modulbinding
+og Windows-/installasjonskontroller følger i Validation-mappen.
+Praktisk Ableton Live 12.4.6-plassering og kanalbevaring er ikke testet her.
 
 ## Installasjon og eldre versjon
 
-En eventuell Windows-pakke inneholder ferdig VST3 og installer. Pakk ut hele
+Windows-pakken inneholder ferdig VST3 og installer. Pakk ut hele
 ZIP-filen, lukk pluginvertene og kjør `INSTALL_FLYSNAPPER.bat`. Python, CMake
 og Visual Studio er utviklerverktøy og trengs ikke til normal installasjon.
 En Linux-modul kan ikke brukes som Windows-plugin.
@@ -90,11 +89,10 @@ nedadgående spill. Tonene i
 akkordtypeformlene inkluderer nominelle toner som gjenkjenningen kan
 akseptere utelatt. Enharmoniske navn kan betegne samme tonehøyde.
 
-**Reset all 52 to factory** gjelder bare denne instansen. Nye fabrikkvalg
-skal komme fra brukerens utfylte Excel-fil; ved dette punktet er de
-opprinnelige 50 tilordningene beholdt, med foreløpig Lydian på de to nye
-#11-typene. Kopiering av instanser kopierer deres
-musikalske innstillinger, og senere endringer er uavhengige.
+**Reset all 52 to factory** laster brukerens 52 Excel-tilordninger i denne
+instansen. Nye instanser starter med samme oppsett. Lagrede instanser
+beholder sine egne innstillinger. Kopiering av instanser kopierer deres
+musikalske innstillinger; senere endringer er uavhengige.
 
 ## Hjelp og opprydding
 

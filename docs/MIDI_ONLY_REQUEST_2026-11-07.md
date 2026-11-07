@@ -22,6 +22,14 @@ til 38 skalaer. Parentsettet er 0, 2, 4, 5, 7, 8, 11; navnene følger
 52 akkordrader og 38 valg med tonenavn i parentes. Tidligere 31 råindekser,
 ID-er og alle fabrikkvalg beholdes; de nye modusene er indeks 31–37.
 
+**Brukerfil mottatt:** Den utfylte arbeidsboken er bevart og importert
+[her](factory-settings/2026-11-07-user-values/README.md). Alle 52 valg er
+gyldige; 20 er endret og 32 beholdt. Verdiene i kolonne E brukes, koblet
+etter ID uavhengig av radrekkefølge. De fire tillatte valgene uten alle
+akkordtoner beholdes uten korreksjon av brukerdata. Dette erstatter de
+tidligere foreløpige fabrikkvalgene. Brukeren ønsker ferdig Windows-pakke
+etter de selvstendige bygg-/installasjonskontrollene.
+
 Behold MIDI-to-MIDI: spille-MIDI på 1, akkordkontroll på 16, holdte akkordtoner,
 fast skala eller akkordstyring og de eksisterende korreksjonsreglene. Behold
 52 akkordtyper, uavhengig skalatilordning og lagring per instans.
@@ -49,7 +57,8 @@ Brukeren vil endre factory assignments i Excel. En verifisert arbeidsbok med
 skalaalternativer er i [factory-settings](factory-settings/2026-11-07-revision-3/README.md).
 Dette er en redigeringsmal. De nye skalaene og MIDI-grensesnittet er nå
 implementert og har bestått den samlede native-kontrollen.
-Ikke finn på nye fabrikktilordninger før brukerens redigerte fil foreligger.
+Fabrikktilordningene følger nå den mottatte brukerfilen; ikke erstatt dem
+med forslag eller tidligere malverdier.
 
 ## Instanser, vertsformat og avklaring før ombygging
 

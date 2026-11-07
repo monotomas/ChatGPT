@@ -1,0 +1,19 @@
+{
+  "scope": "Binaries hashed after the fresh run, not duplicated in Git evidence",
+  "module": {
+    "sha256": "6ebe6efa9e7147ddbb8d2548312a2c6ce65947222424f3db0b306d8dc0c599a2",
+    "bytes": 11688320
+  },
+  "test_executables": {
+    "FlysnapperMidiOnlyProcessor": {
+      "binary": "build/native-release/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests",
+      "binary_sha256": "395178ad4035b2eef065a504ff81e2ffede975e57a173c968cd3dfbefc65cb38",
+      "binary_bytes": 11102440
+    },
+    "FlysnapperActualVst3": {
+      "binary": "build/native-release/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests",
+      "binary_sha256": "a2e0a2336585ffc9597c34093e12b66bf70d8331651fa34aa3604e3ae0a1776a",
+      "binary_bytes": 10571736
+    }
+  }
+}

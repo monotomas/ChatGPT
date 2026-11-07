@@ -2,12 +2,12 @@
 
 Flysnapper MIDI er en ren VST3-prosessor for MIDI-korreksjon etter skalaer
 eller et akkordspor. MIDI-only-ombyggingen følger brukerens bestilling
-7. november 2026. Det er ennå ingen publisert, praktisk Live-godkjent
-0.4.0-leveranse. Den nye 38-skala-/52-typeutgaven består 4/4 native-grupper
-på både Linux og Windows. Python har 198 tester: Linux 196 bestått /
-2 BAT-hopp, Windows 197 bestått / 1 symlink-hopp. Faktisk Windows-installasjon,
-erstatning, gjenoppretting og innlasting av installert VST3 består.
-Tidligere 31-skalaresultater er bevart som egne kontrollpunkt.
+7. november 2026. Brukerens utfylte Excel-fil er innarbeidet: alle 52
+fabrikkvalg følger filen, med 20 endringer fra malen. 38 skalaer beholdes.
+Den ferske fabrikkutgaven består 4/4 native-grupper på Linux og 196 av
+198 Python-tester, med to forventede native Windows-BAT-hopp. Fersk
+Windows-/installasjonskontroll må gjelde samme fabrikkilde før levering.
+Tidligere foreløpige pakker og testbevis er bevart som egne kontrollpunkt.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
 [versjonsnotatet](docs/RELEASE_0.4.0.md) og
@@ -43,12 +43,12 @@ overskriftene **Scales with all chord tones** og **Chord tones outside
 scale**. Begge grupper følger parentfamilie og modusnummer. Uforenlige
 valg er merket og navngir manglende toner; de er fortsatt valgbare.
 
-[Excel-malen](docs/factory-settings/2026-11-07-revision-3/README.md) har alle 52 stabile
-akkord-ID-er og 38 skalaalternativer. Nåværende fabrikkvalg beholdes inntil
-brukerens redigerte fil er mottatt og kontrollert. Hver instans lagrer sine
-egne tilordninger med prosjekttilstanden. De to nye typene har Lydian som
-foreløpig utgangspunkt. I Excel viser skalavalgene tonenavn i parentes;
-i pluginen vises skalanavn og skalatoner separat.
+[Brukerens fabrikkoppsett](docs/factory-settings/2026-11-07-user-values/README.md)
+inneholder alle 52 valgene fra kolonne E i den opplastede filen. Radene er
+koblet etter stabile ID-er, og den opprinnelige arbeidsboken er bevart.
+Hver ny instans bruker disse fabrikkvalgene. Eksisterende lagret tilstand
+beholder sine egne tilordninger; Reset all 52 to factory bruker de nye
+standardene. Skalanavn og skalatoner vises separat i pluginen.
 
 ## Format og vertsstatus
 
@@ -90,7 +90,7 @@ Den aktuelle MIDI-utgaven har egne kjerne-, GUI-, prosessor- og faktiske
 VST3-testvertprøver. Windows-pakking krever dessuten kilde-/modulbundet
 bevis, PE-/Unicode-kontroller og reelle installasjons-/gjenopprettingsprøver.
 En generisk testvert dokumenterer ikke faktisk Ableton-atferd.
-Se [det aktuelle kontrollpunktet](docs/validation/midi-only-38-scales-2026-11-07/README.md).
+Se [det aktuelle kontrollpunktet](docs/validation/midi-factory-2026-11-07/README.md).
 Kildepakken beholder all aktuell kode og testdata; historiske DSP-arkiver
 finnes i repositoriet og er utelatt fra den kompakte 0.4.0-kildepakken.
 

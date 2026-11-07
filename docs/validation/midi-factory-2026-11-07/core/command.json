@@ -1,0 +1,22 @@
+{
+  "cwd": "/workspace/ChatGPT",
+  "compile_argv": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-I",
+    "Source",
+    "Tests/CoreTests.cpp",
+    "Source/Core/MusicData.cpp",
+    "Source/Core/MidiEngine.cpp",
+    "-o",
+    "/tmp/flysnapper-midi-core-user-defaults/CoreTests"
+  ],
+  "run_argv": [
+    "/tmp/flysnapper-midi-core-user-defaults/CoreTests"
+  ],
+  "scope": "Standalone core numeric/GUI-string validation; not Windows/VST3/Live evidence"
+}
