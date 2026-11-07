@@ -12,14 +12,14 @@
     "ableton_verified": false
   },
   "platform": "Windows-x64",
-  "source_commit": "76490afdb2971ef3de9860f1bb11c80070fb91ef",
+  "source_commit": "7323545b2eda5a877a16a42248fea5c4e6cdc953",
   "source_sha256": {
     "build_plugin.py": "b0134d6911249c30cf6f75dc8cf0e0001f6aa3724125e45ffce8e0c439f8df20",
     "CMakeLists.txt": "fb3707ecf453d621708c99779dace4c9c5e55e1960dc2a0390c97f22bf5d17e2",
     "dependencies.lock.json": "c5319d7492ccb2585bab398029181a90c731f5ee6df0822b998570b9d46d9dcc",
     "Source/Core/MidiEngine.cpp": "a0187595aff787b954b90cf56cabc6b9aff534f9605ea5d88d3fda959ba76be2",
     "Source/Core/MidiEngine.h": "8edaf1828ecdb8dfd2d512acfd7d37ee1ead1164e0a67a6e79623dd2ba4955e7",
-    "Source/Core/MusicData.cpp": "3aefcbbe8ce585bbea3ee7524262c0b8a2fcd8683e63214293e61e8d9fddd1d2",
+    "Source/Core/MusicData.cpp": "1e2bd6e0fad8b444077eb55ff0c506324bb07bb507c6329e8b7d2816295ee2ea",
     "Source/Core/MusicData.h": "2e3fdb87aa51360a67aeb11aa87d841b51b834717fc9c4b12053f350c60e40b7",
     "Source/Core/Reference/ChordDictionary.h": "3ba9f2649ddbb3659285c156fb0d7b3c3fbd7927fd65d402d3756299b47754c4",
     "Source/Core/Reference/ChordInput.h": "bd590ad33332ae86ed848c755f69fca02c8da7a7ca2b2025b693ca6f0f513d02",
@@ -28,16 +28,16 @@
     "Source/PluginEditor.h": "810f8e68a52d0108963c916f7feb92ddccd8e2cb6e0c82f89d33ec77231c3e01",
     "Source/PluginProcessor.cpp": "d7bbaa784487d3bea9ed5bb42ea10a71c8813ff9a16a64d2643aef488aa64579",
     "Source/PluginProcessor.h": "6ee704ba0f11e563bc87bc8b8cb05135860602c82afa12eb40bdbe217413e9e3",
-    "Tests/CoreTests.cpp": "1277c5c8b20355f43233a3c6f6255470af42f18d4d88e7d0871009335e1ffc88",
-    "Tests/MidiOnlyProcessorTests.cpp": "63d018d5fe4eb537cd1467becbed4790a6e6910a67952e3840e94a5f242b5a0a",
-    "Tests/PluginTests.cpp": "46f39b3a1b87544292b0a835898006a9f99df76cf6406303f6edffa72c71a901",
-    "Tests/Vst3HostTests.cpp": "b7dfc49cd29a58d81e7c11dabdaa3940d615124f10c56e8ba52c3771b550b0e3",
+    "Tests/CoreTests.cpp": "5ced1b48f8be9c63c51e0d1ed578ef357dd08cd50f9bdfb3cb9ebb46c2af2322",
+    "Tests/MidiOnlyProcessorTests.cpp": "ecc8663cae6ffc8962ed03e6dc6addb1d9de4e1ad0ec09d2b910310e1ab982c9",
+    "Tests/PluginTests.cpp": "3239b868dfadecf1072c2a436c38ebca47458ac08cf2a497946f05bc1123fb33",
+    "Tests/Vst3HostTests.cpp": "90cf87446c81df52fa6fc95e70f47610fcaa3337eeae349228606319eda0de85",
     "Tools/midi_only_evidence.py": "5b14810ff1dfb6d65c016caa5f693af101c2b3886e12c7d485e41ba79dd31949",
-    "Tools/package_source.py": "2a6c4cfb2de4b0c30c7ad44878be59aa7008b595bb2040e56aa8889f99c75cff",
+    "Tools/package_source.py": "0df93512ba7831e61a367e5894c8011c2d203e6fe54231f6b5e9294315e439e8",
     "Tools/package_windows.py": "7fab2e787100bcc8ecf9ceb267e63b9bd45bef2163662898b66cb9460e915f7b"
   },
-  "ctest_sha256": "9f9c996575bea35dc31c0f8a8cd31eed76310b8c419c7deed8eaf9fc2a9f2872",
-  "vst3_sha256": "088385150d9405d91fbe305e9e7be1c87bc3de87525518745a38fb09c3e8477e",
+  "ctest_sha256": "7fcb722eab82fbc9896bcc8d68c764caeb149cfcccdcdecf80c0f667e84e9e95",
+  "vst3_sha256": "f4567bc474dca5e857cd2286046689ba34219d527cd2eb944c557fa5c5e14b34",
   "moduleinfo_sha256": "3c13c87f6e21a7b6c09cd81287e28468b36beef310186dc77b5b504586d55df5",
   "module": {
     "name": "Flysnapper MIDI",
@@ -52,22 +52,22 @@
     "FlysnapperMidiOnlyProcessor": {
       "target": "FlysnapperMidiOnlyProcessorTests",
       "binary": "build/w-a40571ed5356/FlysnapperMidiOnlyProcessorTests_artefacts/Release/FlysnapperMidiOnlyProcessorTests.exe",
-      "binary_sha256": "babe83c6d51b0f57bebfed9fd0d422f301cb60fd13d8943ca0ebd7c36538da2f",
-      "binary_bytes": 4807680,
-      "report_sha256": "dffc0ec57c23f0b66471ee0b2bcaa010aa2ce112e4bb938a8eeac8918a69c45c",
-      "events_sha256": "c12ea1ae6749228cb7610c9002661b5a7b2c93a4e4ea7bb6eea482dcdc1c5d16",
-      "checks": 107320,
-      "events_rows": 2377
+      "binary_sha256": "fda728c042dfcf0deb9ed0666066897c71e5c100a129454e383eccaf5f0a5946",
+      "binary_bytes": 4810240,
+      "report_sha256": "59fae34ead53fb16f89727cb9daf06ebdfc77ab701b94793655c388f20402ffd",
+      "events_sha256": "59a92c03571f05d0a0bd0a629d98b4f02947d15bdd88284995597bd0ced8b6ef",
+      "checks": 109494,
+      "events_rows": 2379
     },
     "FlysnapperActualVst3": {
       "target": "FlysnapperVst3HostTests",
       "binary": "build/w-a40571ed5356/FlysnapperVst3HostTests_artefacts/Release/FlysnapperVst3HostTests.exe",
-      "binary_sha256": "b634210232dbfe9f10a594d419af0d2843f4a49cf50f9aa42620eee570785c17",
-      "binary_bytes": 3796480,
-      "report_sha256": "b47874291172bd7f5f0feb7f2c0146cbb778a9820faf283b667157745235e6ca",
-      "events_sha256": "9d51ec652c7c2a0129bf62a3f08f8ae72549063e84e91b3c1279a2e322424e67",
-      "checks": 4964,
-      "events_rows": 1112
+      "binary_sha256": "5728932adf3a1de9b75b9fbe64a6bd8e6b752cfd12a5de3fd0bea21078b0fbe7",
+      "binary_bytes": 3803136,
+      "report_sha256": "3a7a1370ea735cfc16bc0d783ca20c9fa2f3c92da61d1984bb64e28f14492039",
+      "events_sha256": "db6b538d3708d70467c2241a1710c28ac135df87c5b0d98d257fc5216a6862c5",
+      "checks": 5373,
+      "events_rows": 1120
     }
   }
 }

@@ -6,30 +6,31 @@
 	skipped="0"
 	hostname=""
 	time="1"
-	timestamp="2026-11-07T16:37:40"
+	timestamp="2026-11-07T18:00:01"
 	>
-	<testcase name="FlysnapperCore" classname="FlysnapperCore" time="0.100533" status="run">
+	<testcase name="FlysnapperCore" classname="FlysnapperCore" time="0.0948445" status="run">
 		<properties/>
-		<system-out>Flysnapper core: 6 suites passed, 2191245 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
+		<system-out>Flysnapper core: 6 suites passed, 2191256 assertions; exhaustive masks/notes and numeric/reference recognition; 10,000 realtime iterations, zero new allocations.
 </system-out>
 	</testcase>
-	<testcase name="FlysnapperPluginSmoke" classname="FlysnapperPluginSmoke" time="0.503789" status="run">
+	<testcase name="FlysnapperPluginSmoke" classname="FlysnapperPluginSmoke" time="0.552396" status="run">
 		<properties/>
 		<system-out>PASS MIDI-only parameters,52x38 state choices, stable IDs, independent copies and legacy XML payloads
 PASS warmed processBlock C++ new check (host wrapper and malloc/realloc excluded)
 PASS scale/root/correction preview before prepareToPlay or processBlock
 PASS actual MIDI-only editor,52x38 ID-safe menu selections/automation, grouped warnings, note names, fixed column, flip/help continuity and PNGs
-FlysnapperPluginSmoke: PASS (20135 assertions; not Ableton validation)
+FlysnapperPluginSmoke: PASS (20293 assertions; not Ableton validation)
 </system-out>
 	</testcase>
-	<testcase name="FlysnapperMidiOnlyProcessor" classname="FlysnapperMidiOnlyProcessor" time="0.169756" status="run">
+	<testcase name="FlysnapperMidiOnlyProcessor" classname="FlysnapperMidiOnlyProcessor" time="0.191991" status="run">
 		<properties/>
-		<system-out>FlysnapperMidiOnlyProcessor: PASS (107320 checks, 14 cases; no Ableton verification).
+		<system-out>FlysnapperMidiOnlyProcessor: PASS (109494 checks, 14 cases; no Ableton verification).
 </system-out>
 	</testcase>
-	<testcase name="FlysnapperActualVst3" classname="FlysnapperActualVst3" time="0.496125" status="run">
+	<testcase name="FlysnapperActualVst3" classname="FlysnapperActualVst3" time="0.554954" status="run">
 		<properties/>
 		<system-out>PASS module_contract
+PASS user_factory_defaults_and_fresh_state
 PASS routing_44100_32
 PASS routing_44100_128
 PASS routing_44100_257
@@ -50,7 +51,7 @@ PASS instance_state
 PASS transport_reset
 PASS generated_midi_routing
 PASS host_invoked_bypass_callback
-RESULT actual VST3 host tests passed (4965 assertions).
+RESULT actual VST3 host tests passed (5374 assertions).
 PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
 NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.
 </system-out>

@@ -3,7 +3,7 @@
   "kind": "FlysnapperMidiOnlyVst3",
   "version": "0.4.0",
   "status": "passed",
-  "checks": 4964,
+  "checks": 5373,
   "scope": "Compiled VST3 module executed by the JUCE VST3 test host; no DAW or audio driver",
   "ableton_verified": false,
   "pitch_detection_implemented": false,
@@ -15,9 +15,14 @@
   "scale_count": 38,
   "chord_type_count": 52,
   "public_parameter_count": 59,
+  "factory_mapping_sha256": "146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814",
   "cases": [
     {
       "name": "module_contract",
+      "status": "passed"
+    },
+    {
+      "name": "user_factory_defaults_and_fresh_state",
       "status": "passed"
     },
     {
@@ -108,6 +113,7 @@
     "editor",
     "removed_pitch_parameters",
     "stable_mapping_parameter_ids",
+    "user_factory_defaults",
     "note_sample_offsets",
     "all_38_scales",
     "legacy_31_scale_indices",
@@ -129,6 +135,6 @@
     "host_invoked_bypass_callback_only"
   ],
   "events_file": "Flysnapper-midi-vst3-events.csv",
-  "events_rows": 1112,
+  "events_rows": 1120,
   "limitations": "No Ableton Live 12.4.6 execution; no claim about Device Activator scheduling, direct endpoint fan-out, held-chord replay or downstream instruments. Bypass case invokes the callback explicitly."
 }

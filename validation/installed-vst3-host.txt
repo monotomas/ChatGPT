@@ -1,4 +1,5 @@
 PASS module_contract
+PASS user_factory_defaults_and_fresh_state
 PASS routing_44100_32
 PASS routing_44100_128
 PASS routing_44100_257
@@ -19,6 +20,6 @@ PASS instance_state
 PASS transport_reset
 PASS generated_midi_routing
 PASS host_invoked_bypass_callback
-RESULT actual VST3 host tests passed (4965 assertions).
+RESULT actual VST3 host tests passed (5374 assertions).
 PLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.
 NOT VERIFIED: Ableton Live 12.4.6, Device Activator scheduling, direct routing or held-note replay.
