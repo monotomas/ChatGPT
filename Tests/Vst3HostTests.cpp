@@ -15,6 +15,8 @@
 namespace {
 constexpr int expectedScaleCount = 38;
 int assertions = 0, eventRows = 0;
+int64_t silentOutputSamplesChecked = 0;
+unsigned bypassSilenceCallbacks = 0;
 juce::Array<juce::var> cases;
 juce::StringArray features;
 juce::String currentCase;
@@ -104,22 +106,28 @@ public:
         juce::String error;
         plugin = formats.createPluginInstance(description, rate, block, error);
         if (!plugin) throw std::runtime_error("Actual VST3 creation failed: " + error.toStdString());
-        check(plugin->getBusCount(true) == 0 && plugin->getBusCount(false) == 0,
-              "MIDI-only VST3 unexpectedly exposes a JUCE audio bus");
-        check(plugin->getTotalNumInputChannels() == 0 && plugin->getTotalNumOutputChannels() == 0,
-              "MIDI-only VST3 unexpectedly exposes audio channels");
+        check(plugin->getBusCount(true) == 0 && plugin->getBusCount(false) == 1,
+              "Instrument VST3 must have no audio input and one audio output bus");
+        check(plugin->getTotalNumInputChannels() == 0 && plugin->getTotalNumOutputChannels() == 2,
+              "Instrument VST3 must expose a stereo output and no audio input");
         setChoice(*plugin, "Mode", 0);
         timeline.rate = rate; plugin->setPlayHead(&timeline); plugin->prepareToPlay(rate, block);
     }
     ~Session() { plugin->setPlayHead(nullptr); plugin->releaseResources(); }
     std::vector<Note> process(juce::MidiBuffer& midi, int count = -1, bool bypassCallback = false) {
         if (count < 0) count = maxBlock;
-        // Zero audio channels, but a real callback sample count.
-        juce::AudioBuffer<float> audio(0, count);
+        // Supply actual output buffers, prefilled with nonzero sentinels.
+        // These are output storage, not a plugin audio-input bus.
+        juce::AudioBuffer<float> audio(2, count);
+        for(int ch=0;ch<2;++ch)for(int n=0;n<count;++n)audio.setSample(ch,n,ch==0?.375f:-.625f);
         if (bypassCallback) plugin->processBlockBypassed(audio, midi);
         else plugin->processBlock(audio, midi);
-        check(audio.getNumChannels() == 0 && audio.getNumSamples() == count,
-              "MIDI callback changed the zero-channel buffer");
+        check(audio.getNumChannels() == 2 && audio.getNumSamples() == count,
+              "Instrument callback changed its stereo output buffer");
+        bool silent=true;for(int ch=0;ch<2;++ch)for(int n=0;n<count;++n)silent&=audio.getSample(ch,n)==0.f;
+        check(silent,"Compiled VST3 did not clear every seeded output sample");
+        silentOutputSamplesChecked+=int64_t(count)*2;
+        if(bypassCallback)++bypassSilenceCallbacks;
         // Evidence sample counts processed callback frames; a transport seek
         // changes the playhead, not this monotonic delivery clock.
         record(caseName, timeline.rate, count, processedSamples, midi);
@@ -179,19 +187,26 @@ void expectUserFactoryChoices(juce::AudioPluginInstance& p, bool declaredDefault
 }
 
 void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
-    check(!d.isInstrument, "Actual VST3 must be classified as an effect");
-    check(d.version == "0.4.0", "Actual VST3 must report version 0.4.0");
+    check(d.isInstrument, "Actual VST3 must be classified as an instrument");
+    check(d.version == "0.4.1", "Actual VST3 must report version 0.4.1");
     const auto categories = juce::StringArray::fromTokens(d.category, "|", "");
-    check(categories.contains("Fx") && categories.contains("Tools") && !categories.contains("Instrument"),
-          "Actual VST3 metadata must contain Fx|Tools and omit Instrument");
+    check(categories.size()==1 && categories.contains("Instrument"),
+          "Actual VST3 metadata must contain exactly Instrument, without Fx/Tools");
     Session s(formats, d, "module_contract"); auto& p = *s.plugin;
     check(p.acceptsMidi() && p.producesMidi(), "Actual VST3 MIDI input/output unavailable");
     check(p.getLatencySamples() == 0, "Pure MIDI module declares unexpected latency frames");
     const auto* extension = p.getVST3Client(); check(extension != nullptr, "VST3 SDK extension unavailable");
     auto* component = extension->getIComponentPtr(); check(component != nullptr, "VST3 IComponent unavailable");
     check(component->getBusCount(Steinberg::Vst::kAudio, Steinberg::Vst::kInput) == 0
-          && component->getBusCount(Steinberg::Vst::kAudio, Steinberg::Vst::kOutput) == 0,
-          "Actual SDK component exposes an obsolete audio bus");
+          && component->getBusCount(Steinberg::Vst::kAudio, Steinberg::Vst::kOutput) == 1,
+          "Actual SDK component must expose no audio input and one output bus");
+    Steinberg::Vst::BusInfo audioOutput{};
+    check(component->getBusInfo(Steinberg::Vst::kAudio,Steinberg::Vst::kOutput,0,audioOutput)==Steinberg::kResultOk,
+          "SDK instrument audio output metadata unavailable");
+    check(audioOutput.mediaType==Steinberg::Vst::kAudio&&audioOutput.direction==Steinberg::Vst::kOutput
+          &&audioOutput.channelCount==2&&audioOutput.busType==Steinberg::Vst::kMain
+          &&(audioOutput.flags&Steinberg::Vst::BusInfo::kDefaultActive)!=0,
+          "SDK instrument output must be an active main stereo audio bus");
     for (auto direction : {Steinberg::Vst::kInput, Steinberg::Vst::kOutput}) {
         check(component->getBusCount(Steinberg::Vst::kEvent, direction) == 1, "SDK MIDI event bus missing or duplicated");
         Steinberg::Vst::BusInfo info{};
@@ -236,7 +251,9 @@ void testModule(juce::AudioPluginFormatManager& formats, const juce::PluginDescr
               "Actual VST3 mapping ParamID changed: " + std::string(id));
     }
     expectUserFactoryChoices(p, true);
-    features.add("zero_audio_buses"); features.add("sdk_midi_event_buses"); features.add("effect_metadata");
+    juce::MidiBuffer silenceProbe;s.process(silenceProbe);check(silenceProbe.isEmpty(),"Normal silent-output probe generated MIDI unexpectedly");
+    s.process(silenceProbe,-1,true);check(silenceProbe.isEmpty(),"Conditional bypass silent-output probe generated MIDI unexpectedly");
+    features.add("silent_stereo_audio_output"); features.add("sdk_midi_event_buses"); features.add("instrument_metadata");
     features.add("editor"); features.add("removed_pitch_parameters"); features.add("stable_mapping_parameter_ids");
 }
 void testUserFactoryState(juce::AudioPluginFormatManager& formats, const juce::PluginDescription& d) {
@@ -642,18 +659,22 @@ void writeEvidence(const juce::File& directory, bool passed, const juce::String&
     check(events.replaceWithText(csv), "Could not write VST3 MIDI events");
     auto* object = new juce::DynamicObject;
     object->setProperty("schema", 1); object->setProperty("kind", "FlysnapperMidiOnlyVst3");
-    object->setProperty("version", "0.4.0");
+    object->setProperty("version", "0.4.1");
     object->setProperty("status", passed ? "passed" : "failed"); object->setProperty("checks", assertions);
-    object->setProperty("scope", "Compiled VST3 module executed by the JUCE VST3 test host; no DAW or audio driver");
+    object->setProperty("scope", "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver");
     object->setProperty("ableton_verified", false); object->setProperty("pitch_detection_implemented", false);
-    object->setProperty("audio_input_channels", 0); object->setProperty("audio_output_channels", 0);
-    object->setProperty("audio_input_buses", 0); object->setProperty("audio_output_buses", 0);
+    object->setProperty("audio_input_channels", 0); object->setProperty("audio_output_channels", 2);
+    object->setProperty("audio_input_buses", 0); object->setProperty("audio_output_buses", 1);
+    object->setProperty("host_device_role","instrument");
+    object->setProperty("audio_output_silent",passed&&silentOutputSamplesChecked>0&&bypassSilenceCallbacks>0);
+    object->setProperty("silent_output_samples_checked",juce::int64(silentOutputSamplesChecked));
+    object->setProperty("bypass_silence_callbacks",int(bypassSilenceCallbacks));
     object->setProperty("declared_latency_samples", 0); object->setProperty("scale_count", expectedScaleCount); object->setProperty("chord_type_count", 52);
     object->setProperty("public_parameter_count", 59);
     object->setProperty("factory_mapping_sha256", factoryMappingSha256);
     object->setProperty("cases", juce::var(cases)); object->setProperty("verified_features", juce::var(features));
     object->setProperty("events_file", events.getFileName()); object->setProperty("events_rows", eventRows);
-    object->setProperty("limitations", "No Ableton Live 12.4.6 execution; no claim about Device Activator scheduling, direct endpoint fan-out, held-chord replay or downstream instruments. Bypass case invokes the callback explicitly.");
+    object->setProperty("limitations", "No Ableton Live12.4.6 execution or loading/placement claim. This is an instrument-role plugin, not a native MIDI effect. Serial tests explicitly connect instances in this driver, not a same-track Live chain or internal rack. Bypass callbacks are invoked explicitly; no Device Activator scheduling, direct-endpoint fan-out, held-chord replay or downstream-instrument claim.");
     if (error.isNotEmpty()) object->setProperty("error", error);
     check(directory.getChildFile("Flysnapper-midi-vst3-evaluation.json").replaceWithText(juce::JSON::toString(juce::var(object), false)),
           "Could not write VST3 evaluation");

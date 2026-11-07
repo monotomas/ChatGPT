@@ -1,25 +1,24 @@
-# Flysnapper MIDI 0.4.0
+# Flysnapper MIDI 0.4.1
 
-**Rapportert vertsfeil:** Ableton Live12.4.6 viser pluginen, men avviser
-innlasting. Årsaken undersøkes; gjeldende pakke skal ikke omtales som
-bekreftet brukbar i Live. Se [undersøkelsen](docs/validation/live-open-failure-2026-11-07/README.md).
+0.4.1 bruker instrumentkategorien med en stille stereo lydutgang og MIDI
+inn/ut. Dette er brukerens valgte neste prøve etter at Live 12.4.6 avviste
+0.4.0 som audioeffekt uten audioinngang. Se
+[diagnosen](docs/validation/live-open-failure-2026-11-07/README.md).
 
-Flysnapper MIDI er en ren VST3-prosessor for MIDI-korreksjon etter skalaer
-eller et akkordspor. MIDI-only-ombyggingen følger brukerens bestilling
+Flysnapper MIDI behandler bare MIDI og korrigerer etter skalaer
+eller et akkordspor. Den stille instrumentutgangen endrer vertsrollen;
+ingen audioinngang eller pitchgjenkjenning er lagt til. Ombyggingen følger brukerens bestilling
 7. november 2026. Brukerens utfylte Excel-fil er innarbeidet: alle 52
 fabrikkvalg følger filen, med 20 endringer fra malen. 38 skalaer beholdes.
-Den ferske fabrikkutgaven består 4/4 native-grupper på Linux og Windows.
-Python har 198 tester: Linux 196 bestått / 2 native BAT-hopp, Windows
-197 bestått / 1 symlink-hopp. Faktisk Windows-installasjon, erstatning,
-gjenoppretting og innlasting av installert VST3 består.
-Tidligere foreløpige pakker og testbevis er bevart som egne kontrollpunkt.
+Tidligere pakker og testbevis er bevart som egne kontrollpunkt. Den nye
+instrumentrollen må kontrolleres i generisk VST3-vert og Windows-installasjon
+før publisering. Praktisk aksept i Ableton gjenstår til brukerens prøve.
 
-[Last ned ferdig Windows x64-pakke](https://github.com/monotomas/ChatGPT/raw/c12c6c4588f9fd0b8e4b8f08d40f1683d17d7dde/downloads/Flysnapper-Windows-x64.zip).
-Pakk ut hele ZIP-filen og kjør INSTALL_FLYSNAPPER.bat. Velg Flysnapper MIDI
-i verten. Nedlastingen er kontrollert mot den bygde og installerte pakken.
+En ny Windows-pakke publiseres etter kontrollene; den gamle 0.4.0-pakken
+har den bekreftede Live-feilen og er beholdt som historikk.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
-[versjonsnotatet](docs/RELEASE_0.4.0.md) og
+[versjonsnotatet](docs/RELEASE_0.4.1.md) og
 [brukerveiledningen](docs/BRUKERVEILEDNING.md) beskriver gjeldende løsning.
 Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
 
@@ -36,8 +35,8 @@ Gamle pitch-/audioresultater er beholdt som historie; den modulen er fjernet.
   akkordanalysen fortsetter. Påbegynte notebindinger, FIFO, kollisjons- og
   sustainregler beholdes slik at senere Note Off slipper riktig tone.
 - **Chord MIDI Through** videresender kanal 16 til neste instans. Aktiver
-  dette i mellominstanser og slå det av i siste instans, slik at
-  akkordkontrollen ikke spilles av mottakerinstrumentet.
+  dette bare når mottakeren trenger akkordkontrollen. La det være av ved
+  sending til et lydinstrument, slik at akkordkontrollen ikke spilles.
 
 ## Skalaer og fabrikkvalg
 
@@ -62,22 +61,21 @@ standardene. Skalanavn og skalatoner vises separat i pluginen.
 ## Format og vertsstatus
 
 Den nye komponenten heter **Flysnapper MIDI** og bruker bundle
-`Flysnapper MIDI.vst3`, med MIDI inn/ut og null audiobusser. Egen
-pluginidentitet gjør at den gamle 0.3.0-komponenten og dens eksisterende
+`Flysnapper MIDI.vst3`, med MIDI inn/ut, ingen audioinngang og én stille
+stereo audioutgang. Identiteten fra 0.4.0 og alle parameter-ID-er er beholdt.
+Egen pluginidentitet gjør at den gamle 0.3.0-komponenten og dens eksisterende
 prosjekt-/automasjonsdata ikke blir erstattet. Gamle normaliserte
 skalaparametre med 19 valg kan ikke uten videre brukes som 38-valgsautomasjon.
 
-Brukeren oppgir Live 12.4.6 og støtte for VST3-MIDI-kjeder. Det er ikke utført
-en faktisk Live-test i dette miljøet. Direkte ruting til én plugin,
-ruting til sporets inngang og parallell levering er forskjellige ting.
-[Vertsnotatet](docs/validation/midi-only-2026-11-07/host-routing/README.md)
-skiller bekreftet kode-/manualgrunnlag fra uavklart vertsatferd.
-
-Ved direkte ruting til første instans må den ikke deaktiveres i verten
-under mottak; bruk intern Note Correction av/på. Ved sporruting som
-bevarer kanal 1/16 kan den vanlige kjeden ha andre bypass-egenskaper.
-Ingen automatisk omdirigering eller gjenutsending av holdte akkordnoter
-ved reaktivering er forutsatt. Help og Guide forklarer kontrollene.
+På et annet MIDI-/instrumentspor velges Flysnapper-sporet i øverste
+**MIDI From**, og den pluginspesifikke **Flysnapper MIDI**-oppføringen i
+feltet under. Mottakersporet trenger Monitor In, eller Auto med opptaksarm.
+Dette er samme type MIDI-utgangsruting som brukeren tidligere fikk til.
+0.4.1 er ikke en native MIDI-effekt som kan plasseres foran et annet
+instrument på samme spor. Ingen Live-installasjon er tilgjengelig her;
+den nye binærfilens praktiske Live-aksept gjenstår til brukerprøven.
+CLAP, Max for Live og flere interne prosessorer er utsatt. Help og Guide
+forklarer instrumentutgangen og den valgte rutingen.
 
 ## Utvikling og kontroll
 

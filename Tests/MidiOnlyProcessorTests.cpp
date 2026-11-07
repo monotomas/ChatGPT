@@ -42,6 +42,8 @@ juce::StringArray verifiedFeatures;
 juce::StringArray eventCases;
 std::ostringstream csv;
 int64_t eventRows = 0;
+int64_t silentOutputSamplesChecked = 0;
+unsigned bypassSilenceCallbacks = 0;
 // Independently audited user workbook, canonical ordered mapping digest
 // 146501dd5146f620c6718bc2be9b784380cc22eef91ec1e9dac1251c5422e814.
 // This literal is an external factory-preset expectation, not a copy read
@@ -125,13 +127,19 @@ struct Harness {
         process(64); // Complete the ordinary fresh-prepare reset before assertions.
     }
     Stream process(int samples, const Stream& incoming = {}, bool bypassCallback = false) {
-        juce::AudioBuffer<float> audio(0, samples);
+        juce::AudioBuffer<float> audio(2, samples);
+        for(int ch=0;ch<2;++ch)for(int n=0;n<samples;++n)audio.setSample(ch,n,ch==0?.375f:-.625f);
         juce::MidiBuffer midi;
         midi.ensureSize(262144);
         for (const auto& event : incoming) midi.addEvent(event.second, event.first);
         if (bypassCallback) processor->processBlockBypassed(audio, midi);
         else processor->processBlock(audio, midi);
-        check(audio.getNumChannels() == 0 && audio.getNumSamples() == samples, "MIDI callback changed the zero-audio buffer");
+        check(audio.getNumChannels() == 2 && audio.getNumSamples() == samples, "Instrument callback changed its stereo output buffer");
+        bool silent=true;
+        for(int ch=0;ch<2;++ch)for(int n=0;n<samples;++n)silent&=audio.getSample(ch,n)==0.f;
+        check(silent,"Instrument callback did not clear every seeded stereo output sample");
+        silentOutputSamplesChecked+=int64_t(samples)*2;
+        if(bypassCallback)++bypassSilenceCallbacks;
         // Report the raw driver/instance identities separately from the
         // logical assertion groups. Record only names with actual CSV rows.
         if (!midi.isEmpty()) eventCases.addIfNotAlreadyThere(juce::String::fromUTF8(name.c_str()));
@@ -173,14 +181,20 @@ void declarationsAndState() {
     Harness h("parameters_and_instance_state");
     auto& a = *h.processor;
     FlysnapperProcessor b;
-    check(a.acceptsMidi() && a.producesMidi() && a.isMidiEffect(), "Processor does not declare a MIDI effect");
-    check(a.getBusCount(true) == 0 && a.getBusCount(false) == 0, "An audio bus remains");
-    check(a.getTotalNumInputChannels() == 0 && a.getTotalNumOutputChannels() == 0, "Audio channels remain");
+    check(a.acceptsMidi() && a.producesMidi() && !a.isMidiEffect(), "Processor does not declare the requested MIDI-producing instrument role");
+    check(a.getBusCount(true) == 0 && a.getBusCount(false) == 1, "Instrument must have no audio input and one audio output bus");
+    check(a.getTotalNumInputChannels() == 0 && a.getTotalNumOutputChannels() == 2, "Instrument must have no audio input and a stereo output");
     check(a.getLatencySamples() == 0 && a.getTailLengthSeconds() == 0, "MIDI processor adds a declared delay or tail");
-    juce::AudioProcessor::BusesLayout nonMidi;
-    nonMidi.inputBuses.add(juce::AudioChannelSet::stereo());
-    nonMidi.outputBuses.add(juce::AudioChannelSet::stereo());
-    check(!a.isBusesLayoutSupported(nonMidi), "A nonzero audio layout was accepted");
+    juce::AudioProcessor::BusesLayout stereo;
+    stereo.outputBuses.add(juce::AudioChannelSet::stereo());
+    check(a.isBusesLayoutSupported(stereo), "Requested stereo output layout was rejected");
+    auto unsupported=stereo;unsupported.inputBuses.add(juce::AudioChannelSet::stereo());
+    check(!a.isBusesLayoutSupported(unsupported), "An audio input was accepted");
+    unsupported=stereo;unsupported.outputBuses.set(0,juce::AudioChannelSet::mono());
+    check(!a.isBusesLayoutSupported(unsupported), "An unsupported mono output layout was accepted");
+    unsupported=stereo;unsupported.outputBuses.add(juce::AudioChannelSet::stereo());
+    check(!a.isBusesLayoutSupported(unsupported), "An additional output bus was accepted");
+    check(!a.isBusesLayoutSupported(juce::AudioProcessor::BusesLayout()), "The former zero-audio layout was accepted");
     for (const char* id : {"pitchEnabled", "pitchMode", "monoBend", "bendRange", "mpeOutput", "autoInput", "inputGate",
                            "sensitivity", "releaseMs", "dynamicsEnabled", "inputGainDb", "gateThresholdDb", "gateHysteresisDb",
                            "gateAttackMs", "gateHoldMs", "gateReleaseMs", "compressorThresholdDb", "compressorRatio", "limiterCeilingDb"})
@@ -203,7 +217,7 @@ void declarationsAndState() {
         auto* copied=dynamic_cast<juce::AudioParameterChoice*>(b.parameters.getParameter(FlysnapperProcessor::mappingParameterId(i)));
         check(copied&&copied->getIndex()==userFactoryChoices[size_t(i)],"Copying a fresh instance changed a user factory choice");
     }
-    feature("zero_audio_buses");
+    feature("silent_stereo_audio_output");
     for (int s = 0; s < flysnapper::scaleCount; ++s) {
         for (int i = 0; i < flysnapper::chordTypeCount; ++i) set(a, FlysnapperProcessor::mappingParameterId(i), float((i + s) % flysnapper::scaleCount));
         set(a, "mode", 2); set(a, "scale", float(s)); set(a, "root", float(s % 12)); set(a, "chordThru", float(s % 2));
@@ -291,7 +305,7 @@ void declarationsAndState() {
     check(get(b,"scale")==30&&get(b,"root")==11,"The preceding31-scale fixed state changed during import");
     for(int i=0;i<flysnapper::chordTypeCount;++i)
         check(get(b,FlysnapperProcessor::mappingParameterId(i))==float(i%31),"The preceding31-scale assignment vocabulary changed during import");
-    passed("zero_audio_and_independent_52x38_state", "Processor declarations, all52 chord mappings/all38 scale choices, old50-type and old31-scale ID payloads, independent copies; not old normalised-host-automation compatibility or DAW placement");
+    passed("silent_output_instrument_and_independent_52x38_state", "Instrument declaration with no audio input and a silent stereo output, all52 chord mappings/all38 choices, old50-type/31-scale ID payloads and independent copies; no DAW placement claim");
 }
 
 void normalisedChoiceCoverage() {
@@ -664,7 +678,8 @@ void transportLimitsAndRealtime() {
 
     Harness realtime("preallocated_realtime_callback");
     set(*realtime.processor, "mode", 2); set(*realtime.processor, "scale", 1); set(*realtime.processor, "chordThru", 1);
-    juce::AudioBuffer<float> audio(0, 128);
+    juce::AudioBuffer<float> audio(2, 128);
+    for(int ch=0;ch<2;++ch)for(int n=0;n<128;++n)audio.setSample(ch,n,ch==0?.375f:-.625f);
     juce::MidiBuffer midi; midi.ensureSize(262144);
     for (const auto& event : chord({48, 52, 55}, true, 3)) midi.addEvent(event.second, event.first);
     midi.addEvent(on(61), 17); midi.addEvent(off(61), 79);
@@ -674,6 +689,8 @@ void transportLimitsAndRealtime() {
     watchAllocations = false;
     check(allocations == 0, "The prepared MIDI callback allocates C++ objects");
     check(!realtime.processor->capacityFault(), "Ordinary preallocated callback overflowed");
+    bool silent=true;for(int ch=0;ch<2;++ch)for(int n=0;n<128;++n)silent&=audio.getSample(ch,n)==0.f;
+    check(silent,"Preallocated instrument callback did not silence its seeded output");silentOutputSamplesChecked+=256;
     passed("preallocated_midi_callback", "Counts global C++ new/new[] only around one warmed, preallocated real processor callback; not an OS realtime or allocator-completeness certificate");
 }
 
@@ -701,12 +718,17 @@ void writeEvidence(const char* status, const juce::String& error = {}) {
     for (const auto& name : eventCases) rawCases.add(name);
     object->setProperty("event_cases", rawCases);
     object->setProperty("ableton_verified", false); object->setProperty("pitch_detection_implemented", false);
-    object->setProperty("audio_input_channels", 0); object->setProperty("audio_output_channels", 0);
+    object->setProperty("audio_input_channels", 0); object->setProperty("audio_output_channels", 2);
+    object->setProperty("audio_input_buses",0);object->setProperty("audio_output_buses",1);
+    object->setProperty("host_device_role","instrument");
+    object->setProperty("audio_output_silent",juce::String(status)=="passed"&&silentOutputSamplesChecked>0&&bypassSilenceCallbacks>0);
+    object->setProperty("silent_output_samples_checked",juce::int64(silentOutputSamplesChecked));
+    object->setProperty("bypass_silence_callbacks",int(bypassSilenceCallbacks));
     object->setProperty("scale_count", flysnapper::scaleCount); object->setProperty("chord_type_count", flysnapper::chordTypeCount);
     juce::Array<juce::var> features;
     for (const auto& name : verifiedFeatures) features.add(name);
     object->setProperty("verified_features", features);
-    object->setProperty("scope", "Actual processor callbacks and explicitly driver-connected chains; no Live12.4.6 Device Activator, track-channel routing, parallel delivery or plugin-placement verification");
+    object->setProperty("scope", "MIDI-processing instrument with seeded stereo buffers cleared during actual callbacks, including conditional bypass, and explicitly driver-connected MIDI streams; no Live12.4.6 loading, placement, Device Activator or routing verification and no native MIDI-effect role claim");
     if (error.isNotEmpty()) object->setProperty("error", error);
     auto cwd = juce::File::getCurrentWorkingDirectory();
     if (!cwd.getChildFile("Flysnapper-midi-processor-events.csv").replaceWithText(juce::String::fromUTF8(csv.str().c_str())))

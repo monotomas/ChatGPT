@@ -1,29 +1,71 @@
-# Flysnapper – gjeldende produktoppdrag
+# Flysnapper MIDI – gjeldende produktoppdrag 0.4.1
 
-**7. november 2026: Oppdraget er endret til MIDI-only.** Pitch-to-MIDI skal
-fjernes og ikke utvikles videre. [Den nye bestillingen](MIDI_ONLY_REQUEST_2026-11-07.md)
-går foran teksten nedenfor. Den omfatter 38 skalaer, nytt skalameny-/tabelloppsett,
-Excel-redigerbare fabrikkvalg og seriekoblede instanser med kanal 16-kontroll.
-VST3 er fortsatt ønsket format; praktisk plassering/kjeding i Live er ikke
-verifisert. MIDI-only-koden med 38 skalaer og 52 typer består alle 4 native-grupper på
-Linux og Windows for de nye fabrikkvalgene. Pakken er faktisk installert
-og innlastet i Windows-testverten, publisert og HTTP-nedlastingen kontrollert. Brukerens Excel-fil er mottatt og de 52 valgene
-er innarbeidet, med 20 endringer fra malen.
+Brukeren har valgt å prøve den eksisterende Flysnapper som **VST3
+Instrument med audioutgang** før videre arbeid med en ren MIDI-effekt
+eller alternative formater. Denne presiseringen går foran tidligere
+påstander om null audiobusser eller samme-spor-kjeding i Live. Se
+[versjonsnotatet](RELEASE_0.4.1.md) og
+[brukerveiledningen](BRUKERVEILEDNING.md).
 
-**Tillegg samme dag:** Totalt 52 akkordtyper etter brukerens to nye #11-typer:
-CMaj13#11 = C D E F# G A B og CMaj9#11 = C D E F# G B. Excel-valgene skal
-vise alle 31 skalatypene med skalatonene i parentes etter navnet. Den
-[nye malen](factory-settings/2026-11-07-revision-2/README.md) erstatter
-50-raders redigeringsmalen. Nye native-/Windows-resultater må gjelde
-52-typekoden; tidligere 50-typebevis er et separat kontrollpunkt.
+## Gjeldende leveranse
 
-**Seneste skalatillegg:** Harmonisk dur, parentsett 0, 2, 4, 5, 7, 8, 11,
-og alle sju moduser med brukerens eksakte navn er implementert. Se
-[bestillingen](handover/Request_Harmonic_Major_2026-11-07.txt) og
-[38-skala-arbeidsboken](factory-settings/2026-11-07-revision-3/README.md).
-De tidligere 31 ID-ene/tonemaskene beholdes. Brukerens senere Excel-valg
-overstyrer de foreløpige fabrikktilordningene. Se
-[det importerte oppsettet](factory-settings/2026-11-07-user-values/README.md).
+0.4.1 heter Flysnapper MIDI og beholder Fsm1-identiteten og bundlen
+`Flysnapper MIDI.vst3` fra 0.4.0. Vertskategorien er Instrument, med ingen
+audioinngang og én stille stereo audioutgang. Audioutgangen er en
+vertsadapter; pluginen inneholder ingen synthesizer, pitchdetektor,
+sidechain eller audio-DSP. 0.3.0 har separat pluginidentitet.
+
+MIDI-algoritmen og brukerdataene beholdes: 52 akkordtyper, 38 skalaer og
+samtlige 52 fabrikkvalg fra den utfylte Excel-filen. De 20 endringene og
+de fire valgene uten alle nominelle akkordtoner skal ikke normaliseres
+bort. Den bevarte [brukerfilen og mappingen](factory-settings/2026-11-07-user-values/README.md)
+er referansen. De to tilføyde akkordene er CMaj13#11 = C D E F# G A B og
+CMaj9#11 = C D E F# G B. De sju Harmonic Major-modusene inngår i de 38
+skalaene. Eksisterende råindekser og stabile ID-er beholdes.
+
+## Ruting og musikalsk atferd
+
+Spille-MIDI mottas på kanal 1 og akkordkontroll på kanal 16. Korrigert MIDI
+hentes på et separat instrumentspor: øverste MIDI From velger
+Flysnapper-sporet, nederste felt velger pluginens eget MIDI-utgangspunkt.
+Mottakeren monitoreres og driver Kontakt eller et annet lydinstrument.
+Den faktiske Live-rutingen skal bekreftes; instrumentadapteren skal ikke
+beskrives som en verifisert pre-instrument MIDI-effekt på samme spor.
+
+Chord Tones Only bruker holdte akkordtoner. Chord-Scale Assignment bruker
+den gjenkjente typens egen tilordning i akkordens grunntone. Fixed Scale
+bruker selvstendig grunntone/skala. Nærmeste tillatte tone og de avtalte
+retningsreglene beholdes, uten å vente på framtidige noter. Påbegynte
+noter beholder Note Off-bindingen ved innstillingsendringer.
+
+Intern Note Correction av beholder akkordlytting og lar nye tonehøyder
+være uendret. Kanal 16 konsumeres når Chord MIDI Through er av, som er
+standardvalget. Kanalene 2–15 videresendes uten tonekorreksjon. Ingen
+automatisk parallell akkordfeed eller vertsbestemt replay av holdte noter
+forutsettes. Interne seriekoblingstester er teknisk bevis for eksplisitt
+koblede moduler, ikke for plassering/kjeding i Live.
+
+## Kontroll og videre avgrensning
+
+0.4.0 ble avvist i brukerens Live ved valideringen av en effekt uten valid
+audioinngang. 0.4.1 endrer vertskategori og audioutgang etter brukerens
+instruks. Den må få nye bygg-, modul- og installasjonskontroller; tidligere
+0.4.0-resultater beviser ikke den endrede adapteren. Faktisk innlasting,
+korrekt MIDI-utgang og mottakerspor i Live er fortsatt egne,
+uavklarte akseptpunkter.
+
+En ferdig Windows x64-installasjonspakke er leveransemålet. Brukeren skal
+kunne installere uten Python, CMake, Visual Studio eller kildeendringer.
+Generisk VST3-innlasting og Windows-/installasjonsbevis skal skilles fra
+Live-resultater. Det skal ikke erklæres Live-kompatibilitet fra metadata
+eller en annen testvert.
+
+Ingen wrapper-, Max for Live- eller CLAP-utvikling er valgt nå. Slike
+formatvalg og målet om en separat ren MIDI-effekt er utsatt mens denne
+instrumentadapteren prøves. Pitch-to-MIDI/DSP-utvikling er avsluttet.
+Historiske [0.4.0-notater](RELEASE_0.4.0.md), bestillinger og tidligere
+valideringsarkiver beholdes uendret. Teksten nedenfor gjelder det
+historiske gitaroppdraget og er ikke aktive krav til 0.4.1.
 
 ## Historisk oppdrag 3.–6. november
 

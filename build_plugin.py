@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build/test Flysnapper MIDI 0.4.0. Standard library only.
+"""Build/test Flysnapper MIDI 0.4.1 instrument adapter. Standard library only.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 Windows tool discovery and Unicode patch adapted from Buffkiller 1.0.0.
@@ -32,7 +32,7 @@ from typing import Mapping, Sequence, NamedTuple
 from Tools import input_dynamics_evidence  # Historical protocol fixtures only.
 from Tools import midi_only_evidence
 
-BUILDER_REVISION = "2026.11.07-midi-only-native-validation"
+BUILDER_REVISION = "2026.11.07-midi-instrument-adapter"
 ROOT = Path(__file__).resolve().parent
 JUCE_TAG = "8.0.16-security"
 JUCE_COMMIT = "ea77444750de45e036e0279bb0291144bf8e3688"
@@ -337,7 +337,7 @@ def install_bundle(install_dir: Path | None = None) -> None:
     if not manifest_path.is_file():
         raise RuntimeError("Byggemanifest mangler. Kjor full bygging forst.")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    midi_only = manifest.get("version") == "0.4.0"
+    midi_only = manifest.get("version") in ("0.4.0", "0.4.1")
     bundle_name = midi_only_evidence.BUNDLE if midi_only else "Flysnapper.vst3"
     suffix = midi_only_evidence.WINDOWS_BINARY if midi_only else "Contents/x86_64-win/Flysnapper.vst3"
     if midi_only and manifest.get("bundle_name") != bundle_name:
@@ -1246,7 +1246,7 @@ def collect_result(build: Path, native: bool, extra_manifest=None) -> Path:
     shutil.copy2(test_log, output / "automated-tests.txt")
     shutil.copy2(build / "flysnapper-ctest.xml", output / "test-results.xml")
     manifest = {
-        "version": "0.4.0", "product": "Flysnapper MIDI", "bundle_name": midi_only_evidence.BUNDLE,
+        "version": midi_only_evidence.VERSION, "product": "Flysnapper MIDI", "bundle_name": midi_only_evidence.BUNDLE,
         "stage": midi_only_evidence.STAGE, "evaluation_scope": dict(midi_only_evidence.SCOPE),
         "builder_revision": BUILDER_REVISION, "platform": platform_name, "juce_commit": JUCE_COMMIT,
         "built_at": dt.datetime.now(dt.timezone.utc).isoformat(), "python": platform.python_version(),
@@ -1303,7 +1303,7 @@ def main(argv=None) -> int:
     _log = log.open("w", encoding="utf-8")
     try:
         with local_temporary_directory():
-            say("FLYSNAPPER MIDI 0.4.0 | " + BUILDER_REVISION + "\nLogg: " + str(log))
+            say("FLYSNAPPER MIDI " + midi_only_evidence.VERSION + " | " + BUILDER_REVISION + "\nLogg: " + str(log))
             if args.install_only:
                 return 0 if finish_installation(args.choose_install_dir, args.install_dir) else 1
             run([sys.executable, "-m", "unittest", "discover", "-s", ROOT / "Tests", "-p", "test_builder*.py", "-v"])

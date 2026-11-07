@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bind MIDI-only processor and actual-VST3 tests to compiled inputs and module.
+"""Bind MIDI processing and silent instrument-adapter tests to compiled inputs.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 Native test-host execution is not an Ableton Live execution claim.
@@ -16,11 +16,13 @@ import struct
 import xml.etree.ElementTree as ET
 
 COMPILED_INPUTS = 'flysnapper-midi-compiled-inputs.json'
+VERSION = '0.4.1'
 DIRECTORY = 'midi-validation'
 MANIFEST = 'report-manifest.json'
 STAGE = 'midi-only-native-validation'
 SCOPE = {'feature_set':'midi-to-midi-only', 'audio_processing':False,
          'pitch_to_midi':False, 'scales':38, 'chord_types':52,
+         'host_device_role':'instrument', 'silent_audio_output':True,
          'host_scope':'native-processor-and-compiled-vst3-test-host',
          'ableton_verified':False}
 BUNDLE = 'Flysnapper MIDI.vst3'
@@ -36,7 +38,7 @@ SPECS = (
      'Flysnapper-midi-vst3-evaluation.json','Flysnapper-midi-vst3-events.csv',
      'FlysnapperMidiOnlyVst3'),
 )
-FEATURES = frozenset({'zero_audio_buses','chord_channel_16','chord_relay',
+FEATURES = frozenset({'silent_stereo_audio_output','chord_channel_16','chord_relay',
                       'serial_correction','internal_correction_bypass','instance_state'})
 EXTRA_INPUTS = ('CMakeLists.txt','dependencies.lock.json','build_plugin.py',
                 'Tests/CoreTests.cpp','Tests/PluginTests.cpp',
@@ -107,11 +109,10 @@ def module_info(data):
     require(len(classes)==1, 'expected one VST3 component class')
     component=classes[0];categories=component.get('Sub Categories')
     require(component.get('Name')=='Flysnapper MIDI'
-            and component.get('Version')=='0.4.0', 'module product/version differs')
-    require(isinstance(categories,list) and 'Fx' in categories and 'Tools' in categories
-            and 'Instrument' not in categories, 'module is not advertised as MIDI-only Fx/Tools')
+            and component.get('Version')==VERSION, 'module product/version differs')
+    require(categories==['Instrument'], 'module is not advertised as the silent VST3 instrument adapter')
     require(component.get('CID')=='ABCDEF019182FAEB466C797346736D31',
-            'MIDI-only component identity must differ from the old instrument')
+            'MIDI component identity must retain Fsm1 for the 0.4.0 repair')
     return {'name':component['Name'],'version':component['Version'],
             'component_cid':component['CID'],'sub_categories':categories}
 
@@ -124,7 +125,8 @@ def check_report(report_data, event_data, kind, event_filename):
             'native checks did not complete')
     require(r.get('ableton_verified') is False and r.get('pitch_detection_implemented') is False,
             'incorrect DAW/audio scope claim')
-    require(r.get('audio_input_channels')==0 and r.get('audio_output_channels')==0
+    require(r.get('audio_input_channels')==0 and r.get('audio_output_channels')==2
+            and r.get('audio_output_silent') is True and r.get('host_device_role')=='instrument'
             and r.get('scale_count')==38 and r.get('chord_type_count')==52,
             'MIDI-only bus/music scope differs')
     features=r.get('verified_features')
@@ -189,6 +191,7 @@ def check_ctest(data):
 
 
 def _module(dist, manifest):
+    require(manifest.get('version')==VERSION, 'instrument adapter version differs')
     platform=manifest.get('platform');name=WINDOWS_BINARY if platform=='Windows-x64' else LINUX_BINARY
     require(manifest.get('bundle_name')==BUNDLE, 'MIDI-only bundle identity differs')
     data=regular(dist/BUNDLE/name);native_binary(data,platform)

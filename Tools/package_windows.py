@@ -11,6 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BINARY='Contents/x86_64-win/Flysnapper.vst3'  # Legacy 0.3 package identity.
 MIDI_BUNDLE='Flysnapper MIDI.vst3'
 MIDI_BINARY='Contents/x86_64-win/Flysnapper MIDI.vst3'
+MIDI_VERSIONS=('0.4.0','0.4.1')  # Fixed shared identity, including archived 0.4.0.
 
 def dynamics_evidence_module():
     spec=importlib.util.spec_from_file_location('flysnapper_input_dynamics_evidence',Path(__file__).with_name('input_dynamics_evidence.py'))
@@ -23,7 +24,7 @@ def midi_evidence_module():
     return result
 
 def bundle_identity(manifest):
-    if manifest.get('version')=='0.4.0':
+    if manifest.get('version') in MIDI_VERSIONS:
         if manifest.get('bundle_name')!=MIDI_BUNDLE or manifest.get('product')!='Flysnapper MIDI':
             raise ValueError('The MIDI-only product must have its separate bundle identity')
         return MIDI_BUNDLE,MIDI_BINARY
@@ -67,10 +68,10 @@ def verified_payload(dist: Path,version: str) -> tuple[dict[str,bytes],dict]:
     if manifest.get('version')!=version:raise ValueError('Build version differs from the dependency/project lock')
     if manifest.get('windows_verified') is not True or manifest.get('toolchain_probe')!='passed' or manifest.get('juceaide_unicode_probe')!='passed':
         raise ValueError('Native Windows toolchain and Unicode probes must pass')
-    midi_only=version=='0.4.0'
+    midi_only=version in MIDI_VERSIONS
     if midi_only:
         midi=midi_evidence_module()
-        if (manifest.get('pitch_detection_implemented') is not False or manifest.get('audio_processing_implemented') is not False
+        if (version!=midi.VERSION or manifest.get('pitch_detection_implemented') is not False or manifest.get('audio_processing_implemented') is not False
                 or manifest.get('stage')!=midi.STAGE or manifest.get('evaluation_scope')!=midi.SCOPE
                 or manifest.get('ableton_verified') is not False):
             raise ValueError('The MIDI-only native validation scope is missing or different')
@@ -143,7 +144,7 @@ def build_package(root: Path,dist: Path,output: Path) -> Path:
     version=json.loads((root/'dependencies.lock.json').read_text(encoding='utf-8')).get('project_version','')
     if not re.fullmatch(r'\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?',version):raise ValueError('Invalid project version')
     bundle,build=verified_payload(dist,version)
-    midi_only=version=='0.4.0'
+    midi_only=version in MIDI_VERSIONS
     bundle_name,binary_name=bundle_identity(build)
     if midi_only:
         midi_evidence=midi_evidence_module().verify(root,dist,build)
@@ -185,10 +186,15 @@ ikke den eldre Flysnapper.vst3-instrumentutgaven eller andre plugins.
 Ved ny installasjon av MIDI-utgaven kontrolleres gjenopprettingskopien
 utenfor vertens VST3-skannemappe.
 
-Flysnapper MIDI behandler bare MIDI. Den har ingen audiobusser, sidechain,
-pitchgjenkjenning, input dynamics eller lydgenerering. Spille-MIDI bruker
-kanal 1; akkordkontroll bruker kanal 16.
-Se BRUKERVEILEDNING.md for korreksjon, skalaer, instanser og ruting.
+Flysnapper MIDI er et VST3-instrument med stille stereo-audioutgang.
+Utgangen er en vertstilpasning; pluginen behandler spille-MIDI og
+akkordkontroll og genererer ingen instrumentlyd. Den har ingen audioinngang,
+sidechain, pitchgjenkjenning eller input dynamics. Spille-MIDI bruker kanal 1;
+akkordkontroll bruker kanal 16. Velg Flysnapper som MIDI-kilde for et annet
+MIDI-spor, velg pluginens eget uttak og legg lydinstrumentet pa mottakersporet.
+Den klassifiseres som instrument, ikke som en ren MIDI-effekt som kan kjedes
+direkte med flere enheter pa et rent MIDI-spor.
+Se BRUKERVEILEDNING.md for korreksjon, skalaer og ruting.
 
 Validation inneholder native MIDI-prosessor- og faktisk VST3-testvertbevis,
 med kilde-/modulhashes. Dette er ikke en utfort Ableton Live-test.
@@ -231,7 +237,7 @@ def verify_package(path: Path) -> None:
         if actual!=release['files'].keys():raise ValueError('Release ZIP inventory differs from manifest')
         for n,d in release['files'].items():
             if hashlib.sha256(archive.read(prefix+n)).hexdigest()!=d:raise ValueError('Release ZIP checksum failed: '+n)
-        if release.get('version')=='0.4.0':
+        if release.get('version') in MIDI_VERSIONS:
             if release.get('bundle_name')!=MIDI_BUNDLE or release.get('product_name')!='Flysnapper MIDI':raise ValueError('MIDI-only release identity differs')
             verify_pe(archive.read(prefix+MIDI_BUNDLE+'/'+MIDI_BINARY))
         else:

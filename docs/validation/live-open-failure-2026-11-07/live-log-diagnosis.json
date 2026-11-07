@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "kind": "LiveAudioInputContractRejection",
+  "status": "cause_identified_from_actual_user_host_log",
+  "private_log_sha256": "fd85e20ca126df8ca44b596d30dcf02781dc135b06b36f967938cfd272e3629f",
+  "private_log_bytes": 3635564,
+  "raw_log_copied_or_published": false,
+  "anonymized_excerpt_sha256": "4eb10330dabc7cd82e55a5eaeb2dea8cf349a3edf391795301fb2d9325477994",
+  "prior_static_audit_sha256": "048fd2e133d3176d4bf7fc54ff05a170de3a23c13b82d9c835df09e1e08a7c38",
+  "component": {
+    "name": "Flysnapper MIDI",
+    "version": "0.4.0",
+    "cid": "ABCDEF01-9182-FAEB-466C-797346736D31"
+  },
+  "same_error_sequence_occurrences": 5,
+  "evidence": [
+    "VST3: plugin processor successfully loaded: Flysnapper 'Flysnapper MIDI' v0.4.0 (cid: {ABCDEF01-9182-FAEB-466C-797346736D31})",
+    "Vst3: plugin has an effect category, but no valid audio input bus",
+    "VST3: No valid input bus could be found"
+  ],
+  "proven": "Live successfully loads the processor, then rejects its Fx category because it cannot find a valid AUDIO INPUT bus. This is a host audio-bus contract rejection, not the previously unresolved generic DLL-loading failure.",
+  "delivery_relation": "Log identity matches the delivered0.4Fsm1 component. A log identity is not an independent hash of the user-installed DLL. The delivered ZIP/DLL bytes remain bound by the prior artifact audit.",
+  "current_source_contract": "Source7323545 and its compiled SDK tests intentionally expose0 audio input/output buses and reject every positive audio-bus layout. This explains the observed missing-input condition.",
+  "output_only_fix_excluded": "Adding only an audio OUTPUT cannot satisfy the AUDIO INPUT requirement named in the actual log.",
+  "not_proven_by_log": [
+    "Which positive audio input layout Live would accept",
+    "Whether output audio is additionally required after the input check",
+    "That an audio-adapted VST3 would retain pure MIDI-effect placement or same-track MIDI chaining",
+    "Any Ableton MIDI-channel/routing behavior after successful device creation"
+  ],
+  "design_consequence": "Preserving a truly zero-audio MIDI-effect chain requires a host-supported MIDI device/hosting route confirmed for Live. An audio-input Fx adapter changes the host-facing audio-device contract; its placement/routing must be assessed separately and must not be described as preserving a pure MIDI track chain.",
+  "code_changes": false,
+  "builds_run": false,
+  "new_package_published": false,
+  "raw_log_policy": "Keep full log private. Only these3 component-specific, path-free messages are suitable for the bounded diagnosis."
+}

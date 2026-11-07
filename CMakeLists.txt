@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(Flysnapper VERSION 0.4.0 LANGUAGES C CXX)
+project(Flysnapper VERSION 0.4.1 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -35,12 +35,12 @@ set(JUCE_BUILD_EXTRAS OFF CACHE BOOL "" FORCE)
 set(JUCE_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory("${JUCE_DIR}" "${CMAKE_BINARY_DIR}/juce")
 juce_add_plugin(Flysnapper
-  VERSION 0.4.0 COMPANY_NAME "Flysnapper" BUNDLE_ID "audio.flysnapper.midi"
+  VERSION 0.4.1 COMPANY_NAME "Flysnapper" BUNDLE_ID "audio.flysnapper.midi"
   PLUGIN_MANUFACTURER_CODE Flys PLUGIN_CODE Fsm1 PRODUCT_NAME "Flysnapper MIDI"
-  DESCRIPTION "MIDI chord-tone and chord-scale correction"
-  IS_SYNTH FALSE NEEDS_MIDI_INPUT TRUE NEEDS_MIDI_OUTPUT TRUE IS_MIDI_EFFECT TRUE
+  DESCRIPTION "MIDI chord-tone and chord-scale correction with silent instrument output"
+  IS_SYNTH TRUE NEEDS_MIDI_INPUT TRUE NEEDS_MIDI_OUTPUT TRUE IS_MIDI_EFFECT FALSE
   EDITOR_WANTS_KEYBOARD_FOCUS FALSE COPY_PLUGIN_AFTER_BUILD FALSE
-  VST3_CATEGORIES Fx Tools FORMATS VST3)
+  VST3_CATEGORIES Instrument FORMATS VST3)
 target_sources(Flysnapper PRIVATE Source/PluginProcessor.cpp Source/PluginEditor.cpp)
 target_include_directories(Flysnapper PUBLIC Source)
 target_compile_definitions(Flysnapper PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0 JUCE_VST3_CAN_REPLACE_VST2=0)

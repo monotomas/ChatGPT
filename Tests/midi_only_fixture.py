@@ -15,13 +15,13 @@ def make(base, repository):
         p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('protocol fixture '+name+'\n',encoding='utf-8')
     for name in ('Tools/package_source.py','Tools/windows_installer.ps1','INSTALL_FLYSNAPPER.bat'):
         shutil.copyfile(repository/name,root/name)
-    (root/'dependencies.lock.json').write_text(json.dumps({'project_version':'0.4.0'}))
+    (root/'dependencies.lock.json').write_text(json.dumps({'project_version':'0.4.1'}))
     dist=root/'dist';bundle=dist/evidence.BUNDLE;binary=bundle/evidence.WINDOWS_BINARY;binary.parent.mkdir(parents=True)
     pe=bytearray(512);pe[:2]=b'MZ';pe[60:64]=(128).to_bytes(4,'little');pe[128:134]=b'PE\0\0\x64\x86';pe.extend(b'PROTOCOL FIXTURE: NOT A NATIVE PLUGIN')
     binary.write_bytes(pe)
-    info={'Name':'Flysnapper MIDI','Version':'0.4.0','Classes':[{'CID':'ABCDEF019182FAEB466C797346736D31','Category':'Audio Module Class','Name':'Flysnapper MIDI','Version':'0.4.0','Sub Categories':['Fx','Tools']}]}
+    info={'Name':'Flysnapper MIDI','Version':'0.4.1','Classes':[{'CID':'ABCDEF019182FAEB466C797346736D31','Category':'Audio Module Class','Name':'Flysnapper MIDI','Version':'0.4.1','Sub Categories':['Instrument']}]}
     p=bundle/'Contents/Resources/moduleinfo.json';p.parent.mkdir(parents=True);p.write_text(json.dumps(info))
-    manifest={'version':'0.4.0','product':'Flysnapper MIDI','bundle_name':evidence.BUNDLE,
+    manifest={'version':'0.4.1','product':'Flysnapper MIDI','bundle_name':evidence.BUNDLE,
               'stage':evidence.STAGE,'evaluation_scope':dict(evidence.SCOPE),'platform':'Windows-x64','tests':'passed',
               'windows_verified':True,'toolchain_probe':'passed','juceaide_unicode_probe':'passed',
               'pitch_detection_implemented':False,'audio_processing_implemented':False,'ableton_verified':False,
@@ -36,7 +36,8 @@ def make(base, repository):
         p=build/(target+'_artefacts')/'Release'/(target+'.exe');p.parent.mkdir(parents=True);p.write_bytes(pe+target.encode())
         name='synthetic_protocol_fixture_'+target
         report={'schema':1,'kind':kind,'status':'passed','checks':123,'cases':[{'name':name,'status':'passed'}],
-                'ableton_verified':False,'pitch_detection_implemented':False,'audio_input_channels':0,'audio_output_channels':0,
+                'ableton_verified':False,'pitch_detection_implemented':False,'audio_input_channels':0,'audio_output_channels':2,
+                'audio_output_silent':True,'host_device_role':'instrument',
                 'scale_count':38,'chord_type_count':52,'verified_features':sorted(evidence.FEATURES|{'chord_filter'}),
                 'events_file':event_name,'events_rows':2}
         events='case,rate,block,sample,type,channel,note,value\n'+name+',48000,64,3,N,1,60,100\n'+name+',48000,64,31,F,1,60,0\n'
@@ -59,7 +60,7 @@ def installation_proof(f,base,commit):
     """Construct protocol bytes only; native installer/host must run in CI."""
     ps=base/'installation-powershell.txt';ps.write_text('Synthetic protocol fixture, not Windows execution.')
     host=base/'installed-vst3-host.txt';host.write_text('RESULT actual VST3 host tests passed (123 assertions).\nPLATFORM VERIFIED: Windows x64 compiled VST3 loaded and executed by native test host.\n')
-    launcher=base/'installation-launcher.txt';marker='Installed Flysnapper 0.4.0:';launcher.write_text(marker+' synthetic fixture\n')
+    launcher=base/'installation-launcher.txt';marker='Installed Flysnapper 0.4.1:';launcher.write_text(marker+' synthetic fixture\n')
     h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
     proof={'schema':1,'status':'passed','execution_platform':'Windows','source_commit':commit,
            'artifact_sha256':h(f.output),'installer_exit_code':0,'installed_host_exit_code':0,'host_assertions':123,

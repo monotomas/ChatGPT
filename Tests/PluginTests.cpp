@@ -32,9 +32,11 @@ float get(FlysnapperProcessor& p,const juce::String& id){
 }
 using Midi=std::vector<std::pair<int,juce::MidiMessage>>;
 Midi process(FlysnapperProcessor& p,int samples,const Midi& input={},bool bypass=false){
-    juce::AudioBuffer<float> audio(0,samples);juce::MidiBuffer midi;
+    juce::AudioBuffer<float> audio(2,samples);juce::MidiBuffer midi;
+    for(int ch=0;ch<2;++ch)for(int s=0;s<samples;++s)audio.setSample(ch,s,.25f);
     for(const auto& e:input)midi.addEvent(e.second,e.first);
     if(bypass)p.processBlockBypassed(audio,midi);else p.processBlock(audio,midi);
+    check(audio.getMagnitude(0,samples)==0.0f,"instrument output must be silent");
     Midi out;for(const auto e:midi)out.emplace_back(e.samplePosition,e.getMessage());return out;
 }
 juce::MidiMessage on(int note,int channel=1,int velocity=100){return juce::MidiMessage::noteOn(channel,note,juce::uint8(velocity));}
@@ -62,9 +64,9 @@ void parametersAndState(){
     FlysnapperProcessor a,b;
     check(flysnapper::chordTypeCount==52&&flysnapper::chordTypes().size()==52,"requested chord catalog must contain all52 types");
     check(flysnapper::scaleCount==38&&flysnapper::scaleDefinitions().size()==38,"requested scale catalog must include all38 scales");
-    check(a.acceptsMidi()&&a.producesMidi()&&a.isMidiEffect(),"MIDI-only role declarations");
-    check(a.getTotalNumInputChannels()==0&&a.getTotalNumOutputChannels()==0,"MIDI-only processor advertises audio channels");
-    check(a.getBusCount(true)==0&&a.getBusCount(false)==0,"MIDI-only processor advertises audio buses");
+    check(a.acceptsMidi()&&a.producesMidi()&&!a.isMidiEffect(),"instrument adapter MIDI declarations");
+    check(a.getTotalNumInputChannels()==0&&a.getTotalNumOutputChannels()==2,"instrument requires zero audio inputs and stereo output");
+    check(a.getBusCount(true)==0&&a.getBusCount(false)==1,"instrument audio bus contract");
     check(a.getLatencySamples()==0,"MIDI correction reports intentional latency");
     for(const char* old:{"pitchEnabled","pitchMode","monoBend","bendRange","autoInput","mpeOutput","inputGate","dynamicsEnabled","gateThresholdDb","compressorRatio"})check(a.parameters.getParameter(old)==nullptr,"removed audio parameter remains exposed");
     const auto defaults=flysnapper::factoryDefaults();
@@ -105,7 +107,7 @@ void parametersAndState(){
 }
 void realtimeNewCheck(){
     FlysnapperProcessor p;p.prepareToPlay(48000,128);set(p,"mode",2);set(p,"scale",1);
-    juce::AudioBuffer<float> audio(0,128);juce::MidiBuffer midi;midi.ensureSize(131072);
+    juce::AudioBuffer<float> audio(2,128);juce::MidiBuffer midi;midi.ensureSize(131072);
     for(int i=0;i<8;++i){midi.clear();midi.addEvent(on(61),7);midi.addEvent(off(61),71);p.processBlock(audio,midi);}
     newCalls=0;countNew=true;
     for(int i=0;i<128;++i){midi.clear();midi.addEvent(on(61),7);midi.addEvent(off(61),71);p.processBlock(audio,midi);}
@@ -208,7 +210,8 @@ void gui(){
     auto* description=dynamic_cast<juce::Label*>(find(*editor,"backDescription"));auto* tip=dynamic_cast<juce::Label*>(find(*editor,"assignmentTip"));
     check(description&&tip&&description->getFont().isBold()&&!tip->getFont().isBold(),"back description/tip weight mismatch");
     check(description->getText()==juce::String::fromUTF8("52 chord types, here assigned to root C. Your chosen scale type applies in the actual chord\xe2\x80\x99s root and is auto-saved with this instance."),"back description does not match requested text");
-    check(tip->getText().contains("Note Correction")&&tip->getText().contains("When routing chord MIDI directly"),"assignment tip omits conditional routing/correction guidance");
+    check(tip->getText().contains("Note Correction")&&tip->getText().contains("MIDI From")
+          &&tip->getText().containsIgnoreCase("instrument"),"assignment tip omits instrument routing/correction guidance");
     auto* flip=dynamic_cast<juce::TextButton*>(find(*editor,"flip"));auto* viewport=dynamic_cast<juce::Viewport*>(find(*editor,"mappingViewport"));auto* reset=dynamic_cast<juce::TextButton*>(find(*editor,"resetMappings"));
     check(flip&&viewport&&reset,"front/back controls absent");check(!viewport->isVisible(),"mapping view should start hidden");
     check(viewport->getViewedComponent()&&viewport->getViewedComponent()->getHeight()==flysnapper::chordTypeCount*FlysnapperMappingTable::rowHeight,"mapping viewport does not include every chord row");
@@ -230,6 +233,7 @@ void gui(){
     help->setToggleState(true,juce::sendNotificationSync);help->onClick();check(get(p,"help")==1&&box->getTooltip().isNotEmpty(),"help on did not restore mapping tooltip");
     guide->onClick();check(panel->isVisible()&&guideText->isReadOnly(),"guide failed to open read-only");
     check(guideText->getText().contains("Chord MIDI Through")&&guideText->getText().contains("Device Activator")&&guideText->getText().contains("38 scales"),"guide lacks MIDI-only routing/scale guidance");
+    check(guideText->getText().containsIgnoreCase("silent stereo")&&guideText->getText().contains("MIDI From"),"guide omits silent instrument output and receiver routing");
     check(!guideText->getText().containsIgnoreCase("hysteresis")&&!guideText->getText().containsIgnoreCase("compressor"),"old audio guide remained");
     check(process(p,128).empty()&&p.getSnapshot().allowedMask==before.allowedMask,"opening guide changed MIDI/allowed notes");screenshot(*editor,"Flysnapper-guide.png");guideClose->onClick();check(!panel->isVisible(),"guide failed to close");
     flip->onClick();check(viewport->isVisible(),"flip failed to show mapping rows");check(process(p,128).empty(),"flip interrupted a held note");screenshot(*editor,"Flysnapper-back.png");

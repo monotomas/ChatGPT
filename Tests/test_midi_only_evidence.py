@@ -12,6 +12,13 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
     def verify(self):return e.verify(self.f.root,self.f.dist,self.f.manifest)
     def test_exact_fixture_bindings_pass_without_claiming_native_execution(self):
         self.assertEqual(set(self.verify()),{e.MANIFEST}|{n for s in e.SPECS for n in s[2:4]})
+        self.assertEqual(e.SCOPE['host_device_role'],'instrument')
+        self.assertIs(e.SCOPE['silent_audio_output'],True)
+        self.assertIn('silent_stereo_audio_output',e.FEATURES)
+        self.assertNotIn('zero_audio_buses',e.FEATURES)
+        info=json.loads((self.f.bundle/'Contents/Resources/moduleinfo.json').read_text())
+        self.assertEqual(info['Classes'][0]['Sub Categories'],['Instrument'])
+        self.assertEqual(info['Classes'][0]['Version'],'0.4.1')
     def test_source_mutation_and_extra_source_are_rejected(self):
         p=self.f.root/'Source/Core/MidiEngine.cpp';p.write_text('changed source')
         with self.assertRaisesRegex(ValueError,'source differs'):self.verify()
@@ -22,12 +29,25 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
         path=self.f.dist/e.DIRECTORY/e.SPECS[0][3];path.write_bytes(path.read_bytes()+b'changed')
         with self.assertRaises(ValueError):self.verify()
     def test_rebound_false_host_claim_and_missing_feature_are_rejected(self):
-        for key,value in [('ableton_verified',True),('verified_features',[]),('scale_count',19),('scale_count',31),('chord_type_count',50),('audio_output_channels',2)]:
+        for key,value in [('ableton_verified',True),('verified_features',[]),('scale_count',19),('scale_count',31),('chord_type_count',50),('audio_input_channels',1),('audio_output_channels',0),('audio_output_channels',1),('audio_output_silent',False),('audio_output_silent',1),('host_device_role','effect')]:
             with self.subTest(key=key):
                 p=self.f.dist/e.DIRECTORY/e.SPECS[0][2];before=p.read_bytes();r=json.loads(before);r[key]=value;p.write_text(json.dumps(r))
                 proof=json.loads((self.f.dist/e.DIRECTORY/e.MANIFEST).read_text());proof['executions'][e.SPECS[0][0]]['report_sha256']=e.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
                 with self.assertRaises(ValueError):self.verify()
                 p.write_bytes(before);proof['executions'][e.SPECS[0][0]]['report_sha256']=e.sha(before);fixture.rebind_proof(self.f,proof)
+    def test_silent_instrument_contract_required_in_each_native_report(self):
+        for spec in e.SPECS:
+            for key in ('audio_output_silent','host_device_role'):
+                with self.subTest(report=spec[0],missing=key):
+                    p=self.f.dist/e.DIRECTORY/spec[2];before=p.read_bytes();r=json.loads(before);del r[key];p.write_text(json.dumps(r))
+                    proof=json.loads((self.f.dist/e.DIRECTORY/e.MANIFEST).read_text());proof['executions'][spec[0]]['report_sha256']=e.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
+                    with self.assertRaises(ValueError):self.verify()
+                    p.write_bytes(before);proof['executions'][spec[0]]['report_sha256']=e.sha(before);fixture.rebind_proof(self.f,proof)
+            with self.subTest(report=spec[0],missing='silent_stereo_audio_output'):
+                p=self.f.dist/e.DIRECTORY/spec[2];before=p.read_bytes();r=json.loads(before);r['verified_features'].remove('silent_stereo_audio_output');p.write_text(json.dumps(r))
+                proof=json.loads((self.f.dist/e.DIRECTORY/e.MANIFEST).read_text());proof['executions'][spec[0]]['report_sha256']=e.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
+                with self.assertRaises(ValueError):self.verify()
+                p.write_bytes(before);proof['executions'][spec[0]]['report_sha256']=e.sha(before);fixture.rebind_proof(self.f,proof)
     def test_duplicate_cases_and_noncausal_event_times_rejected_even_with_rebound_hash(self):
         p=self.f.dist/e.DIRECTORY/e.SPECS[0][3];p.write_text(p.read_text().replace(',31,F,',',1,F,'))
         proof=json.loads((self.f.dist/e.DIRECTORY/e.MANIFEST).read_text());proof['executions'][e.SPECS[0][0]]['events_sha256']=e.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
@@ -36,14 +56,14 @@ class MidiOnlyEvidenceTests(unittest.TestCase):
         p=self.f.dist/'test-results.xml';p.write_text(p.read_text().replace('</testsuite>','<testcase name="FlysnapperCore"><skipped/></testcase></testsuite>'))
         proof=json.loads((self.f.dist/e.DIRECTORY/e.MANIFEST).read_text());proof['ctest_sha256']=e.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
         with self.assertRaisesRegex(ValueError,'exactly once'):self.verify()
-    def test_old_component_identity_and_instrument_category_are_rejected(self):
+    def test_old_component_identity_fx_role_and_version_are_rejected(self):
         p=self.f.bundle/'Contents/Resources/moduleinfo.json';original=json.loads(p.read_text())
-        for key,value in [('CID','ABCDEF019182FAEB466C797346736E31'),('Sub Categories',['Instrument','Tools'])]:
+        for key,value in [('CID','ABCDEF019182FAEB466C797346736E31'),('Sub Categories',['Fx','Tools']),('Sub Categories',['Instrument','Fx']),('Sub Categories',['Instrument','Tools']),('Sub Categories',['Tools']),('Sub Categories',[]),('Version','0.4.0')]:
             x=copy.deepcopy(original);x['Classes'][0][key]=value
             with self.subTest(key=key),self.assertRaises(ValueError):e.module_info(json.dumps(x).encode())
     def test_juce_trailing_commas_do_not_rewrite_quoted_values(self):
         p=self.f.bundle/'Contents/Resources/moduleinfo.json';x=json.loads(p.read_text());x['irrelevant']='comma,] stays in string'
-        raw=json.dumps(x).replace('"Tools"]','"Tools",]').replace('}]','},]');self.assertEqual(e.module_info(raw.encode())['name'],'Flysnapper MIDI')
+        raw=json.dumps(x).replace('"Instrument"]','"Instrument",]').replace('}]','},]');self.assertEqual(e.module_info(raw.encode())['name'],'Flysnapper MIDI')
     def test_proof_inventory_and_unsafe_paths_are_rejected(self):
         (self.f.dist/e.DIRECTORY/'unexpected.txt').write_text('unexpected')
         with self.assertRaisesRegex(ValueError,'inventory differs'):self.verify()

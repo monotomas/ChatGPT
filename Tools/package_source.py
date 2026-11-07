@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a deterministic, complete Flysnapper MIDI 0.4.0 source delivery ZIP.
+"""Create a deterministic, complete Flysnapper MIDI 0.4.1 source delivery ZIP.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 JUCE is deliberately acquired by the checked builder using dependencies.lock.json;
@@ -16,7 +16,7 @@ import stat
 import tempfile
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
-VERSION = "0.4.0"
+VERSION = "0.4.1"
 PACKAGE_ROOT = f"Flysnapper-{VERSION}"
 FIXED_TIMESTAMP = (2026, 11, 3, 0, 0, 0)
 ROOT_FILES = frozenset({
@@ -36,6 +36,7 @@ REQUIRED_FILES = frozenset({
     "Tools/package_source.py", "Tools/package_windows.py", "Tools/midi_only_evidence.py", "Tools/windows_installer.ps1",
     "Tools/verify_windows_install.py", "Tools/publish_windows_delivery.py",
     "docs/HOST_TEST_PLAN.md", "docs/BRUKERVEILEDNING.md", "docs/MIDI_ONLY_REQUEST_2026-11-07.md",
+    "docs/INSTRUMENT_ADAPTER_REQUEST_2026-11-07.md", "docs/RELEASE_0.4.1.md",
     ".github/workflows/windows.yml",
 })
 
@@ -95,7 +96,7 @@ def collect_files(root: Path, output: Path) -> dict[str, bytes]:
             if relative_current == "docs":
                 directories[:] = [d for d in directories if d != "research"]
             elif relative_current == "docs/validation":
-                directories[:] = [d for d in directories if d == "midi-factory-2026-11-07"]
+                directories[:] = [d for d in directories if d == "midi-instrument-2026-11-07"]
                 # Old aggregate/root evidence is historical too. The complete
                 # records remain in the source repository, outside this ZIP.
                 continue
@@ -174,7 +175,7 @@ def verify_package(path: Path) -> None:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, help="Delivery ZIP path; default dist/Flysnapper-0.4.0-Source.zip")
+    parser.add_argument("--output", type=Path, help="Delivery ZIP path; default dist/Flysnapper-0.4.1-Source.zip")
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parent.parent
     output = args.output or root / "dist" / f"Flysnapper-{VERSION}-Source.zip"

@@ -38,7 +38,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout FlysnapperProcessor::paramet
     return p;
 }
 FlysnapperProcessor::FlysnapperProcessor()
-    : AudioProcessor(BusesProperties()),parameters(*this,nullptr,"FLYSNAPPER_PARAMETERS",parameterLayout()) {
+    : AudioProcessor(BusesProperties().withOutput("Output",juce::AudioChannelSet::stereo(),true)),
+      parameters(*this,nullptr,"FLYSNAPPER_PARAMETERS",parameterLayout()) {
     correction=parameters.getRawParameterValue("correction");mode=parameters.getRawParameterValue("mode");
     root=parameters.getRawParameterValue("root");scale=parameters.getRawParameterValue("scale");
     chordThru=parameters.getRawParameterValue("chordThru");routingTest=parameters.getRawParameterValue("routingTest");
@@ -50,7 +51,8 @@ FlysnapperProcessor::FlysnapperProcessor()
     engine.setSettings(initial);display.store(flysnapper::packSnapshot(engine.snapshot()));setLatencySamples(0);
 }
 bool FlysnapperProcessor::isBusesLayoutSupported(const BusesLayout& layout) const {
-    return layout.inputBuses.isEmpty()&&layout.outputBuses.isEmpty();
+    return layout.inputBuses.isEmpty()&&layout.outputBuses.size()==1
+        &&layout.getMainOutputChannelSet()==juce::AudioChannelSet::stereo();
 }
 void FlysnapperProcessor::prepareToPlay(double rate,int) {
     sampleRate=std::isfinite(rate)&&rate>=8000&&rate<=384000?rate:48000;

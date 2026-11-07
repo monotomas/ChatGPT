@@ -111,15 +111,17 @@ function Get-FlysnapperVerifiedPackage([string]$Root) {
         throw 'Build proof does not match a complete Windows installation package.'
     }
     # These are fixed product identities, never arbitrary manifest paths. The
-    # MIDI-only component is deliberately separate from the old instrument.
+    # The MIDI component retains its 0.4 identity, separate from the 0.3 product.
     $bundleName = 'Flysnapper.vst3'
     $binaryName = 'Contents/x86_64-win/Flysnapper.vst3'
-    if ([string]$manifest.version -eq '0.4.0') {
+    if ([string]$manifest.version -eq '0.4.1') {
         if ($manifest.bundle_name -ne 'Flysnapper MIDI.vst3' -or $manifest.product_name -ne 'Flysnapper MIDI' -or
             $build.bundle_name -ne 'Flysnapper MIDI.vst3' -or $build.product -ne 'Flysnapper MIDI' -or
             $build.pitch_detection_implemented -ne $false -or $build.audio_processing_implemented -ne $false -or
             $build.stage -ne 'midi-only-native-validation' -or $build.ableton_verified -ne $false -or
             $build.evaluation_scope.feature_set -ne 'midi-to-midi-only' -or
+            $build.evaluation_scope.host_device_role -ne 'instrument' -or
+            $build.evaluation_scope.silent_audio_output -ne $true -or
             $build.evaluation_scope.scales -ne 38 -or $build.evaluation_scope.chord_types -ne 52) {
             throw 'MIDI-only product identity or validation scope differs.'
         }

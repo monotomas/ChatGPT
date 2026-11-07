@@ -6,9 +6,9 @@
   "user_reported_host": "Ableton Live12.4.6",
   "user_report": "Plugin visible in Live browser, rejected when opening",
   "exact_error": "This VST3 plug-in could not be opened.",
-  "actual_ableton_load_status": "user-reported failure",
-  "confirmed_cause": null,
-  "leading_hypothesis": "Strict zero-audio-bus topology. Pinned JUCE MIDI Logger adds an output for Live; ours rejects any positive audio-bus request. Actual Live negotiation is not observed.",
+  "actual_ableton_load_status": "confirmed user-host audio-input-contract rejection",
+  "confirmed_cause": "Actual Live log: processor loaded successfully, then effect-category validation rejects missing valid audio input bus",
+  "leading_hypothesis": "Superseded by observed host error: input-bus requirement confirmed; exact accepted positive layout and MIDI-chain behavior remain untested",
   "primary_framework_evidence": {
     "path": "deps/JUCE/examples/Plugins/MidiLoggerPluginDemo.h",
     "commit": "ea77444750de45e036e0279bb0291144bf8e3688",
@@ -26,9 +26,25 @@
       "scope": "Historical Live11 report; not12.4.6 proof"
     }
   ],
-  "missing_evidence": "Live Log.txt from the failed load; no access to user machine or actual Live locally",
-  "changes_made_to_runtime": false,
-  "new_builds_issued": false,
+  "missing_evidence": null,
   "data_preserved": "All52 user factory assignments/38scales remain unchanged",
-  "privacy_note": "If user uploads LiveLog, keep raw log local/private; do not publish full user logs to GitHub without explicit authorization."
+  "privacy_note": "Uploaded raw Live log remains local/private; only three generic component/error messages are retained in this public diagnosis.",
+  "actual_live_version_from_log": "Live12.4.6 Build2026-09-10_0de5c8fa9a",
+  "observed_error_sequence_occurrences": 5,
+  "raw_log_sha256": "fd85e20ca126df8ca44b596d30dcf02781dc135b06b36f967938cfd272e3629f",
+  "raw_log_published": false,
+  "next_decision": "Resolved: user explicitly requests existing Flysnapper as VST3 instrument with audio output for practical testing before CLAP/Max/internal wrapper development.",
+  "cause_recorded_at_utc": "2026-11-07T18:44:32.946313+00:00",
+  "changes_made_to_runtime_during_diagnosis": false,
+  "new_builds_issued_during_diagnosis": false,
+  "authorized_follow_up": {
+    "version": "0.4.1",
+    "host_device_role": "Instrument",
+    "audio_input_channels": 0,
+    "audio_output_channels": 2,
+    "audio_output": "silent",
+    "identity": "Fsm1 retained",
+    "scope": "existing MIDI processing preserved; no pitch detector, no internal rack, no CLAP/Max migration",
+    "actual_new_live_acceptance": "pending user test"
+  }
 }

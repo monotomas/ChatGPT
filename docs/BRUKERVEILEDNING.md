@@ -1,61 +1,81 @@
-# Flysnapper MIDI 0.4.0 – brukerveiledning
+# Flysnapper MIDI 0.4.1 – brukerveiledning
 
-Flysnapper MIDI har 38 skalaer og 52 akkordtyper. Fabrikktilordningene
-følger brukerens utfylte Excel-fil. Pakkens konkrete kilde-/modulbinding
-og Windows-/installasjonskontroller følger i Validation-mappen.
-Praktisk Ableton Live 12.4.6-plassering og kanalbevaring er ikke testet her.
+0.4.1 er en VST3-instrumentadapter som skal prøves i Ableton Live. Den har
+ingen audioinngang og sender bare stillhet på sin stereo audioutgang.
+Selve funksjonen er MIDI-til-MIDI: 52 akkordtyper, 38 skalaer og brukerens
+52 fabrikkvalg fra den utfylte Excel-filen. Pitch-to-MIDI og lydanalyse er
+fjernet.
 
-## Installasjon og eldre versjon
+Korrigert MIDI hentes fra Flysnapper til et separat instrumentspor.
+Denne utgaven er ikke dokumentert som en MIDI-effekt som kan seriekobles
+foran et annet instrument på samme Live-spor. Se
+[versjonsnotatet for 0.4.1](RELEASE_0.4.1.md) for gjeldende kontrollstatus.
+Innlasting og ruting i brukerens Live 12.4.6 er fortsatt ikke bekreftet.
 
-Windows-pakken inneholder ferdig VST3 og installer. Pakk ut hele
-ZIP-filen, lukk pluginvertene og kjør `INSTALL_FLYSNAPPER.bat`. Python, CMake
-og Visual Studio er utviklerverktøy og trengs ikke til normal installasjon.
-En Linux-modul kan ikke brukes som Windows-plugin.
+## Installasjon og pluginidentitet
 
-Den nye bundlen heter `Flysnapper MIDI.vst3`. Kopier hele bundlen hvis
-manuell installasjon brukes, ikke bare filen inne i Contents. Den nye
-komponenten har egen identitet; gammel `Flysnapper.vst3` 0.3.0 blir ikke
-overskrevet. Velg **Flysnapper MIDI** når du legger inn den nye utgaven.
-Gamle prosjekter og normalisert 19-valgsautomasjon er ikke automatisk
-migrert til den nye 38-valgskomponenten.
+Bruk Windows-pakken merket 0.4.1. Pakk ut hele ZIP-filen, lukk
+pluginvertene og kjør `INSTALL_FLYSNAPPER.bat`. Python, CMake og Visual
+Studio trengs ikke til normal installasjon. Ved manuell installasjon skal
+hele `Flysnapper MIDI.vst3`-bundlen kopieres, ikke bare filen inne i
+Contents. En Linux-modul kan ikke brukes som Windows-plugin.
 
-## Kanalroller og flere instanser
+0.4.1 beholder navnet **Flysnapper MIDI** og samme Fsm1-komponentidentitet
+som 0.4.0. Den oppdaterer derfor denne bundlen. Gammel `Flysnapper.vst3`
+0.3.0 har en annen identitet og blir ikke overskrevet. Velg Flysnapper MIDI
+og kontroller versjon 0.4.1 ved utprøvingen.
 
-Spille-MIDI ankommer på kanal 1. Akkordsporet sender kontrollnoter på kanal 16.
-Kontakt eller et annet mottakerinstrument kan ligge på et separat spor.
-Flysnapper korrigerer noter uten å vente på framtidige noter.
+Musikalsk XML-tilstand bruker stabile akkord-/skala-ID-er. Dette er ikke et
+løfte om automatisk migrering av gamle prosjekter eller normalisert
+19-/31-valgsautomasjon til komponentens 38 skalavalg.
 
-Ved seriekobling bruker neste aktive instans spille-MIDI som allerede er
-korrigert av den forrige. Aktiver **Chord MIDI Through** i hver instans
-som skal sende akkordkontroll til en følgende Flysnapper. Siste instans
-skal konsumere 16, slik at mottakerinstrumentet ikke får akkordnotene som
-spilletoner. Det trengs ikke en egen akkordkanal per instans.
+## Oppsettet som skal prøves i Live
 
-**Note Correction** er den interne korreksjonsbryteren. Når den er av,
-forblir nye tonehøyder uendret, men mottatte akkordnoter analyseres fortsatt.
-Allerede holdte spilletoner beholder sin opprinnelige utbinding til Note Off.
-De eksisterende FIFO-, kollisjons- og sustainreglene beholdes; dette er ikke
-et løfte om byte-identisk videresending av alle pedal-/noteforløp.
+1. Opprett et MIDI-spor med **Flysnapper MIDI** som instrument. Send
+   spille-MIDI på kanal 1 til dette sporet. Ved direktespill bruker du
+   passende monitorering, for eksempel Auto med sporet armert eller In.
+   Monitor In undertrykker sporets egne MIDI-klipp; bruk Auto når du vil
+   spille av klipp fra samme spor.
+2. Ved akkordstyring sender akkordsporet noter til Flysnapper på kanal 16.
+   Velg Flysnapper-sporet i øverste **MIDI To**, og pluginens kanal 16 i
+   nederste felt. At den ønskede kanalrollen faktisk når pluginen, inngår
+   i Live-prøven. Fixed Scale trenger ikke akkordsporet.
+3. Opprett et separat MIDI-spor med Kontakt eller et annet lydinstrument.
+   Velg Flysnapper-sporet i øverste **MIDI From**, og Flysnapper-pluginens
+   eget MIDI-utgangspunkt i nederste felt. Mottakeren skal hente
+   pluginens korrigerte MIDI. Sett mottakersporet til **Monitor In**, eller
+   bruk Auto med sporet armert.
+4. La lydinstrumentet på mottakersporet sende lyd til vanlig lydutgang.
+   Flysnappers egen audioutgang er stille; det er mottakerinstrumentet som
+   skal høres.
 
-Vertens **Device Activator** er noe annet. En deaktivert instans kan gå
-helt ut av prosessering. Signal i den ordinære kjeden kan gå forbi den,
-men en separat feed direkte adressert til denne instansen blir ikke dermed
-omdirigert til neste. Ved slik direkte ruting må første mottaker forbli
-aktiv i verten; automatér intern Note Correction i stedet.
+For en enkel korreksjonsprøve velger du **Fixed Scale**, grunntone C og
+**Minor Pentatonic**. Med Note Correction på skal C# korrigeres til C.
+Med bryteren av skal en ny C# beholde sin tonehøyde. Dette er et
+kontrolloppsett for den praktiske Live-prøven, ikke et allerede utført
+Live-resultat.
 
-Brukeren ønsker primært kanal 16 til selve sporets inngang. Om denne
-rutingen tilbyr og bevarer kanal 1/16 gjennom den aktuelle Live-kjeden,
-må bekreftes der. Det samme gjelder hvilke instanser vertsvelgeren
-adresserer, og hva som skjer med holdte akkordnoter ved reaktivering.
-Ingen automatisk parallell feed til alle instanser er forutsatt av koden.
+## Kanalroller og av/på
 
-Når MIDI faktisk går inn i den vanlige sporkjeden med kanalene bevart,
-trenger ikke første instans å være aktiv bare for å videresende nye
-hendelser: vertens vanlige bypass kan føre dem videre. En senere aktivert
-instans kan likevel mangle en akkord som startet mens den var deaktivert.
-Hvis siste instans også forbikobles av verten, kan kanal 16 nå instrumentet
-uten å bli konsumert. Automatér derfor helst Note Correction og behold
-akkordlytting/kanalhåndtering i drift.
+Kanal 1 er spille-MIDI som kan korrigeres. Kanal 16 er akkordkontroll.
+Kanalene 2–15 videresendes uten tonekorreksjon. Den faktiske vertsrutingen
+må bevare rollene; en testvert kan ikke bekrefte hva Live gjør før
+hendelsene når Flysnapper.
+
+La Flysnapper-enheten være aktiv under denne adapterprøven. Bruk
+**Note Correction** for intern av/på: nye tonehøyder forblir uendret når
+bryteren er av, mens mottatte akkordnoter fortsatt analyseres. Allerede
+holdte spilletoner beholder bindingen til sin opprinnelige utgående Note
+Off. FIFO-, kollisjons- og sustainreglene gjelder fortsatt.
+
+**Chord MIDI Through** står normalt av i dette oppsettet. Da konsumeres
+kanal 16 før MIDI sendes til lydinstrumentet. Bryteren beholdes for
+oppsett som uttrykkelig skal videresende akkordkontroll. Den etablerer
+ikke automatisk en Live-kjede eller parallell levering til flere instanser.
+
+Vertens **Device Activator** er forskjellig fra intern Note Correction.
+Vi har ikke bekreftet MIDI-utgang eller gjenutsending av holdte akkorder
+ved vertsdeaktivering og reaktivering av denne instrumentadapteren.
 
 ## Korreksjonsmodi
 
@@ -67,42 +87,42 @@ valgte skala med akkordens faktiske grunntone. Tomt eller ukjent
 akkordgrunnlag skaper ikke en oppdiktet skala.
 
 **Fixed Scale** bruker valgt grunntone og skala uten å la akkordsporet
-bestemme korreksjonen. Fabrikkoppsettet er Fixed Scale/Chromatic.
-Nærmeste tillatte tone velges med de avtalte retningsreglene ved lik avstand.
-Påbegynte toner retunes ikke ved et senere akkord-/skala-/modusbytte.
+bestemme korreksjonen. Nye instanser starter i Fixed Scale/Chromatic.
+Nærmeste tillatte tone velges med de avtalte retningsreglene ved lik
+avstand. Påbegynte toner retunes ikke ved akkord-/skala-/modusbytte.
+Flysnapper venter ikke på framtidige noter.
 
-## Baksiden og skalaene
+## Baksiden og fabrikkvalgene
 
-Baksiden har 52 uavhengige akkordtyper vist i C. Akkordformelen og den valgte
-skalaens toner vises med navn. Den valgte skalatypen transponeres til den
-faktiske innkommende akkordens grunntone.
+Baksiden har 52 uavhengige akkordtyper vist i C, inkludert CMaj13#11 og
+CMaj9#11. Akkordformelen og den valgte skalaens toner vises med navn.
+Skalatypen transponeres til den faktiske innkommende akkordens grunntone.
 
-Hver meny har først **Scales with all chord tones**, deretter **Chord tones
-outside scale**. Alle 38 valg beholdes. Innen begge deler følger sorteringen
-parentfamilie og modusnummer. Et utropstegn og teksten Outside scale viser
-at valget utelater navngitte akkordtoner. Det legges ikke til skjulte toner
-for å gjøre valget kompatibelt.
+Hver meny har først **Scales with all chord tones**, deretter **Chord
+tones outside scale**. Alle 38 valg er tilgjengelige. Innen begge grupper
+følger sorteringen parentfamilie og modusnummer. Et utropstegn og teksten
+Outside scale viser at valget utelater nominelle akkordtoner.
 
-Harmonisk dur og alle sju modusene er med. De følger etter harmonisk moll
-og før diminished i menyrekkefølgen. Melodisk moll brukes stigende også ved
-nedadgående spill. Tonene i
-akkordtypeformlene inkluderer nominelle toner som gjenkjenningen kan
-akseptere utelatt. Enharmoniske navn kan betegne samme tonehøyde.
+Harmonisk dur og alle sju modusene følger etter harmonisk moll og før
+diminished i menyrekkefølgen. Melodisk moll brukes stigende også ved
+nedadgående spill. Enharmoniske navn kan betegne samme tonehøyde.
 
-**Reset all 52 to factory** laster brukerens 52 Excel-tilordninger i denne
-instansen. Nye instanser starter med samme oppsett. Lagrede instanser
-beholder sine egne innstillinger. Kopiering av instanser kopierer deres
-musikalske innstillinger; senere endringer er uavhengige.
+**Reset all 52 to factory** laster nøyaktig brukerens 52 Excel-tilordninger
+i denne instansen. Nye instanser starter med samme tilordninger. De fire
+valgene uten alle nominelle akkordtoner er beholdt som brukeren valgte dem.
+Lagrede instanser beholder sine egne innstillinger. Kopiering kopierer
+innstillingene; senere endringer er uavhengige. Se
+[det importerte fabrikkoppsettet](factory-settings/2026-11-07-user-values/README.md).
 
-## Hjelp og opprydding
+## Hjelp og kontrollstatus
 
 **Help** slår konteksttips av/på. **Guide** åpner den innebygde veiledningen.
 **Panic** slipper sporede noter/pedaler og tømmer akkordanalysen.
 MIDI-rutingstesten sender en kort C-note for å kontrollere en forbindelse.
-Fjernelse av en plugin uten en siste prosesseringsblokk kan kreve vertens
-opprydding; pluginen kan ikke sende data etter at den er borte.
+En plugin kan ikke sende oppryddingshendelser etter at verten har fjernet den.
 
-MIDI-prosessoren legger ikke inn et analysevindu eller tilsiktet venting.
-Vertens buffere/ruting og mottakerinstrumentet kan likevel bidra til
-hørbar forsinkelse. Ingen fysisk 0 ms- eller Ableton-godkjenning følger av
-at modulen rapporterer null kompensasjonslatency.
+Pluginen rapporterer null kompensasjonslatency og bruker ikke et
+analysevindu. Vertens buffere, ruting og mottakerinstrument kan likevel gi
+hørbar forsinkelse. Generiske VST3-tester og Windows-installasjonskontroller
+er ikke en praktisk Ableton-godkjenning. 0.4.1 skal vurderes i Live før
+videre format- eller kjedeutvikling.

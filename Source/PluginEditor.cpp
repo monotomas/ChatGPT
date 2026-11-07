@@ -13,7 +13,7 @@ constexpr const char* noteNames[]{"C","Db","D","Eb","E","F","F#","G","Ab","A","B
 constexpr const char* familyNames[]{"Chromatic","Diatonic modes","Melodic Minor modes","Bebop",
     "Harmonic Minor modes","Harmonic Major modes","Diminished","Whole Tone","Major Pentatonic","Minor Pentatonic","Minor Blues"};
 constexpr int familyCount=int(sizeof(familyNames)/sizeof(familyNames[0]));
-constexpr const char* assignmentTip="Tool tip: If different assignments are required for different parts of the tune, insert extra instances of Flysnapper to your track and automate Note Correction on/off. Chord MIDI must reach the chain on channel 16. Enable Chord MIDI Through on every instance except the last. When routing chord MIDI directly to the first instance, leave that instance enabled in Live.";
+constexpr const char* assignmentTip="Tool tip: This VST3 loads as an instrument. On a receiving MIDI track, set MIDI From to Flysnapper's track, then choose Flysnapper in the lower selector. Put the destination instrument there and enable monitoring. Automate Note Correction on/off while leaving the Flysnapper device enabled in Live.";
 void label(juce::Label& l,const juce::String& s,float size=14,juce::Colour colour=text,bool bold=false){
     l.setText(s,juce::dontSendNotification);
     l.setFont(juce::Font(juce::FontOptions(size,bold?juce::Font::bold:juce::Font::plain)));
@@ -146,7 +146,7 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(
 #ifdef JucePlugin_VersionString
     label(version,JucePlugin_VersionString,12.f,muted);
 #else
-    label(version,"0.4.0",12.f,muted);
+    label(version,"0.4.1",12.f,muted);
 #endif
     label(chord,"No chord input",42.f,text,true);chord.setComponentID("chordDisplay");chord.setMinimumHorizontalScale(.75f);
     label(activeScale,"Chromatic",18.f,green);activeScale.setComponentID("activeScale");
@@ -181,15 +181,17 @@ FlysnapperEditor::FlysnapperEditor(FlysnapperProcessor& p):AudioProcessorEditor(
     guideText.setMultiLine(true);guideText.setReadOnly(true);guideText.setScrollbarsShown(true);guideText.setCaretVisible(false);guideText.setPopupMenuEnabled(false);
     guideText.setColour(juce::TextEditor::backgroundColourId,panel);guideText.setColour(juce::TextEditor::textColourId,text);guideText.setColour(juce::TextEditor::outlineColourId,border);
     guideText.setFont(juce::Font(juce::FontOptions(15.f)));
-    guideText.setText(R"GUIDE(MIDI ROUTING
-Playing notes arrive on channel 1. Chord-control notes arrive on channel 16. Other channels pass without note correction. The host decides whether a route enters the track's chain or directly addresses a plugin; these are different routing methods.
+    guideText.setText(R"GUIDE(VST3 INSTRUMENT AND MIDI ROUTING
+Flysnapper loads as a VST3 instrument. It corrects MIDI and has a silent stereo audio output; it does not make sound. Its track therefore has an audio output in Live. Use the plugin's MIDI output to play an instrument on a receiving MIDI track.
 
-For a serial chain, enable Chord MIDI Through on intermediate Flysnapper instances and turn it off on the last instance. The last instance removes chord-control messages from its MIDI output so they do not play the destination instrument. Each active correction stage receives the previous stage's corrected playing MIDI.
+On the receiving track, set the upper MIDI From selector to Flysnapper's track. In the lower selector, choose the plugin-specific Flysnapper entry. Put the destination instrument on that receiving track and set Monitor to In, or arm the track with Monitor set to Auto.
+
+Playing notes arrive at Flysnapper on channel 1. Route the chord track to Flysnapper on channel 16. Other channels pass without note correction. Chord MIDI Through forwards channel-16 chord control to the plugin's MIDI output when enabled. Leave it off when the output feeds a sounding instrument, so chord-control notes do not also play that instrument.
 
 NOTE CORRECTION AND DEVICE ACTIVATION
-Automating Note Correction on/off preserves the instance's chord analysis. With correction off, playing notes pass unchanged while chord-control messages are still followed. Already-held playing notes keep the output binding with which they began, so later Note Offs release the correct notes.
+Automating Note Correction on/off preserves this instance's chord analysis. With correction off, playing notes pass unchanged while chord-control messages are still followed. Already-held playing notes keep the output binding with which they began, so later Note Offs release the correct notes.
 
-The host's Device Activator may stop the plugin's processing entirely. If chord MIDI is routed directly to that instance, deactivation must not be assumed to redirect the feed to another instance. An inactive instance cannot be assumed to receive chord changes or to be resent all held chord notes when reactivated. Track-input routing and channel preservation must be checked in the actual host. No routing-specific host result is implied by these controls.
+Leave the Flysnapper device enabled in Live while automating Note Correction. Live's Device Activator may stop the plugin's processing entirely. A disabled device cannot be assumed to follow chord changes or produce corrected MIDI, and a direct route to it is not automatically redirected to another instance.
 
 CORRECTION MODES
 Chord Tones Only corrects to the received chord's held pitch classes. Chord-Scale Assignment uses the scale assigned to the recognised chord type on the back. Fixed Scale uses the selected root and scale independently of chord input.
@@ -207,7 +209,7 @@ Every instance saves its own 52 assignments, fixed scale and controls. Copying a
 HELP, PANIC AND TIMING
 Help enables contextual tooltips. Guide and front/back changes do not alter MIDI. Panic releases tracked playing notes and clears chord analysis. The MIDI routing test sends a brief C note; it is a routing check, not a played performance.
 
-Flysnapper adds no intentional note-analysis delay. Host buffers, routing and the receiving instrument can still contribute to audible latency. This MIDI-only version contains no audio input or pitch detector.
+Flysnapper adds no intentional note-analysis delay. Host buffers, routing and the receiving instrument can still contribute to audible latency. The stereo audio output remains silent. Flysnapper has no audio input or pitch detector.
 )GUIDE",false);
     for(auto* c:std::initializer_list<juce::Component*>{&title,&byline,&version,&flip,&panic,&routingHelp,&help,&guide,&warning,&footer})addAndMakeVisible(c);
     using ButtonAttachment=juce::AudioProcessorValueTreeState::ButtonAttachment;
@@ -224,12 +226,12 @@ Flysnapper adds no intentional note-analysis delay. Host buffers, routing and th
     addTip(root,"Root of Fixed Scale. Chord-dependent modes use the received chord's root.");
     addTip(scale,"All 38 fixed scales, ordered by parent family and mode. The selection is saved with this instance.");
     addTip(correction,"Automate this control to enable or disable note correction while continuing to receive chord changes. Existing held notes retain their original output binding.");
-    addTip(chordThru,"Forward channel-16 chord control unchanged to a following Flysnapper. Enable on intermediate instances; leave off on the last instance to keep chord-control notes out of the receiving instrument.");
+    addTip(chordThru,"Forward channel-16 chord control unchanged to the plugin's MIDI output. Leave off when routing to a sounding instrument; enable only when a following MIDI processor needs the chord-control messages.");
     addTip(flip,"Flip to all 52 independent chord/scale assignments. Editing the view itself does not change MIDI.");
     addTip(panic,"Release tracked notes and pedals and clear the current chord. Use this if playback was interrupted.");
     addTip(restore,"Restore all 52 factory choices in this instance only.");
-    addTip(routingHelp,"Read MIDI routing guidance and the distinction between track-input routing, direct-device routing and device activation.");
-    addTip(help,"Enable or disable contextual tooltips. The built-in guide remains available.");addTip(guide,"Open the built-in MIDI-only guide.");addTip(guideClose,"Return to the previous controls.");
+    addTip(routingHelp,"Read how to route this VST3 instrument's MIDI output to a receiving track using Live's plugin-specific MIDI From selector.");
+    addTip(help,"Enable or disable contextual tooltips. The built-in guide remains available.");addTip(guide,"Open the built-in MIDI correction and routing guide.");addTip(guideClose,"Return to the previous controls.");
     for(auto& n:notes)addTip(n,"Allowed pitch classes for new corrected notes in the current mode.");
     setHelp(parameter("help")>=.5f);
     setSize(1040,760);timerCallback();startTimerHz(20);

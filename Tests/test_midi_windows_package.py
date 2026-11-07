@@ -24,16 +24,18 @@ class MidiWindowsPackageTests(unittest.TestCase):
  def test_midi_package_uses_new_identity_and_only_relevant_evidence(self):
   self.package();shipping.verify_package(self.f.output)
   with ZipFile(self.f.output) as z:
-   prefix='Flysnapper-0.4.0-Windows-x64/'
+   prefix='Flysnapper-0.4.1-Windows-x64/'
    self.assertIn(prefix+evidence.BUNDLE+'/'+evidence.WINDOWS_BINARY,z.namelist())
    self.assertNotIn(prefix+'Flysnapper.vst3/'+shipping.BINARY,z.namelist())
    self.assertIn(prefix+'Validation/midi-validation/report-manifest.json',z.namelist())
    self.assertFalse(any('audio-validation/' in n or 'input-dynamics/' in n or n.endswith('INPUT_DYNAMICS.md') for n in z.namelist()))
-   text=z.read(prefix+'LES_MEG.txt').decode('utf-8-sig');self.assertIn('ingen audiobusser',text);self.assertNotIn('Learn / 20 seconds',text)
-   release=json.loads(z.read(prefix+'release-manifest.json'));self.assertEqual(release['bundle_name'],evidence.BUNDLE)
+   text=z.read(prefix+'LES_MEG.txt').decode('utf-8-sig');self.assertIn('VST3-instrument',text);self.assertNotIn('ingen audiobusser',text);self.assertNotIn('Learn / 20 seconds',text)
+   release=json.loads(z.read(prefix+'release-manifest.json'));self.assertEqual(release['bundle_name'],evidence.BUNDLE);self.assertEqual(release['version'],'0.4.1')
+   info=json.loads(z.read(prefix+evidence.BUNDLE+'/Contents/Resources/moduleinfo.json'))
+   self.assertEqual(info['Classes'][0]['Version'],'0.4.1');self.assertEqual(info['Classes'][0]['Sub Categories'],['Instrument'])
  def test_legacy_bundle_audio_or_false_ableton_claim_cannot_masquerade_as_midi(self):
   original=self.f.manifest.copy()
-  for key,value in [('bundle_name','Flysnapper.vst3'),('product','Flysnapper'),('pitch_detection_implemented',True),('audio_processing_implemented',True),('ableton_verified',True),('stage','complete'),('evaluation_scope',{**evidence.SCOPE,'chord_types':50}),('evaluation_scope',{**evidence.SCOPE,'scales':31})]:
+  for key,value in [('version','0.4.0'),('bundle_name','Flysnapper.vst3'),('product','Flysnapper'),('pitch_detection_implemented',True),('audio_processing_implemented',True),('ableton_verified',True),('stage','complete'),('evaluation_scope',{**evidence.SCOPE,'chord_types':50}),('evaluation_scope',{**evidence.SCOPE,'scales':31}),('evaluation_scope',{**evidence.SCOPE,'host_device_role':'effect'}),('evaluation_scope',{**evidence.SCOPE,'silent_audio_output':False})]:
    with self.subTest(key=key):
     self.f.manifest={**original,key:value};fixture.save(self.f)
     with self.assertRaises(ValueError):self.package()
@@ -47,7 +49,7 @@ class MidiWindowsPackageTests(unittest.TestCase):
   p=self.f.dist/'test-results.xml';p.write_text(p.read_text().replace('name="FlysnapperCore" status="run"','name="FlysnapperCore" status="disabled"'))
   with self.assertRaises(ValueError):self.package()
  def test_missing_or_rebound_invalid_native_report_cannot_ship(self):
-  p=self.f.dist/evidence.DIRECTORY/evidence.SPECS[1][2];r=json.loads(p.read_text());r['audio_output_channels']=2;p.write_text(json.dumps(r))
+  p=self.f.dist/evidence.DIRECTORY/evidence.SPECS[1][2];r=json.loads(p.read_text());r['audio_output_channels']=0;p.write_text(json.dumps(r))
   proof=json.loads((self.f.dist/evidence.DIRECTORY/evidence.MANIFEST).read_text());proof['executions'][evidence.SPECS[1][0]]['report_sha256']=evidence.sha(p.read_bytes());fixture.rebind_proof(self.f,proof)
   with self.assertRaises(ValueError):self.package()
  def test_actual_powershell_entrypoint_replaces_only_midi_and_preserves_old_instrument(self):
