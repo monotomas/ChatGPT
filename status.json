@@ -26,9 +26,12 @@
     "path": "validation/windows-installation.json",
     "sha256": "be3d83dc7262fea049a45ca8a01225d612e833e7b024c081882b17a3bfee3e96"
   },
-  "delivery_status": "ableton-load-failure-under-investigation",
+  "delivery_status": "ableton-audio-input-contract-rejection-confirmed",
   "user_reported_host": "Ableton Live12.4.6",
   "user_reported_error": "This VST3 plug-in could not be opened.",
   "reported_failure_recorded_at": "2026-11-07T18:22:50.510806+00:00",
-  "confirmed_failure_cause": null
+  "confirmed_failure_cause": "Live loads the processor, then rejects Fx category because no valid audio input bus exists",
+  "cause_evidence": "Minimal anonymized user LiveLog excerpt; raw user log remains private",
+  "fix_status": "host-device-role decision pending",
+  "cause_updated_at": "2026-11-07T18:40:21.408317+00:00"
 }
