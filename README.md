@@ -1,4 +1,4 @@
-# Flysnapper MIDI 0.4.3 Windows x64 VST3-instrument
+# Flysnapper MIDI 0.4.4 Windows x64 VST3-instrument
 
 [Last ned MIDI-installasjonspakken](downloads/Flysnapper-Windows-x64.zip?raw=1)
 
