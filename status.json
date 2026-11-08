@@ -1,12 +1,37 @@
 {
   "schema": 1,
   "source_commit": "57240a38575f3d453a69b6c5d90a34aefb56a219",
-  "status": "running",
+  "status": "completed",
   "run_id": "42427397276",
   "run_attempt": "1",
   "repository": "monotomas/ChatGPT",
-  "updated_at": "2026-11-07T23:55:31.019841+00:00",
-  "artifact": null,
+  "updated_at": "2026-11-08T00:06:03.518075+00:00",
+  "artifact": {
+    "path": "artifacts/Flysnapper-MIDI-Windows-x64.zip",
+    "sha256": "2ab65cc65cae384bd47bee39f107344d712c78c15f15dbfda1232a857c98ebb0",
+    "bytes": 38777466
+  },
   "publication_kind": "research-checkpoint",
-  "ableton_verified": false
+  "ableton_verified": false,
+  "log": "logs/windows-57240a38575f3d453a69b6c5d90a34aefb56a219.txt",
+  "stage": "midi-only-native-validation",
+  "evaluation_scope": {
+    "feature_set": "midi-to-midi-only",
+    "audio_processing": false,
+    "pitch_to_midi": false,
+    "scales": 38,
+    "chord_types": 52,
+    "host_device_role": "instrument",
+    "silent_audio_output": true,
+    "host_scope": "native-processor-and-compiled-vst3-test-host",
+    "ableton_verified": false
+  },
+  "installation_validation": {
+    "path": "validation/windows-installation.json",
+    "sha256": "423a937ccf14702a99c604df84106ed4cf97acee0539356b57e95a642ee7f576"
+  },
+  "omitted_executables": {
+    "path": "validation/omitted-executables.json",
+    "sha256": "b01b663a32620dcbdf75c6c179004a4a3f5a2f14a68812dc1185c5c3cea191ce"
+  }
 }
