@@ -25,5 +25,16 @@ beholdes fra 0.4.3. Firekolonneoppsettet er også beholdt.
 
 Regresjonsprøvene dekker omvendinger, transponeringer, altererte
 ekstensjoner, utelatte toner og at alle faktiske toneklasser bevares.
-Kompilert GUI og VST3 samt Windows-installasjon kontrolleres før levering.
-Resultater registreres i [kontrollpunktet](validation/midi-chord-display-0.4.4/README.md).
+Alle fire native testgrupper bestod på Linux og Windows fra kilde
+`57240a38575f3d453a69b6c5d90a34aefb56a219`: Core 2 203 740 assertions,
+GUI 21 600, prosessor 318 633 kontroller og kompilert VST3 22 060
+rapportkontroller. Den nye G13-visningen er også kontrollert visuelt.
+De eksisterende rå MIDI-regresjonsstrømmene er byte-identiske med 0.4.3.
+
+Windows CI `42427397276` bestod faktisk PS/BAT-installasjon,
+erstatning/gjenoppretting og innlasting av installert modul. Python:
+Windows 200 bestått og én forventet skip av 201; Linux 199 bestått og
+to forventede skip. Den eksakte pakken er publisert uten ny bygging.
+Nedlastingen ga HTTP200, 38 777 466 byte og samsvarende SHA256
+`2ab65cc65cae384bd47bee39f107344d712c78c15f15dbfda1232a857c98ebb0`.
+Se [resultater og nedlastingslenke](validation/midi-chord-display-0.4.4/README.md).

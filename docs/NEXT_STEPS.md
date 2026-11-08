@@ -1,14 +1,19 @@
-# Gjeldende arbeid: 0.4.4 akkordtoner i grunnstilling
+# Fullført: 0.4.4 akkordtoner i grunnstilling
 
-Brukeren ønsker «Chord tones» i spillevinduet fra den gjenkjente akkordens
-grunntone og i grunnstilling: ters/sus, kvint, sekst, septim, none,11,13.
-Bare faktisk mottatte toneklasser vises. G13 blir G B D F A C E.
-Endringen skal bare gjelde visning og hjelp; MIDI-/gjenkjenningsregler,
-52 akkordtyper/38 skalaer, fabrikkhash8372..., firekolonner og ruting beholdes.
+Spillevinduets «Chord tones» følger nå gjenkjent grunntone og harmonisk
+rekkefølge: rot, ters/sus, kvint, eventuell sekst, septim, none,11,13.
+G13 vises G B D F A C E. Bare mottatte toneklasser vises; omvending og
+MIDI-oktav endrer ikke rekkefølgen. Uidentifiserte sett beholder sin liste.
 
-Fullfør relevante kjerne-/GUI-prøver, bygg native VST3 og Windows-pakke,
-kontroller faktisk installasjon og eksakt kilde-/modul-/pakke-binding,
-publiser samme verifiserte CI-bytes og prøv nedlastingslenken. Se
-[versjonsnotatet](RELEASE_0.4.4.md). Brukeren skal ikke ha mellompakker.
-Tidligere uttrykkelig GitHub-godkjenning dekker kilde, Excel-grunnlag og
-byggelogger; full privat Live-logg er fortsatt utelatt.
+Alle fire native testgrupper bestod på Linux og Windows. Windows-pakken
+bestod faktisk PS/BAT-installasjon og innlasting av installert modul.
+Den eksakte CI-pakken er publisert og lastet ned med HTTP200, kontrollert
+lengde og SHA256. Se [versjonsnotatet](RELEASE_0.4.4.md) og
+[kontrollpunktet](validation/midi-chord-display-0.4.4/README.md).
+
+Ingen utviklings- eller byggejobb gjenstår. Fortsett med brukerens neste
+resultat eller bestilling; ikke kjør brede suiter igjen uten ny kode
+eller uavklarte feil. Rutingen, MIDI-/gjenkjenningsregler,52/38-katalogen,
+fabrikkvalg og fire kolonner er beholdt. Full privat Live-logg er utelatt.
+Tidligere GitHub-godkjenning dekker kilde, Excel-grunnlag og byggelogger;
+ikke be om samme tillatelse igjen innenfor dette arbeidet.

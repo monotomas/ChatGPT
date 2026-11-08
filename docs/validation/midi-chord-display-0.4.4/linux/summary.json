@@ -1,0 +1,26 @@
+{
+  "source_commit_verified_by_selected_hashes": "57240a38575f3d453a69b6c5d90a34aefb56a219",
+  "selected_project_inputs": 21,
+  "platform": "Linux-x86_64",
+  "native_suites_passed": 4,
+  "core_assertions": 2203740,
+  "gui_assertions": 21600,
+  "processor_checks": 318633,
+  "processor_cases": 21,
+  "processor_event_rows": 3171,
+  "actual_vst3_report_checks": 22060,
+  "actual_vst3_stdout_assertions": 22061,
+  "actual_vst3_cases": 30,
+  "actual_vst3_event_rows": 1762,
+  "vst3_sha256": "0611069495b174ed72ef767d7e58c943888fa9bb118269afa63c9bf6946b4f7b",
+  "python_total": 201,
+  "python_passed": 199,
+  "python_expected_linux_skips": 2,
+  "local_manifest_source_commit": null,
+  "source_note": "Local builder records null without CI metadata; all21 selected hashes were checked against Git source57240a3. Not the full toolchain/header closure.",
+  "regression_csv_byte_identical_to_0_4_3": {
+    "Flysnapper-midi-processor-events.csv": true,
+    "Flysnapper-midi-vst3-events.csv": true
+  },
+  "ableton_verified": false
+}

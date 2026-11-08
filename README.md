@@ -11,13 +11,12 @@ bruker VST3-instrumentrollen med stille stereoutgang, uten audioinngang
 eller pitchgjenkjenning. Rutingen brukeren bekreftet i 0.4.2 beholdes.
 Alle 52 akkordtyper,38 skalaer, stabile ID-er og endelige fabrikkvalg beholdes.
 
-Den tidligere 0.4.3-pakken er bygget, testet, installert i testmiljø og publisert.
-En oppdatert 0.4.4-pakke klargjøres med den nye visningsrekkefølgen.
-[Last ned ferdig 0.4.3-installasjonspakke](https://github.com/monotomas/ChatGPT/raw/660d673c4358c20ad4ba09d32cab8dc1d699ec1f/downloads/Flysnapper-Windows-x64.zip).
+Windows-pakken for 0.4.4 er bygget, testet, installert i testmiljø og publisert.
+[Last ned ferdig 0.4.4-installasjonspakke](https://github.com/monotomas/ChatGPT/raw/3df90ba2fe131d70bfd07f35f7273fe01eaa5ad3/downloads/Flysnapper-Windows-x64.zip).
 Lukk Live, pakk ut hele ZIP-filen og kjør `INSTALL_FLYSNAPPER.bat`.
 Ingen kompilator, Python eller bygging kreves til installasjon.
 Nedlastingen er kontrollert med HTTP 200, full lengde og SHA256.
-Se [Windows-bevisene](docs/validation/midi-articulation-0.4.3/windows/README.md).
+Se [Windows-bevisene](docs/validation/midi-chord-display-0.4.4/windows/README.md).
 Automatiske testverter erstatter ikke praktisk prøving av den nye binærfilen i Live.
 
 [Bestillingen](docs/MIDI_ONLY_REQUEST_2026-11-07.md),
@@ -80,7 +79,7 @@ På et annet MIDI-/instrumentspor velges Flysnapper-sporet i øverste
 **MIDI From**, og den pluginspesifikke **Flysnapper MIDI**-oppføringen i
 feltet under. Mottakersporet trenger Monitor In, eller Auto med opptaksarm.
 Dette er samme type MIDI-utgangsruting som brukeren tidligere fikk til.
-0.4.3 er ikke en native MIDI-effekt som kan plasseres foran et annet
+0.4.4 er ikke en native MIDI-effekt som kan plasseres foran et annet
 instrument på samme spor. Ingen Live-installasjon er tilgjengelig her;
 den nye binærfilens praktiske Live-aksept gjenstår til brukerprøven.
 CLAP, Max for Live og flere interne prosessorer er utsatt. Help og Guide
@@ -106,7 +105,7 @@ Den aktuelle MIDI-utgaven har egne kjerne-, GUI-, prosessor- og faktiske
 VST3-testvertprøver. Windows-pakking krever dessuten kilde-/modulbundet
 bevis, PE-/Unicode-kontroller og reelle installasjons-/gjenopprettingsprøver.
 En generisk testvert dokumenterer ikke faktisk Ableton-atferd.
-Se [det aktuelle kontrollpunktet](docs/validation/midi-articulation-0.4.3/README.md).
+Se [det aktuelle kontrollpunktet](docs/validation/midi-chord-display-0.4.4/README.md).
 Kildepakken beholder all aktuell kode og testdata; historiske DSP-arkiver
 finnes i repositoriet og er utelatt fra den kompakte MIDI-kildepakken.
 

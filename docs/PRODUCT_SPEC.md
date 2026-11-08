@@ -17,7 +17,7 @@ Alle øvrige krav fra0.4.3 nedenfor beholdes. Se [0.4.4](RELEASE_0.4.4.md).
 
 ## Gjeldende leveranse
 
-0.4.3 heter Flysnapper MIDI og beholder Fsm1-identiteten og bundlen
+0.4.4 heter Flysnapper MIDI og beholder Fsm1-identiteten og bundlen
 `Flysnapper MIDI.vst3` fra 0.4.0. Vertskategorien er Instrument, med ingen
 audioinngang og én stille stereo audioutgang. Audioutgangen er en
 vertsadapter; pluginen inneholder ingen synthesizer, pitchdetektor,

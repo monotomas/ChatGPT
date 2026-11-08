@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "kind": "FlysnapperMidiOnlyVst3",
+  "version": "0.4.4",
+  "status": "passed",
+  "checks": 22060,
+  "scope": "Compiled instrument VST3 executed by the JUCE host with actual stereo output buffers seeded nonzero and verified silent during normal and conditional bypass processing; no DAW or audio driver",
+  "ableton_verified": false,
+  "pitch_detection_implemented": false,
+  "audio_input_channels": 0,
+  "audio_output_channels": 2,
+  "audio_input_buses": 0,
+  "audio_output_buses": 1,
+  "host_device_role": "instrument",
+  "audio_output_silent": true,
+  "silent_output_samples_checked": 1026652,
+  "bypass_silence_callbacks": 2,
+  "declared_latency_samples": 0,
+  "scale_count": 38,
+  "chord_type_count": 52,
+  "public_parameter_count": 59,
+  "factory_mapping_sha256": "8372f68334a1ed37e09500c0b527151a73fa6c18988fd0a972bf933bc3fd779e",
+  "cases": [
+    {
+      "name": "module_contract",
+      "status": "passed"
+    },
+    {
+      "name": "user_factory_defaults_and_fresh_state",
+      "status": "passed"
+    },
+    {
+      "name": "four_revised_factory_assignments",
+      "status": "passed"
+    },
+    {
+      "name": "routing_44100_32",
+      "status": "passed"
+    },
+    {
+      "name": "routing_44100_128",
+      "status": "passed"
+    },
+    {
+      "name": "routing_44100_257",
+      "status": "passed"
+    },
+    {
+      "name": "routing_48000_32",
+      "status": "passed"
+    },
+    {
+      "name": "routing_48000_128",
+      "status": "passed"
+    },
+    {
+      "name": "routing_48000_257",
+      "status": "passed"
+    },
+    {
+      "name": "routing_96000_32",
+      "status": "passed"
+    },
+    {
+      "name": "routing_96000_128",
+      "status": "passed"
+    },
+    {
+      "name": "routing_96000_257",
+      "status": "passed"
+    },
+    {
+      "name": "all_38_scale_indices",
+      "status": "passed"
+    },
+    {
+      "name": "internal_correction_off_held_chord",
+      "status": "passed"
+    },
+    {
+      "name": "new_sharp_eleventh_chord_mappings",
+      "status": "passed"
+    },
+    {
+      "name": "serial_instances_and_two_active_corrections",
+      "status": "passed"
+    },
+    {
+      "name": "non_ch1_notes_and_expression",
+      "status": "passed"
+    },
+    {
+      "name": "channel1_sustain_and_latch_reset",
+      "status": "passed"
+    },
+    {
+      "name": "overlapping_input_bindings",
+      "status": "passed"
+    },
+    {
+      "name": "staccato_legato_raw_direction_across_callback_sizes",
+      "status": "passed"
+    },
+    {
+      "name": "same_sample_fallback_causality_and_channel_isolation",
+      "status": "passed"
+    },
+    {
+      "name": "cc120_123_preserve_same_sample_ambiguity",
+      "status": "passed"
+    },
+    {
+      "name": "diagnostic_source_and_sustain_rearticulation",
+      "status": "passed"
+    },
+    {
+      "name": "instance_state",
+      "status": "passed"
+    },
+    {
+      "name": "transport_reset",
+      "status": "passed"
+    },
+    {
+      "name": "unrecognized_chord_chromatic_fallback",
+      "status": "passed"
+    },
+    {
+      "name": "stopped_transport_chromatic_fallback",
+      "status": "passed"
+    },
+    {
+      "name": "actual_sdk_optional_process_context",
+      "status": "passed"
+    },
+    {
+      "name": "generated_midi_routing",
+      "status": "passed"
+    },
+    {
+      "name": "host_invoked_bypass_callback",
+      "status": "passed"
+    }
+  ],
+  "verified_features": [
+    "silent_stereo_audio_output",
+    "sdk_midi_event_buses",
+    "instrument_metadata",
+    "editor",
+    "removed_pitch_parameters",
+    "stable_mapping_parameter_ids",
+    "user_factory_defaults",
+    "revised_factory_7sharp9_half_whole",
+    "revised_factory_7flat13_melodic_minor5",
+    "revised_factory_13sharp9_chromatic",
+    "revised_factory_13addsharp9_chromatic",
+    "note_sample_offsets",
+    "all_38_scales",
+    "legacy_31_scale_indices",
+    "legacy_19_scale_indices",
+    "harmonic_major_modes",
+    "internal_correction_bypass",
+    "held_note_off_bindings",
+    "new_52_chord_mappings",
+    "chord_channel_16",
+    "chord_relay",
+    "serial_correction",
+    "non_ch1_passthrough",
+    "expression_offsets",
+    "channel1_pedals",
+    "overlapping_note_bindings",
+    "same_pitch_rearticulation",
+    "legato_directional_ties",
+    "host_controller_queue_same_sample_order",
+    "instance_state",
+    "transport_reset",
+    "unrecognized_chord_chromatic_fallback",
+    "stopped_transport_chromatic_fallback",
+    "sdk_optional_process_context",
+    "generated_midi_routing",
+    "host_invoked_bypass_callback_only"
+  ],
+  "events_file": "Flysnapper-midi-vst3-events.csv",
+  "events_rows": 1762,
+  "limitations": "No Ableton Live12.4.6 execution or loading/placement claim. This is an instrument-role plugin, not a native MIDI effect. Serial tests explicitly connect instances in this driver, not a same-track Live chain or internal rack. Bypass callbacks are invoked explicitly; no Device Activator scheduling, direct-endpoint fan-out, held-chord replay or downstream-instrument claim."
+}
